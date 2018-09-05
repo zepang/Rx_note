@@ -1,0 +1,9 @@
+.box-shadow(@rest...) {
+  -webkit-box-shadow: @rest;
+     -moz-box-shadow: @rest;
+          box-shadow: @rest;
+}
+
+.big-block {
+  .box-shadow(2px; 5px);
+}
