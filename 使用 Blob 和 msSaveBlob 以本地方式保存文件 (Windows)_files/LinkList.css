@@ -1,0 +1,1 @@
+.linkList>ul{margin:0;padding:0;list-style-type:none;}.linkList>ul>li{list-style-type:none;background:none;padding:0;margin:0;}.linkList ul.horizontal>li{float:left;}.rtl .linkList>ul.horizontal>li{float:right;}.linkList ul.horizontal>li.divider:last-child{display:none;}
