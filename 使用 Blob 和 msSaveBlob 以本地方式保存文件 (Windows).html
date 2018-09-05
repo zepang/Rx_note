@@ -1,0 +1,1251 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0058)https://msdn.microsoft.com/zh-cn/windows/hh779016(v=vs.90) -->
+<html dir="ltr" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh" lang="zh" class="js"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script async="" charset="UTF-8" src="./使用 Blob 和 msSaveBlob 以本地方式保存文件 (Windows)_files/meCore.min.js.下载"></script><script async="" charset="UTF-8" src="./使用 Blob 和 msSaveBlob 以本地方式保存文件 (Windows)_files/meBoot.min.js.下载"></script>
+        
+    <meta name="search.content.shortId" content="hh779016">
+    <meta name="ms.shortidmsdn" content="hh779016">
+    <meta name="search.content.locale" content="zh-cn">
+    <meta name="MN" content="61C41DCE-11:16:43 PM">
+    <meta http-equiv="content-language" content="zh">
+    
+      <link rel="canonical" href="https://msdn.microsoft.com/zh-cn/library/hh779016(v=vs.85).aspx">
+      
+      <meta name="NormalizedUrl" content="https://msdn.microsoft.com/zh-cn/windows/hh779016(d=default,l=zh-cn,v=VS.85).aspx">
+      <meta name="ms.normalizedurl" content="https://msdn.microsoft.com/zh-cn/windows/hh779016(d=default,l=zh-cn,v=VS.85).aspx">
+    
+            <meta name="MSHKeywordA" content="iescenarios.saving_files_locally_using_navigator">
+        
+            <meta name="MSHKeywordK" content="以本地方式保存文件,BlobBuilder [Internet Explorer scenarios]">
+        
+            <meta name="MSHKeywordK" content="保存文件,BlobBuilder [Internet Explorer scenarios]">
+        
+            <meta name="MSHKeywordK" content="BlobBuilder,以本地方式保存文件 [Internet Explorer scenarios]">
+        
+            <meta name="MSHKeywordK" content="Blob,创建 [Internet Explorer scenarios]">
+        
+            <meta name="MSHKeywordK" content="msSaveBlob,以本地方式保存文件 [Internet Explorer scenarios]">
+        
+            <meta name="MSHAttr" content="DevLang:html">
+        
+            <meta name="MSHAttr" content="DevLang:DHTML">
+        
+            <meta name="MSHAttr" content="Product:Windows">
+        
+            <meta name="MSHAttr" content="TargetOS:Windows">
+        
+            <meta name="MSHAttr" content="TopicType:kbArticle">
+        
+            <meta name="MSHAttr" content="PageType:ovw">
+        
+            <meta name="MSHAttr" content="BuildType:MSDN">
+        
+            <meta name="MSHAttr" content="Project:iescenarios">
+        
+            <meta name="MSHAttr" content="AssetID:A08EF1FD-FB34-48A6-84AC-CE3CF1087061">
+        
+            <meta name="MSHAttr" content="BuildDate:3/4/2016">
+        
+            <meta name="MSHAttr" content="DocSetTitle:Internet Explorer scenarios">
+        
+            <meta name="MSHAttr" content="DocSetRoot:Hh779016">
+        
+            <meta name="MSHAttr" content="Description:如何使用 Blob 构造函数以及 window.navigator.msSaveBlob 和 window.navigator.msSaveOrOpenBlob 方法以本地方式保存文件（任意大小）。.">
+        
+            <meta name="Description" content="如何使用 Blob 构造函数以及 window.navigator.msSaveBlob 和 window.navigator.msSaveOrOpenBlob 方法以本地方式保存文件（任意大小）。.">
+        
+            <meta name="MSHAttr" content="PreferredSiteName:MSDN">
+        
+            <meta name="MSHAttr" content="PreferredLib:/library">
+        
+        <meta name="Search.MSCategory" content="hh403489">
+    
+        <meta name="Search.MSCategory" content="aa740492">
+    
+        <meta name="Search.MSCategory" content="bg126133">
+    
+        <meta name="Search.MSCategory" content="jj193563">
+    
+        <meta name="Search.MSCategory" content="bg142898">
+    
+        <meta name="Search.MSCategory" content="dn423976">
+    
+        <meta name="Search.MSCategory" content="hh779016">
+    
+        <meta name="Search.TocNodeId" content="hh779016">
+    
+        <meta name="ROBOTS" content="INDEX,FOLLOW">
+    <link href="./使用 Blob 和 msSaveBlob 以本地方式保存文件 (Windows)_files/Teaser.css" type="text/css" rel="stylesheet"><link href="./使用 Blob 和 msSaveBlob 以本地方式保存文件 (Windows)_files/Search.css" type="text/css" rel="stylesheet"><link href="./使用 Blob 和 msSaveBlob 以本地方式保存文件 (Windows)_files/LocaleSelector.css" type="text/css" rel="stylesheet"><link href="./使用 Blob 和 msSaveBlob 以本地方式保存文件 (Windows)_files/TabStrip.css" type="text/css" rel="stylesheet"><link href="./使用 Blob 和 msSaveBlob 以本地方式保存文件 (Windows)_files/TabStrip(1).css" type="text/css" rel="stylesheet"><link href="./使用 Blob 和 msSaveBlob 以本地方式保存文件 (Windows)_files/Footer.css" type="text/css" rel="stylesheet"><link href="./使用 Blob 和 msSaveBlob 以本地方式保存文件 (Windows)_files/RatingsOnly.css" type="text/css" rel="stylesheet"><link href="./使用 Blob 和 msSaveBlob 以本地方式保存文件 (Windows)_files/NetReflector.css" type="text/css" rel="stylesheet"><link href="./使用 Blob 和 msSaveBlob 以本地方式保存文件 (Windows)_files/NetReflector(1).css" type="text/css" rel="stylesheet"><link href="./使用 Blob 和 msSaveBlob 以本地方式保存文件 (Windows)_files/CorporatePromoSpot.css" type="text/css" rel="stylesheet"><link href="./使用 Blob 和 msSaveBlob 以本地方式保存文件 (Windows)_files/CodeSnippet.css" type="text/css" rel="stylesheet"><link href="./使用 Blob 和 msSaveBlob 以本地方式保存文件 (Windows)_files/Default.css" type="text/css" rel="stylesheet"><link href="./使用 Blob 和 msSaveBlob 以本地方式保存文件 (Windows)_files/Default(1).css" type="text/css" rel="stylesheet"><link href="./使用 Blob 和 msSaveBlob 以本地方式保存文件 (Windows)_files/Default(2).css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="./使用 Blob 和 msSaveBlob 以本地方式保存文件 (Windows)_files/jquery-1.9.1.min.js.下载" data-do-not-move="true" data-provides="jQuery"></script>
+    <script type="text/javascript" src="./使用 Blob 和 msSaveBlob 以本地方式保存文件 (Windows)_files/jquery.partial.js.下载" data-do-not-move="true" data-requires="jQuery" data-provides="jQuery.partial"></script>
+    
+
+    <script type="text/javascript" src="./使用 Blob 和 msSaveBlob 以本地方式保存文件 (Windows)_files/jquery.cookie.js.下载" data-provides="jQuery.cookie" data-requires="jQuery">
+    </script>
+    
+    <script type="text/javascript" data-do-not-move="true">
+        //<![CDATA[
+        
+        window.appInsightsId = '5eb1b2eb-c47a-497a-a7ac-a1c230b2882f';
+        //]]>
+    </script>
+    
+
+    <title>使用 Blob 和 msSaveBlob 以本地方式保存文件 (Windows)</title>
+    <link rel="shortcut icon" href="https://msdn.microsoft.com/Areas/Epx/Themes/Windows/Content/Winlogo_favicon.ico">
+
+    <style type="text/css">/* Chili -- js */
+.js__ml_comment { color: gray; }
+.js__sl_comment { color: green; }
+.js__string { color: teal; }
+.js__num { color: red; }
+.js__reg_exp { color: maroon; }
+.js__brace { color: red; font-weight: bold; }
+.js__statement { color: navy; font-weight: bold; }
+.js__error { color: Coral; }
+.js__object { color: DeepPink; }
+.js__property { color: Purple; font-weight: bold; }
+.js__function { color: olive; }
+.js__operator { color: RoyalBlue; font-weight: bold; }
+.js__liveconnect { text-decoration: overline; }</style><style type="text/css">/* Chili -- js */
+.js__ml_comment { color: gray; }
+.js__sl_comment { color: green; }
+.js__string { color: teal; }
+.js__num { color: red; }
+.js__reg_exp { color: maroon; }
+.js__brace { color: red; font-weight: bold; }
+.js__statement { color: navy; font-weight: bold; }
+.js__error { color: Coral; }
+.js__object { color: DeepPink; }
+.js__property { color: Purple; font-weight: bold; }
+.js__function { color: olive; }
+.js__operator { color: RoyalBlue; font-weight: bold; }
+.js__liveconnect { text-decoration: overline; }</style><style type="text/css">/* Chili -- js */
+.js__ml_comment { color: gray; }
+.js__sl_comment { color: green; }
+.js__string { color: teal; }
+.js__num { color: red; }
+.js__reg_exp { color: maroon; }
+.js__brace { color: red; font-weight: bold; }
+.js__statement { color: navy; font-weight: bold; }
+.js__error { color: Coral; }
+.js__object { color: DeepPink; }
+.js__property { color: Purple; font-weight: bold; }
+.js__function { color: olive; }
+.js__operator { color: RoyalBlue; font-weight: bold; }
+.js__liveconnect { text-decoration: overline; }</style><style type="text/css">/* Chili -- js */
+.js__ml_comment { color: gray; }
+.js__sl_comment { color: green; }
+.js__string { color: teal; }
+.js__num { color: red; }
+.js__reg_exp { color: maroon; }
+.js__brace { color: red; font-weight: bold; }
+.js__statement { color: navy; font-weight: bold; }
+.js__error { color: Coral; }
+.js__object { color: DeepPink; }
+.js__property { color: Purple; font-weight: bold; }
+.js__function { color: olive; }
+.js__operator { color: RoyalBlue; font-weight: bold; }
+.js__liveconnect { text-decoration: overline; }</style><style type="text/css">/* Chili -- js */
+.js__ml_comment { color: gray; }
+.js__sl_comment { color: green; }
+.js__string { color: teal; }
+.js__num { color: red; }
+.js__reg_exp { color: maroon; }
+.js__brace { color: red; font-weight: bold; }
+.js__statement { color: navy; font-weight: bold; }
+.js__error { color: Coral; }
+.js__object { color: DeepPink; }
+.js__property { color: Purple; font-weight: bold; }
+.js__function { color: olive; }
+.js__operator { color: RoyalBlue; font-weight: bold; }
+.js__liveconnect { text-decoration: overline; }</style><style type="text/css">/* Chili -- js */
+.js__ml_comment { color: gray; }
+.js__sl_comment { color: green; }
+.js__string { color: teal; }
+.js__num { color: red; }
+.js__reg_exp { color: maroon; }
+.js__brace { color: red; font-weight: bold; }
+.js__statement { color: navy; font-weight: bold; }
+.js__error { color: Coral; }
+.js__object { color: DeepPink; }
+.js__property { color: Purple; font-weight: bold; }
+.js__function { color: olive; }
+.js__operator { color: RoyalBlue; font-weight: bold; }
+.js__liveconnect { text-decoration: overline; }</style><style type="text/css">/* Chili -- js */
+.js__ml_comment { color: gray; }
+.js__sl_comment { color: green; }
+.js__string { color: teal; }
+.js__num { color: red; }
+.js__reg_exp { color: maroon; }
+.js__brace { color: red; font-weight: bold; }
+.js__statement { color: navy; font-weight: bold; }
+.js__error { color: Coral; }
+.js__object { color: DeepPink; }
+.js__property { color: Purple; font-weight: bold; }
+.js__function { color: olive; }
+.js__operator { color: RoyalBlue; font-weight: bold; }
+.js__liveconnect { text-decoration: overline; }</style><style type="text/css">.msame_TxtTrunc{white-space:nowrap;text-overflow:ellipsis;overflow:hidden;word-break:break-all}.msame_Header{display:inline-block;cursor:pointer;font-size:14px;border-width:1px;border-style:solid;border-bottom-style:none;border-color:transparent;width:100%}.msame_Header .msame_screen_reader{overflow:hidden;display:inline-block;width:1px;height:1px;position:absolute}.msame_Header_name{padding-left:12px;max-width:160px;display:inline-block;line-height:64px;vertical-align:top;font-family:"Segoe UI","Segoe UI Web Regular","Segoe UI Symbol","Helvetica Neue","BBAlpha Sans","S60 Sans",Arial,sans-serif;font-size:86%;color:#505050}.msame_unauth .msame_Header_name{padding-right:12px}.msame_unauth .msame_Header_name:hover{color:#0078d7}.msame_Drop_AI_pic,.msame_Drop_active_pic,.msame_Header_pic{display:inline-block}.msame_Header_piccont{padding-top:14px;padding-bottom:14px;padding-right:12px;padding-left:8px}.msame_Mobile .msame_Header_piccont{padding-top:10px;padding-bottom:10px}.msame_Short .msame_Header_piccont{padding-left:12px}.msame_Header_picframe{width:36px;height:36px;border-radius:50%;overflow:hidden}.msame_Mobile .msame_Header_picframe{width:48px;height:48px}.msame_open .msame_Header_picframe{z-index:3000001;position:relative}.msame_Header_chev{display:none}.msame_Mobile .msame_Header_piccont{padding-right:8px;padding-left:10px}.msame_Mobile .msame_Header_name{line-height:3;font-size:114%;padding-left:10px;padding-right:10px;display:inline-block;vertical-align:top;padding-top:14px}.msame_Mobile.msame_3row .msame_Header_name{padding-top:6px}.msame_Mobile .msame_Header_chev{display:inline-block;line-height:64px;vertical-align:top;padding-right:16px;padding-left:8px;float:right}.msame_open .msame_Header_chev img{-moz-transform:scaleY(-1);-o-transform:scaleY(-1);-webkit-transform:scaleY(-1);transform:scaleY(-1);filter:FlipV;-ms-filter:FlipV}.msame_Drop_root .msame_Drop_AI:focus,.msame_Drop_root .msame_Drop_AI_remove:focus,.msame_Drop_root a:focus,.msame_Header:focus{border-style:dashed;border-color:#000;border-width:1px}.msame_Header .msame_Header_piccont img{width:36px;height:36px;line-height:normal;vertical-align:baseline}.msame_Mobile .msame_Header_piccont img{width:48px;height:48px}.msame_Mobile .msame_Header_fullName{font-size:100%;color:#000;line-height:1.333}.msame_Drop_AI_email,.msame_Drop_AI_status,.msame_Mobile .msame_Header_email,.msame_Mobile .msame_Header_nickName{font-family:"Segoe UI","Segoe UI Web Regular","Segoe UI Symbol","Helvetica Neue","BBAlpha Sans","S60 Sans",Arial,sans-serif;font-size:86%;color:rgba(0,0,0,.54);line-height:1.333333}.msaie8 .msame_Drop_AI_pic,.msaie8 .msame_Drop_AI_right,.msaie8 .msame_Drop_active_pic,.msaie8 .msame_Drop_active_right,.msaie8 .msame_Header,.msaie8 .msame_Header_name,.msaie8 .msame_Header_pic{zoom:1}</style><style type="text/css">.msame_open .msame_Header{border-color:#e6e6e6;background-color:#fff}.msame_open .msame_Header.msame_Mobile{border-color:transparent;background-color:transparent}.msame_ClickStart.msame_Drop_root .msame_Drop_AI:focus,.msame_ClickStart.msame_Drop_root .msame_Drop_AI_remove:focus,.msame_ClickStart.msame_Drop_root a:focus{outline-style:none}.msame_Drop_root a,.msame_Drop_root a:active,.msame_Drop_root a:focus,.msame_Drop_root a:hover,.msame_Drop_root a:visited{text-decoration:none}.msame_Drop_topb{border-top-color:#e6e6e6;border-top-style:solid;border-top-width:1px}.msame_Mobile .msame_Drop_topb{width:100%!important}.msame_Drop_active{padding-bottom:8px}.msame_Drop_AI_picframe{width:44px;height:44px;border-radius:50%;overflow:hidden}.msame_Drop_AI_piccont img{width:44px;height:44px}.msame_Drop_root{border-width:1px;border-color:#e6e6e6;border-style:solid;border-top-style:none;position:absolute;width:360px;z-index:3000000;background-color:#fff;font-size:14px}.msame_Drop_sep{border-top-width:1px;border-top-color:#e6e6e6;border-top-style:solid;width:100%;height:0;display:block}.msame_Mobile.msame_Drop_root{left:0!important;right:0;bottom:0;width:100%;border-right-width:0;border-left-width:0}.msame_Mobile .msame_Drop_content{overflow-y:auto;position:absolute;left:0;right:0;bottom:0;top:0}.msame_Drop_root a{text-decoration:none}.msame_Drop_content{overflow:hidden}.msame_Mobile .msame_Drop_active{display:none}.msame_Drop_AI{cursor:pointer}.disabled .msame_Drop_AI_pic,.disabled .msame_Drop_AI_right{opacity:.4;cursor:default}.disabled .msame_Drop_AI_email,.disabled .msame_Drop_AI_name,.disabled .msame_Drop_AI_status{color:#000}.msame_Drop_active_piccont{padding:5px}.msame_Drop_AI_piccont{padding:10px}.msame_Drop_active_picframe{width:74px;height:74px;border-radius:50%;overflow:hidden}.msame_Drop_active_picborder,.msame_Drop_active_piccont a{display:block;padding:5px;border-radius:50%}.msame_Drop_active_piccont a:focus{padding:4px;border:1px dashed #000}.msame_Drop_active_piccont img{width:64px;height:64px;border-radius:50%}.msame_Drop_active_name{display:block;line-height:1.3;font-size:150%;color:#000;font-family:"Segoe UI Light","Segoe UI Web Light","Segoe UI Web Regular","Segoe UI","Segoe UI Symbol",HelveticaNeue-Light,"Helvetica Neue",Arial,sans-serif}.msame_Drop_active_email{display:block;line-height:1.42857;font-size:100%;color:rgba(0,0,0,.54);font-family:"Segoe UI","Segoe UI Web Regular","Segoe UI Symbol","Helvetica Neue","BBAlpha Sans","S60 Sans",Arial,sans-serif;padding:1px}.msame_Drop_active_right{display:inline-block;width:216px;vertical-align:top;padding-top:12px;padding-right:12px;padding-left:12px}.msame_Drop_active_right a{color:rgba(0,0,0,.54)}.msame_Drop_SI a{line-height:2;font-size:114%;font-family:"Segoe UI","Segoe UI Web Regular","Segoe UI Symbol","Helvetica Neue","BBAlpha Sans","S60 Sans",Arial,sans-serif;padding-left:12px;padding-right:12px;display:block;color:#000}.msame_Mobile .msame_Drop_SI a{line-height:2.75}.msame_Drop_AI.switch:hover,.msame_Drop_AI_remove:hover,.msame_Drop_SI a:hover{color:#000;background-color:rgba(0,0,0,.12)}.msame_Drop_AI.switch:active,.msame_Drop_AI.switch:active div,.msame_Drop_AI_remove:active,.msame_Drop_SI a:active{color:#fff!important;background-color:#000}.msame_Drop_SI a:link,.msame_Drop_SI a:visited{color:#000}.msame_Drop_active_link a,.msame_Drop_active_link a:active,.msame_Drop_active_link a:hover,.msame_Drop_active_link a:link,.msame_Drop_active_link a:visited{line-height:1.333333;font-size:86%;font-family:"Segoe UI","Segoe UI Web Regular","Segoe UI Symbol","Helvetica Neue","BBAlpha Sans","S60 Sans",Arial,sans-serif;color:#0078d7}.msame_Drop_AL{padding-bottom:24px}.msame_Drop_AI_right{display:inline-block;width:252px;vertical-align:top;padding-left:8px;padding-top:5px}.msame_Mobile .msame_Drop_AI_right{width:100px}.msame_Drop_AI_name{font-family:"Segoe UI","Segoe UI Web Regular","Segoe UI Symbol","Helvetica Neue","BBAlpha Sans","S60 Sans",Arial,sans-serif;font-size:114%;color:#000;line-height:1.25}.msame_Drop_AI_remove{float:right;margin-top:6px;padding-top:12px;padding-bottom:12px;padding-left:12px;padding-right:12px;text-align:center;cursor:pointer}.msame_Drop_AI_remove img{display:block}.msame_auto_frame{display:none;position:absolute;top:0;left:-4000px;width:0}</style></head>
+    
+    <body id="MTPS_Body" class="MsdnPageBody">
+        <div id="BodyBackground">
+             
+                
+            <span class="skipnav"><a href="https://msdn.microsoft.com/zh-cn/windows/hh779016(v=vs.90)#MainContent">Skip to main content</a></span>
+            <link rel="stylesheet" type="text/css" href="./使用 Blob 和 msSaveBlob 以本地方式保存文件 (Windows)_files/Header.css" xmlns="http://www.w3.org/1999/xhtml"><link rel="stylesheet" type="text/css" href="./使用 Blob 和 msSaveBlob 以本地方式保存文件 (Windows)_files/sprite.css" xmlns="http://www.w3.org/1999/xhtml">
+
+        <link rel="stylesheet" type="text/css" href="./使用 Blob 和 msSaveBlob 以本地方式保存文件 (Windows)_files/UhfHeaderResponsive.css" data-do-not-move="true">
+    <div id="uhf-header-wrapper">
+        <link rel="stylesheet" href="./使用 Blob 和 msSaveBlob 以本地方式保存文件 (Windows)_files/17-1042c1" type="text/css" media="all"><link rel="stylesheet" href="./使用 Blob 和 msSaveBlob 以本地方式保存文件 (Windows)_files/override.css" type="text/css"><link rel="stylesheet" href="./使用 Blob 和 msSaveBlob 以本地方式保存文件 (Windows)_files/mscc-0.4.0.min.css" type="text/css"><script data-requires="jQuery" data-provides="uhfHeader" src="./使用 Blob 和 msSaveBlob 以本地方式保存文件 (Windows)_files/8f-d24839"></script><script data-requires="jQuery" data-provides="uhfHeader" src="./使用 Blob 和 msSaveBlob 以本地方式保存文件 (Windows)_files/meversion" defer=""></script><script data-requires="jQuery" data-provides="uhfHeader" src="./使用 Blob 和 msSaveBlob 以本地方式保存文件 (Windows)_files/mscc-0.4.0.min.js.下载"></script>    <section id="headerArea" data-m="{&quot;cN&quot;:&quot;headerArea&quot;,&quot;cT&quot;:&quot;Area_coreuiArea&quot;,&quot;id&quot;:&quot;a1Body&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;Body&quot;}">
+            <div id="headerRegion" data-region-key="headerregion" data-m="{&quot;cN&quot;:&quot;headerRegion&quot;,&quot;cT&quot;:&quot;Region_coreui-region&quot;,&quot;id&quot;:&quot;r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;a1&quot;}">
+
+    <div id="headerUniversalHeader" data-m="{&quot;cN&quot;:&quot;headerUniversalHeader&quot;,&quot;cT&quot;:&quot;Module_coreui-universalheader&quot;,&quot;id&quot;:&quot;m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;r1a1&quot;}" data-module-id="Category|headerRegion|headerRegion|headerUniversalHeader|coreui-universalheader">
+        
+
+            <div id="epb" class="x-hidden x-hidden-vp-mobile-st uhfc-universal-context context-uhf" data-m="{&quot;cN&quot;:&quot;epb_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c1m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;m1r1a1&quot;}">
+
+
+
+<div class="c-uhfh-alert f-information epb-container epb-default-color" role="banner" aria-label="banner" data-m="{&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c1c1m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c1m1r1a1&quot;}">
+    <div>        
+        <p class="c-paragraph">
+                <img alt="Microsoft Edge" data-src="https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/REZlo1?ver=5722" src="https://msdn.microsoft.com/zh-cn/windows/hh779016(v=vs.90)" class="f-img-lzy">
+
+            <span class="c-text-group">
+                <span class="epb-launch">试用- Microsoft Edge</span>
+                <span class="epb-text">专为 Windows 10 设计的快速安全的浏览器</span>
+            </span>
+            <span class="c-group">
+                <button id="close-epb" class="c-action-trigger c-action-cancel glyph-cancel" data-m="{&quot;cN&quot;:&quot;EPB-dismiss_nonnav&quot;,&quot;id&quot;:&quot;nn1c1c1m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c1c1m1r1a1&quot;}" aria-label="不，谢谢，我稍后再试用 Microsoft Edge。 ">不用了，谢谢</button>
+                <a id="epbTryNow" data-telem-qsp="form=MY009W" aria-label="开始：在 Microsoft Edge 中打开此页面" class="epb-launch c-action-trigger c-action-open" data-m="{&quot;cN&quot;:&quot;EPB-launch_nav&quot;,&quot;id&quot;:&quot;n2c1c1m1r1a1&quot;,&quot;sN&quot;:2,&quot;aN&quot;:&quot;c1c1m1r1a1&quot;}">入门</a>
+            </span>
+
+        </p>
+    </div>
+</div>
+
+
+                
+            </div>
+
+            <div data-m="{&quot;cN&quot;:&quot;cookiebanner_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c2c1m1r1a1&quot;,&quot;sN&quot;:2,&quot;aN&quot;:&quot;c1m1r1a1&quot;}">
+
+<div id="uhfCookieAlert">
+    <div id="msccBanner" dir="ltr" data-site-name="Microsoft.OneRenderFramework.Core" data-mscc-version="0.4.0" data-nver="aspnet-3.1.3" data-sver="0.1.2" class="cc-banner active" role="alert"><div class="cc-container"><svg class="cc-icon cc-v-center" x="0px" y="0px" viewBox="0 0 44 44" height="30px" fill="none" stroke="currentColor"><circle cx="22" cy="22" r="20" stroke-width="2"></circle><line x1="22" x2="22" y1="18" y2="33" stroke-width="3"></line><line x1="22" x2="22" y1="12" y2="15" stroke-width="3"></line></svg> <span class="cc-v-center cc-text">此站点使用 Cookie 进行分析、显示个性化内容和广告。继续浏览此站点，即表示您同意使用。</span> <a href="https://go.microsoft.com/fwlink/?linkid=845480" aria-label="了解有关 Microsoft Cookie 政策的详情" id="msccLearnMore" class="cc-link cc-v-center cc-float-right" data-mscc-ic="false">了解详情</a></div></div>
+</div>
+
+                
+            </div>
+
+
+
+
+<header role="banner" class="c-uhfh context-uhf c-sgl-stck c-category-header" itemscope="itemscope" data-header-footprint="/DEV_Windows/windowsapps-header" data-ckrate="1" data-magict="true" itemtype="http://schema.org/Organization">
+    <div class="theme-light js-global-head f-closed  global-head-cont" data-m="{&quot;cN&quot;:&quot;Universal Header_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c3c1m1r1a1&quot;,&quot;sN&quot;:3,&quot;aN&quot;:&quot;c1m1r1a1&quot;}">
+		<div class="c-uhfh-gcontainer-st">
+			<button type="button" class="c-action-trigger c-glyph glyph-global-nav-button" aria-label="标题导航菜单" aria-expanded="false" data-m="{&quot;cN&quot;:&quot;Mobile menu button_nonnav&quot;,&quot;id&quot;:&quot;nn1c3c1m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c3c1m1r1a1&quot;}"></button>
+			<button type="button" class="c-action-trigger c-glyph glyph-arrow-htmllegacy" aria-label="关闭搜索" aria-expanded="false" data-m="{&quot;cN&quot;:&quot;Close Search_nonnav&quot;,&quot;id&quot;:&quot;nn2c3c1m1r1a1&quot;,&quot;sN&quot;:2,&quot;aN&quot;:&quot;c3c1m1r1a1&quot;}"></button>
+					<a id="uhfLogo" class="c-logo c-sgl-stk-uhfLogo" itemprop="url" href="https://www.microsoft.com/" aria-label="Microsoft" data-m="{&quot;cN&quot;:&quot;GlobalNav_Logo_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c3c3c1m1r1a1&quot;,&quot;sN&quot;:3,&quot;aN&quot;:&quot;c3c1m1r1a1&quot;}">
+						<img alt="" itemprop="logo" itemscope="itemscope" class="c-image" src="./使用 Blob 和 msSaveBlob 以本地方式保存文件 (Windows)_files/RE1Mu3b" role="presentation">
+						<span role="presentation">Microsoft</span>
+					</a>
+			<div class="f-mobile-title">
+				<button type="button" class="c-action-trigger c-glyph glyph-chevron-left" aria-label="查看更多菜单选项" data-m="{&quot;cN&quot;:&quot;Mobile back button_nonnav&quot;,&quot;id&quot;:&quot;nn4c3c1m1r1a1&quot;,&quot;sN&quot;:4,&quot;aN&quot;:&quot;c3c1m1r1a1&quot;}"></button>
+				<span data-global-title="Microsoft 主页" class="js-mobile-title">Windows 开发人员中心</span>
+				<button type="button" class="c-action-trigger c-glyph glyph-chevron-right" aria-label="查看更多菜单选项" data-m="{&quot;cN&quot;:&quot;Mobile forward button_nonnav&quot;,&quot;id&quot;:&quot;nn5c3c1m1r1a1&quot;,&quot;sN&quot;:5,&quot;aN&quot;:&quot;c3c1m1r1a1&quot;}"></button>
+			</div>
+					<div class="c-show-pipe x-hidden-vp-mobile-st">
+						<a id="uhfCatLogo" class="c-logo c-cat-logo" href="https://developer.microsoft.com/zh-cn/windows" aria-label="Windows 开发人员中心" itemprop="url" data-m="{&quot;cN&quot;:&quot;CatNav_Windows 开发人员中心_nav&quot;,&quot;id&quot;:&quot;n6c3c1m1r1a1&quot;,&quot;sN&quot;:6,&quot;aN&quot;:&quot;c3c1m1r1a1&quot;}">
+								<span>Windows 开发人员中心</span>
+						</a>
+					</div>
+				<div class="cat-logo-button-cont x-hidden">
+						<button type="button" id="uhfCatLogoButton" class="c-cat-logo-button x-hidden" aria-expanded="false" aria-label="Windows 开发人员中心" data-m="{&quot;cN&quot;:&quot;Windows 开发人员中心_nonnav&quot;,&quot;id&quot;:&quot;nn7c3c1m1r1a1&quot;,&quot;sN&quot;:7,&quot;aN&quot;:&quot;c3c1m1r1a1&quot;}">
+							Windows 开发人员中心
+						</button>
+				</div>
+
+
+
+			        <nav id="uhf-g-nav" class="c-uhfh-gnav" role="presentation" data-m="{&quot;cN&quot;:&quot;Category nav_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c8c3c1m1r1a1&quot;,&quot;sN&quot;:8,&quot;aN&quot;:&quot;c3c1m1r1a1&quot;}">
+            <ul class="js-paddle-items">
+                    <li class="single-link js-nav-menu x-hidden-none-mobile-vp">
+                         <a class="c-uhf-nav-link" href="https://developer.microsoft.com/zh-cn/windows" data-m="{&quot;cN&quot;:&quot;CatNav_主页_nav&quot;,&quot;id&quot;:&quot;n1c8c3c1m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c8c3c1m1r1a1&quot;}"> 主页 </a>
+                    </li>
+                                        <li class="single-link js-nav-menu">
+                            <a id="winapps_windowsapps" class="c-uhf-nav-link" href="https://developer.microsoft.com/zh-cn/windows/apps" data-m="{&quot;cN&quot;:&quot;CatNav_WinApps_WindowsApps_nav&quot;,&quot;id&quot;:&quot;n2c8c3c1m1r1a1&quot;,&quot;sN&quot;:2,&quot;aN&quot;:&quot;c8c3c1m1r1a1&quot;}">UWP 应用</a>
+                        </li>
+                        <li class="single-link js-nav-menu">
+                            <a id="winapps_getstarted" class="c-uhf-nav-link" href="https://docs.microsoft.com/windows/uwp/get-started/" data-m="{&quot;cN&quot;:&quot;CatNav_WinApps_Getstarted_nav&quot;,&quot;id&quot;:&quot;n3c8c3c1m1r1a1&quot;,&quot;sN&quot;:3,&quot;aN&quot;:&quot;c8c3c1m1r1a1&quot;}">入门</a>
+                        </li>
+                        <li class="single-link js-nav-menu">
+                            <a id="winapps_design" class="c-uhf-nav-link" href="https://developer.microsoft.com/zh-cn/windows/apps/design" data-m="{&quot;cN&quot;:&quot;CatNav_WinApps_Design_nav&quot;,&quot;id&quot;:&quot;n4c8c3c1m1r1a1&quot;,&quot;sN&quot;:4,&quot;aN&quot;:&quot;c8c3c1m1r1a1&quot;}">设计</a>
+                        </li>
+                        <li class="single-link js-nav-menu">
+                            <a id="winapps_develop" class="c-uhf-nav-link" href="https://docs.microsoft.com/windows/uwp/develop/" data-m="{&quot;cN&quot;:&quot;CatNav_WinApps_Develop_nav&quot;,&quot;id&quot;:&quot;n5c8c3c1m1r1a1&quot;,&quot;sN&quot;:5,&quot;aN&quot;:&quot;c8c3c1m1r1a1&quot;}">开发</a>
+                        </li>
+                        <li class="single-link js-nav-menu">
+                            <a id="winapps_publish" class="c-uhf-nav-link" href="https://docs.microsoft.com/windows/uwp/publish/" data-m="{&quot;cN&quot;:&quot;CatNav_WinApps_Publish_nav&quot;,&quot;id&quot;:&quot;n6c8c3c1m1r1a1&quot;,&quot;sN&quot;:6,&quot;aN&quot;:&quot;c8c3c1m1r1a1&quot;}">发布</a>
+                        </li>
+                        <li class="nested-menu">
+                            <div class="c-uhf-menu js-nav-menu">
+                                <button type="button" id="resources_apps-resources" aria-expanded="false" data-m="{&quot;cN&quot;:&quot;CatNav_winapps_apps-resources_nonnav&quot;,&quot;id&quot;:&quot;nn7c8c3c1m1r1a1&quot;,&quot;sN&quot;:7,&quot;aN&quot;:&quot;c8c3c1m1r1a1&quot;}" style="white-space:nowrap">资源</button>
+
+                                <ul class="" data-class-idn="" aria-hidden="true" data-m="{&quot;cN&quot;:&quot;winapps_apps-resources_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c8c8c3c1m1r1a1&quot;,&quot;sN&quot;:8,&quot;aN&quot;:&quot;c8c3c1m1r1a1&quot;}">
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;resources_apps-api-reference_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c1c8c8c3c1m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c8c8c3c1m1r1a1&quot;}">
+            <a id="resources_apps-api-reference" class="js-subm-uhf-nav-link" href="https://docs.microsoft.com/zh-cn/uwp" data-m="{&quot;cN&quot;:&quot;CatNav_resources_apps-api-reference_nav&quot;,&quot;id&quot;:&quot;n1c1c8c8c3c1m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c1c8c8c3c1m1r1a1&quot;}">API 参考</a>
+            
+        </li>
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;winapps_downloads_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c2c8c8c3c1m1r1a1&quot;,&quot;sN&quot;:2,&quot;aN&quot;:&quot;c8c8c3c1m1r1a1&quot;}">
+            <a id="resources_downloads" class="js-subm-uhf-nav-link" href="https://developer.microsoft.com/zh-cn/windows/downloads" data-m="{&quot;cN&quot;:&quot;CatNav_winapps_downloads_nav&quot;,&quot;id&quot;:&quot;n1c2c8c8c3c1m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c2c8c8c3c1m1r1a1&quot;}">下载</a>
+            
+        </li>
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;winapps_samples_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c3c8c8c3c1m1r1a1&quot;,&quot;sN&quot;:3,&quot;aN&quot;:&quot;c8c8c3c1m1r1a1&quot;}">
+            <a id="resources_samples" class="js-subm-uhf-nav-link" href="https://developer.microsoft.com/zh-cn/windows/samples" data-m="{&quot;cN&quot;:&quot;CatNav_winapps_samples_nav&quot;,&quot;id&quot;:&quot;n1c3c8c8c3c1m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c3c8c8c3c1m1r1a1&quot;}">示例</a>
+            
+        </li>
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;winapps_support_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c4c8c8c3c1m1r1a1&quot;,&quot;sN&quot;:4,&quot;aN&quot;:&quot;c8c8c3c1m1r1a1&quot;}">
+            <a id="resources_support" class="js-subm-uhf-nav-link" href="https://developer.microsoft.com/zh-cn/windows/support" data-m="{&quot;cN&quot;:&quot;CatNav_winapps_support_nav&quot;,&quot;id&quot;:&quot;n1c4c8c8c3c1m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c4c8c8c3c1m1r1a1&quot;}">支持</a>
+            
+        </li>
+                                                                        
+                                </ul>
+                            </div>
+                        </li>
+
+                <li id="overflow-menu" class="overflow-menu x-hidden">
+                        <div class="c-uhf-menu js-nav-menu">
+        <button data-m="{&quot;pid&quot;:&quot;更多&quot;,&quot;id&quot;:&quot;nn9c8c3c1m1r1a1&quot;,&quot;sN&quot;:9,&quot;aN&quot;:&quot;c8c3c1m1r1a1&quot;}" type="button" aria-label="更多" aria-expanded="false" style="white-space:nowrap">更多</button>
+        <ul id="overflow-menu-list" aria-hidden="true" class="overflow-menu-list">
+        </ul>
+    </div>
+
+                </li>
+                    <li class="single-link js-nav-menu">
+                        <a id="dashboard" class="c-uhf-nav-link x-visible-vp1-block x-visible-vp2-block right-aligned-link" href="https://partner.microsoft.com/dashboard" data-m="{&quot;cN&quot;:&quot;CatNav_Dashboard_nav&quot;,&quot;id&quot;:&quot;n10c8c3c1m1r1a1&quot;,&quot;sN&quot;:10,&quot;aN&quot;:&quot;c8c3c1m1r1a1&quot;}">仪表板</a>
+                    </li>
+                            </ul>
+            
+        </nav>
+
+
+				<div class="c-uhfh-actions" data-m="{&quot;cN&quot;:&quot;Header actions_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c9c3c1m1r1a1&quot;,&quot;sN&quot;:9,&quot;aN&quot;:&quot;c3c1m1r1a1&quot;}">
+					<div class="wf-menu">        <nav id="uhf-c-nav" role="presentation" data-m="{&quot;cN&quot;:&quot;GlobalNav_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c9c3c1m1r1a1&quot;}">
+            <ul class="js-paddle-items">
+                <li>
+                    <div class="c-uhf-menu js-nav-menu">
+                        <button type="button" class="c-button-logo all-ms-nav" aria-label="所有 Microsoft 项目都会扩展以显示 Microsoft 产品和服务的列表" aria-expanded="false" data-m="{&quot;cN&quot;:&quot;GlobalNav_More_nonnav&quot;,&quot;id&quot;:&quot;nn1c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c1c9c3c1m1r1a1&quot;}" style="white-space: nowrap"> <span>所有 Microsoft</span></button>
+                        <ul class="f-multi-column f-multi-column-6" aria-hidden="true" data-m="{&quot;cN&quot;:&quot;More_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:2,&quot;aN&quot;:&quot;c1c9c3c1m1r1a1&quot;}">
+                                    <li class="c-w0-contr">
+            <ul class="c-w0">
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;Microsoft 365_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c1c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c2c1c9c3c1m1r1a1&quot;}">
+            <a id="shellmenu_0" class="js-subm-uhf-nav-link" href="https://www.microsoft.com/zh-cn/microsoft-365" data-m="{&quot;cN&quot;:&quot;W0Nav_Microsoft 365_nav&quot;,&quot;id&quot;:&quot;n1c1c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c1c2c1c9c3c1m1r1a1&quot;}">Microsoft 365</a>
+            
+        </li>
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;Azure_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c2c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:2,&quot;aN&quot;:&quot;c2c1c9c3c1m1r1a1&quot;}">
+            <a id="shellmenu_1" class="js-subm-uhf-nav-link" href="https://azure.microsoft.com/zh-cn/" data-m="{&quot;cN&quot;:&quot;W0Nav_Azure_nav&quot;,&quot;id&quot;:&quot;n1c2c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c2c2c1c9c3c1m1r1a1&quot;}">Azure</a>
+            
+        </li>
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;Office 365_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c3c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:3,&quot;aN&quot;:&quot;c2c1c9c3c1m1r1a1&quot;}">
+            <a id="shellmenu_2" class="js-subm-uhf-nav-link" href="https://products.office.com/zh-cn/business/office" data-m="{&quot;cN&quot;:&quot;W0Nav_Office 365_nav&quot;,&quot;id&quot;:&quot;n1c3c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c3c2c1c9c3c1m1r1a1&quot;}">Office 365</a>
+            
+        </li>
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;Dynamics 365_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c4c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:4,&quot;aN&quot;:&quot;c2c1c9c3c1m1r1a1&quot;}">
+            <a id="shellmenu_3" class="js-subm-uhf-nav-link" href="https://dynamics.microsoft.com/zh-cn/" data-m="{&quot;cN&quot;:&quot;W0Nav_Dynamics 365_nav&quot;,&quot;id&quot;:&quot;n1c4c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c4c2c1c9c3c1m1r1a1&quot;}">Dynamics 365</a>
+            
+        </li>
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;SQL_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c5c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:5,&quot;aN&quot;:&quot;c2c1c9c3c1m1r1a1&quot;}">
+            <a id="shellmenu_4" class="js-subm-uhf-nav-link" href="https://www.microsoft.com/sql-server/" data-m="{&quot;cN&quot;:&quot;W0Nav_SQL_nav&quot;,&quot;id&quot;:&quot;n1c5c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c5c2c1c9c3c1m1r1a1&quot;}">SQL</a>
+            
+        </li>
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;Windows 10_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c6c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:6,&quot;aN&quot;:&quot;c2c1c9c3c1m1r1a1&quot;}">
+            <a id="shellmenu_5" class="js-subm-uhf-nav-link" href="https://www.microsoft.com/zh-cn/windowsforbusiness" data-m="{&quot;cN&quot;:&quot;W0Nav_Windows 10_nav&quot;,&quot;id&quot;:&quot;n1c6c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c6c2c1c9c3c1m1r1a1&quot;}">Windows 10</a>
+            
+        </li>
+            </ul>
+        </li>
+
+        <li class="f-sub-menu js-nav-menu nested-menu" data-m="{&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c7c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:7,&quot;aN&quot;:&quot;c2c1c9c3c1m1r1a1&quot;}">
+
+            <button type="button" role="presentation" f-multi-parent="true" aria-expanded="false" data-m="{&quot;id&quot;:&quot;nn1c7c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c7c2c1c9c3c1m1r1a1&quot;}">产品与服务
+</button>
+            <ul aria-hidden="true" role="presentation">
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;More_ProductsandServices_WindowsServer_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c2c7c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:2,&quot;aN&quot;:&quot;c7c2c1c9c3c1m1r1a1&quot;}">
+            <a id="shellmenu_8" class="js-subm-uhf-nav-link" href="https://www.microsoft.com/cloud-platform/windows-server" data-m="{&quot;cN&quot;:&quot;GlobalNav_More_ProductsandServices_WindowsServer_nav&quot;,&quot;id&quot;:&quot;n1c2c7c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c2c7c2c1c9c3c1m1r1a1&quot;}">Windows Server</a>
+            
+        </li>
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;More_ProductsandServices_EnterpriseMobilityandSecurity_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c3c7c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:3,&quot;aN&quot;:&quot;c7c2c1c9c3c1m1r1a1&quot;}">
+            <a id="shellmenu_9" class="js-subm-uhf-nav-link" href="https://www.microsoft.com/cloud-platform/enterprise-mobility-security" data-m="{&quot;cN&quot;:&quot;GlobalNav_More_ProductsandServices_EnterpriseMobilityandSecurity_nav&quot;,&quot;id&quot;:&quot;n1c3c7c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c3c7c2c1c9c3c1m1r1a1&quot;}">企业移动性 + 安全性</a>
+            
+        </li>
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;More_ProductsandServices_PowerBI_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c4c7c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:4,&quot;aN&quot;:&quot;c7c2c1c9c3c1m1r1a1&quot;}">
+            <a id="shellmenu_10" class="js-subm-uhf-nav-link" href="https://powerbi.microsoft.com/zh-cn/" data-m="{&quot;cN&quot;:&quot;GlobalNav_More_ProductsandServices_PowerBI_nav&quot;,&quot;id&quot;:&quot;n1c4c7c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c4c7c2c1c9c3c1m1r1a1&quot;}">Power BI</a>
+            
+        </li>
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;More_ProductsandServices_Teams_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c5c7c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:5,&quot;aN&quot;:&quot;c7c2c1c9c3c1m1r1a1&quot;}">
+            <a id="shellmenu_11" class="js-subm-uhf-nav-link" href="https://products.office.com/zh-cn/microsoft-teams/group-chat-software" data-m="{&quot;cN&quot;:&quot;GlobalNav_More_ProductsandServices_Teams_nav&quot;,&quot;id&quot;:&quot;n1c5c7c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c5c7c2c1c9c3c1m1r1a1&quot;}">团队</a>
+            
+        </li>
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;DeveloperAndIT_VisualStudio_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c6c7c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:6,&quot;aN&quot;:&quot;c7c2c1c9c3c1m1r1a1&quot;}">
+            <a id="shellmenu_12" class="js-subm-uhf-nav-link" href="https://visualstudio.microsoft.com/" data-m="{&quot;cN&quot;:&quot;GlobalNav_DeveloperAndIT_VisualStudio_nav&quot;,&quot;id&quot;:&quot;n1c6c7c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c6c7c2c1c9c3c1m1r1a1&quot;}">Visual Studio</a>
+            
+        </li>
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;More_ProductsandServices_SurfaceforBusiness_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c7c7c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:7,&quot;aN&quot;:&quot;c7c2c1c9c3c1m1r1a1&quot;}">
+            <a id="shellmenu_13" class="js-subm-uhf-nav-link" href="https://www.microsoft.com/zh-cn/surface/business/overview" data-m="{&quot;cN&quot;:&quot;GlobalNav_More_ProductsandServices_SurfaceforBusiness_nav&quot;,&quot;id&quot;:&quot;n1c7c7c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c7c7c2c1c9c3c1m1r1a1&quot;}">Surface for Business</a>
+            
+        </li>
+            </ul>
+            
+        </li>
+        <li class="f-sub-menu js-nav-menu nested-menu" data-m="{&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c8c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:8,&quot;aN&quot;:&quot;c2c1c9c3c1m1r1a1&quot;}">
+
+            <button type="button" role="presentation" f-multi-parent="true" aria-expanded="false" data-m="{&quot;id&quot;:&quot;nn1c8c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c8c2c1c9c3c1m1r1a1&quot;}">新兴技术</button>
+            <ul aria-hidden="true" role="presentation">
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;More_EmergingTechnologies_AI_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c2c8c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:2,&quot;aN&quot;:&quot;c8c2c1c9c3c1m1r1a1&quot;}">
+            <a id="shellmenu_15" class="js-subm-uhf-nav-link" href="https://www.microsoft.com/ai/" data-m="{&quot;cN&quot;:&quot;GlobalNav_More_EmergingTechnologies_AI_nav&quot;,&quot;id&quot;:&quot;n1c2c8c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c2c8c2c1c9c3c1m1r1a1&quot;}">人工智能</a>
+            
+        </li>
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;More_EmergingTechnologies_InternetofThings_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c3c8c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:3,&quot;aN&quot;:&quot;c8c2c1c9c3c1m1r1a1&quot;}">
+            <a id="shellmenu_16" class="js-subm-uhf-nav-link" href="https://www.microsoft.com/internet-of-things/" data-m="{&quot;cN&quot;:&quot;GlobalNav_More_EmergingTechnologies_InternetofThings_nav&quot;,&quot;id&quot;:&quot;n1c3c8c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c3c8c2c1c9c3c1m1r1a1&quot;}">物联网</a>
+            
+        </li>
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;More_EmergingTechnologies_AzureCognitiveServices_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c4c8c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:4,&quot;aN&quot;:&quot;c8c2c1c9c3c1m1r1a1&quot;}">
+            <a id="shellmenu_17" class="js-subm-uhf-nav-link" href="https://azure.microsoft.com/services/cognitive-services/" data-m="{&quot;cN&quot;:&quot;GlobalNav_More_EmergingTechnologies_AzureCognitiveServices_nav&quot;,&quot;id&quot;:&quot;n1c4c8c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c4c8c2c1c9c3c1m1r1a1&quot;}">Azure 认知服务</a>
+            
+        </li>
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;More_EmergingTechnologies_Quantum_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c5c8c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:5,&quot;aN&quot;:&quot;c8c2c1c9c3c1m1r1a1&quot;}">
+            <a id="shellmenu_18" class="js-subm-uhf-nav-link" href="https://www.microsoft.com/quantum/" data-m="{&quot;cN&quot;:&quot;GlobalNav_More_EmergingTechnologies_Quantum_nav&quot;,&quot;id&quot;:&quot;n1c5c8c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c5c8c2c1c9c3c1m1r1a1&quot;}">Quantum</a>
+            
+        </li>
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;More_EmergingTechnologies_Research_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c6c8c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:6,&quot;aN&quot;:&quot;c8c2c1c9c3c1m1r1a1&quot;}">
+            <a id="shellmenu_19" class="js-subm-uhf-nav-link" href="https://www.microsoft.com/research/" data-m="{&quot;cN&quot;:&quot;GlobalNav_More_EmergingTechnologies_Research_nav&quot;,&quot;id&quot;:&quot;n1c6c8c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c6c8c2c1c9c3c1m1r1a1&quot;}">研究</a>
+            
+        </li>
+            </ul>
+            
+        </li>
+        <li class="f-sub-menu js-nav-menu nested-menu" data-m="{&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c9c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:9,&quot;aN&quot;:&quot;c2c1c9c3c1m1r1a1&quot;}">
+
+            <button type="button" role="presentation" f-multi-parent="true" aria-expanded="false" data-m="{&quot;id&quot;:&quot;nn1c9c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c9c2c1c9c3c1m1r1a1&quot;}">开发人员与 IT</button>
+            <ul aria-hidden="true" role="presentation">
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;More_DeveloperAndIT_Docs.microsoft.com_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c2c9c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:2,&quot;aN&quot;:&quot;c9c2c1c9c3c1m1r1a1&quot;}">
+            <a id="shellmenu_21" class="js-subm-uhf-nav-link" href="https://docs.microsoft.com/zh-cn/" data-m="{&quot;cN&quot;:&quot;GlobalNav_More_DeveloperAndIT_Docs.microsoft.com_nav&quot;,&quot;id&quot;:&quot;n1c2c9c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c2c9c2c1c9c3c1m1r1a1&quot;}">文档</a>
+            
+        </li>
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;More_DeveloperAndIT_TechNet_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c3c9c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:3,&quot;aN&quot;:&quot;c9c2c1c9c3c1m1r1a1&quot;}">
+            <a id="shellmenu_22" class="js-subm-uhf-nav-link" href="https://technet.microsoft.com/zh-cn/ms376608.aspx" data-m="{&quot;cN&quot;:&quot;GlobalNav_More_DeveloperAndIT_TechNet_nav&quot;,&quot;id&quot;:&quot;n1c3c9c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c3c9c2c1c9c3c1m1r1a1&quot;}">TechNet</a>
+            
+        </li>
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;Footer_Developer_MicrosoftDeveloperNetwork_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c4c9c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:4,&quot;aN&quot;:&quot;c9c2c1c9c3c1m1r1a1&quot;}">
+            <a id="shellmenu_23" class="js-subm-uhf-nav-link" href="https://msdn.microsoft.com/zh-cn" data-m="{&quot;cN&quot;:&quot;GlobalNav_Footer_Developer_MicrosoftDeveloperNetwork_nav&quot;,&quot;id&quot;:&quot;n1c4c9c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c4c9c2c1c9c3c1m1r1a1&quot;}">开发人员网络</a>
+            
+        </li>
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;More_DeveloperAndIT_WindowsDevCenter_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c5c9c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:5,&quot;aN&quot;:&quot;c9c2c1c9c3c1m1r1a1&quot;}">
+            <a id="shellmenu_24" class="js-subm-uhf-nav-link" href="https://developer.microsoft.com/zh-cn/windows" data-m="{&quot;cN&quot;:&quot;GlobalNav_More_DeveloperAndIT_WindowsDevCenter_nav&quot;,&quot;id&quot;:&quot;n1c5c9c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c5c9c2c1c9c3c1m1r1a1&quot;}">Windows 开发人员中心</a>
+            
+        </li>
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;More_DeveloperAndIT_Windows_IT_Pro_Center_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c6c9c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:6,&quot;aN&quot;:&quot;c9c2c1c9c3c1m1r1a1&quot;}">
+            <a id="shellmenu_25" class="js-subm-uhf-nav-link" href="https://www.microsoft.com/zh-cn/itpro/windows" data-m="{&quot;cN&quot;:&quot;GlobalNav_More_DeveloperAndIT_Windows_IT_Pro_Center_nav&quot;,&quot;id&quot;:&quot;n1c6c9c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c6c9c2c1c9c3c1m1r1a1&quot;}">Windows IT Pro Center</a>
+            
+        </li>
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;More_DeveloperAndIT_FastTrack_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c7c9c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:7,&quot;aN&quot;:&quot;c9c2c1c9c3c1m1r1a1&quot;}">
+            <a id="shellmenu_26" class="js-subm-uhf-nav-link" href="https://fasttrack.microsoft.com/office" data-m="{&quot;cN&quot;:&quot;GlobalNav_More_DeveloperAndIT_FastTrack_nav&quot;,&quot;id&quot;:&quot;n1c7c9c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c7c9c2c1c9c3c1m1r1a1&quot;}">FastTrack</a>
+            
+        </li>
+            </ul>
+            
+        </li>
+        <li class="f-sub-menu js-nav-menu nested-menu" data-m="{&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c10c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:10,&quot;aN&quot;:&quot;c2c1c9c3c1m1r1a1&quot;}">
+
+            <button type="button" role="presentation" f-multi-parent="true" aria-expanded="false" data-m="{&quot;id&quot;:&quot;nn1c10c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c10c2c1c9c3c1m1r1a1&quot;}">合作伙伴</button>
+            <ul aria-hidden="true" role="presentation">
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;More_Partner_PartnerNetwork_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c2c10c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:2,&quot;aN&quot;:&quot;c10c2c1c9c3c1m1r1a1&quot;}">
+            <a id="shellmenu_28" class="js-subm-uhf-nav-link" href="https://partner.microsoft.com/" data-m="{&quot;cN&quot;:&quot;GlobalNav_More_Partner_PartnerNetwork_nav&quot;,&quot;id&quot;:&quot;n1c2c10c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c2c10c2c1c9c3c1m1r1a1&quot;}">合作伙伴网络</a>
+            
+        </li>
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;More_Partner_SolutionProviders_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c3c10c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:3,&quot;aN&quot;:&quot;c10c2c1c9c3c1m1r1a1&quot;}">
+            <a id="shellmenu_29" class="js-subm-uhf-nav-link" href="https://www.microsoft.com/zh-cn/solution-providers" data-m="{&quot;cN&quot;:&quot;GlobalNav_More_Partner_SolutionProviders_nav&quot;,&quot;id&quot;:&quot;n1c3c10c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c3c10c2c1c9c3c1m1r1a1&quot;}">解决方案提供商</a>
+            
+        </li>
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;More_Partner_PartnerCenter_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c4c10c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:4,&quot;aN&quot;:&quot;c10c2c1c9c3c1m1r1a1&quot;}">
+            <a id="shellmenu_30" class="js-subm-uhf-nav-link" href="https://partnercenter.microsoft.com/partner/home" data-m="{&quot;cN&quot;:&quot;GlobalNav_More_Partner_PartnerCenter_nav&quot;,&quot;id&quot;:&quot;n1c4c10c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c4c10c2c1c9c3c1m1r1a1&quot;}">合作伙伴中心</a>
+            
+        </li>
+            </ul>
+            
+        </li>
+        <li class="f-sub-menu js-nav-menu nested-menu" data-m="{&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c11c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:11,&quot;aN&quot;:&quot;c2c1c9c3c1m1r1a1&quot;}">
+
+            <button type="button" role="presentation" f-multi-parent="true" aria-expanded="false" data-m="{&quot;id&quot;:&quot;nn1c11c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c11c2c1c9c3c1m1r1a1&quot;}">行业</button>
+            <ul aria-hidden="true" role="presentation">
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;Products_ForStudentsAndEducators_Education_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c2c11c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:2,&quot;aN&quot;:&quot;c11c2c1c9c3c1m1r1a1&quot;}">
+            <a id="shellmenu_32" class="js-subm-uhf-nav-link" href="https://www.microsoft.com/zh-cn/education?icid=CNavMSCOML0_Studentsandeducation" data-m="{&quot;cN&quot;:&quot;GlobalNav_Products_ForStudentsAndEducators_Education_nav&quot;,&quot;id&quot;:&quot;n1c2c11c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c2c11c2c1c9c3c1m1r1a1&quot;}">教育</a>
+            
+        </li>
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;Footer_Enterprise_FinanciaServices_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c3c11c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:3,&quot;aN&quot;:&quot;c11c2c1c9c3c1m1r1a1&quot;}">
+            <a id="shellmenu_33" class="js-subm-uhf-nav-link" href="https://enterprise.microsoft.com/zh-cn" data-m="{&quot;cN&quot;:&quot;GlobalNav_Footer_Enterprise_FinanciaServices_nav&quot;,&quot;id&quot;:&quot;n1c3c11c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c3c11c2c1c9c3c1m1r1a1&quot;}">金融服务</a>
+            
+        </li>
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;More_Industries_Government_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c4c11c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:4,&quot;aN&quot;:&quot;c11c2c1c9c3c1m1r1a1&quot;}">
+            <a id="shellmenu_34" class="js-subm-uhf-nav-link" href="https://enterprise.microsoft.com/zh-cn/uncategorized/government/" data-m="{&quot;cN&quot;:&quot;GlobalNav_More_Industries_Government_nav&quot;,&quot;id&quot;:&quot;n1c4c11c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c4c11c2c1c9c3c1m1r1a1&quot;}">政府</a>
+            
+        </li>
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;More_Industries_Health_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c5c11c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:5,&quot;aN&quot;:&quot;c11c2c1c9c3c1m1r1a1&quot;}">
+            <a id="shellmenu_35" class="js-subm-uhf-nav-link" href="https://enterprise.microsoft.com/zh-cn/uncategorized/health/" data-m="{&quot;cN&quot;:&quot;GlobalNav_More_Industries_Health_nav&quot;,&quot;id&quot;:&quot;n1c5c11c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c5c11c2c1c9c3c1m1r1a1&quot;}">健康</a>
+            
+        </li>
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;Footer_Enterprise_ManufacturingAndResources_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c6c11c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:6,&quot;aN&quot;:&quot;c11c2c1c9c3c1m1r1a1&quot;}">
+            <a id="shellmenu_36" class="js-subm-uhf-nav-link" href="https://enterprise.microsoft.com/zh-cn/uncategorized/discrete-manufacturing/" data-m="{&quot;cN&quot;:&quot;GlobalNav_Footer_Enterprise_ManufacturingAndResources_nav&quot;,&quot;id&quot;:&quot;n1c6c11c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c6c11c2c1c9c3c1m1r1a1&quot;}">制造业与资源</a>
+            
+        </li>
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;More_Industries_Retail_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c7c11c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:7,&quot;aN&quot;:&quot;c11c2c1c9c3c1m1r1a1&quot;}">
+            <a id="shellmenu_37" class="js-subm-uhf-nav-link" href="https://enterprise.microsoft.com/zh-cn/uncategorized/retail-and-consumer-goods/" data-m="{&quot;cN&quot;:&quot;GlobalNav_More_Industries_Retail_nav&quot;,&quot;id&quot;:&quot;n1c7c11c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c7c11c2c1c9c3c1m1r1a1&quot;}">零售</a>
+            
+        </li>
+            </ul>
+            
+        </li>
+        <li class="f-sub-menu js-nav-menu nested-menu" data-m="{&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c12c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:12,&quot;aN&quot;:&quot;c2c1c9c3c1m1r1a1&quot;}">
+
+            <button type="button" role="presentation" f-multi-parent="true" aria-expanded="false" data-m="{&quot;id&quot;:&quot;nn1c12c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c12c2c1c9c3c1m1r1a1&quot;}">其他</button>
+            <ul aria-hidden="true" role="presentation">
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;More_Other_Security_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c2c12c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:2,&quot;aN&quot;:&quot;c12c2c1c9c3c1m1r1a1&quot;}">
+            <a id="shellmenu_39" class="js-subm-uhf-nav-link" href="https://www.microsoft.com/security/" data-m="{&quot;cN&quot;:&quot;GlobalNav_More_Other_Security_nav&quot;,&quot;id&quot;:&quot;n1c2c12c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c2c12c2c1c9c3c1m1r1a1&quot;}">安全性</a>
+            
+        </li>
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;More_Other_Licensing_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c3c12c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:3,&quot;aN&quot;:&quot;c12c2c1c9c3c1m1r1a1&quot;}">
+            <a id="shellmenu_40" class="js-subm-uhf-nav-link" href="https://www.microsoft.com/licensing/" data-m="{&quot;cN&quot;:&quot;GlobalNav_More_Other_Licensing_nav&quot;,&quot;id&quot;:&quot;n1c3c12c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c3c12c2c1c9c3c1m1r1a1&quot;}">许可</a>
+            
+        </li>
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;More_Other_AppSource_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c4c12c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:4,&quot;aN&quot;:&quot;c12c2c1c9c3c1m1r1a1&quot;}">
+            <a id="shellmenu_41" class="js-subm-uhf-nav-link" href="https://appsource.microsoft.com/" data-m="{&quot;cN&quot;:&quot;GlobalNav_More_Other_AppSource_nav&quot;,&quot;id&quot;:&quot;n1c4c12c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c4c12c2c1c9c3c1m1r1a1&quot;}">AppSource</a>
+            
+        </li>
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;More_Other_AzureMarketplace_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c5c12c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:5,&quot;aN&quot;:&quot;c12c2c1c9c3c1m1r1a1&quot;}">
+            <a id="shellmenu_42" class="js-subm-uhf-nav-link" href="https://azuremarketplace.microsoft.com/marketplace/" data-m="{&quot;cN&quot;:&quot;GlobalNav_More_Other_AzureMarketplace_nav&quot;,&quot;id&quot;:&quot;n1c5c12c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c5c12c2c1c9c3c1m1r1a1&quot;}">Azure Marketplace</a>
+            
+        </li>
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;More_Other_Events_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c6c12c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:6,&quot;aN&quot;:&quot;c12c2c1c9c3c1m1r1a1&quot;}">
+            <a id="shellmenu_43" class="js-subm-uhf-nav-link" href="https://events.microsoft.com/" data-m="{&quot;cN&quot;:&quot;GlobalNav_More_Other_Events_nav&quot;,&quot;id&quot;:&quot;n1c6c12c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c6c12c2c1c9c3c1m1r1a1&quot;}">活动</a>
+            
+        </li>
+            </ul>
+            
+        </li>
+                                                            <li class="f-multi-column-info">
+                                    <a data-m="{&quot;cN&quot;:&quot;查看所有_nav&quot;,&quot;id&quot;:&quot;n13c2c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:13,&quot;aN&quot;:&quot;c2c1c9c3c1m1r1a1&quot;}" href="https://www.microsoft.com/zh-cn/sitemap.aspx" aria-label="查看所有" class="c-glyph">查看所有</a>
+                                </li>
+                            
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+</div>
+                <form class="c-search" autocomplete="off" id="searchForm" name="searchForm" role="search" action="https://social.msdn.microsoft.com/search/windows" method="GET" title="搜索开发人员中心" data-seautosuggest="" data-seautosuggestapi="https://www.microsoft.com/services/api/v3/suggest" data-m="{&quot;cN&quot;:&quot;GlobalNav_Search_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c3c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:3,&quot;aN&quot;:&quot;c1c9c3c1m1r1a1&quot;}" aria-expanded="false">
+                    <input id="cli_shellHeaderSearchInput" aria-label="搜索" aria-autocomplete="list" aria-controls="universal-header-search-auto-suggest-transparent" aria-owns="universal-header-search-auto-suggest-ul" type="search" name="query" placeholder="搜索开发人员中心" data-m="{&quot;cN&quot;:&quot;SearchBox_nav&quot;,&quot;id&quot;:&quot;n1c3c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c3c1c9c3c1m1r1a1&quot;}"><div class="x-screen-reader" aria-live="assertive"></div>
+                        <input type="hidden" name="Refinement" value="183" data-m="{&quot;cN&quot;:&quot;HiddenInput_nav&quot;,&quot;id&quot;:&quot;n2c3c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:2,&quot;aN&quot;:&quot;c3c1c9c3c1m1r1a1&quot;}">
+                    <button id="search" aria-label="搜索" class="c-glyph" data-m="{&quot;cN&quot;:&quot;Search_nav&quot;,&quot;id&quot;:&quot;n3c3c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:3,&quot;aN&quot;:&quot;c3c1c9c3c1m1r1a1&quot;}" data-bi-dnt="true" data-bi-mto="true" aria-expanded="false">
+                        <span role="presentation">搜索</span>
+                    </button>
+                    <div class="m-auto-suggest" id="universal-header-search-auto-suggest-transparent" role="group">
+                        <ul class="c-menu" id="universal-header-search-auto-suggest-ul" aria-hidden="true" data-bi-dnt="true" data-bi-mto="true" data-js-auto-suggest-position="default" role="listbox" data-tel="jsll" data-m="{&quot;cN&quot;:&quot;search suggestions_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c4c3c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:4,&quot;aN&quot;:&quot;c3c1c9c3c1m1r1a1&quot;}"></ul>
+                    </div>
+                    
+                </form>
+            <button data-m="{&quot;cN&quot;:&quot;cancel-search&quot;,&quot;pid&quot;:&quot;Cancel Search&quot;,&quot;id&quot;:&quot;nn4c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:4,&quot;aN&quot;:&quot;c1c9c3c1m1r1a1&quot;}" id="cancel-search" class="cancel-search" aria-label="Cancel Search">
+                <span>取消</span>
+            </button>
+            <div id="meControl" class="c-me" data-signinsettings="{&quot;containerId&quot;:&quot;meControl&quot;,&quot;enabled&quot;:true,&quot;headerHeight&quot;:48,&quot;debug&quot;:false,&quot;extensibleLinks&quot;:[],&quot;userData&quot;:{&quot;idp&quot;:&quot;msa&quot;,&quot;firstName&quot;:&quot;&quot;,&quot;lastName&quot;:&quot;&quot;,&quot;memberName&quot;:&quot;&quot;,&quot;cid&quot;:&quot;&quot;,&quot;authenticatedState&quot;:&quot;3&quot;},&quot;rpData&quot;:{&quot;preferredIdp&quot;:&quot;msa&quot;,&quot;msaInfo&quot;:{&quot;signInUrl&quot;:&quot;/zh-cn/store/signin&quot;,&quot;signOutUrl&quot;:&quot;/zh-cn/store/signout&quot;,&quot;meUrl&quot;:&quot;https://login.live.com/me.srf?wa=wsignin1.0&quot;},&quot;aadInfo&quot;:{&quot;signOutUrl&quot;:&quot;/zh-cn/store/signout&quot;,&quot;appId&quot;:&quot;&quot;,&quot;siteUrl&quot;:&quot;&quot;,&quot;blockMsaFed&quot;:true}}}" data-m="{&quot;cN&quot;:&quot;GlobalNav_Account_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c5c1c9c3c1m1r1a1&quot;,&quot;sN&quot;:5,&quot;aN&quot;:&quot;c1c9c3c1m1r1a1&quot;}"><div><div class="msame_header_focus_trap" tabindex="0" aria-hidden="true" style="display: none;"></div><div class="msame_Header msame_unauth" role="button" tabindex="0" aria-label="请登录你的帐户" title="请登录你的帐户" data-mc-m="{&quot;id&quot;:&quot;headerClick&quot;,&quot;aN&quot;:&quot;Me Control Header&quot;,&quot;cT&quot;:&quot;Button&quot;}" "="" style="height: 48px;"><span class="msame_screen_reader">请登录你的帐户</span><div aria-hidden="true" role="presentation"><div class="msame_Header_name msame_TxtTrunc" style="line-height: 48px;">登录</div><div class="msame_Header_chev"></div></div></div><div class="msame_header_focus_trap" tabindex="0" aria-hidden="true" style="display: none;"></div></div></div>
+					
+				</div>			
+		</div>
+        
+        
+    </div>
+    
+</header>
+
+
+
+
+    </div>
+    </div>
+
+    </section>
+
+    </div>
+    <input type="hidden" id="UhfSignInOutLink" value="https://login.live.com/login.srf?wa=wsignin1.0&amp;rpsnv=13&amp;ct=1535350603&amp;rver=6.7.6640.0&amp;wp=MCMBI&amp;wlcxt=msdn$msdn$msdn&amp;wreply=https://msdn.microsoft.com/zh-cn/windows/hh779016%2528v=vs.90%2529&amp;lc=2052&amp;id=254354&amp;mkt=zh-CN">
+    <script src="./使用 Blob 和 msSaveBlob 以本地方式保存文件 (Windows)_files/Uhf.js.下载" data-provides="uhf"></script>
+    <script data-provides="uhfHeaderData" data-requires="uhfHeader">
+        var isAuthenticated = (false);
+        var aadEnabled= (false);
+
+        var ssoProperties = {
+          signedIn: isAuthenticated,
+          aadEnabled: aadEnabled,
+          signInOutUrl: $("#UhfSignInOutLink").val(),
+        };
+
+        if (isAuthenticated) {
+          ssoProperties.userHasProfile = (false);
+          ssoProperties.profileText = ":ProfileText:";
+          ssoProperties.createViewProfileText = ":CreateViewMSDNProfileText:";
+          ssoProperties.createViewProfileLink = ":ProfileLink:";
+          ssoProperties.MsaMemberName = ":MsaMemberName:";
+          ssoProperties.MsaFirstName = ":MsaFirstName:";
+          ssoProperties.MsaLastName = ":MsaLastName:";
+          ssoProperties.MsaCID = ":MsaCID:";
+          ssoProperties.AadDisplayName = ":AadDisplayName:";
+          ssoProperties.AadMemberName = ":AadMemberName:";
+        }
+    </script>
+    <script src="./使用 Blob 和 msSaveBlob 以本地方式保存文件 (Windows)_files/UhfHeader.js.下载" data-requires="uhf,uhfHeaderData"></script>
+<script src="./使用 Blob 和 msSaveBlob 以本地方式保存文件 (Windows)_files/TocDropDown.js.下载" type="text/javascript" xmlns="http://www.w3.org/1999/xhtml"></script>
+            
+            <div class="Clear"></div>
+            <div id="JelloSizer">
+                <div id="JelloExpander">
+                    <div id="JelloWrapper"> 
+                        <div class="Clear"></div>
+                          <div class="alley">
+                            <div class="wrapper">
+                                
+<link type="text/css" rel="stylesheet" href="./使用 Blob 和 msSaveBlob 以本地方式保存文件 (Windows)_files/Breadcrumbs.css">
+<link type="text/css" rel="stylesheet">
+
+
+
+                                <div class="inner">
+                                    
+                                    <div class="Clear"></div>
+                                    
+                                    <a name="MainContent"></a>
+                                    <div class="topic"><div class="majorTitle"><!----></div><div class="title">使用 Blob 和 msSaveBlob 以本地方式保存文件</div><!--Content type: HTML. Transform: webcollection2mtps.xslt.--><div id="mainSection">
+<div class="clsServerSDKContent">
+
+</div>
+<p>本主题从
+<a href="https://msdn.microsoft.com/zh-cn/windows/hh580308(v=vs.90)">
+使用 Web 存储以本地方式保存文件</a>停止的位置开始，演示 如何使用 
+<a href="https://msdn.microsoft.com/zh-cn/windows/hh772298(v=vs.90)">
+<strong>Blob</strong></a> 构造函数以及 <code> window.navigator.msSaveBlob</code> 和 <code> window.navigator.msSaveOrOpenBlob</code> 方法以本地方式保存文件（任意大小）。</p>
+<p>本主题包含下列部分：</p>
+<p>
+</p><ul>
+<li><a href="https://msdn.microsoft.com/zh-cn/windows/hh779016(v=vs.90)#blobbuilder">使用 BlobBuilder API 创建 Blob</a></li>
+<li><a href="https://msdn.microsoft.com/zh-cn/windows/hh779016(v=vs.90)#related_topics">相关主题</a></li>
+</ul>
+
+<div class="alert"><strong>注意</strong>&nbsp;&nbsp;以下示例要求使用 Internet Explorer&nbsp;10 或更高版本。</div>
+<div>&nbsp;</div>
+<h2><a id="blobbuilder"><!----></a><a id="BLOBBUILDER"><!----></a>使用 BlobBuilder API 创建 Blob</h2>
+<p>使用 
+<a href="https://msdn.microsoft.com/zh-cn/windows/hh772298(v=vs.90)">
+<strong>Blob</strong></a> 构造函数可以直接在客户端上创建和操作 Blob（通常等效于一个文件）。Internet Explorer&nbsp;10 的 
+<a href="https://msdn.microsoft.com/zh-cn/windows/hh441122">
+<strong>msSaveBlob</strong></a> 和 
+<a href="https://msdn.microsoft.com/zh-cn/windows/hh772332(v=vs.90)">
+<strong>msSaveOrOpenBlob</strong></a> 方法允许用户在客户端上保存文件，方法如同从 Internet 下载文件，这是此类文件保存到“下载”文件夹的原因。</p>
+<p>请注意，<code>msSaveBlob</code> 和 <code>msSaveOrOpenBlob</code> 之间的区别就在于前者仅为用户提供“保存”<strong><!----></strong>按钮，而后者不但提供“保存”<strong><!----></strong>按钮，还提供“打开”<strong><!----></strong>按钮。</p>
+<p>为了帮助了解 
+<a href="https://msdn.microsoft.com/zh-cn/windows/hh772298(v=vs.90)">
+<strong>Blob</strong></a> 构造函数和 <code>msSaveBlob</code>/<code>msSaveOrOpenBlob</code> 如何用于在客户端上保存更改的文件，请考虑以下示例：</p>
+<p>
+<a href="http://samples.msdn.microsoft.com/Workshop/samples/fileAPI/savingFiles/BlobBuilder/example1.html">
+<strong>示例 1</strong></a></p>
+
+
+<script src="./使用 Blob 和 msSaveBlob 以本地方式保存文件 (Windows)_files/jquery.chili-2.2.js.下载" type="text/javascript" data-requires="jQuery" data-provides="jquery.chili"></script>
+<script src="./使用 Blob 和 msSaveBlob 以本地方式保存文件 (Windows)_files/recipes.js.下载" type="text/javascript" data-requires="jquery.chili" data-provides="jquery.chili.recipes"></script>
+<div class="CodeHighlighter">
+  <pre><code id="c_e6de42fc6bd84a8c84d10ffbee34bd2f" class="js">&lt;!DOCTYPE&nbsp;html&gt;&nbsp;<br>&lt;html&gt;&nbsp;<br>&nbsp;<br>&lt;head&gt;&nbsp;<br>&nbsp;&nbsp;&lt;meta&nbsp;content=<span class="js__string">"text/html;&nbsp;charset=utf-8"</span>&nbsp;http-equiv=<span class="js__string">"Content-Type"</span>&gt;&nbsp;<br>&nbsp;&nbsp;&lt;title&gt;Example&nbsp;<span class="js__num">1</span>&lt;/title&gt;&nbsp;<br>&lt;/head&gt;&nbsp;<br>&nbsp;<br>&lt;body&gt;&nbsp;<br>&nbsp;&nbsp;&lt;h1&gt;Example&nbsp;<span class="js__num">1</span>&lt;/h1&gt;&nbsp;<br>&nbsp;&nbsp;&lt;script&gt;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__statement">var</span>&nbsp;blobObject&nbsp;=&nbsp;<span class="js__operator">new</span>&nbsp;Blob([<span class="js__string">"I&nbsp;scream.&nbsp;You&nbsp;scream.&nbsp;We&nbsp;all&nbsp;scream&nbsp;for&nbsp;ice&nbsp;cream."</span>]);&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;window.navigator.msSaveBlob(blobObject,&nbsp;<span class="js__string">'msSaveBlob_testFile.txt'</span>);&nbsp;<span class="js__sl_comment">//&nbsp;The&nbsp;user&nbsp;only&nbsp;has&nbsp;the&nbsp;option&nbsp;of&nbsp;clicking&nbsp;the&nbsp;Save&nbsp;button.</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;alert(<span class="js__string">'File&nbsp;save&nbsp;request&nbsp;made&nbsp;using&nbsp;msSaveBlob()&nbsp;-&nbsp;note&nbsp;the&nbsp;single&nbsp;"Save"&nbsp;button&nbsp;below.'</span>);&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__statement">var</span>&nbsp;fileData&nbsp;=&nbsp;[<span class="js__string">"Before&nbsp;you&nbsp;insult&nbsp;a&nbsp;person,&nbsp;walk&nbsp;a&nbsp;mile&nbsp;in&nbsp;their&nbsp;shoes.&nbsp;That&nbsp;way,&nbsp;when&nbsp;you&nbsp;insult&nbsp;them,&nbsp;you'll&nbsp;be&nbsp;a&nbsp;mile&nbsp;away&nbsp;-&nbsp;and&nbsp;have&nbsp;their&nbsp;shoes."</span>];&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;blobObject&nbsp;=&nbsp;<span class="js__operator">new</span>&nbsp;Blob(fileData);&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;window.navigator.msSaveOrOpenBlob(blobObject,&nbsp;<span class="js__string">'msSaveBlobOrOpenBlob_testFile.txt'</span>);&nbsp;<span class="js__sl_comment">//&nbsp;Now&nbsp;the&nbsp;user&nbsp;will&nbsp;have&nbsp;the&nbsp;option&nbsp;of&nbsp;clicking&nbsp;the&nbsp;Save&nbsp;button&nbsp;and&nbsp;the&nbsp;Open&nbsp;button.</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;alert(<span class="js__string">'File&nbsp;save&nbsp;request&nbsp;made&nbsp;using&nbsp;msSaveOrOpenBlob()&nbsp;-&nbsp;note&nbsp;the&nbsp;two&nbsp;"Open"&nbsp;and&nbsp;"Save"&nbsp;buttons&nbsp;below.'</span>);&nbsp;<br>&nbsp;&nbsp;&lt;/script&gt;&nbsp;<br>&lt;/body&gt;&nbsp;<br>&nbsp;<br>&lt;/html&gt;&nbsp;<br>&nbsp;<br></code></pre>
+</div>
+<script type="text/javascript" data-requires="jquery, jquery.chili, jquery.chili.recipes">
+    $("#c_e6de42fc6bd84a8c84d10ffbee34bd2f").chili();
+    $(".CodeHighlighter pre").unbind("mousedown").unbind("mouseup");
+</script>
+
+<p>使用 <code>Blob()</code>
+<a href="https://msdn.microsoft.com/zh-cn/windows/zbbaddzd(v=vs.90)">
+构造函数</a>，我们首先创建一个 Blob 对象，其参数是包含所需文件内容的数组：</p>
+<p><code>var blobObject = new Blob(["I scream. You scream. We all scream for ice cream."]);</code></p>
+<p>我们接下来从 <code>blobObject</code> 复制该内容，并将其保存到一个文本文件（该文件保存在下载文件夹中）：</p>
+<p><code>window.navigator.msSaveBlob(blobObject, 'msSaveBlob_testFile.txt');</code></p>
+<div class="alert"><strong>注意</strong>&nbsp;&nbsp;
+          如果用户提供可以如此操作的权限（通过单击相应信息栏中关联的提示），则只能将 <code>msSaveBlob_testFile.txt</code> 保存到 Downloads 文件夹。</div>
+<div>&nbsp;</div>
+<p>然后，使用 <code>msSaveOrOpenBlob</code> 方法重复该过程，该方法为用户提供了“保存”<strong><!----></strong>和“打开”<strong><!----></strong>选项。</p>
+<p>下例添加 
+<a href="https://msdn.microsoft.com/zh-cn/windows/hh772298(v=vs.90)">
+<strong>Blob</strong></a> 功能检测：</p>
+<p>
+<a href="http://samples.msdn.microsoft.com/Workshop/samples/fileAPI/savingFiles/BlobBuilder/example2.html">
+<strong>示例 2</strong></a></p>
+
+
+<script src="./使用 Blob 和 msSaveBlob 以本地方式保存文件 (Windows)_files/jquery.chili-2.2.js.下载" type="text/javascript" data-requires="jQuery" data-provides="jquery.chili"></script>
+<script src="./使用 Blob 和 msSaveBlob 以本地方式保存文件 (Windows)_files/recipes.js.下载" type="text/javascript" data-requires="jquery.chili" data-provides="jquery.chili.recipes"></script>
+<div class="CodeHighlighter">
+  <pre class="x-hidden-focus"><code id="c_a0d770afc36046b391907d8acb545b71" class="js">&lt;!DOCTYPE&nbsp;html&gt;&nbsp;<br>&lt;html&gt;&nbsp;<br>&nbsp;<br>&lt;head&gt;&nbsp;<br>&nbsp;&nbsp;&lt;meta&nbsp;content=<span class="js__string">"text/html;&nbsp;charset=utf-8"</span>&nbsp;http-equiv=<span class="js__string">"Content-Type"</span>&gt;&nbsp;<br>&nbsp;&nbsp;&lt;title&gt;Example&nbsp;<span class="js__num">2</span>&lt;/title&gt;&nbsp;<br>&lt;/head&gt;&nbsp;<br>&nbsp;<br>&lt;body&gt;&nbsp;<br>&nbsp;&nbsp;&lt;h1&gt;Example&nbsp;<span class="js__num">2</span>&lt;/h1&gt;&nbsp;<br>&nbsp;&nbsp;&lt;script&gt;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__operator">function</span>&nbsp;requiredFeaturesSupported()&nbsp;<span class="js__brace">{</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__statement">return</span>&nbsp;(&nbsp;BlobConstructor()&nbsp;&amp;&amp;&nbsp;msSaveOrOpenBlobSupported()&nbsp;);&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__brace">}</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__operator">function</span>&nbsp;BlobConstructor()&nbsp;<span class="js__brace">{</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__statement">if</span>&nbsp;(!window.Blob)&nbsp;<span class="js__brace">{</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.getElementsByTagName(<span class="js__string">'body'</span>)[<span class="js__num">0</span>].innerHTML&nbsp;=&nbsp;<span class="js__string">"&lt;h1&gt;The&nbsp;Blob&nbsp;constructor&nbsp;is&nbsp;not&nbsp;supported&nbsp;-&nbsp;upgrade&nbsp;your&nbsp;browser&nbsp;and&nbsp;try&nbsp;again.&lt;/h1&gt;"</span>;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__statement">return</span>&nbsp;false;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__brace">}</span>&nbsp;<span class="js__sl_comment">//&nbsp;if</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__statement">return</span>&nbsp;true;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__brace">}</span>&nbsp;<span class="js__sl_comment">//&nbsp;BlobConstructor</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__operator">function</span>&nbsp;msSaveOrOpenBlobSupported()&nbsp;<span class="js__brace">{</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__statement">if</span>&nbsp;(!window.navigator.msSaveOrOpenBlob)&nbsp;<span class="js__brace">{</span>&nbsp;<span class="js__sl_comment">//&nbsp;If&nbsp;msSaveOrOpenBlob()&nbsp;is&nbsp;supported,&nbsp;then&nbsp;so&nbsp;is&nbsp;msSaveBlob().</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.getElementsByTagName(<span class="js__string">'body'</span>)[<span class="js__num">0</span>].innerHTML&nbsp;=&nbsp;<span class="js__string">"&lt;h1&gt;The&nbsp;msSaveOrOpenBlob&nbsp;API&nbsp;is&nbsp;not&nbsp;supported&nbsp;-&nbsp;try&nbsp;upgrading&nbsp;your&nbsp;version&nbsp;of&nbsp;IE&nbsp;to&nbsp;the&nbsp;latest&nbsp;version.&lt;/h1&gt;"</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__statement">return</span>&nbsp;false;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__brace">}</span>&nbsp;<span class="js__sl_comment">//&nbsp;if</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__statement">return</span>&nbsp;true;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__brace">}</span>&nbsp;<span class="js__sl_comment">//&nbsp;msSaveOrOpenBlobSupported</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__statement">if</span>&nbsp;(requiredFeaturesSupported())&nbsp;<span class="js__brace">{</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__statement">var</span>&nbsp;blobObject&nbsp;=&nbsp;<span class="js__operator">new</span>&nbsp;Blob([<span class="js__string">"I&nbsp;scream.&nbsp;You&nbsp;scream.&nbsp;We&nbsp;all&nbsp;scream&nbsp;for&nbsp;ice&nbsp;cream."</span>]);&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;window.navigator.msSaveBlob(blobObject,&nbsp;<span class="js__string">'msSaveBlob_testFile.txt'</span>);&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert(<span class="js__string">'File&nbsp;save&nbsp;request&nbsp;made&nbsp;using&nbsp;msSaveBlob()&nbsp;-&nbsp;note&nbsp;the&nbsp;single&nbsp;"Save"&nbsp;button&nbsp;below.'</span>);&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__statement">var</span>&nbsp;fileData&nbsp;=&nbsp;[<span class="js__string">"Before&nbsp;you&nbsp;insult&nbsp;a&nbsp;person,&nbsp;walk&nbsp;a&nbsp;mile&nbsp;in&nbsp;their&nbsp;shoes.&nbsp;That&nbsp;way,&nbsp;when&nbsp;you&nbsp;insult&nbsp;them,&nbsp;you'll&nbsp;be&nbsp;a&nbsp;mile&nbsp;away&nbsp;-&nbsp;and&nbsp;have&nbsp;their&nbsp;shoes."</span>];&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;blobObject&nbsp;=&nbsp;<span class="js__operator">new</span>&nbsp;Blob(fileData);&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;window.navigator.msSaveOrOpenBlob(blobObject,&nbsp;<span class="js__string">'msSaveBlobOrOpenBlob_testFile.txt'</span>);&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert(<span class="js__string">'File&nbsp;save&nbsp;request&nbsp;made&nbsp;using&nbsp;msSaveOrOpenBlob()&nbsp;-&nbsp;note&nbsp;the&nbsp;two&nbsp;"Open"&nbsp;and&nbsp;"Save"&nbsp;buttons&nbsp;below.'</span>);&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__brace">}</span>&nbsp;<br>&nbsp;&nbsp;&lt;/script&gt;&nbsp;<br>&lt;/body&gt;&nbsp;<br>&nbsp;<br>&lt;/html&gt;&nbsp;<br></code></pre>
+</div>
+<script type="text/javascript" data-requires="jquery, jquery.chili, jquery.chili.recipes">
+    $("#c_a0d770afc36046b391907d8acb545b71").chili();
+    $(".CodeHighlighter pre").unbind("mousedown").unbind("mouseup");
+</script>
+
+<p>将文件保存到客户端后，下一步是从保存的文件中检索数据。以下示例基于
+<a href="https://msdn.microsoft.com/zh-cn/windows/hh580307(v=vs.90)" class="x-hidden-focus">
+读取本地文件</a>和
+<a href="https://msdn.microsoft.com/zh-cn/windows/hh580308(v=vs.90)" class="x-hidden-focus">
+使用 Web 存储以本地方式保存文件</a>，允许创建一个基于 
+<a href="https://msdn.microsoft.com/zh-cn/windows/ff975062(v=vs.90)">
+<strong>canvas</strong></a> 的绘图，将其保存到本地文件并显示此类保存的绘图。此示例通常按照如下方式使用：</p>
+<ol>
+<li>使用鼠标或手指（仅触摸设备）在框内创建一个绘图。</li>
+<li>单击“保存”<strong><!----></strong>按钮，然后在“信息栏”<strong><!----></strong>中单击得到的“保存”<strong><!----></strong>按钮。</li>
+<li>通过单击 <strong>x</strong> 关闭第二个“信息栏”<strong><!----></strong>。</li>
+<li>单击“擦除”<strong><!----></strong>按钮。</li>
+<li>单击“加载”<strong><!----></strong>按钮，然后单击得到的“浏览”<strong><!----></strong>按钮并选择以前保存的绘图文件。随即将显示保存的绘图。</li>
+</ol>
+<p>请注意，绘图保存后，跳过第 4 步可允许用户合成多个绘图。</p>
+<p>
+<a href="http://samples.msdn.microsoft.com/Workshop/samples/fileAPI/savingFiles/BlobBuilder/example3.html">
+<strong>示例 3</strong></a></p>
+
+
+<script src="./使用 Blob 和 msSaveBlob 以本地方式保存文件 (Windows)_files/jquery.chili-2.2.js.下载" type="text/javascript" data-requires="jQuery" data-provides="jquery.chili"></script>
+<script src="./使用 Blob 和 msSaveBlob 以本地方式保存文件 (Windows)_files/recipes.js.下载" type="text/javascript" data-requires="jquery.chili" data-provides="jquery.chili.recipes"></script>
+<div class="CodeHighlighter">
+  <pre class="x-hidden-focus"><code id="c_35ba452e3ec14794880fb54830947a75" class="js">&lt;!DOCTYPE&nbsp;html&gt;&nbsp;<br>&lt;html&gt;&nbsp;<br>&nbsp;<br>&lt;head&gt;&nbsp;<br>&nbsp;&nbsp;&lt;meta&nbsp;content=<span class="js__string">"text/html;&nbsp;charset=utf-8"</span>&nbsp;http-equiv=<span class="js__string">"Content-Type"</span>&gt;&nbsp;<br>&nbsp;&nbsp;&lt;title&gt;Example&nbsp;<span class="js__num">3</span>&lt;/title&gt;&nbsp;<br>&nbsp;&nbsp;&lt;style&gt;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;html&nbsp;<span class="js__brace">{</span>&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-ms-touch-action:&nbsp;none;&nbsp;<span class="js__ml_comment">/*&nbsp;Capture&nbsp;all&nbsp;touch&nbsp;events&nbsp;for&nbsp;our&nbsp;own&nbsp;purposes.&nbsp;*/</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text-align:&nbsp;center;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__brace">}</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;#hideWrapper&nbsp;<span class="js__brace">{</span>&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;display:&nbsp;none;&nbsp;<span class="js__ml_comment">/*&nbsp;Do&nbsp;not&nbsp;show&nbsp;the&nbsp;file&nbsp;picker&nbsp;dialog&nbsp;until&nbsp;we're&nbsp;ready&nbsp;to&nbsp;do&nbsp;so.&nbsp;*/</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__brace">}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&lt;/style&gt;&nbsp;<br>&lt;/head&gt;&nbsp;<br>&nbsp;<br>&lt;body&gt;&nbsp;<br>&nbsp;&nbsp;&lt;h1&gt;Example&nbsp;<span class="js__num">3</span>&lt;/h1&gt;&nbsp;<br>&nbsp;&nbsp;&lt;canvas&nbsp;id=<span class="js__string">"drawingSurface"</span>&nbsp;width=<span class="js__string">"500"</span>&nbsp;height=<span class="js__string">"500"</span>&nbsp;style=<span class="js__string">"border:1px&nbsp;solid&nbsp;black;"</span>&gt;&nbsp;<br>&nbsp;&nbsp;&lt;/canvas&gt;&nbsp;&lt;!--&nbsp;The&nbsp;canvas&nbsp;element&nbsp;can&nbsp;only&nbsp;be&nbsp;manipulated&nbsp;via&nbsp;JavaScript&nbsp;--&gt;&nbsp;<br>&nbsp;&nbsp;&lt;div&gt;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;button&nbsp;id=<span class="js__string">"erase"</span>&gt;Erase&lt;/button&gt;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;button&nbsp;id=<span class="js__string">"save"</span>&gt;Save&lt;/button&gt;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;button&nbsp;id=<span class="js__string">"load"</span>&gt;Load&lt;/button&gt;&nbsp;<br>&nbsp;&nbsp;&lt;/div&gt;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&lt;div&nbsp;id=<span class="js__string">"hideWrapper"</span>&gt;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;Select&nbsp;one&nbsp;of&nbsp;your&nbsp;saved&nbsp;canvas&nbsp;drawings&nbsp;to&nbsp;display:&lt;/p&gt;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;input&nbsp;type=<span class="js__string">"file"</span>&nbsp;id=<span class="js__string">"fileSelector"</span>&nbsp;/&gt;&nbsp;&lt;!--&nbsp;By&nbsp;design,&nbsp;<span class="js__statement">if</span>&nbsp;you&nbsp;select&nbsp;the&nbsp;exact&nbsp;same&nbsp;files&nbsp;two&nbsp;or&nbsp;more&nbsp;times,&nbsp;the&nbsp;<span class="js__string">'change'</span>&nbsp;event&nbsp;will&nbsp;not&nbsp;fire.&nbsp;--&gt;&nbsp;<br>&nbsp;&nbsp;&lt;/div&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&lt;script&gt;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__operator">function</span>&nbsp;requiredFeaturesSupported()&nbsp;<span class="js__brace">{</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__statement">return</span>&nbsp;(&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BlobConstructorSupported()&nbsp;&amp;&amp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;msSaveOrOpenBlobSupported()&nbsp;&amp;&amp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;canvasSupported()&nbsp;&amp;&amp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fileApiSupported()&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__brace">}</span>&nbsp;<span class="js__sl_comment">//&nbsp;requiredFeaturesSupported</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__operator">function</span>&nbsp;BlobConstructorSupported()&nbsp;<span class="js__brace">{</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__statement">if</span>&nbsp;(!window.Blob)&nbsp;<span class="js__brace">{</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.getElementsByTagName(<span class="js__string">'body'</span>)[<span class="js__num">0</span>].innerHTML&nbsp;=&nbsp;<span class="js__string">"&lt;h1&gt;The&nbsp;Blob&nbsp;constructor&nbsp;is&nbsp;not&nbsp;supported&nbsp;-&nbsp;upgrade&nbsp;your&nbsp;browser&nbsp;and&nbsp;try&nbsp;again.&lt;/h1&gt;"</span>;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__statement">return</span>&nbsp;false;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__brace">}</span>&nbsp;<span class="js__sl_comment">//&nbsp;if</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__statement">return</span>&nbsp;true;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__brace">}</span>&nbsp;<span class="js__sl_comment">//&nbsp;BlobConstructorSupported</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__operator">function</span>&nbsp;msSaveOrOpenBlobSupported()&nbsp;<span class="js__brace">{</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__statement">if</span>&nbsp;(!window.navigator.msSaveOrOpenBlob)&nbsp;<span class="js__brace">{</span>&nbsp;<span class="js__sl_comment">//&nbsp;If&nbsp;msSaveOrOpenBlob()&nbsp;is&nbsp;supported,&nbsp;then&nbsp;so&nbsp;is&nbsp;msSaveBlob().</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.getElementsByTagName(<span class="js__string">'body'</span>)[<span class="js__num">0</span>].innerHTML&nbsp;=&nbsp;<span class="js__string">"&lt;h1&gt;The&nbsp;msSaveOrOpenBlob&nbsp;API&nbsp;is&nbsp;not&nbsp;supported&nbsp;-&nbsp;upgrade&nbsp;Internet&nbsp;Explorer&nbsp;and&nbsp;try&nbsp;again.&lt;/h1&gt;"</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__statement">return</span>&nbsp;false;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__brace">}</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__statement">return</span>&nbsp;true;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__brace">}</span>&nbsp;<span class="js__sl_comment">//&nbsp;msSaveOrOpenBlobSupported</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__operator">function</span>&nbsp;canvasSupported()&nbsp;<span class="js__brace">{</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__statement">if</span>&nbsp;(!document.createElement(<span class="js__string">'canvas'</span>).getContext)&nbsp;<span class="js__brace">{</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.getElementsByTagName(<span class="js__string">'body'</span>)[<span class="js__num">0</span>].innerHTML&nbsp;=&nbsp;<span class="js__string">"&lt;h1&gt;Canvas&nbsp;is&nbsp;not&nbsp;supported&nbsp;-&nbsp;upgrade&nbsp;your&nbsp;browser&nbsp;and&nbsp;try&nbsp;again.&lt;/h1&gt;"</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__statement">return</span>&nbsp;false;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__brace">}</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__statement">return</span>&nbsp;true;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__brace">}</span>&nbsp;<span class="js__sl_comment">//&nbsp;canvasSupported&nbsp;&nbsp;</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__operator">function</span>&nbsp;fileApiSupported()&nbsp;<span class="js__brace">{</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__statement">if</span>&nbsp;(document.getElementById(<span class="js__string">'fileSelector'</span>).files&nbsp;&amp;&amp;&nbsp;window.FileReader)&nbsp;<span class="js__brace">{</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__statement">return</span>&nbsp;true;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__brace">}</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__statement">else</span>&nbsp;<span class="js__brace">{</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.getElementsByTagName(<span class="js__string">'body'</span>)[<span class="js__num">0</span>].innerHTML&nbsp;=&nbsp;<span class="js__string">"&lt;h1&gt;The&nbsp;File&nbsp;API&nbsp;is&nbsp;not&nbsp;sufficiently&nbsp;supported&nbsp;-&nbsp;upgrade&nbsp;your&nbsp;browser&nbsp;and&nbsp;try&nbsp;again.&lt;/h1&gt;"</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__statement">return</span>&nbsp;false;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__brace">}</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__brace">}</span>&nbsp;<span class="js__sl_comment">//&nbsp;fileSelectorSupported&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__statement">if</span>&nbsp;(&nbsp;requiredFeaturesSupported()&nbsp;)&nbsp;<span class="js__brace">{</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__statement">var</span>&nbsp;canvas&nbsp;=&nbsp;document.getElementById(<span class="js__string">'drawingSurface'</span>);&nbsp;<span class="js__sl_comment">//&nbsp;A&nbsp;static&nbsp;variable,&nbsp;due&nbsp;to&nbsp;the&nbsp;fact&nbsp;that&nbsp;one&nbsp;or&nbsp;more&nbsp;local&nbsp;functions&nbsp;access&nbsp;it.</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__statement">var</span>&nbsp;context&nbsp;=&nbsp;canvas.getContext(<span class="js__string">'2d'</span>);&nbsp;<span class="js__sl_comment">//&nbsp;A&nbsp;static&nbsp;variable,&nbsp;due&nbsp;to&nbsp;the&nbsp;fact&nbsp;that&nbsp;one&nbsp;or&nbsp;more&nbsp;local&nbsp;functions&nbsp;access&nbsp;it.</span>&nbsp;<br>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;context.fillStyle&nbsp;=&nbsp;<span class="js__string">"purple"</span>;&nbsp;<span class="js__sl_comment">//&nbsp;Because&nbsp;purple&nbsp;is&nbsp;cool.</span>&nbsp;<br>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__statement">if</span>&nbsp;(window.navigator.msPointerEnabled)&nbsp;<span class="js__brace">{</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;canvas.addEventListener(<span class="js__string">'MSPointerMove'</span>,&nbsp;paintCanvas,&nbsp;false);&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__brace">}</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__statement">else</span>&nbsp;<span class="js__brace">{</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;canvas.addEventListener(<span class="js__string">'mousemove'</span>,&nbsp;paintCanvas,&nbsp;false);&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__brace">}</span>&nbsp;<br>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.getElementById(<span class="js__string">'erase'</span>).addEventListener(<span class="js__string">'click'</span>,&nbsp;eraseCanvas,&nbsp;false);&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.getElementById(<span class="js__string">'save'</span>).addEventListener(<span class="js__string">'click'</span>,&nbsp;saveCanvas,&nbsp;false);&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.getElementById(<span class="js__string">'load'</span>).addEventListener(<span class="js__string">'click'</span>,&nbsp;loadCanvas,&nbsp;false);&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.getElementById(<span class="js__string">'fileSelector'</span>).addEventListener(<span class="js__string">'change'</span>,&nbsp;handleFileSelection,&nbsp;false);&nbsp;<span class="js__sl_comment">//&nbsp;Add&nbsp;an&nbsp;onchange&nbsp;event&nbsp;listener&nbsp;for&nbsp;the&nbsp;&lt;input&nbsp;id="fileSelector"&gt;&nbsp;element.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__brace">}</span>&nbsp;<span class="js__sl_comment">//&nbsp;if&nbsp;(&nbsp;requiredFeaturesSupported()&nbsp;)</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__operator">function</span>&nbsp;paintCanvas(event)&nbsp;<span class="js__brace">{</span>&nbsp;<span class="js__sl_comment">//&nbsp;The&nbsp;"event"&nbsp;object&nbsp;contains&nbsp;the&nbsp;position&nbsp;of&nbsp;the&nbsp;pointer/mouse.</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;context.fillRect(event.offsetX,&nbsp;event.offsetY,&nbsp;<span class="js__num">4</span>,&nbsp;<span class="js__num">4</span>);&nbsp;<span class="js__sl_comment">//&nbsp;Draw&nbsp;a&nbsp;4x4&nbsp;rectangle&nbsp;at&nbsp;the&nbsp;given&nbsp;coordinates&nbsp;(relative&nbsp;to&nbsp;the&nbsp;canvas&nbsp;box).&nbsp;As&nbsp;of&nbsp;this&nbsp;writing,&nbsp;not&nbsp;all&nbsp;browsers&nbsp;support&nbsp;offsetX&nbsp;and&nbsp;offsetY.</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__brace">}</span>&nbsp;<br>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__operator">function</span>&nbsp;saveCanvas()&nbsp;<span class="js__brace">{</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__statement">var</span>&nbsp;drawingFileName&nbsp;=&nbsp;<span class="js__string">"canvas"</span>&nbsp;+&nbsp;<span class="js__object">Math</span>.round(&nbsp;(<span class="js__operator">new</span>&nbsp;<span class="js__object">Date</span>()).getTime()&nbsp;<span class="js__reg_exp">/&nbsp;1000&nbsp;)&nbsp;+&nbsp;".txt";&nbsp;/</span>/&nbsp;Produces&nbsp;a&nbsp;unique&nbsp;file&nbsp;name&nbsp;every&nbsp;second.&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__statement">var</span>&nbsp;blobObject&nbsp;=&nbsp;<span class="js__operator">new</span>&nbsp;Blob(&nbsp;[canvas.toDataURL()]&nbsp;);&nbsp;<span class="js__sl_comment">//&nbsp;Create&nbsp;a&nbsp;blob&nbsp;object&nbsp;containing&nbsp;the&nbsp;user's&nbsp;drawing.</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;window.navigator.msSaveBlob(blobObject,&nbsp;drawingFileName);&nbsp;<span class="js__sl_comment">//&nbsp;Copy&nbsp;the&nbsp;blob&nbsp;object&nbsp;content&nbsp;and&nbsp;save&nbsp;it&nbsp;to&nbsp;a&nbsp;file.</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.getElementById(<span class="js__string">'hideWrapper'</span>).style.display&nbsp;=&nbsp;<span class="js__string">'none'</span>;&nbsp;<span class="js__sl_comment">//&nbsp;Remove&nbsp;the&nbsp;file&nbsp;picker&nbsp;dialog&nbsp;from&nbsp;the&nbsp;screen&nbsp;if&nbsp;the&nbsp;Save&nbsp;button&nbsp;gets&nbsp;clicked.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__brace">}</span>&nbsp;<span class="js__sl_comment">//&nbsp;saveCanvas</span>&nbsp;<br>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__operator">function</span>&nbsp;eraseCanvas()&nbsp;<span class="js__brace">{</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;context.clearRect(<span class="js__num">0</span>,&nbsp;<span class="js__num">0</span>,&nbsp;context.canvas.width,&nbsp;context.canvas.height);&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.getElementById(<span class="js__string">'hideWrapper'</span>).style.display&nbsp;=&nbsp;<span class="js__string">'none'</span>;&nbsp;<span class="js__sl_comment">//&nbsp;Remove&nbsp;the&nbsp;file&nbsp;picker&nbsp;dialog&nbsp;from&nbsp;the&nbsp;screen&nbsp;if&nbsp;the&nbsp;Erase&nbsp;button&nbsp;gets&nbsp;clicked.</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__brace">}</span>&nbsp;<span class="js__sl_comment">//&nbsp;eraseCanvas</span>&nbsp;<br>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__operator">function</span>&nbsp;loadCanvas()&nbsp;<span class="js__brace">{</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.getElementById(<span class="js__string">'hideWrapper'</span>).style.display&nbsp;=&nbsp;<span class="js__string">'block'</span>;&nbsp;<span class="js__sl_comment">//&nbsp;Unhide&nbsp;the&nbsp;file&nbsp;picker&nbsp;dialog&nbsp;so&nbsp;the&nbsp;user&nbsp;can&nbsp;select&nbsp;a&nbsp;saved&nbsp;canvas&nbsp;drawing&nbsp;to&nbsp;load&nbsp;into&nbsp;the&nbsp;canvas&nbsp;element.&nbsp;&nbsp;&nbsp;</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__brace">}</span>&nbsp;<span class="js__sl_comment">//&nbsp;loadCanvas&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__operator">function</span>&nbsp;handleFileSelection(evt)&nbsp;<span class="js__brace">{</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__statement">var</span>&nbsp;files&nbsp;=&nbsp;evt.target.files;&nbsp;<span class="js__sl_comment">//&nbsp;The&nbsp;file&nbsp;selected&nbsp;by&nbsp;the&nbsp;user&nbsp;(as&nbsp;a&nbsp;FileList&nbsp;object).</span>&nbsp;<br>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__statement">if</span>&nbsp;(!files)&nbsp;<span class="js__brace">{</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert(<span class="js__string">"The&nbsp;selected&nbsp;file&nbsp;is&nbsp;invalid&nbsp;-&nbsp;do&nbsp;not&nbsp;select&nbsp;a&nbsp;folder.&nbsp;Please&nbsp;reselect&nbsp;and&nbsp;try&nbsp;again."</span>);&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__statement">return</span>;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__brace">}</span>&nbsp;<br>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__sl_comment">//&nbsp;"files"&nbsp;is&nbsp;a&nbsp;FileList&nbsp;of&nbsp;file&nbsp;objects.&nbsp;Try&nbsp;to&nbsp;display&nbsp;the&nbsp;contents&nbsp;of&nbsp;the&nbsp;selected&nbsp;file:</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__statement">var</span>&nbsp;file&nbsp;=&nbsp;files[<span class="js__num">0</span>];&nbsp;<span class="js__sl_comment">//&nbsp;The&nbsp;way&nbsp;the&nbsp;&lt;input&gt;&nbsp;element&nbsp;is&nbsp;set&nbsp;up,&nbsp;the&nbsp;user&nbsp;cannot&nbsp;select&nbsp;multiple&nbsp;files.</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__statement">if</span>&nbsp;(!file)&nbsp;<span class="js__brace">{</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert(<span class="js__string">"Unable&nbsp;to&nbsp;access&nbsp;"</span>&nbsp;+&nbsp;file.name.toUpperCase()&nbsp;+&nbsp;<span class="js__string">"Please&nbsp;reselect&nbsp;and&nbsp;try&nbsp;again."</span>);&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__statement">return</span>;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__brace">}</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__statement">if</span>&nbsp;(file.size&nbsp;==&nbsp;<span class="js__num">0</span>)&nbsp;<span class="js__brace">{</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert(<span class="js__string">"Unable&nbsp;to&nbsp;access&nbsp;"</span>&nbsp;+&nbsp;file.name.toUpperCase()&nbsp;+&nbsp;<span class="js__string">"&nbsp;because&nbsp;it&nbsp;is&nbsp;empty.&nbsp;Please&nbsp;reselect&nbsp;and&nbsp;try&nbsp;again."</span>);&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__statement">return</span>;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__brace">}</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__statement">if</span>&nbsp;(!file.type.match(<span class="js__string">'text/.*'</span>))&nbsp;<span class="js__brace">{</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert(<span class="js__string">"Unable&nbsp;to&nbsp;access&nbsp;"</span>&nbsp;+&nbsp;file.name.toUpperCase()&nbsp;+&nbsp;<span class="js__string">"&nbsp;because&nbsp;it&nbsp;is&nbsp;not&nbsp;a&nbsp;known&nbsp;text&nbsp;file&nbsp;type.&nbsp;Please&nbsp;reselect&nbsp;and&nbsp;try&nbsp;again."</span>);&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__statement">return</span>;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__brace">}</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__sl_comment">//&nbsp;Assert:&nbsp;we&nbsp;have&nbsp;a&nbsp;valid&nbsp;file.</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;startFileRead(file);&nbsp;<span class="js__sl_comment">//&nbsp;Asychronously&nbsp;fire&nbsp;off&nbsp;a&nbsp;file&nbsp;read&nbsp;request.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.getElementById(<span class="js__string">'hideWrapper'</span>).style.display&nbsp;=&nbsp;<span class="js__string">'none'</span>;&nbsp;<span class="js__sl_comment">//&nbsp;Remove&nbsp;the&nbsp;file&nbsp;picker&nbsp;dialog&nbsp;from&nbsp;the&nbsp;screen&nbsp;since&nbsp;we&nbsp;have&nbsp;a&nbsp;valid&nbsp;file.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__brace">}</span>&nbsp;<span class="js__sl_comment">//&nbsp;handleFileSelection</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__operator">function</span>&nbsp;startFileRead(fileObject)&nbsp;<span class="js__brace">{</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__statement">var</span>&nbsp;reader&nbsp;=&nbsp;<span class="js__operator">new</span>&nbsp;FileReader();&nbsp;<span class="js__sl_comment">//</span>&nbsp;<br>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__sl_comment">//&nbsp;Set&nbsp;up&nbsp;asynchronous&nbsp;handlers&nbsp;for&nbsp;file-read-success,&nbsp;file-read-abort,&nbsp;and&nbsp;file-read-errors:</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;reader.onloadend&nbsp;=&nbsp;displayDrawing;&nbsp;<span class="js__sl_comment">//&nbsp;"onloadend"&nbsp;fires&nbsp;when&nbsp;the&nbsp;file&nbsp;contents&nbsp;have&nbsp;been&nbsp;successfully&nbsp;loaded&nbsp;into&nbsp;memory.</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;reader.abort&nbsp;=&nbsp;handleFileReadAbort;&nbsp;<span class="js__sl_comment">//&nbsp;"abort"&nbsp;files&nbsp;on&nbsp;abort.</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;reader.onerror&nbsp;=&nbsp;handleFileReadError;&nbsp;<span class="js__sl_comment">//&nbsp;"onerror"&nbsp;fires&nbsp;if&nbsp;something&nbsp;goes&nbsp;awry.</span>&nbsp;<br>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__statement">if</span>&nbsp;(fileObject)&nbsp;<span class="js__brace">{</span>&nbsp;<span class="js__sl_comment">//&nbsp;Safety&nbsp;first.</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;reader.readAsText(fileObject);&nbsp;<span class="js__sl_comment">//&nbsp;Asynchronously&nbsp;start&nbsp;a&nbsp;file&nbsp;read&nbsp;thread.&nbsp;Other&nbsp;supported&nbsp;read&nbsp;methods&nbsp;include&nbsp;readAsArrayBuffer()&nbsp;and&nbsp;readAsDataURL().</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__brace">}</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__statement">else</span>&nbsp;<span class="js__brace">{</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert(<span class="js__string">"fileObject&nbsp;is&nbsp;null&nbsp;in&nbsp;startFileRead()."</span>);&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__brace">}</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__brace">}</span>&nbsp;<span class="js__sl_comment">//&nbsp;startFileRead</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__operator">function</span>&nbsp;displayDrawing(evt)&nbsp;<span class="js__brace">{</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__statement">var</span>&nbsp;img&nbsp;=&nbsp;<span class="js__operator">new</span>&nbsp;Image();&nbsp;<span class="js__sl_comment">//&nbsp;The&nbsp;canvas&nbsp;drawImage()&nbsp;method&nbsp;expects&nbsp;an&nbsp;image&nbsp;object.</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;img.src&nbsp;=&nbsp;evt.target.result;&nbsp;<span class="js__sl_comment">//&nbsp;Obtain&nbsp;the&nbsp;file&nbsp;contents,&nbsp;which&nbsp;was&nbsp;read&nbsp;into&nbsp;memory&nbsp;(whose&nbsp;format&nbsp;is&nbsp;a&nbsp;text&nbsp;data&nbsp;URL&nbsp;string).</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__sl_comment">//&nbsp;eraseCanvas();&nbsp;To&nbsp;allow&nbsp;composite&nbsp;drawings,&nbsp;remove&nbsp;this&nbsp;comment.</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;img.onload&nbsp;=&nbsp;<span class="js__operator">function</span>()&nbsp;<span class="js__brace">{</span>&nbsp;<span class="js__sl_comment">//&nbsp;Only&nbsp;render&nbsp;the&nbsp;saved&nbsp;drawing&nbsp;when&nbsp;the&nbsp;image&nbsp;object&nbsp;has&nbsp;fully&nbsp;loaded&nbsp;the&nbsp;drawing&nbsp;into&nbsp;memory.</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;context.drawImage(img,&nbsp;<span class="js__num">0</span>,&nbsp;<span class="js__num">0</span>);&nbsp;<span class="js__sl_comment">//&nbsp;Draw&nbsp;the&nbsp;image&nbsp;starting&nbsp;at&nbsp;canvas&nbsp;coordinate&nbsp;(0,&nbsp;0)&nbsp;-&nbsp;the&nbsp;upper&nbsp;left-hand&nbsp;corner&nbsp;of&nbsp;the&nbsp;canvas.</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__brace">}</span>&nbsp;<span class="js__sl_comment">//&nbsp;img.onload&nbsp;*/</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__brace">}</span>&nbsp;<span class="js__sl_comment">//&nbsp;displayFileText</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__operator">function</span>&nbsp;handleFileReadAbort(evt)&nbsp;<span class="js__brace">{</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert(<span class="js__string">"File&nbsp;read&nbsp;aborted."</span>);&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__brace">}</span>&nbsp;<span class="js__sl_comment">//&nbsp;handleFileReadAbort</span>&nbsp;<br>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__operator">function</span>&nbsp;handleFileReadError(evt)&nbsp;<span class="js__brace">{</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__statement">switch</span>&nbsp;(evt.target.error.name)&nbsp;<span class="js__brace">{</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__statement">case</span>&nbsp;<span class="js__string">"NotFoundError"</span>:&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert(<span class="js__string">"The&nbsp;file&nbsp;could&nbsp;not&nbsp;be&nbsp;found&nbsp;at&nbsp;the&nbsp;time&nbsp;the&nbsp;read&nbsp;was&nbsp;processed."</span>);&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__statement">break</span>;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__statement">case</span>&nbsp;<span class="js__string">"SecurityError"</span>:&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert(<span class="js__string">"A&nbsp;file&nbsp;security&nbsp;error&nbsp;occured."</span>);&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__statement">break</span>;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__statement">case</span>&nbsp;<span class="js__string">"NotReadableError"</span>:&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert(<span class="js__string">"The&nbsp;file&nbsp;cannot&nbsp;be&nbsp;read.&nbsp;This&nbsp;can&nbsp;occur&nbsp;if&nbsp;the&nbsp;file&nbsp;is&nbsp;open&nbsp;in&nbsp;another&nbsp;application."</span>);&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__statement">break</span>;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__statement">case</span>&nbsp;<span class="js__string">"EncodingError"</span>:&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert(<span class="js__string">"The&nbsp;length&nbsp;of&nbsp;the&nbsp;data&nbsp;URL&nbsp;for&nbsp;the&nbsp;file&nbsp;is&nbsp;too&nbsp;long."</span>);&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__statement">break</span>;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__statement">default</span>:&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert(<span class="js__string">"File&nbsp;error&nbsp;code&nbsp;"</span>&nbsp;+&nbsp;evt.target.error.name);&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__brace">}</span>&nbsp;<span class="js__sl_comment">//&nbsp;switch</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__brace">}</span>&nbsp;<span class="js__sl_comment">//&nbsp;handleFileReadError</span>&nbsp;<br>&nbsp;&nbsp;&lt;/script&gt;&nbsp;<br>&lt;/body&gt;&nbsp;<br>&nbsp;<br>&lt;/html&gt;&nbsp;<br></code></pre>
+</div>
+<script type="text/javascript" data-requires="jquery, jquery.chili, jquery.chili.recipes">
+    $("#c_35ba452e3ec14794880fb54830947a75").chili();
+    $(".CodeHighlighter pre").unbind("mousedown").unbind("mouseup");
+</script>
+
+<p>你可能尚未注意到，示例 3 中的一个特征是无法连续两次重新加载同一绘图文件。即，无法执行以下过程：</p>
+<ol>
+<li>绘图显示时，单击“擦除”<strong><!----></strong>。</li>
+<li>使用鼠标或手指（仅触摸设备）在框内创建一个绘图。</li>
+<li>单击“保存”<strong><!----></strong>按钮，然后在“信息栏”<strong><!----></strong>中单击得到的“保存”<strong><!----></strong>按钮。</li>
+<li>通过单击 <strong>x</strong> 关闭第二个“信息栏”<strong><!----></strong>。</li>
+<li>单击“擦除”<strong><!----></strong>按钮。</li>
+<li>单击“加载”<strong><!----></strong>按钮，然后单击出现的“浏览”<strong><!----></strong>按钮并选择在第 3 步中创建的绘图文件。随即将显示保存的绘图。</li>
+<li>单击“擦除”<strong><!----></strong>按钮。</li>
+<li>单击“加载”<strong><!----></strong>按钮，然后单击得到的“浏览”<strong><!----></strong>按钮并选择在第 6 步中选择的同一绘图文件。此时不会显示该绘图。</li>
+</ol>
+<p>此行为是故意如此设计的，你可以轻松解决此问题。第一步是将 <code>&lt;input type="file" id="fileSelector" /&gt;</code> 元素放到 <code>&lt;form&gt;</code> 元素中，如下所示：</p>
+
+
+<script src="./使用 Blob 和 msSaveBlob 以本地方式保存文件 (Windows)_files/jquery.chili-2.2.js.下载" type="text/javascript" data-requires="jQuery" data-provides="jquery.chili"></script>
+<script src="./使用 Blob 和 msSaveBlob 以本地方式保存文件 (Windows)_files/recipes.js.下载" type="text/javascript" data-requires="jquery.chili" data-provides="jquery.chili.recipes"></script>
+<div class="CodeHighlighter">
+  <pre><code id="c_19cc9f5129ac4deea200e8d134a348d1" class="js">&lt;div&nbsp;id=<span class="js__string">"hideWrapper"</span>&gt;&nbsp;<br>&nbsp;&nbsp;&lt;p&gt;Select&nbsp;one&nbsp;of&nbsp;your&nbsp;saved&nbsp;canvas&nbsp;drawings&nbsp;to&nbsp;display:&lt;/p&gt;&nbsp;<br>&nbsp;&nbsp;&lt;form&gt;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;input&nbsp;type=<span class="js__string">"file"</span>&nbsp;id=<span class="js__string">"fileSelector"</span>&nbsp;/&gt;&nbsp;<br>&nbsp;&nbsp;&lt;/form&gt;&nbsp;<br>&lt;/div&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&lt;script&gt;&nbsp;<br></code></pre>
+</div>
+<script type="text/javascript" data-requires="jquery, jquery.chili, jquery.chili.recipes">
+    $("#c_19cc9f5129ac4deea200e8d134a348d1").chili();
+    $(".CodeHighlighter pre").unbind("mousedown").unbind("mouseup");
+</script>
+
+<p class="">下一步是通过单击“加载”<strong><!----></strong>按钮时调用表单的 <code>reset()</code>
+方法来清除表单子元素中之前的任何用户输入。</p>
+
+
+<script src="./使用 Blob 和 msSaveBlob 以本地方式保存文件 (Windows)_files/jquery.chili-2.2.js.下载" type="text/javascript" data-requires="jQuery" data-provides="jquery.chili"></script>
+<script src="./使用 Blob 和 msSaveBlob 以本地方式保存文件 (Windows)_files/recipes.js.下载" type="text/javascript" data-requires="jquery.chili" data-provides="jquery.chili.recipes"></script>
+<div class="CodeHighlighter">
+  <pre><code id="c_2b213e7087bd443ca244cc11392eb24e" class="js"><span class="js__operator">function</span>&nbsp;loadCanvas()&nbsp;<span class="js__brace">{</span>&nbsp;<br>&nbsp;&nbsp;document.querySelector(<span class="js__string">'#hideWrapper&nbsp;&gt;&nbsp;form'</span>).reset();&nbsp;<span class="js__sl_comment">//&nbsp;Allow&nbsp;the&nbsp;input&nbsp;element&nbsp;to&nbsp;pick&nbsp;the&nbsp;same&nbsp;file&nbsp;consecutively&nbsp;more&nbsp;than&nbsp;once.&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<br>&nbsp;&nbsp;document.getElementById(<span class="js__string">'hideWrapper'</span>).style.display&nbsp;=&nbsp;<span class="js__string">'block'</span>;&nbsp;<span class="js__sl_comment">//&nbsp;Unhide&nbsp;the&nbsp;file&nbsp;picker&nbsp;dialog&nbsp;so&nbsp;the&nbsp;user&nbsp;can&nbsp;select&nbsp;a&nbsp;saved&nbsp;canvas&nbsp;drawing&nbsp;to&nbsp;load&nbsp;into&nbsp;the&nbsp;canvas&nbsp;element.&nbsp;&nbsp;&nbsp;</span>&nbsp;<br><span class="js__brace">}</span>&nbsp;<span class="js__sl_comment">//&nbsp;loadCanvas</span>&nbsp;<br></code></pre>
+</div>
+<script type="text/javascript" data-requires="jquery, jquery.chili, jquery.chili.recipes">
+    $("#c_2b213e7087bd443ca244cc11392eb24e").chili();
+    $(".CodeHighlighter pre").unbind("mousedown").unbind("mouseup");
+</script>
+
+<p>此处提供此更新的示例：
+<a href="http://samples.msdn.microsoft.com/Workshop/samples/fileAPI/savingFiles/BlobBuilder/example4.html">
+<strong>示例 4</strong></a>
+（右键单击网页并选择“查看源”<strong><!----></strong>以查看它的源代码）。</p>
+<p>同样，示例 5 通过改进简单的绘图“应用”以及将 <code>canvas.toDataURL()</code> 替换为 <code>canvas.msToBlob()</code> 来扩展示例 4。使用 <code>canvas.toDataURL()</code>，可以预防使用其他
+应用程序轻松查看已保存绘图的可能性。将绘图保存为 
+<a href="http://go.microsoft.com/fwlink/p/?LinkId=248923">
+PNG 文件</a>的好处是允许很多标准应用程序（包括浏览器）显示绘图。通过切换到 <code>canvas.msToBlob()</code>，我们可以直接将文件
+保存为 PNG 格式，如下所示：</p>
+
+
+<script src="./使用 Blob 和 msSaveBlob 以本地方式保存文件 (Windows)_files/jquery.chili-2.2.js.下载" type="text/javascript" data-requires="jQuery" data-provides="jquery.chili"></script>
+<script src="./使用 Blob 和 msSaveBlob 以本地方式保存文件 (Windows)_files/recipes.js.下载" type="text/javascript" data-requires="jquery.chili" data-provides="jquery.chili.recipes"></script>
+<div class="CodeHighlighter">
+  <pre><code id="c_0d1e8c88f8fb4caf924cd570949638c5" class="js"><span class="js__operator">function</span>&nbsp;saveCanvas()&nbsp;<span class="js__brace">{</span>&nbsp;<br>&nbsp;&nbsp;<span class="js__statement">var</span>&nbsp;drawingFileName&nbsp;=&nbsp;<span class="js__string">"canvas"</span>&nbsp;+&nbsp;<span class="js__object">Math</span>.round(&nbsp;(<span class="js__operator">new</span>&nbsp;<span class="js__object">Date</span>()).getTime()&nbsp;<span class="js__reg_exp">/&nbsp;1000&nbsp;)&nbsp;+&nbsp;".png";&nbsp;/</span>/&nbsp;Produces&nbsp;a&nbsp;unique&nbsp;file&nbsp;name&nbsp;every&nbsp;second.&nbsp;<br>&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;window.navigator.msSaveBlob(globals.canvas.msToBlob(),&nbsp;drawingFileName);&nbsp;<span class="js__sl_comment">//&nbsp;Save&nbsp;the&nbsp;user's&nbsp;drawing&nbsp;to&nbsp;a&nbsp;file.</span>&nbsp;<br>&nbsp;&nbsp;document.getElementById(<span class="js__string">'filePickerWrapper'</span>).style.display&nbsp;=&nbsp;<span class="js__string">'none'</span>;&nbsp;<span class="js__sl_comment">//&nbsp;Remove&nbsp;the&nbsp;file&nbsp;picker&nbsp;dialog&nbsp;from&nbsp;the&nbsp;screen&nbsp;since&nbsp;we&nbsp;just&nbsp;saved&nbsp;the&nbsp;user's&nbsp;file.</span>&nbsp;<br><span class="js__brace">}</span>&nbsp;<span class="js__sl_comment">//&nbsp;saveCanvas</span>&nbsp;<br></code></pre>
+</div>
+<script type="text/javascript" data-requires="jquery, jquery.chili, jquery.chili.recipes">
+    $("#c_0d1e8c88f8fb4caf924cd570949638c5").chili();
+    $(".CodeHighlighter pre").unbind("mousedown").unbind("mouseup");
+</script>
+
+<p>此外，将文件保存为 PNG 格式可允许我们将 <code>startFileRead(file)</code>（及其三个关联的
+回调函数）替换为以下四行代码：</p>
+<p>
+</p>
+
+<script src="./使用 Blob 和 msSaveBlob 以本地方式保存文件 (Windows)_files/jquery.chili-2.2.js.下载" type="text/javascript" data-requires="jQuery" data-provides="jquery.chili"></script>
+<script src="./使用 Blob 和 msSaveBlob 以本地方式保存文件 (Windows)_files/recipes.js.下载" type="text/javascript" data-requires="jquery.chili" data-provides="jquery.chili.recipes"></script>
+<div class="CodeHighlighter">
+  <pre><code id="c_7e459ea4ca8b43639fe46adc48679883" class="js">img.src&nbsp;=&nbsp;window.URL.createObjectURL(file);&nbsp;<br>img.onload&nbsp;=&nbsp;<span class="js__operator">function</span>()&nbsp;<span class="js__brace">{</span>&nbsp;&nbsp;<br>&nbsp;&nbsp;globals.context.drawImage(img,&nbsp;<span class="js__num">0</span>,&nbsp;<span class="js__num">0</span>);&nbsp;&nbsp;<br>&nbsp;&nbsp;window.URL.revokeObjectURL(<span class="js__operator">this</span>.src);&nbsp;&nbsp;<br><span class="js__brace">}</span>&nbsp;<br></code></pre>
+</div>
+<script type="text/javascript" data-requires="jquery, jquery.chili, jquery.chili.recipes">
+    $("#c_7e459ea4ca8b43639fe46adc48679883").chili();
+    $(".CodeHighlighter pre").unbind("mousedown").unbind("mouseup");
+</script>
+
+
+<p>此处提供完整的示例：
+<a href="http://samples.msdn.microsoft.com/Workshop/samples/fileAPI/savingFiles/BlobBuilder/example5.html">
+<strong>示例 5</strong></a>（右键单击网页并
+选择“查看源”<strong><!----></strong>以查看它的源代码）。</p>
+<p>我们得出结论，使用 Windows Internet Explorer 的 <code>msSaveBlob</code> 和 <code>msSaveOrOpenBlob</code> 方法以及 
+<a href="https://msdn.microsoft.com/zh-cn/windows/hh772298(v=vs.90)">
+<strong>Blob</strong></a> 构造函数，可以在客户端上保存修改的文件 - 这在 Internet Explorer&nbsp;10 之前相对较难。
+</p>
+<h2><a id="related_topics"><!----></a>相关主题</h2>
+<dl>
+<dt>
+
+<a href="https://msdn.microsoft.com/zh-cn/windows/hh580306(v=vs.90)">
+Internet Explorer 10 示例和教程</a>
+</dt>
+<dt>
+
+<a href="https://msdn.microsoft.com/zh-cn/windows/hh673542(v=vs.90)">
+文件 API</a>
+</dt>
+<dt>
+
+<a href="https://msdn.microsoft.com/zh-cn/windows/hh779015(v=vs.90)">
+如何管理本地文件</a>
+</dt>
+<dt>
+
+<a href="https://msdn.microsoft.com/zh-cn/windows/hh580307(v=vs.90)">
+读取本地文件</a>
+</dt>
+<dt>
+
+<a href="https://msdn.microsoft.com/zh-cn/windows/hh580308(v=vs.90)">
+使用 Web 存储以本地方式保存文件</a>
+</dt>
+</dl>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div></div>
+                                    <div class="Clear"></div>
+                                    <script type="text/javascript" src="./使用 Blob 和 msSaveBlob 以本地方式保存文件 (Windows)_files/HeroSection.js.下载"></script>
+
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+<style type="text/css">
+    #uhf-header-wrapper #shell-header .shell-header-wrapper {
+        max-width: 1180px !important;
+    }
+
+    .shell-category-header .shell-category-nav {
+        max-width: 1180px !important;
+    }
+
+    #ux-footer #footerSockInner {
+        max-width: 1180px !important;
+    }
+
+    .shell-footer-wrapper {
+        max-width: 1180px !important;
+    }
+
+    #ux-banner{
+    min-width: 1180px !important;
+    }
+
+    #ux-banner div.banner div.row {
+        width: 1180px !important;
+    }
+</style>
+            
+<input name="__RequestVerificationToken" type="hidden" value="x-HyZ1KXY-Xq_ETfgJDTBoxhP-uVTeq0SHM_fUDQtoU07tQd8idvJsfmUifEqXGpwNJKP-lNmCCsfWsoPdignsmhuPM1">
+<input id="ratingSubmitUrl" type="hidden" value="https://msdn.microsoft.com/zh-cn/library/feedback/add/hh779016(v=vs.90)">
+<input id="isTopicRated" type="hidden" value="false">
+<script type="text/javascript" src="./使用 Blob 和 msSaveBlob 以本地方式保存文件 (Windows)_files/Utilities.js.下载" data-requires="jQuery" data-provides="utilities"></script>
+
+
+            <link rel="stylesheet" type="text/css" href="./使用 Blob 和 msSaveBlob 以本地方式保存文件 (Windows)_files/Footer(1).css" xmlns="http://www.w3.org/1999/xhtml"><link rel="stylesheet" type="text/css" href="./使用 Blob 和 msSaveBlob 以本地方式保存文件 (Windows)_files/sprite.css" xmlns="http://www.w3.org/1999/xhtml">
+
+
+
+        <link rel="stylesheet" type="text/css" href="./使用 Blob 和 msSaveBlob 以本地方式保存文件 (Windows)_files/UhfFooterResponsive.css" data-do-not-move="true">
+    <script type="text/javascript" src="./使用 Blob 和 msSaveBlob 以本地方式保存文件 (Windows)_files/UhfFooter.js.下载"></script>
+    <input type="hidden" id="CurrentUrlLocale" value="zh-cn">
+    <div id="ux-footer" class="ltr">
+        
+                    <div id="footerSock" class="UhfFooterSock">
+                        <div id="footerSockInner">
+                            <div data-fragmentname="SockLinks" id="Fragment_SockLinks" xmlns="http://www.w3.org/1999/xhtml">
+                                <link rel="stylesheet" type="text/css" href="./使用 Blob 和 msSaveBlob 以本地方式保存文件 (Windows)_files/LinkList.css">
+                                <span>关注我们</span>
+                                <div class="linkList">
+                                    <ul class="links">
+                                            <li>
+                                                <a href="http://go.microsoft.com/fwlink/p/?LinkId=317808" id="SockLinks_728_43" xmlns="http://www.w3.org/1999/xhtml">http://go.microsoft.com/fwlink/p/?LinkId=317808</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://go.microsoft.com/fwlink/p/?linkid=393788" id="SockLinks_728_56" xmlns="http://www.w3.org/1999/xhtml">http://go.microsoft.com/fwlink/p/?linkid=393788</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://go.microsoft.com/fwlink/p/?LinkID=317807" id="SockLinks_728_86" xmlns="http://www.w3.org/1999/xhtml">http://go.microsoft.com/fwlink/p/?LinkID=317807</a>
+                                            </li>
+                                    </ul>
+                                </div>
+
+                            </div>
+
+                            <a name="feedback"></a>
+                            <div data-fragmentname="Survey" id="Fragment_Survey" xmlns="http://www.w3.org/1999/xhtml"></div>
+
+<div class="rating">
+    <div id="ratingSection1">
+        <div class="title">
+            此页面有帮助吗？
+        </div>
+        <div class="description">
+            您对此内容的反馈非常重要。<br>请告诉我们您的想法。
+        </div>
+        <div class="buttons">
+            <button class="button" id="ratingYes" aria-label="是，此页面很有帮助">是</button>
+            <button class="button" id="ratingNo" aria-label="不，此页面没有任何帮助">否</button>
+        </div>
+        <input id="ratingValue" type="hidden" value="">
+    </div>
+    <div id="ratingSection2">
+        <div class="title left">
+            更多反馈？
+        </div>
+        <textarea id="ratingText" rows="6" cols="" maxlength="1500"></textarea>
+        <div class="right">
+            <div class="counter">
+                <span id="feedbackTextCounter">1500</span> 个剩余字符
+            </div>
+            <div class="buttons">
+                <button class="button" id="ratingSubmit" aria-label="提交我的其他反馈">提交</button>
+                <button class="button" id="ratingSkipThis" aria-label="跳过其他反馈">跳过此步</button>
+            </div>
+        </div>
+    </div>
+    <div id="ratingSection3">
+        <div class="title">
+            谢谢！
+        </div>
+        <div class="description">
+            我们非常感谢您的反馈。
+        </div>
+    </div>
+    
+    
+    <div id="contentFeedbackQAContainer" style="display: none;"></div>
+</div>
+    <script type="text/javascript" src="./使用 Blob 和 msSaveBlob 以本地方式保存文件 (Windows)_files/Rating.js.下载" data-amd-enabled="true" data-requires="utilities"></script>
+
+                            <div data-fragmentname="SockLinks" id="Fragment_SockLinks_Responsive" xmlns="http://www.w3.org/1999/xhtml">
+                                <link rel="stylesheet" type="text/css" href="./使用 Blob 和 msSaveBlob 以本地方式保存文件 (Windows)_files/LinkList.css">
+                                <span>关注我们</span>
+                                <div class="linkList">
+                                    <ul class="links">
+                                            <li>
+                                                <a href="http://go.microsoft.com/fwlink/p/?LinkId=317808" id="SockLinks_728_43" xmlns="http://www.w3.org/1999/xhtml">http://go.microsoft.com/fwlink/p/?LinkId=317808</a>
+                                            </li>
+                                                                                    <li>
+                                                                                        <a href="http://go.microsoft.com/fwlink/p/?linkid=393788" id="SockLinks_728_56" xmlns="http://www.w3.org/1999/xhtml">http://go.microsoft.com/fwlink/p/?linkid=393788</a>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <a href="http://go.microsoft.com/fwlink/p/?LinkID=317807" id="SockLinks_728_86" xmlns="http://www.w3.org/1999/xhtml">http://go.microsoft.com/fwlink/p/?LinkID=317807</a>
+                                                                                    </li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+        <div id="footerContainer">
+            <div id="baseFooter">
+                    <section id="footerArea" data-m="{&quot;cN&quot;:&quot;footerArea&quot;,&quot;cT&quot;:&quot;Area_coreuiArea&quot;,&quot;id&quot;:&quot;a2Body&quot;,&quot;sN&quot;:2,&quot;aN&quot;:&quot;Body&quot;}">
+            <div id="footerRegion" data-region-key="footerregion" data-m="{&quot;cN&quot;:&quot;footerRegion&quot;,&quot;cT&quot;:&quot;Region_coreui-region&quot;,&quot;id&quot;:&quot;r1a2&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;a2&quot;}">
+
+    <div id="footerUniversalFooter" data-m="{&quot;cN&quot;:&quot;footerUniversalFooter&quot;,&quot;cT&quot;:&quot;Module_coreui-universalfooter&quot;,&quot;id&quot;:&quot;m1r1a2&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;r1a2&quot;}" data-module-id="Category|footerRegion|footerRegion|footerUniversalFooter|coreui-universalfooter">
+        
+
+<footer id="uhf-footer" class="c-uhff context-uhf" data-uhf-mscc-rq="false" data-footer-footprint="/DEV_Windows/win-dev-center-footer" data-m="{&quot;cN&quot;:&quot;Uhf footer_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c1m1r1a2&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;m1r1a2&quot;}">
+            <nav class="c-uhff-nav" role="navigation" aria-label="页脚" data-m="{&quot;cN&quot;:&quot;Footer nav_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c1c1m1r1a2&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c1m1r1a2&quot;}">
+                
+                    <div class="c-uhff-nav-row">
+                            <div class="c-uhff-nav-group" data-m="{&quot;cN&quot;:&quot;footerNavColumn1_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c1c1c1m1r1a2&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c1c1m1r1a2&quot;}">
+                                <h4 class="c-heading-4">新增内容</h4>
+                                <ul class="c-list f-bare">
+                                            <li>
+                                                <a class="c-uhff-link" href="https://www.microsoft.com/p/surface-go/8v9dp4lnknsz" data-m="{&quot;cN&quot;:&quot;Footer_WhatsNew_SurfaceGo_nav&quot;,&quot;id&quot;:&quot;n1c1c1c1m1r1a2&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c1c1c1m1r1a2&quot;}">全新 Surface Go </a>
+                                            </li>
+                                            <li>
+                                                <a class="c-uhff-link" href="https://www.microsoft.com/zh-cn/surface/devices/surface-book-2/overview" data-m="{&quot;cN&quot;:&quot;Footer_WhatsNew_SurfaceBook2_nav&quot;,&quot;id&quot;:&quot;n2c1c1c1m1r1a2&quot;,&quot;sN&quot;:2,&quot;aN&quot;:&quot;c1c1c1m1r1a2&quot;}">Surface Book 2</a>
+                                            </li>
+                                            <li>
+                                                <a class="c-uhff-link" href="https://www.microsoft.com/zh-cn/surface/devices/surface-pro/overview" data-m="{&quot;cN&quot;:&quot;Footer_WhatsNew_NewSurfacePro_nav&quot;,&quot;id&quot;:&quot;n3c1c1c1m1r1a2&quot;,&quot;sN&quot;:3,&quot;aN&quot;:&quot;c1c1c1m1r1a2&quot;}">Surface Pro</a>
+                                            </li>
+                                            <li>
+                                                <a class="c-uhff-link" href="https://www.xbox.com/zh-cn/xbox-one-x" data-m="{&quot;cN&quot;:&quot;Footer_WhatsNew_XboxOneX_nav&quot;,&quot;id&quot;:&quot;n4c1c1c1m1r1a2&quot;,&quot;sN&quot;:4,&quot;aN&quot;:&quot;c1c1c1m1r1a2&quot;}">Xbox One X</a>
+                                            </li>
+                                            <li>
+                                                <a class="c-uhff-link" href="https://www.xbox.com/zh-cn/xbox-one-s?xr=shellnav" data-m="{&quot;cN&quot;:&quot;Footer_WhatsNew_XboxOneS_nav&quot;,&quot;id&quot;:&quot;n5c1c1c1m1r1a2&quot;,&quot;sN&quot;:5,&quot;aN&quot;:&quot;c1c1c1m1r1a2&quot;}">Xbox One S</a>
+                                            </li>
+                                            <li>
+                                                <a class="c-uhff-link" href="https://www.microsoft.com/zh-cn/windows/windows-10-apps" data-m="{&quot;cN&quot;:&quot;Footer_WhatsNew_Windows_10_apps_nav&quot;,&quot;id&quot;:&quot;n6c1c1c1m1r1a2&quot;,&quot;sN&quot;:6,&quot;aN&quot;:&quot;c1c1c1m1r1a2&quot;}">Windows 10 应用程序</a>
+                                            </li>
+
+                                </ul>
+                                
+                            </div>
+                            <div class="c-uhff-nav-group" data-m="{&quot;cN&quot;:&quot;footerNavColumn2_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c2c1c1m1r1a2&quot;,&quot;sN&quot;:2,&quot;aN&quot;:&quot;c1c1m1r1a2&quot;}">
+                                <h4 class="c-heading-4">应用商店和支持
+</h4>
+                                <ul class="c-list f-bare">
+                                            <li>
+                                                <a class="c-uhff-link" href="https://account.microsoft.com/" data-m="{&quot;cN&quot;:&quot;Footer_StoreandSupport_AccountProfile_nav&quot;,&quot;id&quot;:&quot;n1c2c1c1m1r1a2&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c2c1c1m1r1a2&quot;}">帐户个人资料</a>
+                                            </li>
+                                            <li>
+                                                <a class="c-uhff-link" href="https://www.microsoft.com/zh-cn/download" data-m="{&quot;cN&quot;:&quot;Footer_StoreandSupport_DownloadCenter_nav&quot;,&quot;id&quot;:&quot;n2c2c1c1m1r1a2&quot;,&quot;sN&quot;:2,&quot;aN&quot;:&quot;c2c1c1m1r1a2&quot;}">下载中心</a>
+                                            </li>
+                                            <li>
+                                                <a class="c-uhff-link" href="https://account.microsoft.com/orders" data-m="{&quot;cN&quot;:&quot;Footer_StoreandSupport_OrderTracking_nav&quot;,&quot;id&quot;:&quot;n3c2c1c1m1r1a2&quot;,&quot;sN&quot;:3,&quot;aN&quot;:&quot;c2c1c1m1r1a2&quot;}">订单跟踪</a>
+                                            </li>
+                                            <li>
+                                                <a class="c-uhff-link" href="https://support.microsoft.com/zh-cn" data-m="{&quot;cN&quot;:&quot;Footer_StoreandSupport_Support_nav&quot;,&quot;id&quot;:&quot;n4c2c1c1m1r1a2&quot;,&quot;sN&quot;:4,&quot;aN&quot;:&quot;c2c1c1m1r1a2&quot;}">支持</a>
+                                            </li>
+
+                                </ul>
+                                
+                            </div>
+                            <div class="c-uhff-nav-group" data-m="{&quot;cN&quot;:&quot;footerNavColumn3_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c3c1c1m1r1a2&quot;,&quot;sN&quot;:3,&quot;aN&quot;:&quot;c1c1m1r1a2&quot;}">
+                                <h4 class="c-heading-4">教育</h4>
+                                <ul class="c-list f-bare">
+                                            <li>
+                                                <a class="c-uhff-link" href="https://www.microsoft.com/zh-cn/education" data-m="{&quot;cN&quot;:&quot;Footer_Education_MicrosoftInEducation_nav&quot;,&quot;id&quot;:&quot;n1c3c1c1m1r1a2&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c3c1c1m1r1a2&quot;}">Microsoft 教育领域</a>
+                                            </li>
+                                            <li>
+                                                <a class="c-uhff-link" href="https://www.microsoft.com/zh-cn/education/products/office/default.aspx" data-m="{&quot;cN&quot;:&quot;Footer_Education_OfficeForStudents_nav&quot;,&quot;id&quot;:&quot;n2c3c1c1m1r1a2&quot;,&quot;sN&quot;:2,&quot;aN&quot;:&quot;c3c1c1m1r1a2&quot;}">适合学生的 Office</a>
+                                            </li>
+                                            <li>
+                                                <a class="c-uhff-link" href="https://products.office.com/zh-cn/academic/compare-office-365-education-plans" data-m="{&quot;cN&quot;:&quot;Footer_Education_Office365ForSchools_nav&quot;,&quot;id&quot;:&quot;n3c3c1c1m1r1a2&quot;,&quot;sN&quot;:3,&quot;aN&quot;:&quot;c3c1c1m1r1a2&quot;}">适用于学校的 Office 365</a>
+                                            </li>
+                                            <li>
+                                                <a class="c-uhff-link" href="https://azure.microsoft.com/zh-cn/community/education/" data-m="{&quot;cN&quot;:&quot;Footer_MicrosoftAzureInEducation_nav&quot;,&quot;id&quot;:&quot;n4c3c1c1m1r1a2&quot;,&quot;sN&quot;:4,&quot;aN&quot;:&quot;c3c1c1m1r1a2&quot;}">Microsoft Azure 教育领域</a>
+                                            </li>
+
+                                </ul>
+                                
+                            </div>
+                    </div>
+                    <div class="c-uhff-nav-row">
+                            <div class="c-uhff-nav-group" data-m="{&quot;cN&quot;:&quot;footerNavColumn4_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c4c1c1m1r1a2&quot;,&quot;sN&quot;:4,&quot;aN&quot;:&quot;c1c1m1r1a2&quot;}">
+                                <h4 class="c-heading-4">企业</h4>
+                                <ul class="c-list f-bare">
+                                            <li>
+                                                <a class="c-uhff-link" href="https://partner.microsoft.com/zh-cn/" data-m="{&quot;cN&quot;:&quot;Footer_Enterprise_Enterprise_nav&quot;,&quot;id&quot;:&quot;n1c4c1c1m1r1a2&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c4c1c1m1r1a2&quot;}">企业</a>
+                                            </li>
+                                            <li>
+                                                <a class="c-uhff-link" href="https://www.microsoft.com/zh-cn/sql-server/" data-m="{&quot;cN&quot;:&quot;Footer_Enterprise_DataPlatform_nav&quot;,&quot;id&quot;:&quot;n2c4c1c1m1r1a2&quot;,&quot;sN&quot;:2,&quot;aN&quot;:&quot;c4c1c1m1r1a2&quot;}">数据平台</a>
+                                            </li>
+                                            <li>
+                                                <a class="c-uhff-link" href="https://www.microsoft.com/zh-cn/solution-providers" data-m="{&quot;cN&quot;:&quot;Footer_Enterprise_FindASolutionsProvider_nav&quot;,&quot;id&quot;:&quot;n3c4c1c1m1r1a2&quot;,&quot;sN&quot;:3,&quot;aN&quot;:&quot;c4c1c1m1r1a2&quot;}">查找解决方案提供商</a>
+                                            </li>
+                                            <li>
+                                                <a class="c-uhff-link" href="https://partner.microsoft.com/zh-cn/" data-m="{&quot;cN&quot;:&quot;Footer_Enterprise_MicrosoftPartnerResources_nav&quot;,&quot;id&quot;:&quot;n4c4c1c1m1r1a2&quot;,&quot;sN&quot;:4,&quot;aN&quot;:&quot;c4c1c1m1r1a2&quot;}">Microsoft 合作伙伴资源</a>
+                                            </li>
+                                            <li>
+                                                <a class="c-uhff-link" href="https://go.microsoft.com/fwlink/?LinkID=808093" data-m="{&quot;cN&quot;:&quot;Footer_Enterprise_MicrosoftAppSource_nav&quot;,&quot;id&quot;:&quot;n5c4c1c1m1r1a2&quot;,&quot;sN&quot;:5,&quot;aN&quot;:&quot;c4c1c1m1r1a2&quot;}">Microsoft AppSource </a>
+                                            </li>
+                                            <li>
+                                                <a class="c-uhff-link" href="https://enterprise.microsoft.com/zh-cn/uncategorized/discrete-manufacturing/" data-m="{&quot;cN&quot;:&quot;Footer_Enterprise_ManufacturingAndResources_nav&quot;,&quot;id&quot;:&quot;n6c4c1c1m1r1a2&quot;,&quot;sN&quot;:6,&quot;aN&quot;:&quot;c4c1c1m1r1a2&quot;}">制造业与资源</a>
+                                            </li>
+                                            <li>
+                                                <a class="c-uhff-link" href="https://enterprise.microsoft.com/zh-cn" data-m="{&quot;cN&quot;:&quot;Footer_Enterprise_FinanciaServices_nav&quot;,&quot;id&quot;:&quot;n7c4c1c1m1r1a2&quot;,&quot;sN&quot;:7,&quot;aN&quot;:&quot;c4c1c1m1r1a2&quot;}">金融服务</a>
+                                            </li>
+
+                                </ul>
+                                
+                            </div>
+                            <div class="c-uhff-nav-group" data-m="{&quot;cN&quot;:&quot;footerNavColumn5_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c5c1c1m1r1a2&quot;,&quot;sN&quot;:5,&quot;aN&quot;:&quot;c1c1m1r1a2&quot;}">
+                                <h4 class="c-heading-4">开发人员</h4>
+                                <ul class="c-list f-bare">
+                                            <li>
+                                                <a class="c-uhff-link" href="https://visualstudio.microsoft.com/" data-m="{&quot;cN&quot;:&quot;Footer_Developer_MicrosoftVisualStudio_nav&quot;,&quot;id&quot;:&quot;n1c5c1c1m1r1a2&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c5c1c1m1r1a2&quot;}">Microsoft Visual Studio</a>
+                                            </li>
+                                            <li>
+                                                <a class="c-uhff-link" href="https://developer.microsoft.com/zh-cn/windows" data-m="{&quot;cN&quot;:&quot;Footer_Developer_WindowsDevCenter_nav&quot;,&quot;id&quot;:&quot;n2c5c1c1m1r1a2&quot;,&quot;sN&quot;:2,&quot;aN&quot;:&quot;c5c1c1m1r1a2&quot;}">Windows 开发人员中心</a>
+                                            </li>
+                                            <li>
+                                                <a class="c-uhff-link" href="https://msdn.microsoft.com/zh-cn" data-m="{&quot;cN&quot;:&quot;Footer_Developer_MicrosoftDeveloperNetwork_nav&quot;,&quot;id&quot;:&quot;n3c5c1c1m1r1a2&quot;,&quot;sN&quot;:3,&quot;aN&quot;:&quot;c5c1c1m1r1a2&quot;}">开发人员网络</a>
+                                            </li>
+                                            <li>
+                                                <a class="c-uhff-link" href="https://technet.microsoft.com/zh-cn" data-m="{&quot;cN&quot;:&quot;Footer_Developer_TechNet_nav&quot;,&quot;id&quot;:&quot;n4c5c1c1m1r1a2&quot;,&quot;sN&quot;:4,&quot;aN&quot;:&quot;c5c1c1m1r1a2&quot;}">TechNet</a>
+                                            </li>
+                                            <li>
+                                                <a class="c-uhff-link" href="https://developer.microsoft.com/zh-cn/store/register" data-m="{&quot;cN&quot;:&quot;Footer_Developer_MicrosoftDeveloperProgram_nav&quot;,&quot;id&quot;:&quot;n5c5c1c1m1r1a2&quot;,&quot;sN&quot;:5,&quot;aN&quot;:&quot;c5c1c1m1r1a2&quot;}">Microsoft 开发人员计划</a>
+                                            </li>
+                                            <li>
+                                                <a class="c-uhff-link" href="https://channel9.msdn.com/" data-m="{&quot;cN&quot;:&quot;Footer_Developer_Channel9_nav&quot;,&quot;id&quot;:&quot;n6c5c1c1m1r1a2&quot;,&quot;sN&quot;:6,&quot;aN&quot;:&quot;c5c1c1m1r1a2&quot;}">通道 9</a>
+                                            </li>
+                                            <li>
+                                                <a class="c-uhff-link" href="https://developer.microsoft.com/zh-cn/office" data-m="{&quot;cN&quot;:&quot;Footer_Developer_OfficeDevCenter_nav&quot;,&quot;id&quot;:&quot;n7c5c1c1m1r1a2&quot;,&quot;sN&quot;:7,&quot;aN&quot;:&quot;c5c1c1m1r1a2&quot;}">Office 开发人员中心</a>
+                                            </li>
+
+                                </ul>
+                                
+                            </div>
+                            <div class="c-uhff-nav-group" data-m="{&quot;cN&quot;:&quot;footerNavColumn6_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c6c1c1m1r1a2&quot;,&quot;sN&quot;:6,&quot;aN&quot;:&quot;c1c1m1r1a2&quot;}">
+                                <h4 class="c-heading-4">公司</h4>
+                                <ul class="c-list f-bare">
+                                            <li>
+                                                <a class="c-uhff-link" href="https://careers.microsoft.com/" data-m="{&quot;cN&quot;:&quot;Footer_Company_Careers_nav&quot;,&quot;id&quot;:&quot;n1c6c1c1m1r1a2&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c6c1c1m1r1a2&quot;}">招贤纳士</a>
+                                            </li>
+                                            <li>
+                                                <a class="c-uhff-link" href="https://www.microsoft.com/zh-cn/about" data-m="{&quot;cN&quot;:&quot;Footer_Company_AboutMicrosoft_nav&quot;,&quot;id&quot;:&quot;n2c6c1c1m1r1a2&quot;,&quot;sN&quot;:2,&quot;aN&quot;:&quot;c6c1c1m1r1a2&quot;}">关于 Microsoft</a>
+                                            </li>
+                                            <li>
+                                                <a class="c-uhff-link" href="https://news.microsoft.com/zh-cn" data-m="{&quot;cN&quot;:&quot;Footer_Company_CompanyNews_nav&quot;,&quot;id&quot;:&quot;n3c6c1c1m1r1a2&quot;,&quot;sN&quot;:3,&quot;aN&quot;:&quot;c6c1c1m1r1a2&quot;}">公司新闻</a>
+                                            </li>
+                                            <li>
+                                                <a class="c-uhff-link" href="https://privacy.microsoft.com/zh-cn" data-m="{&quot;cN&quot;:&quot;Footer_Company_PrivacyAtMicrosoft_nav&quot;,&quot;id&quot;:&quot;n4c6c1c1m1r1a2&quot;,&quot;sN&quot;:4,&quot;aN&quot;:&quot;c6c1c1m1r1a2&quot;}">Microsoft 隐私</a>
+                                            </li>
+                                            <li>
+                                                <a class="c-uhff-link" href="https://www.microsoft.com/investor/default.aspx" data-m="{&quot;cN&quot;:&quot;Footer_Company_Investors_nav&quot;,&quot;id&quot;:&quot;n5c6c1c1m1r1a2&quot;,&quot;sN&quot;:5,&quot;aN&quot;:&quot;c6c1c1m1r1a2&quot;}">投资人</a>
+                                            </li>
+                                            <li>
+                                                <a class="c-uhff-link" href="https://www.microsoft.com/zh-cn/security/default.aspx" data-m="{&quot;cN&quot;:&quot;Footer_Company_Security_nav&quot;,&quot;id&quot;:&quot;n6c6c1c1m1r1a2&quot;,&quot;sN&quot;:6,&quot;aN&quot;:&quot;c6c1c1m1r1a2&quot;}">安全性</a>
+                                            </li>
+
+                                </ul>
+                                
+                            </div>
+                    </div>
+            </nav>
+    <div class="c-uhff-base">
+                    <span id="selectLocaleFromPopUp">
+        <div class="locale-selector" style="position: relative">
+            <a class="current-locale" href="javascript:void(0)" aria-label="Change your language" aria-haspopup="true">
+                <span class="text">简体中文</span>
+                <span class="gear"></span>
+            </a>
+            <div class="locale-selection-panel site-flag site-flag-lang" style="top: -245px; display: none;">
+                <div class="content" role="menu">
+                    <table class="all-locales" cellspacing="0" autogeneratecolumns="false" allowpaging="false" allowsorting="false" style="border-collapse: collapse;">
+                        <tbody>
+                            <tr>
+
+
+                                    <td><a title="Deutsch" href="http://msdn.microsoft.com/zh-cn/?action=SelectLocale&amp;currentLocale=zh-cn&amp;newLocale=de-de&amp;fromPage=/zh-cn/windows/hh779016(v=vs.90)" class="locale-link" role="menuitem">Deutsch</a></td>
+                                    <td><a title="English" href="http://msdn.microsoft.com/zh-cn/?action=SelectLocale&amp;currentLocale=zh-cn&amp;newLocale=en-us&amp;fromPage=/zh-cn/windows/hh779016(v=vs.90)" class="locale-link" role="menuitem">English</a></td>
+                                    <td><a title="Español" href="http://msdn.microsoft.com/zh-cn/?action=SelectLocale&amp;currentLocale=zh-cn&amp;newLocale=es-es&amp;fromPage=/zh-cn/windows/hh779016(v=vs.90)" class="locale-link" role="menuitem">Español</a></td>
+                                    <td><a title="Français" href="http://msdn.microsoft.com/zh-cn/?action=SelectLocale&amp;currentLocale=zh-cn&amp;newLocale=fr-fr&amp;fromPage=/zh-cn/windows/hh779016(v=vs.90)" class="locale-link" role="menuitem">Français</a></td>
+                                        </tr><tr>
+                                    <td><a title="Italiano" href="http://msdn.microsoft.com/zh-cn/?action=SelectLocale&amp;currentLocale=zh-cn&amp;newLocale=it-it&amp;fromPage=/zh-cn/windows/hh779016(v=vs.90)" class="locale-link" role="menuitem">Italiano</a></td>
+                                    <td><a title="日本語" href="http://msdn.microsoft.com/zh-cn/?action=SelectLocale&amp;currentLocale=zh-cn&amp;newLocale=ja-jp&amp;fromPage=/zh-cn/windows/hh779016(v=vs.90)" class="locale-link" role="menuitem">日本語</a></td>
+                                    <td><a title="한국어" href="http://msdn.microsoft.com/zh-cn/?action=SelectLocale&amp;currentLocale=zh-cn&amp;newLocale=ko-kr&amp;fromPage=/zh-cn/windows/hh779016(v=vs.90)" class="locale-link" role="menuitem">한국어</a></td>
+                                    <td><a title="Português" href="http://msdn.microsoft.com/zh-cn/?action=SelectLocale&amp;currentLocale=zh-cn&amp;newLocale=pt-br&amp;fromPage=/zh-cn/windows/hh779016(v=vs.90)" class="locale-link" role="menuitem">Português</a></td>
+                                        </tr><tr class="last">
+                                    <td><a title="Pусский" href="http://msdn.microsoft.com/zh-cn/?action=SelectLocale&amp;currentLocale=zh-cn&amp;newLocale=ru-ru&amp;fromPage=/zh-cn/windows/hh779016(v=vs.90)" class="locale-link" role="menuitem">Pусский</a></td>
+                                    <td><a title="简体中文" href="http://msdn.microsoft.com/zh-cn/?action=SelectLocale&amp;currentLocale=zh-cn&amp;newLocale=zh-cn&amp;fromPage=/zh-cn/windows/hh779016(v=vs.90)" class="locale-link selected" role="menuitem">简体中文</a></td>
+                                    <td><a title="繁體中文" href="http://msdn.microsoft.com/zh-cn/?action=SelectLocale&amp;currentLocale=zh-cn&amp;newLocale=zh-tw&amp;fromPage=/zh-cn/windows/hh779016(v=vs.90)" class="locale-link" role="menuitem">繁體中文</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="arrow">
+                        &nbsp;</div>
+                </div>
+            </div>
+        </div>
+    </span>
+
+        <ul role="list" aria-label="Microsoft 企业链接" class="c-list f-bare" data-m="{&quot;cN&quot;:&quot;Corp links_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c8c1c1m1r1a2&quot;,&quot;sN&quot;:8,&quot;aN&quot;:&quot;c1c1m1r1a2&quot;}">
+                                <li>
+                        <a class="c-uhff-link" href="https://support.microsoft.com/zh-cn/contactus" data-mscc-ic="false" data-m="{&quot;cN&quot;:&quot;Footer_ContactUs_nav&quot;,&quot;id&quot;:&quot;n1c8c1c1m1r1a2&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c8c1c1m1r1a2&quot;}">与我们联系</a>
+                    </li>
+                    <li>
+                        <a class="c-uhff-link" href="https://go.microsoft.com/fwlink/?LinkId=521839" data-mscc-ic="false" data-m="{&quot;cN&quot;:&quot;Footer_PrivacyandCookies_nav&quot;,&quot;id&quot;:&quot;n2c8c1c1m1r1a2&quot;,&quot;sN&quot;:2,&quot;aN&quot;:&quot;c8c1c1m1r1a2&quot;}">隐私与 Cookie</a>
+                    </li>
+                    <li>
+                        <a class="c-uhff-link" href="https://go.microsoft.com/fwlink/?LinkID=206977" data-mscc-ic="false" data-m="{&quot;cN&quot;:&quot;Footer_TermsOfUse_nav&quot;,&quot;id&quot;:&quot;n3c8c1c1m1r1a2&quot;,&quot;sN&quot;:3,&quot;aN&quot;:&quot;c8c1c1m1r1a2&quot;}">使用条款</a>
+                    </li>
+                    <li>
+                        <a class="c-uhff-link" href="https://www.microsoft.com/trademarks" data-mscc-ic="false" data-m="{&quot;cN&quot;:&quot;Footer_Trademarks_nav&quot;,&quot;id&quot;:&quot;n4c8c1c1m1r1a2&quot;,&quot;sN&quot;:4,&quot;aN&quot;:&quot;c8c1c1m1r1a2&quot;}">商标</a>
+                    </li>
+                    <li>
+                        <a class="c-uhff-link" href="https://choice.microsoft.com/" data-mscc-ic="false" data-m="{&quot;cN&quot;:&quot;Footer_AboutourAds_nav&quot;,&quot;id&quot;:&quot;n5c8c1c1m1r1a2&quot;,&quot;sN&quot;:5,&quot;aN&quot;:&quot;c8c1c1m1r1a2&quot;}">关于我们的广告</a>
+                    </li>
+                    <li>
+                        <a class="c-uhff-link" href="https://msdn.microsoft.com/zh-cn/windows/hh779016(v=vs.90)#" data-mscc-ic="false" data-m="{&quot;cN&quot;:&quot;Footer_Special_nav&quot;,&quot;id&quot;:&quot;n6c8c1c1m1r1a2&quot;,&quot;sN&quot;:6,&quot;aN&quot;:&quot;c8c1c1m1r1a2&quot;}">京ICP备09042378号-6</a>
+                    </li>
+                    <li>
+                        <a class="c-uhff-link" href="https://msdn.microsoft.com/zh-cn/windows/hh779016(v=vs.90)#" data-mscc-ic="false" data-m="{&quot;cN&quot;:&quot;Footer_Special_nav&quot;,&quot;id&quot;:&quot;n7c8c1c1m1r1a2&quot;,&quot;sN&quot;:7,&quot;aN&quot;:&quot;c8c1c1m1r1a2&quot;}">京公网安备 11010802023178</a>
+                    </li>
+
+            <li>© Microsoft 2018</li>
+            
+        </ul>
+    </div>
+    
+</footer>
+
+
+
+
+    </div>
+    </div>
+
+    </section>
+
+    <script type="text/javascript" src="./使用 Blob 和 msSaveBlob 以本地方式保存文件 (Windows)_files/SelectLocaleFromPopUp.js.下载"></script>    
+    <link rel="stylesheet" type="text/css" href="./使用 Blob 和 msSaveBlob 以本地方式保存文件 (Windows)_files/SelectLocaleFromPopUp.css">
+    
+
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+
+            
+
+        </div>
+
+<script type="text/JavaScript" data-do-not-move="true">
+    //<![CDATA[
+    var varAutoFirePV = 1;
+    var varClickTracking = 1;
+    var varCustomerTracking = 1;
+    var route = "";
+    var ctrl = "";
+    document.write("<script type='text/javascript' src='" + (window.location.protocol) + "//c.microsoft.com/ms.js'" + "><\/script>");
+    //]]>
+</script><script type="text/javascript" src="https://c.microsoft.com/ms.js"></script>
+
+<script language="javascript" type="text/javascript" src="./使用 Blob 和 msSaveBlob 以本地方式保存文件 (Windows)_files/broker.js.下载"></script>
+
+
+        <input type="hidden" id="currentPageLocale" value="zh-cn">
+    
+
+    <link rel="stylesheet" href="./使用 Blob 和 msSaveBlob 以本地方式保存文件 (Windows)_files/Locale_zh-cn.css">
+<!--[CDATA[     
+Third party scripts and code linked to or referenced from this website are licensed to you by the parties that own such code, not by Microsoft.  See ASP.NET Ajax CDN Terms of Use – http://www.asp.net/ajaxlibrary/CDN.ashx.
+]]-->
+
+<script src="./使用 Blob 和 msSaveBlob 以本地方式保存文件 (Windows)_files/broker-config.js.下载"></script><div id="meControlDropdown" class="msame_Drop_root" style="display: none;" aria-expanded="false"><div tabindex="0" class="msame_focus_trap" aria-hidden="true"></div><div class="msame_Drop_topb"></div><div class="msame_Drop_content" role="dialog" tabindex="-1" aria-label="你的帐户"><div class="msame_Drop_active"></div><div class="msame_Drop_rewards" style="display: none;"></div><div class="msame_Drop_account"></div><div class="msame_Drop_links" style="display: none;"><div class="msame_Drop_links_list"></div></div><div class="msame_Drop_signIn"><div id="msame_si0" class="msame_Drop_SI" data-mc-m="{&quot;id&quot;:&quot;signIn&quot;,&quot;aN&quot;:&quot;Me Control Dropdown&quot;,&quot;cT&quot;:&quot;Link&quot;}"><a href="https://msdn.microsoft.com/zh-cn/windows/hh779016(v=vs.90)#" target="_self" class="msame_TxtTrunc">使用另一个帐户登录</a></div></div><div class="msame_Drop_signOut"></div><div class="msame_Drop_accts" style="display: none;"><div class="msame_Drop_sep"></div><div class="msame_Drop_accts_list"></div></div></div><div tabindex="0" class="msame_focus_trap" aria-hidden="true"></div></div></body></html>
