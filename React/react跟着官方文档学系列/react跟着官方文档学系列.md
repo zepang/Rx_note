@@ -211,3 +211,17 @@ ReactDOM.render(
 # 状态提升
 
 在使用react的时候，经常遇到好几个组件共享状态数据的情况，我们最好将这部分共享的数据提升到最近的父组件中进行管理。
+
+# 组合
+
+* 推荐使用组件组合而不是继承
+* 建议这些组件使用 children 属性将子元素直接传递到输出
+
+~~~jsx
+function FancyBorder(props) {
+  return (
+    <div className={'FancyBorder FancyBorder-' + props.color}>
+      {props.children}
+    </div>
+}
+~~~
