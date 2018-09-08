@@ -1,0 +1,1 @@
+$(document).ready(function(){$(".shell-footer-lang").length>0?($(".shell-footer-lang").empty(),$("#selectLocaleFromPopUp").appendTo(".shell-footer-lang")):$("#locale-picker-link").replaceWith($("#selectLocaleFromPopUp"))});
