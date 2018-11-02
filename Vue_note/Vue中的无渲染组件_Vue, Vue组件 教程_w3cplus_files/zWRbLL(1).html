@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<!-- saved from url=(0073)https://s.codepen.io/airen/fullembedgrid/zWRbLL?type=embed&animations=run -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  
+  <link rel="shortcut icon" type="image/x-icon" href="https://static.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico">
+  <link rel="mask-icon" type="" href="https://static.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111">
+  <title>CodePen - Renderless Tags Input Component with Vue</title>
+  
+  
+    <link rel="stylesheet" href="./normalize.min.css">
+
+  <link rel="stylesheet" href="./tailwind.css">
+
+      <style>
+      @import url("https://fonts.googleapis.com/css?family=Lato|Roboto:700");
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #777;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAQAAABuBnYAAAAAU0lEQVQIHQXBwRGDIBAAwO2/AMcCDHAcPjIRxjJ8Je1kl1uqUgphsWu6w0sIG6npLpcUBql4e/wsVRKabrkNTacIYbMrwsF06rqUhsnXVKVT+Hj+Ue4rPSONk4kAAAAASUVORK5CYII=);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  color: #fff;
+  font-family: 'Lato', sans-serif;
+  line-height: 1.4;
+}
+
+#app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tags-input {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #fff;
+  border-width: 1px;
+  border-radius: .25rem;
+  padding-left: .5rem;
+  padding-right: 1rem;
+  padding-top: .5rem;
+  padding-bottom: .25rem;
+}
+
+.tags-input-tag {
+  display: inline-flex;
+  line-height: 1;
+  align-items: center;
+  font-size: .875rem;
+  background-color: #bcdefa;
+  color: #1c3d5a;
+  border-radius: .25rem;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  padding: .25rem;
+  margin-right: .5rem;
+  margin-bottom: .25rem;
+}
+
+.tags-input-tag:last-of-type {
+  margin-right: 0;
+}
+
+.tags-input-remove {
+  color: #2779bd;
+  font-size: 1.125rem;
+  line-height: 1;
+}
+
+.tags-input-remove:first-child {
+  margin-right: .25rem;
+}
+
+.tags-input-remove:last-child {
+  margin-left: .25rem;
+}
+
+.tags-input-remove:focus {
+  outline: 0;
+}
+
+.tags-input-text {
+  flex: 1;
+  outline: 0;
+  padding-top: .25rem;
+  padding-bottom: .25rem;
+  margin-left: .5rem;
+  margin-bottom: .25rem;
+  min-width: 10rem;
+}
+
+.text-input {
+  background-color: #fff;
+  border-width: 1px;
+  border-radius: .25rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+  width: 100%;
+}
+
+.text-input:focus {
+  outline: 0;
+}
+
+.btn {
+  font-weight: 600;
+  border-radius: .25rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #6574cd;
+}
+
+.btn-primary:hover {
+  background-color: #7886d7;
+}
+
+.py-16 {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+.mr-2 {
+  color: #333;
+}
+
+    </style>
+
+  <script>
+  window.console = window.console || function(t) {};
+</script>
+
+  
+  
+  <script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
+</script>
+
+
+</head>
+
+<body translate="no">
+
+  <div id="app"><div class="p-4 rounded border bg-white"><div class="flex"><input placeholder="New tag" class="text-input flex-1 mr-2"> <button type="button" class="btn btn-primary">Add</button></div> <ul class="mt-4 pl-6"><li class="mb-2"><span class="mr-2">Testing</span> <button class="text-grey-dark hover:text-grey-darkest underline text-sm">Remove</button></li><li class="mb-2"><span class="mr-2">Design</span> <button class="text-grey-dark hover:text-grey-darkest underline text-sm">Remove</button></li></ul></div></div>
+    <script src="./stopExecutionOnTimeout-41c52890748cd7143004e05d3c5f786c66b19939c4500ce446314d1748483e13.js.下载"></script>
+
+  <script src="./vue.min.js.下载"></script>
+
+  
+
+    <script>
+      function _toConsumableArray(arr) {if (Array.isArray(arr)) {for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) {arr2[i] = arr[i];}return arr2;} else {return Array.from(arr);}} // Renderless Tags Input Component
+Vue.component('renderless-tags-input', {
+    props: ['value'],
+    data: function data() {
+        return {
+            newTag: '' };
+
+    },
+    methods: {
+        removeTag: function removeTag(tag) {
+            this.$emit('input', this.value.filter(function (t) {return t !== tag;}));
+        },
+        addTag: function addTag() {
+            if (this.newTag.trim().length === 0 || this.value.includes(this.newTag.trim())) {
+                return;
+            }
+            this.$emit('input', [].concat(_toConsumableArray(this.value), [this.newTag.trim()]));
+            this.newTag = '';
+        } },
+
+    render: function render() {var _this = this;
+        return this.$scopedSlots.default({
+            tags: this.value,
+            removeTag: this.removeTag,
+            inputAttrs: {
+                value: this.newTag },
+
+            inputEvents: {
+                input: function input(e) {_this.newTag = e.target.value;},
+                keydown: function keydown(e) {
+                    if (e.keyCode === 13) {
+                        e.preventDefault();
+                        _this.addTag();
+                    }
+                } },
+
+            addTag: this.addTag });
+
+    } });
+
+
+var app = new Vue({
+    el: '#app',
+    data: function data() {
+        return {
+            tags: ['Testing', 'Design'] };
+
+    } });
+      //# sourceURL=pen.js
+    </script>
+
+
+
+  
+  
+
+  <script src="./css_reload-2a5c7ad0fe826f66e054c6020c99c1e1c63210256b6ba07eb41d7a4cb0d0adab.js.下载"></script>
+
+
+
+ 
+</body></html>
