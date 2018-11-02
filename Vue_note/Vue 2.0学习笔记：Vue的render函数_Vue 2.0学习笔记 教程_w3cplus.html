@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)https://www.w3cplus.com/vue/vue-render-function.html -->
+<html lang="zh-hans" dir="ltr" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/terms/" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:og="http://ogp.me/ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:sioc="http://rdfs.org/sioc/ns#" xmlns:sioct="http://rdfs.org/sioc/types#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#" class="js"><head profile="http://www.w3.org/1999/xhtml/vocab"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script async="" src="https://w3cplus.disqus.com/embed.js?_=1540463217633"></script>
+  
+<link rel="shortcut icon" href="https://www.w3cplus.com/sites/all/themes/w3cplusV2/favicon.ico" type="image/vnd.microsoft.icon">
+<meta name="description" content="前几天想学学Vue中怎么编写可复用的组件，提到要对Vue的render函数有所了解。可仔细一想，对于Vue的render函数自己只是看了官方的一些介绍，并未深入一点去了解这方面的知识。为了更好的学习后续的知识，又折回来了解Vue中的render函数，这一切主要都是为了后续能更好的学习Vue的知识。">
+<meta name="keywords" content="前端,Vue 2.0学习笔记,教程">
+<meta name="generator" content="Drupal 7 (http://drupal.org)">
+<link rel="canonical" href="https://www.w3cplus.com/vue/vue-render-function.html">
+<link rel="shortlink" href="https://www.w3cplus.com/node/2391">
+  <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta itemprop="name" content="W3cplus">
+  <meta itemprop="image" content="//www.w3cplus.com/w3cplus-logo.jpg">
+  <meta name="baidu-site-verification" content="ftyq813qEZgpw9nb">
+  <meta name="applicable-device" content="pc,mobile">
+  <title>Vue 2.0学习笔记：Vue的render函数_Vue 2.0学习笔记 教程_w3cplus</title>
+  <link type="text/css" rel="stylesheet" href="./Vue 2.0学习笔记：Vue的render函数_Vue 2.0学习笔记 教程_w3cplus_files/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4.css" media="all">
+<link type="text/css" rel="stylesheet" href="./Vue 2.0学习笔记：Vue的render函数_Vue 2.0学习笔记 教程_w3cplus_files/css_hYCLW089C9S9sP3ZYkuG6R-Q5ZHbEhblZBFjwZ_bE_I.css" media="all">
+<link type="text/css" rel="stylesheet" href="./Vue 2.0学习笔记：Vue的render函数_Vue 2.0学习笔记 教程_w3cplus_files/css__gVZeugQ0xK4y30x-OO-eJE6l9OtxuPNs6EovPkd6Bg.css" media="all">
+<link type="text/css" rel="stylesheet" href="./Vue 2.0学习笔记：Vue的render函数_Vue 2.0学习笔记 教程_w3cplus_files/css_OeeOg8hUfJ9L-UTYVWF3SbMUQf9PYpekfW_oBSJ3eR0.css" media="all">
+  <script src="./Vue 2.0学习笔记：Vue的render函数_Vue 2.0学习笔记 教程_w3cplus_files/hm.js.下载" type="text/javascript"></script><script src="./Vue 2.0学习笔记：Vue的render函数_Vue 2.0学习笔记 教程_w3cplus_files/zhi12-colorbox.js.下载"></script><script type="text/javascript" src="./Vue 2.0学习笔记：Vue的render函数_Vue 2.0学习笔记 教程_w3cplus_files/jquery.min.js.下载"></script>
+<link rel="stylesheet" type="text/css" href="./Vue 2.0学习笔记：Vue的render函数_Vue 2.0学习笔记 教程_w3cplus_files/colorbox_style.css"></head>
+<body class="html not-front not-logged-in one-sidebar sidebar-second page-node page-node- page-node-2391 node-type-blog featured disqus-processed" style="">
+  <div id="skip-link">
+    <a href="https://www.w3cplus.com/vue/vue-render-function.html#main-content" class="element-invisible element-focusable">跳转到主要内容</a>
+  </div>
+    <div id="header" role="header">
+  <div class="container">
+    <h1 id="logo">
+      <a href="https://www.w3cplus.com/" title="记述前端那些事,引领web前沿,打造精品css3教程" id="site_name">w3cplus</a>
+    </h1>
+    <div class="toggle-topbar menu-icon" id="pull">
+      <a href="https://www.w3cplus.com/vue/vue-render-function.html#"><span>Menu</span></a>
+    </div>
+    <div class="toogle-topbar-content" id="pull-menu">
+              <ul class="menu clearfix"><li class="first leaf"><a href="https://www.w3cplus.com/CSS3" title="">CSS</a></li>
+<li class="leaf"><a href="https://www.w3cplus.com/JavaScript" title="JavaScript">JavaScript</a></li>
+<li class="leaf"><a href="https://www.w3cplus.com/blog/react" title="React">React</a></li>
+<li class="leaf"><a href="https://www.w3cplus.com/blog/vue" title="Vue">Vue</a></li>
+<li class="leaf"><a href="https://www.w3cplus.com/mobile" title="">Mobile</a></li>
+<li class="leaf"><a href="https://www.w3cplus.com/blog/tags/302.html" title="Sass教程">Sass</a></li>
+<li class="leaf"><a href="https://www.w3cplus.com/blog/translations" title="译文">译文</a></li>
+<li class="leaf"><a href="https://www.w3cplus.com/svg-tutorial" title="SVG">SVG</a></li>
+<li class="leaf"><a href="https://www.w3cplus.com/qa.html" title="付费问答">付费问答</a></li>
+<li class="leaf"><a href="https://www.w3cplus.com/tags" title="标签云">标签云</a></li>
+<li class="last leaf"><a href="https://www.w3cplus.com/rss.xml" title="RSS">RSS</a></li>
+</ul>        <!-- /#main-menu -->
+          </div>
+  </div>
+</div>
+
+  <div id="branding" role="branding">
+    <div class="container">
+        <div class="region region-branding">
+    <div id="block-block-44" class="block block-block">
+
+    
+  <div class="content">
+    <div class="ct-ad-article-wrapper" id="content-ad1" style="margin:0; padding:0; overflow: visible; border: none;">
+  <div class="ct-ad-article" style="margin-left: calc(-50vw + 50%); margin-right: calc(-50vw + 50%);width: auto; max-width: none;">
+    <div class="bsap">
+     <a href="https://vue.w3ctech.com/" target="_blank"><img src="./Vue 2.0学习笔记：Vue的render函数_Vue 2.0学习笔记 教程_w3cplus_files/vue-1920.jpg" style="width: 100%;"></a>
+    </div>
+  </div>
+</div>  </div>
+</div>
+  </div>
+    </div>
+  </div> 
+
+<div id="page" role="page">
+  <div class="container">
+    
+    <div class="col-main">
+      <div class="main-wrap">
+        
+                    <div class="region region-featured">
+    <div id="block-block-50" class="block block-block">
+
+    
+  <div class="content">
+    <div class="ct-ad-article-wrapper" id="content-ad1">
+  <div class="ct-ad-article">
+    <div class="bsap">
+     <a href="https://vue.w3ctech.com/" target="_blank">
+      <img src="./Vue 2.0学习笔记：Vue的render函数_Vue 2.0学习笔记 教程_w3cplus_files/vue-960.jpg">
+     </a>
+    </div>
+  </div>
+</div>  </div>
+</div>
+  </div>
+                
+        <div class="page-inner">
+                      <div id="breadcrumb" role="breadcrumb">
+              <h2 class="element-invisible">你在这里</h2><div class="breadcrumb"><a href="https://www.w3cplus.com/">首页</a> » <a href="https://www.w3cplus.com/blog">博客</a> » <a href="https://www.w3cplus.com/blogs/airen">Airen的博客</a></div>            </div>
+          
+          
+          <a id="main-content"></a>
+                                <h1 class="title" id="page-title">
+              Vue 2.0学习笔记：Vue的render函数            </h1>
+          
+                    
+                                <div class="region region-content">
+    <div id="block-system-main" class="block block-system">
+
+    
+  <div class="content">
+    <div id="node-2391" class="node node-blog node-promoted node-full clearfix" about="/vue/vue-render-function.html" typeof="sioc:Post sioct:BlogPost">
+  
+  <div class="node-header">
+              <div class="submitted">
+          作者：<span>大漠</span>          日期：<span>2018-04-21</span>          点击：<span>3527</span>        </div>
+            <div class="tags">
+        <div class="field field-name-field-blog-tag field-type-taxonomy-term-reference field-label-hidden"><div class="field-items"><div class="field-item even"><a href="https://www.w3cplus.com/blog/vue/vue2" typeof="skos:Concept" property="rdfs:label skos:prefLabel" datatype="" target="_blank">Vue 2.0学习笔记</a></div></div></div>      </div>
+  </div>
+
+      <div id="node-top" class="node-top">
+      <div id="block-block-38" class="block block-block">
+
+    
+  <div class="content">
+    <div class="ct-ad-article-wrapper" id="content-ad">
+  <div class="ct-ad-article">
+    <div class="bsap">
+     <a href="mailto:airenliao@gmail.com" target="_blank">
+      <img src="./Vue 2.0学习笔记：Vue的render函数_Vue 2.0学习笔记 教程_w3cplus_files/w3cplus-ad-960-2.png" width="960" height="90">
+     </a>
+    </div>
+  </div>
+</div>
+<div>
+<blockquote>
+<p style="font-style:strong;">如果看完了还不过瘾？想和作者深聊相关话题，可以<a class="zhi12-popup cboxElement" href="https://www.zhi12.com/ask/5491/widget" target="_blank" data-box-width="680" style="color: #FF9800; border-bottom: 3px double currentColor; padding-bottom: 3px;">点击这里向作者提问！</a></p>
+</blockquote>
+</div>
+  </div>
+</div>
+    </div>
+  
+  <div class="body-content clearfix">
+    <div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>前几天想学学Vue中怎么编写可复用的组件，提到要对Vue的<code>render</code>函数有所了解。可仔细一想，对于Vue的<code>render</code>函数自己只是看了官方的一些介绍，并未深入一点去了解这方面的知识。为了更好的学习后续的知识，又折回来了解Vue中的<code>render</code>函数，这一切主要都是为了后续能更好的学习Vue的知识。</p>
+
+<h2>回忆Vue的一些基本概念</h2>
+
+<p>今天我们学习的目的是了解和学习Vue的<code>render</code>函数。如果想要更好的学习Vue的<code>render</code>函数相关的知识，我们有必要重温一下Vue中的一些基本概念。那么先上一张图，这张图从宏观上展现了Vue整体流程：</p>
+
+<p><img src="./Vue 2.0学习笔记：Vue的render函数_Vue 2.0学习笔记 教程_w3cplus_files/vue-render-1.jpg" alt=""></p>
+
+<p>从上图中，不难发现一个Vue的应用程序是如何运行起来的，模板通过编译生成AST，再由AST生成Vue的<code>render</code>函数（渲染函数），渲染函数结合数据生成Virtual DOM树，Diff和Patch后生成新的UI。从这张图中，可以接触到Vue的一些主要概念：</p>
+
+<ul>
+<li><strong>模板</strong>：Vue的模板基于纯HTML，基于Vue的模板语法，我们可以比较方便地声明数据和UI的关系。</li>
+<li><strong>AST</strong>：AST是<strong>Abstract Syntax Tree</strong>的简称，Vue使用HTML的Parser将HTML模板解析为AST，并且对AST进行一些优化的标记处理，提取最大的静态树，方便Virtual DOM时直接跳过Diff。</li>
+<li><strong>渲染函数</strong>：渲染函数是用来生成Virtual DOM的。Vue推荐使用模板来构建我们的应用界面，在底层实现中Vue会将模板编译成渲染函数，当然我们也可以不写模板，直接写渲染函数，以获得更好的控制 （这部分是我们今天主要要了解和学习的部分）。</li>
+<li><strong>Virtual DOM</strong>：虚拟DOM树，Vue的Virtual DOM Patching算法是基于<strong><a href="https://github.com/snabbdom/snabbdom" target="_blank">Snabbdom</a></strong>的实现，并在些基础上作了很多的调整和改进。</li>
+<li><strong>Watcher</strong>：每个Vue组件都有一个对应的<code>watcher</code>，这个<code>watcher</code>将会在组件<code>render</code>的时候收集组件所依赖的数据，并在依赖有更新的时候，触发组件重新渲染。你根本不需要写<code>shouldComponentUpdate</code>，Vue会自动优化并更新要更新的UI。</li>
+</ul>
+
+<p>上图中，<code>render</code>函数可以作为一道分割线，<code>render</code>函数的左边可以称之为<strong>编译期</strong>，将Vue的模板转换为<strong>渲染函数</strong>。<code>render</code>函数的右边是Vue的运行时，主要是基于渲染函数生成Virtual DOM树，Diff和Patch。</p>
+
+<h2>渲染函数的基础</h2>
+
+<p>Vue推荐在绝大多数情况下使用<code>template</code>来创建你的HTML。然而在一些场景中，需要使用JavaScript的编程能力和创建HTML，这就是<strong><code>render</code>函数</strong>，它比<code>template</code>更接近编译器。</p>
+
+<pre class="xml"><code class="xml"><span class="tag"><span class="tag">&lt;<span class="title"><span class="title">h1</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">a</span></span> <span class="attribute"><span class="attribute">name</span></span>=<span class="value"><span class="value">"hello-world"</span></span> <span class="attribute"><span class="attribute">href</span></span>=<span class="value"><span class="value">"#hello-world"</span></span>&gt;</span></span>
+        Hello world!
+    <span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">a</span></span>&gt;</span></span>
+<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">h1</span></span>&gt;</span></span>
+</code></pre>
+
+<p>在HTML层，我们决定这样定义组件接口：</p>
+
+<pre class="xml"><code class="xml"><span class="tag"><span class="tag">&lt;<span class="title"><span class="title">anchored-heading</span></span> <span class="attribute"><span class="attribute">:level</span></span>=<span class="value"><span class="value">"1"</span></span>&gt;</span></span>Hello world!<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">anchored-heading</span></span>&gt;</span></span>
+</code></pre>
+
+<p>当我们开始写一个通过<code>level</code>的<code>prop</code>动态生成<code>heading</code>标签的组件，你可能很快想到这样实现：</p>
+
+<pre class="xml"><code class="xml"><span class="comment"><span class="comment">&lt;!-- HTML --&gt;</span></span>
+<span class="tag"><span class="tag">&lt;<span class="title"><span class="title">script</span></span> <span class="attribute"><span class="attribute">type</span></span>=<span class="value"><span class="value">"text/x-template"</span></span> <span class="attribute"><span class="attribute">id</span></span>=<span class="value"><span class="value">"anchored-heading-template"</span></span>&gt;</span></span><span class="javascript"><span class="javascript">
+    &lt;h1 v-<span class="keyword"><span class="keyword">if</span></span>=<span class="string"><span class="string">"level === 1"</span></span>&gt;
+        <span class="xml"><span class="tag"><span class="xml"><span class="tag">&lt;<span class="title"><span class="title">slot</span></span>&gt;</span></span></span><span class="xml"><span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">slot</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">h1</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">h2</span></span> <span class="attribute"><span class="attribute">v-else-if</span></span>=<span class="value"><span class="value">"level === 2"</span></span>&gt;</span></span>
+        <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">slot</span></span>&gt;</span></span><span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">slot</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">h2</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">h3</span></span> <span class="attribute"><span class="attribute">v-else-if</span></span>=<span class="value"><span class="value">"level === 3"</span></span>&gt;</span></span>
+        <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">slot</span></span>&gt;</span></span><span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">slot</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">h3</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">h4</span></span> <span class="attribute"><span class="attribute">v-else-if</span></span>=<span class="value"><span class="value">"level === 4"</span></span>&gt;</span></span>
+        <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">slot</span></span>&gt;</span></span><span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">slot</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">h4</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">h5</span></span> <span class="attribute"><span class="attribute">v-else-if</span></span>=<span class="value"><span class="value">"level === 5"</span></span>&gt;</span></span>
+        <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">slot</span></span>&gt;</span></span><span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">slot</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">h5</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">h6</span></span> <span class="attribute"><span class="attribute">v-else-if</span></span>=<span class="value"><span class="value">"level === 6"</span></span>&gt;</span></span>
+        <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">slot</span></span>&gt;</span></span><span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">slot</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">h6</span></span>&gt;</span></span>
+</span></span></span><span class="xml"></span></span><span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">script</span></span>&gt;</span></span>
+
+<span class="comment"><span class="comment">&lt;!-- Javascript --&gt;</span></span>
+Vue.component('anchored-heading', {
+    template: '#anchored-heading-template',
+    props: {
+        level: {
+            type: Number,
+            required: true
+        }
+    }
+})
+</code></pre>
+
+<p>在这种场景中使用 <code>template</code> 并不是最好的选择：首先代码冗长，为了在不同级别的标题中插入锚点元素，我们需要重复地使用 <code>&lt;slot&gt;&lt;/slot&gt;</code>。</p>
+
+<p>虽然模板在大多数组件中都非常好用，但是在这里它就不是很简洁的了。那么，我们来尝试使用 <code>render</code> 函数重写上面的例子：</p>
+
+<pre class="php"><code class="php">Vue.component(<span class="string"><span class="string">'anchored-heading'</span></span>, {
+    render: <span class="function"><span class="keyword"><span class="function"><span class="keyword">function</span></span></span><span class="function"> <span class="params"><span class="params">(createElement)</span></span> {</span></span>
+        <span class="keyword"><span class="keyword">return</span></span> createElement(
+            <span class="string"><span class="string">'h'</span></span> + <span class="keyword"><span class="keyword">this</span></span>.level,   <span class="comment"><span class="comment">// tag name 标签名称</span></span>
+            <span class="keyword"><span class="keyword">this</span></span>.<span class="variable"><span class="variable">$slots</span></span>.<span class="keyword"><span class="keyword">default</span></span> <span class="comment"><span class="comment">// 子组件中的阵列</span></span>
+        )
+    },
+    props: {
+        level: {
+            type: Number,
+            required: <span class="keyword"><span class="keyword">true</span></span>
+        }
+    }
+})
+</code></pre>
+
+<p>简单清晰很多！简单来说，这样代码精简很多，但是需要非常熟悉 Vue 的实例属性。在这个例子中，你需要知道当你不使用 <code>slot</code> 属性向组件中传递内容时，比如 <code>anchored-heading</code> 中的 <code>Hello world!</code>，这些子元素被存储在组件实例中的 <code>$slots.default</code>中。</p>
+
+<h2>节点、树以及虚拟DOM</h2>
+
+<p>对Vue的一些概念和渲染函数的基础有一定的了解之后，我们需要对一些浏览器的工作原理有一些了解，这样对我们学习<code>render</code>函数是很重要的。比如下面的这段HTML代码：</p>
+
+<pre class="xml"><code class="xml"><span class="tag"><span class="tag">&lt;<span class="title"><span class="title">div</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">h1</span></span>&gt;</span></span>My title<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">h1</span></span>&gt;</span></span>
+    Some text content
+    <span class="comment"><span class="comment">&lt;!-- TODO: Add tagline --&gt;</span></span>
+<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">div</span></span>&gt;</span></span>
+</code></pre>
+
+<p>当浏览器读到这些代码时，它会建立一个<strong><a href="https://javascript.info/dom-nodes" target="_blank">DOM节点树</a></strong>来保持追踪，如果你会画一张家谱树来追踪家庭成员的发展一样。</p>
+
+<p>HTML的DOM节点树如下图所示：</p>
+
+<p><img src="./Vue 2.0学习笔记：Vue的render函数_Vue 2.0学习笔记 教程_w3cplus_files/dom-tree.png" alt=""></p>
+
+<p>每个元素都是一个节点。每片文字也是一个节点。甚至注释也都是节点。一个节点就是页面的一个部分。就像家谱树一样，每个节点都可以有孩子节点 (也就是说每个部分可以包含其它的一些部分)。</p>
+
+<p>高效的更新所有这些节点会是比较困难的，不过所幸你不必再手动完成这个工作了。你只需要告诉 Vue 你希望页面上的 HTML 是什么，这可以是在一个模板里：</p>
+
+<pre class="xml"><code class="xml"><span class="tag"><span class="tag">&lt;<span class="title"><span class="title">h1</span></span>&gt;</span></span>{{ blogTitle }}<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">h1</span></span>&gt;</span></span>
+</code></pre>
+
+<p>或者一个渲染函数里：</p>
+
+<pre class="javascript"><code class="javascript">render: <span class="function"><span class="keyword"><span class="function"><span class="keyword">function</span></span></span><span class="function"> <span class="params"><span class="params">(createElement)</span></span> {</span></span>
+    <span class="keyword"><span class="keyword">return</span></span> createElement(<span class="string"><span class="string">'h1'</span></span>, <span class="keyword"><span class="keyword">this</span></span>.blogTitle)
+}
+</code></pre>
+
+<p>在这两种情况下，Vue 都会自动保持页面的更新，即便 <code>blogTitle</code> 发生了改变。</p>
+
+<h2>虚拟DOM</h2>
+
+<p>在Vue 2.0中，渲染层的实现做了根本性改动，那就是引入了虚拟DOM。</p>
+
+<p><img src="./Vue 2.0学习笔记：Vue的render函数_Vue 2.0学习笔记 教程_w3cplus_files/vue-render-2.png" alt=""></p>
+
+<p>Vue的编译器在编译模板之后，会把这些模板编译成一个渲染函数。而函数被调用的时候就会渲染并且返回一个<strong>虚拟DOM的树</strong>。</p>
+
+<p>当我们有了这个虚拟的树之后，再交给一个<strong>Patch函数</strong>，负责把这些虚拟DOM真正施加到真实的DOM上。在这个过程中，Vue有自身的响应式系统来侦测在渲染过程中所依赖到的数据来源。在渲染过程中，侦测到数据来源之后就可以精确感知数据源的变动。到时候就可以根据需要重新进行渲染。当重新进行渲染之后，会生成一个新的树，将新的树与旧的树进行对比，就可以最终得出应施加到真实DOM上的改动。最后再通过Patch函数施加改动。</p>
+
+<p>简单点讲，在Vue的底层实现上，Vue将模板编译成虚拟DOM渲染函数。结合Vue自带的响应系统，在应该状态改变时，Vue能够智能地计算出重新渲染组件的最小代价并应到DOM操作上。</p>
+
+<p><img src="./Vue 2.0学习笔记：Vue的render函数_Vue 2.0学习笔记 教程_w3cplus_files/vue-r-1.png" alt=""></p>
+
+<p>Vue支持我们通过<code>data</code>参数传递一个JavaScript对象做为组件数据，然后Vue将遍历此对象属性，使用<a href="https://www.w3cplus.com/vue/vue-two-way-binding-object-defineproperty.html" target="_blank"><code>Object.defineProperty</code>方法</a>设置描述对象，通过存取器函数可以追踪该属性的变更，Vue创建了一层<code>Watcher</code>层，在组件渲染的过程中把属性记录为依赖，之后当依赖项的<code>setter</code>被调用时，会通知<code>Watcher</code>重新计算，从而使它关联的组件得以更新,如下图：</p>
+
+<p><img src="./Vue 2.0学习笔记：Vue的render函数_Vue 2.0学习笔记 教程_w3cplus_files/Object-defineProperty-14.png" alt=""></p>
+
+<p>有关于Vue的响应式相关的内容，可以阅读下列文章：</p>
+
+<ul>
+<li><a href="https://www.w3cplus.com/vue/understanding-vue-js-reactivity-depth-object-defineproperty.html" target="_blank">深入理解Vue.js响应式原理</a></li>
+<li><a href="https://www.w3cplus.com/vue/vue-two-way-binding-object-defineproperty.html" target="_blank">Vue双向绑定的实现原理<code>Object.defineproperty</code></a></li>
+<li><a href="https://www.w3cplus.com/vue/vue-two-way-binding.html" target="_blank">Vue的双向绑定原理及实现</a></li>
+<li><a href="https://www.w3cplus.com/vue/vue-reactivity.html" target="_blank">Vue中的响应式</a></li>
+<li><a href="https://www.w3cplus.com/vue/reactive.html" target="_blank">从JavaScript属性描述器剖析Vue.js响应式视图</a></li>
+</ul>
+
+<p>对于Vue自带的响应式系统，并不是咱们今天要聊的东西。我们还是回到Vue的虚拟DOM中来。对于虚拟DOM，咱们来看一个简单的实例，就是下图所示的这个，详细的阐述了<code>模板 → 渲染函数 → 虚拟DOM树 → 真实DOM</code>的一个过程</p>
+
+<p><img src="./Vue 2.0学习笔记：Vue的render函数_Vue 2.0学习笔记 教程_w3cplus_files/vue-render-3.png" alt=""></p>
+
+<p>其实Vue中的虚拟DOM还是很复杂的，我也是一知半解，如果你想深入的了解，可以阅读@JoeRay61的《<a href="https://segmentfault.com/a/1190000008291645" target="_blank">Vue原理解析之Virtual DOM</a>》一文。</p>
+
+<p>通过前面的学习，我们初步了解到Vue通过建立一个<strong>虚拟DOM</strong>对真实DOM发生的变化保持追踪。比如下面这行代码：</p>
+
+<pre class="cs"><code class="cs"><span class="keyword"><span class="keyword">return</span></span> createElement(<span class="string"><span class="string">'h1'</span></span>, <span class="keyword"><span class="keyword">this</span></span>.blogTitle)
+</code></pre>
+
+<p><code>createElement</code> 到底会返回什么呢？其实不是一个实际的 DOM 元素。它更准确的名字可能是 <code>createNodeDescription</code>，因为它所包含的信息会告诉 Vue 页面上需要渲染什么样的节点，及其子节点。我们把这样的节点描述为“虚拟节点 (Virtual Node)”，也常简写它为“VNode”。“虚拟 DOM”是我们对由 Vue 组件树建立起来的整个 VNode 树的称呼。</p>
+
+<p>Vue组件树建立起来的整个VNode树是唯一的。这意味着，下面的<strong><code>render</code>函数是无效</strong>的：</p>
+
+<pre class="javascript"><code class="javascript">render: <span class="function"><span class="keyword"><span class="function"><span class="keyword">function</span></span></span><span class="function"> <span class="params"><span class="params">(createElement)</span></span> {</span></span>
+    <span class="keyword"><span class="keyword">var</span></span> myParagraphVNode = createElement(<span class="string"><span class="string">'p'</span></span>, <span class="string"><span class="string">'hi'</span></span>)
+    <span class="keyword"><span class="keyword">return</span></span> createElement(<span class="string"><span class="string">'div'</span></span>, [
+        <span class="comment"><span class="comment">// 错误-重复的 VNodes</span></span>
+        myParagraphVNode, myParagraphVNode
+    ])
+}
+</code></pre>
+
+<p>如果你真的需要重复很多次的元素/组件，你可以使用工厂函数来实现。例如，下面这个例子 <code>render</code> 函数完美有效地渲染了 <code>20</code> 个重复的段落：</p>
+
+<pre class="php"><code class="php">render: <span class="function"><span class="keyword"><span class="function"><span class="keyword">function</span></span></span><span class="function"> <span class="params"><span class="params">(createElement)</span></span> {</span></span>
+    <span class="keyword"><span class="keyword">return</span></span> createElement(<span class="string"><span class="string">'div'</span></span>,
+        <span class="keyword"><span class="keyword">Array</span></span>.apply(<span class="keyword"><span class="keyword">null</span></span>, { length: <span class="number"><span class="number">20</span></span> }).map(<span class="function"><span class="keyword"><span class="function"><span class="keyword">function</span></span></span><span class="function"> <span class="params"><span class="params">()</span></span> {</span></span>
+            <span class="keyword"><span class="keyword">return</span></span> createElement(<span class="string"><span class="string">'p'</span></span>, <span class="string"><span class="string">'hi'</span></span>)
+        })
+    )
+}
+</code></pre>
+
+<h2>Vue的渲染机制</h2>
+
+<p><img src="./Vue 2.0学习笔记：Vue的render函数_Vue 2.0学习笔记 教程_w3cplus_files/vue-render-4.png" alt=""></p>
+
+<p>上图展示的是独立构建时的一个渲染流程图。</p>
+
+<p>继续使用上面用到的模板到真实DOM过程的一个图：</p>
+
+<p><img src="./Vue 2.0学习笔记：Vue的render函数_Vue 2.0学习笔记 教程_w3cplus_files/vue-render-3.png" alt=""></p>
+
+<p>这里会涉及到Vue的另外两个概念：</p>
+
+<ul>
+<li><strong>独立构建</strong>：包含模板编译器，渲染过程<code>HTML字符串 → render函数 → VNode → 真实DOM节点</code></li>
+<li><strong>运行时构建</strong>：不包含模板编译器，渲染过程<code>render函数 → VNode → 真实DOM节点</code></li>
+</ul>
+
+<p>运行时构建的包，会比独立构建少一个模板编译器。在<code>$mount</code>函数上也不同。而<code>$mount</code>方法又是整个渲染过程的起始点。用一张流程图来说明：</p>
+
+<p><img src="./Vue 2.0学习笔记：Vue的render函数_Vue 2.0学习笔记 教程_w3cplus_files/vue-render-5.png" alt=""></p>
+
+<p>由此图可以看到，在渲染过程中，提供了三种渲染模式，自定义<code>render</code>函数、<code>template</code>、<code>el</code>均可以渲染页面，也就是对应我们使用Vue时，三种写法：</p>
+
+<h3>自定义<code>render函数</code></h3>
+
+<pre class="php"><code class="php">Vue.component(<span class="string"><span class="string">'anchored-heading'</span></span>, {
+    render: <span class="function"><span class="keyword"><span class="function"><span class="keyword">function</span></span></span><span class="function"> <span class="params"><span class="params">(createElement)</span></span> {</span></span>
+        <span class="keyword"><span class="keyword">return</span></span> createElement (
+            <span class="string"><span class="string">'h'</span></span> + <span class="keyword"><span class="keyword">this</span></span>.level,   <span class="comment"><span class="comment">// tag name标签名称</span></span>
+            <span class="keyword"><span class="keyword">this</span></span>.<span class="variable"><span class="variable">$slots</span></span>.<span class="keyword"><span class="keyword">default</span></span> <span class="comment"><span class="comment">// 子组件中的阵列</span></span>
+        )
+    },
+    props: {
+        level: {
+            type: Number,
+            required: <span class="keyword"><span class="keyword">true</span></span>
+        }
+    }
+})
+</code></pre>
+
+<h3><code>template</code>写法</h3>
+
+<pre class="xml"><code class="xml">let app = new Vue({
+    template: `<span class="tag"><span class="tag">&lt;<span class="title"><span class="title">div</span></span>&gt;</span></span>{{ msg }}<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">div</span></span>&gt;</span></span>`,
+    data () {
+        return {
+            msg: ''
+        }
+    }
+})
+</code></pre>
+
+<h3><code>el</code>写法</h3>
+
+<pre class="cs"><code class="cs"><span class="keyword"><span class="keyword">let</span></span> app = <span class="keyword"><span class="keyword">new</span></span> Vue({
+    el: <span class="string"><span class="string">'#app'</span></span>,
+    data () {
+        <span class="keyword"><span class="keyword">return</span></span> {
+            msg: <span class="string"><span class="string">'Hello Vue!'</span></span>
+        }
+    }
+})
+</code></pre>
+
+<p>这三种渲染模式最终都是要得到<code>render</code>函数。只不过用户自定义的<code>render</code>函数省去了程序分析的过程，等同于处理过的<code>render</code>函数，而普通的<code>template</code>或者<code>el</code>只是字符串，需要解析成AST，再将AST转化为<code>render</code>函数。</p>
+
+<blockquote>
+  <p><strong>记住一点，无论哪种方法，都要得到<code>render</code>函数。</strong></p>
+</blockquote>
+
+<p>我们在使用过程中具体要使用哪种调用方式，要根据具体的需求来。</p>
+
+<p>如果是比较简单的逻辑，使用<code>template</code>和<code>el</code>比较好，因为这两种都属于声明式渲染，对用户理解比较容易，但灵活性比较差，因为最终生成的<code>render</code>函数是由程序通过AST解析优化得到的;而使用自定义<code>render</code>函数相当于人已经将逻辑翻译给程序，能够胜任复杂的逻辑，灵活性高，但对于用户的理解相对差点。</p>
+
+<h2>理解<code>createElement</code></h2>
+
+<p>在使用<code>render</code>函数，其中还有另一个需要掌握的部分，那就是<code>createElement</code>。接下来我们需要熟悉的是如何在<code>createElement</code>函数中生成模板。那么我们分两个部分来对<code>createElement</code>进行理解。</p>
+
+<h3><code>createElement</code>参数</h3>
+
+<p><code>createElement</code>可以是接受多个参数：</p>
+
+<h4>第一个参数：<code>{String | Object | Function}</code></h4>
+
+<p>第一个参数对于<code>createElement</code>而言是一个必须的参数，这个参数可以是字符串<code>string</code>、是一个对象<code>object</code>，也可以是一个函数<code>function</code>。</p>
+
+<pre class="xml"><code class="xml"><span class="tag"><span class="tag">&lt;<span class="title"><span class="title">div</span></span> <span class="attribute"><span class="attribute">id</span></span>=<span class="value"><span class="value">"app"</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">custom-element</span></span>&gt;</span></span><span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">custom-element</span></span>&gt;</span></span>
+<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">div</span></span>&gt;</span></span>
+
+Vue.component('custom-element', {
+    render: function (createElement) {
+        return createElement('div')
+    }
+})
+
+let app = new Vue({
+    el: '#app'
+})
+</code></pre>
+
+<p>上面的示例，给<code>createElement</code>传了一个<code>String</code>参数<code>'div'</code>，即传了一个HTML标签字符。最后会有一个<code>div</code>元素渲染出来：</p>
+
+<p><img src="./Vue 2.0学习笔记：Vue的render函数_Vue 2.0学习笔记 教程_w3cplus_files/vue-render-6.png" alt=""></p>
+
+<p>接着把上例中的<code>String</code>换成一个<code>Object</code>，比如：</p>
+
+<pre class="javascript"><code class="javascript">Vue.component(<span class="string"><span class="string">'custom-element'</span></span>, {
+    render: <span class="function"><span class="keyword"><span class="function"><span class="keyword">function</span></span></span><span class="function"> <span class="params"><span class="params">(createElement)</span></span> {</span></span>
+        <span class="keyword"><span class="keyword">return</span></span> createElement({
+            template: `&lt;div&gt;Hello Vue!<span class="xml"><span class="tag"><span class="xml"><span class="tag">&lt;/<span class="title"><span class="title">div</span></span>&gt;</span></span></span><span class="xml">`
+        })
+    }
+})
+</span></span></code></pre>
+
+<p>上例传了一个<code>{template: '&lt;div&gt;Hello Vue!&lt;/div&gt;'}</code>对象。此时<code>custom-element</code>组件渲染出来的结果如下：</p>
+
+<p><img src="./Vue 2.0学习笔记：Vue的render函数_Vue 2.0学习笔记 教程_w3cplus_files/vue-render-7.png" alt=""></p>
+
+<p>除此之外，还可以传一个<code>Function</code>，比如：</p>
+
+<pre class="javascript"><code class="javascript">Vue.component(<span class="string"><span class="string">'custom-element'</span></span>, {
+    render: <span class="function"><span class="keyword"><span class="function"><span class="keyword">function</span></span></span><span class="function"> <span class="params"><span class="params">(createElement)</span></span> {</span></span>
+        <span class="keyword"><span class="keyword">var</span></span> eleFun = <span class="function"><span class="keyword"><span class="function"><span class="keyword">function</span></span></span><span class="function"> <span class="params"><span class="params">()</span></span> {</span></span>
+            <span class="keyword"><span class="keyword">return</span></span> {
+                template: `&lt;div&gt;Hello Vue!<span class="xml"><span class="tag"><span class="xml"><span class="tag">&lt;/<span class="title"><span class="title">div</span></span>&gt;</span></span></span><span class="xml">`
+            }
+        }
+        return createElement(eleFun())
+    }
+})
+</span></span></code></pre>
+
+<p>最终得到的结果和上图是一样的。这里传了一个<code>eleFun()</code>函数给<code>createElement</code>，而这个函数返回的是一个对象。</p>
+
+<h4>第二个参数:<code>{Object}</code></h4>
+
+<p><code>createElement</code>是一个可选参数，这个参数是一个<code>Object</code>。来看一个小示例：</p>
+
+<pre class="xml"><code class="xml"><span class="tag"><span class="tag">&lt;<span class="title"><span class="title">div</span></span> <span class="attribute"><span class="attribute">id</span></span>=<span class="value"><span class="value">"app"</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">custom-element</span></span>&gt;</span></span><span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">custom-element</span></span>&gt;</span></span>
+<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">div</span></span>&gt;</span></span>
+
+Vue.component('custom-element', {
+    render: function (createElement) {
+        var self = this
+
+        // 第一个参数是一个简单的HTML标签字符 “必选”
+        // 第二个参数是一个包含模板相关属性的数据对象 “可选”
+        return createElement('div', {
+            'class': {
+                foo: true,
+                bar: false
+            },
+            style: {
+                color: 'red',
+                fontSize: '14px'
+            },
+            attrs: {
+                id: 'boo'
+            },
+            domProps: {
+                innerHTML: 'Hello Vue!'
+            }
+        })
+    }
+})
+
+let app = new Vue({
+    el: '#app'
+})
+</code></pre>
+
+<p>最终生成的DOM，将会带一些属性和内容的<code>div</code>元素，如下图所示：</p>
+
+<p><img src="./Vue 2.0学习笔记：Vue的render函数_Vue 2.0学习笔记 教程_w3cplus_files/vue-render-8.png" alt=""></p>
+
+<h4>第三个参数：{String | Array}</h4>
+
+<p><code>createElement</code>还有第三个参数，这个参数是可选的，可以给其传一个<code>String</code>或<code>Array</code>。比如下面这个小示例：</p>
+
+<pre class="xml"><code class="xml"><span class="tag"><span class="tag">&lt;<span class="title"><span class="title">div</span></span> <span class="attribute"><span class="attribute">id</span></span>=<span class="value"><span class="value">"app"</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">custom-element</span></span>&gt;</span></span><span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">custom-element</span></span>&gt;</span></span>
+<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">div</span></span>&gt;</span></span>
+
+Vue.component('custom-element', {
+    render: function (createElement) {
+        var self = this
+
+        return createElement(
+            'div', // 第一个参数是一个简单的HTML标签字符 “必选”
+            {
+                class: {
+                    title: true
+                },
+                style: {
+                    border: '1px solid',
+                    padding: '10px'
+                }
+            }, // 第二个参数是一个包含模板相关属性的数据对象 “可选”
+            [
+                createElement('h1', 'Hello Vue!'),
+                createElement('p', '开始学习Vue!')
+            ] // 第三个参数是传了多个子元素的一个数组 “可选”
+        )
+    }
+})
+
+let app = new Vue({
+    el: '#app'
+})
+</code></pre>
+
+<p>最终的效果如下：</p>
+
+<p><img src="./Vue 2.0学习笔记：Vue的render函数_Vue 2.0学习笔记 教程_w3cplus_files/vue-render-9.png" alt=""></p>
+
+<p>其实从上面这几个小例来看，不难发现，以往我们使用<code>Vue.component()</code>创建组件的方式，都可以用<code>render</code>函数配合<code>createElement</code>来完成。你也会发现，使用<code>Vue.component()</code>和<code>render</code>各有所长，正如文章开头的一个示例代码，就不适合<code>Vue.component()</code>的<code>template</code>，而使用<code>render</code>更方便。</p>
+
+<p>接下来看一个小示例，看看<code>template</code>和<code>render</code>方式怎么创建相同效果的一个组件:</p>
+
+<pre class="xml"><code class="xml"><span class="tag"><span class="tag">&lt;<span class="title"><span class="title">div</span></span> <span class="attribute"><span class="attribute">id</span></span>=<span class="value"><span class="value">"app"</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">custom-element</span></span>&gt;</span></span><span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">custom-element</span></span>&gt;</span></span>
+<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">div</span></span>&gt;</span></span>
+
+Vue.component('custom-element', {
+    template: `<span class="tag"><span class="tag">&lt;<span class="title"><span class="title">div</span></span> <span class="attribute"><span class="attribute">id</span></span>=<span class="value"><span class="value">"box"</span></span> <span class="attribute"><span class="attribute">:class</span></span>=<span class="value"><span class="value">"{show: show}"</span></span> @<span class="attribute"><span class="attribute">click</span></span>=<span class="value"><span class="value">"handleClick"</span></span>&gt;</span></span>Hello Vue!<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">div</span></span>&gt;</span></span>`,
+    data () {
+        return {
+            show: true
+        }
+    },
+    methods: {
+        handleClick: function () {
+            console.log('Clicked!')
+        }
+    }
+})
+</code></pre>
+
+<p>上面<code>Vue.component()</code>中的代码换成<code>render</code>函数之后，可以这样写：</p>
+
+<pre class="javascript"><code class="javascript">Vue.component(<span class="string"><span class="string">'custom-element'</span></span>, {
+    render: <span class="function"><span class="keyword"><span class="function"><span class="keyword">function</span></span></span><span class="function"> <span class="params"><span class="params">(createElement)</span></span> {</span></span>
+        <span class="keyword"><span class="keyword">return</span></span> createElement(<span class="string"><span class="string">'div'</span></span>, {
+            class: {
+                show: <span class="keyword"><span class="keyword">this</span></span>.show
+            },
+            attrs: {
+                id: <span class="string"><span class="string">'box'</span></span>
+            },
+            on: {
+                click: <span class="keyword"><span class="keyword">this</span></span>.handleClick
+            }
+        }, <span class="string"><span class="string">'Hello Vue!'</span></span>)
+    },
+    data () {
+        <span class="keyword"><span class="keyword">return</span></span> {
+            show: <span class="literal"><span class="literal">true</span></span>
+        }
+    },
+    methods: {
+        handleClick: <span class="function"><span class="keyword"><span class="function"><span class="keyword">function</span></span></span><span class="function"> <span class="params"><span class="params">()</span></span> {</span></span>
+            console.log(<span class="string"><span class="string">'Clicked!'</span></span>)
+        }
+    }
+})
+</code></pre>
+
+<p>最后声明一个Vue实例，并挂载到<code>id</code>为<code>#app</code>的一个元素上：</p>
+
+<pre class="cs"><code class="cs"><span class="keyword"><span class="keyword">let</span></span> app = <span class="keyword"><span class="keyword">new</span></span> Vue({
+    el: <span class="string"><span class="string">'#app'</span></span>
+})
+</code></pre>
+
+<h3><code>createElement</code>解析过程</h3>
+
+<p>简单的来看一下<code>createElement</code>解析的过程，这部分需要对JS有一些功底。不然看起来有点蛋疼：</p>
+
+<pre class="javascript"><code class="javascript"><span class="keyword"><span class="keyword">const</span></span> SIMPLE_NORMALIZE = <span class="number"><span class="number">1</span></span>
+<span class="keyword"><span class="keyword">const</span></span> ALWAYS_NORMALIZE = <span class="number"><span class="number">2</span></span>
+
+<span class="function"><span class="keyword"><span class="function"><span class="keyword">function</span></span></span><span class="function"> <span class="title"><span class="title">createElement</span></span> <span class="params"><span class="params">(context, tag, data, children, normalizationType, alwaysNormalize)</span></span> {</span></span>
+
+    <span class="comment"><span class="comment">// 兼容不传data的情况</span></span>
+    <span class="keyword"><span class="keyword">if</span></span> (Array.isArray(data) || isPrimitive(data)) {
+        normalizationType = children
+        children = data
+        data = <span class="literal"><span class="literal">undefined</span></span>
+    }
+
+    <span class="comment"><span class="comment">// 如果alwaysNormalize是true</span></span>
+    <span class="comment"><span class="comment">// 那么normalizationType应该设置为常量ALWAYS_NORMALIZE的值</span></span>
+    <span class="keyword"><span class="keyword">if</span></span> (alwaysNormalize) normalizationType = ALWAYS_NORMALIZE
+        <span class="comment"><span class="comment">// 调用_createElement创建虚拟节点</span></span>
+        <span class="keyword"><span class="keyword">return</span></span> _createElement(context, tag, data, children, normalizationType)
+    }
+
+    <span class="function"><span class="keyword"><span class="function"><span class="keyword">function</span></span></span><span class="function"> <span class="title"><span class="title">_createElement</span></span> <span class="params"><span class="params">(context, tag, data, children, normalizationType)</span></span> {</span></span>
+        <span class="comment"><span class="comment">/**
+        * 如果存在data.__ob__，说明data是被Observer观察的数据
+        * 不能用作虚拟节点的data
+        * 需要抛出警告，并返回一个空节点
+        * 
+        * 被监控的data不能被用作vnode渲染的数据的原因是：
+        * data在vnode渲染过程中可能会被改变，这样会触发监控，导致不符合预期的操作
+        */</span></span>
+        <span class="keyword"><span class="keyword">if</span></span> (data &amp;&amp; data.__ob__) {
+            process.env.NODE_ENV !== <span class="string"><span class="string">'production'</span></span> &amp;&amp; warn(
+            `Avoid using observed data object as vnode data: ${JSON.stringify(data)}\n` +
+            <span class="string"><span class="string">'Always create fresh vnode data objects in each render!'</span></span>,
+            context
+            )
+            <span class="keyword"><span class="keyword">return</span></span> createEmptyVNode()
+        }
+
+        <span class="comment"><span class="comment">// 当组件的is属性被设置为一个falsy的值</span></span>
+        <span class="comment"><span class="comment">// Vue将不会知道要把这个组件渲染成什么</span></span>
+        <span class="comment"><span class="comment">// 所以渲染一个空节点</span></span>
+        <span class="keyword"><span class="keyword">if</span></span> (!tag) {
+            <span class="keyword"><span class="keyword">return</span></span> createEmptyVNode()
+        }
+
+        <span class="comment"><span class="comment">// 作用域插槽</span></span>
+        <span class="keyword"><span class="keyword">if</span></span> (Array.isArray(children) &amp;&amp; <span class="keyword"><span class="keyword">typeof</span></span> children[<span class="number"><span class="number">0</span></span>] === <span class="string"><span class="string">'function'</span></span>) {
+            data = data || {}
+            data.scopedSlots = { <span class="keyword"><span class="keyword">default</span></span>: children[<span class="number"><span class="number">0</span></span>] }
+            children.length = <span class="number"><span class="number">0</span></span>
+        }
+
+        <span class="comment"><span class="comment">// 根据normalizationType的值，选择不同的处理方法</span></span>
+        <span class="keyword"><span class="keyword">if</span></span> (normalizationType === ALWAYS_NORMALIZE) {
+            children = normalizeChildren(children)
+        } <span class="keyword"><span class="keyword">else</span></span> <span class="keyword"><span class="keyword">if</span></span> (normalizationType === SIMPLE_NORMALIZE) {
+            children = simpleNormalizeChildren(children)
+        }
+        <span class="keyword"><span class="keyword">let</span></span> vnode, ns
+
+        <span class="comment"><span class="comment">// 如果标签名是字符串类型</span></span>
+        <span class="keyword"><span class="keyword">if</span></span> (<span class="keyword"><span class="keyword">typeof</span></span> tag === <span class="string"><span class="string">'string'</span></span>) {
+            <span class="keyword"><span class="keyword">let</span></span> Ctor
+            <span class="comment"><span class="comment">// 获取标签名的命名空间</span></span>
+            ns = config.getTagNamespace(tag)
+
+            <span class="comment"><span class="comment">// 判断是否为保留标签</span></span>
+            <span class="keyword"><span class="keyword">if</span></span> (config.isReservedTag(tag)) {
+                <span class="comment"><span class="comment">// 如果是保留标签,就创建一个这样的vnode</span></span>
+                vnode = <span class="keyword"><span class="keyword">new</span></span> VNode(
+                    config.parsePlatformTagName(tag), data, children,
+                    <span class="literal"><span class="literal">undefined</span></span>, <span class="literal"><span class="literal">undefined</span></span>, context
+                )
+
+                <span class="comment"><span class="comment">// 如果不是保留标签，那么我们将尝试从vm的components上查找是否有这个标签的定义</span></span>
+            } <span class="keyword"><span class="keyword">else</span></span> <span class="keyword"><span class="keyword">if</span></span> ((Ctor = resolveAsset(context.$options, <span class="string"><span class="string">'components'</span></span>, tag))) {
+                <span class="comment"><span class="comment">// 如果找到了这个标签的定义，就以此创建虚拟组件节点</span></span>
+                vnode = createComponent(Ctor, data, context, children, tag)
+            } <span class="keyword"><span class="keyword">else</span></span> {
+                <span class="comment"><span class="comment">// 兜底方案，正常创建一个vnode</span></span>
+                vnode = <span class="keyword"><span class="keyword">new</span></span> VNode(
+                    tag, data, children,
+                    <span class="literal"><span class="literal">undefined</span></span>, <span class="literal"><span class="literal">undefined</span></span>, context
+                )
+            }
+
+        <span class="comment"><span class="comment">// 当tag不是字符串的时候，我们认为tag是组件的构造类</span></span>
+        <span class="comment"><span class="comment">// 所以直接创建</span></span>
+        } <span class="keyword"><span class="keyword">else</span></span> {
+            vnode = createComponent(tag, data, context, children)
+        }
+
+        <span class="comment"><span class="comment">// 如果有vnode</span></span>
+        <span class="keyword"><span class="keyword">if</span></span> (vnode) {
+            <span class="comment"><span class="comment">// 如果有namespace，就应用下namespace，然后返回vnode</span></span>
+            <span class="keyword"><span class="keyword">if</span></span> (ns) applyNS(vnode, ns)
+            <span class="keyword"><span class="keyword">return</span></span> vnode
+        <span class="comment"><span class="comment">// 否则，返回一个空节点</span></span>
+        } <span class="keyword"><span class="keyword">else</span></span> {
+            <span class="keyword"><span class="keyword">return</span></span> createEmptyVNode()
+        }
+    }
+}
+</code></pre>
+
+<p>简单的梳理了一个流程图，可以参考下</p>
+
+<p><img src="./Vue 2.0学习笔记：Vue的render函数_Vue 2.0学习笔记 教程_w3cplus_files/vue-render-10.png" alt=""></p>
+
+<blockquote>
+  <p>这部分代码和流程图来自于@JoeRay61的《<a href="https://segmentfault.com/a/1190000008291645" target="_blank">Vue原理解析之Virtual DOM</a>》一文。</p>
+</blockquote>
+
+<h2>使用JavaScript代替模板功能</h2>
+
+<p>在使用Vue模板的时候，我们可以在模板中灵活的使用<a href="https://www.w3cplus.com/vue/v-if-vs-v-show.html" target="_blank"><code>v-if</code></a>、<a href="https://www.w3cplus.com/vue/v-for.html" target="_blank"><code>v-for</code></a>、<a href="https://www.w3cplus.com/vue/v-model.html" target="_blank"><code>v-model</code></a>和<a href="https://www.w3cplus.com/vue/vue-slot.html" target="_blank"><code>&lt;slot&gt;</code></a>之类的。但在<code>render</code>函数中是没有提供专用的API。如果在<code>render</code>使用这些，需要使用原生的JavaScript来实现。</p>
+
+<h3><code>v-if</code>和<code>v-for</code></h3>
+
+<p>在<code>render</code>函数中可以使用<code>if/else</code>和<code>map</code>来实现<code>template</code>中的<code>v-if</code>和<code>v-for</code>。</p>
+
+<pre class="xml"><code class="xml"><span class="tag"><span class="tag">&lt;<span class="title"><span class="title">ul</span></span> <span class="attribute"><span class="attribute">v-if</span></span>=<span class="value"><span class="value">"items.length"</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">li</span></span> <span class="attribute"><span class="attribute">v-for</span></span>=<span class="value"><span class="value">"item in items"</span></span>&gt;</span></span>{{ item }}<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">li</span></span>&gt;</span></span>
+<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">ul</span></span>&gt;</span></span>
+<span class="tag"><span class="tag">&lt;<span class="title"><span class="title">p</span></span> <span class="attribute"><span class="attribute">v-else</span></span>&gt;</span></span>No items found.<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">p</span></span>&gt;</span></span>
+</code></pre>
+
+<p>换成<code>render</code>函数，可以这样写：</p>
+
+<pre class="javascript"><code class="javascript">Vue.component(<span class="string"><span class="string">'item-list'</span></span>,{
+    props: [<span class="string"><span class="string">'items'</span></span>],
+    render: <span class="function"><span class="keyword"><span class="function"><span class="keyword">function</span></span></span><span class="function"> <span class="params"><span class="params">(createElement)</span></span> {</span></span>
+        <span class="keyword"><span class="keyword">if</span></span> (<span class="keyword"><span class="keyword">this</span></span>.items.length) {
+            <span class="keyword"><span class="keyword">return</span></span> createElement(<span class="string"><span class="string">'ul'</span></span>, <span class="keyword"><span class="keyword">this</span></span>.items.map((item) =&gt; {
+                <span class="keyword"><span class="keyword">return</span></span> createElement(<span class="string"><span class="string">'item'</span></span>)
+            }))
+        } <span class="keyword"><span class="keyword">else</span></span> {
+            <span class="keyword"><span class="keyword">return</span></span> createElement(<span class="string"><span class="string">'p'</span></span>, <span class="string"><span class="string">'No items found.'</span></span>)
+        }
+    }
+})
+
+&lt;div id=<span class="string"><span class="string">"app"</span></span>&gt;
+    <span class="xml"><span class="tag"><span class="xml"><span class="tag">&lt;<span class="title"><span class="title">item-list</span></span> <span class="attribute"><span class="attribute">:items</span></span>=<span class="value"><span class="value">"items"</span></span>&gt;</span></span></span><span class="xml"><span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">item-list</span></span>&gt;</span></span>
+<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">div</span></span>&gt;</span></span>
+
+let app = new Vue({
+    el: '#app',
+    data () {
+        return {
+            items: ['大漠', 'W3cplus', 'blog']
+        }
+    }
+})
+</span></span></code></pre>
+
+<p>得到的效果如下：</p>
+
+<p><img src="./Vue 2.0学习笔记：Vue的render函数_Vue 2.0学习笔记 教程_w3cplus_files/vue-render-11.gif" alt=""></p>
+
+<h3><code>v-model</code></h3>
+
+<p><code>render</code>函数中也没有与<code>v-model</code>相应的API，如果要实现<code>v-model</code>类似的功能，同样需要使用原生JavaScript来实现。</p>
+
+<pre class="xml"><code class="xml"><span class="tag"><span class="tag">&lt;<span class="title"><span class="title">div</span></span> <span class="attribute"><span class="attribute">id</span></span>=<span class="value"><span class="value">"app"</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">el-input</span></span> <span class="attribute"><span class="attribute">:name</span></span>=<span class="value"><span class="value">"name"</span></span> @<span class="attribute"><span class="attribute">input</span></span>=<span class="value"><span class="value">"val =&gt; name = val"</span></span>&gt;</span></span><span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">el-input</span></span>&gt;</span></span>
+<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">div</span></span>&gt;</span></span>
+
+Vue.component('el-input', {
+    render: function (createElement) {
+        var self = this
+        return createElement('input', {
+            domProps: {
+                value: self.name
+            },
+            on: {
+                input: function (event) {
+                    self.$emit('input', event.target.value)
+                }
+            }
+        })
+    },
+    props: {
+        name: String
+    }
+})
+
+let app = new Vue({
+    el: '#app',
+    data () {
+        return {
+            name: '大漠'
+        }
+    }
+})
+</code></pre>
+
+<p>刷新你的浏览器，可以看到效果如下：</p>
+
+<p><img src="./Vue 2.0学习笔记：Vue的render函数_Vue 2.0学习笔记 教程_w3cplus_files/vue-render-12.png" alt=""></p>
+
+<p>这就是深入底层要付出的，尽管麻烦了一些，但相对于 <code>v-model</code> 来说，你可以更灵活地控制。</p>
+
+<h3>插槽</h3>
+
+<p>你可以从<code>this.$slots</code>获取VNodes列表中的静态内容：</p>
+
+<pre class="xml"><code class="xml">render: function (createElement) {
+    // 相当于 `<span class="tag"><span class="tag">&lt;<span class="title"><span class="title">div</span></span>&gt;</span></span><span class="tag"><span class="tag">&lt;<span class="title"><span class="title">slot</span></span>&gt;</span></span><span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">slot</span></span>&gt;</span></span><span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">div</span></span>&gt;</span></span>`
+    return createElement('div', this.$slots.default)
+}
+</code></pre>
+
+<p>还可以从<code>this.$scopedSlots</code>中获得能用作函数的作用域插槽，这个函数返回VNodes:</p>
+
+<pre class="ruby"><code class="ruby"><span class="symbol"><span class="symbol">props:</span></span> [<span class="string"><span class="string">'message'</span></span>],
+<span class="symbol"><span class="symbol">render:</span></span> function (createElement) {
+    <span class="regexp"><span class="regexp">//</span></span> `&lt;div&gt;&lt;slot <span class="symbol"><span class="symbol">:text=<span class="string"><span class="string">"message"</span></span>&gt;&lt;/slot&gt;&lt;/div&gt;`</span></span>
+    <span class="keyword"><span class="keyword">return</span></span> createElement(<span class="string"><span class="string">'div'</span></span>, [
+        this.<span class="variable"><span class="variable">$scopedSlots</span></span>.default({
+            <span class="symbol"><span class="symbol">text:</span></span> this.message
+        })
+    ])
+}
+</code></pre>
+
+<p>如果要用渲染函数向子组件中传递作用域插槽，可以利用VNode数据中的<code>scopedSlots</code>域：</p>
+
+<pre class="php"><code class="php">&lt;div id=<span class="string"><span class="string">"app"</span></span>&gt;
+    &lt;custom-ele&gt;&lt;/custom-ele&gt;
+&lt;/div&gt;
+
+Vue.component(<span class="string"><span class="string">'custom-ele'</span></span>, {
+    render: <span class="function"><span class="keyword"><span class="function"><span class="keyword">function</span></span></span><span class="function"> <span class="params"><span class="params">(createElement)</span></span> {</span></span>
+        <span class="keyword"><span class="keyword">return</span></span> createElement(<span class="string"><span class="string">'div'</span></span>, [
+            createElement(<span class="string"><span class="string">'child'</span></span>, {
+                scopedSlots: {
+                    <span class="keyword"><span class="keyword">default</span></span>: <span class="function"><span class="keyword"><span class="function"><span class="keyword">function</span></span></span><span class="function"> <span class="params"><span class="params">(props)</span></span> {</span></span>
+                        <span class="keyword"><span class="keyword">return</span></span> [
+                            createElement(<span class="string"><span class="string">'span'</span></span>, <span class="string"><span class="string">'From Parent Component'</span></span>),
+                            createElement(<span class="string"><span class="string">'span'</span></span>, props.text)
+                        ]
+                    }
+                }
+            })
+        ])
+    }
+})
+
+Vue.component(<span class="string"><span class="string">'child'</span></span>, {
+    render: <span class="function"><span class="keyword"><span class="function"><span class="keyword">function</span></span></span><span class="function"> <span class="params"><span class="params">(createElement)</span></span> {</span></span>
+        <span class="keyword"><span class="keyword">return</span></span> createElement(<span class="string"><span class="string">'strong'</span></span>, <span class="keyword"><span class="keyword">this</span></span>.<span class="variable"><span class="variable">$scopedSlots</span></span>.<span class="keyword"><span class="keyword">default</span></span>({
+            text: <span class="string"><span class="string">'This is Child Component'</span></span>
+        }))
+    }
+})
+
+let app = <span class="keyword"><span class="keyword">new</span></span> Vue({
+    el: <span class="string"><span class="string">'#app'</span></span>
+})
+</code></pre>
+
+<h2>JSX</h2>
+
+<p>如果写习惯了<code>template</code>，然后要用<code>render</code>函数来写，一定会感觉好痛苦，特别是面对复杂的组件的时候。不过我们在Vue中使用JSX可以让我们回到更接近于模板的语法上。</p>
+
+<pre class="javascript"><code class="javascript">import AnchoredHeading from <span class="string"><span class="string">'./AnchoredHeading.vue'</span></span>
+
+<span class="keyword"><span class="keyword">new</span></span> Vue({
+    el: <span class="string"><span class="string">'#demo'</span></span>,
+    render: <span class="function"><span class="keyword"><span class="function"><span class="keyword">function</span></span></span><span class="function"> <span class="params"><span class="params">(h)</span></span> {</span></span>
+        <span class="keyword"><span class="keyword">return</span></span> (
+            <span class="xml"><span class="tag"><span class="xml"><span class="tag">&lt;<span class="title"><span class="title">AnchoredHeading</span></span> <span class="attribute"><span class="attribute">level</span></span>=<span class="value"><span class="value">{1}</span></span>&gt;</span></span></span><span class="xml">
+                <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">span</span></span>&gt;</span></span>Hello<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">span</span></span>&gt;</span></span> world!
+            <span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">AnchoredHeading</span></span>&gt;</span></span>
+        )
+    }
+})
+</span></span></code></pre>
+
+<blockquote>
+  <p>将 <code>h</code> 作为 <code>createElement</code> 的别名是 Vue 生态系统中的一个通用惯例，实际上也是 JSX 所要求的，如果在作用域中 <code>h</code> 失去作用，在应用中会触发报错。</p>
+</blockquote>
+
+<h2>总结</h2>
+
+<p>回过头来看，Vue中的渲染核心关键的几步流程还是非常清晰的：</p>
+
+<ul>
+<li><code>new Vue</code>，执行初始化</li>
+<li>挂载<code>$mount</code>方法，通过自定义<code>render</code>方法、<code>template</code>、<code>el</code>等生成<code>render</code>函数</li>
+<li>通过<code>Watcher</code>监听数据的变化</li>
+<li>当数据发生变化时，<code>render</code>函数执行生成VNode对象</li>
+<li>通过<code>patch</code>方法，对比新旧VNode对象，通过DOM Diff算法，添加、修改、删除真正的DOM元素</li>
+</ul>
+
+<p>至此，整个<code>new Vue</code>的渲染过程完毕。</p>
+
+<p>而这篇文章，主要把精力集中在<code>render</code>函数这一部分。学习了怎么用<code>render</code>函数来创建组件，以及了解了其中<code>createElement</code>。</p>
+
+<p>最后要说的是，上文虽然以学习<code>render</code>函数，但文中涉及了Vue不少的知识点，也有点零乱。初学者自己根据自己获取所要的知识点。由于本人也是初涉Vue相关的知识点，如果文章中有不对之处，烦请路过的大神拍正。</p>
+
+<div class="blog-author media"><a class="media-object" href="https://weibo.com/w3cplus" target="_blank"><img src="./Vue 2.0学习笔记：Vue的render函数_Vue 2.0学习笔记 教程_w3cplus_files/airen.jpg"></a><div class="media-body"><h3 class="media-heading"><a href="https://weibo.com/w3cplus" target="_blank">大漠</a></h3><div class="media-des">常用昵称“大漠”，W3CPlus创始人，目前就职于手淘。对HTML5、CSS3和Sass等前端脚本语言有非常深入的认识和丰富的实践经验，尤其专注对CSS3的研究，是国内最早研究和使用CSS3技术的一批人。CSS3、Sass和Drupal中国布道者。2014年出版《<a href="https://www.w3cplus.com/book-comment.html" target="_blank">图解CSS3：核心技术与案例实战</a>》。</div></div></div>
+
+<p>如需转载，烦请注明出处：<a href="https://www.w3cplus.com/vue/vue-render-function.html" target="_blank">https://www.w3cplus.com/vue/vue-render-function.html</a></p>
+</div></div></div><div id="block-block-52" class="block block-block">
+
+    
+  <div class="content">
+    <p>
+如需转载，烦请注明出处：<a href="https://www.w3cplus.com/vue/vue-render-function.html" target="_blank">https://www.w3cplus.com/vue/vue-render-function.html</a></p>
+
+<blockquote>
+  <p><strong>如果文章中有不对之处，烦请各位大神拍正。如果你觉得这篇文章对你有所帮助，<a class="zhi12-popup zhi12-widget" rel="nofollow" href="https://www.zhi12.com/paycenter/reward/widget?entity=user&amp;id=5491" target="_blank">打个赏，让我有更大的动力去创作</a>。(^_^)。看完了？还不过瘾？点击<a class="zhi12-popup" href="https://www.zhi12.com/ask/5491/widget" target="_blank" data-box-width="680" style="color: #FF9800; border-bottom: 3px double currentColor; padding-bottom: 3px;">向作者提问！</a></strong></p>
+</blockquote>
+
+<div style="text-align: center; padding: 20px;">
+    <div style="font-size: 12px; color: #666; margin-bottom: 10px;">赏杯咖啡，鼓励他创作更多优质内容！</div>
+    <div>
+		<a class="zhi12-popup zhi12-widget" rel="nofollow" href="https://www.zhi12.com/paycenter/reward/widget?entity=user&amp;id=5491" target="_blank">
+			<img src="./Vue 2.0学习笔记：Vue的render函数_Vue 2.0学习笔记 教程_w3cplus_files/shang1.png" alt="打赏" width="100" style="border: none; background-color: transparent;">
+		</a>
+	</div>
+</div>
+  </div>
+</div>
+  </div>
+
+  
+   
+    <div id="node_footer" class="clearfix">
+              <div class="previous-next"><span class="prev">上一篇: </span><a href="https://www.w3cplus.com/vue/vue-extend.html" target="_blank">Vue 2.0学习笔记：Vue.extend构造器的延伸</a> | <span class="next">下一篇: </span><a href="https://www.w3cplus.com/css/1-html-element-5-css-properties-magic.html" target="_blank">一个HTML元素和五个CSS属性的魔力</a></div>            
+    </div>
+
+          <div id="node_bottom">
+        <div id="block-block-24" class="block block-block">
+
+    
+  <div class="content">
+    <div class="ct-ad-article-wrapper" id="content-bottom-ad" style="margin:0 0 0px;padding:0;border: none 0;">
+	<div class="ct-ad-article">
+		<div class="bsap">
+			<a href="http://fe.apelearn.com/?utm_source=w3cplus&amp;utm_medium=banner&amp;utm_campaign=w3cplus" target="_blank"><img src="./Vue 2.0学习笔记：Vue的render函数_Vue 2.0学习笔记 教程_w3cplus_files/damo-960.png" alt="在线视频教程" width="960" height="200"></a>
+		</div>
+	</div>
+</div>
+  </div>
+</div>
+<div id="block-disqus-disqus-comments" class="block block-disqus">
+
+    
+  <div class="content">
+    <div id="disqus_thread"><noscript><p><a href="http://w3cplus.disqus.com/?url=https%3A%2F%2Fwww.w3cplus.com%2Fvue%2Fvue-render-function.html">View the discussion thread.</a></p></noscript></div>  </div>
+</div>
+      </div>
+        
+
+</div>  </div>
+</div>
+  </div>
+
+        </div>
+
+      </div>
+    </div>
+
+    
+          <div id="sidebar-second" class="col-extra" style="position: sticky; top: 80px;">
+        <!-- <script type="text/javascript">document.write(unescape('%3Cdiv id="bdcs"%3E%3C/div%3E%3Cscript charset="utf-8" src="//rp.baidu.com/rp3w/3w.js?sid=10994702955876242907') + '&t=' + (Math.ceil(new Date()/3600000)) + unescape('"%3E%3C/script%3E'));</script> -->
+          <div class="region region-sidebar-second">
+    <div id="block-custom-search-blocks-1" class="block block-custom-search-blocks">
+
+    
+  <div class="content">
+    <form class="search-form" role="search" action="https://www.w3cplus.com/vue/vue-render-function.html" method="post" id="custom-search-blocks-form-1" accept-charset="UTF-8" target="_self"><div><div class="form-item form-type-textfield form-item-custom-search-blocks-form-1">
+  <label class="element-invisible" for="edit-custom-search-blocks-form-1--2">Search this site </label>
+ <input title="请输入您想搜索的关键词。" class="custom-search-box form-text" placeholder="" type="text" id="edit-custom-search-blocks-form-1--2" name="custom_search_blocks_form_1" value="" size="15" maxlength="128">
+</div>
+<input type="hidden" name="delta" value="1">
+<input type="hidden" name="form_build_id" value="form-ygLqdvh5t3N8uk94tzx9U6ev6oIswfm6ZzbkynG1u8A">
+<input type="hidden" name="form_id" value="custom_search_blocks_form_1">
+<div class="form-actions form-wrapper" id="edit-actions"><input type="submit" id="edit-submit" name="op" value="搜索" class="form-submit"></div></div></form>  </div>
+</div>
+<div id="block-block-49" class="block block-block">
+
+    
+  <div class="content">
+    <div><a href="http://fe.apelearn.com/?utm_source=w3cplus&amp;utm_medium=banner&amp;utm_campaign=w3cplus" target="_blank" title="在线视频教程"><img alt="" src="./Vue 2.0学习笔记：Vue的render函数_Vue 2.0学习笔记 教程_w3cplus_files/damo-300.png" style="width: 300px; height: 160px;"></a></div>
+<script type="text/javascript" src="./Vue 2.0学习笔记：Vue的render函数_Vue 2.0学习笔记 教程_w3cplus_files/zhi12.js.下载"></script>  </div>
+</div>
+<div id="block-block-18" class="block block-block">
+
+    <h2>合作网站</h2>
+  
+  <div class="content">
+    <ul class="clearfix" id="join_hands"><li>
+		<a href="https://scriptoj.com/" target="_blank" title="前端开发 ScriptOJ">前端开发 ScriptOJ</a></li>
+	<li>
+		<a href="http://moyu-edu.com/js.html" target="_blank" title="墨鱼前端培训">墨鱼前端培训</a></li>
+	<li>
+		<a href="http://www.html5dw.com/" target="_blank" title="HTML5梦工场">HTML5梦工场</a></li>
+	<li>
+		<a href="https://www.w3ctech.com/" target="_blank" title="中国最大的前端技术社区">W3ctech</a></li>
+	<li>
+		<a href="http://fequan.com/" target="_blank" title="前端圈">前端圈</a></li>
+	<li>
+		<a href="https://drupalchina.cn/" target="_blank">Drupal中国</a></li>
+</ul>  </div>
+</div>
+<div id="block-views-friend-block-1" class="block block-views">
+
+    <h2>友情链接</h2>
+  
+  <div class="content">
+    <div class="view view-friend view-id-friend view-display-id-block_1 view-dom-id-4ccff6370481a08b43e214d9f1f2282e">
+        
+  
+  
+      <div class="view-content">
+      <div class="item-list">    <ul>          <li class="views-row views-row-1 views-row-odd views-row-first">  
+  <div class="views-field views-field-title">        <span class="field-content"><a href="https://segmentfault.com/">segmentfault</a></span>  </div></li>
+          <li class="views-row views-row-2 views-row-even">  
+  <div class="views-field views-field-title">        <span class="field-content"><a href="https://www.alloyteam.com/">腾讯 AlloyTeam</a></span>  </div></li>
+          <li class="views-row views-row-3 views-row-odd">  
+  <div class="views-field views-field-title">        <span class="field-content"><a href="https://www.xiao-an.com/">广州微信开发</a></span>  </div></li>
+          <li class="views-row views-row-4 views-row-even">  
+  <div class="views-field views-field-title">        <span class="field-content"><a href="https://www.tuhaokuai.com/">在线图片压缩</a></span>  </div></li>
+          <li class="views-row views-row-5 views-row-odd">  
+  <div class="views-field views-field-title">        <span class="field-content"><a href="https://www.zuidaima.com/">java源代码学习</a></span>  </div></li>
+          <li class="views-row views-row-6 views-row-even">  
+  <div class="views-field views-field-title">        <span class="field-content"><a href="https://moyu-edu.com/js.html">墨鱼前端开发培训</a></span>  </div></li>
+          <li class="views-row views-row-7 views-row-odd">  
+  <div class="views-field views-field-title">        <span class="field-content"><a href="https://www.zbj.com/ydyykf/">猪八戒网</a></span>  </div></li>
+          <li class="views-row views-row-8 views-row-even">  
+  <div class="views-field views-field-title">        <span class="field-content"><a href="https://www.html5dw.com/">HTML5梦工场</a></span>  </div></li>
+          <li class="views-row views-row-9 views-row-odd">  
+  <div class="views-field views-field-title">        <span class="field-content"><a href="https://www.php-z.com/">PHP教程</a></span>  </div></li>
+          <li class="views-row views-row-10 views-row-even views-row-last">  
+  <div class="views-field views-field-title">        <span class="field-content"><a href="https://www.proginn.com/">程序员客栈</a></span>  </div></li>
+      </ul></div>    </div>
+  
+  
+  
+  
+  
+  
+</div>  </div>
+</div>
+  </div>
+      </div>
+    
+
+  </div>
+</div>
+
+  <div id="footer-col" class="footer-col">
+    <div class="container">
+        <div class="region region-footer-col">
+    <div id="block-block-39" class="block block-block">
+
+    <h2>关于我们</h2>
+  
+  <div class="content">
+    <a class="media-object" href="http://www.w3cplus.com/">W3cplus</a>
+<div class="media-body">
+	<p>W3cplus是一个致力于推广国内前端行业的技术博客。它以探索为己任，不断活跃在行业技术最前沿，努力提供高质量前端技术博文；其文章范围广泛，主要以CSS3、HTML5、JavaScript、Vue、React、Mobile、动画等教程、译文和案例为主。</p>
+	<p><a href="https://www.w3cplus.com/sites/default/files/blogs/2017/1711/W3cplus-banner.pdf" target="_blank">W3cplus提供相关广告展示与招聘发布</a>，有需要的请联系：微信号w3cplus，E-mail:<a href="mailto:airenliao@gmail.com" target="_blank">airenliao@gmail.com</a></p>
+</div>
+  </div>
+</div>
+<div id="block-block-40" class="block block-block">
+
+    <h2>关于站长</h2>
+  
+  <div class="content">
+    <p><a class="media-object" href="https://www.w3cplus.com/" target="_blank">大漠</a></p>
+<div class="media-body">
+	<p>常用昵称“大漠”，<a href="https://www.w3cplus.com/" target="_blank">W3CPlus</a>创始人，目前就职于淘宝。对HTML5、CSS3和CSS处理器等前端脚本语言有非常深入的认识和丰富的实践经验，尤其专注对CSS3和动画的研究，是国内最早研究和使用CSS3和CSS处理器技术的一批人。现在主要在探讨学习JavaScript、React和Vue相关技术知识。CSS3、CSS处理器和Drupal中国布道者。2014年出版《<a href="https://www.w3cplus.com/book-comment.html">图解CSS3：核心技术与案例实战</a>》。</p>
+	<div class="social">
+		<a class="github" href="https://github.com/airen" target="_blank" title="github">github</a> <a class="weibo" href="https://weibo.com/w3cplus" target="_blank" title="weibo">weibo</a> <a class="facebook" href="https://www.facebook.com/w3cplus" target="_blank" title="facebook">facebook</a> <a class="google" href="https://plus.google.com/+AirenLiao" target="_blank" title="google">google</a> <a class="twitter" href="https://twitter.com/w3cplus" target="_blank" title="twitter">twitter</a> <a class="linkedin" href="https://cn.linkedin.com/in/w3cplus" target="_blank" title="linkedin">linkedin</a></div>
+</div>
+<p>&nbsp;</p>
+  </div>
+</div>
+<div id="block-block-41" class="block block-block">
+
+    <h2>我的作品</h2>
+  
+  <div class="content">
+    <a class="media-object" href="https://www.w3cplus.com/book-comment.html" target="_blank">图解CSS3</a>
+<div class="media-body">
+	<p>本书是国内著名的Web前端专家历时2载的心血之作，根据最新的CSS3撰写，融入了作者在CSS领域多年的使用经验，旨在将本书打造成为CSS3领域最权威和实用的专业著作，供没有经验的读者系统学习，供有经验的读者参考备查。</p>
+<p>本书理论知识系统全面，详细讲解了选择器、伸缩布局盒模型、渐变、过渡、动画等主题下涵盖的所有CSS3新特性。</p></div>
+  </div>
+</div>
+  </div>
+    </div>
+  </div> 
+
+  <div id="footer" class="footer">
+    <div class="container">
+        <div class="region region-footer">
+    <div id="block-block-12" class="block block-block">
+
+    
+  <div class="content">
+    <p>湘ICP备13003850号-12，版权所有 衡阳瑞思信息技术有限公司 © 2011-2017 <a href="https://www.w3cplus.com/page/26.html" target="_blank">W3CPLUS</a>，感谢<a href="https://www.drupal.org/" target="_blank">Drupal</a>开源技术。感谢<a href="https://www.qiniu.com/" target="_blank">七牛云存储</a>提供静态资源空间。</p>
+<script type="application/ld+json" async="">
+{
+  "@context": "//schema.org",
+  "@type": "Person",
+  "name": "W3cplus",
+  "url": "//www.w3cplus.com",
+  "image" : "//tp4.sinaimg.cn/1167075935/180/22838101204/1",
+  "sameAs" : [
+    "//twitter.com/w3cplus",
+    "//www.facebook.com/w3cplus",
+    "//cn.linkedin.com/in/w3cplus",
+    "//weibo.com/w3cplus/",
+    "//plus.google.com/+AirenLiao",
+    "//github.com/airen"
+  ]
+}
+</script>  </div>
+</div>
+  </div>
+    </div>
+  </div> 
+
+<div id="totop" style="position: fixed; bottom: 50px; right: 15px; cursor: pointer; z-index: 999999; display: block; opacity: 1;">
+  <div id="zhi12-shang-exp-2" class="shang-wrap" style="text-align: center;position:absolute;right: 0;bottom: 130%;z-index: 9999;">
+    <div><a class="zhi12-popup zhi12-widget" rel="nofollow" href="https://www.zhi12.com/paycenter/reward/widget?entity=user&amp;id=5491" target="_blank"><img src="./Vue 2.0学习笔记：Vue的render函数_Vue 2.0学习笔记 教程_w3cplus_files/w3cplus-shang.png" alt="打赏" class="share-img"></a></div>
+</div>
+    <a id="topLink" title="返回顶部">返回顶部</a>
+</div>
+
+  <script type="text/javascript">
+<!--//--><![CDATA[//><!--
+var _hmt = _hmt || [];_hmt.push(["_setAccount", "177319b798978621f83845b12c86fa29"]);_hmt.push(["_trackPageview"]);(function() {var hm = document.createElement('script');hm.src = '//hm.baidu.com/hm.js?177319b798978621f83845b12c86fa29';hm.type = 'text/javascript';var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(hm, s);})()
+//--><!]]>
+</script>
+<script type="text/javascript" src="./Vue 2.0学习笔记：Vue的render函数_Vue 2.0学习笔记 教程_w3cplus_files/js_VU7P4CTgUZdF2SyFko5LLAg9ZK0OSVjXVaAFnTLgVt0.js.下载"></script>
+  
+  <script type="text/javascript" src="./Vue 2.0学习笔记：Vue的render函数_Vue 2.0学习笔记 教程_w3cplus_files/respond.min.js.下载"></script>
+<script type="text/javascript" src="./Vue 2.0学习笔记：Vue的render函数_Vue 2.0学习笔记 教程_w3cplus_files/js_xvYJgU6LChHqbcSh4y1AvdXfD5QBIwT3GVGVUeuksbM.js.下载"></script>
+<script type="text/javascript" src="./Vue 2.0学习笔记：Vue的render函数_Vue 2.0学习笔记 教程_w3cplus_files/js_nF3TShMXDJ-P7Gg7Kz6LQbvmqRR846PyY2uqcPQyAnQ.js.下载"></script>
+<script type="text/javascript" src="./Vue 2.0学习笔记：Vue的render函数_Vue 2.0学习笔记 教程_w3cplus_files/js_xP4aMPEI1iZ1ZrZMlSgsTllQqvH8oWbOQ7JVFWyrFCo.js.下载"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"w3cplusV2","theme_token":"PCDWrsp2hNEGCUSe1js5ytRLdi55k86tK4JyGWvxJw4","js":{"0":1,"modules\/statistics\/statistics.js":1,"sites\/all\/modules\/contrib\/respondjs\/lib\/respond.min.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/jquery\/1.10\/jquery.min.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"public:\/\/languages\/zh-hans_Oq970VelHN9fa2F_FV03LgDp5jSIv3m9KbI0_jJ9cjM.js":1,"sites\/all\/modules\/contrib\/custom_search\/js\/custom_search.js":1,"sites\/all\/modules\/contrib\/paywall\/includes\/paywall.js":1,"sites\/all\/modules\/contrib\/baidu_analytics\/baidu_analytics.js":1,"sites\/all\/modules\/contrib\/disqus\/disqus.js":1,"sites\/all\/themes\/w3cplusV2\/js\/highlight.pack.js":1,"sites\/all\/themes\/w3cplusV2\/js\/main.js":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/field\/theme\/field.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/contrib\/views\/css\/views.css":1,"sites\/all\/modules\/contrib\/ckeditor\/ckeditor.css":1,"sites\/all\/modules\/contrib\/ctools\/css\/ctools.css":1,"sites\/all\/modules\/contrib\/paywall\/includes\/paywall.css":1,"sites\/all\/modules\/contrib\/custom_search\/custom_search.css":1,"sites\/all\/themes\/w3cplusV2\/css\/style.css":1}},"custom_search":{"form_target":"_self","solr":0},"baidu_analytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls|xml|z|zip"},"disqus":{"domain":"w3cplus","url":"https:\/\/www.w3cplus.com\/vue\/vue-render-function.html","title":"Vue 2.0\u5b66\u4e60\u7b14\u8bb0\uff1aVue\u7684render\u51fd\u6570","identifier":"node\/2391","developer":1,"language":"zh-hans"},"statistics":{"data":{"nid":"2391"},"url":"\/modules\/statistics\/statistics.php"},"urlIsAjaxTrusted":{"\/vue\/vue-render-function.html":true}});
+//--><!]]>
+</script>
+<!-- w3cplus.com Baidu tongji analytics -->
+<!-- <script>
+var _hmt = _hmt || [];
+(function() {
+var hm = document.createElement("script");
+hm.src = "//hm.baidu.com/hm.js?177319b798978621f83845b12c86fa29";
+var s = document.getElementsByTagName("script")[0];
+s.parentNode.insertBefore(hm, s);
+})();
+</script> -->
+  
+
+<div id="cboxOverlay" style="display: none;"></div><div id="colorbox" class="" role="dialog" tabindex="-1" style="display: none;"><div id="cboxWrapper"><div><div id="cboxTopLeft" style="float: left;"></div><div id="cboxTopCenter" style="float: left;"></div><div id="cboxTopRight" style="float: left;"></div></div><div style="clear: left;"><div id="cboxMiddleLeft" style="float: left;"></div><div id="cboxContent" style="float: left;"><div id="cboxTitle" style="float: left;"></div><div id="cboxCurrent" style="float: left;"></div><button type="button" id="cboxPrevious"></button><button type="button" id="cboxNext"></button><button type="button" id="cboxSlideshow"></button><div id="cboxLoadingOverlay" style="float: left;"></div><div id="cboxLoadingGraphic" style="float: left;"></div></div><div id="cboxMiddleRight" style="float: left;"></div></div><div style="clear: left;"><div id="cboxBottomLeft" style="float: left;"></div><div id="cboxBottomCenter" style="float: left;"></div><div id="cboxBottomRight" style="float: left;"></div></div></div><div style="position: absolute; width: 9999px; visibility: hidden; display: none; max-width: none;"></div></div></body></html>
