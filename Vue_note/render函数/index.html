@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <anchored-heading :level="1">123</anchored-heading>
+  </div>
+  <script>
+    Vue.component('anchored-heading', { render: function (createElement) { 
+      return createElement( 
+        'h' + this.level, // tag name 标签名称 
+        this.$slots.default // 子组件中的阵列 
+      )},
+      props: { level: { type: Number, required: true } } 
+    })
+
+    // new Vue().$mount('#app')
+
+    new Vue({
+      render: (h) => {
+        return h({
+          template: `<div>
+              <anchored-heading :level="1">123</anchored-heading>
+          </div>`
+        })
+      }
+    }).$mount('#app')
+
+  </script>
+</body>
+</html>

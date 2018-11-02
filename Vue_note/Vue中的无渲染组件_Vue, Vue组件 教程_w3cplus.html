@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<!-- saved from url=(0063)https://www.w3cplus.com/vue/renderless-components-in-vuejs.html -->
+<html lang="zh-hans" dir="ltr" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/terms/" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:og="http://ogp.me/ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:sioc="http://rdfs.org/sioc/ns#" xmlns:sioct="http://rdfs.org/sioc/types#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#" class="js"><head profile="http://www.w3.org/1999/xhtml/vocab"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script async="" src="https://w3cplus.disqus.com/embed.js?_=1540778278530"></script>
+  
+<link rel="shortcut icon" href="https://www.w3cplus.com/sites/all/themes/w3cplusV2/favicon.ico" type="image/vnd.microsoft.icon">
+<meta name="description" content="不知道您是否以前有过在第三方组件库中提取过组件的经历，在提取组件的过程中发现需要做一些小的调整，而且也避不开提取整个包。比如像自定义的下拉框，日历或自完匹配等组件，而这些组件可能非常的复杂，需要处理许多意想不到的边界情况。">
+<meta name="keywords" content="前端,Vue, Vue组件,教程">
+<meta name="generator" content="Drupal 7 (http://drupal.org)">
+<link rel="canonical" href="https://www.w3cplus.com/vue/renderless-components-in-vuejs.html">
+<link rel="shortlink" href="https://www.w3cplus.com/node/2378">
+  <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta itemprop="name" content="W3cplus">
+  <meta itemprop="image" content="//www.w3cplus.com/w3cplus-logo.jpg">
+  <meta name="baidu-site-verification" content="ftyq813qEZgpw9nb">
+  <meta name="applicable-device" content="pc,mobile">
+  <title>Vue中的无渲染组件_Vue, Vue组件 教程_w3cplus</title>
+  <link type="text/css" rel="stylesheet" href="./Vue中的无渲染组件_Vue, Vue组件 教程_w3cplus_files/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4.css" media="all">
+<link type="text/css" rel="stylesheet" href="./Vue中的无渲染组件_Vue, Vue组件 教程_w3cplus_files/css_hYCLW089C9S9sP3ZYkuG6R-Q5ZHbEhblZBFjwZ_bE_I.css" media="all">
+<link type="text/css" rel="stylesheet" href="./Vue中的无渲染组件_Vue, Vue组件 教程_w3cplus_files/css_ktRYn5utUfnOaShmd13kLofWNDxLdX1JgCyQV1dBnHY.css" media="all">
+<link type="text/css" rel="stylesheet" href="./Vue中的无渲染组件_Vue, Vue组件 教程_w3cplus_files/css_OeeOg8hUfJ9L-UTYVWF3SbMUQf9PYpekfW_oBSJ3eR0.css" media="all">
+  <script src="./Vue中的无渲染组件_Vue, Vue组件 教程_w3cplus_files/hm.js.下载" type="text/javascript"></script><script src="./Vue中的无渲染组件_Vue, Vue组件 教程_w3cplus_files/zhi12-colorbox.js.下载"></script><script type="text/javascript" src="./Vue中的无渲染组件_Vue, Vue组件 教程_w3cplus_files/jquery.min.js.下载"></script>
+<link rel="stylesheet" type="text/css" href="./Vue中的无渲染组件_Vue, Vue组件 教程_w3cplus_files/colorbox_style.css"></head>
+<body class="html not-front not-logged-in one-sidebar sidebar-second page-node page-node- page-node-2378 node-type-blog featured disqus-processed" style="">
+  <div id="skip-link">
+    <a href="https://www.w3cplus.com/vue/renderless-components-in-vuejs.html#main-content" class="element-invisible element-focusable">跳转到主要内容</a>
+  </div>
+    <div id="header" role="header">
+  <div class="container">
+    <h1 id="logo">
+      <a href="https://www.w3cplus.com/" title="记述前端那些事,引领web前沿,打造精品css3教程" id="site_name">w3cplus</a>
+    </h1>
+    <div class="toggle-topbar menu-icon" id="pull">
+      <a href="https://www.w3cplus.com/vue/renderless-components-in-vuejs.html#"><span>Menu</span></a>
+    </div>
+    <div class="toogle-topbar-content" id="pull-menu">
+              <ul class="menu clearfix"><li class="first leaf"><a href="https://www.w3cplus.com/CSS3" title="">CSS</a></li>
+<li class="leaf"><a href="https://www.w3cplus.com/JavaScript" title="JavaScript">JavaScript</a></li>
+<li class="leaf"><a href="https://www.w3cplus.com/blog/react" title="React">React</a></li>
+<li class="leaf"><a href="https://www.w3cplus.com/blog/vue" title="Vue">Vue</a></li>
+<li class="leaf"><a href="https://www.w3cplus.com/mobile" title="">Mobile</a></li>
+<li class="leaf"><a href="https://www.w3cplus.com/blog/tags/302.html" title="Sass教程">Sass</a></li>
+<li class="leaf"><a href="https://www.w3cplus.com/blog/translations" title="译文">译文</a></li>
+<li class="leaf"><a href="https://www.w3cplus.com/svg-tutorial" title="SVG">SVG</a></li>
+<li class="leaf"><a href="https://www.w3cplus.com/qa.html" title="付费问答">付费问答</a></li>
+<li class="leaf"><a href="https://www.w3cplus.com/tags" title="标签云">标签云</a></li>
+<li class="last leaf"><a href="https://www.w3cplus.com/rss.xml" title="RSS">RSS</a></li>
+</ul>        <!-- /#main-menu -->
+          </div>
+  </div>
+</div>
+
+  <div id="branding" role="branding">
+    <div class="container">
+        <div class="region region-branding">
+    <div id="block-block-44" class="block block-block">
+
+    
+  <div class="content">
+    <div class="ct-ad-article-wrapper" id="content-ad1" style="margin:0; padding:0; overflow: visible; border: none;">
+  <div class="ct-ad-article" style="margin-left: calc(-50vw + 50%); margin-right: calc(-50vw + 50%);width: auto; max-width: none;">
+    <div class="bsap">
+     <a href="https://vue.w3ctech.com/" target="_blank"><img src="./Vue中的无渲染组件_Vue, Vue组件 教程_w3cplus_files/vue-1920.jpg" style="width: 100%;"></a>
+    </div>
+  </div>
+</div>  </div>
+</div>
+  </div>
+    </div>
+  </div> 
+
+<div id="page" role="page">
+  <div class="container">
+    
+    <div class="col-main">
+      <div class="main-wrap">
+        
+                    <div class="region region-featured">
+    <div id="block-block-50" class="block block-block">
+
+    
+  <div class="content">
+    <div class="ct-ad-article-wrapper" id="content-ad1">
+  <div class="ct-ad-article">
+    <div class="bsap">
+     <a href="https://vue.w3ctech.com/" target="_blank">
+      <img src="./Vue中的无渲染组件_Vue, Vue组件 教程_w3cplus_files/vue-960.jpg">
+     </a>
+    </div>
+  </div>
+</div>  </div>
+</div>
+  </div>
+                
+        <div class="page-inner">
+                      <div id="breadcrumb" role="breadcrumb">
+              <h2 class="element-invisible">你在这里</h2><div class="breadcrumb"><a href="https://www.w3cplus.com/">首页</a> » <a href="https://www.w3cplus.com/blog">博客</a> » <a href="https://www.w3cplus.com/blogs/airen">Airen的博客</a></div>            </div>
+          
+          
+          <a id="main-content"></a>
+                                <h1 class="title" id="page-title">
+              Vue中的无渲染组件            </h1>
+          
+                    
+                                <div class="region region-content">
+    <div id="block-system-main" class="block block-system">
+
+    
+  <div class="content">
+    <div id="node-2378" class="node node-blog node-promoted node-full clearfix" about="/vue/renderless-components-in-vuejs.html" typeof="sioc:Post sioct:BlogPost">
+  
+  <div class="node-header">
+              <div class="submitted">
+          作者：<span>大漠</span>          日期：<span>2018-03-30</span>          点击：<span>3277</span>        </div>
+            <div class="tags">
+        <div class="field field-name-field-blog-tag field-type-taxonomy-term-reference field-label-hidden"><div class="field-items"><div class="field-item even"><a href="https://www.w3cplus.com/blog/vue" typeof="skos:Concept" property="rdfs:label skos:prefLabel" datatype="" target="_blank">Vue</a></div><div class="field-item odd"><a href="https://www.w3cplus.com/blog/tags/642.html" typeof="skos:Concept" property="rdfs:label skos:prefLabel" datatype="" target="_blank">Vue组件</a></div></div></div>      </div>
+  </div>
+
+      <div id="node-top" class="node-top">
+      <div id="block-block-38" class="block block-block">
+
+    
+  <div class="content">
+    <div class="ct-ad-article-wrapper" id="content-ad">
+  <div class="ct-ad-article">
+    <div class="bsap">
+     <a href="mailto:airenliao@gmail.com" target="_blank">
+      <img src="./Vue中的无渲染组件_Vue, Vue组件 教程_w3cplus_files/w3cplus-ad-960-2.png" width="960" height="90">
+     </a>
+    </div>
+  </div>
+</div>
+<div>
+<blockquote>
+<p style="font-style:strong;">如果看完了还不过瘾？想和作者深聊相关话题，可以<a class="zhi12-popup cboxElement" href="https://www.zhi12.com/ask/5491/widget" target="_blank" data-box-width="680" style="color: #FF9800; border-bottom: 3px double currentColor; padding-bottom: 3px;">点击这里向作者提问！</a></p>
+</blockquote>
+</div>
+  </div>
+</div>
+    </div>
+  
+  <div class="body-content clearfix">
+    <div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><blockquote>
+  <p>特别声明：此篇文章内容来源于<a href="https://adamwathan.me/" target="_blank">@Adam Wathan</a>的《<a href="https://adamwathan.me/renderless-components-in-vuejs" target="_blank">Renderless Components in Vue.js</a>》一文。</p>
+</blockquote>
+
+<p>不知道您是否以前有过在第三方组件库中提取过组件的经历，在提取组件的过程中发现需要做一些小的调整，而且也避不开提取整个包。比如像自定义的下拉框，日历或自完匹配等组件，而这些组件可能非常的复杂，需要处理许多意想不到的边界情况。</p>
+
+<p>有很多库在处理这些复杂边界情况做得很好，但是它们通常都有一个破坏性的缺点：<strong>很难或不可能定制它们的外观</strong>。</p>
+
+<p>比如标签输入控件（Tag input控件）：</p>
+
+<div style="margin-bottom: 20px;"><iframe id="rdpQYr" src="./Vue中的无渲染组件_Vue, Vue组件 教程_w3cplus_files/rdpQYr(1).html" scrolling="no" frameborder="0" height="400" allowtransparency="true" allowfullscreen="true" class="cp_embed_iframe undefined" style="width: 100%; overflow: hidden;"></iframe></div>
+
+<p>这个组件有一些有趣的特性：</p>
+
+<ul>
+<li>它不会让你重复添加</li>
+<li>它不会让你添加空标签</li>
+<li>标签之间会自动添加空格</li>
+<li>当用户按下<code>Enter</code>键时，会自动添加标签</li>
+<li>当用户单击标签中的<code>x</code>时会删除标签</li>
+</ul>
+
+<p>如果你在项目中需要这样的组件，并将其作为包进行打包并卸载，那么这种逻辑肯定会让你节省一些时间和精力。</p>
+
+<blockquote>
+  <p><strong>如果你需它看起来有一点不一样呢？</strong></p>
+</blockquote>
+
+<p>此组件与前面的组件具有相同的行为，但布局和样式风格有明显的差异：</p>
+
+<div style="margin-bottom: 20px;"><iframe id="EEoGEj" src="./Vue中的无渲染组件_Vue, Vue组件 教程_w3cplus_files/EEoGEj(1).html" scrolling="no" frameborder="0" height="400" allowtransparency="true" allowfullscreen="true" class="cp_embed_iframe undefined" style="width: 100%; overflow: hidden;"></iframe></div>
+
+<p>你可以尝试着通过奇特CSS和组件配置选项的组合来支持这两种布局，但是还有更好的方法。</p>
+
+<h2>作用域插槽</h2>
+
+<p>在Vue中，<a href="https://vuejs.org/v2/guide/components.html#Content-Distribution-with-Slots" target="_blank"><code>slot</code></a>是一个组件中的占位符元素，由父或者消费者传递的内容来替代。</p>
+
+<blockquote>
+  <p>如果您从示接触过Vue中的<code>slot</code>相关知识，建议您花一点时间阅读前段时间整理的学习笔记《<a href="https://www.w3cplus.com/vue/vue-slot.html" target="_blank">Vue组件内容分发（<code>slot</code>）</a>》。</p>
+</blockquote>
+
+<pre class="xml"><code class="xml"><span class="comment"><span class="comment">&lt;!-- Card.vue --&gt;</span></span>
+<span class="tag"><span class="tag">&lt;<span class="title"><span class="title">template</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">div</span></span> <span class="attribute"><span class="attribute">class</span></span>=<span class="value"><span class="value">"card"</span></span>&gt;</span></span>
+        <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">div</span></span> <span class="attribute"><span class="attribute">class</span></span>=<span class="value"><span class="value">"card-header"</span></span>&gt;</span></span>
+            <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">slot</span></span> <span class="attribute"><span class="attribute">name</span></span>=<span class="value"><span class="value">"header"</span></span>&gt;</span></span><span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">slot</span></span>&gt;</span></span>
+        <span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">div</span></span>&gt;</span></span>
+        <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">div</span></span> <span class="attribute"><span class="attribute">class</span></span>=<span class="value"><span class="value">"card-body"</span></span>&gt;</span></span>
+            <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">slot</span></span> <span class="attribute"><span class="attribute">name</span></span>=<span class="value"><span class="value">"body"</span></span>&gt;</span></span><span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">slot</span></span>&gt;</span></span>
+        <span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">div</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">div</span></span>&gt;</span></span>
+<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">template</span></span>&gt;</span></span>
+
+<span class="comment"><span class="comment">&lt;!-- Parent or Consumer --&gt;</span></span>
+<span class="tag"><span class="tag">&lt;<span class="title"><span class="title">card</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">h1</span></span> <span class="attribute"><span class="attribute">slot</span></span>=<span class="value"><span class="value">"header"</span></span>&gt;</span></span>Special Features<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">h1</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">div</span></span> <span class="attribute"><span class="attribute">slot</span></span>=<span class="value"><span class="value">"body"</span></span>&gt;</span></span>
+        <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">h5</span></span>&gt;</span></span>Fish and Chips<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">h5</span></span>&gt;</span></span>
+        <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">p</span></span>&gt;</span></span>Super delicious tbh.<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">p</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">div</span></span>&gt;</span></span>
+<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">card</span></span>&gt;</span></span>
+
+<span class="comment"><span class="comment">&lt;!-- Renders: --&gt;</span></span>
+<span class="tag"><span class="tag">&lt;<span class="title"><span class="title">div</span></span> <span class="attribute"><span class="attribute">class</span></span>=<span class="value"><span class="value">"card"</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">div</span></span> <span class="attribute"><span class="attribute">class</span></span>=<span class="value"><span class="value">"card-header"</span></span>&gt;</span></span>
+        <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">h1</span></span>&gt;</span></span>Special Features<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">h1</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">div</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">div</span></span> <span class="attribute"><span class="attribute">class</span></span>=<span class="value"><span class="value">"card-body"</span></span>&gt;</span></span>
+        <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">div</span></span>&gt;</span></span>
+            <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">h5</span></span>&gt;</span></span>Fish and Chips<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">h5</span></span>&gt;</span></span>
+            <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">p</span></span>&gt;</span></span>Super delicious tbh.<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">p</span></span>&gt;</span></span>
+        <span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">div</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">div</span></span>&gt;</span></span>
+<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">div</span></span>&gt;</span></span>
+</code></pre>
+
+<p>作用域插槽（<code>slot-scope</code>）和常规的插槽（<code>slot</code>）一样，但<strong>有能力将参数从子组件传递到父组件或消费者上</strong>。</p>
+
+<p>常规的<code>slot</code>就像将HTML传递给组件，作用域插槽类似于传递接受数据并返回HTML的回调。</p>
+
+<p>通过向子组件中的<code>&lt;slot&gt;</code>元素添加一些<code>props</code>，将参数传递给父元素，并且父元素通过将它们从特殊的<code>slot-scope</code>属性<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment" target="_blank">解构</a>来访问这些参数。</p>
+
+<blockquote>
+  <p><strong>解构：</strong><code>slot-scope</code> 的值实际上是一个可以出现在函数签名参数位置的合法的 JavaScript 表达式。这意味着在受支持的环境 (单文件组件或现代浏览器) 中，您还可以在表达式中使用 ES2015 解构。</p>
+</blockquote>
+
+<p>这里有一个<code>LinksList</code>组件的例子，它为每个列表标签设置了一个作用域插槽，将将每个列表标签的数据通过一个<code>:link</code>的<code>props</code>传递给父元素：</p>
+
+<pre class="xml"><code class="xml"><span class="comment"><span class="comment">&lt;!-- LinkList.vue --&gt;</span></span>
+<span class="tag"><span class="tag">&lt;<span class="title"><span class="title">template</span></span>&gt;</span></span>
+    <span class="comment"><span class="comment">&lt;!-- ... --&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">li</span></span> <span class="attribute"><span class="attribute">v-for</span></span>=<span class="value"><span class="value">"link in links"</span></span>&gt;</span></span>
+        <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">slot</span></span> <span class="attribute"><span class="attribute">name</span></span>=<span class="value"><span class="value">"link"</span></span> <span class="attribute"><span class="attribute">:link</span></span>=<span class="value"><span class="value">"link"</span></span>&gt;</span></span><span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">slot</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">li</span></span>&gt;</span></span>
+    <span class="comment"><span class="comment">&lt;!-- ... --&gt;</span></span>
+<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">template</span></span>&gt;</span></span>
+
+<span class="comment"><span class="comment">&lt;!-- Parent or Consumer --&gt;</span></span>
+<span class="tag"><span class="tag">&lt;<span class="title"><span class="title">links-list</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">a</span></span> <span class="attribute"><span class="attribute">slot</span></span>=<span class="value"><span class="value">"link"</span></span> <span class="attribute"><span class="attribute">slot-scope</span></span>=<span class="value"><span class="value">"{ link }"</span></span> <span class="attribute"><span class="attribute">:href</span></span>=<span class="value"><span class="value">"link.href"</span></span>&gt;</span></span>
+        {{ link.title }}
+    <span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">a</span></span>&gt;</span></span>
+<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">links-list</span></span>&gt;</span></span>
+</code></pre>
+
+<p>通过在<code>LinksList</code>组件中添加<code>:link</code>属性到<code>&lt;slot&gt;</code>元素，父节点（父元素或消费者）现在可以通过<code>slot-scope</code>访问它，并在<code>slot</code>模板中使用它。</p>
+
+<h2>Slot属性类型</h2>
+
+<p>你可以将任何东西传递给一个插槽，但是我发现将每个Slot属性看作这三种类型之一是非常有用的。</p>
+
+<h3>数据（data）</h3>
+
+<p>数据属性最简单的类似就是<code>data</code>：<code>String</code>、<code>Numbers</code>、<code>Boolean</code>、<code>Array</code>和<code>Object</code>等等。</p>
+
+<p>在<code>links</code>示例中，<code>link</code>是一个数据属性的示例，它只是一个具有一些属性的对象：</p>
+
+<pre class="xml"><code class="xml"><span class="comment"><span class="comment">&lt;!-- LinksList.vue --&gt;</span></span>
+<span class="tag"><span class="tag">&lt;<span class="title"><span class="title">template</span></span>&gt;</span></span>
+    <span class="comment"><span class="comment">&lt;!-- ... --&gt;</span></span>
+        <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">li</span></span> <span class="attribute"><span class="attribute">v-for</span></span>=<span class="value"><span class="value">"link in links"</span></span>&gt;</span></span>
+            <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">slot</span></span> <span class="attribute"><span class="attribute">name</span></span>=<span class="value"><span class="value">"link"</span></span> <span class="attribute"><span class="attribute">:link</span></span>=<span class="value"><span class="value">"link"</span></span>&gt;</span></span><span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">slot</span></span>&gt;</span></span>
+        <span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">li</span></span>&gt;</span></span>
+    <span class="comment"><span class="comment">&lt;!-- ... --&gt;</span></span>
+<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">template</span></span>&gt;</span></span>
+
+<span class="tag"><span class="tag">&lt;<span class="title"><span class="title">script</span></span>&gt;</span></span><span class="javascript"><span class="javascript">
+export <span class="keyword"><span class="keyword">default</span></span> {
+    data() {
+        <span class="keyword"><span class="keyword">return</span></span> {
+            links: [
+                { 
+                    href: <span class="string"><span class="string">'http://...'</span></span>, 
+                    title: <span class="string"><span class="string">'First Link'</span></span>, 
+                    bookmarked: <span class="literal"><span class="literal">true</span></span> 
+                },
+                { 
+                    href: <span class="string"><span class="string">'http://...'</span></span>, 
+                    title: <span class="string"><span class="string">'Second Link'</span></span>, 
+                    bookmarked: <span class="literal"><span class="literal">false</span></span> 
+                },
+                <span class="comment"><span class="comment">// ...</span></span>
+            ]
+        }
+    }
+}
+</span></span><span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">script</span></span>&gt;</span></span>
+</code></pre>
+
+<p>然后，父元素（或消费者）可以渲染该数据或使用它来决定要渲染的内容：</p>
+
+<pre class="xml"><code class="xml"><span class="comment"><span class="comment">&lt;!-- Parent or Consumer --&gt;</span></span>
+<span class="tag"><span class="tag">&lt;<span class="title"><span class="title">links-list</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">div</span></span> <span class="attribute"><span class="attribute">slot</span></span>=<span class="value"><span class="value">"link"</span></span> <span class="attribute"><span class="attribute">slot-scope</span></span>=<span class="value"><span class="value">"{ link }"</span></span>&gt;</span></span>
+        <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">star-icon</span></span> <span class="attribute"><span class="attribute">v-show</span></span>=<span class="value"><span class="value">"link.bookmarked"</span></span>&gt;</span></span><span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">star-icon</span></span>&gt;</span></span>
+        <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">a</span></span> <span class="attribute"><span class="attribute">:href</span></span>=<span class="value"><span class="value">"link.href"</span></span>&gt;</span></span>
+            {{ link.title }}
+        <span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">a</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">div</span></span>&gt;</span></span>
+<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">links-list</span></span>&gt;</span></span>
+</code></pre>
+
+<h3>动作（Actions）</h3>
+
+<p>动作属性是由子组件提供的功能，父组件（或者消费者）可以调用它来调用子组件中的某些行为。比如，我们可以将<code>bookmark</code>操作（Action）传递给链接的父节点：</p>
+
+<pre class="xml"><code class="xml"><span class="comment"><span class="comment">&lt;!-- LinksList.vue --&gt;</span></span>
+<span class="tag"><span class="tag">&lt;<span class="title"><span class="title">template</span></span>&gt;</span></span>
+    <span class="comment"><span class="comment">&lt;!-- ... --&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">li</span></span> <span class="attribute"><span class="attribute">v-for</span></span>=<span class="value"><span class="value">"link in links"</span></span>&gt;</span></span>
+        <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">slot</span></span> <span class="attribute"><span class="attribute">name</span></span>=<span class="value"><span class="value">"link"</span></span> <span class="attribute"><span class="attribute">:link</span></span>=<span class="value"><span class="value">"link"</span></span> <span class="attribute"><span class="attribute">:bookmark</span></span>=<span class="value"><span class="value">"bookmark"</span></span>&gt;</span></span><span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">slot</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">li</span></span>&gt;</span></span>
+    <span class="comment"><span class="comment">&lt;!-- ... --&gt;</span></span>
+<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">template</span></span>&gt;</span></span>
+
+<span class="tag"><span class="tag">&lt;<span class="title"><span class="title">script</span></span>&gt;</span></span><span class="javascript"><span class="javascript">
+    export <span class="keyword"><span class="keyword">default</span></span> {
+        data() {
+            <span class="comment"><span class="comment">// ...</span></span>
+        },
+    methods: {
+        bookmark(link) {
+            link.bookmarked = <span class="literal"><span class="literal">true</span></span>
+        }
+    }
+}
+</span></span><span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">script</span></span>&gt;</span></span>
+</code></pre>
+
+<p>当用户单击未收藏链接旁的<code>button</code>时，父节点可以调用该操作：</p>
+
+<pre class="xml"><code class="xml"><span class="comment"><span class="comment">&lt;!-- Parent/Consumer --&gt;</span></span>
+<span class="tag"><span class="tag">&lt;<span class="title"><span class="title">links-list</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">div</span></span> <span class="attribute"><span class="attribute">slot</span></span>=<span class="value"><span class="value">"link"</span></span> <span class="attribute"><span class="attribute">slot-scope</span></span>=<span class="value"><span class="value">"{ link, bookmark }"</span></span>&gt;</span></span>
+        <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">star-icon</span></span> <span class="attribute"><span class="attribute">v-show</span></span>=<span class="value"><span class="value">"link.bookmarked"</span></span>&gt;</span></span><span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">star-icon</span></span>&gt;</span></span>
+        <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">a</span></span> <span class="attribute"><span class="attribute">:href</span></span>=<span class="value"><span class="value">"link.href"</span></span>&gt;</span></span>{{ link.title }}<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">a</span></span>&gt;</span></span>
+        <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">button</span></span> <span class="attribute"><span class="attribute">v-show</span></span>=<span class="value"><span class="value">"!link.bookmarked"</span></span> @<span class="attribute"><span class="attribute">click</span></span>=<span class="value"><span class="value">"bookmark(link)"</span></span>&gt;</span></span>Bookmark<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">button</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">div</span></span>&gt;</span></span>
+<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">links-list</span></span>&gt;</span></span>
+</code></pre>
+
+<h3>绑定（Blindings）</h3>
+
+<p>绑定是属性或事件处理程序的集合，它们应该使用<code>v-bind</code>或<code>v-on</code>绑定到特定的元素上。当你想要封装带有交互的元素时，这些方法非常有用。</p>
+
+<p>例如，我们可以在组件自身中提供<code>bookmarkButtonAttrs</code>和<code>bookmarkButtonEvents</code>这些绑定来处理组件的相关细节，而不是让消费者自己通过<code>v-show</code>和<code>@click</code>来做相关的处理：</p>
+
+<pre class="xml"><code class="xml"><span class="comment"><span class="comment">&lt;!-- LinksList.vue --&gt;</span></span>
+<span class="tag"><span class="tag">&lt;<span class="title"><span class="title">template</span></span>&gt;</span></span>
+    <span class="comment"><span class="comment">&lt;!-- ... --&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">li</span></span> <span class="attribute"><span class="attribute">v-for</span></span>=<span class="value"><span class="value">"link in links"</span></span>&gt;</span></span>
+        <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">slot</span></span> <span class="attribute"><span class="attribute">name</span></span>=<span class="value"><span class="value">"link"</span></span>
+            <span class="attribute"><span class="attribute">:link</span></span>=<span class="value"><span class="value">"link"</span></span>
+            <span class="attribute"><span class="attribute">:bookmark</span></span>=<span class="value"><span class="value">"bookmark"</span></span>
+            <span class="attribute"><span class="attribute">:bookmarkButtonAttrs</span></span>=<span class="value"><span class="value">"{
+                style: [ link.bookmarked ? { display: none } : {} ]
+            }"</span></span>
+            <span class="attribute"><span class="attribute">:bookmarkButtonEvents</span></span>=<span class="value"><span class="value">"{
+                click: () =&gt; bookmark(link)
+            }"</span></span>
+        &gt;</span></span><span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">slot</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">li</span></span>&gt;</span></span>
+    <span class="comment"><span class="comment">&lt;!-- ... --&gt;</span></span>
+<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">template</span></span>&gt;</span></span>
+</code></pre>
+
+<p>现在，如果消费者喜欢，他们可以将这些绑定应用到书签按钮上，而不压岁要知道他们实际上在做什么：</p>
+
+<pre class="xml"><code class="xml"><span class="comment"><span class="comment">&lt;!-- Parent/Consumer --&gt;</span></span>
+<span class="tag"><span class="tag">&lt;<span class="title"><span class="title">links-list</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">div</span></span> <span class="attribute"><span class="attribute">slot</span></span>=<span class="value"><span class="value">"link"</span></span> <span class="attribute"><span class="attribute">slot-scope</span></span>=<span class="value"><span class="value">"{ link, bookmarkButtonAttrs, bookmarkButtonEvents }"</span></span>&gt;</span></span>
+        <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">star-icon</span></span> <span class="attribute"><span class="attribute">v-show</span></span>=<span class="value"><span class="value">"link.bookmarked"</span></span>&gt;</span></span><span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">star-icon</span></span>&gt;</span></span>
+        <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">a</span></span> <span class="attribute"><span class="attribute">:href</span></span>=<span class="value"><span class="value">"link.href"</span></span>&gt;</span></span>{{ link.title }}<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">a</span></span>&gt;</span></span>
+        <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">button</span></span> <span class="attribute"><span class="attribute">v-bind</span></span>=<span class="value"><span class="value">"bookmarkButtonAttrs"</span></span> <span class="attribute"><span class="attribute">v-on</span></span>=<span class="value"><span class="value">"bookmarkButtonEvents"</span></span>&gt;</span></span>Bookmark<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">button</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">div</span></span>&gt;</span></span>
+<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">links-list</span></span>&gt;</span></span>
+</code></pre>
+
+<h2>无渲染组件</h2>
+
+<p>无渲染组件是一个不需要渲染任何自己的HTML的组件。相反，它只管理状态和行为。它会暴露一个单独的作用域，让父组件或消费者完全控制应该渲染的内容。</p>
+
+<p>无渲染组件可以在没有任何额外的元素情况之下精确的渲染你所传递的内容。</p>
+
+<pre class="xml"><code class="xml"><span class="comment"><span class="comment">&lt;!-- Parent or Consumer --&gt;</span></span>
+<span class="tag"><span class="tag">&lt;<span class="title"><span class="title">renderless-component-example</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">h1</span></span> <span class="attribute"><span class="attribute">slot-scope</span></span>=<span class="value"><span class="value">"{}"</span></span>&gt;</span></span>
+        Hello world!
+    <span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">h1</span></span>&gt;</span></span>
+<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">renderless-component-example</span></span>&gt;</span></span>
+
+<span class="comment"><span class="comment">&lt;!-- Renders: --&gt;</span></span>
+<span class="tag"><span class="tag">&lt;<span class="title"><span class="title">h1</span></span>&gt;</span></span>Hello world!<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">h1</span></span>&gt;</span></span>
+</code></pre>
+
+<p>为什么这个有用？</p>
+
+<h2>表现和行为分离</h2>
+
+<p>由于无渲染组件只处理状态和行为，所以它们不会对设计或布局强加任何的决策。这意味弟，如果你能够找到一种方法，将所有的行为从UI组件（比如文章开头的标签输入控件）中移出，将将其转换成一个无组件的组件，那么你就可以重用无渲染组件来实现任何布局效果的标签输入控件。</p>
+
+<p>下面有两个标签输入控件，但这次是由一个单一的无渲染组件实现的：</p>
+
+<div style="margin-bottom: 20px;"><iframe id="NYXVKJ" src="./Vue中的无渲染组件_Vue, Vue组件 教程_w3cplus_files/NYXVKJ(1).html" scrolling="no" frameborder="0" height="400" allowtransparency="true" allowfullscreen="true" class="cp_embed_iframe undefined" style="width: 100%; overflow: hidden;"></iframe></div>
+
+<p>那么这是如何实现的呢？</p>
+
+<h2>无渲染组件结构</h2>
+
+<p>一个无渲染组件暴露一个单一的作用域插槽，使用者可以提供他们想要渲染的整个模板。</p>
+
+<p>无渲染组件的基本结构如下所示：</p>
+
+<pre class="php"><code class="php">Vue.component(<span class="string"><span class="string">'renderless-component-example'</span></span>, {
+    <span class="comment"><span class="comment">// Props, data, methods, etc.</span></span>
+    render() {
+        <span class="keyword"><span class="keyword">return</span></span> <span class="keyword"><span class="keyword">this</span></span>.<span class="variable"><span class="variable">$scopedSlots</span></span>.<span class="keyword"><span class="keyword">default</span></span>({
+            exampleProp: <span class="string"><span class="string">'universe'</span></span>,
+        })
+    },
+})
+</code></pre>
+
+<p>它没有<code>template</code>，也没有渲染自己的HTML；相反，它使用了一个<a href="https://vuejs.org/v2/guide/render-function.html" target="_blank"><code>render()</code>函数</a>，该函数通过任何插槽调用默认的作用域插槽，然后返回结果。</p>
+
+<p>该组件的任何父组件或消费者都可以将<code>exampleProp</code>从插槽作用域中删除，并在其模板中使用它：</p>
+
+<pre class="xml"><code class="xml"><span class="comment"><span class="comment">&lt;!-- Parent/Consumer --&gt;</span></span>
+<span class="tag"><span class="tag">&lt;<span class="title"><span class="title">renderless-component-example</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">h1</span></span> <span class="attribute"><span class="attribute">slot-scope</span></span>=<span class="value"><span class="value">"{ exampleProp }"</span></span>&gt;</span></span>
+        Hello {{ exampleProp }}!
+    <span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">h1</span></span>&gt;</span></span>
+<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">renderless-component-example</span></span>&gt;</span></span>
+
+<span class="comment"><span class="comment">&lt;!-- Renders: --&gt;</span></span>
+<span class="tag"><span class="tag">&lt;<span class="title"><span class="title">h1</span></span>&gt;</span></span>Hello universe!<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">h1</span></span>&gt;</span></span>
+</code></pre>
+
+<h2>案例</h2>
+
+<p>让我们从头开始构建一个无渲染版本的标签输入控件。我们将从一个没有插槽的空白组件开始：</p>
+
+<pre class="php"><code class="php"><span class="comment"><span class="comment">// Renderless Tags Input Component</span></span>
+Vue.component(<span class="string"><span class="string">'renderless-tags-input'</span></span>, {
+    render () {
+        <span class="keyword"><span class="keyword">return</span></span> <span class="keyword"><span class="keyword">this</span></span>.<span class="variable"><span class="variable">$scopedSlots</span></span>.<span class="keyword"><span class="keyword">default</span></span>({})
+    }
+})
+</code></pre>
+
+<p>还有一个父组件（将<code>div#app</code>当作父组件），它带有一个静态的非交互式UI，将它传递给子组件的<code>slot</code>：</p>
+
+<pre class="xml"><code class="xml"><span class="tag"><span class="tag">&lt;<span class="title"><span class="title">div</span></span> <span class="attribute"><span class="attribute">id</span></span>=<span class="value"><span class="value">"app"</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">renderless-tags-input</span></span>&gt;</span></span>
+        <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">div</span></span> <span class="attribute"><span class="attribute">slot-scope</span></span>=<span class="value"><span class="value">"{}"</span></span> <span class="attribute"><span class="attribute">class</span></span>=<span class="value"><span class="value">"tags-input"</span></span>&gt;</span></span>
+            <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">span</span></span> <span class="attribute"><span class="attribute">class</span></span>=<span class="value"><span class="value">"tags-input-tag"</span></span>&gt;</span></span>
+                <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">span</span></span>&gt;</span></span>Testing<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">span</span></span>&gt;</span></span>
+                <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">span</span></span>&gt;</span></span>Design<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">span</span></span>&gt;</span></span>
+                <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">button</span></span> <span class="attribute"><span class="attribute">type</span></span>=<span class="value"><span class="value">"button"</span></span> <span class="attribute"><span class="attribute">class</span></span>=<span class="value"><span class="value">"tags-input-remove"</span></span>&gt;</span></span>&amp;times;<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">button</span></span>&gt;</span></span>
+            <span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">span</span></span>&gt;</span></span>
+            <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">input</span></span> <span class="attribute"><span class="attribute">class</span></span>=<span class="value"><span class="value">"tags-input-text"</span></span> <span class="attribute"><span class="attribute">placeholder</span></span>=<span class="value"><span class="value">"Add tag..."</span></span>&gt;</span></span>
+        <span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">div</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">renderless-tags-input</span></span>&gt;</span></span>
+<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">div</span></span>&gt;</span></span>
+</code></pre>
+
+<p>为了让渲染出来的效果好看一点，添加一点CSS代码，在浏览器中将看到的效果如下：</p>
+
+<p><img src="./Vue中的无渲染组件_Vue, Vue组件 教程_w3cplus_files/renderless-component-vue-1.png" alt=""></p>
+
+<p>接下来把状态和行为添加到无渲染组件中，并通过<code>slot-scope</code>将其暴露在我们的布局中，从而使这个组件能正常运行。</p>
+
+<h3>标签列表</h3>
+
+<p>首先，用动态列表替换静态列表。标签输入组件是一个<a href="https://vuejs.org/v2/guide/components.html#Form-Input-Components-using-Custom-Events" target="_blank">自定义表单控件</a>，就像在<a href="https://codepen.io/adamwathan/pen/oqZOQv" target="_blank">原始示例</a>中，标签应该在父节点中，并使用<code>v-model</code>将其绑定到组件上。</p>
+
+<p>我们首先给组件的<code>props</code>添加一个<code>value</code>值，并将其作为一个<code>tags</code>的插槽属性：</p>
+
+<pre class="cs"><code class="cs"><span class="comment"><span class="comment">// Renderless Tags Input Component</span></span>
+Vue.component(<span class="string"><span class="string">'renderless-tags-input'</span></span>, {
+    props: [<span class="string"><span class="string">'value'</span></span>],
+    render () {
+        <span class="keyword"><span class="keyword">return</span></span> <span class="keyword"><span class="keyword">this</span></span>.$scopedSlots.<span class="keyword"><span class="keyword">default</span></span>({
+            tags: <span class="keyword"><span class="keyword">this</span></span>.<span class="keyword"><span class="keyword">value</span></span>
+        })
+    }
+})
+</code></pre>
+
+<p>接下来，将在父节点中添加<code>v-model</code>绑定到父组件中，将<code>tags</code>从<code>slot-scope</code>提取出来，并使用<code>v-for</code>对其进行迭代：</p>
+
+<pre class="xml"><code class="xml"><span class="tag"><span class="tag">&lt;<span class="title"><span class="title">div</span></span> <span class="attribute"><span class="attribute">id</span></span>=<span class="value"><span class="value">"app"</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">renderless-tags-input</span></span> <span class="attribute"><span class="attribute">v-model</span></span>=<span class="value"><span class="value">"tags"</span></span>&gt;</span></span>
+        <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">div</span></span> <span class="attribute"><span class="attribute">slot-scope</span></span>=<span class="value"><span class="value">"{ tags }"</span></span> <span class="attribute"><span class="attribute">class</span></span>=<span class="value"><span class="value">"tags-input"</span></span>&gt;</span></span>
+            <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">span</span></span> <span class="attribute"><span class="attribute">class</span></span>=<span class="value"><span class="value">"tags-input-tag"</span></span> <span class="attribute"><span class="attribute">v-for</span></span>=<span class="value"><span class="value">"tag in tags"</span></span>&gt;</span></span>
+                <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">span</span></span>&gt;</span></span>{{ tag }}<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">span</span></span>&gt;</span></span>
+                <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">button</span></span> <span class="attribute"><span class="attribute">type</span></span>=<span class="value"><span class="value">"button"</span></span> <span class="attribute"><span class="attribute">class</span></span>=<span class="value"><span class="value">"tags-input-remove"</span></span>&gt;</span></span>&amp;times;<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">button</span></span>&gt;</span></span>
+            <span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">span</span></span>&gt;</span></span>
+            <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">input</span></span> <span class="attribute"><span class="attribute">class</span></span>=<span class="value"><span class="value">"tags-input-text"</span></span> <span class="attribute"><span class="attribute">placeholder</span></span>=<span class="value"><span class="value">"Add tag..."</span></span>&gt;</span></span>
+        <span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">div</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">renderless-tags-input</span></span>&gt;</span></span>
+<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">div</span></span>&gt;</span></span>
+
+let app = new Vue({
+    el: '#app',
+    data () {
+        return {
+            tags: ['Tesing', 'Design']
+        }
+    }
+})
+</code></pre>
+
+<p>这个时候看到的效果如下：</p>
+
+<p><img src="./Vue中的无渲染组件_Vue, Vue组件 教程_w3cplus_files/renderless-component-vue-2.png" alt=""></p>
+
+<p>现在还没办法在输入框中输入标签之后按回键就能添加标签，但我们可以在浏览器的控制台中修改<code>app.tags</code>的值，来模拟。比如能过<code>.push()</code>给<code>tags</code>数组添加几个值，看到的效果：</p>
+
+<p><img src="./Vue中的无渲染组件_Vue, Vue组件 教程_w3cplus_files/renderless-component-vue-3.gif" alt=""></p>
+
+<p>这个插槽是一个简单数据属性(Data Prop)的好例子。</p>
+
+<h3>删除标签</h3>
+
+<p>接下来做，点击<code>x</code>按钮删除对应的标签。给组件添加一个新的<code>removeTag</code>方法，并将该方法的引用传递给父组件，当作<code>slot</code>属性。</p>
+
+<pre class="php"><code class="php"><span class="comment"><span class="comment">// Renderless Tags Input Component</span></span>
+Vue.component(<span class="string"><span class="string">'renderless-tags-input'</span></span>, {
+    props: [<span class="string"><span class="string">'value'</span></span>],
+    methods: {
+        removeTag: <span class="function"><span class="keyword"><span class="function"><span class="keyword">function</span></span></span><span class="function"> <span class="params"><span class="params">(tag)</span></span> {</span></span>
+            <span class="keyword"><span class="keyword">this</span></span>.<span class="variable"><span class="variable">$emit</span></span>(<span class="string"><span class="string">'input'</span></span>, <span class="keyword"><span class="keyword">this</span></span>.value.filter(t =&gt; t !== tag))
+        }
+    },
+    render () {
+        <span class="keyword"><span class="keyword">return</span></span> <span class="keyword"><span class="keyword">this</span></span>.<span class="variable"><span class="variable">$scopedSlots</span></span>.<span class="keyword"><span class="keyword">default</span></span>({
+            tags: <span class="keyword"><span class="keyword">this</span></span>.value,
+            removeTag: <span class="keyword"><span class="keyword">this</span></span>.removeTag
+        })
+    }
+})
+</code></pre>
+
+<p>然后，将在父组件的按钮上添加<code>@click</code>处理程序，当用户点击该按钮时，对应的标签将会调用<code>removeTag</code>：</p>
+
+<pre class="xml"><code class="xml"><span class="tag"><span class="tag">&lt;<span class="title"><span class="title">div</span></span> <span class="attribute"><span class="attribute">id</span></span>=<span class="value"><span class="value">"app"</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">renderless-tags-input</span></span> <span class="attribute"><span class="attribute">v-model</span></span>=<span class="value"><span class="value">"tags"</span></span>&gt;</span></span>
+        <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">div</span></span> <span class="attribute"><span class="attribute">slot-scope</span></span>=<span class="value"><span class="value">"{ tags, removeTag }"</span></span> <span class="attribute"><span class="attribute">class</span></span>=<span class="value"><span class="value">"tags-input"</span></span>&gt;</span></span>
+            <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">span</span></span> <span class="attribute"><span class="attribute">class</span></span>=<span class="value"><span class="value">"tags-input-tag"</span></span> <span class="attribute"><span class="attribute">v-for</span></span>=<span class="value"><span class="value">"tag in tags"</span></span>&gt;</span></span>
+                <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">span</span></span>&gt;</span></span>{{ tag }}<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">span</span></span>&gt;</span></span>
+                <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">button</span></span> <span class="attribute"><span class="attribute">type</span></span>=<span class="value"><span class="value">"button"</span></span> <span class="attribute"><span class="attribute">class</span></span>=<span class="value"><span class="value">"tags-input-remove"</span></span> @<span class="attribute"><span class="attribute">click</span></span>=<span class="value"><span class="value">"removeTag(tag)"</span></span>&gt;</span></span>&amp;times;<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">button</span></span>&gt;</span></span>
+            <span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">span</span></span>&gt;</span></span>
+            <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">input</span></span> <span class="attribute"><span class="attribute">class</span></span>=<span class="value"><span class="value">"tags-input-text"</span></span> <span class="attribute"><span class="attribute">placeholder</span></span>=<span class="value"><span class="value">"Add tag..."</span></span>&gt;</span></span>
+        <span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">div</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">renderless-tags-input</span></span>&gt;</span></span>
+<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">div</span></span>&gt;</span></span>
+</code></pre>
+
+<p>你点击每个标签上的<code>x</code>按钮，就可以删除对应的标签了，效果如下：</p>
+
+<p><img src="./Vue中的无渲染组件_Vue, Vue组件 教程_w3cplus_files/renderless-component-vue-4.gif" alt=""></p>
+
+<p>这个插槽是一个典型的动作属性(Action Prop)的例子。</p>
+
+<h3>添加新标签</h3>
+
+<p>相对而言，添加新标签要比前面两个更复杂一些。为了能更好的理解其中的原委，先看看在传统的组件中是如何实现它：</p>
+
+<pre class="javascript"><code class="javascript"><span class="comment"><span class="comment">// Renderless Tags Input Component</span></span>
+Vue.component(<span class="string"><span class="string">'renderless-tags-input'</span></span>, {
+    props: [<span class="string"><span class="string">'value'</span></span>],
+    data () {
+        <span class="keyword"><span class="keyword">return</span></span> {
+            newTag: <span class="string"><span class="string">''</span></span>
+        }
+    },
+    methods: {
+        removeTag: <span class="function"><span class="keyword"><span class="function"><span class="keyword">function</span></span></span><span class="function"> <span class="params"><span class="params">(tag)</span></span> {</span></span>
+            <span class="keyword"><span class="keyword">this</span></span>.$emit(<span class="string"><span class="string">'input'</span></span>, <span class="keyword"><span class="keyword">this</span></span>.value.filter(t =&gt; t !== tag))
+        },
+        addTag: <span class="function"><span class="keyword"><span class="function"><span class="keyword">function</span></span></span><span class="function"> <span class="params"><span class="params">()</span></span> {</span></span>
+            <span class="keyword"><span class="keyword">if</span></span> (<span class="keyword"><span class="keyword">this</span></span>.newTag.trim().length === <span class="number"><span class="number">0</span></span> || <span class="keyword"><span class="keyword">this</span></span>.value.includes(<span class="keyword"><span class="keyword">this</span></span>.newTag.trim())) {
+                <span class="keyword"><span class="keyword">return</span></span>
+            }
+            <span class="keyword"><span class="keyword">this</span></span>.$emit(<span class="string"><span class="string">'input'</span></span>, [...<span class="keyword"><span class="keyword">this</span></span>.value, <span class="keyword"><span class="keyword">this</span></span>.newTag.trim()])
+            <span class="keyword"><span class="keyword">this</span></span>.newTag = <span class="string"><span class="string">''</span></span>
+        }
+    },
+    render () {
+        <span class="keyword"><span class="keyword">return</span></span> <span class="keyword"><span class="keyword">this</span></span>.$scopedSlots.<span class="keyword"><span class="keyword">default</span></span>({
+            tags: <span class="keyword"><span class="keyword">this</span></span>.value,
+            removeTag: <span class="keyword"><span class="keyword">this</span></span>.removeTag
+        })
+    }
+})
+
+&lt;div id=<span class="string"><span class="string">"app"</span></span>&gt;
+    <span class="xml"><span class="tag"><span class="xml"><span class="tag">&lt;<span class="title"><span class="title">renderless-tags-input</span></span> <span class="attribute"><span class="attribute">v-model</span></span>=<span class="value"><span class="value">"tags"</span></span>&gt;</span></span></span><span class="xml">
+        <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">div</span></span> <span class="attribute"><span class="attribute">slot-scope</span></span>=<span class="value"><span class="value">"{ tags, removeTag }"</span></span> <span class="attribute"><span class="attribute">class</span></span>=<span class="value"><span class="value">"tags-input"</span></span>&gt;</span></span>
+            <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">span</span></span> <span class="attribute"><span class="attribute">class</span></span>=<span class="value"><span class="value">"tags-input-tag"</span></span> <span class="attribute"><span class="attribute">v-for</span></span>=<span class="value"><span class="value">"tag in tags"</span></span>&gt;</span></span>
+                <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">span</span></span>&gt;</span></span>{{ tag }}<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">span</span></span>&gt;</span></span>
+                <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">button</span></span> <span class="attribute"><span class="attribute">type</span></span>=<span class="value"><span class="value">"button"</span></span> <span class="attribute"><span class="attribute">class</span></span>=<span class="value"><span class="value">"tags-input-remove"</span></span> @<span class="attribute"><span class="attribute">click</span></span>=<span class="value"><span class="value">"removeTag(tag)"</span></span>&gt;</span></span>&amp;times;<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">button</span></span>&gt;</span></span>
+            <span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">span</span></span>&gt;</span></span>
+            <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">input</span></span> @<span class="attribute"><span class="attribute">keydown.enter.prevent</span></span>=<span class="value"><span class="value">"addTag"</span></span> <span class="attribute"><span class="attribute">v-model</span></span>=<span class="value"><span class="value">"newTag"</span></span> <span class="attribute"><span class="attribute">class</span></span>=<span class="value"><span class="value">"tags-input-text"</span></span> <span class="attribute"><span class="attribute">placeholder</span></span>=<span class="value"><span class="value">"Add tag..."</span></span>&gt;</span></span>
+        <span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">div</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">renderless-tags-input</span></span>&gt;</span></span>
+<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">div</span></span>&gt;</span></span>    
+</span></span></code></pre>
+
+<p>我们在<code>newTag</code>属性中跟踪新标记（在添加之前），并使用<code>v-model</code>将该属性绑定到<code>input</code>上。一旦用户按下<code>Enter</code>键，确保标签是有效的，接着将其添加到列表中，然后再清除<code>input</code>里的内容。</p>
+
+<p>这里的问题是，我们如何通过作用插槽来传递<code>v-model</code>的绑定？</p>
+
+<p>如果你深入了解了Vue，你可能知道<code>v-model</code>实际上只是一个<code>:value</code>属性绑定和<code>@input</code>事件绑定的语法糖：</p>
+
+<pre class="xml"><code class="xml"><span class="tag"><span class="tag">&lt;<span class="title"><span class="title">div</span></span> <span class="attribute"><span class="attribute">id</span></span>=<span class="value"><span class="value">"app"</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">renderless-tags-input</span></span> <span class="attribute"><span class="attribute">v-model</span></span>=<span class="value"><span class="value">"tags"</span></span>&gt;</span></span>
+        <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">div</span></span> <span class="attribute"><span class="attribute">slot-scope</span></span>=<span class="value"><span class="value">"{ tags, removeTag }"</span></span> <span class="attribute"><span class="attribute">class</span></span>=<span class="value"><span class="value">"tags-input"</span></span>&gt;</span></span>
+            <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">span</span></span> <span class="attribute"><span class="attribute">class</span></span>=<span class="value"><span class="value">"tags-input-tag"</span></span> <span class="attribute"><span class="attribute">v-for</span></span>=<span class="value"><span class="value">"tag in tags"</span></span>&gt;</span></span>
+                <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">span</span></span>&gt;</span></span>{{ tag }}<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">span</span></span>&gt;</span></span>
+                <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">button</span></span> <span class="attribute"><span class="attribute">type</span></span>=<span class="value"><span class="value">"button"</span></span> <span class="attribute"><span class="attribute">class</span></span>=<span class="value"><span class="value">"tags-input-remove"</span></span> @<span class="attribute"><span class="attribute">click</span></span>=<span class="value"><span class="value">"removeTag(tag)"</span></span>&gt;</span></span>&amp;times;<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">button</span></span>&gt;</span></span>
+            <span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">span</span></span>&gt;</span></span>
+            <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">input</span></span> @<span class="attribute"><span class="attribute">keydown.enter.prevent</span></span>=<span class="value"><span class="value">"addTag"</span></span> <span class="attribute"><span class="attribute">:value</span></span>=<span class="value"><span class="value">"newTag"</span></span> @<span class="attribute"><span class="attribute">input</span></span>=<span class="value"><span class="value">"(e) =&gt; newTag = e.target.value"</span></span> <span class="attribute"><span class="attribute">class</span></span>=<span class="value"><span class="value">"tags-input-text"</span></span> <span class="attribute"><span class="attribute">placeholder</span></span>=<span class="value"><span class="value">"Add tag..."</span></span>&gt;</span></span>
+        <span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">div</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">renderless-tags-input</span></span>&gt;</span></span>
+<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">div</span></span>&gt;</span></span>   
+</code></pre>
+
+<blockquote>
+  <p>注意：这个时候在你的浏览器中运行上面的代码之后，浏览器将会抛出报错信息：“ReferenceError: newTag is not defined”。如果你和我一样，没整清楚为什么抛错的话，不用纠结，请继续往下阅读。</p>
+</blockquote>
+
+<p>这意味着我们可以通过一些更改来处理我们的无渲染组件中的这种行为：</p>
+
+<ul>
+<li>向组件添加本地的<code>newTag</code>数据属性</li>
+<li>使用<code>:value</code>绑定<code>newTag</code>，传递绑定的属性</li>
+<li>使用<code>@keydown.enter</code>绑定<code>addTag</code>和<code>@input</code>绑定<code>newTag</code>，传递绑定的事件</li>
+</ul>
+
+<p>继续看代码：</p>
+
+<pre class="php"><code class="php"><span class="comment"><span class="comment">// Renderless Tags Input Component</span></span>
+Vue.component(<span class="string"><span class="string">'renderless-tags-input'</span></span>, {
+    props: [<span class="string"><span class="string">'value'</span></span>],
+    data () {
+        <span class="keyword"><span class="keyword">return</span></span> {
+            newTag: <span class="string"><span class="string">''</span></span>
+        }
+    },
+    methods: {
+        removeTag: <span class="function"><span class="keyword"><span class="function"><span class="keyword">function</span></span></span><span class="function"> <span class="params"><span class="params">(tag)</span></span> {</span></span>
+            <span class="keyword"><span class="keyword">this</span></span>.<span class="variable"><span class="variable">$emit</span></span>(<span class="string"><span class="string">'input'</span></span>, <span class="keyword"><span class="keyword">this</span></span>.value.filter(t =&gt; t !== tag))
+        },
+        addTag: <span class="function"><span class="keyword"><span class="function"><span class="keyword">function</span></span></span><span class="function"> <span class="params"><span class="params">()</span></span> {</span></span>
+            <span class="keyword"><span class="keyword">if</span></span> (<span class="keyword"><span class="keyword">this</span></span>.newTag.trim().length === <span class="number"><span class="number">0</span></span> || <span class="keyword"><span class="keyword">this</span></span>.value.includes(<span class="keyword"><span class="keyword">this</span></span>.newTag.trim())) {
+                <span class="keyword"><span class="keyword">return</span></span>
+            }
+            <span class="keyword"><span class="keyword">this</span></span>.<span class="variable"><span class="variable">$emit</span></span>(<span class="string"><span class="string">'input'</span></span>, [...<span class="keyword"><span class="keyword">this</span></span>.value, <span class="keyword"><span class="keyword">this</span></span>.newTag.trim()])
+            <span class="keyword"><span class="keyword">this</span></span>.newTag = <span class="string"><span class="string">''</span></span>
+        }
+    },
+    render () {
+        <span class="keyword"><span class="keyword">return</span></span> <span class="keyword"><span class="keyword">this</span></span>.<span class="variable"><span class="variable">$scopedSlots</span></span>.<span class="keyword"><span class="keyword">default</span></span>({
+            tags: <span class="keyword"><span class="keyword">this</span></span>.value,
+            removeTag: <span class="keyword"><span class="keyword">this</span></span>.removeTag,
+            inputAttrs: {
+                value: <span class="keyword"><span class="keyword">this</span></span>.newTag
+            },
+            inputEvents: {
+                input: (e) =&gt; { <span class="keyword"><span class="keyword">this</span></span>.newTag = e.target.value },
+                keydown: (e) =&gt; {
+                    <span class="keyword"><span class="keyword">if</span></span> (e.keyCode === <span class="number"><span class="number">13</span></span>) {
+                        e.preventDefault()
+                        <span class="keyword"><span class="keyword">this</span></span>.addTag()
+                    }
+                }
+            }
+        })
+    }
+})
+</code></pre>
+
+<p>现在我们只需要将这些属性绑定到父元素中的<code>input</code>元素上：</p>
+
+<pre class="xml"><code class="xml"><span class="tag"><span class="tag">&lt;<span class="title"><span class="title">div</span></span> <span class="attribute"><span class="attribute">id</span></span>=<span class="value"><span class="value">"app"</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">renderless-tags-input</span></span> <span class="attribute"><span class="attribute">v-model</span></span>=<span class="value"><span class="value">"tags"</span></span>&gt;</span></span>
+        <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">div</span></span> <span class="attribute"><span class="attribute">slot-scope</span></span>=<span class="value"><span class="value">"{ tags, removeTag, inputAttrs, inputEvents }"</span></span> <span class="attribute"><span class="attribute">class</span></span>=<span class="value"><span class="value">"tags-input"</span></span>&gt;</span></span>
+            <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">span</span></span> <span class="attribute"><span class="attribute">class</span></span>=<span class="value"><span class="value">"tags-input-tag"</span></span> <span class="attribute"><span class="attribute">v-for</span></span>=<span class="value"><span class="value">"tag in tags"</span></span>&gt;</span></span>
+                <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">span</span></span>&gt;</span></span>{{ tag }}<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">span</span></span>&gt;</span></span>
+                <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">button</span></span> <span class="attribute"><span class="attribute">type</span></span>=<span class="value"><span class="value">"button"</span></span> <span class="attribute"><span class="attribute">class</span></span>=<span class="value"><span class="value">"tags-input-remove"</span></span> @<span class="attribute"><span class="attribute">click</span></span>=<span class="value"><span class="value">"removeTag(tag)"</span></span>&gt;</span></span>&amp;times;<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">button</span></span>&gt;</span></span>
+            <span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">span</span></span>&gt;</span></span>
+            <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">input</span></span> <span class="attribute"><span class="attribute">v-bind</span></span>=<span class="value"><span class="value">"inputAttrs"</span></span> <span class="attribute"><span class="attribute">v-on</span></span>=<span class="value"><span class="value">"inputEvents"</span></span> <span class="attribute"><span class="attribute">class</span></span>=<span class="value"><span class="value">"tags-input-text"</span></span> <span class="attribute"><span class="attribute">placeholder</span></span>=<span class="value"><span class="value">"Add tag..."</span></span>&gt;</span></span>
+        <span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">div</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">renderless-tags-input</span></span>&gt;</span></span>
+<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">div</span></span>&gt;</span></span>   
+</code></pre>
+
+<p>这个时候你在<code>input</code>中输入值，并按下<code>Enter</code>时可以正常的添加标签了：</p>
+
+<p><img src="./Vue中的无渲染组件_Vue, Vue组件 教程_w3cplus_files/renderless-component-vue-5.gif" alt=""></p>
+
+<h3>显式地添加新标签</h3>
+
+<p>在当前的布局中，用户在<code>input</code>元素中输入新标签并按回车键就可以添加新标签。但是很容易想象一个场景，有人可能想要提供一个按钮，用户可以点击按钮添加新的标签。</p>
+
+<p>要实现这样的功能其实很容易，要做的就是将<code>addTag</code>方法的引用传递给<code>slot</code>作用域中：</p>
+
+<pre class="php"><code class="php"><span class="comment"><span class="comment">// Renderless Tags Input Component</span></span>
+Vue.component(<span class="string"><span class="string">'renderless-tags-input'</span></span>, {
+    props: [<span class="string"><span class="string">'value'</span></span>],
+    data () {
+        <span class="keyword"><span class="keyword">return</span></span> {
+            newTag: <span class="string"><span class="string">''</span></span>
+        }
+    },
+    methods: {
+        removeTag: <span class="function"><span class="keyword"><span class="function"><span class="keyword">function</span></span></span><span class="function"> <span class="params"><span class="params">(tag)</span></span> {</span></span>
+            <span class="keyword"><span class="keyword">this</span></span>.<span class="variable"><span class="variable">$emit</span></span>(<span class="string"><span class="string">'input'</span></span>, <span class="keyword"><span class="keyword">this</span></span>.value.filter(t =&gt; t !== tag))
+        },
+        addTag: <span class="function"><span class="keyword"><span class="function"><span class="keyword">function</span></span></span><span class="function"> <span class="params"><span class="params">()</span></span> {</span></span>
+            <span class="keyword"><span class="keyword">if</span></span> (<span class="keyword"><span class="keyword">this</span></span>.newTag.trim().length === <span class="number"><span class="number">0</span></span> || <span class="keyword"><span class="keyword">this</span></span>.value.includes(<span class="keyword"><span class="keyword">this</span></span>.newTag.trim())) {
+                <span class="keyword"><span class="keyword">return</span></span>
+            }
+            <span class="keyword"><span class="keyword">this</span></span>.<span class="variable"><span class="variable">$emit</span></span>(<span class="string"><span class="string">'input'</span></span>, [...<span class="keyword"><span class="keyword">this</span></span>.value, <span class="keyword"><span class="keyword">this</span></span>.newTag.trim()])
+            <span class="keyword"><span class="keyword">this</span></span>.newTag = <span class="string"><span class="string">''</span></span>
+        }
+    },
+    render () {
+        <span class="keyword"><span class="keyword">return</span></span> <span class="keyword"><span class="keyword">this</span></span>.<span class="variable"><span class="variable">$scopedSlots</span></span>.<span class="keyword"><span class="keyword">default</span></span>({
+            tags: <span class="keyword"><span class="keyword">this</span></span>.value,
+            removeTag: <span class="keyword"><span class="keyword">this</span></span>.removeTag,
+            inputAttrs: {
+                value: <span class="keyword"><span class="keyword">this</span></span>.newTag
+            },
+            inputEvents: {
+                input: (e) =&gt; { <span class="keyword"><span class="keyword">this</span></span>.newTag = e.target.value },
+                keydown: (e) =&gt; {
+                    <span class="keyword"><span class="keyword">if</span></span> (e.keyCode === <span class="number"><span class="number">13</span></span>) {
+                        e.preventDefault()
+                        <span class="keyword"><span class="keyword">this</span></span>.addTag()
+                    }
+                }
+            },
+            addTag: <span class="keyword"><span class="keyword">this</span></span>.addTag
+        })
+    }
+})
+</code></pre>
+
+<p>在设计像这样的无渲染的组件时，宁可在插槽属性方面犯错，也不要在其他的地方犯错。当消费者使用的时候，只需要使用真正需要的属性，就算给他一个没用的属性，也不会有什么开销。</p>
+
+<p>以下就是我们所构建的无渲染标签输入组件的示例效果：</p>
+
+<div style="margin-bottom: 20px;"><iframe id="dmJaze" src="./Vue中的无渲染组件_Vue, Vue组件 教程_w3cplus_files/dmJaze(1).html" scrolling="no" frameborder="0" height="400" allowtransparency="true" allowfullscreen="true" class="cp_embed_iframe undefined" style="width: 100%; overflow: hidden;"></iframe></div>
+
+<p>实际的组件不包含HTML，而我们定义模板的父组件不包含任何行为。是不是整洁漂亮，对吧。</p>
+
+<h2>另一个布局</h2>
+
+<p>现在，我们已经有了一个无渲染版本的标签输入组件。我们可以通过编写任何我们想要的HTML，并将提供<code>slot</code>相关的属性，将其运用到正确的位置，从而可以轻松的实现可选的布局。</p>
+
+<p>比如下面的示例，就是使用新的无渲染组件实现的另一种布局效果的标签输入控件：</p>
+
+<div style="margin-bottom: 20px;"><iframe id="zWRbLL" src="./Vue中的无渲染组件_Vue, Vue组件 教程_w3cplus_files/zWRbLL.html" scrolling="no" frameborder="0" height="400" allowtransparency="true" allowfullscreen="true" class="cp_embed_iframe undefined" style="width: 100%; overflow: hidden;"></iframe></div>
+
+<h2>创建自己固定的容器组件</h2>
+
+<p>你可能会看到一些这样的例子，并会想：“哇，每次我需要添加这标签组件的另一个实例时，都需要编写大量的HTML！”。当你需要一个标签输入时，写这个肯定会有更多的工作：</p>
+
+<pre class="xml"><code class="xml"><span class="tag"><span class="tag">&lt;<span class="title"><span class="title">renderless-tags-input</span></span> <span class="attribute"><span class="attribute">v-model</span></span>=<span class="value"><span class="value">"tags"</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">div</span></span> <span class="attribute"><span class="attribute">class</span></span>=<span class="value"><span class="value">"tags-input"</span></span> <span class="attribute"><span class="attribute">slot-scope</span></span>=<span class="value"><span class="value">"{ tags, removeTag, inputAttrs, inputEvents }"</span></span>&gt;</span></span>
+        <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">span</span></span> <span class="attribute"><span class="attribute">class</span></span>=<span class="value"><span class="value">"tags-input-tag"</span></span> <span class="attribute"><span class="attribute">v-for</span></span>=<span class="value"><span class="value">"tag in tags"</span></span>&gt;</span></span>
+            <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">span</span></span>&gt;</span></span>{{ tag }}<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">span</span></span>&gt;</span></span>
+            <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">button</span></span> <span class="attribute"><span class="attribute">type</span></span>=<span class="value"><span class="value">"button"</span></span> <span class="attribute"><span class="attribute">class</span></span>=<span class="value"><span class="value">"tags-input-remove"</span></span> @<span class="attribute"><span class="attribute">click</span></span>=<span class="value"><span class="value">"removeTag(tag)"</span></span>&gt;</span></span>&amp;times;<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">button</span></span>&gt;</span></span>
+        <span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">span</span></span>&gt;</span></span>
+
+        <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">input</span></span> <span class="attribute"><span class="attribute">class</span></span>=<span class="value"><span class="value">"tags-input-text"</span></span> <span class="attribute"><span class="attribute">placeholder</span></span>=<span class="value"><span class="value">"Add tag..."</span></span> <span class="attribute"><span class="attribute">v-on</span></span>=<span class="value"><span class="value">"inputEvents"</span></span> <span class="attribute"><span class="attribute">v-bind</span></span>=<span class="value"><span class="value">"inputAttrs"</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">div</span></span>&gt;</span></span>
+<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">renderless-tags-input</span></span>&gt;</span></span>
+</code></pre>
+
+<p>这是我们开始示例中的做法。不过有一个更为简单的解决方法：<strong>创建一个有容器组件！</strong></p>
+
+<pre class="xml"><code class="xml"><span class="tag"><span class="tag">&lt;<span class="title"><span class="title">tags-input</span></span> <span class="attribute"><span class="attribute">v-model</span></span>=<span class="value"><span class="value">"tags"</span></span>&gt;</span></span><span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">tags-input</span></span>&gt;</span></span>
+</code></pre>
+
+<p><code>&lt;tags-input&gt;</code>组件看起来像下面这样：</p>
+
+<pre class="xml"><code class="xml"><span class="comment"><span class="comment">&lt;!-- InlineTagsInput.vue --&gt;</span></span>
+<span class="tag"><span class="tag">&lt;<span class="title"><span class="title">template</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">renderless-tags-input</span></span> <span class="attribute"><span class="attribute">:value</span></span>=<span class="value"><span class="value">"value"</span></span> @<span class="attribute"><span class="attribute">input</span></span>=<span class="value"><span class="value">"(tags) =&gt; { $emit('input', tags) }"</span></span>&gt;</span></span>
+        <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">div</span></span> <span class="attribute"><span class="attribute">class</span></span>=<span class="value"><span class="value">"tags-input"</span></span> <span class="attribute"><span class="attribute">slot-scope</span></span>=<span class="value"><span class="value">"{ tag, removeTag, inputAttrs, inputEvents }"</span></span>&gt;</span></span>
+            <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">span</span></span> <span class="attribute"><span class="attribute">class</span></span>=<span class="value"><span class="value">"tags-input-tag"</span></span> <span class="attribute"><span class="attribute">v-for</span></span>=<span class="value"><span class="value">"tag in tags"</span></span>&gt;</span></span>
+                <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">span</span></span>&gt;</span></span>{{ tag }}<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">span</span></span>&gt;</span></span>
+                <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">button</span></span> <span class="attribute"><span class="attribute">type</span></span>=<span class="value"><span class="value">"button"</span></span> <span class="attribute"><span class="attribute">class</span></span>=<span class="value"><span class="value">"tags-input-remove"</span></span> @<span class="attribute"><span class="attribute">click</span></span>=<span class="value"><span class="value">"removeTag(tag)"</span></span>&gt;</span></span>&amp;times;<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">button</span></span>&gt;</span></span>
+            <span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">span</span></span>&gt;</span></span>
+
+            <span class="tag"><span class="tag">&lt;<span class="title"><span class="title">input</span></span> <span class="attribute"><span class="attribute">class</span></span>=<span class="value"><span class="value">"tags-input-text"</span></span> <span class="attribute"><span class="attribute">placeholder</span></span>=<span class="value"><span class="value">"Add tag..."</span></span>
+                <span class="attribute"><span class="attribute">v-bind</span></span>=<span class="value"><span class="value">"inputAttrs"</span></span>
+                <span class="attribute"><span class="attribute">v-on</span></span>=<span class="value"><span class="value">"inputEvents"</span></span>
+            &gt;</span></span>
+        <span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">div</span></span>&gt;</span></span>
+    <span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">renderless-tags-input</span></span>&gt;</span></span>
+<span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">template</span></span>&gt;</span></span>
+
+<span class="tag"><span class="tag">&lt;<span class="title"><span class="title">script</span></span>&gt;</span></span><span class="javascript"><span class="javascript">
+    export <span class="keyword"><span class="keyword">default</span></span> {
+        props: [<span class="string"><span class="string">'value'</span></span>],
+    }
+</span></span><span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">script</span></span>&gt;</span></span>
+</code></pre>
+
+<p>现在你可以在任何你需要特定布局的代码中使用该组件：</p>
+
+<pre class="xml"><code class="xml"><span class="tag"><span class="tag">&lt;<span class="title"><span class="title">tags-input</span></span> <span class="attribute"><span class="attribute">v-model</span></span>=<span class="value"><span class="value">"tags"</span></span>&gt;</span></span><span class="tag"><span class="tag">&lt;/<span class="title"><span class="title">tags-input</span></span>&gt;</span></span>
+</code></pre>
+
+<p>比如文章开头演示的两个示例。</p>
+
+<h2>更牛逼的组件</h2>
+
+<p>一旦你有了无渲染组件这样的意识，那么你可用这样的方式来做更疯狂的事情。例如，这里有一个<code>fetch-data</code>组件，它以一个<code>url</code>作为<code>props</code>的属性值，从该<code>URL</code>中获取JSON数据，并传给父组件。比如下面这样的一个示例：</p>
+
+<div style="margin-bottom: 20px;"><iframe id="QmQPvm" src="./Vue中的无渲染组件_Vue, Vue组件 教程_w3cplus_files/QmQPvm.html" scrolling="no" frameborder="0" height="400" allowtransparency="true" allowfullscreen="true" class="cp_embed_iframe undefined" style="width: 100%; overflow: hidden;"></iframe></div>
+
+<h2>总结</h2>
+
+<p>将一个组件分解成一个表示组件（Presentational Component）和一个无渲染组件（Renderless Component）是一种非常有用的模式，可以使组件重用变得更加容易。虽然如此，但也并不代表总是值得的。</p>
+
+<p>如果你满足下面这些条件，建议你使用无渲染组件这种方式：</p>
+
+<ul>
+<li>你正在构建一个库，并且希望使用者能够更轻易地自定义组件的外观（样式效果）</li>
+<li>你项目中有多个组件，其行为或功能非常相似，但布局不同</li>
+</ul>
+
+<p>如果一个组件看起来和它使用的地方是一样的或者只需要一个组件，那么就没有必要这样做，因为将所有东西都保存在一个组件中，会让你的事情变得更简单得多。</p>
+
+<div class="blog-author media"><a class="media-object" href="https://weibo.com/w3cplus" target="_blank"><img src="./Vue中的无渲染组件_Vue, Vue组件 教程_w3cplus_files/airen.jpg"></a><div class="media-body"><h3 class="media-heading"><a href="https://weibo.com/w3cplus" target="_blank">大漠</a></h3><div class="media-des">常用昵称“大漠”，W3CPlus创始人，目前就职于手淘。对HTML5、CSS3和Sass等前端脚本语言有非常深入的认识和丰富的实践经验，尤其专注对CSS3的研究，是国内最早研究和使用CSS3技术的一批人。CSS3、Sass和Drupal中国布道者。2014年出版《<a href="https://www.w3cplus.com/book-comment.html" target="_blank">图解CSS3：核心技术与案例实战</a>》。</div></div></div>
+
+<p>如需转载，烦请注明出处：<a href="https://www.w3cplus.com/vue/renderless-components-in-vuejs.html" target="_blank">https://www.w3cplus.com/vue/renderless-components-in-vuejs.html</a></p>
+</div></div></div><div id="block-block-52" class="block block-block">
+
+    
+  <div class="content">
+    <p>
+如需转载，烦请注明出处：<a href="https://www.w3cplus.com/vue/renderless-components-in-vuejs.html" target="_blank">https://www.w3cplus.com/vue/renderless-components-in-vuejs.html</a></p>
+
+<blockquote>
+  <p><strong>如果文章中有不对之处，烦请各位大神拍正。如果你觉得这篇文章对你有所帮助，<a class="zhi12-popup zhi12-widget" rel="nofollow" href="https://www.zhi12.com/paycenter/reward/widget?entity=user&amp;id=5491" target="_blank">打个赏，让我有更大的动力去创作</a>。(^_^)。看完了？还不过瘾？点击<a class="zhi12-popup" href="https://www.zhi12.com/ask/5491/widget" target="_blank" data-box-width="680" style="color: #FF9800; border-bottom: 3px double currentColor; padding-bottom: 3px;">向作者提问！</a></strong></p>
+</blockquote>
+
+<div style="text-align: center; padding: 20px;">
+    <div style="font-size: 12px; color: #666; margin-bottom: 10px;">赏杯咖啡，鼓励他创作更多优质内容！</div>
+    <div>
+		<a class="zhi12-popup zhi12-widget" rel="nofollow" href="https://www.zhi12.com/paycenter/reward/widget?entity=user&amp;id=5491" target="_blank">
+			<img src="./Vue中的无渲染组件_Vue, Vue组件 教程_w3cplus_files/shang1.png" alt="打赏" width="100" style="border: none; background-color: transparent;">
+		</a>
+	</div>
+</div>
+  </div>
+</div>
+  </div>
+
+  
+   
+    <div id="node_footer" class="clearfix">
+              <div class="previous-next"><span class="prev">上一篇: </span><a href="https://www.w3cplus.com/vue/create-pagination-component.html" target="_blank">使用Vue构建可重用的分页组件</a> | <span class="next">下一篇: </span><a href="https://www.w3cplus.com/vue/file-reader-component.html" target="_blank">使用FileReader API创建一个Vue的文件阅读器组件</a></div>            
+    </div>
+
+          <div id="node_bottom">
+        <div id="block-block-24" class="block block-block">
+
+    
+  <div class="content">
+    <div class="ct-ad-article-wrapper" id="content-bottom-ad" style="margin:0 0 0px;padding:0;border: none 0;">
+	<div class="ct-ad-article">
+		<div class="bsap">
+			<a href="http://fe.apelearn.com/?utm_source=w3cplus&amp;utm_medium=banner&amp;utm_campaign=w3cplus" target="_blank"><img src="./Vue中的无渲染组件_Vue, Vue组件 教程_w3cplus_files/damo-960.png" alt="在线视频教程" width="960" height="200"></a>
+		</div>
+	</div>
+</div>
+  </div>
+</div>
+<div id="block-disqus-disqus-comments" class="block block-disqus">
+
+    
+  <div class="content">
+    <div id="disqus_thread"><noscript><p><a href="http://w3cplus.disqus.com/?url=https%3A%2F%2Fwww.w3cplus.com%2Fvue%2Frenderless-components-in-vuejs.html">View the discussion thread.</a></p></noscript></div>  </div>
+</div>
+      </div>
+        
+
+</div>  </div>
+</div>
+  </div>
+
+        </div>
+
+      </div>
+    </div>
+
+    
+          <div id="sidebar-second" class="col-extra" style="position: sticky; top: 80px;">
+        <!-- <script type="text/javascript">document.write(unescape('%3Cdiv id="bdcs"%3E%3C/div%3E%3Cscript charset="utf-8" src="//rp.baidu.com/rp3w/3w.js?sid=10994702955876242907') + '&t=' + (Math.ceil(new Date()/3600000)) + unescape('"%3E%3C/script%3E'));</script> -->
+          <div class="region region-sidebar-second">
+    <div id="block-custom-search-blocks-1" class="block block-custom-search-blocks">
+
+    
+  <div class="content">
+    <form class="search-form" role="search" action="https://www.w3cplus.com/vue/renderless-components-in-vuejs.html" method="post" id="custom-search-blocks-form-1" accept-charset="UTF-8" target="_self"><div><div class="form-item form-type-textfield form-item-custom-search-blocks-form-1">
+  <label class="element-invisible" for="edit-custom-search-blocks-form-1--2">Search this site </label>
+ <input title="请输入您想搜索的关键词。" class="custom-search-box form-text" placeholder="" type="text" id="edit-custom-search-blocks-form-1--2" name="custom_search_blocks_form_1" value="" size="15" maxlength="128">
+</div>
+<input type="hidden" name="delta" value="1">
+<input type="hidden" name="form_build_id" value="form-QkZ-vXGMNPmEsx5Kh9uGSUZDfVPDa_E1pjyb7u9Mzo4">
+<input type="hidden" name="form_id" value="custom_search_blocks_form_1">
+<div class="form-actions form-wrapper" id="edit-actions"><input type="submit" id="edit-submit" name="op" value="搜索" class="form-submit"></div></div></form>  </div>
+</div>
+<div id="block-block-49" class="block block-block">
+
+    
+  <div class="content">
+    <div><a href="http://fe.apelearn.com/?utm_source=w3cplus&amp;utm_medium=banner&amp;utm_campaign=w3cplus" target="_blank" title="在线视频教程"><img alt="" src="./Vue中的无渲染组件_Vue, Vue组件 教程_w3cplus_files/damo-300.png" style="width: 300px; height: 160px;"></a></div>
+<script type="text/javascript" src="./Vue中的无渲染组件_Vue, Vue组件 教程_w3cplus_files/zhi12.js.下载"></script>  </div>
+</div>
+<div id="block-block-18" class="block block-block">
+
+    <h2>合作网站</h2>
+  
+  <div class="content">
+    <ul class="clearfix" id="join_hands"><li>
+		<a href="https://scriptoj.com/" target="_blank" title="前端开发 ScriptOJ">前端开发 ScriptOJ</a></li>
+	<li>
+		<a href="http://moyu-edu.com/js.html" target="_blank" title="墨鱼前端培训">墨鱼前端培训</a></li>
+	<li>
+		<a href="http://www.html5dw.com/" target="_blank" title="HTML5梦工场">HTML5梦工场</a></li>
+	<li>
+		<a href="https://www.w3ctech.com/" target="_blank" title="中国最大的前端技术社区">W3ctech</a></li>
+	<li>
+		<a href="http://fequan.com/" target="_blank" title="前端圈">前端圈</a></li>
+	<li>
+		<a href="https://drupalchina.cn/" target="_blank">Drupal中国</a></li>
+</ul>  </div>
+</div>
+<div id="block-views-friend-block-1" class="block block-views">
+
+    <h2>友情链接</h2>
+  
+  <div class="content">
+    <div class="view view-friend view-id-friend view-display-id-block_1 view-dom-id-2dffaca4e34f9ef44bee64ec26d23702">
+        
+  
+  
+      <div class="view-content">
+      <div class="item-list">    <ul>          <li class="views-row views-row-1 views-row-odd views-row-first">  
+  <div class="views-field views-field-title">        <span class="field-content"><a href="https://segmentfault.com/">segmentfault</a></span>  </div></li>
+          <li class="views-row views-row-2 views-row-even">  
+  <div class="views-field views-field-title">        <span class="field-content"><a href="https://www.alloyteam.com/">腾讯 AlloyTeam</a></span>  </div></li>
+          <li class="views-row views-row-3 views-row-odd">  
+  <div class="views-field views-field-title">        <span class="field-content"><a href="https://www.xiao-an.com/">广州微信开发</a></span>  </div></li>
+          <li class="views-row views-row-4 views-row-even">  
+  <div class="views-field views-field-title">        <span class="field-content"><a href="https://www.tuhaokuai.com/">在线图片压缩</a></span>  </div></li>
+          <li class="views-row views-row-5 views-row-odd">  
+  <div class="views-field views-field-title">        <span class="field-content"><a href="https://www.zuidaima.com/">java源代码学习</a></span>  </div></li>
+          <li class="views-row views-row-6 views-row-even">  
+  <div class="views-field views-field-title">        <span class="field-content"><a href="https://moyu-edu.com/js.html">墨鱼前端开发培训</a></span>  </div></li>
+          <li class="views-row views-row-7 views-row-odd">  
+  <div class="views-field views-field-title">        <span class="field-content"><a href="https://www.zbj.com/ydyykf/">猪八戒网</a></span>  </div></li>
+          <li class="views-row views-row-8 views-row-even">  
+  <div class="views-field views-field-title">        <span class="field-content"><a href="https://www.html5dw.com/">HTML5梦工场</a></span>  </div></li>
+          <li class="views-row views-row-9 views-row-odd">  
+  <div class="views-field views-field-title">        <span class="field-content"><a href="https://www.php-z.com/">PHP教程</a></span>  </div></li>
+          <li class="views-row views-row-10 views-row-even views-row-last">  
+  <div class="views-field views-field-title">        <span class="field-content"><a href="https://www.proginn.com/">程序员客栈</a></span>  </div></li>
+      </ul></div>    </div>
+  
+  
+  
+  
+  
+  
+</div>  </div>
+</div>
+  </div>
+      </div>
+    
+
+  </div>
+</div>
+
+  <div id="footer-col" class="footer-col">
+    <div class="container">
+        <div class="region region-footer-col">
+    <div id="block-block-39" class="block block-block">
+
+    <h2>关于我们</h2>
+  
+  <div class="content">
+    <a class="media-object" href="http://www.w3cplus.com/">W3cplus</a>
+<div class="media-body">
+	<p>W3cplus是一个致力于推广国内前端行业的技术博客。它以探索为己任，不断活跃在行业技术最前沿，努力提供高质量前端技术博文；其文章范围广泛，主要以CSS3、HTML5、JavaScript、Vue、React、Mobile、动画等教程、译文和案例为主。</p>
+	<p><a href="https://www.w3cplus.com/sites/default/files/blogs/2017/1711/W3cplus-banner.pdf" target="_blank">W3cplus提供相关广告展示与招聘发布</a>，有需要的请联系：微信号w3cplus，E-mail:<a href="mailto:airenliao@gmail.com" target="_blank">airenliao@gmail.com</a></p>
+</div>
+  </div>
+</div>
+<div id="block-block-40" class="block block-block">
+
+    <h2>关于站长</h2>
+  
+  <div class="content">
+    <p><a class="media-object" href="https://www.w3cplus.com/" target="_blank">大漠</a></p>
+<div class="media-body">
+	<p>常用昵称“大漠”，<a href="https://www.w3cplus.com/" target="_blank">W3CPlus</a>创始人，目前就职于淘宝。对HTML5、CSS3和CSS处理器等前端脚本语言有非常深入的认识和丰富的实践经验，尤其专注对CSS3和动画的研究，是国内最早研究和使用CSS3和CSS处理器技术的一批人。现在主要在探讨学习JavaScript、React和Vue相关技术知识。CSS3、CSS处理器和Drupal中国布道者。2014年出版《<a href="https://www.w3cplus.com/book-comment.html">图解CSS3：核心技术与案例实战</a>》。</p>
+	<div class="social">
+		<a class="github" href="https://github.com/airen" target="_blank" title="github">github</a> <a class="weibo" href="https://weibo.com/w3cplus" target="_blank" title="weibo">weibo</a> <a class="facebook" href="https://www.facebook.com/w3cplus" target="_blank" title="facebook">facebook</a> <a class="google" href="https://plus.google.com/+AirenLiao" target="_blank" title="google">google</a> <a class="twitter" href="https://twitter.com/w3cplus" target="_blank" title="twitter">twitter</a> <a class="linkedin" href="https://cn.linkedin.com/in/w3cplus" target="_blank" title="linkedin">linkedin</a></div>
+</div>
+<p>&nbsp;</p>
+  </div>
+</div>
+<div id="block-block-41" class="block block-block">
+
+    <h2>我的作品</h2>
+  
+  <div class="content">
+    <a class="media-object" href="https://www.w3cplus.com/book-comment.html" target="_blank">图解CSS3</a>
+<div class="media-body">
+	<p>本书是国内著名的Web前端专家历时2载的心血之作，根据最新的CSS3撰写，融入了作者在CSS领域多年的使用经验，旨在将本书打造成为CSS3领域最权威和实用的专业著作，供没有经验的读者系统学习，供有经验的读者参考备查。</p>
+<p>本书理论知识系统全面，详细讲解了选择器、伸缩布局盒模型、渐变、过渡、动画等主题下涵盖的所有CSS3新特性。</p></div>
+  </div>
+</div>
+  </div>
+    </div>
+  </div> 
+
+  <div id="footer" class="footer">
+    <div class="container">
+        <div class="region region-footer">
+    <div id="block-block-12" class="block block-block">
+
+    
+  <div class="content">
+    <p>湘ICP备13003850号-12，版权所有 衡阳瑞思信息技术有限公司 © 2011-2017 <a href="https://www.w3cplus.com/page/26.html" target="_blank">W3CPLUS</a>，感谢<a href="https://www.drupal.org/" target="_blank">Drupal</a>开源技术。感谢<a href="https://www.qiniu.com/" target="_blank">七牛云存储</a>提供静态资源空间。</p>
+<script type="application/ld+json" async="">
+{
+  "@context": "//schema.org",
+  "@type": "Person",
+  "name": "W3cplus",
+  "url": "//www.w3cplus.com",
+  "image" : "//tp4.sinaimg.cn/1167075935/180/22838101204/1",
+  "sameAs" : [
+    "//twitter.com/w3cplus",
+    "//www.facebook.com/w3cplus",
+    "//cn.linkedin.com/in/w3cplus",
+    "//weibo.com/w3cplus/",
+    "//plus.google.com/+AirenLiao",
+    "//github.com/airen"
+  ]
+}
+</script>  </div>
+</div>
+  </div>
+    </div>
+  </div> 
+
+<div id="totop" style="position: fixed; bottom: 50px; right: 15px; cursor: pointer; z-index: 999999; display: block; opacity: 1;">
+  <div id="zhi12-shang-exp-2" class="shang-wrap" style="text-align: center;position:absolute;right: 0;bottom: 130%;z-index: 9999;">
+    <div><a class="zhi12-popup zhi12-widget" rel="nofollow" href="https://www.zhi12.com/paycenter/reward/widget?entity=user&amp;id=5491" target="_blank"><img src="./Vue中的无渲染组件_Vue, Vue组件 教程_w3cplus_files/w3cplus-shang.png" alt="打赏" class="share-img"></a></div>
+</div>
+    <a id="topLink" title="返回顶部">返回顶部</a>
+</div>
+
+  <script type="text/javascript">
+<!--//--><![CDATA[//><!--
+var _hmt = _hmt || [];_hmt.push(["_setAccount", "177319b798978621f83845b12c86fa29"]);_hmt.push(["_trackPageview"]);(function() {var hm = document.createElement('script');hm.src = '//hm.baidu.com/hm.js?177319b798978621f83845b12c86fa29';hm.type = 'text/javascript';var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(hm, s);})()
+//--><!]]>
+</script>
+<script type="text/javascript" src="./Vue中的无渲染组件_Vue, Vue组件 教程_w3cplus_files/js_VU7P4CTgUZdF2SyFko5LLAg9ZK0OSVjXVaAFnTLgVt0.js.下载"></script>
+  
+  <script type="text/javascript" src="./Vue中的无渲染组件_Vue, Vue组件 教程_w3cplus_files/respond.min.js.下载"></script>
+<script type="text/javascript" src="./Vue中的无渲染组件_Vue, Vue组件 教程_w3cplus_files/js_xvYJgU6LChHqbcSh4y1AvdXfD5QBIwT3GVGVUeuksbM.js.下载"></script>
+<script type="text/javascript" src="./Vue中的无渲染组件_Vue, Vue组件 教程_w3cplus_files/js_0g52aI9dEIQJnWmDJ4_BmuEBV692xNdsE8hiJ-DtrfA.js.下载"></script>
+<script type="text/javascript" src="./Vue中的无渲染组件_Vue, Vue组件 教程_w3cplus_files/js_xP4aMPEI1iZ1ZrZMlSgsTllQqvH8oWbOQ7JVFWyrFCo.js.下载"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"w3cplusV2","theme_token":"06ZVXhonlkNEoJPLL-2fZ56xONmJg72NixD0861w6iE","js":{"0":1,"modules\/statistics\/statistics.js":1,"sites\/all\/modules\/contrib\/respondjs\/lib\/respond.min.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/jquery\/1.10\/jquery.min.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"public:\/\/languages\/zh-hans_Oq970VelHN9fa2F_FV03LgDp5jSIv3m9KbI0_jJ9cjM.js":1,"sites\/all\/modules\/contrib\/custom_search\/js\/custom_search.js":1,"sites\/all\/modules\/contrib\/paywall\/includes\/paywall.min.js":1,"sites\/all\/modules\/contrib\/baidu_analytics\/baidu_analytics.js":1,"sites\/all\/modules\/contrib\/disqus\/disqus.js":1,"sites\/all\/themes\/w3cplusV2\/js\/highlight.pack.js":1,"sites\/all\/themes\/w3cplusV2\/js\/main.js":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/field\/theme\/field.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/contrib\/views\/css\/views.css":1,"sites\/all\/modules\/contrib\/ckeditor\/ckeditor.css":1,"sites\/all\/modules\/contrib\/ctools\/css\/ctools.css":1,"sites\/all\/modules\/contrib\/paywall\/includes\/paywall.min.css":1,"sites\/all\/modules\/contrib\/custom_search\/custom_search.css":1,"sites\/all\/themes\/w3cplusV2\/css\/style.css":1}},"custom_search":{"form_target":"_self","solr":0},"baidu_analytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls|xml|z|zip"},"disqus":{"domain":"w3cplus","url":"https:\/\/www.w3cplus.com\/vue\/renderless-components-in-vuejs.html","title":"Vue\u4e2d\u7684\u65e0\u6e32\u67d3\u7ec4\u4ef6","identifier":"node\/2378","developer":1,"language":"zh-hans"},"statistics":{"data":{"nid":"2378"},"url":"\/modules\/statistics\/statistics.php"},"urlIsAjaxTrusted":{"\/vue\/renderless-components-in-vuejs.html":true}});
+//--><!]]>
+</script>
+<!-- w3cplus.com Baidu tongji analytics -->
+<!-- <script>
+var _hmt = _hmt || [];
+(function() {
+var hm = document.createElement("script");
+hm.src = "//hm.baidu.com/hm.js?177319b798978621f83845b12c86fa29";
+var s = document.getElementsByTagName("script")[0];
+s.parentNode.insertBefore(hm, s);
+})();
+</script> -->
+  
+
+<div id="cboxOverlay" style="display: none;"></div><div id="colorbox" class="" role="dialog" tabindex="-1" style="display: none;"><div id="cboxWrapper"><div><div id="cboxTopLeft" style="float: left;"></div><div id="cboxTopCenter" style="float: left;"></div><div id="cboxTopRight" style="float: left;"></div></div><div style="clear: left;"><div id="cboxMiddleLeft" style="float: left;"></div><div id="cboxContent" style="float: left;"><div id="cboxTitle" style="float: left;"></div><div id="cboxCurrent" style="float: left;"></div><button type="button" id="cboxPrevious"></button><button type="button" id="cboxNext"></button><button type="button" id="cboxSlideshow"></button><div id="cboxLoadingOverlay" style="float: left;"></div><div id="cboxLoadingGraphic" style="float: left;"></div></div><div id="cboxMiddleRight" style="float: left;"></div></div><div style="clear: left;"><div id="cboxBottomLeft" style="float: left;"></div><div id="cboxBottomCenter" style="float: left;"></div><div id="cboxBottomRight" style="float: left;"></div></div></div><div style="position: absolute; width: 9999px; visibility: hidden; display: none; max-width: none;"></div></div></body></html>
