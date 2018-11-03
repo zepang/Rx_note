@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>html页面的生命周期</title>
+</head>
+<body>
+  <script>
+    if (document.readyState === 'loading') {
+      console.log('document.loading')
+    } else if (document.readyState === 'interactive') {
+      console.log(('document.interactive'));
+    } else if (document.readyState === 'complete') {
+      console.log('document.complete');
+    }
+
+    window.addEventListener('DOMContentLoaded', function () {
+      console.log('DOMContentLoaded ')
+    })
+
+    window.addEventListener('load', function () {
+      console.log('load')
+    })
+
+    window.addEventListener('beforeunload', function () {
+      alert('beforeunload')
+    })
+
+    window.addEventListener('unload', function () {
+      alert('unload')
+    })
+  </script>
+</body>
+</html>
