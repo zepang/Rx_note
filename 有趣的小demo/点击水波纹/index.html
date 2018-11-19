@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>点击水波纹</title>
+  <style>
+    .wave {
+      width: 30px;
+      height: 30px;
+      margin: auto;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      border-radius: 50%;
+      background-image: url(./demo.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    .wave1 {
+      animation: wave 1s forwards;
+      z-index: 1;
+    }
+    .wave2 {
+      animation: wave 1s .1s forwards;
+      z-index: 2;
+    }
+    .wave3 {
+      animation: wave 1s .15s forwards;
+      z-index: 3;
+    }
+    .wave4 {
+      animation: wave 1s .25s forwards;
+      z-index: 4;
+    }
+    .wave5 {
+      animation: wave 1s .4s forwards;
+      z-index: 5;
+    }
+    @keyframes wave {
+      0% {
+        width: 30px;
+        height: 30px;
+        opacity: 1;
+      }
+      30% {
+        width: 130px;
+        height: 130px;
+        opacity: 0.8;
+      }
+      50% {
+        width: 200px;
+        height: 200px;
+        opacity: 0.5;
+      }
+      100% {
+        width: 330px;
+        height: 330px;
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wave wave1"></div>
+  <div class="wave wave2"></div>
+  <div class="wave wave3"></div>
+  <!-- <div class="wave wave4"></div>
+  <div class="wave wave5"></div> -->
+</body>
+</html>
