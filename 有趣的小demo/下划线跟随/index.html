@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>下划线跟随</title>
+  <style>
+    ul {
+      width: 800px;
+      height: 200px;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      margin: auto;
+      font-size: 0;
+    }
+    li {
+      display: inline-block;
+      width: 20%;
+      position: relative;
+      font-size: 20px;
+      text-align: center;
+      cursor: pointer;
+    }
+    li:before {
+      content: "";
+      width: 0%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 100%;
+      border-bottom: 2px solid #000;
+      transition: .3s all linear;
+    }
+    li:hover:before {
+      width: 100%;
+      left: 0;
+      transition-delay: 0.1s;
+      z-index: -1;
+    }
+    li:hover ~ li::before {
+        left: 0;
+    }
+  </style>
+</head>
+<body>
+  <ul>
+    <li>导航1</li>
+    <li>导航2</li>
+    <li>导航3</li>
+    <li>导航4</li>
+    <li>导航5</li>
+  </ul>
+</body>
+</html>
