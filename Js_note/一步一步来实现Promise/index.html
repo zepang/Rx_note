@@ -10,19 +10,21 @@
 </head>
 <body>
   <script>
-    new MyPromise(resolve => {
+    let promise1 = new MyPromise(resolve => {
       setTimeout(() => {
         resolve(8)
       }, 1000)
     })
-    .then()
-    .then(function a(res) {
-      console.log(res);
-      return res
+    let promise2 = promise1.then(function boo(value) {
+      console.log(value)
+      return value
     })
-    .then(function foo(value) {
-      alert(value)
+
+    promise2.then(function foo(value) {
+      console.log(123)
+      console.log(value)
     })
+   
   </script>
 </body>
 </html>

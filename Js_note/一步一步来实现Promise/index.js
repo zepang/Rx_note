@@ -28,9 +28,7 @@ function MyPromise (executor) {
       //...
       self.value = value
       self.state = 'fullfilled'
-      console.log(self.onFullfilledCbs.length)
-      for (var i = 0; i < self.onFullfilledCbs.length; i++) {
-        // 执行回调列表清单
+      for(var i = 0; i < self.onFullfilledCbs.length; i++) {
         self.onFullfilledCbs[i](value)
       }
     }
@@ -45,8 +43,7 @@ function MyPromise (executor) {
       // ...
       self.reason = reason
       self.state = 'rejected'
-      for (var i = 0; i < self.onRejectedCbs.length; i++) {
-        // 执行回调列表清单
+      for(var i = 0; i < self.onRejectedCbs.length; i++) {
         self.onRejectedCbs[i](reason)
       }
     }
@@ -66,10 +63,10 @@ function MyPromise (executor) {
    * then 会根据上一个 Promise 的状态执行 onResolved 或者 onRejected
    */
 MyPromise.prototype.then = function (onResolved, onRejected) {
+  let newPromise
   onResolved = typeof onResolved === 'function' ? onResolved : function (value) {return value}
   onRejected = typeof onRejected === 'function' ? onRejected : function (reason) {return reason}
-  
-  return new MyPromise((resolve, reject) => {
+  return newPromise = new MyPromise((resolve, reject) => {
     if (this.state === 'fullfilled') {
       /**
        * @param {*} 我们都知道 then 传入的onResolved函数接收上一个 Promise resolve 的值
@@ -77,8 +74,7 @@ MyPromise.prototype.then = function (onResolved, onRejected) {
        * 此外还需要 reject 错误
        */
       try {
-        let value = onResolved(this.value)
-        resolve(value)
+        resolve(onResolved(this.value))
       } catch (error) {
         reject(error)
       }
@@ -100,10 +96,25 @@ MyPromise.prototype.then = function (onResolved, onRejected) {
      * 所以需要将他们先存起来 onFullfilledCbs onRejectedCbs
      */
     if (this.state === 'pending') {
-      this.onFullfilledCbs.push(onResolved)
-      console.log(this.onFullfilledCbs)
-      this.onRejectedCbs.push(onRejected)
+      this.onFullfilledCbs.push(function (value) {
+        let x = onResolved(value)
+        if (x === newPromise) {
+          throw new TypeError('typeError')
+        }
+        /**
+         * 与 es Promise 衔接
+         */
+        // if (x instanceof Promise) {
+        //   if (x)
+        // }
+        resolve(x)
+      })
+      this.onRejectedCbs.push(function (reason) {
+       let x = onRejected(reason)
+       reject(x)
+      })
     }
+    console.log(this);
   })
 }
 
@@ -111,4 +122,21 @@ MyPromise.prototype.catch = function (onRejected) {
   return this.then(null, onRejected)
 }
 
+function resolvePromise (promise, x, onResolved, onRejected) {
+  if (promise === x) {
+    throw new TypeError('TypeError')
+  }
 
+  if (x instanceof Promise) {
+    if (x.state === 'pending') {
+
+    } else if (x.state === 'fullfilled') {
+      let value = onResolved(x.value)
+      promise.resolve(value)
+    } else if (x.state === 'rejected') {
+
+      promise.reject(value)
+    }
+    
+  }
+}
