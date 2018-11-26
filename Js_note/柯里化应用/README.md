@@ -46,20 +46,17 @@ function subTitle(message) {
 
 有一个这样的 js 多参数函数
 ~~~js
-function sum (a, b, c) {
-  return a + b + c
+function sum (a, b) {
+  return a + b
 }
 ~~~
 
 我们依照柯柯里化函数的概念来改造这个函数，新的 sum 函数应该是一个接受单一参数，并且返回一个接受剩余参数且返回结果的函数
 
 ~~~js
-function sum(single) {
-  return function (args) {
-    var args = Array.prototype.slice.call(arguments).concat(single)
-    return args.reduce((a, b) => {
-      return a + b
-    })
+function sum(a) {
+  return function (b) {
+    return x + y
   }
 }
 
