@@ -57,3 +57,8 @@ function makeIterator (array) {
   }
 }
 ~~~
+
+ES6 在我们熟悉的 for 和 for ... in 的基础上新增了 for ... of循环，
+接下来我用ES6的 for ... of 来具体的说明 Iterator:
+
+
