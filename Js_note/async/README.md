@@ -114,4 +114,34 @@ for (var v of something) {
 * 根据第一点： 包含 [Symbol.iterator] 函数并返回迭代器的对象是 iterable。
 * 根据第一、二、三点：for ... of 在底层上是会调用了 iterable 的 Symbol.iterator 函数，拿到一个迭代器，然后反复调用 next 函数并且把值（value）赋给循环迭代的变量。所以，我们上边例子里边输出的 1 9 33 105 321 969 都是迭代器返回的值。
 
+---
+## 异步迭代器
+
+所谓的异步迭代器就是它的 next 函数返回 {value, done} 的 Promise。
+
+~~~js
+const something = {
+  [Symbol.asyncIterator]: () => {
+    const arr = [1, 2, 3, 4, 5]
+    return {
+      next: () => Promise.resolve({
+        done: arr.length === 0 
+        value: arr.unshift()
+      })
+    }
+  }
+}
+~~~
+上边主要有两点，一个是符号 Symbol.asyncIterator, 一个是 next 返回一个 Promise
+
+~~~js
+(async function (){
+  for await (const item of something) {
+    console.log(item)
+  }
+})()
+~~~
+
+在使用上需要主要的是，await 关键字只能在 async 函数中使用。
+
 
