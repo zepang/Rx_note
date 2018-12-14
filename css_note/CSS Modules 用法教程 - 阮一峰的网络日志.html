@@ -1,0 +1,2758 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0055)http://www.ruanyifeng.com/blog/2016/06/css_modules.html -->
+<html xmlns="http://www.w3.org/1999/xhtml" id="sixapart-standard" class="gr__ruanyifeng_com"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+<meta name="generator" content="Movable Type  5.2.2">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--link rel="stylesheet" href="http://www.ruanyifeng.com/blog/styles.css" type="text/css" /-->
+<link rel="start" href="http://www.ruanyifeng.com/blog/" title="Home">
+<link rel="alternate" type="application/atom+xml" title="Recent Entries" href="http://feeds.feedburner.com/ruanyifeng">
+<script src="./CSS Modules 用法教程 - 阮一峰的网络日志_files/hm.js.下载"></script><script async="" src="./CSS Modules 用法教程 - 阮一峰的网络日志_files/analytics.js.下载"></script><script type="text/javascript" src="./CSS Modules 用法教程 - 阮一峰的网络日志_files/mt.js.下载"></script>
+<!--
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="http://www.ruanyifeng.com/blog/2017/09/flame-graph.html">
+<dc:title>如何读懂火焰图？</dc:title>
+<dc:description>软件的性能分析，往往需要查看 CPU 耗时，了解瓶颈在哪里。...</dc:description>
+<dc:creator>阮一峰</dc:creator>
+<dc:date>2017-09-26T07:48:13+08:00</dc:date>
+<license rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/" />
+</Work>
+<License rdf:about="http://creativecommons.org/licenses/by-nc-nd/3.0/">
+</License>
+</rdf:RDF>
+-->
+
+<style>
+body {
+  background-color: #f5f5d5;
+}
+
+#container::before {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background: rgba(0,0,0,0.1);
+  text-align: center;
+  content: "本站显示不正常，可能因为您使用了广告拦截器。";
+}
+
+</style>
+<script>
+function loadjscssfile(filename, filetype){
+    if (filetype=="js"){ //if filename is a external JavaScript file
+        var fileref=document.createElement('script')
+        fileref.setAttribute("type","text/javascript")
+        fileref.setAttribute("src", filename)
+    }
+    else if (filetype=="css"){ //if filename is an external CSS file
+        var fileref=document.createElement("link")
+        fileref.setAttribute("rel", "stylesheet")
+        fileref.setAttribute("type", "text/css")
+        fileref.setAttribute("href", filename)
+    }
+    if (typeof fileref!="undefined")
+        document.getElementsByTagName("head")[0].appendChild(fileref)
+}
+//loadjscssfile("http://www.ruanyifeng.com/blog/styles.css", "css");
+loadjscssfile('/static/themes/theme_scrapbook/theme_scrapbook.css', "css");
+
+for (var jxx = 0; jxx < 10000; jxx++) {
+  for (var jxy = 0; jxy < 10000; jxy++) {
+  }
+}
+</script><link rel="stylesheet" type="text/css" href="./CSS Modules 用法教程 - 阮一峰的网络日志_files/theme_scrapbook.css">
+
+    
+    <link rel="prev" href="http://www.ruanyifeng.com/blog/2016/05/group-chat.html" title="要聊天，先付费">
+    <link rel="next" href="http://www.ruanyifeng.com/blog/2016/06/dns.html" title="DNS 原理入门">
+    
+    <title>CSS Modules 用法教程 - 阮一峰的网络日志</title>
+<script src="./CSS Modules 用法教程 - 阮一峰的网络日志_files/bsStatic.js.下载" type="text/javascript" charset="utf-8"></script><script src="./CSS Modules 用法教程 - 阮一峰的网络日志_files/fingerprint2.min.js.下载" type="text/javascript" charset="utf-8"></script><script src="./CSS Modules 用法教程 - 阮一峰的网络日志_files/bs-engine.js.下载" type="text/javascript" charset="utf-8"></script><style type="text/css">a.bshareDiv,#bsPanel,#bsMorePanel,#bshareF{border:none;background:none;padding:0;margin:0;font:12px Helvetica,Calibri,Tahoma,Arial,宋体,sans-serif;line-height:14px;}#bsPanel div,#bsMorePanel div,#bshareF div{display:block;}.bsRlogo .bsPopupAwd,.bsRlogoSel .bsPopupAwd,.bsLogo .bsPopupAwd,.bsLogoSel .bsPopupAwd{line-height:16px !important;}a.bshareDiv div,#bsFloatTab div{*display:inline;zoom:1;display:inline-block;}a.bshareDiv img,a.bshareDiv div,a.bshareDiv span,a.bshareDiv a,#bshareF table,#bshareF tr,#bshareF td{text-decoration:none;background:none;margin:0;padding:0;border:none;line-height:1.2}a.bshareDiv span{display:inline;float:none;}div.buzzButton{cursor:pointer;font-weight:bold;}.buzzButton .shareCount a{color:#333}.bsStyle1 .shareCount a{color:#fff}span.bshareText{white-space:nowrap;}span.bshareText:hover{text-decoration:underline;}a.bshareDiv .bsPromo,div.bshare-custom .bsPromo{display:none;position:absolute;z-index:100;}a.bshareDiv .bsPromo.bsPromo1,div.bshare-custom .bsPromo.bsPromo1{width:51px;height:18px;top:-18px;left:0;line-height:16px;font-size:12px !important;font-weight:normal !important;color:#fff;text-align:center;background:url(//static.bshare.cn/frame/images/bshare_box_sprite2.gif) no-repeat 0 -606px;}div.bshare-custom .bsPromo.bsPromo2{background:url(//static.bshare.cn/frame/images/bshare_promo_sprite.gif) no-repeat;cursor:pointer;}</style><style type="text/css">.bsBox{display:none;z-index:100000001;font-size:12px;background:url(//static.bshare.cn/frame/images//background-opaque-dark.gif) !important;padding:6px !important;-moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;}.bsClose{_overflow:hidden;cursor:pointer;position:absolute;z-index:10000000;color:#666;font-weight:bold;font-family:Helvetica,Arial;font-size:14px;line-height:20px;}.bsTop{color:#666;background:#f2f2f2;height:24px;line-height:24px;border-bottom:1px solid #e8e8e8;}.bsTop span{float:left;}.bsFrameDiv,#bsMorePanel{border:none;background:#fff;}.bsReturn{float:right;*margin-right:20px;margin-right:36px;text-align:right;cursor:pointer;line-height:24px;color:#666;opacity:0.5;}#bsReturn:hover{text-decoration:underline;opacity:1;}</style><script src="./CSS Modules 用法教程 - 阮一峰的网络日志_files/bsMore.js.下载" type="text/javascript" charset="utf-8"></script><script src="./CSS Modules 用法教程 - 阮一峰的网络日志_files/bshareS1.js.下载" type="text/javascript" charset="utf-8"></script><style type="text/css">div.bsClear{clear:both;height:0;line-height:0;overflow:hidden;font-size:0;}.bsSearchDiv{padding:5px 15px;background-color:#fafafa;}.bFind-wrapper-top{background:#fff;border-color:#ccc #aaa #aaa #ccc;border-style:solid;border-width:1px;height:16px;padding:4px;margin:0;}.bFind-wrapper-top input{padding:0 !important;border:none !important;box-shadow:none !important;line-height:16px !important;}.bFind-placeholder{background:url("//static.bshare.cn/css/images/search-icon.gif") no-repeat;display:block;float:left;height:16px;width:16px;}.bFind{background:none;border:none;float:left;font-size:11px !important;height:16px !important;margin-left:3px;outline:none;padding:0;width:400px;}.bsPlatDiv{height:322px;background:#fff;overflow:auto;padding:0 15px;}#bsLogoList{display:block;list-style:none;overflow:hidden;margin:0;padding:0;}#bsLogoList li{float:left;display:inline-block;width:71px;text-align:center;font-size:12px;height:80px;margin:0 !important;}#bsLogoList .bsPlatIcon{cursor:pointer;display:block !important;text-align:center;}#bsLogoList .bsPlatImg{width:32px;height:32px;border:none !important;display:inline-block;}#bsLogoList .bsPlatImg:hover{-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;box-shadow:0 0 15px #a7a8ac;}#bsLogoList .bsPlatName{white-space:nowrap;text-overflow:ellipsis;overflow:hidden;text-align:center;color:#333 !important;margin-top:2px;line-height:140%;*width:70px;}#bsLogoList .bsPromoM{text-align:center;}.bsFooterDiv{height:24px;line-height:24px;padding:0 15px;border-top:1px solid #e8e8e8;background:#f2f2f2;text-align:right;}a.bsLogoLink{color:#666;}.bsLogoLink:hover{text-decoration:underline;}.bsPromoM{background:url(//static.bshare.cn/frame/images//bshare_box_sprite2.gif) no-repeat top left;}.bsNew,.bsHot,.bsRec,.bsAwd{background-position:0 -552px;width:19px;margin:5px auto 1px;line-height:16px;height:18px;font-size:12px;color:#fff;overflow:hidden;}.bsNew{background-position:0 -570px;}.bsRec{width:30px;background-position:0 -588px;}.bsAwd{background:url(//static.bshare.cn/frame/images//promot/promote.gif) no-repeat;}</style><script src="./CSS Modules 用法教程 - 阮一峰的网络日志_files/bshare_view" type="text/javascript" charset="utf-8"></script><style type="text/css">a.bsSiteLink{text-decoration:none;color:#666;}a.bsSiteLink:hover{text-decoration:underline;}a.bshareDiv{overflow:hidden;height:16px;line-height:18px;font-size:14px;color:#333;padding-left:0;}a.bshareDiv:hover{text-decoration:none;}div.bsTitle{padding:0 8px;border-bottom:1px solid #e8e8e8;color:#666;background:#f2f2f2;text-align:left;}div.buzzButton{cursor:pointer;}div.bsRlogo,div.bsRlogoSel{width:68px;float:left;margin:0;padding:2px 0;}div.bsRlogo a,div.bsRlogoSel a{float:left;}div.bsLogo,div.bsLogoSel{float:left;width:111px;text-align:left;height:auto;padding:2px 4px;margin:2px 0;white-space:nowrap;overflow:hidden;}div.bsLogoSel,div.bsRlogoSel{border:1px solid #ddd;background:#f1f1f1;}div.bsLogo,div.bsRlogo{border:1px solid #fff;background:#fff;}div.bsLogo a,div.bsLogoSel a{display:block;height:16px;line-height:16px;padding:0 0 0 24px;text-decoration:none;float:left;overflow:hidden;}div.bsLogoSel a,div.bsRlogoSel a{color:#000;border:none;}div.bsLogo a,div.bsRlogo a{color:#666;border:none;}div.bsLogoLink{width:121px;overflow:hidden;background:#FFF;float:left;margin:3px 0;}#bsLogin{float:right;text-align:right;overflow:hidden;height:100%;}#bsPanel{position:absolute;z-index:100000000;font-size:12px;width:258px;background:url(//static.bshare.cn/frame/images/background-opaque-dark.png) !important;padding:6px !important;-moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;}div.bsClear{clear:both;height:0;line-height:0;font-size:0;overflow:hidden;}div.bsPopupAwd{background:url(//static.bshare.cn/frame/images//bshare_box_sprite2.gif) no-repeat top left;background-position:0 -624px;width:18px;padding-left:3px;text-align:center;float:left;margin-left: 2px;height:15px;font-size:12px;color:#fff;overflow:hidden;}div.bsRlogo .bsPopupAwd,div.bsRlogoSel .bsPopupAwd{float:left;margin:5px 0 0 -14px;}</style><style type="text/css">a.bsSiteLink{text-decoration:none;color:#666;}a.bsSiteLink:hover{text-decoration:underline;}a.bshareDiv{overflow:hidden;height:16px;line-height:18px;font-size:14px;color:#333;padding-left:0;}a.bshareDiv:hover{text-decoration:none;}div.bsTitle{padding:0 8px;border-bottom:1px solid #e8e8e8;color:#666;background:#f2f2f2;text-align:left;}div.buzzButton{cursor:pointer;}div.bsRlogo,div.bsRlogoSel{width:68px;float:left;margin:0;padding:2px 0;}div.bsRlogo a,div.bsRlogoSel a{float:left;}div.bsLogo,div.bsLogoSel{float:left;width:111px;text-align:left;height:auto;padding:2px 4px;margin:2px 0;white-space:nowrap;overflow:hidden;}div.bsLogoSel,div.bsRlogoSel{border:1px solid #ddd;background:#f1f1f1;}div.bsLogo,div.bsRlogo{border:1px solid #fff;background:#fff;}div.bsLogo a,div.bsLogoSel a{display:block;height:16px;line-height:16px;padding:0 0 0 24px;text-decoration:none;float:left;overflow:hidden;}div.bsLogoSel a,div.bsRlogoSel a{color:#000;border:none;}div.bsLogo a,div.bsRlogo a{color:#666;border:none;}div.bsLogoLink{width:121px;overflow:hidden;background:#FFF;float:left;margin:3px 0;}#bsLogin{float:right;text-align:right;overflow:hidden;height:100%;}#bsPanel{position:absolute;z-index:100000000;font-size:12px;width:258px;background:url(//static.bshare.cn/frame/images/background-opaque-dark.png) !important;padding:6px !important;-moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;}div.bsClear{clear:both;height:0;line-height:0;font-size:0;overflow:hidden;}div.bsPopupAwd{background:url(//static.bshare.cn/frame/images//bshare_box_sprite2.gif) no-repeat top left;background-position:0 -624px;width:18px;padding-left:3px;text-align:center;float:left;margin-left: 2px;height:15px;font-size:12px;color:#fff;overflow:hidden;}div.bsRlogo .bsPopupAwd,div.bsRlogoSel .bsPopupAwd{float:left;margin:5px 0 0 -14px;}</style></head>
+<body id="scrapbook" class="mt-entry-archive one-column" data-gr-c-s-loaded="true" style="">
+<script>
+if (/mobile/i.test(navigator.userAgent) || /android/i.test(navigator.userAgent)) document.body.classList.add('mobile');
+
+/*
+window.addEventListener('load', function(event) {
+  setTimeout(function () {
+    hab('#sup-post-2');
+    hab('#cre-inner');
+  }, 1000);
+});
+*/
+</script>
+    <div id="container">
+        <div id="container-inner">
+
+            <div id="header">
+    <div id="header-inner">
+        <div id="header-content">
+
+
+            <div id="header-name">阮一峰的网络日志 <span id="site_location"> » <a href="http://www.ruanyifeng.com/blog/" accesskey="1">首页</a></span><span id="site_archive"> » <a href="http://www.ruanyifeng.com/blog/archives.html">档案</a></span>
+</div>
+
+<div id="google_search">
+<!-- SiteSearch Google -->
+<form action="https://www.baidu.com/s" target="_blank" method="get" id="cse-search-box">
+  <div>
+  <input type="text" size="20" name="origin" class="searchbox" id="sbi" value="">
+  <input type="hidden" name="wd" value="">
+  <!--input type="image" src="/static/themes/theme_scrapbook/images/top_search_submit.gif" class="searchbox_submit" value="" alt="搜索" name="sa" onclick="this.form.wd.value = this.form.origin.value + ' inurl:www.ruanyifeng.com/blog'" /-->
+  <input type="image" src="./CSS Modules 用法教程 - 阮一峰的网络日志_files/top_search_submit.gif" class="searchbox_submit" value="" alt="搜索" name="sa" onclick="this.form.wd.value = this.form.origin.value + &#39; 阮一峰&#39;">
+</div>
+</form>
+
+<!-- SiteSearch Google -->
+</div>
+<div id="feed_icon">
+<a href="http://www.ruanyifeng.com/feed.html" title="订阅Feed">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAUzSURBVHjavFdbbFRVFF3nPjoz7dTWTittaW0jUDRAUqaNojyqREnEQKgfUj9MqqAmhqRt/OCD4CuY+Kckoh+aiGKC+gMJbdHoRysJ8dkhhmJLNdDKtJU+6GMK87j3Hs85d2Z6HzNtMYWb3Dn3NWftvfba+5xNYDl+e6Fkj6yqb/oDRbWq14vlPBLRKCITkxf0ROLt+hNjp1PPSRK4kA3vF1dXNRcWlyA2OQU9eos9opAkAiKxD+XkKO6t15aRWO7J/MgmAZU8MEgexgZHMX518Dh72sYMmVKShnxWuWHdHtxKIDIYTgMuDzgfmSOIQkYMpdUF8OY92Hytt4/jvkg47czzU16iQovM3QFwmNck+Yyduu7D6NA0Z6JR4THntFs9V4tWQg6Ui3s6MwKDncsFTnXKLJhDSeUK3AgPtyhccDzmVs999buRt/1Vm4i0od+hX7+MRG87jPGB/w1u8FPj9xEw7McVrnYuOCvtpjTth3J/nTg99c8LRhKhr6D3dTB5R24bXFwbMXBsyZzeoXaycEpJ95TB09AGX/NpqLVNtw8urnVzLvHjFNxiFqRy2OOHuqUVnue+ACkoWzo4O6lGzTmuHq6nPvY2m9rVqjrIK2rMEKxqyG5NPAKt+wjo0LklgfNxJkZMA3KJvqRUk3z5UFY3QH14P0h+WUY79HPvgv7VuSg4ZRGY1YgZgqXmORccF17sy2ehnf9AeO085K2HQFbtXBScj0LcpgF2cN+WV+DZ/LJQu6gD4R7oV7pBJwbSgtMvfiPoVp56DySwxm7EtkMs1WdAB7qzggsDJKQYsHucSkOudrkiCPWR/fA2nYCn8SNIK4NptSMyAu3sAdDRkIsJdfth0LzSrODUoPNZ4KI9SxJI5UHk7D4GdQfz2us31c7CoHMjRkKuDPHseCMrONVhNcDJwMJpKFVvg9L4OaTiNWm1x789KCqkrXhVBiEz0WYCT2nAzQAD1/vaETv1GrRfP4Vx5cfMNcDPwvP0h0DhanPym7OIf/+O67vcJ1/PCJ4KgdzaUP6Wz+dU+5yIL6fV+PsHGAOdwlPpvvUOyeeAVGyCdqkDNB6DPjsBSrnndfOGevOh3RhGItxvA+fX1CtbGFhgYUFkFMZPR6F1HnClHq8HyubWtJexX06CRmdt33hrd7nA7SFY4qoGpnYuOKcRykPPgDCBcsHx9Iv+fNL2PueBehCWUfYQIIMGLOCcOmXDXsh1+yCt35tUPfvzGFuSvzvoinXOxqa02qOhM6733nVP2MAdaej2XN11DPKjLZCD+yBvahGCo7JfTKAN9UD7s8Oe9zUNIhz8fWI8DG2k38WCFdxugANcXrvTVd1IEbuv3Jour7Hzn7jLMBNfKs7R3i67gRVrbeCOEDhinmWhAatsqdquM2XzHZINhK2cqTjHr/XZdVJUbgN3MWAVXKbSyg9jesRW2xP9di+lwrL5ojM3m2H/kG9hwcIA37c71W6wJdW2J2S5nrjYbq/t1AHAhJsKQeyfPvf6IMJgghPJhFZ4x0KlfLFvt22du45Au/A1SOlGc0P672XXwhLtOcM0kTTEMMd0qkVmMNXxMd/tsedUjInr4SQDgOfeXMSiN0FCL5WHah4L1qqYXPJOJlttd+a5M+YpcG5poLYKQ5f+6JJ4r8bbJYP47hq4r7QAs9PjYNhHJd4o8l5taiwuOpa7AS4XKqI/5NjJbTnaWK92nLdLuhQAJayRNMiygXPBeQN+Qbvu0zDc3y+aUzhbkGR73sI7ljvUnndx2q3t+X8CDAD66FtrIL864AAAAABJRU5ErkJggg==" alt="" style="border: 0pt none;">
+</a></div>
+
+        </div>
+    </div>
+</div>
+
+
+
+            <div id="content">
+                <div id="content-inner">
+
+
+                    <div id="alpha">
+                        <div id="alpha-inner">
+
+
+                            <div id="entry-1891" class="entry-asset asset hentry">
+                                <div class="asset-header">
+<div class="asset-nav entry-nav">
+
+<div class="entry-location">
+<ul>
+<li>上一篇：<a href="http://www.ruanyifeng.com/blog/2016/05/group-chat.html" title="要聊天，先付费">要聊天，先付费&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+<li>下一篇：<a href="http://www.ruanyifeng.com/blog/2016/06/dns.html" title="DNS 原理入门">DNS&nbsp;原理入门&nbsp;&nbsp;&nbsp;</a></li>
+</ul>
+</div>
+
+
+    
+                                    <div class="entry-categories">
+                                        <p>分类<span class="delimiter">：</span></p>
+                                        <ul>
+                                            <li><a href="http://www.ruanyifeng.com/blog/developer/" rel="tag">开发者手册</a></li>
+                                        </ul>
+                                    </div>
+    
+
+
+                                            
+<div class="entry-location-mobile" style="float: right;">
+<ul>
+<li><a href="http://www.ruanyifeng.com/blog/2016/05/group-chat.html" title="要聊天，先付费">⇐&nbsp;</a></li>
+<li><a href="http://www.ruanyifeng.com/blog/2016/06/dns.html" title="DNS 原理入门">&nbsp;⇒</a></li>
+</ul>
+</div>
+
+</div>
+</div>
+
+                          
+<article class="hentry">
+                                    <h1 id="page-title" class="asset-name entry-title">CSS Modules 用法教程</h1>
+                                            <div id="share_button" class="social-share" style="float:right;padding-right:2em;padding-top:1em;">
+<a class="bshareDiv" href="http://www.bshare.cn/share" style="display: block; text-decoration: none; padding: 0px; margin: 0px; font-size: 12px; height: 21px; width: 51px;"><div class="bsPromo bsPromo1"></div><div class="buzzButton bsStyle10" style="height:21px;color:#333;;background:transparent url(//static.bshare.cn/frame/images/button_custom10-zh-Orange.gif) no-repeat;text-align:center;width:51px;"></div><div style="clear:both;"></div></a>
+
+
+
+<script type="text/javascript" charset="utf-8" src="./CSS Modules 用法教程 - 阮一峰的网络日志_files/buttonLite.js.下载"></script>
+<script type="text/javascript" charset="utf-8">
+bShare.addEntry({
+    title: document.getElementById("page-title").innerHTML,
+url:window.location.href
+});
+</script>
+</div>
+
+<div class="asset-meta">
+                                        
+
+                                            <p class="vcard author">作者： <a class="fn url" href="http://www.ruanyifeng.com/">阮一峰</a></p>
+                                    <p>日期： <a href="http://www.ruanyifeng.com/blog/2016/06/"><abbr class="published" title="2016-06-10T08:42:59+08:00">2016年6月10日</abbr></a></p>
+
+
+                                    
+</div>
+
+                    
+<div class="entry-sponsor" style="border: 1px solid #c6c6c6;border-radius: 4px;background-color: #f5f2f0;">
+<p>
+
+<a title="珠峰培训" href="http://www.zhufengpeixun.cn/main/index.html?ref=ruanyifeng" target="_blank">
+  <img alt="珠峰培训" id="support-img" src="./CSS Modules 用法教程 - 阮一峰的网络日志_files/0asddeewr1.png" style="border: none;windth: 90%;max-width: 90%;display: inline-block;margin-top: -0.5rem;margin-bottom: 0.5rem;">
+</a>
+</p>
+</div>
+
+
+                                
+                                <div class="asset-content entry-content" id="main-content">
+
+                                    <!-- div class="asset-body" -->
+                                        <p>学过网页开发就会知道，CSS 不能算编程语言，只是网页样式的一种描述方法。</p>
+
+                                    <!-- /div -->
+
+
+                                    <!-- div id="more" class="asset-more" -->
+                                        <p>为了让 CSS 也能适用软件工程方法，程序员想了各种办法，让它变得像一门编程语言。从最早的Less、SASS，到后来的 PostCSS，再到最近的 CSS in JS，都是为了解决这个问题。</p>
+
+<p><img src="./CSS Modules 用法教程 - 阮一峰的网络日志_files/bg2016061001.png" alt="" title=""></p>
+
+<p>本文介绍的 <a href="https://github.com/css-modules/css-modules" target="_blank">CSS Modules</a> 有所不同。它不是将 CSS 改造成编程语言，而是功能很单纯，只加入了局部作用域和模块依赖，这恰恰是网页组件最急需的功能。</p>
+
+<p>因此，CSS Modules 很容易学，因为它的规则少，同时又非常有用，可以保证某个组件的样式，不会影响到其他组件。</p>
+
+<p><img src="./CSS Modules 用法教程 - 阮一峰的网络日志_files/bg2016061002.png" alt="" title=""></p>
+
+<h2>零、示例库</h2>
+
+<p>我为这个教程写了一个<a href="https://github.com/ruanyf/css-modules-demos" target="_blank">示例库</a>，包含六个Demo。通过它们，你可以轻松学会CSS Modules。</p>
+
+<p>首先，克隆示例库。</p>
+
+<blockquote><pre class=" language-bash"><code class=" language-bash">
+$ git clone https<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>github<span class="token punctuation">.</span>com<span class="token operator">/</span>ruanyf<span class="token operator">/</span>css<span class="token operator">-</span>modules<span class="token operator">-</span>demos<span class="token punctuation">.</span>git
+</code></pre></blockquote>
+
+<p>然后，安装依赖。</p>
+
+<blockquote><pre class=" language-bash"><code class=" language-bash">
+$ cd css<span class="token operator">-</span>modules<span class="token operator">-</span>demos
+$ npm install
+</code></pre></blockquote>
+
+<p>接着，就可以运行第一个示例了。</p>
+
+<blockquote><pre class=" language-bash"><code class=" language-bash">
+$ npm run demo01
+</code></pre></blockquote>
+
+<p>打开浏览器，访问<code>http://localhost:8080</code>，查看结果。其他示例的运行方法类似。</p>
+
+<h2>一、局部作用域</h2>
+
+<p>CSS的规则都是全局的，任何一个组件的样式规则，都对整个页面有效。</p>
+
+<p>产生局部作用域的唯一方法，就是使用一个独一无二的<code>class</code>的名字，不会与其他选择器重名。这就是 CSS Modules 的做法。</p>
+
+<p>下面是一个React组件<a href="https://github.com/ruanyf/css-modules-demos/blob/master/demo01/components/App.js" target="_blank"><code>App.js</code></a>。</p>
+
+<blockquote><pre class=" language-javascript"><code class=" language-javascript">
+import React from <span class="token string">'react'</span><span class="token punctuation">;</span>
+import style from <span class="token string">'./App.css'</span><span class="token punctuation">;</span>
+
+export default <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span>h1 className<span class="token operator">=</span><span class="token punctuation">{</span>style<span class="token punctuation">.</span>title<span class="token punctuation">}</span><span class="token operator">&gt;</span>
+      Hello World
+    <span class="token operator">&lt;</span><span class="token operator">/</span>h1<span class="token operator">&gt;</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></blockquote>
+
+<p>上面代码中，我们将样式文件<a href="https://github.com/ruanyf/css-modules-demos/blob/master/demo01/components/App.css" target="_blank"><code>App.css</code></a>输入到<code>style</code>对象，然后引用<code>style.title</code>代表一个<code>class</code>。</p>
+
+<blockquote><pre class=" language-css"><code class=" language-css">
+<span class="token selector">.title </span><span class="token punctuation">{</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></blockquote>
+
+<p>构建工具会将类名<code>style.title</code>编译成一个哈希字符串。</p>
+
+<blockquote><pre class=" language-markup"><code class=" language-markup">
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>_3zyde4l1yATCOkgn-DBWEL<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+  Hello World
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">&gt;</span></span>
+</code></pre></blockquote>
+
+<p><code>App.css</code>也会同时被编译。</p>
+
+<blockquote><pre class=" language-css"><code class=" language-css">
+<span class="token selector">._3zyde4l1yATCOkgn-DBWEL </span><span class="token punctuation">{</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></blockquote>
+
+<p>这样一来，这个类名就变成独一无二了，只对<code>App</code>组件有效。</p>
+
+<p>CSS Modules 提供各种<a href="https://github.com/css-modules/css-modules/blob/master/docs/get-started.md" target="_blank">插件</a>，支持不同的构建工具。本文使用的是 Webpack 的<a href="https://github.com/webpack/css-loader#css-modules" target="_blank"><code>css-loader</code></a>插件，因为它对 CSS Modules 的支持最好，而且很容易使用。顺便说一下，如果你想学 Webpack，可以阅读我的教程<a href="https://github.com/ruanyf/webpack-demos" target="_blank"><code>Webpack-Demos</code></a>。</p>
+
+<p>下面是这个示例的<a href="https://github.com/ruanyf/css-modules-demos/blob/master/demo01/webpack.config.js" target="_blank"><code>webpack.config.js</code></a>。</p>
+
+<blockquote><pre class=" language-javascript"><code class=" language-javascript">
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  entry<span class="token punctuation">:</span> __dirname <span class="token operator">+</span> <span class="token string">'/index.js'</span><span class="token punctuation">,</span>
+  output<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    publicPath<span class="token punctuation">:</span> <span class="token string">'/'</span><span class="token punctuation">,</span>
+    filename<span class="token punctuation">:</span> <span class="token string">'./bundle.js'</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  module<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    loaders<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">{</span>
+        test<span class="token punctuation">:</span> <span class="token regex">/\.jsx?$/</span><span class="token punctuation">,</span>
+        exclude<span class="token punctuation">:</span> <span class="token regex">/node_modules/</span><span class="token punctuation">,</span>
+        loader<span class="token punctuation">:</span> <span class="token string">'babel'</span><span class="token punctuation">,</span>
+        query<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+          presets<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'es2015'</span><span class="token punctuation">,</span> <span class="token string">'stage-0'</span><span class="token punctuation">,</span> <span class="token string">'react'</span><span class="token punctuation">]</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span>
+        test<span class="token punctuation">:</span> <span class="token regex">/\.css$/</span><span class="token punctuation">,</span>
+        loader<span class="token punctuation">:</span> <span class="token string">"style-loader!css-loader?modules"</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></blockquote>
+
+<p>上面代码中，关键的一行是<code>style-loader!css-loader?modules</code>，它在<code>css-loader</code>后面加了一个查询参数<code>modules</code>，表示打开 CSS Modules 功能。</p>
+
+<p>现在，运行这个Demo。</p>
+
+<blockquote><pre class=" language-bash"><code class=" language-bash">
+$ npm run demo01
+</code></pre></blockquote>
+
+<p>打开 http://localhost:8080 ，可以看到<a href="http://ruanyf.github.io/css-modules-demos/demo01/" target="_blank">结果</a>，<code>h1</code>标题显示为红色。</p>
+
+<h2>二、全局作用域</h2>
+
+<p>CSS Modules 允许使用<code>:global(.className)</code>的语法，声明一个全局规则。凡是这样声明的<code>class</code>，都不会被编译成哈希字符串。</p>
+
+<p><a href="https://github.com/ruanyf/css-modules-demos/blob/master/demo02/components/App.css" target="_blank"><code>App.css</code></a>加入一个全局<code>class</code>。</p>
+
+<blockquote><pre class=" language-css"><code class=" language-css">
+<span class="token selector">.title </span><span class="token punctuation">{</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">:global(.title) </span><span class="token punctuation">{</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> green<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></blockquote>
+
+<p><a href="https://github.com/ruanyf/css-modules-demos/blob/master/demo02/components/App.css" target="_blank"><code>App.js</code></a>使用普通的<code>class</code>的写法，就会引用全局<code>class</code>。</p>
+
+<blockquote><pre class=" language-javascript"><code class=" language-javascript">
+import React from <span class="token string">'react'</span><span class="token punctuation">;</span>
+import styles from <span class="token string">'./App.css'</span><span class="token punctuation">;</span>
+
+export default <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span>h1 className<span class="token operator">=</span><span class="token string">"title"</span><span class="token operator">&gt;</span>
+      Hello World
+    <span class="token operator">&lt;</span><span class="token operator">/</span>h1<span class="token operator">&gt;</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></blockquote>
+
+<p>运行这个示例。</p>
+
+<blockquote><pre class=" language-bash"><code class=" language-bash">
+$ npm run demo02
+</code></pre></blockquote>
+
+<p>打开 http://localhost:8080，应该会<a href="http://ruanyf.github.io/css-modules-demos/demo02/" target="_blank">看到</a><code>h1</code>标题显示为绿色。</p>
+
+<p>CSS Modules 还提供一种显式的局部作用域语法<code>:local(.className)</code>，等同于<code>.className</code>，所以上面的<code>App.css</code>也可以写成下面这样。</p>
+
+<blockquote><pre class=" language-css"><code class=" language-css">
+<span class="token selector">:local(.title) </span><span class="token punctuation">{</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">:global(.title) </span><span class="token punctuation">{</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> green<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></blockquote>
+
+<h2>三、定制哈希类名</h2>
+
+<p><code>css-loader</code>默认的哈希算法是<code>[hash:base64]</code>，这会将<code>.title</code>编译成<code>._3zyde4l1yATCOkgn-DBWEL</code>这样的字符串。</p>
+
+<p><a href="https://github.com/ruanyf/css-modules-demos/blob/master/demo03/webpack.config.js" target="_blank"><code>webpack.config.js</code></a>里面可以定制哈希字符串的格式。</p>
+
+<blockquote><pre class=" language-javascript"><code class=" language-javascript">
+module<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+  loaders<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+   <span class="token comment" spellcheck="true"> // ...
+</span>    <span class="token punctuation">{</span>
+      test<span class="token punctuation">:</span> <span class="token regex">/\.css$/</span><span class="token punctuation">,</span>
+      loader<span class="token punctuation">:</span> <span class="token string">"style-loader!css-loader?modules&amp;localIdentName=[path][name]---[local]---[hash:base64:5]"</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre></blockquote>
+
+<p>运行这个示例。</p>
+
+<blockquote><pre class=" language-bash"><code class=" language-bash">
+$ npm run demo03
+</code></pre></blockquote>
+
+<p>你会<a href="http://ruanyf.github.io/css-modules-demos/demo03/" target="_blank">发现</a><code>.title</code>被编译成了<code>demo03-components-App---title---GpMto</code>。</p>
+
+<h2>四、 Class 的组合</h2>
+
+<p>在 CSS Modules 中，一个选择器可以继承另一个选择器的规则，这称为"组合"（<a href="https://github.com/css-modules/css-modules#composition" target="_blank">"composition"</a>）。</p>
+
+<p>在<a href="https://github.com/ruanyf/css-modules-demos/blob/master/demo04/components/App.css" target="_blank"><code>App.css</code></a>中，让<code>.title</code>继承<code>.className</code> 。</p>
+
+<blockquote><pre class=" language-css"><code class=" language-css">
+<span class="token selector">.className </span><span class="token punctuation">{</span>
+  <span class="token property">background-color</span><span class="token punctuation">:</span> blue<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.title </span><span class="token punctuation">{</span>
+  <span class="token property">composes</span><span class="token punctuation">:</span> className<span class="token punctuation">;</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></blockquote>
+
+<p><a href="https://github.com/ruanyf/css-modules-demos/blob/master/demo04/components/App.js" target="_blank"><code>App.js</code></a>不用修改。</p>
+
+<blockquote><pre class=" language-javascript"><code class=" language-javascript">
+import React from <span class="token string">'react'</span><span class="token punctuation">;</span>
+import style from <span class="token string">'./App.css'</span><span class="token punctuation">;</span>
+
+export default <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span>h1 className<span class="token operator">=</span><span class="token punctuation">{</span>style<span class="token punctuation">.</span>title<span class="token punctuation">}</span><span class="token operator">&gt;</span>
+      Hello World
+    <span class="token operator">&lt;</span><span class="token operator">/</span>h1<span class="token operator">&gt;</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></blockquote>
+
+<p>运行这个示例。</p>
+
+<blockquote><pre class=" language-bash"><code class=" language-bash">
+$ npm run demo04
+</code></pre></blockquote>
+
+<p>打开<code>http://localhost:8080</code>，会<a href="http://ruanyf.github.io/css-modules-demos/demo04/" target="_blank">看到</a>红色的<code>h1</code>在蓝色的背景上。</p>
+
+<p><code>App.css</code>编译成下面的代码。</p>
+
+<blockquote><pre class=" language-css"><code class=" language-css">
+<span class="token selector">._2DHwuiHWMnKTOYG45T0x34 </span><span class="token punctuation">{</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">._10B-buq6_BEOTOl9urIjf8 </span><span class="token punctuation">{</span>
+  <span class="token property">background-color</span><span class="token punctuation">:</span> blue<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></blockquote>
+
+<p>相应地， <code>h1</code>的<code>class</code>也会编译成<code>&lt;h1 class="_2DHwuiHWMnKTOYG45T0x34 _10B-buq6_BEOTOl9urIjf8"&gt;</code>。</p>
+
+<h2>五、输入其他模块</h2>
+
+<p>选择器也可以继承其他CSS文件里面的规则。</p>
+
+<p><a href="https://github.com/ruanyf/css-modules-demos/blob/master/demo05/components/another.css" target="_blank"><code>another.css</code></a></p>
+
+<blockquote><pre class=" language-css"><code class=" language-css">
+<span class="token selector">.className </span><span class="token punctuation">{</span>
+  <span class="token property">background-color</span><span class="token punctuation">:</span> blue<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></blockquote>
+
+<p><a href="https://github.com/ruanyf/css-modules-demos/blob/master/demo05/components/App.css" target="_blank"><code>App.css</code></a>可以继承<code>another.css</code>里面的规则。</p>
+
+<blockquote><pre class=" language-css"><code class=" language-css">
+<span class="token selector">.title </span><span class="token punctuation">{</span>
+  <span class="token property">composes</span><span class="token punctuation">:</span> className from <span class="token string">'./another.css'</span><span class="token punctuation">;</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></blockquote>
+
+<p>运行这个示例。</p>
+
+<blockquote><pre class=" language-bash"><code class=" language-bash">
+$ npm run demo05
+</code></pre></blockquote>
+
+<p>打开<code>http://localhost:8080</code>，会<a href="http://ruanyf.github.io/css-modules-demos/demo05/" target="_blank">看到</a>蓝色的背景上有一个红色的<code>h1</code>。</p>
+
+<h2>六、输入变量</h2>
+
+<p>CSS Modules 支持使用变量，不过需要安装 PostCSS 和 <a href="https://github.com/css-modules/postcss-modules-values" target="_blank">postcss-modules-values</a>。</p>
+
+<blockquote><pre class=" language-bash"><code class=" language-bash">
+$ npm install <span class="token operator">--</span>save postcss<span class="token operator">-</span>loader postcss<span class="token operator">-</span>modules<span class="token operator">-</span>values
+</code></pre></blockquote>
+
+<p>把<code>postcss-loader</code>加入<a href="https://github.com/ruanyf/css-modules-demos/blob/master/demo06/webpack.config.js" target="_blank"><code>webpack.config.js</code></a>。</p>
+
+<blockquote><pre class=" language-javascript"><code class=" language-javascript">
+<span class="token keyword">var</span> values <span class="token operator">=</span> <span class="token function">require<span class="token punctuation">(</span></span><span class="token string">'postcss-modules-values'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  entry<span class="token punctuation">:</span> __dirname <span class="token operator">+</span> <span class="token string">'/index.js'</span><span class="token punctuation">,</span>
+  output<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    publicPath<span class="token punctuation">:</span> <span class="token string">'/'</span><span class="token punctuation">,</span>
+    filename<span class="token punctuation">:</span> <span class="token string">'./bundle.js'</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  module<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    loaders<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">{</span>
+        test<span class="token punctuation">:</span> <span class="token regex">/\.jsx?$/</span><span class="token punctuation">,</span>
+        exclude<span class="token punctuation">:</span> <span class="token regex">/node_modules/</span><span class="token punctuation">,</span>
+        loader<span class="token punctuation">:</span> <span class="token string">'babel'</span><span class="token punctuation">,</span>
+        query<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+          presets<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'es2015'</span><span class="token punctuation">,</span> <span class="token string">'stage-0'</span><span class="token punctuation">,</span> <span class="token string">'react'</span><span class="token punctuation">]</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span>
+        test<span class="token punctuation">:</span> <span class="token regex">/\.css$/</span><span class="token punctuation">,</span>
+        loader<span class="token punctuation">:</span> <span class="token string">"style-loader!css-loader?modules!postcss-loader"</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  postcss<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    values
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></blockquote>
+
+<p>接着，在<a href="https://github.com/ruanyf/css-modules-demos/blob/master/demo06/components/colors.css" target="_blank"><code>colors.css</code></a>里面定义变量。</p>
+
+<blockquote><pre class=" language-css"><code class=" language-css">
+<span class="token atrule">@value blue<span class="token punctuation">:</span> #0c77f8<span class="token punctuation">;</span></span>
+<span class="token atrule">@value red<span class="token punctuation">:</span> #ff0000<span class="token punctuation">;</span></span>
+<span class="token atrule">@value green<span class="token punctuation">:</span> #aaf200<span class="token punctuation">;</span></span>
+</code></pre></blockquote>
+
+<p><a href="https://github.com/ruanyf/css-modules-demos/tree/master/demo06/components" target="_blank"><code>App.css</code></a>可以引用这些变量。</p>
+
+<blockquote><pre class=" language-css"><code class=" language-css">
+<span class="token atrule">@value colors<span class="token punctuation">:</span> "./colors.css"<span class="token punctuation">;</span></span>
+<span class="token atrule">@value blue, red, green from colors<span class="token punctuation">;</span></span>
+
+<span class="token selector">.title </span><span class="token punctuation">{</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
+  <span class="token property">background-color</span><span class="token punctuation">:</span> blue<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></blockquote>
+
+<p>运行这个示例。</p>
+
+<blockquote><pre class=" language-bash"><code class=" language-bash">
+$ npm run demo06
+</code></pre></blockquote>
+
+<p>打开<code>http://localhost:8080</code>，会<a href="http://ruanyf.github.io/css-modules-demos/demo06/" target="_blank">看到</a>蓝色的背景上有一个红色的<code>h1</code>。</p>
+
+<p>（完）</p>
+
+                                    <!-- /div -->
+
+                                </div>
+    <script type="text/javascript" src="./CSS Modules 用法教程 - 阮一峰的网络日志_files/newwindow.js.下载"></script>
+                                <div class="asset-footer">
+
+<h3>文档信息</h3>
+<ul>
+<li>版权声明：自由转载-非商用-非衍生-保持署名（<a href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">创意共享3.0许可证</a>）</li>
+<li>发表日期： <abbr class="published" title="2016-06-10T08:42:59+08:00">2016年6月10日</abbr></li>
+<li>更多内容： <a href="http://www.ruanyifeng.com/blog/archives.html" target="_blank"> 档案</a>  » 
+<a href="http://www.ruanyifeng.com/blog/developer/"> 开发者手册</a> 
+</li>
+<li>文集：<a href="http://www.ruanyifeng.com/road" target="_blank">《前方的路》</a>，<a href="http://www.ruanyifeng.com/survivor" target="_blank">《未来世界的幸存者》</a></li>
+<li>社交媒体：<a href="https://twitter.com/ruanyf" target="_blank"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAk1JREFUeNqsVc9rE0EU/mZ3dhPNJl2bVIk/Km09aFBE8GLvnrwJXvwLxIsgCP4Fnit6E8Gb0IMHwUsL9SSNgiAoooJIpE1Joo1h82uT7IxvxmRN3Q32kAdvdrI773vfe+/bDTu9WioDcDAda3Ja8piepQ1avCkCeny0Y+R9KenKwOmHHLvPaKn7AtVOoO8dOWDCMpg+41gMQv5FNEJACgoE8MsPNLDBhgfoutMOsJDmWLmU037C4TApciljwQ/kHoohQxV06+wMXNvE7WINuaSpvdYVKLgWnl3O4zAxU3Z1IYVGT+B5qYWV9z2kbQaT/cOwTsxOUUYF+mB5Dkmi8HG3h2q9hxsFNwRTdvQgxxnXRrMvIdkEhllis/qtiWuLDm4WZnBlPoWnXz28LHdw0uGR7m9Wu3j0qYGEubfn4UlBfXO4gTZltRNMg9w9f0i7kNFxllsBlS0x75gYfxyWTBUjT2W5CSMSPBrQuG21+hiMDS8CeCzF8eSLp13uQ3Ab1IqMFZN8tFHPmgOBF99bYP8Be1Xp6t7OJszJgKpPSiZvaj7uf2hguz2IBQuozDvFH6RDBjuK9wdQDvt0nMpW+8efGyh5UcAeZb2+UcHbnz5Jx4wdlp4yJYU3kLiQtfBwOYeLc8nIwfXtNu69q2Oz4mMxbemYOOOjKarhvq51KUjg3GwiFPIuvcNF6pnSnWK0lOEabNLgQh1aJFAhlGB9rG110B2+oyRNPc0sZbRNFltmLKDKqj4Qrm1ojzOxDz2pyPQ0P7CK4c40/wJ+CzAAGYrXsvfFXR4AAAAASUVORK5CYII=" style="border:0;"> twitter</a>，<a href="http://weibo.com/ruanyf" target="_blank"><img src="data:image/png;base64,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" style="border:0;"> weibo</a></li>
+
+</ul>
+                                </div>
+</article>
+                            </div>
+
+  <div style="display: inline-block ! important;width: 100%;">
+    <p style="text-align:center;"><a title="优达学城" href="https://cn.udacity.com/course/ai-programming-foundation-nanodegree--nd089-cn-trial/?utm_source=ruanyifeng_c&amp;utm_medium=banner&amp;utm_campaign=aipnd" target="_blank"><img alt="优达学城" src="./CSS Modules 用法教程 - 阮一峰的网络日志_files/bg2018111401.jpg" style="border:none;display: block !important;max-width:100%;"></a></p>
+    <p style="text-align:center;"><a title="腾讯课堂" href="https://ke.qq.com/next_detail/index.html?id=1&amp;from=800004206" target="_blank"><img alt="腾讯课堂" src="./CSS Modules 用法教程 - 阮一峰的网络日志_files/bg2018121004.jpg" style="border:none;display: block !important;max-width:100%;"></a></p>
+  </div>
+
+<div id="related_entries">
+<h2>相关文章</h2>
+<ul>
+
+<li><strong>2018.11.07: <a href="http://www.ruanyifeng.com/blog/2018/11/awk.html">awk 入门教程</a></strong>
+
+                           <div class="entry-body">
+                              awk是处理文本文件的一个应用程序，几乎所有 Linux 系统都自带这个程序。
+
+                           </div>
+
+</li>
+
+ 
+<li><strong>2018.11.05: <a href="http://www.ruanyifeng.com/blog/2018/11/page_lifecycle_api.html">Page Lifecycle API 教程</a></strong>
+
+                           <div class="entry-body">
+                              两周前，我介绍了 Page Visibility API。有了它，就可以监听各种情况的网页卸载。
+
+                           </div>
+
+</li>
+
+ 
+<li><strong>2018.10.25: <a href="http://www.ruanyifeng.com/blog/2018/10/page_visibility_api.html">Page Visibility API 教程</a></strong>
+
+                           <div class="entry-body">
+                              一、简介
+
+有时候，开发者需要知道，用户正在离开页面。常用的方法是监听下面三个事件。
+
+                           </div>
+
+</li>
+
+ 
+<li><strong>2018.10.18: <a href="http://www.ruanyifeng.com/blog/2018/10/flexbox-form.html">Flexbox 布局的最简单表单</a></strong>
+
+                           <div class="entry-body">
+                              弹性布局（Flexbox）逐渐流行，越来越多人使用，因为它写 CSS 布局真是太方便了。
+
+                           </div>
+
+</li>
+
+ 
+</ul>
+</div>
+
+
+<div id="cre" style="display: block !important;">
+<h2>广告<a href="http://www.ruanyifeng.com/support.html">（购买广告位）</a></h2>
+<div id="cre-inner">
+<div id="cre-left">
+<a title="uni-app" href="http://www.dcloud.io/?hmsr=ryf&amp;hmpl=&amp;hmcu=&amp;hmkw=&amp;hmci=" target="_blank"><img alt="=&quot;uni-app&quot;" src="./CSS Modules 用法教程 - 阮一峰的网络日志_files/bg2018121001.gif" style="border:none;"></a>
+</div>
+<div id="cre-right">
+<a href="http://www.ruanyifeng.com/support.html" target="_blank"><img src="./CSS Modules 用法教程 - 阮一峰的网络日志_files/sup_sale_s.png" style="border:none;"></a>
+
+
+</div>
+</div>
+</div>
+
+                    
+
+                    <div id="comments" class="comments">
+
+
+    
+    
+        
+    <h2 class="comments-header">留言（57条）</h2>
+
+    <div id="comments-content" class="comments-content" style="clear: left;">
+        
+        <div id="comment-357412" class="comment">
+    <div class="inner">
+        <div class="comment-header">
+            <div class="asset-meta">
+<p>
+                <span class="byline">
+                    
+
+                    <span class="vcard author">小俞</span>
+
+ 说：
+                </span>
+</p>
+            </div>
+        </div>
+        <div class="comment-content" id="comment-quote-357412">
+            <p>阮大师真是高产</p>
+        </div>
+<div class="comment-footer">
+<div class="comment-footer-inner">
+<p>
+                   <abbr class="published" title="June 10, 2016 11:31 AM">2016年6月10日 11:31</abbr>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-357412">#</a>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-text" title="引用小俞的这条留言" onclick="return CommentQuote(&#39;comment-quote-357412&#39;,&#39;小俞&#39;);">引用</a>
+</p>
+</div>
+</div>
+    </div>
+</div>
+        
+    
+        
+        <div id="comment-357413" class="comment">
+    <div class="inner">
+        <div class="comment-header">
+            <div class="asset-meta">
+<p>
+                <span class="byline">
+                    
+
+                    <span class="vcard author">zhaozhiming</span>
+
+ 说：
+                </span>
+</p>
+            </div>
+        </div>
+        <div class="comment-content" id="comment-quote-357413">
+            <p>请问css变量可以直接用这个吗？<br>
+<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables" rel="nofollow">https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables</a></p>
+        </div>
+<div class="comment-footer">
+<div class="comment-footer-inner">
+<p>
+                   <abbr class="published" title="June 10, 2016 12:17 PM">2016年6月10日 12:17</abbr>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-357413">#</a>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-text" title="引用zhaozhiming的这条留言" onclick="return CommentQuote(&#39;comment-quote-357413&#39;,&#39;zhaozhiming&#39;);">引用</a>
+</p>
+</div>
+</div>
+    </div>
+</div>
+        
+    
+        
+        <div id="comment-357418" class="comment">
+    <div class="inner">
+        <div class="comment-header">
+            <div class="asset-meta">
+<p>
+                <span class="byline">
+                    
+
+                    <span class="vcard author"><a title="https://csser.me" href="https://csser.me/" target="_blank" rel="nofollow">indooorsman</a></span>
+
+ 说：
+                </span>
+</p>
+            </div>
+        </div>
+        <div class="comment-content" id="comment-quote-357418">
+            <p>shadow dom可以实现样式隔离</p>
+        </div>
+<div class="comment-footer">
+<div class="comment-footer-inner">
+<p>
+                   <abbr class="published" title="June 10, 2016  2:02 PM">2016年6月10日 14:02</abbr>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-357418">#</a>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-text" title="引用indooorsman的这条留言" onclick="return CommentQuote(&#39;comment-quote-357418&#39;,&#39;indooorsman&#39;);">引用</a>
+</p>
+</div>
+</div>
+    </div>
+</div>
+        
+    
+        
+        <div id="comment-357421" class="comment">
+    <div class="inner">
+        <div class="comment-header">
+            <div class="asset-meta">
+<p>
+                <span class="byline">
+                    
+
+                    <span class="vcard author"><a title="https://AnnatarHe.github.io" href="https://annatarhe.github.io/" target="_blank" rel="nofollow">AnnatarHe</a></span>
+
+ 说：
+                </span>
+</p>
+            </div>
+        </div>
+        <div class="comment-content" id="comment-quote-357421">
+            <p>谢谢分享，又学习了 ^_^</p>
+        </div>
+<div class="comment-footer">
+<div class="comment-footer-inner">
+<p>
+                   <abbr class="published" title="June 10, 2016  8:59 PM">2016年6月10日 20:59</abbr>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-357421">#</a>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-text" title="引用AnnatarHe的这条留言" onclick="return CommentQuote(&#39;comment-quote-357421&#39;,&#39;AnnatarHe&#39;);">引用</a>
+</p>
+</div>
+</div>
+    </div>
+</div>
+        
+    
+        
+        <div id="comment-357475" class="comment">
+    <div class="inner">
+        <div class="comment-header">
+            <div class="asset-meta">
+<p>
+                <span class="byline">
+                    
+
+                    <span class="vcard author"><a title="http://0715huazhuang.com" href="http://0715huazhuang.com/" target="_blank" rel="nofollow">黑仔</a></span>
+
+ 说：
+                </span>
+</p>
+            </div>
+        </div>
+        <div class="comment-content" id="comment-quote-357475">
+            <p>勤奋啊！说转技术就转技术了，厉害！</p>
+        </div>
+<div class="comment-footer">
+<div class="comment-footer-inner">
+<p>
+                   <abbr class="published" title="June 11, 2016  5:26 PM">2016年6月11日 17:26</abbr>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-357475">#</a>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-text" title="引用黑仔的这条留言" onclick="return CommentQuote(&#39;comment-quote-357475&#39;,&#39;黑仔&#39;);">引用</a>
+</p>
+</div>
+</div>
+    </div>
+</div>
+        
+    
+        
+        <div id="comment-357478" class="comment">
+    <div class="inner">
+        <div class="comment-header">
+            <div class="asset-meta">
+<p>
+                <span class="byline">
+                    
+
+                    <span class="vcard author"><a title="http://ubuntugx.com" href="http://ubuntugx.com/" target="_blank" rel="nofollow">ubuntugx</a></span>
+
+ 说：
+                </span>
+</p>
+            </div>
+        </div>
+        <div class="comment-content" id="comment-quote-357478">
+            <p>刚刚学习完 CSS Module，想写个博文记录一下，不知从哪里开始写，把想法表达清楚真是一种能力，必须要理解透彻才行。佩服阮老师。</p>
+        </div>
+<div class="comment-footer">
+<div class="comment-footer-inner">
+<p>
+                   <abbr class="published" title="June 11, 2016  9:30 PM">2016年6月11日 21:30</abbr>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-357478">#</a>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-text" title="引用ubuntugx的这条留言" onclick="return CommentQuote(&#39;comment-quote-357478&#39;,&#39;ubuntugx&#39;);">引用</a>
+</p>
+</div>
+</div>
+    </div>
+</div>
+        
+    
+        
+        <div id="comment-357519" class="comment">
+    <div class="inner">
+        <div class="comment-header">
+            <div class="asset-meta">
+<p>
+                <span class="byline">
+                    
+
+                    <span class="vcard author">leeleo</span>
+
+ 说：
+                </span>
+</p>
+            </div>
+        </div>
+        <div class="comment-content" id="comment-quote-357519">
+            <p>阮老师高产似母猪.<br>
+说实话,看阮老师的blog,工资涨得好快.</p>
+        </div>
+<div class="comment-footer">
+<div class="comment-footer-inner">
+<p>
+                   <abbr class="published" title="June 12, 2016  5:18 PM">2016年6月12日 17:18</abbr>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-357519">#</a>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-text" title="引用leeleo的这条留言" onclick="return CommentQuote(&#39;comment-quote-357519&#39;,&#39;leeleo&#39;);">引用</a>
+</p>
+</div>
+</div>
+    </div>
+</div>
+        
+    
+        
+        <div id="comment-357533" class="comment">
+    <div class="inner">
+        <div class="comment-header">
+            <div class="asset-meta">
+<p>
+                <span class="byline">
+                    
+
+                    <span class="vcard author"><a title="http://www.jeffjade.com" href="http://www.jeffjade.com/" target="_blank" rel="nofollow">晚晴幽草轩</a></span>
+
+ 说：
+                </span>
+</p>
+            </div>
+        </div>
+        <div class="comment-content" id="comment-quote-357533">
+            <p>学习了，感谢阮先生。明天去实验一下，说不定正好可以以此解决一个固有问题（同套js[vue+webpack实现]逻辑下，因需求不同衍生出不同themes的多版本activity）。</p>
+        </div>
+<div class="comment-footer">
+<div class="comment-footer-inner">
+<p>
+                   <abbr class="published" title="June 13, 2016  2:08 AM">2016年6月13日 02:08</abbr>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-357533">#</a>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-text" title="引用晚晴幽草轩的这条留言" onclick="return CommentQuote(&#39;comment-quote-357533&#39;,&#39;晚晴幽草轩&#39;);">引用</a>
+</p>
+</div>
+</div>
+    </div>
+</div>
+        
+    
+        
+        <div id="comment-357534" class="comment">
+    <div class="inner">
+        <div class="comment-header">
+            <div class="asset-meta">
+<p>
+                <span class="byline">
+                    
+
+                    <span class="vcard author">郁也风</span>
+
+ 说：
+                </span>
+</p>
+            </div>
+        </div>
+        <div class="comment-content" id="comment-quote-357534">
+            <p>相比 postcss，使用 less 或 sass 结合 module 更好用</p>
+        </div>
+<div class="comment-footer">
+<div class="comment-footer-inner">
+<p>
+                   <abbr class="published" title="June 13, 2016  3:04 AM">2016年6月13日 03:04</abbr>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-357534">#</a>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-text" title="引用郁也风的这条留言" onclick="return CommentQuote(&#39;comment-quote-357534&#39;,&#39;郁也风&#39;);">引用</a>
+</p>
+</div>
+</div>
+    </div>
+</div>
+        
+    
+        
+        <div id="comment-359340" class="comment">
+    <div class="inner">
+        <div class="comment-header">
+            <div class="asset-meta">
+<p>
+                <span class="byline">
+                    
+
+                    <span class="vcard author"><a title="http://www.cnblogs.com/clear93/" href="http://www.cnblogs.com/clear93/" target="_blank" rel="nofollow">阮凯</a></span>
+
+ 说：
+                </span>
+</p>
+            </div>
+        </div>
+        <div class="comment-content" id="comment-quote-359340">
+            <p>阮大师我的学习目标。</p>
+        </div>
+<div class="comment-footer">
+<div class="comment-footer-inner">
+<p>
+                   <abbr class="published" title="June 17, 2016  3:05 PM">2016年6月17日 15:05</abbr>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-359340">#</a>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-text" title="引用阮凯的这条留言" onclick="return CommentQuote(&#39;comment-quote-359340&#39;,&#39;阮凯&#39;);">引用</a>
+</p>
+</div>
+</div>
+    </div>
+</div>
+        
+    
+        
+        <div id="comment-359773" class="comment">
+    <div class="inner">
+        <div class="comment-header">
+            <div class="asset-meta">
+<p>
+                <span class="byline">
+                    
+
+                    <span class="vcard author">CCY</span>
+
+ 说：
+                </span>
+</p>
+            </div>
+        </div>
+        <div class="comment-content" id="comment-quote-359773">
+            <p>用这个会对浏览器调试有影响吧</p>
+        </div>
+<div class="comment-footer">
+<div class="comment-footer-inner">
+<p>
+                   <abbr class="published" title="June 27, 2016  9:58 AM">2016年6月27日 09:58</abbr>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-359773">#</a>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-text" title="引用CCY的这条留言" onclick="return CommentQuote(&#39;comment-quote-359773&#39;,&#39;CCY&#39;);">引用</a>
+</p>
+</div>
+</div>
+    </div>
+</div>
+        
+    
+        
+        <div id="comment-359855" class="comment">
+    <div class="inner">
+        <div class="comment-header">
+            <div class="asset-meta">
+<p>
+                <span class="byline">
+                    
+
+                    <span class="vcard author">NicholasNC</span>
+
+ 说：
+                </span>
+</p>
+            </div>
+        </div>
+        <div class="comment-content" id="comment-quote-359855">
+            <p>阮老师，请问有了CSS Module，是不是不需要Sass了。或者说，有结合使用Sass的必要吗？</p>
+        </div>
+<div class="comment-footer">
+<div class="comment-footer-inner">
+<p>
+                   <abbr class="published" title="June 28, 2016 11:42 AM">2016年6月28日 11:42</abbr>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-359855">#</a>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-text" title="引用NicholasNC的这条留言" onclick="return CommentQuote(&#39;comment-quote-359855&#39;,&#39;NicholasNC&#39;);">引用</a>
+</p>
+</div>
+</div>
+    </div>
+</div>
+        
+    
+        
+        <div id="comment-360235" class="comment">
+    <div class="inner">
+        <div class="comment-header">
+            <div class="asset-meta">
+<p>
+                <span class="byline">
+                    
+
+                    <span class="vcard author">jk</span>
+
+ 说：
+                </span>
+</p>
+            </div>
+        </div>
+        <div class="comment-content" id="comment-quote-360235">
+            <p>请问css modules 可以用于web端网站吗？</p>
+        </div>
+<div class="comment-footer">
+<div class="comment-footer-inner">
+<p>
+                   <abbr class="published" title="July  5, 2016  3:45 PM">2016年7月 5日 15:45</abbr>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-360235">#</a>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-text" title="引用jk的这条留言" onclick="return CommentQuote(&#39;comment-quote-360235&#39;,&#39;jk&#39;);">引用</a>
+</p>
+</div>
+</div>
+    </div>
+</div>
+        
+    
+        
+        <div id="comment-360351" class="comment">
+    <div class="inner">
+        <div class="comment-header">
+            <div class="asset-meta">
+<p>
+                <span class="byline">
+                    
+
+                    <span class="vcard author">Beier</span>
+
+ 说：
+                </span>
+</p>
+            </div>
+        </div>
+        <div class="comment-content" id="comment-quote-360351">
+            <p>看了您的博客，突然发觉自己以前的思维太狭隘了，现在真的有一种站在巨人肩膀上的感觉。</p>
+        </div>
+<div class="comment-footer">
+<div class="comment-footer-inner">
+<p>
+                   <abbr class="published" title="July  8, 2016  9:59 AM">2016年7月 8日 09:59</abbr>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-360351">#</a>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-text" title="引用Beier的这条留言" onclick="return CommentQuote(&#39;comment-quote-360351&#39;,&#39;Beier&#39;);">引用</a>
+</p>
+</div>
+</div>
+    </div>
+</div>
+        
+    
+        
+        <div id="comment-360373" class="comment">
+    <div class="inner">
+        <div class="comment-header">
+            <div class="asset-meta">
+<p>
+                <span class="byline">
+                    
+
+                    <span class="vcard author"><a title="http://www.xuehtml.com" href="http://www.xuehtml.com/" target="_blank" rel="nofollow">Alvin</a></span>
+
+ 说：
+                </span>
+</p>
+            </div>
+        </div>
+        <div class="comment-content" id="comment-quote-360373">
+            <p>在react项目中，我一个标签需要用到多个样式时   转换成 </p>
+        </div>
+<div class="comment-footer">
+<div class="comment-footer-inner">
+<p>
+                   <abbr class="published" title="July  8, 2016  2:34 PM">2016年7月 8日 14:34</abbr>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-360373">#</a>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-text" title="引用Alvin的这条留言" onclick="return CommentQuote(&#39;comment-quote-360373&#39;,&#39;Alvin&#39;);">引用</a>
+</p>
+</div>
+</div>
+    </div>
+</div>
+        
+    
+        
+        <div id="comment-360375" class="comment">
+    <div class="inner">
+        <div class="comment-header">
+            <div class="asset-meta">
+<p>
+                <span class="byline">
+                    
+
+                    <span class="vcard author"><a title="http://www.xuehtml.com" href="http://www.xuehtml.com/" target="_blank" rel="nofollow">Alvin</a></span>
+
+ 说：
+                </span>
+</p>
+            </div>
+        </div>
+        <div class="comment-content" id="comment-quote-360375">
+            <p>在react项目中，我一个标签需要用到多个样式时 &lt;div className="title1 title2 title3"&gt;  转换成 &lt;div className={style.title1} 这种形式，怎么写？</p>
+        </div>
+<div class="comment-footer">
+<div class="comment-footer-inner">
+<p>
+                   <abbr class="published" title="July  8, 2016  2:36 PM">2016年7月 8日 14:36</abbr>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-360375">#</a>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-text" title="引用Alvin的这条留言" onclick="return CommentQuote(&#39;comment-quote-360375&#39;,&#39;Alvin&#39;);">引用</a>
+</p>
+</div>
+</div>
+    </div>
+</div>
+        
+    
+        
+        <div id="comment-360383" class="comment">
+    <div class="inner">
+        <div class="comment-header">
+            <div class="asset-meta">
+<p>
+                <span class="byline">
+                    
+
+                    <span class="vcard author"><a title="http://www.xuehtml.com" href="http://www.xuehtml.com/" target="_blank" rel="nofollow">Alvin</a></span>
+
+ 说：
+                </span>
+</p>
+            </div>
+        </div>
+        <div class="comment-content" id="comment-quote-360383">
+            <blockquote>
+<pre>引用Alvin的发言：</pre>
+
+<p>在react项目中，我一个标签需要用到多个样式时 &lt;div className="title1 title2 title3"&gt;转换成 &lt;div className={style.title1} 这种形式，怎么写？</p>
+
+</blockquote>
+
+<p>后来我想到一个办法，这样 ：className={[style.title1,style.title2,style.title3].join(" ")}</p>
+        </div>
+<div class="comment-footer">
+<div class="comment-footer-inner">
+<p>
+                   <abbr class="published" title="July  8, 2016  3:28 PM">2016年7月 8日 15:28</abbr>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-360383">#</a>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-text" title="引用Alvin的这条留言" onclick="return CommentQuote(&#39;comment-quote-360383&#39;,&#39;Alvin&#39;);">引用</a>
+</p>
+</div>
+</div>
+    </div>
+</div>
+        
+    
+        
+        <div id="comment-360540" class="comment">
+    <div class="inner">
+        <div class="comment-header">
+            <div class="asset-meta">
+<p>
+                <span class="byline">
+                    
+
+                    <span class="vcard author"><a title="http://segmentfault.com/u/renpingjun" href="http://segmentfault.com/u/renpingjun" target="_blank" rel="nofollow">renpingjun</a></span>
+
+ 说：
+                </span>
+</p>
+            </div>
+        </div>
+        <div class="comment-content" id="comment-quote-360540">
+            <p>哈希之后，代码后期维护会变得很困难，找个类半天</p>
+        </div>
+<div class="comment-footer">
+<div class="comment-footer-inner">
+<p>
+                   <abbr class="published" title="July 12, 2016 10:18 AM">2016年7月12日 10:18</abbr>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-360540">#</a>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-text" title="引用renpingjun的这条留言" onclick="return CommentQuote(&#39;comment-quote-360540&#39;,&#39;renpingjun&#39;);">引用</a>
+</p>
+</div>
+</div>
+    </div>
+</div>
+        
+    
+        
+        <div id="comment-360864" class="comment">
+    <div class="inner">
+        <div class="comment-header">
+            <div class="asset-meta">
+<p>
+                <span class="byline">
+                    
+
+                    <span class="vcard author">zhaozhiming</span>
+
+ 说：
+                </span>
+</p>
+            </div>
+        </div>
+        <div class="comment-content" id="comment-quote-360864">
+            <blockquote>
+<pre>引用Alvin的发言：</pre>
+
+<p></p>
+
+<p>后来我想到一个办法，这样 ：className={[style.title1,style.title2,style.title3].join(" ")}</p>
+
+</blockquote>
+
+<p>用 classnames 包</p>
+        </div>
+<div class="comment-footer">
+<div class="comment-footer-inner">
+<p>
+                   <abbr class="published" title="July 19, 2016 12:04 PM">2016年7月19日 12:04</abbr>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-360864">#</a>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-text" title="引用zhaozhiming的这条留言" onclick="return CommentQuote(&#39;comment-quote-360864&#39;,&#39;zhaozhiming&#39;);">引用</a>
+</p>
+</div>
+</div>
+    </div>
+</div>
+        
+    
+        
+        <div id="comment-361643" class="comment">
+    <div class="inner">
+        <div class="comment-header">
+            <div class="asset-meta">
+<p>
+                <span class="byline">
+                    
+
+                    <span class="vcard author">MoonBall</span>
+
+ 说：
+                </span>
+</p>
+            </div>
+        </div>
+        <div class="comment-content" id="comment-quote-361643">
+            <p>base64 转换 .title 结果不是 ._3zyde4l1yATCOkgn-DBWEL，应该还加入了其他信息。</p>
+        </div>
+<div class="comment-footer">
+<div class="comment-footer-inner">
+<p>
+                   <abbr class="published" title="August  3, 2016 12:19 PM">2016年8月 3日 12:19</abbr>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-361643">#</a>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-text" title="引用MoonBall的这条留言" onclick="return CommentQuote(&#39;comment-quote-361643&#39;,&#39;MoonBall&#39;);">引用</a>
+</p>
+</div>
+</div>
+    </div>
+</div>
+        
+    
+        
+        <div id="comment-362529" class="comment">
+    <div class="inner">
+        <div class="comment-header">
+            <div class="asset-meta">
+<p>
+                <span class="byline">
+                    
+
+                    <span class="vcard author"><a title="http://无" href="http://xn--rgv/" target="_blank" rel="nofollow">qshting</a></span>
+
+ 说：
+                </span>
+</p>
+            </div>
+        </div>
+        <div class="comment-content" id="comment-quote-362529">
+            <p>感觉不是很好用呀，后期调试，名称不统一。</p>
+        </div>
+<div class="comment-footer">
+<div class="comment-footer-inner">
+<p>
+                   <abbr class="published" title="August 17, 2016  3:47 PM">2016年8月17日 15:47</abbr>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-362529">#</a>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-text" title="引用qshting的这条留言" onclick="return CommentQuote(&#39;comment-quote-362529&#39;,&#39;qshting&#39;);">引用</a>
+</p>
+</div>
+</div>
+    </div>
+</div>
+        
+    
+        
+        <div id="comment-362630" class="comment">
+    <div class="inner">
+        <div class="comment-header">
+            <div class="asset-meta">
+<p>
+                <span class="byline">
+                    
+
+                    <span class="vcard author">silence</span>
+
+ 说：
+                </span>
+</p>
+            </div>
+        </div>
+        <div class="comment-content" id="comment-quote-362630">
+            <p>到目前为止看到的各种技术都只是在工程化方向发展而无本质的进化~~~偷懒而已，还美其名曰“提高效率，节约成本”</p>
+        </div>
+<div class="comment-footer">
+<div class="comment-footer-inner">
+<p>
+                   <abbr class="published" title="August 19, 2016 11:15 AM">2016年8月19日 11:15</abbr>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-362630">#</a>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-text" title="引用silence的这条留言" onclick="return CommentQuote(&#39;comment-quote-362630&#39;,&#39;silence&#39;);">引用</a>
+</p>
+</div>
+</div>
+    </div>
+</div>
+        
+    
+        
+        <div id="comment-362879" class="comment">
+    <div class="inner">
+        <div class="comment-header">
+            <div class="asset-meta">
+<p>
+                <span class="byline">
+                    
+
+                    <span class="vcard author"><a title="https://github.com/liu-dongyu" href="https://github.com/liu-dongyu" target="_blank" rel="nofollow">liu</a></span>
+
+ 说：
+                </span>
+</p>
+            </div>
+        </div>
+        <div class="comment-content" id="comment-quote-362879">
+            <blockquote>
+<pre>引用zhaozhiming的发言：</pre>
+
+<p>用 classnames 包</p>
+
+</blockquote>
+
+<p>直接用es6的 `${}` 链接就好了</p>
+
+<p><br>
+`${style.title1} ${style.title2}`<br>
+</p>
+        </div>
+<div class="comment-footer">
+<div class="comment-footer-inner">
+<p>
+                   <abbr class="published" title="August 22, 2016  9:41 AM">2016年8月22日 09:41</abbr>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-362879">#</a>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-text" title="引用liu的这条留言" onclick="return CommentQuote(&#39;comment-quote-362879&#39;,&#39;liu&#39;);">引用</a>
+</p>
+</div>
+</div>
+    </div>
+</div>
+        
+    
+        
+        <div id="comment-364352" class="comment">
+    <div class="inner">
+        <div class="comment-header">
+            <div class="asset-meta">
+<p>
+                <span class="byline">
+                    
+
+                    <span class="vcard author"><a title="http://riskers.github.io" href="http://riskers.github.io/" target="_blank" rel="nofollow">riskers</a></span>
+
+ 说：
+                </span>
+</p>
+            </div>
+        </div>
+        <div class="comment-content" id="comment-quote-364352">
+            <p>可以在非 React 中使用么</p>
+        </div>
+<div class="comment-footer">
+<div class="comment-footer-inner">
+<p>
+                   <abbr class="published" title="September 12, 2016  3:28 PM">2016年9月12日 15:28</abbr>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-364352">#</a>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-text" title="引用riskers的这条留言" onclick="return CommentQuote(&#39;comment-quote-364352&#39;,&#39;riskers&#39;);">引用</a>
+</p>
+</div>
+</div>
+    </div>
+</div>
+        
+    
+        
+        <div id="comment-368728" class="comment">
+    <div class="inner">
+        <div class="comment-header">
+            <div class="asset-meta">
+<p>
+                <span class="byline">
+                    
+
+                    <span class="vcard author">杨名远</span>
+
+ 说：
+                </span>
+</p>
+            </div>
+        </div>
+        <div class="comment-content" id="comment-quote-368728">
+            <p>请问怎么在global下面 生成sass的全局变量 和函数呢？？</p>
+        </div>
+<div class="comment-footer">
+<div class="comment-footer-inner">
+<p>
+                   <abbr class="published" title="November 19, 2016 11:43 AM">2016年11月19日 11:43</abbr>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-368728">#</a>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-text" title="引用杨名远的这条留言" onclick="return CommentQuote(&#39;comment-quote-368728&#39;,&#39;杨名远&#39;);">引用</a>
+</p>
+</div>
+</div>
+    </div>
+</div>
+        
+    
+        
+        <div id="comment-369575" class="comment">
+    <div class="inner">
+        <div class="comment-header">
+            <div class="asset-meta">
+<p>
+                <span class="byline">
+                    
+
+                    <span class="vcard author">jsasg</span>
+
+ 说：
+                </span>
+</p>
+            </div>
+        </div>
+        <div class="comment-content" id="comment-quote-369575">
+            <p>请问react-css-modules是不是有兼容问题<br>
+在android微信里react-css-modules写法页面打不开</p>
+        </div>
+<div class="comment-footer">
+<div class="comment-footer-inner">
+<p>
+                   <abbr class="published" title="December  1, 2016  3:52 PM">2016年12月 1日 15:52</abbr>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-369575">#</a>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-text" title="引用jsasg的这条留言" onclick="return CommentQuote(&#39;comment-quote-369575&#39;,&#39;jsasg&#39;);">引用</a>
+</p>
+</div>
+</div>
+    </div>
+</div>
+        
+    
+        
+        <div id="comment-370557" class="comment">
+    <div class="inner">
+        <div class="comment-header">
+            <div class="asset-meta">
+<p>
+                <span class="byline">
+                    
+
+                    <span class="vcard author">loszer</span>
+
+ 说：
+                </span>
+</p>
+            </div>
+        </div>
+        <div class="comment-content" id="comment-quote-370557">
+            <p>阮老师，css modules算是一种主流的做法吗</p>
+        </div>
+<div class="comment-footer">
+<div class="comment-footer-inner">
+<p>
+                   <abbr class="published" title="December 18, 2016  9:03 PM">2016年12月18日 21:03</abbr>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-370557">#</a>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-text" title="引用loszer的这条留言" onclick="return CommentQuote(&#39;comment-quote-370557&#39;,&#39;loszer&#39;);">引用</a>
+</p>
+</div>
+</div>
+    </div>
+</div>
+        
+    
+        
+        <div id="comment-373624" class="comment">
+    <div class="inner">
+        <div class="comment-header">
+            <div class="asset-meta">
+<p>
+                <span class="byline">
+                    
+
+                    <span class="vcard author">菜鸟</span>
+
+ 说：
+                </span>
+</p>
+            </div>
+        </div>
+        <div class="comment-content" id="comment-quote-373624">
+            <p>好好的css给糟蹋成什么样子了 —— 乱七八糟。</p>
+        </div>
+<div class="comment-footer">
+<div class="comment-footer-inner">
+<p>
+                   <abbr class="published" title="February 28, 2017  5:48 PM">2017年2月28日 17:48</abbr>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-373624">#</a>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-text" title="引用菜鸟的这条留言" onclick="return CommentQuote(&#39;comment-quote-373624&#39;,&#39;菜鸟&#39;);">引用</a>
+</p>
+</div>
+</div>
+    </div>
+</div>
+        
+    
+        
+        <div id="comment-374653" class="comment">
+    <div class="inner">
+        <div class="comment-header">
+            <div class="asset-meta">
+<p>
+                <span class="byline">
+                    
+
+                    <span class="vcard author">Ve</span>
+
+ 说：
+                </span>
+</p>
+            </div>
+        </div>
+        <div class="comment-content" id="comment-quote-374653">
+            <p>less和sass应该怎么做到局部作用域？</p>
+        </div>
+<div class="comment-footer">
+<div class="comment-footer-inner">
+<p>
+                   <abbr class="published" title="March 13, 2017 10:13 AM">2017年3月13日 10:13</abbr>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-374653">#</a>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-text" title="引用Ve的这条留言" onclick="return CommentQuote(&#39;comment-quote-374653&#39;,&#39;Ve&#39;);">引用</a>
+</p>
+</div>
+</div>
+    </div>
+</div>
+        
+    
+        
+        <div id="comment-377052" class="comment">
+    <div class="inner">
+        <div class="comment-header">
+            <div class="asset-meta">
+<p>
+                <span class="byline">
+                    
+
+                    <span class="vcard author">teynui</span>
+
+ 说：
+                </span>
+</p>
+            </div>
+        </div>
+        <div class="comment-content" id="comment-quote-377052">
+            <p>class是不是只能用驼峰的写法？能用className={style.pass-bar}的写法吗?貌似会报错,求解决办法</p>
+        </div>
+<div class="comment-footer">
+<div class="comment-footer-inner">
+<p>
+                   <abbr class="published" title="May 11, 2017 11:27 AM">2017年5月11日 11:27</abbr>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-377052">#</a>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-text" title="引用teynui的这条留言" onclick="return CommentQuote(&#39;comment-quote-377052&#39;,&#39;teynui&#39;);">引用</a>
+</p>
+</div>
+</div>
+    </div>
+</div>
+        
+    
+        
+        <div id="comment-377889" class="comment">
+    <div class="inner">
+        <div class="comment-header">
+            <div class="asset-meta">
+<p>
+                <span class="byline">
+                    
+
+                    <span class="vcard author">小2b哔哔哔哔哔</span>
+
+ 说：
+                </span>
+</p>
+            </div>
+        </div>
+        <div class="comment-content" id="comment-quote-377889">
+            <p>想请问一下 css modules 有没有 sublime 的语法插件？针对 :global{} 多层嵌套的颜色高亮有点反常</p>
+        </div>
+<div class="comment-footer">
+<div class="comment-footer-inner">
+<p>
+                   <abbr class="published" title="June 12, 2017 11:38 AM">2017年6月12日 11:38</abbr>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-377889">#</a>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-text" title="引用小2b哔哔哔哔哔的这条留言" onclick="return CommentQuote(&#39;comment-quote-377889&#39;,&#39;小2b哔哔哔哔哔&#39;);">引用</a>
+</p>
+</div>
+</div>
+    </div>
+</div>
+        
+    
+        
+        <div id="comment-377925" class="comment">
+    <div class="inner">
+        <div class="comment-header">
+            <div class="asset-meta">
+<p>
+                <span class="byline">
+                    
+
+                    <span class="vcard author">Jack</span>
+
+ 说：
+                </span>
+</p>
+            </div>
+        </div>
+        <div class="comment-content" id="comment-quote-377925">
+            <blockquote>
+<pre>引用菜鸟的发言：</pre>
+
+<p>好好的css给糟蹋成什么样子了 —— 乱七八糟。</p>
+
+</blockquote>
+
+<p>这并不是糟蹋，你只是没去用，这些东西都是非常好的处理细节，当项目非常大，这些东西的威力就会体现出来</p>
+        </div>
+<div class="comment-footer">
+<div class="comment-footer-inner">
+<p>
+                   <abbr class="published" title="June 13, 2017  4:52 PM">2017年6月13日 16:52</abbr>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-377925">#</a>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-text" title="引用Jack的这条留言" onclick="return CommentQuote(&#39;comment-quote-377925&#39;,&#39;Jack&#39;);">引用</a>
+</p>
+</div>
+</div>
+    </div>
+</div>
+        
+    
+        
+        <div id="comment-379216" class="comment">
+    <div class="inner">
+        <div class="comment-header">
+            <div class="asset-meta">
+<p>
+                <span class="byline">
+                    
+
+                    <span class="vcard author">webster</span>
+
+ 说：
+                </span>
+</p>
+            </div>
+        </div>
+        <div class="comment-content" id="comment-quote-379216">
+            <p>很给力 一遍就看懂了 3Q !</p>
+        </div>
+<div class="comment-footer">
+<div class="comment-footer-inner">
+<p>
+                   <abbr class="published" title="August  3, 2017  4:28 PM">2017年8月 3日 16:28</abbr>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-379216">#</a>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-text" title="引用webster的这条留言" onclick="return CommentQuote(&#39;comment-quote-379216&#39;,&#39;webster&#39;);">引用</a>
+</p>
+</div>
+</div>
+    </div>
+</div>
+        
+    
+        
+        <div id="comment-379283" class="comment">
+    <div class="inner">
+        <div class="comment-header">
+            <div class="asset-meta">
+<p>
+                <span class="byline">
+                    
+
+                    <span class="vcard author">致家驹</span>
+
+ 说：
+                </span>
+</p>
+            </div>
+        </div>
+        <div class="comment-content" id="comment-quote-379283">
+            <p>扶我起来^_^</p>
+        </div>
+<div class="comment-footer">
+<div class="comment-footer-inner">
+<p>
+                   <abbr class="published" title="August  5, 2017  8:52 PM">2017年8月 5日 20:52</abbr>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-379283">#</a>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-text" title="引用致家驹的这条留言" onclick="return CommentQuote(&#39;comment-quote-379283&#39;,&#39;致家驹&#39;);">引用</a>
+</p>
+</div>
+</div>
+    </div>
+</div>
+        
+    
+        
+        <div id="comment-379439" class="comment">
+    <div class="inner">
+        <div class="comment-header">
+            <div class="asset-meta">
+<p>
+                <span class="byline">
+                    
+
+                    <span class="vcard author"><a title="http://wuyunjiang.cn" href="http://wuyunjiang.cn/" target="_blank" rel="nofollow">伍云江</a></span>
+
+ 说：
+                </span>
+</p>
+            </div>
+        </div>
+        <div class="comment-content" id="comment-quote-379439">
+            <p>原来dva里面使用的就是这种方式，以前在css都没用到这些方法</p>
+        </div>
+<div class="comment-footer">
+<div class="comment-footer-inner">
+<p>
+                   <abbr class="published" title="August 11, 2017  9:07 AM">2017年8月11日 09:07</abbr>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-379439">#</a>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-text" title="引用伍云江的这条留言" onclick="return CommentQuote(&#39;comment-quote-379439&#39;,&#39;伍云江&#39;);">引用</a>
+</p>
+</div>
+</div>
+    </div>
+</div>
+        
+    
+        
+        <div id="comment-379687" class="comment">
+    <div class="inner">
+        <div class="comment-header">
+            <div class="asset-meta">
+<p>
+                <span class="byline">
+                    
+
+                    <span class="vcard author">文栋梁</span>
+
+ 说：
+                </span>
+</p>
+            </div>
+        </div>
+        <div class="comment-content" id="comment-quote-379687">
+            <p>全局css样式表也会被处理，这个怎么解决</p>
+        </div>
+<div class="comment-footer">
+<div class="comment-footer-inner">
+<p>
+                   <abbr class="published" title="August 21, 2017  2:41 PM">2017年8月21日 14:41</abbr>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-379687">#</a>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-text" title="引用文栋梁的这条留言" onclick="return CommentQuote(&#39;comment-quote-379687&#39;,&#39;文栋梁&#39;);">引用</a>
+</p>
+</div>
+</div>
+    </div>
+</div>
+        
+    
+        
+        <div id="comment-380650" class="comment">
+    <div class="inner">
+        <div class="comment-header">
+            <div class="asset-meta">
+<p>
+                <span class="byline">
+                    
+
+                    <span class="vcard author">josh</span>
+
+ 说：
+                </span>
+</p>
+            </div>
+        </div>
+        <div class="comment-content" id="comment-quote-380650">
+            <p>@keyframes 怎么用:local </p>
+        </div>
+<div class="comment-footer">
+<div class="comment-footer-inner">
+<p>
+                   <abbr class="published" title="September 20, 2017  1:47 PM">2017年9月20日 13:47</abbr>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-380650">#</a>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-text" title="引用josh的这条留言" onclick="return CommentQuote(&#39;comment-quote-380650&#39;,&#39;josh&#39;);">引用</a>
+</p>
+</div>
+</div>
+    </div>
+</div>
+        
+    
+        
+        <div id="comment-381534" class="comment">
+    <div class="inner">
+        <div class="comment-header">
+            <div class="asset-meta">
+<p>
+                <span class="byline">
+                    
+
+                    <span class="vcard author"><a title="http://jackhan.net" href="http://jackhan.net/" target="_blank" rel="nofollow">hru</a></span>
+
+ 说：
+                </span>
+</p>
+            </div>
+        </div>
+        <div class="comment-content" id="comment-quote-381534">
+            <p>请问引入cssmodule这个时候再引入第三方UI库就会导致第三方UI库也被改成哈希类名，但是第三方库的js却没有变，导致样式显示不出</p>
+        </div>
+<div class="comment-footer">
+<div class="comment-footer-inner">
+<p>
+                   <abbr class="published" title="October 21, 2017  7:22 PM">2017年10月21日 19:22</abbr>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-381534">#</a>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-text" title="引用hru的这条留言" onclick="return CommentQuote(&#39;comment-quote-381534&#39;,&#39;hru&#39;);">引用</a>
+</p>
+</div>
+</div>
+    </div>
+</div>
+        
+    
+        
+        <div id="comment-381668" class="comment">
+    <div class="inner">
+        <div class="comment-header">
+            <div class="asset-meta">
+<p>
+                <span class="byline">
+                    
+
+                    <span class="vcard author"><a title="http://kerita.github.io" href="http://kerita.github.io/" target="_blank" rel="nofollow">Kerita</a></span>
+
+ 说：
+                </span>
+</p>
+            </div>
+        </div>
+        <div class="comment-content" id="comment-quote-381668">
+            <blockquote>
+<pre>引用Alvin的发言：</pre>
+
+<p>后来我想到一个办法，这样 ：className={[style.title1,style.title2,style.title3].join(" ")}</p>
+
+</blockquote>
+
+<p>用 classnames 这个包也可以</p>
+        </div>
+<div class="comment-footer">
+<div class="comment-footer-inner">
+<p>
+                   <abbr class="published" title="October 25, 2017  4:01 PM">2017年10月25日 16:01</abbr>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-381668">#</a>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-text" title="引用Kerita的这条留言" onclick="return CommentQuote(&#39;comment-quote-381668&#39;,&#39;Kerita&#39;);">引用</a>
+</p>
+</div>
+</div>
+    </div>
+</div>
+        
+    
+        
+        <div id="comment-381881" class="comment">
+    <div class="inner">
+        <div class="comment-header">
+            <div class="asset-meta">
+<p>
+                <span class="byline">
+                    
+
+                    <span class="vcard author">吃小锅米线</span>
+
+ 说：
+                </span>
+</p>
+            </div>
+        </div>
+        <div class="comment-content" id="comment-quote-381881">
+            <p>按照阮教授这么解释css modules的用法，我是不是可以在项目里定义一个全局的.css文件(例如app.css)，里面全部都是:global。然后在每个js里都引用一下(目的是确保统一的公共样式，以便以后要更换公共样式的时候，我只需要修改app.css就可以了)。然后在引一个属于自己的.css文件(用来编写:local的样式)。</p>
+        </div>
+<div class="comment-footer">
+<div class="comment-footer-inner">
+<p>
+                   <abbr class="published" title="November  1, 2017  4:37 PM">2017年11月 1日 16:37</abbr>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-381881">#</a>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-text" title="引用吃小锅米线的这条留言" onclick="return CommentQuote(&#39;comment-quote-381881&#39;,&#39;吃小锅米线&#39;);">引用</a>
+</p>
+</div>
+</div>
+    </div>
+</div>
+        
+    
+        
+        <div id="comment-382145" class="comment">
+    <div class="inner">
+        <div class="comment-header">
+            <div class="asset-meta">
+<p>
+                <span class="byline">
+                    
+
+                    <span class="vcard author"><a title="https://github.com/msforest" href="https://github.com/msforest" target="_blank" rel="nofollow">05</a></span>
+
+ 说：
+                </span>
+</p>
+            </div>
+        </div>
+        <div class="comment-content" id="comment-quote-382145">
+            <p>阮老师你好，请问这个css modules能直接定义html标签吗？就是不使用class定义样式</p>
+        </div>
+<div class="comment-footer">
+<div class="comment-footer-inner">
+<p>
+                   <abbr class="published" title="November  8, 2017  3:19 PM">2017年11月 8日 15:19</abbr>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-382145">#</a>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-text" title="引用05的这条留言" onclick="return CommentQuote(&#39;comment-quote-382145&#39;,&#39;05&#39;);">引用</a>
+</p>
+</div>
+</div>
+    </div>
+</div>
+        
+    
+        
+        <div id="comment-382147" class="comment">
+    <div class="inner">
+        <div class="comment-header">
+            <div class="asset-meta">
+<p>
+                <span class="byline">
+                    
+
+                    <span class="vcard author"><a title="https://github.com/msforest" href="https://github.com/msforest" target="_blank" rel="nofollow">05</a></span>
+
+ 说：
+                </span>
+</p>
+            </div>
+        </div>
+        <div class="comment-content" id="comment-quote-382147">
+            <p>阮老师您好，我有一个问题：在开发的过程中，使用到css-modules来加载css，但是现在我们的配置是对自己写的样式采用css-modules，而node_modules里采用全局引入，现在我的一个全局引入的样式覆盖了其他人引入的全局样式；我想问，有没有一种方法--我把node_modules里的css引入到我自定义的css文件中，变成局部样式，且引入的样式不会使用css-modules来进行hash转义？请阮老师指教，谢谢[/抱拳]</p>
+        </div>
+<div class="comment-footer">
+<div class="comment-footer-inner">
+<p>
+                   <abbr class="published" title="November  8, 2017  3:31 PM">2017年11月 8日 15:31</abbr>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-382147">#</a>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-text" title="引用05的这条留言" onclick="return CommentQuote(&#39;comment-quote-382147&#39;,&#39;05&#39;);">引用</a>
+</p>
+</div>
+</div>
+    </div>
+</div>
+        
+    
+        
+        <div id="comment-382806" class="comment">
+    <div class="inner">
+        <div class="comment-header">
+            <div class="asset-meta">
+<p>
+                <span class="byline">
+                    
+
+                    <span class="vcard author">prc333</span>
+
+ 说：
+                </span>
+</p>
+            </div>
+        </div>
+        <div class="comment-content" id="comment-quote-382806">
+            <p>less怎么配置css modules？</p>
+        </div>
+<div class="comment-footer">
+<div class="comment-footer-inner">
+<p>
+                   <abbr class="published" title="November 28, 2017  4:26 PM">2017年11月28日 16:26</abbr>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-382806">#</a>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-text" title="引用prc333的这条留言" onclick="return CommentQuote(&#39;comment-quote-382806&#39;,&#39;prc333&#39;);">引用</a>
+</p>
+</div>
+</div>
+    </div>
+</div>
+        
+    
+        
+        <div id="comment-382968" class="comment">
+    <div class="inner">
+        <div class="comment-header">
+            <div class="asset-meta">
+<p>
+                <span class="byline">
+                    
+
+                    <span class="vcard author"><a title="http://me.chjiyun.com" href="http://me.chjiyun.com/" target="_blank" rel="nofollow">chjiyun</a></span>
+
+ 说：
+                </span>
+</p>
+            </div>
+        </div>
+        <div class="comment-content" id="comment-quote-382968">
+            <p>请问各位大哥大姐CSSModule转换了keyframes动画名怎么破，：global 也没用啊。</p>
+        </div>
+<div class="comment-footer">
+<div class="comment-footer-inner">
+<p>
+                   <abbr class="published" title="December  4, 2017 12:44 PM">2017年12月 4日 12:44</abbr>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-382968">#</a>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-text" title="引用chjiyun的这条留言" onclick="return CommentQuote(&#39;comment-quote-382968&#39;,&#39;chjiyun&#39;);">引用</a>
+</p>
+</div>
+</div>
+    </div>
+</div>
+        
+    
+        
+        <div id="comment-383240" class="comment">
+    <div class="inner">
+        <div class="comment-header">
+            <div class="asset-meta">
+<p>
+                <span class="byline">
+                    
+
+                    <span class="vcard author">patrick</span>
+
+ 说：
+                </span>
+</p>
+            </div>
+        </div>
+        <div class="comment-content" id="comment-quote-383240">
+            <blockquote>
+<pre>引用chjiyun的发言：</pre>
+
+<p>请问各位大哥大姐CSSModule转换了keyframes动画名怎么破，：global 也没用啊。</p>
+
+</blockquote>
+
+<p>同求解</p>
+        </div>
+<div class="comment-footer">
+<div class="comment-footer-inner">
+<p>
+                   <abbr class="published" title="December 14, 2017  6:38 PM">2017年12月14日 18:38</abbr>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-383240">#</a>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-text" title="引用patrick的这条留言" onclick="return CommentQuote(&#39;comment-quote-383240&#39;,&#39;patrick&#39;);">引用</a>
+</p>
+</div>
+</div>
+    </div>
+</div>
+        
+    
+        
+        <div id="comment-383887" class="comment">
+    <div class="inner">
+        <div class="comment-header">
+            <div class="asset-meta">
+<p>
+                <span class="byline">
+                    
+
+                    <span class="vcard author">eell</span>
+
+ 说：
+                </span>
+</p>
+            </div>
+        </div>
+        <div class="comment-content" id="comment-quote-383887">
+            <p>请问如果是用create-react-app,  loader: "style-loader!css-loader?modules" 应该添加到哪里呢？</p>
+        </div>
+<div class="comment-footer">
+<div class="comment-footer-inner">
+<p>
+                   <abbr class="published" title="December 31, 2017  5:32 PM">2017年12月31日 17:32</abbr>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-383887">#</a>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-text" title="引用eell的这条留言" onclick="return CommentQuote(&#39;comment-quote-383887&#39;,&#39;eell&#39;);">引用</a>
+</p>
+</div>
+</div>
+    </div>
+</div>
+        
+    
+        
+        <div id="comment-384409" class="comment">
+    <div class="inner">
+        <div class="comment-header">
+            <div class="asset-meta">
+<p>
+                <span class="byline">
+                    
+
+                    <span class="vcard author">kukuxi</span>
+
+ 说：
+                </span>
+</p>
+            </div>
+        </div>
+        <div class="comment-content" id="comment-quote-384409">
+            <blockquote>
+<pre>引用eell的发言：</pre>
+
+<p>请问如果是用create-react-app,loader: "style-loader!css-loader?modules" 应该添加到哪里呢？</p>
+
+</blockquote>
+
+<p>需要把webpack打包出来</p>
+        </div>
+<div class="comment-footer">
+<div class="comment-footer-inner">
+<p>
+                   <abbr class="published" title="January 11, 2018 11:43 AM">2018年1月11日 11:43</abbr>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-384409">#</a>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-text" title="引用kukuxi的这条留言" onclick="return CommentQuote(&#39;comment-quote-384409&#39;,&#39;kukuxi&#39;);">引用</a>
+</p>
+</div>
+</div>
+    </div>
+</div>
+        
+    
+        
+        <div id="comment-384724" class="comment">
+    <div class="inner">
+        <div class="comment-header">
+            <div class="asset-meta">
+<p>
+                <span class="byline">
+                    
+
+                    <span class="vcard author">L</span>
+
+ 说：
+                </span>
+</p>
+            </div>
+        </div>
+        <div class="comment-content" id="comment-quote-384724">
+            <blockquote>
+<pre>引用chjiyun的发言：</pre>
+
+<p>请问各位大哥大姐CSSModule转换了keyframes动画名怎么破，：global 也没用啊。</p>
+
+</blockquote>
+
+<p>@keyframes :global(blockly-shake) {  <br>
+  20% {    <br>
+    transform: translate(-1rem, 0) scale(0.75); <br>
+  }  <br>
+  40% {    <br>
+    transform: translate(1rem, 0) scale(0.75); <br>
+  }  <br>
+  60% {    <br>
+    transform: translate(-1rem) scale(0.75); <br>
+  }  <br>
+  80% {    <br>
+    transform: translate(1rem, 0) scale(0.75); <br>
+  }  <br>
+  0%, 100% {    <br>
+    transform: translate(0, 0) scale(0.75); <br>
+  } <br>
+}</p>
+        </div>
+<div class="comment-footer">
+<div class="comment-footer-inner">
+<p>
+                   <abbr class="published" title="January 19, 2018 12:27 PM">2018年1月19日 12:27</abbr>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-384724">#</a>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-text" title="引用L的这条留言" onclick="return CommentQuote(&#39;comment-quote-384724&#39;,&#39;L&#39;);">引用</a>
+</p>
+</div>
+</div>
+    </div>
+</div>
+        
+    
+        
+        <div id="comment-386708" class="comment">
+    <div class="inner">
+        <div class="comment-header">
+            <div class="asset-meta">
+<p>
+                <span class="byline">
+                    
+
+                    <span class="vcard author">agrass</span>
+
+ 说：
+                </span>
+</p>
+            </div>
+        </div>
+        <div class="comment-content" id="comment-quote-386708">
+            <blockquote>
+<pre>引用NicholasNC的发言：</pre>
+
+<p>阮老师，请问有了CSS Module，是不是不需要Sass了。或者说，有结合使用Sass的必要吗？</p>
+
+</blockquote>
+
+<p>sass 个 css module 根本就是两个东西，你没理解清楚吧，一个是预处理器，一个是做模块化。</p>
+        </div>
+<div class="comment-footer">
+<div class="comment-footer-inner">
+<p>
+                   <abbr class="published" title="March 15, 2018  9:56 AM">2018年3月15日 09:56</abbr>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-386708">#</a>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-text" title="引用agrass的这条留言" onclick="return CommentQuote(&#39;comment-quote-386708&#39;,&#39;agrass&#39;);">引用</a>
+</p>
+</div>
+</div>
+    </div>
+</div>
+        
+    
+        
+        <div id="comment-386988" class="comment">
+    <div class="inner">
+        <div class="comment-header">
+            <div class="asset-meta">
+<p>
+                <span class="byline">
+                    
+
+                    <span class="vcard author">彭大葱</span>
+
+ 说：
+                </span>
+</p>
+            </div>
+        </div>
+        <div class="comment-content" id="comment-quote-386988">
+            <p>在dva中，将一个less文件文件作为变量使用，在该文件中引入图片，使用相对定位引入不到，该less文件引入到其他less文件中使用，这样编译的话就没办法找到图片，想问下，怎么引入该图片</p>
+        </div>
+<div class="comment-footer">
+<div class="comment-footer-inner">
+<p>
+                   <abbr class="published" title="March 23, 2018 11:15 AM">2018年3月23日 11:15</abbr>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-386988">#</a>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-text" title="引用彭大葱的这条留言" onclick="return CommentQuote(&#39;comment-quote-386988&#39;,&#39;彭大葱&#39;);">引用</a>
+</p>
+</div>
+</div>
+    </div>
+</div>
+        
+    
+        
+        <div id="comment-388643" class="comment">
+    <div class="inner">
+        <div class="comment-header">
+            <div class="asset-meta">
+<p>
+                <span class="byline">
+                    
+
+                    <span class="vcard author">温沟子</span>
+
+ 说：
+                </span>
+</p>
+            </div>
+        </div>
+        <div class="comment-content" id="comment-quote-388643">
+            <p>css的模块化</p>
+        </div>
+<div class="comment-footer">
+<div class="comment-footer-inner">
+<p>
+                   <abbr class="published" title="May  7, 2018  4:53 PM">2018年5月 7日 16:53</abbr>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-388643">#</a>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-text" title="引用温沟子的这条留言" onclick="return CommentQuote(&#39;comment-quote-388643&#39;,&#39;温沟子&#39;);">引用</a>
+</p>
+</div>
+</div>
+    </div>
+</div>
+        
+    
+        
+        <div id="comment-389149" class="comment">
+    <div class="inner">
+        <div class="comment-header">
+            <div class="asset-meta">
+<p>
+                <span class="byline">
+                    
+
+                    <span class="vcard author">Henery</span>
+
+ 说：
+                </span>
+</p>
+            </div>
+        </div>
+        <div class="comment-content" id="comment-quote-389149">
+            <p>使用less或sass，处理诸如变量这样的特性很方便，另外还可以在less/sass中使用:global处理全局作用域，个人感觉这样配合使用比较好。</p>
+        </div>
+<div class="comment-footer">
+<div class="comment-footer-inner">
+<p>
+                   <abbr class="published" title="May 28, 2018  3:18 PM">2018年5月28日 15:18</abbr>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-389149">#</a>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-text" title="引用Henery的这条留言" onclick="return CommentQuote(&#39;comment-quote-389149&#39;,&#39;Henery&#39;);">引用</a>
+</p>
+</div>
+</div>
+    </div>
+</div>
+        
+    
+        
+        <div id="comment-392386" class="comment">
+    <div class="inner">
+        <div class="comment-header">
+            <div class="asset-meta">
+<p>
+                <span class="byline">
+                    
+
+                    <span class="vcard author">郝鸿然</span>
+
+ 说：
+                </span>
+</p>
+            </div>
+        </div>
+        <div class="comment-content" id="comment-quote-392386">
+            <p>阮老师，这个css-loader配置modules:true就支持变量了，这是为啥呢，不用postcss插件了</p>
+        </div>
+<div class="comment-footer">
+<div class="comment-footer-inner">
+<p>
+                   <abbr class="published" title="August 21, 2018 12:23 AM">2018年8月21日 00:23</abbr>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-392386">#</a>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-text" title="引用郝鸿然的这条留言" onclick="return CommentQuote(&#39;comment-quote-392386&#39;,&#39;郝鸿然&#39;);">引用</a>
+</p>
+</div>
+</div>
+    </div>
+</div>
+        
+    
+        
+        <div id="comment-392786" class="comment">
+    <div class="inner">
+        <div class="comment-header">
+            <div class="asset-meta">
+<p>
+                <span class="byline">
+                    
+
+                    <span class="vcard author">王凯允</span>
+
+ 说：
+                </span>
+</p>
+            </div>
+        </div>
+        <div class="comment-content" id="comment-quote-392786">
+            <p>options: {<br>
+              modules: true, // 指定启用css modules<br>
+              localIdentName: '[name]__[local]--[hash:base64:5]', // 指定css的类名格式<br>
+          },<br>
+配置之后，css确实可以实现样式隔离，但是 scss 如何做到这一点，可以请教一下吗？</p>
+        </div>
+<div class="comment-footer">
+<div class="comment-footer-inner">
+<p>
+                   <abbr class="published" title="September  3, 2018  5:14 PM">2018年9月 3日 17:14</abbr>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-392786">#</a>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-text" title="引用王凯允的这条留言" onclick="return CommentQuote(&#39;comment-quote-392786&#39;,&#39;王凯允&#39;);">引用</a>
+</p>
+</div>
+</div>
+    </div>
+</div>
+        
+    
+        
+        <div id="comment-392890" class="comment">
+    <div class="inner">
+        <div class="comment-header">
+            <div class="asset-meta">
+<p>
+                <span class="byline">
+                    
+
+                    <span class="vcard author">烛前</span>
+
+ 说：
+                </span>
+</p>
+            </div>
+        </div>
+        <div class="comment-content" id="comment-quote-392890">
+            <p>精简，讲到了最有用的部分????</p>
+        </div>
+<div class="comment-footer">
+<div class="comment-footer-inner">
+<p>
+                   <abbr class="published" title="September  6, 2018 10:59 PM">2018年9月 6日 22:59</abbr>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-392890">#</a>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-text" title="引用烛前的这条留言" onclick="return CommentQuote(&#39;comment-quote-392890&#39;,&#39;烛前&#39;);">引用</a>
+</p>
+</div>
+</div>
+    </div>
+</div>
+        
+    
+        
+        <div id="comment-393493" class="comment">
+    <div class="inner">
+        <div class="comment-header">
+            <div class="asset-meta">
+<p>
+                <span class="byline">
+                    
+
+                    <span class="vcard author">acery</span>
+
+ 说：
+                </span>
+</p>
+            </div>
+        </div>
+        <div class="comment-content" id="comment-quote-393493">
+            <blockquote>
+<pre>引用Alvin的发言：</pre>
+
+<p></p>
+
+<p>后来我想到一个办法，这样 ：className={[style.title1,style.title2,style.title3].join(" ")}</p>
+
+</blockquote>
+
+<p><br>
+用 classnames 这个npm包<br>
+</p>
+        </div>
+<div class="comment-footer">
+<div class="comment-footer-inner">
+<p>
+                   <abbr class="published" title="September 28, 2018 11:59 AM">2018年9月28日 11:59</abbr>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-393493">#</a>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-text" title="引用acery的这条留言" onclick="return CommentQuote(&#39;comment-quote-393493&#39;,&#39;acery&#39;);">引用</a>
+</p>
+</div>
+</div>
+    </div>
+</div>
+        
+    
+        
+        <div id="comment-395321" class="comment">
+    <div id="comment-last" class="inner">
+        <div class="comment-header">
+            <div class="asset-meta">
+<p>
+                <span class="byline">
+                    
+
+                    <span class="vcard author">暮京枫</span>
+
+ 说：
+                </span>
+</p>
+            </div>
+        </div>
+        <div class="comment-content" id="comment-quote-395321">
+            <blockquote>
+<pre>引用彭大葱的发言：</pre>
+
+<p>在dva中，将一个less文件文件作为变量使用，在该文件中引入图片，使用相对定位引入不到，该less文件引入到其他less文件中使用，这样编译的话就没办法找到图片，想问下，怎么引入该图片</p>
+
+</blockquote>
+
+<p>遇到了类似的问题，想问下你有解决么？是什么原因？</p>
+        </div>
+<div class="comment-footer">
+<div class="comment-footer-inner">
+<p>
+                   <abbr class="published" title="November 22, 2018  3:58 PM">2018年11月22日 15:58</abbr>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-395321">#</a>
+ | <a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html#comment-text" title="引用暮京枫的这条留言" onclick="return CommentQuote(&#39;comment-quote-395321&#39;,&#39;暮京枫&#39;);">引用</a>
+</p>
+</div>
+</div>
+    </div>
+</div>
+        
+    </div>
+        
+    
+
+
+    
+    
+    <div class="comments-open" id="comments-open">
+        <h2 class="comments-open-header">我要发表看法</h2>
+        <div class="comments-open-content">
+
+        
+            <div id="comment-greeting"></div>
+
+            <form method="post" action="http://www.ruanyifeng.com/cgi-bin/mtos/mt-comments.cgi" name="comments_form" id="comments-form" onsubmit="return pleaseWait();">
+                <input type="hidden" name="static" value="1">
+                <input type="hidden" name="entry_id" value="1891">
+                <input type="hidden" name="__lang" value="en">
+                <input type="hidden" name="parent_id" value="" id="comment-parent-id">
+                <input type="hidden" name="armor" value="1">
+                <input type="hidden" name="preview" value="">
+                <input type="hidden" name="sid" value="">
+                <div id="comments-open-data">
+            <div id="comments-open-text">
+                    <p><label for="comment-text">您的留言
+                    （HTML标签部分可用）</label></p>
+                    <p><textarea id="comment-text" name="text" rows="10" cols="50"></textarea></p>
+                </div>
+                    <div id="comment-form-name">
+                        <p><label for="comment-author">您的大名：</label></p>
+                        <p><input id="comment-author" name="author" size="30" value="">  <span class="hint"> «-必填</span></p>
+                    </div>
+                    <div id="comment-form-email">
+                        <p><label for="comment-email">电子邮件：</label></p>
+                        <p><input id="comment-email" name="email" size="30" value="">  <span class="hint"> «-必填，不公开</span></p>
+                    </div>
+                    <div id="comment-form-url">
+                        <p><label for="comment-url">个人网址：</label></p>
+                        <p><input id="comment-url" name="url" size="30" value="">  <span class="hint"> «-我信任你，不会填写广告链接</span></p>
+                    </div>
+                    <div id="comment-form-remember-me">
+                        <p>
+                        <label for="comment-bake-cookie">记住个人信息？</label><input type="checkbox" id="comment-bake-cookie" name="bakecookie" onclick="!this.checked?forgetMe(document.comments_form):rememberMe(document.comments_form)" value="1" accesskey="r"></p>
+                    </div>
+                </div>
+                    <div id="comment-form-reply" style="display:none">
+                    <input type="checkbox" id="comment-reply" name="comment_reply" value="" onclick="mtSetCommentParentID()">
+                    <label for="comment-reply" id="comment-reply-label"></label>
+                </div>
+                <div id="comments-open-captcha"></div>
+                <div id="comments-open-footer">
+<div id="wait" style="display:none;">
+<p><strong>正在发表您的评论，请稍候</strong></p>
+<p>
+<input type="text" name="percent" size="3" style="font-family:Arial; color:black;text-align:center; border-width:medium; border-style:none;">           
+<input type="text" name="chart" size="46" style="font-family:Arial;font-weight:bolder; color:black; padding:0px; border-style:none;">
+</p>
+</div>
+
+                    <p><input type="submit" accesskey="s" name="post" id="comment-submit" value="发表">  <span class="hint"> «- 点击按钮</span></p>
+                </div>
+            </form>
+
+
+        </div>
+    </div>
+
+    
+
+
+</div>
+
+
+
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        <script type="text/javascript" src="./CSS Modules 用法教程 - 阮一峰的网络日志_files/prism.js.下载"></script>
+        <script type="text/javascript" src="./CSS Modules 用法教程 - 阮一峰的网络日志_files/checker.js.下载"></script> 
+            <div id="footer" chromeappversion="3.1.0">
+<div id="footer-inner">
+   <div id="footer-content">
+   <p><a title="微博" href="http://weibo.com/ruanyf" target="_blank">微博</a> | <a title="Twitter" target="_blank" href="https://twitter.com/ruanyf">推特</a> | <a title="GitHub" target="_blank" href="https://github.com/ruanyf">GitHub</a></p>
+   <p>2018 © <a title="电子邮件" href="http://www.ruanyifeng.com/contact.html">我的邮件</a> |</p>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-46829782-1', 'ruanyifeng.com');
+  ga('send', 'pageview');
+
+</script>
+
+<script type="text/javascript" src="./CSS Modules 用法教程 - 阮一峰的网络日志_files/stats.js.下载"></script>
+<script>
+var supportImg = document.querySelector('#support-img');
+
+if (supportImg && _hmt) {
+  _hmt.push(['_trackEvent', 'banner', 'load']);
+  supportImg.addEventListener('click', function () {
+    _hmt.push(['_trackEvent', 'banner', 'click']);
+  }, false);
+}
+</script>
+
+
+
+        </div>
+    </div>
+</div>
+
+
+<div id="share_button_proto" style="display:none;">
+<a class="bshareDiv" href="http://www.bshare.cn/share" style="display: block; text-decoration: none; padding: 0px; margin: 0px; font-size: 12px; height: 21px; width: 51px;"><div class="bsPromo bsPromo1"></div><div class="buzzButton bsStyle10" style="height:21px;color:#333;;background:transparent url(//static.bshare.cn/frame/images/button_custom10-zh-Orange.gif) no-repeat;text-align:center;width:51px;"></div><div style="clear:both;"></div></a>
+
+
+
+<script type="text/javascript" charset="utf-8" src="./CSS Modules 用法教程 - 阮一峰的网络日志_files/buttonLite.js.下载"></script>
+<script type="text/javascript" charset="utf-8">
+bShare.addEntry({
+    title: document.getElementById("page-title").innerHTML,
+url:window.location.href
+});
+</script>
+</div>
+
+<script>
+document.getElementById("share_button").innerHTML=document.getElementById("share_button_proto").innerHTML;
+</script>
+
+
+
+
+
+
+<script type="text/javascript">
+
+function checker() {
+var img = document.querySelector('img[src^="http://www.ruanyifeng.com/blog/images"]');
+  if (img && window.getComputedStyle(img).display === 'none'){
+    var sponsor = document.querySelector('.entry-sponsor');
+    var prompt = document.createElement('div');
+    prompt.style = 'border: 1px solid #c6c6c6;border-radius: 4px;background-color: #f5f2f0;padding: 15px; font-size: 16px;';
+  prompt.innerHTML = '<p>您使用了广告拦截器，导致本站内容无法显示。</p><p>请将 www.ruanyifeng.com 加入白名单，解除广告屏蔽后，刷新页面，谢谢。</p>';
+    sponsor.parentNode.replaceChild(prompt, sponsor);
+    document.querySelector('#main-content').innerHTML = '';
+  }
+}
+
+setTimeout(checker, 1000);
+
+</script>
+        </div>
+    </div>
+
+<div id="bsBox" class="bsBox"><div class="bsClose">X</div><div class="bsTop"><div class="bsReturn">选择其他平台 &gt;&gt;</div><span style="margin-left:15px;">分享到</span><span class="bsPlatName"></span></div><div class="bsFrameDiv"><iframe class="bShareFrame" name="bsFrame282" frameborder="0" scrolling="no" allowtransparency="true" src="./CSS Modules 用法教程 - 阮一峰的网络日志_files/saved_resource.html"></iframe></div><div id="bsMorePanel" style="display: none;"></div></div><div id="ads"></div><div id="bsPanelHolder"><div id="bsPanel" style="display:none;"><div class="bsTitle"><a style="float:left;height:20px;line-height:20px;font-weight:bold;" class="bsSiteLink" target="_blank" href="http://www.bshare.cn/intro">分享到...</a><a class="bsSiteLink" style="cursor:pointer;float:right;height:20px;line-height:20px;font-weight:bold;" onclick="document.getElementById(&#39;bsPanel&#39;).style.display=&#39;none&#39;;">X</a><div class="bsClear"></div></div><div class="bsClear"></div><div style="padding-left:8px;background:#fff;*height:218px;"><div style="height:47px;border-bottom:1px #ccc solid;padding:4px 0 4px 16px;margin-right:8px;_padding-left:12px;"><div class="bsRlogo" onmouseover="javascript:this.className=&#39;bsRlogoSel&#39;" onmouseout="javascript:this.className=&#39;bsRlogo&#39;"><a href="javascript:;" onclick="javascript:bShare.share(event,&#39;facebook&#39;);return false;" style="text-decoration:none;line-height:120%;"><div style="cursor:pointer;width:24px;height:24px;margin:0 18px 2px;background:url(//static.bshare.cn/frame/images//logos/m2/facebook.gif) no-repeat;"></div><div style="cursor:pointer;text-align:center;width:60px;height:16px !important;overflow:hidden;color:inherit;white-space:nowrap;line-height:120% !important;">Facebook</div></a></div><div class="bsRlogo" onmouseover="javascript:this.className=&#39;bsRlogoSel&#39;" onmouseout="javascript:this.className=&#39;bsRlogo&#39;"><a href="javascript:;" onclick="javascript:bShare.share(event,&#39;twitter&#39;);return false;" style="text-decoration:none;line-height:120%;"><div style="cursor:pointer;width:24px;height:24px;margin:0 18px 2px;background:url(//static.bshare.cn/frame/images//logos/m2/twitter.gif) no-repeat;"></div><div style="cursor:pointer;text-align:center;width:60px;height:16px !important;overflow:hidden;color:inherit;white-space:nowrap;line-height:120% !important;">Twitter</div></a></div><div class="bsRlogo" onmouseover="javascript:this.className=&#39;bsRlogoSel&#39;" onmouseout="javascript:this.className=&#39;bsRlogo&#39;"><a href="javascript:;" onclick="javascript:bShare.share(event,&#39;sinaminiblog&#39;);return false;" style="text-decoration:none;line-height:120%;"><div style="cursor:pointer;width:24px;height:24px;margin:0 18px 2px;background:url(//static.bshare.cn/frame/images//logos/m2/sinaminiblog.gif) no-repeat;"></div><div style="cursor:pointer;text-align:center;width:60px;height:16px !important;overflow:hidden;color:inherit;white-space:nowrap;line-height:120% !important;">新浪微博</div></a></div></div><div class="bsLogoLink"><div class="bsLogo" onmouseover="javascript:this.className=&#39;bsLogoSel&#39;" onmouseout="javascript:this.className=&#39;bsLogo&#39;"><a href="javascript:;" title="微信" onclick="javascript:bShare.share(event,&#39;weixin&#39;);return false;" style="background:url(//static.bshare.cn/frame/images//logos/s4/weixin.png) no-repeat;">微信</a></div><div class="bsLogo" onmouseover="javascript:this.className=&#39;bsLogoSel&#39;" onmouseout="javascript:this.className=&#39;bsLogo&#39;"><a href="javascript:;" title="腾讯微博" onclick="javascript:bShare.share(event,&#39;qqmb&#39;);return false;" style="background:url(//static.bshare.cn/frame/images//slogos_sprite8.png) no-repeat 0 -1512px;">腾讯微博</a></div><div class="bsLogo" onmouseover="javascript:this.className=&#39;bsLogoSel&#39;" onmouseout="javascript:this.className=&#39;bsLogo&#39;"><a href="javascript:;" title="豆瓣网" onclick="javascript:bShare.share(event,&#39;douban&#39;);return false;" style="background:url(//static.bshare.cn/frame/images//slogos_sprite8.png) no-repeat 0 -540px;">豆瓣网</a></div><div class="bsLogo" onmouseover="javascript:this.className=&#39;bsLogoSel&#39;" onmouseout="javascript:this.className=&#39;bsLogo&#39;"><a href="javascript:;" title="饭否" onclick="javascript:bShare.share(event,&#39;fanfou&#39;);return false;" style="background:url(//static.bshare.cn/frame/images//slogos_sprite8.png) no-repeat 0 -666px;">饭否</a></div><div class="bsLogo" onmouseover="javascript:this.className=&#39;bsLogoSel&#39;" onmouseout="javascript:this.className=&#39;bsLogo&#39;"><a href="javascript:;" title="雪球" onclick="javascript:bShare.share(event,&#39;xueqiu&#39;);return false;" style="background:url(//static.bshare.cn/frame/images//logos/s4/xueqiu.png) no-repeat;">雪球</a></div><div class="bsLogo" onmouseover="javascript:this.className=&#39;bsLogoSel&#39;" onmouseout="javascript:this.className=&#39;bsLogo&#39;"><a href="javascript:;" title="电子邮件" onclick="javascript:bShare.share(event,&#39;email&#39;);return false;" style="background:url(//static.bshare.cn/frame/images//slogos_sprite8.png) no-repeat 0 -612px;">电子邮件</a></div></div><div class="bsLogoLink"><div class="bsLogo" onmouseover="javascript:this.className=&#39;bsLogoSel&#39;" onmouseout="javascript:this.className=&#39;bsLogo&#39;"><a href="javascript:;" title="Google+" onclick="javascript:bShare.share(event,&#39;gplus&#39;);return false;" style="background:url(//static.bshare.cn/frame/images//logos/s4/gplus.png) no-repeat;">Google+</a></div><div class="bsLogo" onmouseover="javascript:this.className=&#39;bsLogoSel&#39;" onmouseout="javascript:this.className=&#39;bsLogo&#39;"><a href="javascript:;" title="QQ空间" onclick="javascript:bShare.share(event,&#39;qzone&#39;);return false;" style="background:url(//static.bshare.cn/frame/images//slogos_sprite8.png) no-repeat 0 -1566px;">QQ空间</a></div><div class="bsLogo" onmouseover="javascript:this.className=&#39;bsLogoSel&#39;" onmouseout="javascript:this.className=&#39;bsLogo&#39;"><a href="javascript:;" title="QQ好友" onclick="javascript:bShare.share(event,&#39;qqim&#39;);return false;" style="background:url(//static.bshare.cn/frame/images//logos/s4/qqim.png) no-repeat;">QQ好友</a></div><div class="bsLogo" onmouseover="javascript:this.className=&#39;bsLogoSel&#39;" onmouseout="javascript:this.className=&#39;bsLogo&#39;"><a href="javascript:;" title="Instapaper" onclick="javascript:bShare.share(event,&#39;instapaper&#39;);return false;" style="background:url(//static.bshare.cn/frame/images//slogos_sprite8.png) no-repeat 0 -954px;">Instapaper</a></div><div class="bsLogo" onmouseover="javascript:this.className=&#39;bsLogoSel&#39;" onmouseout="javascript:this.className=&#39;bsLogo&#39;"><a href="javascript:;" title="美味书签" onclick="javascript:bShare.share(event,&#39;delicious&#39;);return false;" style="background:url(//static.bshare.cn/frame/images//slogos_sprite8.png) no-repeat 0 -432px;">美味书签</a></div></div><div class="bsClear"></div></div><div style="height:20px;line-height:20px;padding:0 8px;border-top:1px solid #e8e8e8;color:#666;background:#f2f2f2;"><div class="buzzButton" style="float:left;">更多平台... <font style="font-weight:normal;">(133)</font></div><div id="bsPower" style="float:right;text-align:right;overflow:hidden;height:100%;"><a class="bsSiteLink" style="font-size:10px;vertical-align:text-bottom;line-height:24px;cursor:pointer;" href="http://www.bshare.cn/" target="_blank"><span style="font-size:10px;vertical-align:text-bottom;"><span style="color:#f60;">b</span>Share</span></a></div></div></div></div><div class="saladict-DIV"><div class="saladict-SaladBowl isAnimate saladict-SaladBowl-enter-done" role="img" style="left: 968px !important; top: 331px !important;"><div class="saladict-SaladBowl_Leaf"></div><div class="saladict-SaladBowl_Orange"></div><div class="saladict-SaladBowl_Tomato"></div><div class="saladict-SaladBowl_Bowl"></div></div></div></body></html>
