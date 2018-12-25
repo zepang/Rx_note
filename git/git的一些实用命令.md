@@ -6,4 +6,8 @@ git log --author="zepang" --pretty=tformat: --numstat | awk '{ add += $1; subs +
 
 git config --global core.quotepath false
 
+# 由于挂代理导致的github无法访问
+
+git config --global --unset http.proxy
+
 
