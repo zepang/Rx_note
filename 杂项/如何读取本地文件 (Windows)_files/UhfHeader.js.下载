@@ -1,1 +1,0 @@
-var loadUHF=function(){window.onShellReadyToLoad=null;epx.uhf.meControl.init(ssoProperties)};window.msCommonShell?loadUHF():window.onShellReadyToLoad=loadUHF;
