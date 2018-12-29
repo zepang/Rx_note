@@ -1,1 +1,0 @@
-.breadCrumb{margin-top:10px;}.breadCrumb>span>a,.breadCrumb>span>a:link,.breadCrumb>span>a:hover,.breadCrumb>span>a:visited{color:#404142;text-decoration:none;font-size:12px;}.breadCrumb>span{font-size:12px;}.breadCrumb>span::after{content:" > ";margin-left:2px;}.breadCrumb>span:last-child::after{content:"";margin-left:0;}
