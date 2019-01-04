@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>debounce和throttle的示例</title>
+  <style>
+    .demo {
+      width: 200px;
+      height: 200px;
+      background-color: #eeeeee;
+    }
+  </style>
+</head>
+<body>
+  <div class="demo"></div>
+  <script>
+    var debounce1 = function(action, idle){
+      var last
+      return function(){
+        var ctx = this, args = arguments
+        clearTimeout(last)
+        last = setTimeout(function(){
+            action.apply(ctx, args)
+        }, idle)
+      }
+    }
+    function debounce (fn, interval = 200) {
+      var timer
+      var self = this
+      return function () {
+        clearTimeout(timer)
+        timer = setTimeout(() => {
+          fn()
+        }, interval)
+      }
+    }
+    function throttle(fn, interval = 200) {
+      let scheduled = false;
+      return () => {
+        if (!scheduled) {
+          scheduled = true;
+          setTimeout(() => {
+            scheduled = false;
+            console.log(1);
+            fn();
+          }, interval);
+        }
+      };
+    }
+    function microtaskDebounce(fn) {
+      let called = false
+      return () => {
+        if (called) {
+          return
+        }
+        called = true
+        window.Promise.resolve().then(() => {
+          called = false
+          fn()
+        })
+      }
+    }
+
+    window.onload = function handleOnload() {
+      var demo = document.querySelector('.demo')
+      var count = 0
+      var handleMousemove = debounce(function () {
+          demo.textContent = count++
+        }, 1000)
+      demo.addEventListener('mousemove', handleMousemove)
+    }
+  </script>
+</body>
+</html>
