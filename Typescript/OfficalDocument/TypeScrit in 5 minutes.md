@@ -93,3 +93,23 @@ function greeter (person: Person) {
 let user = new Student('Jane', 'M', 'User')
 document.body.innerHTML = greeter(user)
 ```
+# Type assertions
+
+Sometimes you'll end up in a situation where you'll know more about a value than TypeScript does.Usually this will happen when you know the type of some entity could be more specific than its current type.
+
+Types assertions are a way to tell the compiler 'trust me, i know what i'm doing'
+
+Type assertions have two forms.One is the 'angle-bracket' syntax
+```ts
+let someValue: any = 'this is a string'
+let strLength: number = (<string>someValue).length
+```
+And the othere is the `as` -syntax
+```ts
+let someValue: any = 'this is a string'
+let strLength: number = (someValue as string).length
+```
+
+# A note about `let`
+
+Many common problems in JavaScript are alleviated by using `let`, so you should use it instead of `var` whenever possible.
