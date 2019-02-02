@@ -6,6 +6,10 @@ Preconditions：
 * Rxjs
 * reflect-metadata
 
+# reflect-metadata 
+
+大概看了一下源码，主要是用来存取数据，最外层用是WeakMap，里边都是Map。nestjs里边很多地方都用了这个，我想大概是为了全局有个地方用来存取这些元数据。
+
 # Setup
 Setting up a new project is quite simple with Nest CLI. With npm installed, we can create a new Nestjs project with the following command
 ```

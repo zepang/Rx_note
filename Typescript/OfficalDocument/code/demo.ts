@@ -1,2 +1,12 @@
-function create(o: object | null): void {}
-create({ prop: 0 })
+export enum RouteParamtypes {
+  REQUEST,
+  RESPONSE,
+  NEXT,
+  BODY,
+  QUERY,
+  PARAM,
+  HEADERS,
+  SESSION,
+  FILE,
+  FILES,
+}
