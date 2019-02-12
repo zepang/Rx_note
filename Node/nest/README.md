@@ -36,3 +36,19 @@ Following the convention, newly created modules should have their dedicated dire
 | `app.module.ts` | Defines `AppModule`, the root module of the application.|
 | `app.controller.ts` | Basic controllelr sample with a single route.|
 | | |
+
+# 基本使用
+
+# 几个重要的概念
+
+# Controllers
+
+***Controllers are responsible for handling incoming requests and returning responses to the client.***
+
+# Providers(services)
+
+Basically, almost everything may be considered as a provider – service, repository, factory, helper, and so on. All of them can inject dependencies through constructor, meaning, they can create various relationships with each other. But in fact, a provider is nothing else than ***just a simple class annotated with an `@Injectable()` decorator***.
+
+# Modules
+
+A module is a class annotated with a `@Module()` decorator. The `@Module()` decorator provides metadata that Nest makes use of to ***organize the application structure***
