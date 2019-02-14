@@ -45,6 +45,10 @@ Following the convention, newly created modules should have their dedicated dire
 
 ***Controllers are responsible for handling incoming requests and returning responses to the client.***
 
+# DTO(Data Transfer Object)
+
+A DTO is an object that defines how the data will be sent over the network. We could determine the DTO schema by using TypeScript interface, or by simple classes.
+
 # Providers(services)
 
 Basically, almost everything may be considered as a provider – service, repository, factory, helper, and so on. All of them can inject dependencies through constructor, meaning, they can create various relationships with each other. But in fact, a provider is nothing else than ***just a simple class annotated with an `@Injectable()` decorator***.
@@ -52,3 +56,12 @@ Basically, almost everything may be considered as a provider – service, reposi
 # Modules
 
 A module is a class annotated with a `@Module()` decorator. The `@Module()` decorator provides metadata that Nest makes use of to ***organize the application structure***
+
+# Middleware
+
+he middleware is a function which is called before the route handler. Middleware functions have access to the request and response objects, and the next middleware function in the application’s request-response cycle. The next middleware function is commonly denoted by a variable named next.
+
+# Exception filters
+
+The build-in exceptions layer is responsible for handling all thrown exceptions across
+your whole application.When an unhandled exception is caught, the end-user will receive an approptiate user-friendly response.
