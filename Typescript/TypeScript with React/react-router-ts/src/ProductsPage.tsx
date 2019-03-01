@@ -1,18 +1,34 @@
 import * as React from 'react'
 import { IProduct, products } from './ProductData'
-import { Link } from 'react-router-dom'
+import { Link, RouteComponentProps } from 'react-router-dom'
+import 'url-search-params-polyfill'
 
 interface IState {
-  products: IProduct[]
+  products: IProduct[];
+  search: string;
 }
 
-class ProductsPage extends React.Component<{}, IState> {
-  public constructor(props: {}) {
+class ProductsPage extends React.Component<RouteComponentProps, IState> {
+  public constructor(props: RouteComponentProps) {
     super(props)
     this.state = {
-      products: []
+      products: [],
+      search: ''
     }
   }
+
+  public static getDerivedStateFromProps (
+    props: RouteComponentProps, 
+    state: IState
+    ) {
+      const searchParams = new URLSearchParams(props.location.search)
+      const search = searchParams.get('search') || ''
+      return {
+        products: state.products,
+        search
+      }
+    }
+
   public componentDidMount () {
     this.setState({ products })
   }
@@ -23,11 +39,21 @@ class ProductsPage extends React.Component<{}, IState> {
         <p>Welcome to React Shop where you can get all your toolsfor ReactJS!</p>
         <ul className="product-list">
           {
-            this.state.products.map(product => (
-              <li key={product.id} className="product-list-item">
-                <Link to={`/products/${product.id}`}>{product.name}</Link>
-              </li>
-            ))
+            this.state.products.map(product => {
+              if (
+                !this.state.search ||
+                (this.state.search && 
+                  ~product.name.toLowerCase().indexOf(this.state.search.toLowerCase()))
+              ) {
+                return (
+                  <li key={product.id} className="product-list-item">
+                    <Link to={`/products/${product.id}`}>{product.name}</Link>
+                  </li>
+                )
+              } else {
+                return null
+              }
+            })
           }
         </ul>
       </div>
