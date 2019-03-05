@@ -82,13 +82,22 @@ code {
 }
 
 .animate-enter {
-opacity: 0;
-z-index: 1;
+  opacity: 0;
+  z-index: 1;
 }
 .animate-enter-active {
-opacity: 1;
-transition: opacity 450ms ease-in;
+  opacity: 1;
+  transition: opacity 450ms ease-in;
 }
 .animate-exit {
-display: none;
+  display: none;
+}
+
+.product-reviews {
+  list-style: none;
+  padding: 0px;
+}
+.product-reviews .product-reviews-item {
+  display: block;
+  padding: 8px 0px;
 }
