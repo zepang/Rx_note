@@ -1,29 +1,33 @@
 import * as React from 'react'
 import { RouteComponentProps, Prompt } from 'react-router-dom'
-import { IProduct, products } from './ProductData'
+import { IProduct, products, getProduct } from './ProductData'
 import Product from './Product'
 
 type Props = RouteComponentProps<{id: string}>
 
 interface IState {
   product?: IProduct;
-  added: boolean
+  added: boolean;
+  loading: boolean;
 }
 
 class ProductPage extends React.Component<Props, IState> {
   public constructor(props: Props) {
     super(props)
     this.state = {
-      added: false
+      added: false,
+      loading: true
     }
   }
 
-  public componentDidMount () {
+  public async componentDidMount () {
     if (this.props.match.params.id) {
       const id: number = parseInt(this.props.match.params.id, 10)
-      const product = products.find(product => product.id === id)
-
-      this.setState({ product })
+      const product = await getProduct(id)
+      // const product = products.find(product => product.id === id)
+      if (product !== null) {
+        this.setState({ product, loading: false })
+      }
     }
   }
 
