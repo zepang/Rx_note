@@ -1,9 +1,10 @@
 import * as React from 'react'
 import { IProduct } from './ProductData'
 import Tabs from './Tabs'
+import withLoader from "./WithLoader"
 
 interface IProps {
-  product: IProduct;
+  product?: IProduct;
   inBasket: boolean;
   onAddToBasket: () => void
 }
@@ -13,6 +14,7 @@ const Product: React.SFC<IProps> = (props) => {
   const handleAddClick = () => {
     props.onAddToBasket()
   }
+  if (!product) return null
   return (
     <React.Fragment>
       <h1>{product.name}</h1>
@@ -47,4 +49,4 @@ const Product: React.SFC<IProps> = (props) => {
   )
 }
 
-export default Product
+export default withLoader<IProps>(Product)

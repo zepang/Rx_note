@@ -44,17 +44,17 @@ export const products: IProduct[] = [
   }
 ]
 
-export const wait = (ms: number): Promise<void> => {
+export const wait = (ms: number): Promise<any> => {
   return new Promise(resolve => { 
     let timer = setTimeout(() => {
-      clearTimeout(timer)
-      resolve()
+      resolve(timer)
     }, ms)
   })
 }
 
 export const getProduct = async (id: number): Promise<IProduct | null> => {
-  // await wait(1000)
+  let timer = await wait(1000)
+  clearTimeout(timer)
   const foundProducts = products.filter(product => product.id === id)
   return foundProducts.length ? foundProducts[0] : null
 }
