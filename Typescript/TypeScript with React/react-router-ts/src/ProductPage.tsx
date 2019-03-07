@@ -24,7 +24,6 @@ class ProductPage extends React.Component<Props, IState> {
     if (this.props.match.params.id) {
       const id: number = parseInt(this.props.match.params.id, 10)
       const product = await getProduct(id)
-      // const product = products.find(product => product.id === id)
       if (product !== null) {
         this.setState({ product, loading: false })
       }
@@ -45,8 +44,9 @@ class ProductPage extends React.Component<Props, IState> {
           message={this.navAwayMessage}
         />
       {
-        product ? (
+        product || this.state.loading ? (
           <Product
+            loading={this.state.loading}
             product={product}
             inBasket={this.state.added}
             onAddToBasket={this.handleAddClick}
