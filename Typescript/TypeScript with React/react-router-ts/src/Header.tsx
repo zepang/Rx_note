@@ -35,6 +35,7 @@ const Header: React.SFC<RouteComponentProps> = (props) => {
       <nav>
         <NavLink className="header-link" to="/products">Products</NavLink>
         <NavLink className="header-link" to="/admin">Admin</NavLink>
+        <NavLink className="header-link" to="/contactus">Contactus</NavLink>
       </nav>
     </header>
   )
