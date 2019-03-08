@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Form, required, minLength } from './Form'
+import { Form, required, minLength, ISubmitResult, IValues } from "./Form";
 
 interface IProps {
   name: string;
@@ -10,23 +10,35 @@ interface IProps {
   onEmailChange: (email: string) => void;
   onReasonChange: (reason: string) => void;
   onNotesChange: (notes: string) => void;
+  onSubmit: (values: IValues) => Promise<ISubmitResult>;
 }
 
-const ContactUs: React.SFC<IProps> = (props) => {
-  return(
-    <Form 
+const ContactUs: React.SFC<IProps> = props => {
+  const handleSubmit = async (values: IValues): Promise<ISubmitResult> => {
+    const result = await props.onSubmit(values);
+    return result;
+  };
+  return (
+    <Form
+      onSubmit={handleSubmit}
       validationRules={{
         email: { validator: required },
         name: [{ validator: required }, { validator: minLength, arg: 3 }]
       }}
-      defaultValues={{name: '', email: '', reason: 'Support', notes: ''}}>
-      <Form.Field type="Text" name="name" label="Your name"></Form.Field>
-      <Form.Field type="Email" name="email" label="Your email address"></Form.Field>
-      <Form.Field type="Select" name="reason" label="Reason you need to contact us" options={["Marketing", "Support", "Feedback", "Jobs", "Other"]}></Form.Field>
-      <Form.Field type="TextArea" name="notes" label="Additional notes"></Form.Field>
+      defaultValues={{ name: "", email: "", reason: "Support", notes: "" }}
+    >
+      <Form.Field type="Text" name="name" label="Your name" />
+      <Form.Field type="Email" name="email" label="Your email address" />
+      <Form.Field
+        type="Select"
+        name="reason"
+        label="Reason you need to contact us"
+        options={["Marketing", "Support", "Feedback", "Jobs", "Other"]}
+      />
+      <Form.Field type="TextArea" name="notes" label="Additional notes" />
     </Form>
-  )
-}
+  );
+};
 
 // const ContactUs: React.SFC<IProps> = props => {
 //   const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
