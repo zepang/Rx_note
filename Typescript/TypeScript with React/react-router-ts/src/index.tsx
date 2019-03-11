@@ -4,8 +4,8 @@ import './index.css';
 import Routes from './Routes'
 import { Provider } from 'react-redux'
 import { Store } from 'redux'
-import configureStore from './store'
-import { IApplicationState } from './store'
+import configureStore from './Store'
+import { IApplicationState } from './Store'
 
 interface IProps {
   store: Store<IApplicationState>;
