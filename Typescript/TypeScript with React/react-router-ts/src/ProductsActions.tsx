@@ -14,9 +14,9 @@ ActionCreator<ThunkAction<Promise<AnyAction>, IProductsState, null, IProductsGet
   return async (dispatch: Dispatch) => {
     dispatch(loading())
     const products = await getProductsFromAPI()
-    return {
+    return dispatch({
       products,
       type: ProductsActionTypes.GETALL
-    }
+    })
   }
 }
