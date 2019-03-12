@@ -57,3 +57,10 @@ export const getProducts = async (): Promise<IProduct[]> => {
   clearTimeout(timer)
   return products
 }
+
+export const getProduct = async (id: number): Promise<IProduct | null> => {
+  let timer = await wait(1000)
+  clearTimeout(timer)
+  const foundProducts = products.filter(product => product.id === id)
+  return foundProducts.length ? foundProducts[0] : null
+}

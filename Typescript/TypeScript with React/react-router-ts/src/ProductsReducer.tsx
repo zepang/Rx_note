@@ -4,7 +4,8 @@ from "./ProductsTypes";
 
 const initialProductState: IProductsState = {
   products: [],
-  productsLoading: false
+  productsLoading: false,
+  currentProduct: null
 }
 
 export const productsReducer: Reducer<IProductsState, ProductsActions> = (
