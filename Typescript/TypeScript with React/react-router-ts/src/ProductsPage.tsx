@@ -5,6 +5,7 @@ import { IApplicationState } from "./Store";
 import { getProducts } from "./ProductsActions";
 import { connect } from "react-redux";
 import 'url-search-params-polyfill'
+import ProductsList from './ProductsList'
 
 // interface IState {
 //   products: IProduct[];
@@ -44,25 +45,10 @@ class ProductsPage extends React.Component<IProps> {
     return (
       <div className="page-container">
         <p>Welcome to React Shop where you can get all your toolsfor ReactJS!</p>
-        <ul className="product-list">
-          {
-            this.props.products.map(product => {
-              if (
-                !search ||
-                (search && 
-                  ~product.name.toLowerCase().indexOf(search.toLowerCase()))
-              ) {
-                return (
-                  <li key={product.id} className="product-list-item">
-                    <Link to={`/products/${product.id}`}>{product.name}</Link>
-                  </li>
-                )
-              } else {
-                return null
-              }
-            })
-          }
-        </ul>
+        <ProductsList 
+          products={this.props.products}
+          search={search}
+          loading={this.props.loading}></ProductsList>
       </div>
     )
   }
