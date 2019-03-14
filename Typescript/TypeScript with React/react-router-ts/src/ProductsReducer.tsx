@@ -24,6 +24,12 @@ export const productsReducer: Reducer<IProductsState, ProductsActions> = (
         ...state,
         productsLoading: true
       }
+    case ProductsActionTypes.GETSINGLE:
+      return {
+        ...state,
+        currentProduct: action.product,
+        productsLoading: false
+      }
     default:
       return state
   }
