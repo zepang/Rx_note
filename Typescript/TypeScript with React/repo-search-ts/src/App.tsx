@@ -3,6 +3,7 @@ import "./App.css"
 import { Header } from "./Header"
 import ApolloClient from "apollo-boost"
 import { ApolloProvider } from "react-apollo"
+import RepoSearch from "./RepoSearch"
 
 const AuthorizationToken = "fa208ce234b57958288717a8a958a34e41336e4f"
 
@@ -21,6 +22,7 @@ class App extends Component {
           <header className="App-header">
             <Header />
           </header>
+          <RepoSearch client={client}/>
         </div>
       </ApolloProvider>
     )
