@@ -1,5 +1,6 @@
 import * as React from "react"
 import gql from "graphql-tag"
+import { Mutation } from "react-apollo"
 import { ApolloClient } from "apollo-boost"
 
 interface IProps {
@@ -27,6 +28,18 @@ interface IRepo {
     ]
   }
 }
+
+const START_REPO = gql`
+  mutation($repoId: ID!) {
+    addStar(input: { starrableId: $repoId }) {
+      starrable {
+        stargazers {
+          totalCount
+        }
+      }
+    }
+  }
+`
 
 interface IQueryResult {
   repository: IRepo
@@ -136,6 +149,18 @@ const RepoSearch: React.SFC<IProps> = props => {
             {repo.stargazers ? ` ${repo.stargazers.totalCount}stars` : ""}
           </h4>
           <p>{repo.description}</p>
+          {!repo.viewerHasStarred && (
+            <Mutation mutation={START_REPO} variables={{ repoId: repo.id }}>
+              {(addStar, { loading, error }) => (
+                <div>
+                  <button disabled={loading} onClick={() => addStar()}>
+                    { loading ? 'Adding...' : 'Star!' }
+                  </button>
+                  {error && <div>{error.toString()}</div>}
+                </div>
+              )}
+            </Mutation>
+          )}
           <div>
             Last 5 issues:
             {repo.issues && repo.issues.edges ? (
