@@ -102,3 +102,44 @@ There two parts of my raodmap.One for front-end, other for back-end:
 * webserver
   - nginx
 * keep learing...
+
+# 计划
+
+## 第一阶段 
+
+* 目标 
+  
+  - 熟练使用 Node 和 TypeScript 进行API的开发
+
+  - 熟练使用 React 和 TypeScript 进行前端开发
+
+* 周期
+  
+  两个月
+
+* 进度
+  
+  - 40% 目前的一个状况是Node那一块花时间看了express和koa，没有第一个时间去看nest
+
+  - 60% 花费比较多时间在 TypeScript 上，目前结合使用TypeScript和react以及react-router react-redux redux redux-thunk没有什么大问题
+
+
+* 问题
+  
+  春节假期加上身体不适，最近工作也比较忙。主要的是迷茫了一段时间。
+
+* 解决方案
+  
+  将第一阶段的周期延长一个月。
+
+## 第二阶段
+
+* 目标
+  
+  - 熟练使用原生创建和开发小程序
+
+  - 熟练使用 taro 框架创建和开发小程序
+
+* 周期
+
+  一个月
