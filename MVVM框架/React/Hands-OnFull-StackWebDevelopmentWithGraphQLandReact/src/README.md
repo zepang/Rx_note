@@ -118,12 +118,13 @@ module.exports = {
 
 之后我们就可以直接使用`npm run client`命令来启动开发模式
 
-在这之前，我们还有一个需要配置--babel。我们在webpack中使用了`babel-loader`，`babel-loader`会去读取根目录的 `babel.config.js`或者`.babelrc`文件。
+在这之前，我们还有一个需要配置--babel。我们在webpack中使用了`babel-loader`，`babel-loader`会去读取根目录的 `babel.config.js`或者`.babelrc`文件，我们创建包含如下配置的`.babelrc`文件
 
-```js
-module.exports = {
-  preset: ['env', 'react']
+```json
+{
+  "presets": ["@babel/env", "@babel/react"]
 }
+
 ```
 这里也不做多余的配置，直接使用babel提供的preset：
   * `env` 用于支持我们使用最新的`JavaScript`语法
@@ -171,4 +172,72 @@ npm run client
 ```
 到这一步应该是完全的可以跑起项目的。
 
-# 
+# 可能会涉及的一些问题
+
+## Define state with property initializers inside our class
+
+#### scene
+
+通常的一种写法是这样的，官方文档上的写法也是这样的。
+
+```js
+import {component} from 'react'
+const App extends Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      ...
+    }
+  }
+}
+```
+
+如果你要这样写，也就是直接在类中初始化 state
+
+```js
+import {component} from 'react'
+const App extends Component {
+  state = {
+    ...
+  }
+}
+```
+
+#### solution
+
+项目里边一般有两个地方需要做修改：
+
+* eslint 的语法检验
+
+```js
+module.exports = {
+  ...
+  parser: 'babel-eslint',
+  ...
+}
+```
+
+```
+npm install --save-dev babel-eslint
+```
+
+*babel-eslint allows you to lint ALL valid Babel code with the fantastic ESLint.*
+
+eslint本身只支持标准的语法，但是babel-eslint可以使得eslint支持所有babel中合法的特性。
+
+* babel 的转换
+
+```json
+{
+  "presets": ["@babel/env", "@babel/react"],
+  "plugins": [
+   "@babel/plugin-proposal-class-properties"
+  ]
+}
+```
+
+```
+npm install --save-dev @babel/plugin-proposal-class-properties
+```
+
+为了能够转换 property initializers 这种写法，需要给babel添加 `@babel/plugin-proposal-class-properties` 这个插件

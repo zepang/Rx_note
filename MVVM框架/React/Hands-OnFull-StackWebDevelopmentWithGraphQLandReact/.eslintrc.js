@@ -15,5 +15,8 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: 'module'
   },
-  rules: {}
+  parser: 'babel-eslint',
+  rules: {
+    'space-before-function-paren': 'off'
+  }
 }
