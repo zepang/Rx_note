@@ -137,6 +137,8 @@ module.exports = {
 
   npm install --save-dev webpack webpack-cli webpack-dev-server html-webpack-plugin
 
+  npm install --save-dev css-loader style-loader
+
   npm install --save react react-dom
   ```
 
