@@ -245,6 +245,29 @@ npm install --save-dev @babel/node
 ```js
 import express from 'express'
 ```
+
+2. 配置express的静态资源
+
+实际上我们的express主要用于接口服务，静态资源目录有无都无所谓，我们这里将一些client端的资源配进行重定向，以便在当前服务下可访问
+
+```js
+import path from 'path'
+const root = path.join(__dirname, '../../')
+
+app.use('/', express.static(root, 'dist/client))
+app.use('/uploads', express.static(root, 'uploads'))
+app.get('/', () => {
+  res.sendFile(path.join(root, 'dist/client/index.html'))
+})
+```
+3. Express Helmet
+
+*Helmet helps you secure your Express apps by setting various HTTP headers.*
+
+Helmet is a collection of 14 smaller middleware functions that set HTTP response headers.See more on github repo[https://github.com/helmetjs/helmet](https://github.com/helmetjs/helmet)
+
+我们在使用 `Helmet` 的时候尽量把它置于其他中间件的上方，``Helmet`会默认给我开启一些安全防护，这些清查看上边的文档。
+
 # 可能需要使用的包
 
 * react-helmet

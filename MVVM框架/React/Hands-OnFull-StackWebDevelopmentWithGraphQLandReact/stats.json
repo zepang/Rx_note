@@ -1,30 +1,30 @@
 {
   "errors": [],
   "warnings": [
-    "asset size limit: The following asset(s) exceed the recommended size limit (244 KiB).\nThis can impact web performance.\nAssets: \n  main.bundle.js (661 KiB)",
-    "entrypoint size limit: The following entrypoint(s) combined asset size exceeds the recommended limit (244 KiB). This can impact web performance.\nEntrypoints:\n  main (661 KiB)\n      main.bundle.js\n",
+    "asset size limit: The following asset(s) exceed the recommended size limit (244 KiB).\nThis can impact web performance.\nAssets: \n  main.84e3b07592bcf3d90a28.bundle.js (661 KiB)",
+    "entrypoint size limit: The following entrypoint(s) combined asset size exceeds the recommended limit (244 KiB). This can impact web performance.\nEntrypoints:\n  main (661 KiB)\n      main.84e3b07592bcf3d90a28.bundle.js\n",
     "webpack performance recommendations: \nYou can limit the size of your bundles by using import() or require.ensure to lazy load some parts of your application.\nFor more info visit https://webpack.js.org/guides/code-splitting/"
   ],
   "version": "4.29.6",
   "hash": "84e3b07592bcf3d90a28",
-  "time": 2338,
-  "builtAt": 1553678475661,
+  "time": 2437,
+  "builtAt": 1553682016263,
   "publicPath": "/",
-  "outputPath": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/dist",
+  "outputPath": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/dist/client",
   "assetsByChunkName": {
-    "main": "main.bundle.js"
+    "main": "main.84e3b07592bcf3d90a28.bundle.js"
   },
   "assets": [
     {
       "name": "index.html",
-      "size": 356,
+      "size": 377,
       "chunks": [],
       "chunkNames": [],
       "emitted": true
     },
     {
-      "name": "main.bundle.js",
-      "size": 677073,
+      "name": "main.84e3b07592bcf3d90a28.bundle.js",
+      "size": 677101,
       "chunks": [
         0
       ],
@@ -42,7 +42,7 @@
         0
       ],
       "assets": [
-        "main.bundle.js"
+        "main.84e3b07592bcf3d90a28.bundle.js"
       ],
       "children": {},
       "childAssets": {},
@@ -55,7 +55,7 @@
         0
       ],
       "assets": [
-        "main.bundle.js"
+        "main.84e3b07592bcf3d90a28.bundle.js"
       ],
       "children": {},
       "childAssets": {},
@@ -73,7 +73,7 @@
         "main"
       ],
       "files": [
-        "main.bundle.js"
+        "main.84e3b07592bcf3d90a28.bundle.js"
       ],
       "hash": "6bb8a6d68a7eef3b620d",
       "siblings": [],
@@ -105,13 +105,13 @@
               "name": "./src/client/index.js",
               "profile": {
                 "factory": 75,
-                "building": 1203
+                "building": 1291
               }
             }
           ],
           "profile": {
-            "factory": 256,
-            "building": 3,
+            "factory": 270,
+            "building": 4,
             "dependencies": 3
           },
           "failed": false,
@@ -340,9 +340,9 @@
           "chunks": [
             0
           ],
-          "issuer": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/react/cjs/react.production.min.js",
-          "issuerId": 6,
-          "issuerName": "./node_modules/react/cjs/react.production.min.js",
+          "issuer": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/react-dom/cjs/react-dom.production.min.js",
+          "issuerId": 7,
+          "issuerName": "./node_modules/react-dom/cjs/react-dom.production.min.js",
           "issuerPath": [
             {
               "id": null,
@@ -350,32 +350,33 @@
               "name": "./src/client/index.js",
               "profile": {
                 "factory": 75,
-                "building": 1203
+                "building": 1291
               }
             },
             {
-              "id": 0,
-              "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/react/index.js",
-              "name": "./node_modules/react/index.js",
+              "id": 4,
+              "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/react-dom/index.js",
+              "name": "./node_modules/react-dom/index.js",
               "profile": {
-                "factory": 256,
-                "building": 3,
+                "factory": 270,
+                "building": 4,
                 "dependencies": 3
               }
             },
             {
-              "id": 6,
-              "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/react/cjs/react.production.min.js",
-              "name": "./node_modules/react/cjs/react.production.min.js",
+              "id": 7,
+              "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/react-dom/cjs/react-dom.production.min.js",
+              "name": "./node_modules/react-dom/cjs/react-dom.production.min.js",
               "profile": {
                 "factory": 2,
-                "building": 14
+                "building": 102,
+                "dependencies": 11
               }
             }
           ],
           "profile": {
-            "factory": 202,
-            "building": 4
+            "factory": 122,
+            "building": 2
           },
           "failed": false,
           "errors": 0,
@@ -442,7 +443,7 @@
               "name": "./src/client/index.js",
               "profile": {
                 "factory": 75,
-                "building": 1203
+                "building": 1291
               }
             },
             {
@@ -450,8 +451,8 @@
               "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/babel-loader/lib/index.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/eslint-loader/index.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/src/client/App.js",
               "name": "./src/client/App.js",
               "profile": {
-                "factory": 256,
-                "building": 3,
+                "factory": 270,
+                "building": 4,
                 "dependencies": 3
               }
             },
@@ -460,8 +461,8 @@
               "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/react-helmet/lib/Helmet.js",
               "name": "./node_modules/react-helmet/lib/Helmet.js",
               "profile": {
-                "factory": 177,
-                "building": 15,
+                "factory": 185,
+                "building": 16,
                 "dependencies": 2
               }
             },
@@ -470,15 +471,15 @@
               "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/react-helmet/lib/HelmetUtils.js",
               "name": "./node_modules/react-helmet/lib/HelmetUtils.js",
               "profile": {
-                "factory": 34,
-                "building": 7,
-                "dependencies": 14
+                "factory": 32,
+                "building": 8,
+                "dependencies": 15
               }
             }
           ],
           "profile": {
-            "factory": 14,
-            "building": 4
+            "factory": 15,
+            "building": 2
           },
           "failed": false,
           "errors": 0,
@@ -536,7 +537,7 @@
               "name": "./src/client/index.js",
               "profile": {
                 "factory": 75,
-                "building": 1203
+                "building": 1291
               }
             },
             {
@@ -544,8 +545,8 @@
               "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/babel-loader/lib/index.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/eslint-loader/index.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/src/client/App.js",
               "name": "./src/client/App.js",
               "profile": {
-                "factory": 256,
-                "building": 3,
+                "factory": 270,
+                "building": 4,
                 "dependencies": 3
               }
             },
@@ -554,16 +555,16 @@
               "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/react-helmet/lib/Helmet.js",
               "name": "./node_modules/react-helmet/lib/Helmet.js",
               "profile": {
-                "factory": 177,
-                "building": 15,
+                "factory": 185,
+                "building": 16,
                 "dependencies": 2
               }
             }
           ],
           "profile": {
-            "factory": 34,
-            "building": 7,
-            "dependencies": 14
+            "factory": 32,
+            "building": 8,
+            "dependencies": 15
           },
           "failed": false,
           "errors": 0,
@@ -621,13 +622,13 @@
               "name": "./src/client/index.js",
               "profile": {
                 "factory": 75,
-                "building": 1203
+                "building": 1291
               }
             }
           ],
           "profile": {
-            "factory": 256,
-            "building": 3,
+            "factory": 270,
+            "building": 4,
             "dependencies": 3
           },
           "failed": false,
@@ -688,7 +689,7 @@
               "name": "./src/client/index.js",
               "profile": {
                 "factory": 75,
-                "building": 1203
+                "building": 1291
               }
             },
             {
@@ -696,15 +697,15 @@
               "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/babel-loader/lib/index.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/eslint-loader/index.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/src/client/App.js",
               "name": "./src/client/App.js",
               "profile": {
-                "factory": 256,
-                "building": 3,
+                "factory": 270,
+                "building": 4,
                 "dependencies": 3
               }
             }
           ],
           "profile": {
-            "factory": 177,
-            "building": 15,
+            "factory": 185,
+            "building": 16,
             "dependencies": 2
           },
           "failed": false,
@@ -765,7 +766,7 @@
               "name": "./src/client/index.js",
               "profile": {
                 "factory": 75,
-                "building": 1203
+                "building": 1291
               }
             },
             {
@@ -773,15 +774,16 @@
               "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/react/index.js",
               "name": "./node_modules/react/index.js",
               "profile": {
-                "factory": 256,
-                "building": 3,
+                "factory": 270,
+                "building": 4,
                 "dependencies": 3
               }
             }
           ],
           "profile": {
-            "factory": 2,
-            "building": 14
+            "factory": 1,
+            "building": 112,
+            "dependencies": 112
           },
           "failed": false,
           "errors": 0,
@@ -830,7 +832,7 @@
               "name": "./src/client/index.js",
               "profile": {
                 "factory": 75,
-                "building": 1203
+                "building": 1291
               }
             },
             {
@@ -838,16 +840,16 @@
               "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/react-dom/index.js",
               "name": "./node_modules/react-dom/index.js",
               "profile": {
-                "factory": 256,
-                "building": 3,
+                "factory": 270,
+                "building": 4,
                 "dependencies": 3
               }
             }
           ],
           "profile": {
-            "factory": 3,
-            "building": 108,
-            "dependencies": 107
+            "factory": 2,
+            "building": 102,
+            "dependencies": 11
           },
           "failed": false,
           "errors": 0,
@@ -896,7 +898,7 @@
               "name": "./src/client/index.js",
               "profile": {
                 "factory": 75,
-                "building": 1203
+                "building": 1291
               }
             },
             {
@@ -904,8 +906,8 @@
               "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/react-dom/index.js",
               "name": "./node_modules/react-dom/index.js",
               "profile": {
-                "factory": 256,
-                "building": 3,
+                "factory": 270,
+                "building": 4,
                 "dependencies": 3
               }
             },
@@ -914,15 +916,15 @@
               "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/react-dom/cjs/react-dom.production.min.js",
               "name": "./node_modules/react-dom/cjs/react-dom.production.min.js",
               "profile": {
-                "factory": 3,
-                "building": 108,
-                "dependencies": 107
+                "factory": 2,
+                "building": 102,
+                "dependencies": 11
               }
             }
           ],
           "profile": {
-            "factory": 107,
-            "building": 4
+            "factory": 122,
+            "building": 2
           },
           "failed": false,
           "errors": 0,
@@ -971,7 +973,7 @@
               "name": "./src/client/index.js",
               "profile": {
                 "factory": 75,
-                "building": 1203
+                "building": 1291
               }
             },
             {
@@ -979,8 +981,8 @@
               "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/react-dom/index.js",
               "name": "./node_modules/react-dom/index.js",
               "profile": {
-                "factory": 256,
-                "building": 3,
+                "factory": 270,
+                "building": 4,
                 "dependencies": 3
               }
             },
@@ -989,9 +991,9 @@
               "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/react-dom/cjs/react-dom.production.min.js",
               "name": "./node_modules/react-dom/cjs/react-dom.production.min.js",
               "profile": {
-                "factory": 3,
-                "building": 108,
-                "dependencies": 107
+                "factory": 2,
+                "building": 102,
+                "dependencies": 11
               }
             },
             {
@@ -999,14 +1001,14 @@
               "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/scheduler/index.js",
               "name": "./node_modules/scheduler/index.js",
               "profile": {
-                "factory": 107,
-                "building": 4
+                "factory": 122,
+                "building": 2
               }
             }
           ],
           "profile": {
-            "factory": 4,
-            "building": 5,
+            "factory": 3,
+            "building": 7,
             "dependencies": 0
           },
           "failed": false,
@@ -1056,7 +1058,7 @@
               "name": "./src/client/index.js",
               "profile": {
                 "factory": 75,
-                "building": 1203
+                "building": 1291
               }
             },
             {
@@ -1064,8 +1066,8 @@
               "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/babel-loader/lib/index.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/eslint-loader/index.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/src/client/App.js",
               "name": "./src/client/App.js",
               "profile": {
-                "factory": 256,
-                "building": 3,
+                "factory": 270,
+                "building": 4,
                 "dependencies": 3
               }
             },
@@ -1074,16 +1076,16 @@
               "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/react-helmet/lib/Helmet.js",
               "name": "./node_modules/react-helmet/lib/Helmet.js",
               "profile": {
-                "factory": 177,
-                "building": 15,
+                "factory": 185,
+                "building": 16,
                 "dependencies": 2
               }
             }
           ],
           "profile": {
-            "factory": 34,
-            "building": 7,
-            "dependencies": 14
+            "factory": 32,
+            "building": 8,
+            "dependencies": 15
           },
           "failed": false,
           "errors": 0,
@@ -1132,7 +1134,7 @@
               "name": "./src/client/index.js",
               "profile": {
                 "factory": 75,
-                "building": 1203
+                "building": 1291
               }
             },
             {
@@ -1140,8 +1142,8 @@
               "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/babel-loader/lib/index.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/eslint-loader/index.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/src/client/App.js",
               "name": "./src/client/App.js",
               "profile": {
-                "factory": 256,
-                "building": 3,
+                "factory": 270,
+                "building": 4,
                 "dependencies": 3
               }
             },
@@ -1150,8 +1152,8 @@
               "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/react-helmet/lib/Helmet.js",
               "name": "./node_modules/react-helmet/lib/Helmet.js",
               "profile": {
-                "factory": 177,
-                "building": 15,
+                "factory": 185,
+                "building": 16,
                 "dependencies": 2
               }
             },
@@ -1160,15 +1162,15 @@
               "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/prop-types/index.js",
               "name": "./node_modules/prop-types/index.js",
               "profile": {
-                "factory": 34,
-                "building": 7,
-                "dependencies": 14
+                "factory": 32,
+                "building": 8,
+                "dependencies": 15
               }
             }
           ],
           "profile": {
             "factory": 11,
-            "building": 1
+            "building": 2
           },
           "failed": false,
           "errors": 0,
@@ -1217,7 +1219,7 @@
               "name": "./src/client/index.js",
               "profile": {
                 "factory": 75,
-                "building": 1203
+                "building": 1291
               }
             },
             {
@@ -1225,8 +1227,8 @@
               "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/babel-loader/lib/index.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/eslint-loader/index.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/src/client/App.js",
               "name": "./src/client/App.js",
               "profile": {
-                "factory": 256,
-                "building": 3,
+                "factory": 270,
+                "building": 4,
                 "dependencies": 3
               }
             },
@@ -1235,8 +1237,8 @@
               "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/react-helmet/lib/Helmet.js",
               "name": "./node_modules/react-helmet/lib/Helmet.js",
               "profile": {
-                "factory": 177,
-                "building": 15,
+                "factory": 185,
+                "building": 16,
                 "dependencies": 2
               }
             },
@@ -1245,9 +1247,9 @@
               "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/prop-types/index.js",
               "name": "./node_modules/prop-types/index.js",
               "profile": {
-                "factory": 34,
-                "building": 7,
-                "dependencies": 14
+                "factory": 32,
+                "building": 8,
+                "dependencies": 15
               }
             },
             {
@@ -1256,13 +1258,13 @@
               "name": "./node_modules/prop-types/factoryWithThrowingShims.js",
               "profile": {
                 "factory": 11,
-                "building": 1
+                "building": 2
               }
             }
           ],
           "profile": {
             "factory": 2,
-            "building": 2
+            "building": 1
           },
           "failed": false,
           "errors": 0,
@@ -1311,7 +1313,7 @@
               "name": "./src/client/index.js",
               "profile": {
                 "factory": 75,
-                "building": 1203
+                "building": 1291
               }
             },
             {
@@ -1319,8 +1321,8 @@
               "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/babel-loader/lib/index.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/eslint-loader/index.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/src/client/App.js",
               "name": "./src/client/App.js",
               "profile": {
-                "factory": 256,
-                "building": 3,
+                "factory": 270,
+                "building": 4,
                 "dependencies": 3
               }
             },
@@ -1329,16 +1331,16 @@
               "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/react-helmet/lib/Helmet.js",
               "name": "./node_modules/react-helmet/lib/Helmet.js",
               "profile": {
-                "factory": 177,
-                "building": 15,
+                "factory": 185,
+                "building": 16,
                 "dependencies": 2
               }
             }
           ],
           "profile": {
-            "factory": 34,
-            "building": 7,
-            "dependencies": 14
+            "factory": 32,
+            "building": 8,
+            "dependencies": 15
           },
           "failed": false,
           "errors": 0,
@@ -1387,7 +1389,7 @@
               "name": "./src/client/index.js",
               "profile": {
                 "factory": 75,
-                "building": 1203
+                "building": 1291
               }
             },
             {
@@ -1395,8 +1397,8 @@
               "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/babel-loader/lib/index.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/eslint-loader/index.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/src/client/App.js",
               "name": "./src/client/App.js",
               "profile": {
-                "factory": 256,
-                "building": 3,
+                "factory": 270,
+                "building": 4,
                 "dependencies": 3
               }
             },
@@ -1405,8 +1407,8 @@
               "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/react-helmet/lib/Helmet.js",
               "name": "./node_modules/react-helmet/lib/Helmet.js",
               "profile": {
-                "factory": 177,
-                "building": 15,
+                "factory": 185,
+                "building": 16,
                 "dependencies": 2
               }
             },
@@ -1415,14 +1417,14 @@
               "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/react-side-effect/lib/index.js",
               "name": "./node_modules/react-side-effect/lib/index.js",
               "profile": {
-                "factory": 34,
-                "building": 7,
-                "dependencies": 14
+                "factory": 32,
+                "building": 8,
+                "dependencies": 15
               }
             }
           ],
           "profile": {
-            "factory": 8,
+            "factory": 9,
             "building": 1
           },
           "failed": false,
@@ -1472,7 +1474,7 @@
               "name": "./src/client/index.js",
               "profile": {
                 "factory": 75,
-                "building": 1203
+                "building": 1291
               }
             },
             {
@@ -1480,8 +1482,8 @@
               "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/babel-loader/lib/index.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/eslint-loader/index.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/src/client/App.js",
               "name": "./src/client/App.js",
               "profile": {
-                "factory": 256,
-                "building": 3,
+                "factory": 270,
+                "building": 4,
                 "dependencies": 3
               }
             },
@@ -1490,8 +1492,8 @@
               "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/react-helmet/lib/Helmet.js",
               "name": "./node_modules/react-helmet/lib/Helmet.js",
               "profile": {
-                "factory": 177,
-                "building": 15,
+                "factory": 185,
+                "building": 16,
                 "dependencies": 2
               }
             },
@@ -1500,14 +1502,14 @@
               "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/react-side-effect/lib/index.js",
               "name": "./node_modules/react-side-effect/lib/index.js",
               "profile": {
-                "factory": 34,
-                "building": 7,
-                "dependencies": 14
+                "factory": 32,
+                "building": 8,
+                "dependencies": 15
               }
             }
           ],
           "profile": {
-            "factory": 8,
+            "factory": 9,
             "building": 1
           },
           "failed": false,
@@ -1557,7 +1559,7 @@
               "name": "./src/client/index.js",
               "profile": {
                 "factory": 75,
-                "building": 1203
+                "building": 1291
               }
             },
             {
@@ -1565,8 +1567,8 @@
               "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/babel-loader/lib/index.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/eslint-loader/index.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/src/client/App.js",
               "name": "./src/client/App.js",
               "profile": {
-                "factory": 256,
-                "building": 3,
+                "factory": 270,
+                "building": 4,
                 "dependencies": 3
               }
             },
@@ -1575,16 +1577,16 @@
               "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/react-helmet/lib/Helmet.js",
               "name": "./node_modules/react-helmet/lib/Helmet.js",
               "profile": {
-                "factory": 177,
-                "building": 15,
+                "factory": 185,
+                "building": 16,
                 "dependencies": 2
               }
             }
           ],
           "profile": {
-            "factory": 34,
-            "building": 7,
-            "dependencies": 14
+            "factory": 32,
+            "building": 8,
+            "dependencies": 15
           },
           "failed": false,
           "errors": 0,
@@ -1633,7 +1635,7 @@
               "name": "./src/client/index.js",
               "profile": {
                 "factory": 75,
-                "building": 1203
+                "building": 1291
               }
             },
             {
@@ -1641,8 +1643,8 @@
               "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/babel-loader/lib/index.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/eslint-loader/index.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/src/client/App.js",
               "name": "./src/client/App.js",
               "profile": {
-                "factory": 256,
-                "building": 3,
+                "factory": 270,
+                "building": 4,
                 "dependencies": 3
               }
             },
@@ -1651,8 +1653,8 @@
               "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/react-helmet/lib/Helmet.js",
               "name": "./node_modules/react-helmet/lib/Helmet.js",
               "profile": {
-                "factory": 177,
-                "building": 15,
+                "factory": 185,
+                "building": 16,
                 "dependencies": 2
               }
             },
@@ -1661,15 +1663,15 @@
               "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/deep-equal/index.js",
               "name": "./node_modules/deep-equal/index.js",
               "profile": {
-                "factory": 34,
-                "building": 7,
-                "dependencies": 14
+                "factory": 32,
+                "building": 8,
+                "dependencies": 15
               }
             }
           ],
           "profile": {
-            "factory": 7,
-            "building": 2
+            "factory": 9,
+            "building": 3
           },
           "failed": false,
           "errors": 0,
@@ -1718,7 +1720,7 @@
               "name": "./src/client/index.js",
               "profile": {
                 "factory": 75,
-                "building": 1203
+                "building": 1291
               }
             },
             {
@@ -1726,8 +1728,8 @@
               "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/babel-loader/lib/index.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/eslint-loader/index.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/src/client/App.js",
               "name": "./src/client/App.js",
               "profile": {
-                "factory": 256,
-                "building": 3,
+                "factory": 270,
+                "building": 4,
                 "dependencies": 3
               }
             },
@@ -1736,8 +1738,8 @@
               "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/react-helmet/lib/Helmet.js",
               "name": "./node_modules/react-helmet/lib/Helmet.js",
               "profile": {
-                "factory": 177,
-                "building": 15,
+                "factory": 185,
+                "building": 16,
                 "dependencies": 2
               }
             },
@@ -1746,15 +1748,15 @@
               "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/deep-equal/index.js",
               "name": "./node_modules/deep-equal/index.js",
               "profile": {
-                "factory": 34,
-                "building": 7,
-                "dependencies": 14
+                "factory": 32,
+                "building": 8,
+                "dependencies": 15
               }
             }
           ],
           "profile": {
-            "factory": 7,
-            "building": 2
+            "factory": 9,
+            "building": 3
           },
           "failed": false,
           "errors": 0,
@@ -1803,7 +1805,7 @@
               "name": "./src/client/index.js",
               "profile": {
                 "factory": 75,
-                "building": 1203
+                "building": 1291
               }
             },
             {
@@ -1811,8 +1813,8 @@
               "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/babel-loader/lib/index.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/eslint-loader/index.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/src/client/App.js",
               "name": "./src/client/App.js",
               "profile": {
-                "factory": 256,
-                "building": 3,
+                "factory": 270,
+                "building": 4,
                 "dependencies": 3
               }
             },
@@ -1821,16 +1823,16 @@
               "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/react-helmet/lib/Helmet.js",
               "name": "./node_modules/react-helmet/lib/Helmet.js",
               "profile": {
-                "factory": 177,
-                "building": 15,
+                "factory": 185,
+                "building": 16,
                 "dependencies": 2
               }
             }
           ],
           "profile": {
-            "factory": 34,
-            "building": 7,
-            "dependencies": 14
+            "factory": 32,
+            "building": 8,
+            "dependencies": 15
           },
           "failed": false,
           "errors": 0,
@@ -1879,7 +1881,7 @@
               "name": "./src/client/index.js",
               "profile": {
                 "factory": 75,
-                "building": 1203
+                "building": 1291
               }
             },
             {
@@ -1887,15 +1889,15 @@
               "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/babel-loader/lib/index.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/eslint-loader/index.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/src/client/App.js",
               "name": "./src/client/App.js",
               "profile": {
-                "factory": 256,
-                "building": 3,
+                "factory": 270,
+                "building": 4,
                 "dependencies": 3
               }
             }
           ],
           "profile": {
-            "factory": 177,
-            "building": 15,
+            "factory": 185,
+            "building": 16,
             "dependencies": 2
           },
           "failed": false,
@@ -1945,7 +1947,7 @@
               "name": "./src/client/index.js",
               "profile": {
                 "factory": 75,
-                "building": 1203
+                "building": 1291
               }
             },
             {
@@ -1953,8 +1955,8 @@
               "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/babel-loader/lib/index.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/eslint-loader/index.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/src/client/App.js",
               "name": "./src/client/App.js",
               "profile": {
-                "factory": 256,
-                "building": 3,
+                "factory": 270,
+                "building": 4,
                 "dependencies": 3
               }
             },
@@ -1963,15 +1965,15 @@
               "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/style-loader/index.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/css-loader/dist/cjs.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/src/client/app.css",
               "name": "./src/client/app.css",
               "profile": {
-                "factory": 177,
-                "building": 15,
+                "factory": 185,
+                "building": 16,
                 "dependencies": 2
               }
             }
           ],
           "profile": {
-            "factory": 65,
-            "building": 11
+            "factory": 62,
+            "building": 19
           },
           "failed": false,
           "errors": 0,
@@ -2020,7 +2022,7 @@
               "name": "./src/client/index.js",
               "profile": {
                 "factory": 75,
-                "building": 1203
+                "building": 1291
               }
             },
             {
@@ -2028,8 +2030,8 @@
               "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/babel-loader/lib/index.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/eslint-loader/index.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/src/client/App.js",
               "name": "./src/client/App.js",
               "profile": {
-                "factory": 256,
-                "building": 3,
+                "factory": 270,
+                "building": 4,
                 "dependencies": 3
               }
             },
@@ -2038,8 +2040,8 @@
               "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/style-loader/index.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/css-loader/dist/cjs.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/src/client/app.css",
               "name": "./src/client/app.css",
               "profile": {
-                "factory": 177,
-                "building": 15,
+                "factory": 185,
+                "building": 16,
                 "dependencies": 2
               }
             },
@@ -2048,14 +2050,14 @@
               "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/css-loader/dist/cjs.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/src/client/app.css",
               "name": "./node_modules/css-loader/dist/cjs.js!./src/client/app.css",
               "profile": {
-                "factory": 65,
-                "building": 11
+                "factory": 62,
+                "building": 19
               }
             }
           ],
           "profile": {
-            "factory": 8,
-            "building": 7
+            "factory": 9,
+            "building": 5
           },
           "failed": false,
           "errors": 0,
@@ -2104,7 +2106,7 @@
               "name": "./src/client/index.js",
               "profile": {
                 "factory": 75,
-                "building": 1203
+                "building": 1291
               }
             },
             {
@@ -2112,8 +2114,8 @@
               "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/babel-loader/lib/index.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/eslint-loader/index.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/src/client/App.js",
               "name": "./src/client/App.js",
               "profile": {
-                "factory": 256,
-                "building": 3,
+                "factory": 270,
+                "building": 4,
                 "dependencies": 3
               }
             },
@@ -2122,15 +2124,15 @@
               "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/style-loader/index.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/css-loader/dist/cjs.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/src/client/app.css",
               "name": "./src/client/app.css",
               "profile": {
-                "factory": 177,
-                "building": 15,
+                "factory": 185,
+                "building": 16,
                 "dependencies": 2
               }
             }
           ],
           "profile": {
-            "factory": 65,
-            "building": 11
+            "factory": 62,
+            "building": 19
           },
           "failed": false,
           "errors": 0,
@@ -2179,7 +2181,7 @@
               "name": "./src/client/index.js",
               "profile": {
                 "factory": 75,
-                "building": 1203
+                "building": 1291
               }
             },
             {
@@ -2187,8 +2189,8 @@
               "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/babel-loader/lib/index.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/eslint-loader/index.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/src/client/App.js",
               "name": "./src/client/App.js",
               "profile": {
-                "factory": 256,
-                "building": 3,
+                "factory": 270,
+                "building": 4,
                 "dependencies": 3
               }
             },
@@ -2197,8 +2199,8 @@
               "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/style-loader/index.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/css-loader/dist/cjs.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/src/client/app.css",
               "name": "./src/client/app.css",
               "profile": {
-                "factory": 177,
-                "building": 15,
+                "factory": 185,
+                "building": 16,
                 "dependencies": 2
               }
             },
@@ -2207,14 +2209,14 @@
               "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/style-loader/lib/addStyles.js",
               "name": "./node_modules/style-loader/lib/addStyles.js",
               "profile": {
-                "factory": 65,
-                "building": 11
+                "factory": 62,
+                "building": 19
               }
             }
           ],
           "profile": {
             "factory": 23,
-            "building": 4
+            "building": 3
           },
           "failed": false,
           "errors": 0,
@@ -2299,7 +2301,7 @@
               "issuerPath": null,
               "profile": {
                 "factory": 75,
-                "building": 1203
+                "building": 1291
               },
               "failed": false,
               "errors": 0,
@@ -2346,13 +2348,13 @@
                   "name": "./src/client/index.js",
                   "profile": {
                     "factory": 75,
-                    "building": 1203
+                    "building": 1291
                   }
                 }
               ],
               "profile": {
-                "factory": 256,
-                "building": 3,
+                "factory": 270,
+                "building": 4,
                 "dependencies": 3
               },
               "failed": false,
@@ -2431,13 +2433,13 @@
           "name": "./src/client/index.js",
           "profile": {
             "factory": 75,
-            "building": 1203
+            "building": 1291
           }
         }
       ],
       "profile": {
-        "factory": 256,
-        "building": 3,
+        "factory": 270,
+        "building": 4,
         "dependencies": 3
       },
       "failed": false,
@@ -2666,9 +2668,9 @@
       "chunks": [
         0
       ],
-      "issuer": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/react/cjs/react.production.min.js",
-      "issuerId": 6,
-      "issuerName": "./node_modules/react/cjs/react.production.min.js",
+      "issuer": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/react-dom/cjs/react-dom.production.min.js",
+      "issuerId": 7,
+      "issuerName": "./node_modules/react-dom/cjs/react-dom.production.min.js",
       "issuerPath": [
         {
           "id": null,
@@ -2676,32 +2678,33 @@
           "name": "./src/client/index.js",
           "profile": {
             "factory": 75,
-            "building": 1203
+            "building": 1291
           }
         },
         {
-          "id": 0,
-          "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/react/index.js",
-          "name": "./node_modules/react/index.js",
+          "id": 4,
+          "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/react-dom/index.js",
+          "name": "./node_modules/react-dom/index.js",
           "profile": {
-            "factory": 256,
-            "building": 3,
+            "factory": 270,
+            "building": 4,
             "dependencies": 3
           }
         },
         {
-          "id": 6,
-          "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/react/cjs/react.production.min.js",
-          "name": "./node_modules/react/cjs/react.production.min.js",
+          "id": 7,
+          "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/react-dom/cjs/react-dom.production.min.js",
+          "name": "./node_modules/react-dom/cjs/react-dom.production.min.js",
           "profile": {
             "factory": 2,
-            "building": 14
+            "building": 102,
+            "dependencies": 11
           }
         }
       ],
       "profile": {
-        "factory": 202,
-        "building": 4
+        "factory": 122,
+        "building": 2
       },
       "failed": false,
       "errors": 0,
@@ -2768,7 +2771,7 @@
           "name": "./src/client/index.js",
           "profile": {
             "factory": 75,
-            "building": 1203
+            "building": 1291
           }
         },
         {
@@ -2776,8 +2779,8 @@
           "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/babel-loader/lib/index.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/eslint-loader/index.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/src/client/App.js",
           "name": "./src/client/App.js",
           "profile": {
-            "factory": 256,
-            "building": 3,
+            "factory": 270,
+            "building": 4,
             "dependencies": 3
           }
         },
@@ -2786,8 +2789,8 @@
           "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/react-helmet/lib/Helmet.js",
           "name": "./node_modules/react-helmet/lib/Helmet.js",
           "profile": {
-            "factory": 177,
-            "building": 15,
+            "factory": 185,
+            "building": 16,
             "dependencies": 2
           }
         },
@@ -2796,15 +2799,15 @@
           "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/react-helmet/lib/HelmetUtils.js",
           "name": "./node_modules/react-helmet/lib/HelmetUtils.js",
           "profile": {
-            "factory": 34,
-            "building": 7,
-            "dependencies": 14
+            "factory": 32,
+            "building": 8,
+            "dependencies": 15
           }
         }
       ],
       "profile": {
-        "factory": 14,
-        "building": 4
+        "factory": 15,
+        "building": 2
       },
       "failed": false,
       "errors": 0,
@@ -2862,7 +2865,7 @@
           "name": "./src/client/index.js",
           "profile": {
             "factory": 75,
-            "building": 1203
+            "building": 1291
           }
         },
         {
@@ -2870,8 +2873,8 @@
           "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/babel-loader/lib/index.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/eslint-loader/index.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/src/client/App.js",
           "name": "./src/client/App.js",
           "profile": {
-            "factory": 256,
-            "building": 3,
+            "factory": 270,
+            "building": 4,
             "dependencies": 3
           }
         },
@@ -2880,16 +2883,16 @@
           "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/react-helmet/lib/Helmet.js",
           "name": "./node_modules/react-helmet/lib/Helmet.js",
           "profile": {
-            "factory": 177,
-            "building": 15,
+            "factory": 185,
+            "building": 16,
             "dependencies": 2
           }
         }
       ],
       "profile": {
-        "factory": 34,
-        "building": 7,
-        "dependencies": 14
+        "factory": 32,
+        "building": 8,
+        "dependencies": 15
       },
       "failed": false,
       "errors": 0,
@@ -2947,13 +2950,13 @@
           "name": "./src/client/index.js",
           "profile": {
             "factory": 75,
-            "building": 1203
+            "building": 1291
           }
         }
       ],
       "profile": {
-        "factory": 256,
-        "building": 3,
+        "factory": 270,
+        "building": 4,
         "dependencies": 3
       },
       "failed": false,
@@ -3014,7 +3017,7 @@
           "name": "./src/client/index.js",
           "profile": {
             "factory": 75,
-            "building": 1203
+            "building": 1291
           }
         },
         {
@@ -3022,15 +3025,15 @@
           "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/babel-loader/lib/index.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/eslint-loader/index.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/src/client/App.js",
           "name": "./src/client/App.js",
           "profile": {
-            "factory": 256,
-            "building": 3,
+            "factory": 270,
+            "building": 4,
             "dependencies": 3
           }
         }
       ],
       "profile": {
-        "factory": 177,
-        "building": 15,
+        "factory": 185,
+        "building": 16,
         "dependencies": 2
       },
       "failed": false,
@@ -3091,7 +3094,7 @@
           "name": "./src/client/index.js",
           "profile": {
             "factory": 75,
-            "building": 1203
+            "building": 1291
           }
         },
         {
@@ -3099,15 +3102,16 @@
           "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/react/index.js",
           "name": "./node_modules/react/index.js",
           "profile": {
-            "factory": 256,
-            "building": 3,
+            "factory": 270,
+            "building": 4,
             "dependencies": 3
           }
         }
       ],
       "profile": {
-        "factory": 2,
-        "building": 14
+        "factory": 1,
+        "building": 112,
+        "dependencies": 112
       },
       "failed": false,
       "errors": 0,
@@ -3156,7 +3160,7 @@
           "name": "./src/client/index.js",
           "profile": {
             "factory": 75,
-            "building": 1203
+            "building": 1291
           }
         },
         {
@@ -3164,16 +3168,16 @@
           "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/react-dom/index.js",
           "name": "./node_modules/react-dom/index.js",
           "profile": {
-            "factory": 256,
-            "building": 3,
+            "factory": 270,
+            "building": 4,
             "dependencies": 3
           }
         }
       ],
       "profile": {
-        "factory": 3,
-        "building": 108,
-        "dependencies": 107
+        "factory": 2,
+        "building": 102,
+        "dependencies": 11
       },
       "failed": false,
       "errors": 0,
@@ -3222,7 +3226,7 @@
           "name": "./src/client/index.js",
           "profile": {
             "factory": 75,
-            "building": 1203
+            "building": 1291
           }
         },
         {
@@ -3230,8 +3234,8 @@
           "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/react-dom/index.js",
           "name": "./node_modules/react-dom/index.js",
           "profile": {
-            "factory": 256,
-            "building": 3,
+            "factory": 270,
+            "building": 4,
             "dependencies": 3
           }
         },
@@ -3240,15 +3244,15 @@
           "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/react-dom/cjs/react-dom.production.min.js",
           "name": "./node_modules/react-dom/cjs/react-dom.production.min.js",
           "profile": {
-            "factory": 3,
-            "building": 108,
-            "dependencies": 107
+            "factory": 2,
+            "building": 102,
+            "dependencies": 11
           }
         }
       ],
       "profile": {
-        "factory": 107,
-        "building": 4
+        "factory": 122,
+        "building": 2
       },
       "failed": false,
       "errors": 0,
@@ -3297,7 +3301,7 @@
           "name": "./src/client/index.js",
           "profile": {
             "factory": 75,
-            "building": 1203
+            "building": 1291
           }
         },
         {
@@ -3305,8 +3309,8 @@
           "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/react-dom/index.js",
           "name": "./node_modules/react-dom/index.js",
           "profile": {
-            "factory": 256,
-            "building": 3,
+            "factory": 270,
+            "building": 4,
             "dependencies": 3
           }
         },
@@ -3315,9 +3319,9 @@
           "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/react-dom/cjs/react-dom.production.min.js",
           "name": "./node_modules/react-dom/cjs/react-dom.production.min.js",
           "profile": {
-            "factory": 3,
-            "building": 108,
-            "dependencies": 107
+            "factory": 2,
+            "building": 102,
+            "dependencies": 11
           }
         },
         {
@@ -3325,14 +3329,14 @@
           "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/scheduler/index.js",
           "name": "./node_modules/scheduler/index.js",
           "profile": {
-            "factory": 107,
-            "building": 4
+            "factory": 122,
+            "building": 2
           }
         }
       ],
       "profile": {
-        "factory": 4,
-        "building": 5,
+        "factory": 3,
+        "building": 7,
         "dependencies": 0
       },
       "failed": false,
@@ -3382,7 +3386,7 @@
           "name": "./src/client/index.js",
           "profile": {
             "factory": 75,
-            "building": 1203
+            "building": 1291
           }
         },
         {
@@ -3390,8 +3394,8 @@
           "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/babel-loader/lib/index.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/eslint-loader/index.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/src/client/App.js",
           "name": "./src/client/App.js",
           "profile": {
-            "factory": 256,
-            "building": 3,
+            "factory": 270,
+            "building": 4,
             "dependencies": 3
           }
         },
@@ -3400,16 +3404,16 @@
           "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/react-helmet/lib/Helmet.js",
           "name": "./node_modules/react-helmet/lib/Helmet.js",
           "profile": {
-            "factory": 177,
-            "building": 15,
+            "factory": 185,
+            "building": 16,
             "dependencies": 2
           }
         }
       ],
       "profile": {
-        "factory": 34,
-        "building": 7,
-        "dependencies": 14
+        "factory": 32,
+        "building": 8,
+        "dependencies": 15
       },
       "failed": false,
       "errors": 0,
@@ -3458,7 +3462,7 @@
           "name": "./src/client/index.js",
           "profile": {
             "factory": 75,
-            "building": 1203
+            "building": 1291
           }
         },
         {
@@ -3466,8 +3470,8 @@
           "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/babel-loader/lib/index.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/eslint-loader/index.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/src/client/App.js",
           "name": "./src/client/App.js",
           "profile": {
-            "factory": 256,
-            "building": 3,
+            "factory": 270,
+            "building": 4,
             "dependencies": 3
           }
         },
@@ -3476,8 +3480,8 @@
           "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/react-helmet/lib/Helmet.js",
           "name": "./node_modules/react-helmet/lib/Helmet.js",
           "profile": {
-            "factory": 177,
-            "building": 15,
+            "factory": 185,
+            "building": 16,
             "dependencies": 2
           }
         },
@@ -3486,15 +3490,15 @@
           "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/prop-types/index.js",
           "name": "./node_modules/prop-types/index.js",
           "profile": {
-            "factory": 34,
-            "building": 7,
-            "dependencies": 14
+            "factory": 32,
+            "building": 8,
+            "dependencies": 15
           }
         }
       ],
       "profile": {
         "factory": 11,
-        "building": 1
+        "building": 2
       },
       "failed": false,
       "errors": 0,
@@ -3543,7 +3547,7 @@
           "name": "./src/client/index.js",
           "profile": {
             "factory": 75,
-            "building": 1203
+            "building": 1291
           }
         },
         {
@@ -3551,8 +3555,8 @@
           "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/babel-loader/lib/index.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/eslint-loader/index.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/src/client/App.js",
           "name": "./src/client/App.js",
           "profile": {
-            "factory": 256,
-            "building": 3,
+            "factory": 270,
+            "building": 4,
             "dependencies": 3
           }
         },
@@ -3561,8 +3565,8 @@
           "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/react-helmet/lib/Helmet.js",
           "name": "./node_modules/react-helmet/lib/Helmet.js",
           "profile": {
-            "factory": 177,
-            "building": 15,
+            "factory": 185,
+            "building": 16,
             "dependencies": 2
           }
         },
@@ -3571,9 +3575,9 @@
           "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/prop-types/index.js",
           "name": "./node_modules/prop-types/index.js",
           "profile": {
-            "factory": 34,
-            "building": 7,
-            "dependencies": 14
+            "factory": 32,
+            "building": 8,
+            "dependencies": 15
           }
         },
         {
@@ -3582,13 +3586,13 @@
           "name": "./node_modules/prop-types/factoryWithThrowingShims.js",
           "profile": {
             "factory": 11,
-            "building": 1
+            "building": 2
           }
         }
       ],
       "profile": {
         "factory": 2,
-        "building": 2
+        "building": 1
       },
       "failed": false,
       "errors": 0,
@@ -3637,7 +3641,7 @@
           "name": "./src/client/index.js",
           "profile": {
             "factory": 75,
-            "building": 1203
+            "building": 1291
           }
         },
         {
@@ -3645,8 +3649,8 @@
           "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/babel-loader/lib/index.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/eslint-loader/index.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/src/client/App.js",
           "name": "./src/client/App.js",
           "profile": {
-            "factory": 256,
-            "building": 3,
+            "factory": 270,
+            "building": 4,
             "dependencies": 3
           }
         },
@@ -3655,16 +3659,16 @@
           "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/react-helmet/lib/Helmet.js",
           "name": "./node_modules/react-helmet/lib/Helmet.js",
           "profile": {
-            "factory": 177,
-            "building": 15,
+            "factory": 185,
+            "building": 16,
             "dependencies": 2
           }
         }
       ],
       "profile": {
-        "factory": 34,
-        "building": 7,
-        "dependencies": 14
+        "factory": 32,
+        "building": 8,
+        "dependencies": 15
       },
       "failed": false,
       "errors": 0,
@@ -3713,7 +3717,7 @@
           "name": "./src/client/index.js",
           "profile": {
             "factory": 75,
-            "building": 1203
+            "building": 1291
           }
         },
         {
@@ -3721,8 +3725,8 @@
           "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/babel-loader/lib/index.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/eslint-loader/index.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/src/client/App.js",
           "name": "./src/client/App.js",
           "profile": {
-            "factory": 256,
-            "building": 3,
+            "factory": 270,
+            "building": 4,
             "dependencies": 3
           }
         },
@@ -3731,8 +3735,8 @@
           "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/react-helmet/lib/Helmet.js",
           "name": "./node_modules/react-helmet/lib/Helmet.js",
           "profile": {
-            "factory": 177,
-            "building": 15,
+            "factory": 185,
+            "building": 16,
             "dependencies": 2
           }
         },
@@ -3741,14 +3745,14 @@
           "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/react-side-effect/lib/index.js",
           "name": "./node_modules/react-side-effect/lib/index.js",
           "profile": {
-            "factory": 34,
-            "building": 7,
-            "dependencies": 14
+            "factory": 32,
+            "building": 8,
+            "dependencies": 15
           }
         }
       ],
       "profile": {
-        "factory": 8,
+        "factory": 9,
         "building": 1
       },
       "failed": false,
@@ -3798,7 +3802,7 @@
           "name": "./src/client/index.js",
           "profile": {
             "factory": 75,
-            "building": 1203
+            "building": 1291
           }
         },
         {
@@ -3806,8 +3810,8 @@
           "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/babel-loader/lib/index.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/eslint-loader/index.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/src/client/App.js",
           "name": "./src/client/App.js",
           "profile": {
-            "factory": 256,
-            "building": 3,
+            "factory": 270,
+            "building": 4,
             "dependencies": 3
           }
         },
@@ -3816,8 +3820,8 @@
           "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/react-helmet/lib/Helmet.js",
           "name": "./node_modules/react-helmet/lib/Helmet.js",
           "profile": {
-            "factory": 177,
-            "building": 15,
+            "factory": 185,
+            "building": 16,
             "dependencies": 2
           }
         },
@@ -3826,14 +3830,14 @@
           "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/react-side-effect/lib/index.js",
           "name": "./node_modules/react-side-effect/lib/index.js",
           "profile": {
-            "factory": 34,
-            "building": 7,
-            "dependencies": 14
+            "factory": 32,
+            "building": 8,
+            "dependencies": 15
           }
         }
       ],
       "profile": {
-        "factory": 8,
+        "factory": 9,
         "building": 1
       },
       "failed": false,
@@ -3883,7 +3887,7 @@
           "name": "./src/client/index.js",
           "profile": {
             "factory": 75,
-            "building": 1203
+            "building": 1291
           }
         },
         {
@@ -3891,8 +3895,8 @@
           "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/babel-loader/lib/index.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/eslint-loader/index.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/src/client/App.js",
           "name": "./src/client/App.js",
           "profile": {
-            "factory": 256,
-            "building": 3,
+            "factory": 270,
+            "building": 4,
             "dependencies": 3
           }
         },
@@ -3901,16 +3905,16 @@
           "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/react-helmet/lib/Helmet.js",
           "name": "./node_modules/react-helmet/lib/Helmet.js",
           "profile": {
-            "factory": 177,
-            "building": 15,
+            "factory": 185,
+            "building": 16,
             "dependencies": 2
           }
         }
       ],
       "profile": {
-        "factory": 34,
-        "building": 7,
-        "dependencies": 14
+        "factory": 32,
+        "building": 8,
+        "dependencies": 15
       },
       "failed": false,
       "errors": 0,
@@ -3959,7 +3963,7 @@
           "name": "./src/client/index.js",
           "profile": {
             "factory": 75,
-            "building": 1203
+            "building": 1291
           }
         },
         {
@@ -3967,8 +3971,8 @@
           "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/babel-loader/lib/index.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/eslint-loader/index.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/src/client/App.js",
           "name": "./src/client/App.js",
           "profile": {
-            "factory": 256,
-            "building": 3,
+            "factory": 270,
+            "building": 4,
             "dependencies": 3
           }
         },
@@ -3977,8 +3981,8 @@
           "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/react-helmet/lib/Helmet.js",
           "name": "./node_modules/react-helmet/lib/Helmet.js",
           "profile": {
-            "factory": 177,
-            "building": 15,
+            "factory": 185,
+            "building": 16,
             "dependencies": 2
           }
         },
@@ -3987,15 +3991,15 @@
           "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/deep-equal/index.js",
           "name": "./node_modules/deep-equal/index.js",
           "profile": {
-            "factory": 34,
-            "building": 7,
-            "dependencies": 14
+            "factory": 32,
+            "building": 8,
+            "dependencies": 15
           }
         }
       ],
       "profile": {
-        "factory": 7,
-        "building": 2
+        "factory": 9,
+        "building": 3
       },
       "failed": false,
       "errors": 0,
@@ -4044,7 +4048,7 @@
           "name": "./src/client/index.js",
           "profile": {
             "factory": 75,
-            "building": 1203
+            "building": 1291
           }
         },
         {
@@ -4052,8 +4056,8 @@
           "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/babel-loader/lib/index.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/eslint-loader/index.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/src/client/App.js",
           "name": "./src/client/App.js",
           "profile": {
-            "factory": 256,
-            "building": 3,
+            "factory": 270,
+            "building": 4,
             "dependencies": 3
           }
         },
@@ -4062,8 +4066,8 @@
           "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/react-helmet/lib/Helmet.js",
           "name": "./node_modules/react-helmet/lib/Helmet.js",
           "profile": {
-            "factory": 177,
-            "building": 15,
+            "factory": 185,
+            "building": 16,
             "dependencies": 2
           }
         },
@@ -4072,15 +4076,15 @@
           "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/deep-equal/index.js",
           "name": "./node_modules/deep-equal/index.js",
           "profile": {
-            "factory": 34,
-            "building": 7,
-            "dependencies": 14
+            "factory": 32,
+            "building": 8,
+            "dependencies": 15
           }
         }
       ],
       "profile": {
-        "factory": 7,
-        "building": 2
+        "factory": 9,
+        "building": 3
       },
       "failed": false,
       "errors": 0,
@@ -4129,7 +4133,7 @@
           "name": "./src/client/index.js",
           "profile": {
             "factory": 75,
-            "building": 1203
+            "building": 1291
           }
         },
         {
@@ -4137,8 +4141,8 @@
           "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/babel-loader/lib/index.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/eslint-loader/index.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/src/client/App.js",
           "name": "./src/client/App.js",
           "profile": {
-            "factory": 256,
-            "building": 3,
+            "factory": 270,
+            "building": 4,
             "dependencies": 3
           }
         },
@@ -4147,16 +4151,16 @@
           "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/react-helmet/lib/Helmet.js",
           "name": "./node_modules/react-helmet/lib/Helmet.js",
           "profile": {
-            "factory": 177,
-            "building": 15,
+            "factory": 185,
+            "building": 16,
             "dependencies": 2
           }
         }
       ],
       "profile": {
-        "factory": 34,
-        "building": 7,
-        "dependencies": 14
+        "factory": 32,
+        "building": 8,
+        "dependencies": 15
       },
       "failed": false,
       "errors": 0,
@@ -4205,7 +4209,7 @@
           "name": "./src/client/index.js",
           "profile": {
             "factory": 75,
-            "building": 1203
+            "building": 1291
           }
         },
         {
@@ -4213,15 +4217,15 @@
           "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/babel-loader/lib/index.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/eslint-loader/index.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/src/client/App.js",
           "name": "./src/client/App.js",
           "profile": {
-            "factory": 256,
-            "building": 3,
+            "factory": 270,
+            "building": 4,
             "dependencies": 3
           }
         }
       ],
       "profile": {
-        "factory": 177,
-        "building": 15,
+        "factory": 185,
+        "building": 16,
         "dependencies": 2
       },
       "failed": false,
@@ -4271,7 +4275,7 @@
           "name": "./src/client/index.js",
           "profile": {
             "factory": 75,
-            "building": 1203
+            "building": 1291
           }
         },
         {
@@ -4279,8 +4283,8 @@
           "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/babel-loader/lib/index.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/eslint-loader/index.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/src/client/App.js",
           "name": "./src/client/App.js",
           "profile": {
-            "factory": 256,
-            "building": 3,
+            "factory": 270,
+            "building": 4,
             "dependencies": 3
           }
         },
@@ -4289,15 +4293,15 @@
           "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/style-loader/index.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/css-loader/dist/cjs.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/src/client/app.css",
           "name": "./src/client/app.css",
           "profile": {
-            "factory": 177,
-            "building": 15,
+            "factory": 185,
+            "building": 16,
             "dependencies": 2
           }
         }
       ],
       "profile": {
-        "factory": 65,
-        "building": 11
+        "factory": 62,
+        "building": 19
       },
       "failed": false,
       "errors": 0,
@@ -4346,7 +4350,7 @@
           "name": "./src/client/index.js",
           "profile": {
             "factory": 75,
-            "building": 1203
+            "building": 1291
           }
         },
         {
@@ -4354,8 +4358,8 @@
           "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/babel-loader/lib/index.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/eslint-loader/index.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/src/client/App.js",
           "name": "./src/client/App.js",
           "profile": {
-            "factory": 256,
-            "building": 3,
+            "factory": 270,
+            "building": 4,
             "dependencies": 3
           }
         },
@@ -4364,8 +4368,8 @@
           "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/style-loader/index.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/css-loader/dist/cjs.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/src/client/app.css",
           "name": "./src/client/app.css",
           "profile": {
-            "factory": 177,
-            "building": 15,
+            "factory": 185,
+            "building": 16,
             "dependencies": 2
           }
         },
@@ -4374,14 +4378,14 @@
           "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/css-loader/dist/cjs.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/src/client/app.css",
           "name": "./node_modules/css-loader/dist/cjs.js!./src/client/app.css",
           "profile": {
-            "factory": 65,
-            "building": 11
+            "factory": 62,
+            "building": 19
           }
         }
       ],
       "profile": {
-        "factory": 8,
-        "building": 7
+        "factory": 9,
+        "building": 5
       },
       "failed": false,
       "errors": 0,
@@ -4430,7 +4434,7 @@
           "name": "./src/client/index.js",
           "profile": {
             "factory": 75,
-            "building": 1203
+            "building": 1291
           }
         },
         {
@@ -4438,8 +4442,8 @@
           "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/babel-loader/lib/index.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/eslint-loader/index.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/src/client/App.js",
           "name": "./src/client/App.js",
           "profile": {
-            "factory": 256,
-            "building": 3,
+            "factory": 270,
+            "building": 4,
             "dependencies": 3
           }
         },
@@ -4448,15 +4452,15 @@
           "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/style-loader/index.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/css-loader/dist/cjs.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/src/client/app.css",
           "name": "./src/client/app.css",
           "profile": {
-            "factory": 177,
-            "building": 15,
+            "factory": 185,
+            "building": 16,
             "dependencies": 2
           }
         }
       ],
       "profile": {
-        "factory": 65,
-        "building": 11
+        "factory": 62,
+        "building": 19
       },
       "failed": false,
       "errors": 0,
@@ -4505,7 +4509,7 @@
           "name": "./src/client/index.js",
           "profile": {
             "factory": 75,
-            "building": 1203
+            "building": 1291
           }
         },
         {
@@ -4513,8 +4517,8 @@
           "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/babel-loader/lib/index.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/eslint-loader/index.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/src/client/App.js",
           "name": "./src/client/App.js",
           "profile": {
-            "factory": 256,
-            "building": 3,
+            "factory": 270,
+            "building": 4,
             "dependencies": 3
           }
         },
@@ -4523,8 +4527,8 @@
           "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/style-loader/index.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/css-loader/dist/cjs.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/src/client/app.css",
           "name": "./src/client/app.css",
           "profile": {
-            "factory": 177,
-            "building": 15,
+            "factory": 185,
+            "building": 16,
             "dependencies": 2
           }
         },
@@ -4533,14 +4537,14 @@
           "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/style-loader/lib/addStyles.js",
           "name": "./node_modules/style-loader/lib/addStyles.js",
           "profile": {
-            "factory": 65,
-            "building": 11
+            "factory": 62,
+            "building": 19
           }
         }
       ],
       "profile": {
         "factory": 23,
-        "building": 4
+        "building": 3
       },
       "failed": false,
       "errors": 0,
@@ -4625,7 +4629,7 @@
           "issuerPath": null,
           "profile": {
             "factory": 75,
-            "building": 1203
+            "building": 1291
           },
           "failed": false,
           "errors": 0,
@@ -4672,13 +4676,13 @@
               "name": "./src/client/index.js",
               "profile": {
                 "factory": 75,
-                "building": 1203
+                "building": 1291
               }
             }
           ],
           "profile": {
-            "factory": 256,
-            "building": 3,
+            "factory": 270,
+            "building": 4,
             "dependencies": 3
           },
           "failed": false,
@@ -4725,7 +4729,7 @@
       "errors": [],
       "warnings": [],
       "publicPath": "/",
-      "outputPath": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/dist",
+      "outputPath": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/dist/client",
       "assetsByChunkName": {},
       "assets": [
         {
@@ -4799,8 +4803,8 @@
               "issuerName": null,
               "issuerPath": null,
               "profile": {
-                "factory": 50,
-                "building": 26
+                "factory": 54,
+                "building": 22
               },
               "failed": false,
               "errors": 0,
@@ -4847,14 +4851,14 @@
                   "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/html-webpack-plugin/lib/loader.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/public/index.html",
                   "name": "./node_modules/html-webpack-plugin/lib/loader.js!./public/index.html",
                   "profile": {
-                    "factory": 50,
-                    "building": 26
+                    "factory": 54,
+                    "building": 22
                   }
                 }
               ],
               "profile": {
-                "factory": 4,
-                "building": 221
+                "factory": 3,
+                "building": 220
               },
               "failed": false,
               "errors": 0,
@@ -4902,8 +4906,8 @@
                   "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/html-webpack-plugin/lib/loader.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/public/index.html",
                   "name": "./node_modules/html-webpack-plugin/lib/loader.js!./public/index.html",
                   "profile": {
-                    "factory": 50,
-                    "building": 26
+                    "factory": 54,
+                    "building": 22
                   }
                 },
                 {
@@ -4911,14 +4915,14 @@
                   "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/lodash/lodash.js",
                   "name": "./node_modules/lodash/lodash.js",
                   "profile": {
-                    "factory": 4,
-                    "building": 221
+                    "factory": 3,
+                    "building": 220
                   }
                 }
               ],
               "profile": {
-                "factory": 987,
-                "building": 3
+                "factory": 1077,
+                "building": 2
               },
               "failed": false,
               "errors": 0,
@@ -4966,8 +4970,8 @@
                   "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/html-webpack-plugin/lib/loader.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/public/index.html",
                   "name": "./node_modules/html-webpack-plugin/lib/loader.js!./public/index.html",
                   "profile": {
-                    "factory": 50,
-                    "building": 26
+                    "factory": 54,
+                    "building": 22
                   }
                 },
                 {
@@ -4975,14 +4979,14 @@
                   "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/lodash/lodash.js",
                   "name": "./node_modules/lodash/lodash.js",
                   "profile": {
-                    "factory": 4,
-                    "building": 221
+                    "factory": 3,
+                    "building": 220
                   }
                 }
               ],
               "profile": {
-                "factory": 987,
-                "building": 3
+                "factory": 1077,
+                "building": 2
               },
               "failed": false,
               "errors": 0,
@@ -5041,8 +5045,8 @@
           "issuerName": null,
           "issuerPath": null,
           "profile": {
-            "factory": 50,
-            "building": 26
+            "factory": 54,
+            "building": 22
           },
           "failed": false,
           "errors": 0,
@@ -5089,14 +5093,14 @@
               "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/html-webpack-plugin/lib/loader.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/public/index.html",
               "name": "./node_modules/html-webpack-plugin/lib/loader.js!./public/index.html",
               "profile": {
-                "factory": 50,
-                "building": 26
+                "factory": 54,
+                "building": 22
               }
             }
           ],
           "profile": {
-            "factory": 4,
-            "building": 221
+            "factory": 3,
+            "building": 220
           },
           "failed": false,
           "errors": 0,
@@ -5144,8 +5148,8 @@
               "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/html-webpack-plugin/lib/loader.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/public/index.html",
               "name": "./node_modules/html-webpack-plugin/lib/loader.js!./public/index.html",
               "profile": {
-                "factory": 50,
-                "building": 26
+                "factory": 54,
+                "building": 22
               }
             },
             {
@@ -5153,14 +5157,14 @@
               "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/lodash/lodash.js",
               "name": "./node_modules/lodash/lodash.js",
               "profile": {
-                "factory": 4,
-                "building": 221
+                "factory": 3,
+                "building": 220
               }
             }
           ],
           "profile": {
-            "factory": 987,
-            "building": 3
+            "factory": 1077,
+            "building": 2
           },
           "failed": false,
           "errors": 0,
@@ -5208,8 +5212,8 @@
               "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/html-webpack-plugin/lib/loader.js!/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/public/index.html",
               "name": "./node_modules/html-webpack-plugin/lib/loader.js!./public/index.html",
               "profile": {
-                "factory": 50,
-                "building": 26
+                "factory": 54,
+                "building": 22
               }
             },
             {
@@ -5217,14 +5221,14 @@
               "identifier": "/mnt/f/zepang_note/MVVM框架/React/Hands-OnFull-StackWebDevelopmentWithGraphQLandReact/node_modules/lodash/lodash.js",
               "name": "./node_modules/lodash/lodash.js",
               "profile": {
-                "factory": 4,
-                "building": 221
+                "factory": 3,
+                "building": 220
               }
             }
           ],
           "profile": {
-            "factory": 987,
-            "building": 3
+            "factory": 1077,
+            "building": 2
           },
           "failed": false,
           "errors": 0,
