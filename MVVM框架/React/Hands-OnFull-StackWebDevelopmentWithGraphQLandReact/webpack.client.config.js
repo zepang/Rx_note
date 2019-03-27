@@ -1,6 +1,5 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const CleanWebpackPlugin = require('clean-webpack-plugin')
 
 module.exports = {
   mode: 'development',
@@ -10,16 +9,13 @@ module.exports = {
     filename: '[name].bundle.js',
     publicPath: '/'
   },
-  resolve: {
-    extensions: ['.js', '.jsx']
-  },
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
         exclude: [path.resolve('node_modules')],
         include: [path.resolve('src')],
-        loader: 'babel-loader'
+        use: ['babel-loader', 'eslint-loader']
       },
       {
         test: /\.css$/,
@@ -27,8 +23,8 @@ module.exports = {
       }
     ]
   },
+  devtool: 'inline-source-map',
   plugins: [
-    new CleanWebpackPlugin({}),
     new HtmlWebpackPlugin({
       template: './public/index.html'
     })

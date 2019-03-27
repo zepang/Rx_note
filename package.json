@@ -1,5 +1,6 @@
 {
   "dependencies": {
     "url-search-params-polyfill": "^5.0.0"
-  }
+  },
+  "devDependencies": {}
 }
