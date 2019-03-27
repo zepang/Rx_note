@@ -1,5 +1,3 @@
 module.exports = {
-  plugins: [
-    require('@babel/plugin-transform-react-jsx')
-  ]
+  presets: ['@babel/env', '@babel/react']
 }
