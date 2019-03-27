@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Helmet } from 'react-helmet'
 import './app.css'
 
 const posts = [
@@ -43,6 +44,10 @@ export default class App extends Component {
     const { posts, postContent } = this.state
     return (
       <div className="container">
+        <Helmet>
+          <title>Graphbook - Feed</title>
+          <meta name="description" content="Newfeed of all your friends on Graphbook"/>
+        </Helmet>
         <div className="postForm">
           <form onSubmit={this.handleSubmit}>
             <textarea

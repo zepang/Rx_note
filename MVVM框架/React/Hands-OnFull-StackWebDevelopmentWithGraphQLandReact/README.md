@@ -1,12 +1,19 @@
 # 项目记录
 
 # 启动项目
-1. 创建项目更目录
+
+这块分为两部分，前端react项目，后端express项目，我们先做前端这一部分：
+## 前端项目启动
+1. 创建项目跟目录
 ```
 mkdir Hands-OnFull-StackWebDevelopmentWithGraphQLandReact
 cd Hands-OnFull-StackWebDevelopmentWithGraphQLandReact
 npm init -y
 ```
+
+前端的代码主要在 `/src/client/`
+后端的代码主要在 `/src/server/`
+
 2. 配置eslint
 下边的命令，需要全局安装一下eslint的包
 ```
@@ -173,6 +180,82 @@ ReactDom.render(<App />, document.getElementById('root'))
 npm run client
 ```
 到这一步应该是完全的可以跑起项目的。
+
+5. 配置打包分析
+
+```
+npm install --save-dev webpack-bundle-analyzer
+```
+
+在package.json中配置下边的命令
+
+```json
+{
+  ...
+  "script": {
+    "stats": "webpack --profile --json --config webpack.client.build.config.js > stats.json",
+    "analyze": "webpack-bundle-analyzer stats.json"
+  }
+}
+```
+
+
+
+## 后端项目启动
+
+1. 安装express和启动服务
+
+```
+npm install --save express
+```
+
+创建`/src/server/index.js`, 填入下边的代码
+
+```js
+const express = require('express')
+
+const app = express()
+
+app.get('*', (req, res) => {
+  res.send('hello world!')
+})
+
+app.listen(8000, () => {
+  console.log('Listening on port 8000')
+})
+```
+
+node本身已经支持很多新的es语法，考虑周全一点，我们还是需要使用到`babel-node`。另外我们选择使用 nodemon 来启动server
+
+```
+npm install --save nodemon 
+npm install --save-dev @babel/node
+```
+
+在package中加入下面的命令：
+```json
+{
+  "script": {
+    "server": "nodemon --exec babel-node --watch src/server src/server/index.js"
+  }
+}
+```
+
+在使用babel-node的情况下，我们可以使用 import 来引入 express，当然node在9之后的版本也是支持import的
+```js
+import express from 'express'
+```
+# 可能需要使用的包
+
+* react-helmet
+
+*This reusable React component will manage all of your changes to the document head.*
+
+比如用来改变HTML的title和description
+
+```
+npm install --save react-helmet
+```
 
 # 可能会涉及的一些问题
 
