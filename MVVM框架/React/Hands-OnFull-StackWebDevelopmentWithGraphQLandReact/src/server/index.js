@@ -2,13 +2,23 @@ import path from 'path'
 import express from 'express'
 import helmet from 'helmet'
 import cors from 'cors'
-import compress from 'compress'
-const root = path.join(__dirname, '../../')
+import compression from 'compression'
+import services from './services'
+const serviceNames = Object.keys(services)
 
+const root = path.join(__dirname, '../../')
 const app = express()
+for (let i = 0; i < serviceNames.length; i++) {
+  const name = serviceNames[i]
+  if (name === 'graphql') {
+    services[name].applyMiddleware({ app })
+  } else {
+    app.use(`/${name}`, services[name])
+  }
+}
 
 app.use(helmet())
-app.use(compress())
+app.use(compression())
 app.use(cors())
 app.use(helmet.referrerPolicy({ policy: 'same-origin' }))
 
