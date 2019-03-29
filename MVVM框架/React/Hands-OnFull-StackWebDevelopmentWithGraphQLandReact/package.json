@@ -24,7 +24,8 @@
     "nodemon": "^1.18.10",
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
-    "react-helmet": "^5.2.0"
+    "react-helmet": "^5.2.0",
+    "winston": "^3.2.1"
   },
   "devDependencies": {
     "@babel/core": "^7.4.0",
