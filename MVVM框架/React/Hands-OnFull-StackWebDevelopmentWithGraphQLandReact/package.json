@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "client": "webpack-dev-server --hot --progress --devtool inline-source-map --config webpack.client.config.js",
-    "server": "nodemon --exec babel-node --watch src/server src/server/index.js",
+    "server": "export NODE_ENV=development && nodemon --exec babel-node --plugins require-context-hook --watch src/server src/server/index.js",
     "stats": "webpack --profile --json --config webpack.client.build.config > stats.json",
     "analyze": "webpack-bundle-analyzer stats.json",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -21,10 +21,12 @@
     "graphql": "^14.2.0",
     "graphql-tools": "^4.0.4",
     "helmet": "^3.16.0",
+    "mysql2": "^1.6.5",
     "nodemon": "^1.18.10",
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
     "react-helmet": "^5.2.0",
+    "sequelize": "^5.2.8",
     "winston": "^3.2.1"
   },
   "devDependencies": {
@@ -35,6 +37,7 @@
     "@babel/preset-react": "^7.0.0",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.5",
+    "babel-plugin-require-context-hook": "^1.0.0",
     "clean-webpack-plugin": "^2.0.1",
     "css-loader": "^2.1.1",
     "eslint": "^5.15.3",

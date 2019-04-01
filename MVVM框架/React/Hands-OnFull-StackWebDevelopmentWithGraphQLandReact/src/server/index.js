@@ -4,8 +4,8 @@ import helmet from 'helmet'
 import cors from 'cors'
 import compression from 'compression'
 import services from './services'
+import db from './database'
 const serviceNames = Object.keys(services)
-
 const root = path.join(__dirname, '../../')
 const app = express()
 for (let i = 0; i < serviceNames.length; i++) {
