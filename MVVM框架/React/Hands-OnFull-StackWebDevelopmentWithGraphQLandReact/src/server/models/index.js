@@ -1,7 +1,10 @@
 import Sequelize from 'sequelize'
+// import requireContext from 'babel-plugin-macros/context'
 import logger from '../helpers/logger'
 
 if (process.env.NODE_ENV === 'development') {
+  debugger
+  logger.log({ level: 'info', message: 'development' })
   const register = require('babel-plugin-require-context-hook/register')
   logger.log({ level: 'info', message: register })
   register()
@@ -10,8 +13,9 @@ if (process.env.NODE_ENV === 'development') {
 export default (sequelize) => {
   let db = {}
 
-  const context = require.context('.', true, /^\.\/(?!index\.js).*\.js$/, 'sync')
-  context.keys().map(context).forEach(module => {
+  const context = requireContext(__dirname, '', true, /^\.\/(?!index\.js).*\.js$/)
+  console.log(__dirname, context)
+  context.keys.forEach(module => {
     const model = module(sequelize, Sequelize)
     db[model.name] = model
   })
