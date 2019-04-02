@@ -11,3 +11,10 @@ npm config get registry
 ~~~shell
 npm install package -g --registry https://registry.npm.taobao.org
 ~~~
+
+### windows 端口占用
+
+```
+netstat -ano|findstr "8000"
+tskill 1234
+```
