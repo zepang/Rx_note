@@ -8,6 +8,7 @@ import services from './services'
 const serviceNames = Object.keys(services)
 const root = path.join(__dirname, '../../')
 const app = express()
+
 for (let i = 0; i < serviceNames.length; i++) {
   const name = serviceNames[i]
   if (name === 'graphql') {
