@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "client": "webpack-dev-server --hot --progress --devtool inline-source-map --config webpack.client.config.js",
-    "server": "nodemon --exec babel-node --watch src/server src/server/index.js",
+    "server": "nodemon",
     "stats": "webpack --profile --json --config webpack.client.build.config > stats.json",
     "analyze": "webpack-bundle-analyzer stats.json",
     "test": "echo \"Error: no test specified\" && exit 1"
