@@ -83,3 +83,4 @@
 * [rfs](https://github.com/twbs/rfs) Automated responsive font sizes
 * [cssanimate](http://cssanimate.com/) 
 * [magic_animations](https://www.minimamente.com/example/magic_animations/)
+* [sprite-generator](https://www.toptal.com/developers/css/sprite-generator)
