@@ -212,3 +212,67 @@ checks for issues within the Vagrantfile, such as incorrect syntax.
   The  ssh command will connect you to a remote Vagrant machine using the
 SSH protocol/connection. This command gives you access to the machine's
 shell, which allows you to run commands directly on the machine.
+
+# Discovering Vagrant Boxes
+
+## Understanding Vagtant boxes
+
+A Vagrant box is a specific package format for containing Vagrant environments.
+A Vagrant box file use `.box` file extension.A Vagrant box
+can be used with any platform and system that Vagrant supports to create the
+same environment by following the steps in the box file.
+
+## Vagrant box file anatomy
+
+A Vagrant box file is made up of three components:
+
+  * box file
+
+  The box contains different information depending on the provider. It is
+provider-specific and could be in several different formats, such as ZIP,
+tar.gz , or TAR. This information is not used by Vagrant but is instead passed
+on to the provider.
+
+  * box metadata
+
+    The box catalog metadata is generally used with the Vagrant cloud platform.
+It contains information such as the box name, different versions, descriptions
+and different supported providers, and any URLs to specific box files. This
+metadata is usually stored as a JSON document. The filename would be
+metadata.json .
+
+  * box infomation
+    The box information is the extra details that you can add. These extra details
+are displayed when a user runs the  vagrant box list --box-info command. You
+can set information for the author name/company and a URL. This file is a
+JSON document and the filename would be  info.json .
+
+
+## How to install a Vagrant box
+
+* A URL that point directly to the box file
+
+```bash
+ vagrant box add debian/jessie64 
+```
+
+* A shorthand/alias for the public box name, such as `debian/jessie64`
+
+```bash
+  vagrant box add --name "mybox" http://www.example.com/boxname.box 
+```
+
+* A file path or URL to a box in a specific catalog
+
+```bash
+   vagrant box add https://app.vagrantup.com/ubuntu/boxes/trusty64 
+```
+
+# Installing a Vagrant box found on the Vagrant Cloud
+
+[Vagrant cloud website: https://app.vagrantup.com/boxes/search](https://app.vagrantup.com/boxes/search)
+
+# Uploading a Vagrant box to the Vagrant cloud
+
+If we want to upload own Vagrant box to the Vagrant cloud, we must to create a account with the Vagrant cloud platform.[Click here for registe](https://app.vagrantup.com/account/new)
+
