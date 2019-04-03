@@ -1,0 +1,7 @@
+{
+  "watch": ["src/server"],
+  "env": {
+    "NODE_ENV": "development"
+  },
+  "exec": "babel-node src/server/index.js"
+}
