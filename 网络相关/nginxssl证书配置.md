@@ -10,7 +10,7 @@
 
 # 证书申请
 
-关于如何申请免费证书我这里就不多说了，网上有很多的教程，我之前参考的是这篇文章：[阿里云免费证书DV SSL申请过程记录](https://yq.aliyun.com/articles/657095?spm=5176.10695662.1996646101.searchclickresult.14b75440urZ0EK)
+关于如何申请免费证书我这里就不多说了，网上有很多的教程，比如这个[分享几个免费SSL证书申请网站，给网站开启HTTPS协议](https://qq52o.me/1210.html), 我之前参考的是这篇文章：[阿里云免费证书DV SSL申请过程记录](https://yq.aliyun.com/articles/657095?spm=5176.10695662.1996646101.searchclickresult.14b75440urZ0EK)
 
 申请需要一定的时间签发，签发完成后可以直接下载证书。我们下载对应的nginx证书，有两个文件`xxx.pem` `xxx.key`
 
