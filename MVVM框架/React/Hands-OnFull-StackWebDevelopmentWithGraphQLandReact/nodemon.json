@@ -3,5 +3,5 @@
   "env": {
     "NODE_ENV": "development"
   },
-  "exec": "babel-node src/server/index.js"
+  "exec": "babel-node --plugins require-context-hook src/server/index.js"
 }
