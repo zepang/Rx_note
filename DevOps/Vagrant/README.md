@@ -274,5 +274,114 @@ JSON document and the filename would be  info.json .
 
 # Uploading a Vagrant box to the Vagrant cloud
 
-If we want to upload own Vagrant box to the Vagrant cloud, we must to create a account with the Vagrant cloud platform.[Click here for registe](https://app.vagrantup.com/account/new)
+First, if we want to upload own Vagrant box to the Vagrant cloud, we must to create a account with the Vagrant cloud platform.[Click here for registe](https://app.vagrantup.com/account/new)
+
+Second, we can create a Vagrant box follow the steps:
+
+1. Add a box from cloud
+
+```bash
+  vagrant box add centos/7
+```
+
+2. Make sure the box working correctly.
+  
+```bash
+  vagrant init centos/7
+  vagrant up
+  vagrant ssh
+```
+确认box是可以用的之后，退出并关掉 machine
+
+```bash
+exit
+vagrant halt
+```
+
+3. 打包环境成box文件
+   
+```bash
+vagrant package --output work-centos7.box
+```
+
+4. 通过第三步我们可以得到一个`work-centos7.box`的文件
+
+之后我们可以在 [https://app.vagrantup.com/](https://app.vagrantup.com/)创建一个box，这一步的步骤比较简单。
+创建完成之后会让你上传文件，只需要将刚才的`.box`文件上传就好
+
+5. 上传完成之后，我们就可以在[https://app.vagrantup.com/boxes/search](https://app.vagrantup.com/boxes/search)上边搜索到我们的box，以后我们也可以通过上边的步骤使用我们的box。
+
+# 使用 Vagrantfile 来配置 Vagrant
+
+当我们使用 `vagrant init`，vagrant会在当前 project 根目录下生成一个名为 `Vagrantfile` 的文件。如果你只需要一个最小的或者最基本的shell环境，可以使用`vagrant init -m` 或者 `vagrant init -minimal`
+来初始化vagrant的项目，`Vagrantfile`会包含下边的配置：
+
+```bash
+Vagrant.configure("2") do |config|
+  config.vm.box = "base"
+end
+```
+
+`vagrant up `命令就是通过这个配置文件来拉取依赖和启动 vagrant 环境。
+
+## Vagrantfile 配置选项
+
+
+### Vagrant machine 的配置（config.vm）
+
+Vagrant machine的配置全部是在 config.vm 这个命名空间下
+
+具体的还是查看官网的文档[https://www.vagrantup.com/docs/vagrantfile/machine_settings.html](https://www.vagrantup.com/docs/vagrantfile/machine_settings.html)
+
+### Vagrant SSH 配置选项
+
+文档[https://www.vagrantup.com/docs/vagrantfile/ssh_settings.html](https://www.vagrantup.com/docs/vagrantfile/ssh_settings.html)
+
+此外还有 config.winrm config.winssh config.vagrant，详情还是查看官方的文档吧[https://www.vagrantup.com/docs/vagrantfile/](https://www.vagrantup.com/docs/vagrantfile/)
+
+# Vagrant 网络配置(networking)
+
+Vagrant 的网路有3种类型：
+
+* Port-forwarding
+* Private networking
+* Public networking
+
+## Port-forwarding
+
+客户机和vagrant环境的端口映射
+
+```yaml
+config.vm.network "forwarded_port", guest: 80, host: 8080
+```
+
+也就是说访问本地的8080端口可以访问对应的vagrant环境的80端口
+
+## Private networking
+
+私有网络配置，可以通过局域网来访问vagrant环境。
+
+```yaml
+config.vm.network "private_network", type: "dhcp"
+```
+
+通过`vagrant ssh`进行shell环境，由于我们使用的是`dhcp`, 还需要输入 `ifconfig` 查看网卡动态分配的ip。
+
+我们也可以通过下边的配置来分配一个静态ip：
+
+```yaml
+config.vm.network "private_network", ip: "10.10.10.10"
+```
+
+## Public networking共有网络
+
+基本的使用方法和私有网络是一样的。
+
+### 桥接
+
+当我们选择 `public_network`的网络方式启动时，终端会让我们选择使用哪种桥接方式。如果想要避免这一步，我们可以按照如下配置，指定一种桥接方式：
+
+```yaml
+config.vm.network "public_network", bridge: "en0: Wi-Fi (AirPort)" 
+```
 
