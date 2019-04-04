@@ -10,7 +10,14 @@
       "name": "Launch Program",
       "program": "${workspaceFolder}/src/server/index.js",
       "console": "integratedTerminal",
-      "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/babel-node"
+      "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/babel-node",
+      "runtimeArgs": [
+        "--plugins",
+        "require-context-hook"
+      ],
+      "env": {
+        "NODE_ENV": "development"
+      }
     }
   ]
 }
