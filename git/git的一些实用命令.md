@@ -10,4 +10,14 @@ git config --global core.quotepath false
 
 git config --global --unset http.proxy
 
+# 删除远程分支后，branch -a还是能看到的解决方法
 
+大家在删除远程分支后 
+git branch -a 
+还是可以看到已删除的远程分支，时间一长就显的非常乱了 
+以下是解决方法： 
+git remote show origin //可以看到删除分支情况 
+git remote prune origin 
+再执行 
+git branch -a 
+就可以看到已经看不见已经删除的分支了
