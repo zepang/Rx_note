@@ -98,3 +98,6 @@ cat tslint.json
 
 具体的用法可以查看(https://palantir.github.io/tslint/usage/configuration/)[https://palantir.github.io/tslint/usage/configuration/]，实际上和eslint这一类语法校验工具类似
 
+# 基本的类型
+
+(http://www.typescriptlang.org/docs/handbook/basic-types.html)[http://www.typescriptlang.org/docs/handbook/basic-types.html]
