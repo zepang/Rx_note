@@ -18,3 +18,15 @@ npm install package -g --registry https://registry.npm.taobao.org
 netstat -ano|findstr "8000"
 tskill 1234
 ```
+
+
+# yarn 换源
+
+```shell
+# 查看源
+yarn config get registry
+# 淘宝源
+yarn config set registry https://registry.npm.taobao.org
+# 自带源
+yarn config set registry https://registry.yarnpkg.com
+```
