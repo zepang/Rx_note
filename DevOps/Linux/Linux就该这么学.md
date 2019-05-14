@@ -169,4 +169,729 @@ systemd初始化进程服务采用了并发启动机制，开机速度得到了�
 </tbody>
 </table>
 
+# 常用的命令
 
+* echo
+  
+  用于输出字符串或者变量值
+
+  ```shell
+  echo $USER
+  root
+  ```
+* date 
+
+  用于输出日期时间
+
+  ```shell
+  date "+%Y-%m-%d %H:%M:%S"
+  2019-05-14 11:06:23
+  ```
+
+  date命令中的参数%j可用来查看今天是当年中的第几天
+
+  ```shell
+  date "+%j"
+  134
+  ```
+
+* reboot 重启系统
+* poweroff 关闭系统
+
+* wget
+
+  该命令常用在终端下载文件。
+
+  <table id="tablepress-109" class="tablepress tablepress-id-109">
+  <tbody class="row-hover">
+  <tr class="row-1 odd">
+  <td class="column-1">参数</td>
+  <td class="column-2">作用</td>
+  </tr>
+  <tr class="row-2 even">
+  <td class="column-1">-b</td>
+  <td class="column-2">后台下载模式</td>
+  </tr>
+  <tr class="row-3 odd">
+  <td class="column-1">-P</td>
+  <td class="column-2">下载到指定目录</td>
+  </tr>
+  <tr class="row-4 even">
+  <td class="column-1">-t</td>
+  <td class="column-2">最大尝试次数</td>
+  </tr>
+  <tr class="row-5 odd">
+  <td class="column-1">-c</td>
+  <td class="column-2">断点续传</td>
+  </tr>
+  <tr class="row-6 even">
+  <td class="column-1">-p</td>
+  <td class="column-2">下载页面内所有资源，包括图片、视频等</td>
+  </tr>
+  <tr class="row-7 odd">
+  <td class="column-1">-r</td>
+  <td class="column-2">递归下载</td>
+  </tr>
+  </tbody>
+  </table>
+
+
+* ps
+  
+  该命令用于查看系统中进程状态。
+
+  <table id="tablepress-42" class="tablepress tablepress-id-42">
+  <tbody class="row-hover">
+  <tr class="row-1 odd">
+  <td class="column-1">参数</td>
+  <td class="column-2">作用</td>
+  </tr>
+  <tr class="row-2 even">
+  <td class="column-1">-a</td>
+  <td class="column-2">显示所有进程（包括其他用户的进程）</td>
+  </tr>
+  <tr class="row-3 odd">
+  <td class="column-1">-u</td>
+  <td class="column-2">用户以及其他详细信息</td>
+  </tr>
+  <tr class="row-4 even">
+  <td class="column-1">-x</td>
+  <td class="column-2">显示没有控制终端的进程</td>
+  </tr>
+  </tbody>
+  </table>
+
+在Linux系统中常见的五种进程状态：
+
+1. R（运行）：进程正在运行或在运行队列中等待。
+
+2. S（中断）：进程处于休眠中，当某个条件形成后或者接收到信号时，则脱离该   状态。
+
+3. D（不可中断）：进程不响应系统异步信号，即便用kill命令也不能将其中断。
+
+4. Z（僵死）：进程已经终止，但进程描述符依然存在, 直到父进程调用wait4()系统函数后将进程释放。
+
+5. T（停止）：进程收到停止信号后停止运行。
+
+当执行ps aux命令后通常会看到如表2-7所示的进程状态：
+
+<table id="tablepress-43" class="tablepress tablepress-id-43">
+<tbody class="row-hover">
+<tr class="row-1 odd">
+<td class="column-1">USER</td>
+<td class="column-2">PID</td>
+<td class="column-3">%CPU</td>
+<td class="column-4">%MEM</td>
+<td class="column-5">VSZ</td>
+<td class="column-6">RSS</td>
+<td class="column-7">TTY</td>
+<td class="column-8">STAT</td>
+<td class="column-9">START</td>
+<td class="column-10">TIME</td>
+<td class="column-11">COMMAND</td>
+</tr>
+<tr class="row-2 even">
+<td class="column-1">进程的所有者</td>
+<td class="column-2">进程ID号</td>
+<td class="column-3">运算器占用率</td>
+<td class="column-4">内存占用率</td>
+<td class="column-5">虚拟内存使用量(单位是KB)</td>
+<td class="column-6">占用的固定内存量(单位是KB)</td>
+<td class="column-7">所在终端</td>
+<td class="column-8">进程状态</td>
+<td class="column-9">被启动的时间</td>
+<td class="column-10">实际使用CPU的时间</td>
+<td class="column-11">命令名称与参数</td>
+</tr>
+<tr class="row-3 odd">
+<td class="column-1">root</td>
+<td class="column-2">1</td>
+<td class="column-3">0.0</td>
+<td class="column-4">0.4</td>
+<td class="column-5">53684  </td>
+<td class="column-6">7628</td>
+<td class="column-7">?</td>
+<td class="column-8">Ss</td>
+<td class="column-9">07:22</td>
+<td class="column-10">0:02</td>
+<td class="column-11">/usr/lib/systemd/systemd</td>
+</tr>
+<tr class="row-4 even">
+<td class="column-1">root</td>
+<td class="column-2">2</td>
+<td class="column-3">0.0</td>
+<td class="column-4">0.0</td>
+<td class="column-5">0</td>
+<td class="column-6">0</td>
+<td class="column-7">?</td>
+<td class="column-8">S</td>
+<td class="column-9">07:22</td>
+<td class="column-10">0:00</td>
+<td class="column-11">[kthreadd]</td>
+</tr>
+<tr class="row-5 odd">
+<td class="column-1">root</td>
+<td class="column-2">3</td>
+<td class="column-3">0.0</td>
+<td class="column-4">0.0</td>
+<td class="column-5">0</td>
+<td class="column-6">0</td>
+<td class="column-7">?</td>
+<td class="column-8">S</td>
+<td class="column-9">07:22</td>
+<td class="column-10">0:00</td>
+<td class="column-11">[ksoftirqd/0]</td>
+</tr>
+<tr class="row-6 even">
+<td class="column-1">root</td>
+<td class="column-2">5</td>
+<td class="column-3">0.0</td>
+<td class="column-4">0.0</td>
+<td class="column-5">0</td>
+<td class="column-6">0</td>
+<td class="column-7">?</td>
+<td class="column-8">S&lt;</td>
+<td class="column-9">07:22</td>
+<td class="column-10">0:00</td>
+<td class="column-11">[kworker/0:0H]</td>
+</tr>
+<tr class="row-7 odd">
+<td class="column-1">root</td>
+<td class="column-2">7</td>
+<td class="column-3">0.0</td>
+<td class="column-4">0.0</td>
+<td class="column-5">0</td>
+<td class="column-6">0</td>
+<td class="column-7">?</td>
+<td class="column-8">S</td>
+<td class="column-9">07:22</td>
+<td class="column-10">0:00</td>
+<td class="column-11">[migration/0]</td>
+</tr>
+</tbody>
+</table>
+
+* top命令
+
+top命令用于动态地监视进程活动与系统负载等信息，其格式为top。
+
+top命令相当强大，能够动态地查看系统运维状态，完全将它看作Linux中的“强化版的Windows任务管理器”。
+
+```shell
+top - 11:19:58 up 17:19,  0 users,  load average: 0.52, 0.58, 0.59
+Tasks:   5 total,   1 running,   4 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  9.4 us,  3.6 sy,  0.0 ni, 87.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+KiB Mem : 16644812 total,  6930660 free,  9484800 used,   229352 buff/cache
+KiB Swap: 17040672 total, 17004424 free,    36248 used.  7026280 avail Mem
+
+  PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND                                                                                                                       
+ 1561 root      20   0   19384   2028   1504 R   0.3  0.0   0:00.01 top                                                                                                                           
+    1 root      20   0    8304    104     76 S   0.0  0.0   0:00.06 init
+    3 root      20   0    8304     56     20 S   0.0  0.0   0:00.00 init
+    4 root      20   0   16788   2232   2136 S   0.0  0.0   0:00.11 bash
+  366 root      20   0   19464    896    828 S   0.0  0.0   0:00.01 sshd
+
+```
+
+top命令执行结果的前5行为系统整体的统计信息:
+
+1. 第1行：系统时间、运行时间、登录终端数、系统负载（三个数值分别为1分钟、5分钟、15分钟内的平均值，数值越小意味着负载越低）。
+
+2. 第2行：进程总数、运行中的进程数、睡眠中的进程数、停止的进程数、僵死的进程数。
+
+3. 第3行：用户占用资源百分比、系统内核占用资源百分比、改变过优先级的进程资源百分比、空闲的资源百分比等。其中数据均为CPU数据并以百分比格式显示，例如“97.1 id”意味着有97.1%的CPU处理器资源处于空闲。
+
+4. 第4行：物理内存总量、内存使用量、内存空闲量、作为内核缓存的内存量。
+
+6. 第5行：虚拟内存总量、虚拟内存使用量、虚拟内存空闲量、已被提前加载的内存量。
+
+推荐使用 `htop`
+
+* pidof
+
+  pidof命令用于查询某个指定服务进程的PID值
+
+  ```shell
+  pidof sshd
+  366
+  ```
+
+* killall
+
+  killall命令用于终止某个指定名称的服务所对应的全部进程
+
+  * ifconfig
+
+  ifconfig命令用于获取网卡配置与网络状态等信息
+
+  使用ifconfig命令来查看本机当前的网卡配置与网络状态等信息时，其实主要查看的就是网卡名称、inet参数后面的IP地址、ether参数后面的网卡物理地址（又称为MAC地址），以及RX、TX的接收数据包与发送数据包的个数及累计流量（即下面加粗的信息内容）
+
+  ```shell
+    ens33: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        ether 00:0c:29:41:d0:3c  txqueuelen 1000  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+    lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 464  bytes 39408 (38.4 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 464  bytes 39408 (38.4 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+    virbr0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
+        inet 192.168.122.1  netmask 255.255.255.0  broadcast 192.168.122.255
+        ether 52:54:00:7f:7f:0a  txqueuelen 1000  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+  ```
+
+* uname
+
+  uname命令用于查看系统内核与系统版本等信息
+
+* uptime
+
+  uptime用于查看系统的负载信息，格式为uptime。
+
+  uptime命令真的很棒，它可以显示当前系统时间、系统已运行时间、启用终端数量以及平均负载值等信息。平均负载值指的是系统在最近1分钟、5分钟、15分钟内的压力情况（下面加粗的信息部分）；负载值越低越好，尽量不要长期超过1，在生产环境中不要超过5。
+
+* free
+
+  free用于显示当前系统中内存的使用量信息
+  ```shell
+  free -h
+  ```
+  <table id="tablepress-113" class="tablepress tablepress-id-113">
+  <tbody class="row-hover">
+  <tr class="row-1 odd">
+  <td class="column-1"></td>
+  <td class="column-2">内存总量</td>
+  <td class="column-3">已用量</td>
+  <td class="column-4">可用量</td>
+  <td class="column-5">进程共享的内存量</td>
+  <td class="column-6">磁盘缓存的内存量</td>
+  <td class="column-7">缓存的内存量</td>
+  </tr>
+  <tr class="row-2 even">
+  <td class="column-1"></td>
+  <td class="column-2">total</td>
+  <td class="column-3">used</td>
+  <td class="column-4">free</td>
+  <td class="column-5">shared</td>
+  <td class="column-6">buffers</td>
+  <td class="column-7">cached</td>
+  </tr>
+  <tr class="row-3 odd">
+  <td class="column-1">Mem:</td>
+  <td class="column-2">1.8G </td>
+  <td class="column-3">1.3G</td>
+  <td class="column-4">542M</td>
+  <td class="column-5">9.8M</td>
+  <td class="column-6">1.6M</td>
+  <td class="column-7">413M</td>
+  </tr>
+  <tr class="row-4 even">
+  <td class="column-1">-/+ buffers/cache:</td>
+  <td class="column-2"></td>
+  <td class="column-3">869M</td>
+  <td class="column-4">957M</td>
+  <td class="column-5"></td>
+  <td class="column-6"></td>
+  <td class="column-7"></td>
+  </tr>
+  <tr class="row-5 odd">
+  <td class="column-1">Swap:</td>
+  <td class="column-2">2.0G</td>
+  <td class="column-3">0B</td>
+  <td class="column-4">2.0G</td>
+  <td class="column-5"></td>
+  <td class="column-6"></td>
+  <td class="column-7"></td>
+  </tr>
+  </tbody>
+  </table>
+
+* who
+  
+  who用于查看当前登入主机的用户终端信息
+
+* last
+
+  last命令用于查看所有系统的登录记录
+
+* history
+  
+  history命令用于显示历史执行过的命令
+
+  历史命令会被保存到用户家目录中的.bash_history文件中。Linux系统中以点（.）开头的文件均代表隐藏文件，这些文件大多数为系统服务文件，可以用cat命令查看其文件内容
+
+  `history -c` # 可以清空历史记录
+
+* pwd 
+
+  pwd命令用于显示用户当前所处的工作目录
+
+* cd
+* ls
+* cat 命令用于查看纯文本文件（内容较少的）
+* more 命令用于查看纯文本文件（内容较多的）
+* less
+* head 命令用于查看纯文本文档的前N行，格式为“head [选项] [文件]”
+
+* tail
+
+  tail命令用于查看纯文本文档的后N行或持续刷新内容
+  
+  tail命令的操作方法与head命令非常相似，只需要执行“tail -n 20 文件名”命令就可以达到这样的效果。tail命令最强悍的功能是可以持续刷新一个文件的内容，当想要实时查看最新日志文件时，这特别有用，此时的命令格式为“tail -f 文件名”
+
+* tr
+
+  tr命令用于替换文本文件中的字符，格式为“tr [原始字符] [目标字符]”。
+
+  在很多时候，我们想要快速地替换文本中的一些词汇，又或者把整个文本内容都进行替换，如果进行手工替换，难免工作量太大，尤其是需要处理大批量的内容时，进行手工替换更是不现实。这时，就可以先使用cat命令读取待处理的文本，然后通过管道符（详见第3章）把这些文本内容传递给tr命令进行替换操作即可
+
+  例如，把某个文本内容中的英文全部替换为大写：
+
+  ```shell
+  cat anaconda-ks.cfg | tr [a-z] [A-Z]
+  ```
+
+* wc 
+
+  wc命令用于统计指定文本的行数、字数、字节数
+
+  <table id="tablepress-108" class="tablepress tablepress-id-108">
+  <tbody class="row-hover">
+  <tr class="row-1 odd">
+  <td class="column-1">参数</td>
+  <td class="column-2">作用</td>
+  </tr>
+  <tr class="row-2 even">
+  <td class="column-1">-l</td>
+  <td class="column-2">只显示行数</td>
+  </tr>
+  <tr class="row-3 odd">
+  <td class="column-1">-w</td>
+  <td class="column-2">只显示单词数</td>
+  </tr>
+  <tr class="row-4 even">
+  <td class="column-1">-c</td>
+  <td class="column-2">只显示字节数</td>
+  </tr>
+  </tbody>
+  </table>
+
+* stat
+
+  stat命令用于查看文件的具体存储信息和时间等信息
+
+  ```shell
+  stat package.json
+
+    File: package.json
+    Size: 96              Blocks: 0          IO Block: 4096   regular file
+  Device: 10h/16d Inode: 1125899906870021  Links: 1
+  Access: (0777/-rwxrwxrwx)  Uid: (    0/    root)   Gid: (    0/    root)
+  Access: 2019-03-27 10:25:47.009255200 +0800
+  Modify: 2019-03-27 10:25:47.009255200 +0800
+  Change: 2019-03-27 10:25:47.046146200 +0800
+  Birth: -
+  ```
+
+* diff
+
+  diff命令用于比较多个文本文件的差异，格式为“diff [参数] 文件”。
+
+  在使用diff命令时，不仅可以使用--brief参数来确认两个文件是否不同，还可以使用-c参数来详细比较出多个文件的差异之处，这绝对是判断文件是否被篡改的有力神器。
+
+* touch
+  
+  touch命令用于创建空白文件或设置文件的时间
+  <table id="tablepress-17" class="tablepress tablepress-id-17">
+  <tbody class="row-hover">
+  <tr class="row-1 odd">
+  <td class="column-1">参数</td>
+  <td class="column-2">作用</td>
+  </tr>
+  <tr class="row-2 even">
+  <td class="column-1">-a</td>
+  <td class="column-2">仅修改“读取时间”（atime）</td>
+  </tr>
+  <tr class="row-3 odd">
+  <td class="column-1">-m</td>
+  <td class="column-2">仅修改“修改时间”（mtime）</td>
+  </tr>
+  <tr class="row-4 even">
+  <td class="column-1">-d</td>
+  <td class="column-2">同时修改atime与mtime</td>
+  </tr>
+  </tbody>
+  </table>
+
+* mkdir
+
+  mkdir命令用于创建空白的目录，格式为“mkdir [选项] 目录”。
+
+  在Linux系统中，文件夹是最常见的文件类型之一。除了能创建单个空白目录外，mkdir命令还可以结合-p参数来递归创建出具有嵌套叠层关系的文件目录
+
+* cp
+
+  cp命令用于复制文件或目录，格式为“cp [选项] 源文件 目标文件”。大家对文件复制操作应该不陌生，在Linux系统中，复制操作具体分为3种情况：
+  1. 如果目标文件是目录，则会把源文件复制到该目录中；
+
+  2. 如果目标文件也是普通文件，则会询问是否要覆盖它；
+
+  3. 如果目标文件不存在，则执行正常的复制操作。
+
+<table id="tablepress-10" class="tablepress tablepress-id-10">
+<tbody class="row-hover">
+<tr class="row-1 odd">
+<td class="column-1">参数</td>
+<td class="column-2">作用</td>
+</tr>
+<tr class="row-2 even">
+<td class="column-1">-p</td>
+<td class="column-2">保留原始文件的属性</td>
+</tr>
+<tr class="row-3 odd">
+<td class="column-1">-d</td>
+<td class="column-2">若对象为“链接文件”，则保留该“链接文件”的属性</td>
+</tr>
+<tr class="row-4 even">
+<td class="column-1">-r</td>
+<td class="column-2">递归持续复制（用于目录）</td>
+</tr>
+<tr class="row-5 odd">
+<td class="column-1">-i</td>
+<td class="column-2">若目标文件存在则询问是否覆盖</td>
+</tr>
+<tr class="row-6 even">
+<td class="column-1">-a</td>
+<td class="column-2">相当于-pdr（p、d、r为上述参数）</td>
+</tr>
+</tbody>
+</table>
+
+* mv
+
+  mv命令用于剪切文件或将文件重命名，格式为“mv [选项] 源文件 [目标路径|目标文件名]”
+
+* rm
+* dd
+
+  dd命令用于按照指定大小和个数的数据块来复制文件或转换文件
+
+  dd命令是一个比较重要而且比较有特色的一个命令，它能够让用户按照指定大小和个数的数据块来复制文件的内容。当然如果愿意的话，还可以在复制过程中转换其中的数据。Linux系统中有一个名为/dev/zero的设备文件，每次在课堂上解释它时都充满哲学理论的色彩。因为这个文件不会占用系统存储空间，但却可以提供无穷无尽的数据，因此可以使用它作为dd命令的输入文件，来生成一个指定大小的文件。
+
+  <table id="tablepress-117" class="tablepress tablepress-id-117">
+  <tbody class="row-hover">
+  <tr class="row-1 odd">
+  <td class="column-1">参数</td>
+  <td class="column-2">作用</td>
+  </tr>
+  <tr class="row-2 even">
+  <td class="column-1">if</td>
+  <td class="column-2">输入的文件名称</td>
+  </tr>
+  <tr class="row-3 odd">
+  <td class="column-1">of</td>
+  <td class="column-2">输出的文件名称</td>
+  </tr>
+  <tr class="row-4 even">
+  <td class="column-1">bs</td>
+  <td class="column-2">设置每个“块”的大小</td>
+  </tr>
+  <tr class="row-5 odd">
+  <td class="column-1">count</td>
+  <td class="column-2">设置要复制“块”的个数</td>
+  </tr>
+  </tbody>
+  </table>
+
+dd命令的功能也绝不仅限于复制文件这么简单。如果您想把光驱设备中的光盘制作成iso格式的镜像文件，在Windows系统中需要借助于第三方软件才能做到，但在Linux系统中可以直接使用dd命令来压制出光盘镜像文件，将它变成一个可立即使用的iso镜像
+
+```shell
+[root@linuxprobe ~]# dd if=/dev/cdrom of=RHEL-server-7.0-x86_64-LinuxProbe.Com.iso
+7311360+0 records in
+7311360+0 records out
+3743416320 bytes (3.7 GB) copied, 370.758 s, 10.1 MB/s
+```
+
+* file 命令用于查看文件的类型
+
+* tar命令
+
+  tar命令用于对文件进行打包压缩或解压，格式为“tar [选项] [文件]”。
+
+  在Linux系统中，常见的文件格式比较多，其中主要使用的是.tar或.tar.gz或.tar.bz2格式，我们不用担心格式太多而记不住，其实这些格式大部分都是由tar命令来生成的。
+
+<table id="tablepress-32" class="tablepress tablepress-id-32">
+<tbody class="row-hover">
+<tr class="row-1 odd">
+<td class="column-1">参数</td>
+<td class="column-2">作用</td>
+</tr>
+<tr class="row-2 even">
+<td class="column-1">-c</td>
+<td class="column-2">创建压缩文件</td>
+</tr>
+<tr class="row-3 odd">
+<td class="column-1">-x</td>
+<td class="column-2">解开压缩文件</td>
+</tr>
+<tr class="row-4 even">
+<td class="column-1">-t</td>
+<td class="column-2">查看压缩包内有哪些文件</td>
+</tr>
+<tr class="row-5 odd">
+<td class="column-1">-z</td>
+<td class="column-2">用Gzip压缩或解压</td>
+</tr>
+<tr class="row-6 even">
+<td class="column-1">-j</td>
+<td class="column-2">用bzip2压缩或解压</td>
+</tr>
+<tr class="row-7 odd">
+<td class="column-1">-v</td>
+<td class="column-2">显示压缩或解压的过程</td>
+</tr>
+<tr class="row-8 even">
+<td class="column-1">-f</td>
+<td class="column-2">目标文件名</td>
+</tr>
+<tr class="row-9 odd">
+<td class="column-1">-p</td>
+<td class="column-2">保留原始的权限与属性</td>
+</tr>
+<tr class="row-10 even">
+<td class="column-1">-P</td>
+<td class="column-2">使用绝对路径来压缩</td>
+</tr>
+<tr class="row-11 odd">
+<td class="column-1">-C</td>
+<td class="column-2">指定解压到的目录</td>
+</tr>
+</tbody>
+</table>
+
+首先，-c参数用于创建压缩文件，-x参数用于解压文件，因此这两个参数不能同时使用。其次，-z参数指定使用Gzip格式来压缩或解压文件，-j参数指定使用bzip2格式来压缩或解压文件。用户使用时则是根据文件的后缀来决定应使用何种格式参数进行解压。在执行某些压缩或解压操作时，可能需要花费数个小时，如果屏幕一直没有输出，您一方面不好判断打包的进度情况，另一方面也会怀疑电脑死机了，因此非常推荐使用-v参数向用户不断显示压缩或解压的过程。-C参数用于指定要解压到哪个指定的目录。-f参数特别重要，它必须放到参数的最后一位，代表要压缩或解压的软件包名称。
+
+一般使用“tar -czvf 压缩包名称.tar.gz 要打包的目录”命令把指定的文件进行打包压缩；相应的解压命令为“tar -xzvf 压缩包名称.tar.gz”
+
+* grep
+
+  grep命令用于在文本中执行关键词搜索，并显示匹配的结果，格式为“grep [选项] [文件]”
+
+<table id="tablepress-23" class="tablepress tablepress-id-23">
+<tbody class="row-hover">
+<tr class="row-1 odd">
+<td class="column-1">参数</td>
+<td class="column-2">作用</td>
+</tr>
+<tr class="row-2 even">
+<td class="column-1">-b</td>
+<td class="column-2">将可执行文件(binary)当作文本文件（text）来搜索</td>
+</tr>
+<tr class="row-3 odd">
+<td class="column-1">-c</td>
+<td class="column-2">仅显示找到的行数</td>
+</tr>
+<tr class="row-4 even">
+<td class="column-1">-i</td>
+<td class="column-2">忽略大小写</td>
+</tr>
+<tr class="row-5 odd">
+<td class="column-1">-n</td>
+<td class="column-2">显示行号</td>
+</tr>
+<tr class="row-6 even">
+<td class="column-1">-v</td>
+<td class="column-2">反向选择——仅列出没有“关键词”的行。</td>
+</tr>
+</tbody>
+</table>
+
+* find
+
+  find命令用于按照指定条件来查找文件，格式为“find [查找路径] 寻找条件 操作”。
+
+<table id="tablepress-22" class="tablepress tablepress-id-22">
+<tbody class="row-hover">
+<tr class="row-1 odd">
+<td class="column-1">参数</td>
+<td class="column-2">作用</td>
+</tr>
+<tr class="row-2 even">
+<td class="column-1">-name</td>
+<td class="column-2">匹配名称</td>
+</tr>
+<tr class="row-3 odd">
+<td class="column-1">-perm</td>
+<td class="column-2">匹配权限（mode为完全匹配，-mode为包含即可）</td>
+</tr>
+<tr class="row-4 even">
+<td class="column-1">-user </td>
+<td class="column-2">匹配所有者</td>
+</tr>
+<tr class="row-5 odd">
+<td class="column-1">-group</td>
+<td class="column-2">匹配所有组</td>
+</tr>
+<tr class="row-6 even">
+<td class="column-1">-mtime -n +n</td>
+<td class="column-2">匹配修改内容的时间（-n指n天以内，+n指n天以前）</td>
+</tr>
+<tr class="row-7 odd">
+<td class="column-1">-atime -n +n</td>
+<td class="column-2">匹配访问文件的时间（-n指n天以内，+n指n天以前）</td>
+</tr>
+<tr class="row-8 even">
+<td class="column-1">-ctime -n +n</td>
+<td class="column-2">匹配修改文件权限的时间（-n指n天以内，+n指n天以前）</td>
+</tr>
+<tr class="row-9 odd">
+<td class="column-1">-nouser</td>
+<td class="column-2">匹配无所有者的文件</td>
+</tr>
+<tr class="row-10 even">
+<td class="column-1">-nogroup</td>
+<td class="column-2">匹配无所有组的文件</td>
+</tr>
+<tr class="row-11 odd">
+<td class="column-1">-newer f1 !f2</td>
+<td class="column-2">匹配比文件f1新但比f2旧的文件</td>
+</tr>
+<tr class="row-12 even">
+<td class="column-1">--type b/d/c/p/l/f</td>
+<td class="column-2">匹配文件类型（后面的字幕字母依次表示块设备、目录、字符设备、管道、链接文件、文本文件）</td>
+</tr>
+<tr class="row-13 odd">
+<td class="column-1">-size</td>
+<td class="column-2">匹配文件的大小（+50KB为查找超过50KB的文件，而-50KB为查找小于50KB的文件）</td>
+</tr>
+<tr class="row-14 even">
+<td class="column-1">-prune</td>
+<td class="column-2">忽略某个目录</td>
+</tr>
+<tr class="row-15 odd">
+<td class="column-1">-exec …… {}\;</td>
+<td class="column-2">后面可跟用于进一步处理搜索结果的命令（下文会有演示）</td>
+</tr>
+</tbody>
+</table>
+
+*在整个文件系统中找出所有归属于linuxprobe用户的文件并复制到/root/findresults目录*
+
+> 该实验的重点是“-exec {}   \;”参数，其中的{}表示find命令搜索出的每一个文件，并且命令的结尾必须是“\;”。完成该实验的具体命令如下
+
+```shell
+find / -user linuxprobe -exec cp -a {} /root/findresults/ \;
+```
