@@ -895,3 +895,242 @@ dd命令的功能也绝不仅限于复制文件这么简单。如果您想把光
 ```shell
 find / -user linuxprobe -exec cp -a {} /root/findresults/ \;
 ```
+
+# 第三章 管道符号、重定向、与环境变量
+
+### 输入输出重定向
+
+简而言之，输入重定向是指把文件导入到命令中，而输出重定向则是指把原本要输出到屏幕的数据信息写入到指定文件中。在日常的学习和工作中，相较于输入重定向，我们使用输出重定向的频率更高，所以又将输出重定向分为了标准输出重定向和错误输出重定向两种不同的技术，以及清空写入与追加写入两种模式。
+
+1. 标准输入重定向（STDIN，文件描述符为0）：默认从键盘输入，也可从其他文件或命令中输入。
+
+2. 标准输出重定向（STDOUT，文件描述符为1）：默认输出到屏幕。
+
+3. 错误输出重定向（STDERR，文件描述符为2）：默认输出到屏幕。
+   
+
+**输入重定向中用到的符号及其作用**
+
+<table id="tablepress-25" class="tablepress tablepress-id-25">
+<tbody class="row-hover">
+<tr class="row-1 odd">
+<td class="column-1">符号</td>
+<td class="column-2">作用</td>
+</tr>
+<tr class="row-2 even">
+<td class="column-1">命令 &lt; 文件</td>
+<td class="column-2">将文件作为命令的标准输入</td>
+</tr>
+<tr class="row-3 odd">
+<td class="column-1">命令 &lt;&lt; 分界符</td>
+<td class="column-2">从标准输入中读入，直到遇见分界符才停止</td>
+</tr>
+<tr class="row-4 even">
+<td class="column-1">命令 &lt; 文件1 &gt; 文件2</td>
+<td class="column-2">将文件1作为命令的标准输入并将标准输出到文件2</td>
+</tr>
+</tbody>
+</table>
+
+**输出重定向中用到的符号及其作用**
+
+<table id="tablepress-24" class="tablepress tablepress-id-24">
+<tbody class="row-hover">
+<tr class="row-1 odd">
+<td class="column-1">符号</td>
+<td class="column-2">作用</td>
+</tr>
+<tr class="row-2 even">
+<td class="column-1">命令 &gt; 文件</td>
+<td class="column-2">将标准输出重定向到一个文件中（清空原有文件的数据）</td>
+</tr>
+<tr class="row-3 odd">
+<td class="column-1">命令 2&gt; 文件</td>
+<td class="column-2">将错误输出重定向到一个文件中（清空原有文件的数据）</td>
+</tr>
+<tr class="row-4 even">
+<td class="column-1">命令 &gt;&gt; 文件</td>
+<td class="column-2">将标准输出重定向到一个文件中（追加到原有内容的后面）</td>
+</tr>
+<tr class="row-5 odd">
+<td class="column-1">命令 2&gt;&gt; 文件</td>
+<td class="column-2">将错误输出重定向到一个文件中（追加到原有内容的后面）</td>
+</tr>
+<tr class="row-6 even">
+<td class="column-1">命令 &gt;&gt; 文件 2&gt;&amp;1 <br>
+或<br>
+命令 &amp;&gt;&gt; 文件
+</td>
+<td class="column-2">将标准输出与错误输出共同写入到文件中（追加到原有内容的后面）</td>
+</tr>
+</tbody>
+</table>
+
+### 管道符命令
+
+同时按下键盘上的Shift+\键即可输入管道符，其执行格式为“命令A | 命令B”。管道命令符的作用也可以用一句话来概括“把前一个命令原本要输出到屏幕的标准正常数据当作是后一个命令的标准输入”。
+
+```shell
+ls -l /etc/ | more
+
+total 292
+drwxr-xr-x 1 root root       4096 Jul 25  2018 NetworkManager
+drwxr-xr-x 1 root root       4096 Jul 25  2018 X11
+drwxr-xr-x 1 root root       4096 Jul 25  2018 acpi
+-rw-r--r-- 1 root root       3028 Jul 25  2018 adduser.conf
+drwxr-xr-x 1 root root       4096 May 13 11:42 alternatives
+drwxr-xr-x 1 root root       4096 Jul 25  2018 apm
+drwxr-xr-x 1 root root       4096 Jul 25  2018 apparmor
+drwxr-xr-x 1 root root       4096 May 13 11:42 apparmor.d
+drwxr-xr-x 1 root root       4096 Jul 25  2018 apport
+drwxr-xr-x 1 root root       4096 May 14 10:43 apt
+-rw-r----- 1 root daemon      144 Feb 20  2018 at.deny
+-rw-r--r-- 1 root root       2319 Apr  5  2018 bash.bashrc
+-rw-r--r-- 1 root root         45 Apr  2  2018 bash_completion
+drwxr-xr-x 1 root root       4096 Jul 25  2018 bash_completion.d
+-rw-r--r-- 1 root root        367 Jan 27  2016 bindresvport.blacklist
+drwxr-xr-x 1 root root       4096 Apr 21  2018 binfmt.d
+--more--
+```
+
+在修改用户密码时，通常都需要输入两次密码以进行确认，这在编写自动化脚本时将成为一个非常致命的缺陷。通过把管道符和passwd命令的--stdin参数相结合，我们可以用一条命令来完成密码重置操作：
+
+```shell
+echo "root" | passwd --stdin root
+Changing password for user root.
+passwd: all authentication tokens updated successfully.
+```
+
+### 命令行通配符
+
+（*）代表匹配零个或多个字符，问号（?）代表匹配单个字符
+
+```shell
+ls -l /dev/sda*
+brw-rw----. 1 root disk 8, 0 May 4 15:55 /dev/sda
+brw-rw----. 1 root disk 8, 1 May 4 15:55 /dev/sda1
+brw-rw----. 1 root disk 8, 2 May 4 15:55 /dev/sda2
+
+ls -l /dev/sda?
+brw-rw----. 1 root disk 8, 1 May 4 15:55 /dev/sda1
+brw-rw----. 1 root disk 8, 2 May 4 15:55 /dev/sda2
+```
+除了使用[0-9]来匹配0~9之间的单个数字，也可以用[135]这样的方式仅匹配这三个指定数字中的一个，若没有匹配到，则不会显示出来:
+
+```shell
+ls -l /dev/sda[0-9]
+brw-rw----. 1 root disk 8, 1 May 4 15:55 /dev/sda1
+brw-rw----. 1 root disk 8, 2 May 4 15:55 /dev/sda2
+
+ls -l /dev/sda[135]
+brw-rw----. 1 root disk 8, 1 May 4 15:55 /dev/sda1
+```
+
+### 常用的转移字符
+
+1. 反斜杠（\）：使反斜杠后面的一个变量变为单纯的字符串。
+
+2. 单引号（''）：转义其中所有的变量为单纯的字符串。
+
+3. 双引号（""）：保留其中的变量属性，不进行转义处理。
+
+4. 反引号（``）：把其中的命令执行后返回结果。
+
+```shell
+PRICE=5
+echo "Price is $PRICE"
+Price is 5
+```
+
+接下来，我们希望能够输出“Price is $5”，即价格是5美元的字符串内容，但碰巧美元符号与变量提取符号合并后的$$作用是显示当前程序的进程ID号码，于是命令执行后输出的内容并不是我们所预期的：
+
+```shell
+echo "Price is $$PRICE" 
+Price is 3767PRICE
+
+# 使用转移字符(\)
+echo "Price is \$$PRICE"
+Price is $5
+```
+
+而如果只需要某个命令的输出值时，可以像`命令`这样，将命令用反引号括起来，达到预期的效果
+
+```shell
+echo `uname -a`
+Linux DESKTOP-74KAEQ3 4.4.0-17134-Microsoft #706-Microsoft Mon Apr 01 18:13:00 PST 2019 x86_64 x86_64 x86_64 GNU/Linux
+```
+
+### 重要的环节变量
+
+在Linux系统中，变量名称一般都是大写的，这是一种约定俗成的规范。
+
+在Linux系统中一切都是文件，Linux命令也不例外。那么，在用户执行了一条命令之后，Linux系统中到底发生了什么事情呢？简单来说，命令在Linux中的执行分为4个步骤。
+
+第1步：判断用户是否以绝对路径或相对路径的方式输入命令（如/bin/ls），如果是的话则直接执行。
+
+第2步：Linux系统检查用户输入的命令是否为“别名命令”，即用一个自定义的命令名称来替换原本的命令名称。可以用alias命令来创建一个属于自己的命令别名，格式为“alias 别名=命令”。若要取消一个命令别名，则是用unalias命令，格式为“unalias 别名”。
+
+第3步：Bash解释器判断用户输入的是内部命令还是外部命令。内部命令是解释器内部的指令，会被直接执行；而用户在绝大部分时间输入的是外部命令，这些命令交由步骤4继续处理。可以使用“type命令名称”来判断用户输入的命令是内部命令还是外部命令。
+
+第4步：系统在多个路径中查找用户输入的命令文件，而定义这些路径的变量叫作PATH，可以简单地把它理解成是“解释器的小助手”，作用是告诉Bash解释器待执行的命令可能存放的位置，然后Bash解释器就会乖乖地在这些位置中逐个查找。PATH是由多个路径值组成的变量，每个路径值之间用冒号间隔，对这些路径的增加和删除操作将影响到Bash解释器对Linux命令的查找。
+
+```shell
+echo $PATH
+/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin
+PATH=$PATH:/root/bin
+echo $PATH
+/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/root/bin
+```
+
+可以通过env命令来查看到Linux系统中所有的环境变量
+
+**Linux系统中最重要的10个环境变量**
+
+<table id="tablepress-33" class="tablepress tablepress-id-33">
+<tbody class="row-hover">
+<tr class="row-1 odd">
+<td class="column-1">变量名称</td>
+<td class="column-2">作用</td>
+</tr>
+<tr class="row-2 even">
+<td class="column-1">HOME</td>
+<td class="column-2">用户的主目录（即家目录）</td>
+</tr>
+<tr class="row-3 odd">
+<td class="column-1">SHELL</td>
+<td class="column-2">用户在使用的Shell解释器名称</td>
+</tr>
+<tr class="row-4 even">
+<td class="column-1">HISTSIZE</td>
+<td class="column-2">输出的历史命令记录条数</td>
+</tr>
+<tr class="row-5 odd">
+<td class="column-1">HISTFILESIZE</td>
+<td class="column-2">保存的历史命令记录条数</td>
+</tr>
+<tr class="row-6 even">
+<td class="column-1">MAIL</td>
+<td class="column-2">邮件保存路径</td>
+</tr>
+<tr class="row-7 odd">
+<td class="column-1">LANG</td>
+<td class="column-2">系统语言、语系名称</td>
+</tr>
+<tr class="row-8 even">
+<td class="column-1">RANDOM</td>
+<td class="column-2">生成一个随机数字</td>
+</tr>
+<tr class="row-9 odd">
+<td class="column-1">PS1</td>
+<td class="column-2">Bash解释器的提示符</td>
+</tr>
+<tr class="row-10 even">
+<td class="column-1">PATH</td>
+<td class="column-2">定义解释器搜索用户执行命令的路径</td>
+</tr>
+<tr class="row-11 odd">
+<td class="column-1">EDITOR</td>
+<td class="column-2">用户默认的文本编辑器</td>
+</tr>
+</tbody>
+</table>
