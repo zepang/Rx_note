@@ -1134,3 +1134,174 @@ echo $PATH
 </tr>
 </tbody>
 </table>
+
+# 第四章 vim编辑器与shell命令脚本
+
+### vim编辑器
+
+vim模式
+
+1. 命令模式：控制光标移动，可对文本进行复制、粘贴、删除和查找等工作。
+
+2. 输入模式：正常的文本录入。
+
+3. 末行模式：保存或退出文档，以及设置编辑环境。
+
+**vim常用命令**
+
+<table id="tablepress-36" class="tablepress tablepress-id-36">
+<tbody class="row-hover">
+<tr class="row-1 odd">
+<td class="column-1">命令</td>
+<td class="column-2">作用</td>
+</tr>
+<tr class="row-2 even">
+<td class="column-1">dd</td>
+<td class="column-2">删除（剪切）光标所在整行</td>
+</tr>
+<tr class="row-3 odd">
+<td class="column-1">5dd</td>
+<td class="column-2">删除（剪切）从光标处开始的5行</td>
+</tr>
+<tr class="row-4 even">
+<td class="column-1">yy</td>
+<td class="column-2">复制光标所在整行</td>
+</tr>
+<tr class="row-5 odd">
+<td class="column-1">5yy</td>
+<td class="column-2">复制从光标处开始的5行</td>
+</tr>
+<tr class="row-6 even">
+<td class="column-1">n</td>
+<td class="column-2">显示搜索命令定位到的下一个字符串</td>
+</tr>
+<tr class="row-7 odd">
+<td class="column-1">N</td>
+<td class="column-2">显示搜索命令定位到的上一个字符串</td>
+</tr>
+<tr class="row-8 even">
+<td class="column-1">u</td>
+<td class="column-2">撤销上一步的操作</td>
+</tr>
+<tr class="row-9 odd">
+<td class="column-1">p</td>
+<td class="column-2">将之前删除（dd）或复制（yy）过的数据粘贴到光标后面</td>
+</tr>
+</tbody>
+</table>
+
+**末行模式中可用的命令**
+
+<table id="tablepress-37" class="tablepress tablepress-id-37">
+<tbody class="row-hover">
+<tr class="row-1 odd">
+<td class="column-1">命令</td>
+<td class="column-2">作用</td>
+</tr>
+<tr class="row-2 even">
+<td class="column-1">:w</td>
+<td class="column-2">保存</td>
+</tr>
+<tr class="row-3 odd">
+<td class="column-1">:q</td>
+<td class="column-2">退出</td>
+</tr>
+<tr class="row-4 even">
+<td class="column-1">:q!</td>
+<td class="column-2">强制退出（放弃对文档的修改内容）</td>
+</tr>
+<tr class="row-5 odd">
+<td class="column-1">:wq!</td>
+<td class="column-2">强制保存退出</td>
+</tr>
+<tr class="row-6 even">
+<td class="column-1">:set nu</td>
+<td class="column-2">显示行号</td>
+</tr>
+<tr class="row-7 odd">
+<td class="column-1">:set nonu</td>
+<td class="column-2">不显示行号</td>
+</tr>
+<tr class="row-8 even">
+<td class="column-1">:命令</td>
+<td class="column-2">执行该命令</td>
+</tr>
+<tr class="row-9 odd">
+<td class="column-1">:整数</td>
+<td class="column-2">跳转到该行</td>
+</tr>
+<tr class="row-10 even">
+<td class="column-1">:s/one/two</td>
+<td class="column-2">将当前光标所在行的第一个one替换成two</td>
+</tr>
+<tr class="row-11 odd">
+<td class="column-1">:s/one/two/g</td>
+<td class="column-2">将当前光标所在行的所有one替换成two</td>
+</tr>
+<tr class="row-12 even">
+<td class="column-1">:%s/one/two/g</td>
+<td class="column-2">将全文中的所有one替换成two</td>
+</tr>
+<tr class="row-13 odd">
+<td class="column-1">?字符串</td>
+<td class="column-2">在文本中从下至上搜索该字符串</td>
+</tr>
+<tr class="row-14 even">
+<td class="column-1">/字符串</td>
+<td class="column-2">在文本中从上至下搜索该字符串</td>
+</tr>
+</tbody>
+</table>
+
+### 配置主机名称
+
+vim /etc/hostname
+
+### 配置网卡信息
+
+1. 首先切换到/etc/sysconfig/network-scripts目录中（存放着网卡的配置文件）
+2. 使用Vim编辑器修改网卡文件ifcfg-eno16777736，逐项写入下面的配置参数并保存退出。由于每台设备的硬件及架构是不一样的，因此请读者使用ifconfig命令自行确认各自网卡的默认名称。
+
+    ```
+    设备类型：TYPE=Ethernet
+
+    地址分配模式：BOOTPROTO=static
+
+    网卡名称：NAME=eno16777736
+
+    是否启动：ONBOOT=yes
+
+    IP地址：IPADDR=192.168.10.10
+
+    子网掩码：NETMASK=255.255.255.0
+
+    网关地址：GATEWAY=192.168.10.1
+
+    DNS地址：DNS1=192.168.10.1
+    ```
+
+    ```shell
+    cd /etc/sysconfig/network-scripts/
+    vim ifcfg-eno16777736
+
+    TYPE=Ethernet
+    BOOTPROTO=static
+    NAME=eno16777736
+    ONBOOT=yes
+    IPADDR=192.168.10.10
+    NETMASK=255.255.255.0
+    GATEWAY=192.168.10.1
+    DNS1=192.168.10.1
+    ```
+3. 重启网络服务并测试网络是否联通。
+    ```shell
+    systemctl restart network
+    ping 192.168.10.10
+    64 bytes from 192.168.10.10: icmp_seq=1 ttl=64 time=0.081 ms
+    64 bytes from 192.168.10.10: icmp_seq=2 ttl=64 time=0.083 ms
+    64 bytes from 192.168.10.10: icmp_seq=3 ttl=64 time=0.059 ms
+    64 bytes from 192.168.10.10: icmp_seq=4 ttl=64 time=0.097 ms
+    ```
+
+### 配置yum仓库
+
