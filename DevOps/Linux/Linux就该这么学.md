@@ -1305,3 +1305,338 @@ vim /etc/hostname
 
 ### 配置yum仓库
 
+1. 进入到/etc/yum.repos.d/目录中（因为该目录存放着Yum软件仓库的配置文件）。
+2. 使用Vim编辑器创建一个名为rhel7.repo的新配置文件（文件名称可随意，但后缀必须为.repo），逐项写入下面加粗的配置参数并保存退出（不要写后面的中文注释）。
+
+```shell
+[rhel-media] ：Yum软件仓库唯一标识符，避免与其他仓库冲突。
+
+name=linuxprobe：Yum软件仓库的名称描述，易于识别仓库用处。
+
+baseurl=file:///media/cdrom：提供的方式包括FTP（ftp://..）、HTTP（http://..）、本地（file:///..）。
+
+enabled=1：设置此源是否可用；1为可用，0为禁用。
+
+gpgcheck=1：设置此源是否校验文件；1为校验，0为不校验。
+
+gpgkey=file:///media/cdrom/RPM-GPG-KEY-redhat-release：若上面参数开启校验，那么请指定公钥文件地址。
+```
+
+3. 按配置参数的路径挂载光盘，并把光盘挂载信息写入到/etc/fstab文件中。
+
+### 编写shell脚本
+
+demo.sh
+
+```sh
+#!/bin/bash 
+#For Example BY linuxprobe.com 
+pwd 
+ls -al
+```
+
+Shell脚本文件的名称可以任意，但为了避免被误以为是普通文件，建议将.sh后缀加上，以表示是一个脚本文件。在上面的这个example.sh脚本中实际上出现了三种不同的元素：第一行的脚本声明（#!）用来告诉系统使用哪种Shell解释器来执行该脚本；第二行的注释信息（#）是对脚本功能和某些命令的介绍信息，使得自己或他人在日后看到这个脚本内容时，可以快速知道该脚本的作用或一些警告信息；第三、四行的可执行语句也就是我们平时执行的Linux命令了。
+
+通常有两种方式执行这个脚本，一种是使用bash解释器命令直接运行Shell脚本，另一种是通过输入完整路径的方式来执行。
+
+```shell
+bash demo.sh
+
+./demo.sh
+```
+通常第二种方式会因为权限不足无法执行，需要增加权限`chmod u+x demo.sh`
+
+#### 接受参数
+
+`./demo.sh one two three four five` 
+
+```sh
+#!/bin/bash
+echo "当前脚本名称为$0"
+echo "总共有$#个参数，分别是$*。"
+echo "第1个参数为$1，第5个为$5。"
+```
+
+linux中的shell语言已经内设了用于接收参数的变量，变量之间可以使用空格间隔。例如$0对应的是当前Shell脚本程序的名称，$#对应的是总共有几个参数，$*对应的是所有位置的参数值，$?对应的是显示上一次命令的执行返回值，而$1、$2、$3……则分别对应着第N个位置的参数值。
+
+#### 判断用户参数
+
+shell脚本中的条件测试语法可以判断表达式是否成立，若条件成立则返回0，否则返回其他的随机数字。语法为`[ expression ]`，**注意：表达式两边均有一个空格**。
+
+按照测试对象来划分，条件测试语句可以分为4种：
+
+1. 文件测试语句；
+
+2. 逻辑测试语句；
+
+3. 整数值比较语句；
+
+4. 字符串比较语句。
+
+**文件测试所用的参数**
+
+<table id="tablepress-90" class="tablepress tablepress-id-90">
+<tbody class="row-hover">
+<tr class="row-1 odd">
+<td class="column-1">操作符</td>
+<td class="column-2">作用</td>
+</tr>
+<tr class="row-2 even">
+<td class="column-1">-d</td>
+<td class="column-2">测试文件是否为目录类型</td>
+</tr>
+<tr class="row-3 odd">
+<td class="column-1">-e</td>
+<td class="column-2">测试文件是否存在</td>
+</tr>
+<tr class="row-4 even">
+<td class="column-1">-f</td>
+<td class="column-2">判断是否为一般文件</td>
+</tr>
+<tr class="row-5 odd">
+<td class="column-1">-r</td>
+<td class="column-2">测试当前用户是否有权限读取</td>
+</tr>
+<tr class="row-6 even">
+<td class="column-1">-w</td>
+<td class="column-2">测试当前用户是否有权限写入</td>
+</tr>
+<tr class="row-7 odd">
+<td class="column-1">-x</td>
+<td class="column-2">测试当前用户是否有权限执行</td>
+</tr>
+</tbody>
+</table>
+
+下面使用文件测试语句来判断/etc/fstab是否为一个目录类型的文件，然后通过Shell解释器的内设$?变量显示上一条命令执行后的返回值。如果返回值为0，则目录存在；如果返回值为非零的值，则意味着目录不存在：
+
+```shell
+[ -d /etc/fstab ]
+echo $?
+1
+```
+
+逻辑语句：
+```shell
+[ -e /dev/cdrom ] && echo "Exist"
+
+[ $USER = root ] || echo "user"
+
+[ $USER != root ] || echo "administrator"
+```
+
+整数比较运算符仅是对数字的操作，不能将数字与字符串、文件等内容一起操作，而且不能想当然地使用日常生活中的等号、大于号、小于号等来判断。因为等号与赋值命令符冲突，大于号和小于号分别与输出重定向命令符和输入重定向命令符冲突。因此一定要使用规范的整数比较运算符来进行操作。
+
+**可用的整数比较运算符**
+
+<table id="tablepress-91" class="tablepress tablepress-id-91">
+<tbody class="row-hover">
+<tr class="row-1 odd">
+<td class="column-1">操作符</td>
+<td class="column-2">作用</td>
+</tr>
+<tr class="row-2 even">
+<td class="column-1">-eq</td>
+<td class="column-2">是否等于</td>
+</tr>
+<tr class="row-3 odd">
+<td class="column-1">-ne</td>
+<td class="column-2">是否不等于</td>
+</tr>
+<tr class="row-4 even">
+<td class="column-1">-gt</td>
+<td class="column-2">是否大于</td>
+</tr>
+<tr class="row-5 odd">
+<td class="column-1">-lt</td>
+<td class="column-2">是否小于</td>
+</tr>
+<tr class="row-6 even">
+<td class="column-1">-le</td>
+<td class="column-2">是否等于或小于</td>
+</tr>
+<tr class="row-7 odd">
+<td class="column-1">-ge</td>
+<td class="column-2">是否大于或等于</td>
+</tr>
+</tbody>
+</table>
+
+**常见的字符串比较运算符**
+
+<table id="tablepress-92" class="tablepress tablepress-id-92">
+<tbody class="row-hover">
+<tr class="row-1 odd">
+<td class="column-1">操作符</td>
+<td class="column-2">作用</td>
+</tr>
+<tr class="row-2 even">
+<td class="column-1">=</td>
+<td class="column-2">比较字符串内容是否相同</td>
+</tr>
+<tr class="row-3 odd">
+<td class="column-1">!=</td>
+<td class="column-2">比较字符串内容是否不同</td>
+</tr>
+<tr class="row-4 even">
+<td class="column-1">-z</td>
+<td class="column-2">判断字符串内容是否为空</td>
+</tr>
+</tbody>
+</table>
+
+### 流程控制语句
+
+if, for, while, case
+
+#### if
+
+```sh
+if # 条件测试
+    then 命令
+fi
+
+if # 条件测试
+    then 命令
+    else 命令
+fi
+
+if # 条件测试
+    then 命令
+elif # 条件测试
+    then 命令
+else 
+    命令
+fi
+
+在Linux系统中，read是用来读取用户输入信息的命令，能够把接收到的用户输入信息赋值给后面的指定变量，-p参数用于向用户显示一定的提示信息。在下面的脚本示例中，只有当用户输入的分数大于等于85分且小于等于100分，才输出Excellent字样；若分数不满足该条件（即匹配不成功），则继续判断分数是否大于等于70分且小于等于84分，如果是，则输出Pass字样；若两次都落空（即两次的匹配操作都失败了），则输出Fail字样：
+
+```sh
+#!/bin/bash
+
+read -p "Enter your score（0-100）：" GRADE
+if [ $GRADE -ge 85 ] && [ $GRADE -le 100 ] ; then
+echo "$GRADE is Excellent"
+elif [ $GRADE -ge 70 ] && [ $GRADE -le 84 ] ; then
+echo "$GRADE is Pass"
+else
+echo "$GRADE is Fail" 
+fi
+```
+
+#### for
+
+```sh
+for 变量名 in 取值列表
+do 
+    命令
+done
+```
+/dev/null是一个被称作Linux黑洞的文件，把输出信息重定向到这个文件等同于删除数据（类似于没有回收功能的垃圾箱），可以让用户的屏幕窗口保持简洁。
+
+
+#### while
+
+```sh
+while 条件测试
+do
+    命令
+done
+```
+
+#### case 
+
+```sh
+case 变量 in 
+模式1)
+    命令
+    ;;
+模式2)
+    命令
+    ;;
+*)
+    默认命令
+easc
+```
+
+#### 计划任务程序
+
+计划任务分为**一次性计划任务**与**长期性计划任务**。
+
+顾名思义，一次性计划任务只执行一次，一般用于满足临时的工作需求。我们可以用at命令实现这种功能，只需要写成“at 时间”的形式就可以。如果想要查看已设置好但还未执行的一次性计划任务，可以使用“at -l”命令；要想将其删除，可以用“atrm 任务序号”。
+
+```shell
+at 23:30
+at > systemctl restart httpd
+at > 此处请同时按下Ctrl+d来结束编写计划任务
+job 3 at Mon Apr 27 23:30:00 2015
+```
+
+如果读者想挑战一下难度更大但简捷性更高的方式，可以把前面学习的管道符（任意门）放到两条命令之间，让at命令接收前面echo命令的输出信息，以达到通过非交互式的方式创建计划一次性任务的目的。
+
+```shell
+echo "systemctl restart httpd" | at 23:30
+job 4 at Mon Apr 27 23:30:00 2015
+```
+
+如果我们不小心设置了两个一次性计划任务，可以使用下面的命令轻松删除其中一个：
+
+```shell
+atrm 3
+```
+
+如果我们希望Linux系统能够周期性地、有规律地执行某些具体的任务，那么Linux系统中默认启用的crond服务简直再适合不过了。创建、编辑计划任务的命令为“crontab -e”，查看当前计划任务的命令为“crontab -l”，删除某条计划任务的命令为“crontab -r”。另外，如果您是以管理员的身份登录的系统，还可以在crontab命令中加上-u参数来编辑他人的计划任务。
+
+![](./cron计划任务的参数.png)
+
+<table id="tablepress-57" class="tablepress tablepress-id-57">
+<tbody class="row-hover">
+<tr class="row-1 odd">
+<td class="column-1">字段</td>
+<td class="column-2">说明</td>
+</tr>
+<tr class="row-2 even">
+<td class="column-1">分钟</td>
+<td class="column-2">取值为0～59的整数</td>
+</tr>
+<tr class="row-3 odd">
+<td class="column-1">小时</td>
+<td class="column-2">取值为0～23的任意整数</td>
+</tr>
+<tr class="row-4 even">
+<td class="column-1">日期</td>
+<td class="column-2">取值为1～31的任意整数</td>
+</tr>
+<tr class="row-5 odd">
+<td class="column-1">月份</td>
+<td class="column-2">取值为1～12的任意整数</td>
+</tr>
+<tr class="row-6 even">
+<td class="column-1">星期</td>
+<td class="column-2">取值为0～7的任意整数，其中0与7均为星期日</td>
+</tr>
+<tr class="row-7 odd">
+<td class="column-1">命令</td>
+<td class="column-2">要执行的命令或程序脚本</td>
+</tr>
+</tbody>
+</table>
+
+假设在每周一、三、五的凌晨3点25分，都需要使用tar命令把某个网站的数据目录进行打包处理，使其作为一个备份文件。我们可以使用crontab -e命令来创建计划任务。为自己创建计划任务无需使用-u参数，具体的实现效果的参数如crontab -l命令结果所示：
+
+```shell
+crontab -e
+no crontab for root - using an empty one
+crontab: installing new crontab
+
+crontab -l
+25 3 * * 1,3,5 /usr/bin/tar -czvf backup.tar.gz /home/wwwroot
+```
+
+需要说明的是，除了用逗号（,）来分别表示多个时间段，例如“8,9,12”表示8月、9月和12月。还可以用减号（-）来表示一段连续的时间周期（例如字段“日”的取值为“12-15”，则表示每月的12～15日）。以及用除号（/）表示执行任务的间隔时间（例如“*/2”表示每隔2分钟执行一次任务）。
+
+如果在crond服务中需要同时包含多条计划任务的命令语句，应每行仅写一条。例如我们再添加一条计划任务，它的功能是每周一至周五的凌晨1点钟自动清空/tmp目录内的所有文件。尤其需要注意的是，在crond服务的计划任务参数中，所有命令一定要用绝对路径的方式来写，如果不知道绝对路径，请用whereis命令进行查询，rm命令路径为下面输出信息中加粗部分。
+
+`whereis rm`
+
+rm: **/bin/rm** /usr/share/man/man1/rm.1.gz
