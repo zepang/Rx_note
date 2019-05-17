@@ -84,3 +84,8 @@
 * [cssanimate](http://cssanimate.com/) 
 * [magic_animations](https://www.minimamente.com/example/magic_animations/)
 * [sprite-generator](https://www.toptal.com/developers/css/sprite-generator)
+
+## UI Component
+* [https://www.jqwidgets.com/](https://www.jqwidgets.com/)
+
+![](./imgs/www.jqwidgets.com.jpg)
