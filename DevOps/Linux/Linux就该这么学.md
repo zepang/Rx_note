@@ -1640,3 +1640,432 @@ crontab -l
 `whereis rm`
 
 rm: **/bin/rm** /usr/share/man/man1/rm.1.gz
+
+# 第五章 用户身份与权限
+
+很多图书或培训机构的老师会讲到，Linux系统中的管理员就是root。这其实是错误的，Linux系统的管理员之所以是root，并不是因为它的名字叫root，而是因为该用户的身份号码即UID（User IDentification）的数值为0。在Linux系统中，UID就相当于我们的身份证号码一样具有唯一性，因此可通过用户的UID值来判断用户身份。在RHEL 7系统中，用户身份有下面这些。
+
+1. 管理员UID为0：系统的管理员用户。
+
+2. 系统用户UID为1～999： Linux系统为了避免因某个服务程序出现漏洞而被黑客提权至整台服务器，默认服务程序会有独立的系统用户负责运行，进而有效控制被破坏范围。
+
+3. 普通用户UID从1000开始：是由管理员创建的用于日常工作的用户。
+
+为了方便管理属于同一组的用户，Linux系统中还引入了用户组的概念。通过使用用户组号码（GID，Group IDentification），我们可以把多个用户加入到同一个组中，从而方便为组中的用户统一规划权限或指定任务。假设有一个公司中有多个部门，每个部门中又有很多员工。如果只想让员工访问本部门内的资源，则可以针对部门而非具体的员工来设置权限。例如，可以通过对技术部门设置权限，使得只有技术部门的员工可以访问公司的数据库信息等。
+
+另外，在Linux系统中创建每个用户时，将自动创建一个与其同名的基本用户组，而且这个基本用户组只有该用户一个人。如果该用户以后被归纳入其他用户组，则这个其他用户组称之为扩展用户组。一个用户只有一个基本用户组，但是可以有多个扩展用户组，从而满足日常的工作需要。
+
+### useradd 命令
+
+useradd 命令用于创建新的用户， 格式为'useradd[选项]'用户名。
+
+可以使用该命令创建用户账户。使用该命令创建用户时，默认的用户家目录存放在 /home 目录中，默认的 Shell 解释器为/bin/bash，而且默认会创建一个与该用户同名的基本用户组。
+
+**useradd命令中的用户参数以及作用**
+
+<table id="tablepress-18" class="tablepress tablepress-id-18">
+<tbody class="row-hover">
+<tr class="row-1 odd">
+<td class="column-1">参数</td>
+<td class="column-2">作用</td>
+</tr>
+<tr class="row-2 even">
+<td class="column-1">-d</td>
+<td class="column-2">指定用户的家目录（默认为/home/username）</td>
+</tr>
+<tr class="row-3 odd">
+<td class="column-1">-e</td>
+<td class="column-2">账户的到期时间，格式为YYYY-MM-DD.</td>
+</tr>
+<tr class="row-4 even">
+<td class="column-1">-u</td>
+<td class="column-2">指定该用户的默认UID</td>
+</tr>
+<tr class="row-5 odd">
+<td class="column-1">-g</td>
+<td class="column-2">指定一个初始的用户基本组（必须已存在）</td>
+</tr>
+<tr class="row-6 even">
+<td class="column-1">-G</td>
+<td class="column-2">指定一个或多个扩展用户组</td>
+</tr>
+<tr class="row-7 odd">
+<td class="column-1">-N</td>
+<td class="column-2">不创建与用户同名的基本用户组</td>
+</tr>
+<tr class="row-8 even">
+<td class="column-1">-s</td>
+<td class="column-2">指定该用户的默认<a href="https://www.linuxcool.com/" title="shell" target="_blank">Shell</a>解释器</td>
+</tr>
+</tbody>
+</table>
+
+### groupadd 命令
+
+groupadd命令用于创建用户组，格式为“groupadd [选项] 群组名”。
+
+为了能够更加高效地指派系统中各个用户的权限，在工作中常常会把几个用户加入到同一个组里面。
+
+### usermod 命令
+
+usermod命令用于修改用户的属性，格式为“usermod [选项] 用户名”。
+
+前文曾反复强调，Linux系统中的一切都是文件，因此在系统中创建用户也就是修改配置文件的过程。用户的信息保存在/etc/passwd文件中，可以直接用文本编辑器来修改其中的用户参数项目，也可以用usermod命令修改已经创建的用户信息，诸如用户的UID、基本/扩展用户组、默认终端等。
+
+**usermod命令中的参数及作用**
+
+<table id="tablepress-20" class="tablepress tablepress-id-20">
+<tbody class="row-hover">
+<tr class="row-1 odd">
+<td class="column-1">参数</td>
+<td class="column-2">作用</td>
+</tr>
+<tr class="row-2 even">
+<td class="column-1">-c</td>
+<td class="column-2">填写用户账户的备注信息</td>
+</tr>
+<tr class="row-3 odd">
+<td class="column-1">-d -m</td>
+<td class="column-2">参数-m与参数-d连用，可重新指定用户的家目录并自动把旧的数据转移过去</td>
+</tr>
+<tr class="row-4 even">
+<td class="column-1">-e</td>
+<td class="column-2">账户的到期时间，格式为YYYY-MM-DD</td>
+</tr>
+<tr class="row-5 odd">
+<td class="column-1">-g</td>
+<td class="column-2">变更所属用户组</td>
+</tr>
+<tr class="row-6 even">
+<td class="column-1">-G</td>
+<td class="column-2">变更扩展用户组</td>
+</tr>
+<tr class="row-7 odd">
+<td class="column-1">-L</td>
+<td class="column-2">锁定用户禁止其登录系统</td>
+</tr>
+<tr class="row-8 even">
+<td class="column-1">-U</td>
+<td class="column-2">解锁用户，允许其登录系统</td>
+</tr>
+<tr class="row-9 odd">
+<td class="column-1">-s</td>
+<td class="column-2">变更默认终端</td>
+</tr>
+<tr class="row-10 even">
+<td class="column-1">-u</td>
+<td class="column-2">修改用户的UID</td>
+</tr>
+</tbody>
+</table>
+
+添加用户组：
+
+```shell
+id laizehai
+uid=1000(laizehai) gid=1000(laizehai) groups=1000(laizehai)
+
+usermod -G root laizehai
+id laizehai
+uid=1000(laizehai) gid=1000(laizehai) groups=1000(laizehai),0(root)
+```
+
+### passwd 命令
+
+passwd命令用于修改用户密码、过期时间、认证信息等，格式为“passwd [选项] [用户名]”。
+
+普通用户只能使用passwd命令修改自身的系统密码，而root管理员则有权限修改其他所有人的密码。更酷的是，root管理员在Linux系统中修改自己或他人的密码时不需要验证旧密码，这一点特别方便。既然root管理员可以修改其他用户的密码，就表示完全拥有该用户的管理权限。
+
+<table id="tablepress-19" class="tablepress tablepress-id-19">
+<tbody class="row-hover">
+<tr class="row-1 odd">
+<td class="column-1">参数</td>
+<td class="column-2">作用</td>
+</tr>
+<tr class="row-2 even">
+<td class="column-1">-l</td>
+<td class="column-2">锁定用户，禁止其登录</td>
+</tr>
+<tr class="row-3 odd">
+<td class="column-1">-u</td>
+<td class="column-2">解除锁定，允许用户登录</td>
+</tr>
+<tr class="row-4 even">
+<td class="column-1">--stdin</td>
+<td class="column-2">允许通过标准输入修改用户密码，如echo "NewPassWord" | passwd --stdin Username</td>
+</tr>
+<tr class="row-5 odd">
+<td class="column-1">-d</td>
+<td class="column-2">使该用户可用空密码登录系统</td>
+</tr>
+<tr class="row-6 even">
+<td class="column-1">-e</td>
+<td class="column-2">强制用户在下次登录时修改密码</td>
+</tr>
+<tr class="row-7 odd">
+<td class="column-1">-S</td>
+<td class="column-2">显示用户的密码是否被锁定，以及密码所采用的加密算法名称</td>
+</tr>
+</tbody>
+</table>
+
+```shell
+passwd
+
+Changing password for laizehai.
+(current) UNIX password:
+Enter new UNIX password:
+Retype new UNIX password:
+passwd: password updated successfully
+```
+假设您有位同事正在度假，而且假期很长，那么可以使用passwd命令禁止该用户登录系统，等假期结束回归工作岗位时，再使用该命令允许用户登录系统，而不是将其删除。这样既保证了这段时间内系统的安全，也避免了频繁添加、删除用户带来的麻烦：
+
+```shell
+[root@linuxprobe ~]# passwd -l linuxprobe
+Locking password for user linuxprobe.
+passwd: Success
+[root@linuxprobe ~]# passwd -S linuxprobe
+linuxprobe LK 2017-12-26 0 99999 7 -1 (Password locked.)
+[root@linuxprobe ~]# passwd -u linuxprobe
+Unlocking password for user linuxprobe.
+passwd: Success
+[root@linuxprobe ~]# passwd -S linuxprobe
+linuxprobe PS 2017-12-26 0 99999 7 -1 (Password set, SHA512 crypt.)
+```
+
+### userdel
+
+userdel命令用于删除用户，格式为“userdel [选项] 用户名”。
+
+<table id="tablepress-21" class="tablepress tablepress-id-21">
+<tbody class="row-hover">
+<tr class="row-1 odd">
+<td class="column-1">参数</td>
+<td class="column-2">作用</td>
+</tr>
+<tr class="row-2 even">
+<td class="column-1">-f</td>
+<td class="column-2">强制删除用户</td>
+</tr>
+<tr class="row-3 odd">
+<td class="column-1">-r</td>
+<td class="column-2">同时删除用户及用户家目录</td>
+</tr>
+</tbody>
+</table>
+
+### 文件的权限与归属
+
+尽管在Linux系统中一切都是文件，但是每个文件的类型不尽相同，因此Linux系统使用了不同的字符来加以区分，常见的字符如下所示。
+
+        -：普通文件。
+
+        d：目录文件。
+
+        l：链接文件。
+
+        b：块设备文件。
+
+        c：字符设备文件。
+
+        p：管道文件。
+
+
+在Linux系统中，每个文件都有所属的所有者和所有组，并且规定了文件的所有者、所有组以及其他人对文件所拥有的可读（r）、可写（w）、可执行（x）等权限。对于一般文件来说，权限比较容易理解：“可读”表示能够读取文件的实际内容；“可写”表示能够编辑、新增、修改、删除文件的实际内容；“可执行”则表示能够运行一个脚本程序。但是，对于目录文件来说，理解其权限设置来就不那么容易了。很多资深Linux用户其实也没有真正搞明白。
+
+对目录文件来说，“可读”表示能够读取目录内的文件列表；“可写”表示能够在目录内新增、删除、重命名文件；而“可执行”则表示能够进入该目录。
+
+文件的读、写、执行权限可以简写为rwx，亦可分别用数字4、2、1来表示，文件所有者，所属组及其他用户权限之间无关联
+
+![](./权限值.png)
+
+文件权限的数字法表示基于字符表示（rwx）的权限计算而来，其目的是简化权限的表示。例如，若某个文件的权限为7则代表可读、可写、可执行（4+2+1）；若权限为6则代表可读、可写（4+2）。
+
+1[](./文件权限.png)
+
+包含了文件的类型、访问权限、所有者（属主）、所属组（属组）、占用的磁盘大小、修改时间和文件名称等信息。通过分析可知，该文件的类型为普通文件，所有者权限为可读、可写（rw-），所属组权限为可读（r--），除此以外的其他人也只有可读权限（r--），文件的磁盘占用大小是34298字节，最近一次的修改时间为4月2日的凌晨23分，文件的名称为install.log。
+
+### 文件的特殊权限
+
+在复杂多变的生产环境中，单纯设置文件的rwx权限无法满足我们对安全和灵活性的需求，因此便有了SUID、SGID与SBIT的特殊权限位。这是一种对文件权限进行设置的特殊功能，可以与一般权限同时使用，以弥补一般权限不能实现的功能。
+
+1. SUID
+
+SUID是一种对二进制程序进行设置的特殊权限，可以让二进制程序的执行者临时拥有属主的权限（仅对拥有执行权限的二进制程序有效）。例如，所有用户都可以执行passwd命令来修改自己的用户密码，而用户密码保存在/etc/shadow文件中。仔细查看这个文件就会发现它的默认权限是000，也就是说除了root管理员以外，所有用户都没有查看或编辑该文件的权限。但是，在使用passwd命令时如果加上SUID特殊权限位，就可让普通用户临时获得程序所有者的身份，把变更的密码信息写入到shadow文件中。这很像我们在古装剧中见到的手持尚方宝剑的钦差大臣，他手持的尚方宝剑代表的是皇上的权威，因此可以惩戒贪官，但这并不意味着他永久成为了皇上。因此这只是一种有条件的、临时的特殊权限授权方法。
+
+查看passwd命令属性时发现所有者的权限由rwx变成了rws，其中x改变成s就意味着该文件被赋予了SUID权限。另外有读者会好奇，那么如果原本的权限是rw-呢？如果原先权限位上没有x执行权限，那么被赋予特殊权限后将变成大写的S。
+
+```shell
+[root@linuxprobe ~]# ls -l /etc/shadow
+----------. 1 root root 1004 Jan 3 06:23 /etc/shadow
+[root@linuxprobe ~]# ls -l /bin/passwd
+-rwsr-xr-x. 1 root root 27832 Jan 29 2017 /bin/passwd
+```
+
+2. SGID
+
+SGID主要实现如下两种功能：
+
+    让执行者临时拥有属组的权限（对拥有执行权限的二进制程序进行设置）；
+
+    在某个目录中创建的文件自动继承该目录的用户组（只可以对目录进行设置）。
+
+
+SGID的第一种功能是参考SUID而设计的，不同点在于执行程序的用户获取的不再是文件所有者的临时权限，而是获取到文件所属组的权限。
+
+前文提到，每个文件都有其归属的所有者和所属组，当创建或传送一个文件后，这个文件就会自动归属于执行这个操作的用户（即该用户是文件的所有者）。如果现在需要在一个部门内设置共享目录，让部门内的所有人员都能够读取目录中的内容，那么就可以创建部门共享目录后，在该目录上设置SGID特殊权限位。这样，部门内的任何人员在里面创建的任何文件都会归属于该目录的所属组，而不再是自己的基本用户组。此时，我们用到的就是SGID的第二个功能，即在某个目录中创建的文件自动继承该目录的用户组（只可以对目录进行设置）。
+
+```shell
+[root@linuxprobe ~]# cd /tmp
+[root@linuxprobe tmp]# mkdir testdir
+[root@linuxprobe tmp]# ls -ald testdir/
+drwxr-xr-x. 2 root root 6 Feb 11 11:50 testdir/
+[root@linuxprobe tmp]# chmod -Rf 777 testdir/
+[root@linuxprobe tmp]# chmod -Rf g+s testdir/
+[root@linuxprobe tmp]# ls -ald testdir/
+drwxrwsrwx. 2 root root 6 Feb 11 11:50 testdir/
+```
+
+在使用上述命令设置好目录的777权限（确保普通用户可以向其中写入文件），并为该目录设置了SGID特殊权限位后，就可以切换至一个普通用户，然后尝试在该目录中创建文件，并查看新创建的文件是否会继承新创建的文件所在的目录的所属组名称
+
+```shell
+[root@linuxprobe tmp]# su - linuxprobe
+Last login: Wed Feb 11 11:49:16 CST 2017 on pts/0
+[linuxprobe@linuxprobe ~]$ cd /tmp/testdir/
+[linuxprobe@linuxprobe testdir]$ echo "linuxprobe.com" > test
+[linuxprobe@linuxprobe testdir]$ ls -al test
+-rw-rw-r--. 1 linuxprobe root 15 Feb 11 11:50 test
+```
+
+3. SBIT
+
+现在，大学里的很多老师都要求学生将作业上传到服务器的特定共享目录中，但总是有几个“破坏分子”喜欢删除其他同学的作业，这时就要设置SBIT（Sticky Bit）特殊权限位了（也可以称之为特殊权限位之粘滞位）。SBIT特殊权限位可确保用户只能删除自己的文件，而不能删除其他用户的文件。换句话说，当对某个目录设置了SBIT粘滞位权限后，那么该目录中的文件就只能被其所有者执行删除操作了。
+
+与前面所讲的SUID和SGID权限显示方法不同，当目录被设置SBIT特殊权限位后，文件的其他人权限部分的x执行权限就会被替换成t或者T，原本有x执行权限则会写成t，原本没有x执行权限则会被写成T。
+
+```shell
+root@linuxprobe tmp]# su - linuxprobe
+Last login: Wed Feb 11 12:41:20 CST 2017 on pts/0
+[linuxprobe@linuxprobe tmp]$ ls -ald /tmp
+drwxrwxrwt. 17 root root 4096 Feb 11 13:03 /tmp
+[linuxprobe@linuxprobe ~]$ cd /tmp
+[linuxprobe@linuxprobe tmp]$ ls -ald
+drwxrwxrwt. 17 root root 4096 Feb 11 13:03 .
+[linuxprobe@linuxprobe tmp]$ echo "Welcome to linuxprobe.com" > test
+[linuxprobe@linuxprobe tmp]$ chmod 777 test
+[linuxprobe@linuxprobe tmp]$ ls -al test 
+-rwxrwxrwx. 1 linuxprobe linuxprobe 10 Feb 11 12:59 test
+```
+
+实，文件能否被删除并不取决于自身的权限，而是看其所在目录是否有写入权限（其原理会在下个章节讲到）。为了避免现在很多读者不放心，所以上面的命令还是赋予了这个test文件最大的777权限（rwxrwxrwx）。我们切换到另外一个普通用户，然后尝试删除这个其他人创建的文件就会发现，即便读、写、执行权限全开，但是由于SBIT特殊权限位的缘故，依然无法删除该文件：
+
+```shell
+[root@linuxprobe tmp]# su - blackshield
+Last login: Wed Feb 11 12:41:29 CST 2017 on pts/1
+[blackshield@linuxprobe ~]$ cd /tmp
+[blackshield@linuxprobe tmp]$ rm -f test
+rm: cannot remove ‘test’: Operation not permitted
+```
+
+当然，要是也想对其他目录来设置SBIT特殊权限位，用chmod命令就可以了。对应的参数o+t代表设置SBIT粘滞位权限：
+
+```shell
+[blackshield@linuxprobe tmp]$ exit
+Logout
+[root@linuxprobe tmp]# cd ~
+[root@linuxprobe ~]# mkdir linux
+[root@linuxprobe ~]# chmod -R o+t linux/
+[root@linuxprobe ~]# ls -ld linux/
+drwxr-xr-t. 2 root root 6 Feb 11 19:34 linux/
+```
+
+### 文件的隐藏属性
+
+Linux系统中的文件除了具备一般权限和特殊权限之外，还有一种隐藏权限，即被隐藏起来的权限，默认情况下不能直接被用户发觉。有用户曾经在生产环境和RHCE考试题目中碰到过明明权限充足但却无法删除某个文件的情况，或者仅能在日志文件中追加内容而不能修改或删除内容，这在一定程度上阻止了黑客篡改系统日志的图谋，因此这种“奇怪”的文件也保障了Linux系统的安全性。
+
+1. chattr命令
+
+chattr命令用于设置文件的隐藏权限，格式为“chattr [参数] 文件”。如果想要把某个隐藏功能添加到文件上，则需要在命令后面追加“+参数”，如果想要把某个隐藏功能移出文件，则需要追加“-参数”。
+
+**chattr命令中用于隐藏权限的参数及其作用**
+
+<table id="tablepress-120" class="tablepress tablepress-id-120">
+<tbody class="row-hover">
+<tr class="row-1 odd">
+<td class="column-1">参数</td>
+<td class="column-2">作用</td>
+</tr>
+<tr class="row-2 even">
+<td class="column-1">i</td>
+<td class="column-2">无法对文件进行修改；若对目录设置了该参数，则仅能修改其中的子文件内容而不能新建或删除文件</td>
+</tr>
+<tr class="row-3 odd">
+<td class="column-1">a</td>
+<td class="column-2">仅允许补充（追加）内容，无法覆盖/删除内容（Append Only）</td>
+</tr>
+<tr class="row-4 even">
+<td class="column-1">S</td>
+<td class="column-2">文件内容在变更后立即同步到硬盘（sync）</td>
+</tr>
+<tr class="row-5 odd">
+<td class="column-1">s</td>
+<td class="column-2">彻底从硬盘中删除，不可恢复（用0填充原文件所在硬盘区域）</td>
+</tr>
+<tr class="row-6 even">
+<td class="column-1">A</td>
+<td class="column-2">不再修改这个文件或目录的最后访问时间（atime）</td>
+</tr>
+<tr class="row-7 odd">
+<td class="column-1">b</td>
+<td class="column-2">不再修改文件或目录的存取时间</td>
+</tr>
+<tr class="row-8 even">
+<td class="column-1">D</td>
+<td class="column-2">检查压缩文件中的错误</td>
+</tr>
+<tr class="row-9 odd">
+<td class="column-1">d</td>
+<td class="column-2">使用dump命令备份时忽略本文件/目录</td>
+</tr>
+<tr class="row-10 even">
+<td class="column-1">c</td>
+<td class="column-2">默认将文件或目录进行压缩</td>
+</tr>
+<tr class="row-11 odd">
+<td class="column-1">u</td>
+<td class="column-2">当删除该文件后依然保留其在硬盘中的数据，方便日后恢复</td>
+</tr>
+<tr class="row-12 even">
+<td class="column-1">t</td>
+<td class="column-2">让文件系统支持尾部合并（tail-merging）</td>
+</tr>
+<tr class="row-13 odd">
+<td class="column-1">x</td>
+<td class="column-2">可以直接访问压缩文件中的内容</td>
+</tr>
+</tbody>
+</table>
+
+```shell
+[root@linuxprobe ~]# echo "for Test" > linuxprobe
+[root@linuxprobe ~]# chattr +a linuxprobe
+[root@linuxprobe ~]# rm linuxprobe
+rm: remove regular file ‘linuxprobe’? y
+rm: cannot remove ‘linuxprobe’: Operation not permitted
+```
+
+2. lsattr命令
+
+lsattr命令用于显示文件的隐藏权限，格式为“lsattr [参数] 文件”。一旦使用lsattr命令后，文件上被赋予的隐藏权限马上就会原形毕露。此时可以按照显示的隐藏权限的类型（字母），使用chattr命令将其去掉：
+
+```shell
+[root@linuxprobe ~]# lsattr linuxprobe
+-----a---------- linuxprobe
+[root@linuxprobe ~]# chattr -a linuxprobe
+[root@linuxprobe ~]# lsattr linuxprobe 
+---------------- linuxprobe
+[root@linuxprobe ~]# rm linuxprobe 
+rm: remove regular file ‘linuxprobe’? y
+```
+
+
