@@ -2068,4 +2068,106 @@ lsattr命令用于显示文件的隐藏权限，格式为“lsattr [参数] 文�
 rm: remove regular file ‘linuxprobe’? y
 ```
 
+### 文件访问控制列表
 
+一般权限、特殊权限、隐藏权限其实有一个共性—权限是针对某一类用户设置的。如果希望对某个指定的用户进行单独的权限控制，就需要用到文件的访问控制列表（ACL）了,基于普通文件或目录设置ACL其实就是针对指定的用户或用户组设置文件或目录的操作权限。另外，如果针对某个目录设置了ACL，则目录中的文件会继承其ACL；若针对文件设置了ACL，则文件不再继承其所在目录的ACL。
+
+1. setfacl
+
+setfacl命令用于管理文件的ACL规则，格式为“setfacl [参数] 文件名称”。文件的ACL提供的是在所有者、所属组、其他人的读/写/执行权限之外的特殊权限控制，使用setfacl命令可以针对单一用户或用户组、单一文件或目录来进行读/写/执行权限的控制。其中，针对目录文件需要使用-R递归参数；针对普通文件则使用-m参数；如果想要删除某个文件的ACL，则可以使用-b参数。下面来设置用户在/root目录上的权限：
+
+```
+[root@linuxprobe ~]# su - linuxprobe
+Last login: Sat Mar 21 16:31:19 CST 2017 on pts/0
+[linuxprobe@linuxprobe ~]$ cd /root
+-bash: cd: /root: Permission denied
+[linuxprobe@linuxprobe root]$ exit
+
+root@linuxprobe ~]# setfacl -Rm u:linuxprobe:rwx /root
+[root@linuxprobe ~]# su - linuxprobe
+Last login: Sat Mar 21 15:45:03 CST 2017 on pts/1
+[linuxprobe@linuxprobe ~]$ cd /root
+[linuxprobe@linuxprobe root]$ ls
+anaconda-ks.cfg Downloads Pictures Public
+[linuxprobe@linuxprobe root]$ cat anaconda-ks.cfg
+[linuxprobe@linuxprobe root]$ exit
+```
+
+2. getfacl
+
+getfacl命令用于显示文件上设置的ACL信息，格式为“getfacl 文件名称”。
+
+### su 与 sudo
+
+```shell
+su - laizehai
+```
+上面的su命令与用户名之间有一个减号（-），这意味着完全切换到新的用户，即把环境变量信息也变更为新用户的相应信息，而不是保留原始的信息。强烈建议在切换用户身份时添加这个减号（-）。
+
+sudo命令用于给普通用户提供额外的权限来完成原本root管理员才能完成的任务，格式为“sudo [参数] 命令名称”。
+
+**sudo服务中的可用参数以及作用**
+
+<table id="tablepress-111" class="tablepress tablepress-id-111">
+<tbody class="row-hover">
+<tr class="row-1 odd">
+<td class="column-1">参数</td>
+<td class="column-2">作用</td>
+</tr>
+<tr class="row-2 even">
+<td class="column-1">-h</td>
+<td class="column-2">列出帮助信息</td>
+</tr>
+<tr class="row-3 odd">
+<td class="column-1">-l</td>
+<td class="column-2">列出当前用户可执行的命令</td>
+</tr>
+<tr class="row-4 even">
+<td class="column-1">-u 用户名或UID值</td>
+<td class="column-2">以指定的用户身份执行命令</td>
+</tr>
+<tr class="row-5 odd">
+<td class="column-1">-k</td>
+<td class="column-2">清空密码的有效时间，下次执行sudo时需要再次进行密码验证</td>
+</tr>
+<tr class="row-6 even">
+<td class="column-1">-b</td>
+<td class="column-2">在后台执行指定的命令</td>
+</tr>
+<tr class="row-7 odd">
+<td class="column-1">-p</td>
+<td class="column-2">更改询问密码的提示语</td>
+</tr>
+</tbody>
+</table>
+
+sudo命令具有如下的功能：
+
+1. 限制用户执行指定的命令：
+
+2. 记录用户执行的每一条命令；
+
+3. 配置文件（/etc/sudoers）提供集中的用户管理、权限与主机等参数；
+
+4. 验证密码的后5分钟内（默认值）无须再让用户再次验证密码。
+
+如果担心直接修改配置文件会出现问题，则可以使用sudo命令提供的visudo命令来配置用户权限。这条命令在配置用户权限时将禁止多个用户同时修改sudoers配置文件，还可以对配置文件内的参数进行语法检查，并在发现参数错误时进行报错。只有root管理员才可以使用visudo命令编辑sudo服务的配置文件。
+
+```shell
+su
+
+visudo
+
+root  ALL=(ALL) ALL
+zehai ALL=(ALL) ALL
+
+su zehai
+
+sudo -l
+```
+每次执行sudo命令后都会要求验证一下密码。虽然这个密码就是当前登录用户的密码，但是每次执行sudo命令都要输入一次密码其实也挺麻烦的，这时可以添加NOPASSWD参数，使得用户执行sudo命令时不再需要密码验证：
+
+```shell
+zehai ALL=NOPASSWD: /usr/sbin/poweroff
+zehai ALL=NOPASSWD: ALL
+```
