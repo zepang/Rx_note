@@ -2171,3 +2171,486 @@ sudo -l
 zehai ALL=NOPASSWD: /usr/sbin/poweroff
 zehai ALL=NOPASSWD: ALL
 ```
+
+# 存储结构与磁盘划分
+
+### 一切从“/”开始
+
+在Linux系统中并不存在C/D/E/F等盘符，Linux系统中的一切文件都是从“根（/）”目录开始的，并按照文件系统层次化标准（FHS）采用树形结构来存放文件，以及定义了常见目录的用途。另外，Linux系统中的文件和目录名称是严格区分大小写的。例如，root、rOOt、Root、rooT均代表不同的目录，并且文件名称中不得包含斜杠（/）
+
+![](./Linux存储架构.png)
+
+**Linux系统中常见的目录名称以及相应内容**
+
+<table id="tablepress-1" class="tablepress tablepress-id-1">
+<tbody class="row-hover">
+<tr class="row-1 odd">
+<td class="column-1">目录名称</td>
+<td class="column-2">应放置文件的内容</td>
+</tr>
+<tr class="row-2 even">
+<td class="column-1">/boot</td>
+<td class="column-2">开机所需文件—内核、开机菜单以及所需配置文件等</td>
+</tr>
+<tr class="row-3 odd">
+<td class="column-1">/dev</td>
+<td class="column-2">以文件形式存放任何设备与接口</td>
+</tr>
+<tr class="row-4 even">
+<td class="column-1">/etc</td>
+<td class="column-2">配置文件</td>
+</tr>
+<tr class="row-5 odd">
+<td class="column-1">/home</td>
+<td class="column-2">用户主目录</td>
+</tr>
+<tr class="row-6 even">
+<td class="column-1">/bin</td>
+<td class="column-2">存放单用户模式下还可以操作的<a href="https://www.linuxcool.com/" title="命令" target="_blank">命令</a></td>
+</tr>
+<tr class="row-7 odd">
+<td class="column-1">/lib</td>
+<td class="column-2">开机时用到的函数库，以及/bin与/sbin下面的命令要调用的函数</td>
+</tr>
+<tr class="row-8 even">
+<td class="column-1">/sbin</td>
+<td class="column-2">开机过程中需要的命令</td>
+</tr>
+<tr class="row-9 odd">
+<td class="column-1">/media</td>
+<td class="column-2">用于挂载设备文件的目录</td>
+</tr>
+<tr class="row-10 even">
+<td class="column-1">/opt</td>
+<td class="column-2">放置第三方的软件</td>
+</tr>
+<tr class="row-11 odd">
+<td class="column-1">/root</td>
+<td class="column-2">系统管理员的家目录</td>
+</tr>
+<tr class="row-12 even">
+<td class="column-1">/srv</td>
+<td class="column-2">一些网络服务的数据文件目录</td>
+</tr>
+<tr class="row-13 odd">
+<td class="column-1">/tmp</td>
+<td class="column-2">任何人均可使用的“共享”临时目录</td>
+</tr>
+<tr class="row-14 even">
+<td class="column-1">/proc</td>
+<td class="column-2">虚拟文件系统，例如系统内核、进程、外部设备及网络状态等</td>
+</tr>
+<tr class="row-15 odd">
+<td class="column-1">/usr/local</td>
+<td class="column-2">用户自行安装的软件</td>
+</tr>
+<tr class="row-16 even">
+<td class="column-1">/usr/sbin</td>
+<td class="column-2">Linux系统开机时不会使用到的软件/命令/<a href="https://www.linuxcool.com/" title="脚本" target="_blank">脚本</a></td>
+</tr>
+<tr class="row-17 odd">
+<td class="column-1">/usr/share</td>
+<td class="column-2">帮助与说明文件，也可放置共享文件</td>
+</tr>
+<tr class="row-18 even">
+<td class="column-1">/var</td>
+<td class="column-2">主要存放经常变化的文件，如日志</td>
+</tr>
+<tr class="row-19 odd">
+<td class="column-1">/lost+found</td>
+<td class="column-2">当文件系统发生错误时，将一些丢失的文件片段存放在这里</td>
+</tr>
+</tbody>
+</table>
+
+### 物理设备的命名规则
+
+在Linux系统中一切都是文件，硬件设备也不例外。既然是文件，就必须有文件名称。系统内核中的udev设备管理器会自动把硬件名称规范起来，目的是让用户通过设备文件的名字可以猜出设备大致的属性以及分区信息等；这对于陌生的设备来说特别方便。另外，udev设备管理器的服务会一直以守护进程的形式运行并侦听内核发出的信号来管理/dev目录下的设备文件。
+
+**常见的硬件设备及其文件名称**
+
+<table id="tablepress-2" class="tablepress tablepress-id-2">
+<tbody class="row-hover">
+<tr class="row-1 odd">
+<td class="column-1">硬件设备</td>
+<td class="column-2">文件名称</td>
+</tr>
+<tr class="row-2 even">
+<td class="column-1">IDE设备</td>
+<td class="column-2">/dev/hd[a-d]</td>
+</tr>
+<tr class="row-3 odd">
+<td class="column-1">SCSI/SATA/U盘</td>
+<td class="column-2">/dev/sd[a-p]</td>
+</tr>
+<tr class="row-4 even">
+<td class="column-1">软驱</td>
+<td class="column-2">/dev/fd[0-1]</td>
+</tr>
+<tr class="row-5 odd">
+<td class="column-1">打印机</td>
+<td class="column-2">/dev/lp[0-15]</td>
+</tr>
+<tr class="row-6 even">
+<td class="column-1">光驱</td>
+<td class="column-2">/dev/cdrom</td>
+</tr>
+<tr class="row-7 odd">
+<td class="column-1">鼠标</td>
+<td class="column-2">/dev/mouse</td>
+</tr>
+<tr class="row-8 even">
+<td class="column-1">磁带机</td>
+<td class="column-2">/dev/st0或/dev/ht0</td>
+</tr>
+</tbody>
+</table>
+由于现在的IDE设备已经很少见了，所以一般的硬盘设备都会是以“/dev/sd”开头的。而一台主机上可以有多块硬盘，因此系统采用a～p来代表16块不同的硬盘（默认从a开始分配），而且硬盘的分区编号也很有讲究：
+
+1. 主分区或扩展分区的编号从1开始，到4结束；
+
+2. 逻辑分区从编号5开始。
+
+![](./硬盘命名规则.png)
+
+首先，/dev/目录中保存的应当是硬件设备文件；其次，sd表示是存储设备；然后，a表示系统中同类接口中第一个被识别到的设备，最后，5表示这个设备是一个逻辑分区。一言以蔽之，“/dev/sda5”表示的就是“这是系统中第一块被识别到的硬件设备中分区编号为5的逻辑分区的设备文件”。考虑到我们的很多读者完全没有Linux基础，不太容易理解前面所说的主分区、扩展分区和逻辑分区的概念，因此接下来简单科普一下硬盘相关的知识。
+
+正是因为计算机有了硬盘设备，我们才可以在玩游戏的过程中或游戏通关之后随时存档，而不用每次重头开始。硬盘设备是由大量的扇区组成的，每个扇区的容量为512字节。其中第一个扇区最重要，它里面保存着主引导记录与分区表信息。就第一个扇区来讲，主引导记录需要占用446字节，分区表为64字节，结束符占用2字节；其中分区表中每记录一个分区信息就需要16字节，这样一来最多只有4个分区信息可以写到第一个扇区中，这4个分区就是4个主分区。
+
+![](./硬盘的扇区.png)
+
+现在，问题来了—第一个扇区最多只能创建出4个分区？于是为了解决分区个数不够的问题，可以将第一个扇区的分区表中16字节（原本要写入主分区信息）的空间（称之为扩展分区）拿出来指向另外一个分区。也就是说，扩展分区其实并不是一个真正的分区，而更像是一个占用16字节分区表空间的指针—一个指向另外一个分区的指针。这样一来，用户一般会选择使用3个主分区加1个扩展分区的方法，然后在扩展分区中创建出数个逻辑分区，从而来满足多分区（大于4个）的需求。当然，就目前来讲大家只要明白为什么主分区不能超过4个就足够了。主分区、扩展分区、
+
+![](./逻辑分区.png)
+
+**所谓扩展分区，严格地讲它不是一个实际意义的分区，它仅仅是一个指向下一个分区的指针，这种指针结构将形成一个单向链表。**
+
+
+### 文件系统与数据资料
+
+用户在硬件存储设备中执行的文件建立、写入、读取、修改、转存与控制等操作都是依靠文件系统来完成的。文件系统的作用是合理规划硬盘，以保证用户正常的使用需求。Linux系统支持数十种的文件系统，而最常见的文件系统如下所示。
+
+**Ext3：**是一款日志文件系统，能够在系统异常宕机时避免文件系统资料丢失，并能自动修复数据的不一致与错误。然而，当硬盘容量较大时，所需的修复时间也会很长，而且也不能百分之百地保证资料不会丢失。它会把整个磁盘的每个写入动作的细节都预先记录下来，以便在发生异常宕机后能回溯追踪到被中断的部分，然后尝试进行修复。
+
+**Ext4：**Ext3的改进版本，作为RHEL 6系统中的默认文件管理系统，它支持的存储容量高达1EB（1EB=1,073,741,824GB），且能够有无限多的子目录。另外，Ext4文件系统能够批量分配block块，从而极大地提高了读写效率。
+
+**XFS：**是一种高性能的日志文件系统，而且是RHEL 7中默认的文件管理系统，它的优势在发生意外宕机后尤其明显，即可以快速地恢复可能被破坏的文件，而且强大的日志功能只用花费极低的计算和存储性能。并且它最大可支持的存储容量为18EB，这几乎满足了所有需求。
+
+在拿到了一块新的硬盘存储设备后，也需要先分区，然后再格式化文件系统，最后才能挂载并正常使用。
+
+### 挂在硬件设备
+
+“分区”和“格式化”大家以前经常听到，但“挂载”又是什么呢？刘遄老师在这里给您一个最简单、最贴切的解释—当用户需要使用硬盘设备或分区中的数据时，需要先将其与一个已存在的目录文件进行关联，而这个关联动作就是“挂载”。
+
+mount命令用于挂载文件系统，格式为“mount 文件系统 挂载目录”。mount命令中可用的参数及作用如表6-3所示。挂载是在使用硬件设备前所执行的最后一步操作。只需使用mount命令把硬盘设备或分区与一个目录文件进行关联，然后就能在这个目录中看到硬件设备中的数据了。对于比较新的Linux系统来讲，一般不需要使用-t参数来指定文件系统的类型，Linux系统会自动进行判断。而mount 中的-a参数则厉害了，它会在执行后自动检查/etc/fstab文件中有无疏漏被挂载的设备文件，如果有，则进行自动挂载操作。
+
+**mount命令中的参数以及作用**
+
+<table id="tablepress-35" class="tablepress tablepress-id-35">
+<tbody class="row-hover">
+<tr class="row-1 odd">
+<td class="column-1">参数</td>
+<td class="column-2">作用</td>
+</tr>
+<tr class="row-2 even">
+<td class="column-1">-a</td>
+<td class="column-2">挂载所有在/etc/fstab中定义的文件系统</td>
+</tr>
+<tr class="row-3 odd">
+<td class="column-1">-t</td>
+<td class="column-2">指定文件系统的类型</td>
+</tr>
+</tbody>
+</table>
+
+例如，要把设备/dev/sdb2挂载到/backup目录，只需要在mount命令中填写设备与挂载目录参数就行，系统会自动去判断要挂载文件的类型，因此只需要执行下述命令即可：
+
+```shell
+mount /dev/sdb2 /backup
+```
+
+虽然按照上面的方法执行mount命令后就能立即使用文件系统了，但系统在重启后挂载就会失效，也就是说我们需要每次开机后都手动挂载一下。这肯定不是我们想要的效果，如果想让硬件设备和目录永久地进行自动关联，就必须把挂载信息按照指定的填写格式“设备文件 挂载目录 格式类型 权限选项 是否备份 是否自检”（各字段的意义见表6-4）写入到/etc/fstab文件中。这个文件中包含着挂载所需的诸多信息项目，一旦配置好之后就能一劳永逸了。
+
+**用于挂载信息的指定填写格式中，各字段所表示的意义**
+
+<table id="tablepress-194" class="tablepress tablepress-id-194">
+<tbody class="row-hover">
+<tr class="row-1 odd">
+<td class="column-1">字段</td>
+<td class="column-2">意义</td>
+</tr>
+<tr class="row-2 even">
+<td class="column-1">设备文件</td>
+<td class="column-2">一般为设备的路径+设备名称，也可以写唯一识别码（UUID，Universally Unique Identifier）</td>
+</tr>
+<tr class="row-3 odd">
+<td class="column-1">挂载目录</td>
+<td class="column-2">指定要挂载到的目录，需在挂载前创建好</td>
+</tr>
+<tr class="row-4 even">
+<td class="column-1">格式类型</td>
+<td class="column-2">指定文件系统的格式，比如Ext3、Ext4、XFS、SWAP、iso9660（此为光盘设备）等</td>
+</tr>
+<tr class="row-5 odd">
+<td class="column-1">权限选项</td>
+<td class="column-2">若设置为defaults，则默认权限为：rw, suid, dev, exec, auto, nouser, async</td>
+</tr>
+<tr class="row-6 even">
+<td class="column-1">是否备份</td>
+<td class="column-2">若为1则开机后使用dump进行磁盘备份，为0则不备份</td>
+</tr>
+<tr class="row-7 odd">
+<td class="column-1">是否自检</td>
+<td class="column-2">若为1则开机后自动进行磁盘自检，为0则不自检</td>
+</tr>
+</tbody>
+</table>
+
+如果想将文件系统为ext4的硬件设备/dev/sdb2在开机后自动挂载到/backup目录上，并保持默认权限且无需开机自检，就需要在/etc/fstab文件中写入下面的信息，这样在系统重启后也会成功挂载。
+
+```shell
+[root@linuxprobe ~]# vim /etc/fstab
+#
+# /etc/fstab
+# Created by anaconda on Wed May 4 19:26:23 2017
+#
+# Accessible filesystems, by reference, are maintained under '/dev/disk'
+# See man pages fstab(5), findfs(8), mount(8) and/or blkid(8) for more info
+#
+/dev/mapper/rhel-root / xfs defaults 1 1
+UUID=812b1f7c-8b5b-43da-8c06-b9999e0fe48b /boot xfs defaults 1 2
+/dev/mapper/rhel-swap swap swap defaults 0 0
+/dev/cdrom /media/cdrom iso9660 defaults 0 0 
+/dev/sdb2 /backup ext4 defaults 0 0
+```
+umount命令用于撤销已经挂载的设备文件，格式为“umount [挂载点/设备文件]”。我们挂载文件系统的目的是为了使用硬件资源，而卸载文件系统就意味不再使用硬件的设备资源；相对应地，挂载操作就是把硬件设备与目录进行关联的动作，因此卸载操作只需要说明想要取消关联的设备文件或挂载目录的其中一项即可，一般不需要加其他额外的参数。我们来尝试手动卸载掉/dev/sdb2设备文件：
+
+```shell
+[root@linuxprobe ~]# umount /dev/sdb2
+```
+
+### 添加硬盘设备
+
+根据前文讲解的与管理硬件设备相关的理论知识，我们先来理清一下添加硬盘设备的操作思路：首先需要在虚拟机中模拟添加入一块新的硬盘存储设备，然后再进行分区、格式化、挂载等操作，最后通过检查系统的挂载状态并真实地使用硬盘来验证硬盘设备是否成功添加。
+
+鉴于我们不需要为了做这个实验而特意买一块真实的硬盘，而是通过虚拟机软件进行硬件模拟，因此这再次体现出了使用虚拟机软件的好处。具体的操作步骤如下。
+
+第1步：首先把虚拟机系统关机，稍等几分钟会自动返回到虚拟机管理主界面，然后单击“编辑虚拟机设置”选项，在弹出的界面中单击“添加”按钮，新增一块硬件设备，
+
+![](./在虚拟机中添加硬盘-1024x589.jpg)
+
+第2步：选择想要添加的硬件类型为“硬盘”，然后单击“下一步”按钮就可以了，这确实没有什么需要进一步解释的
+
+![](./第一步：选择磁盘.jpg)
+
+第3步：选择虚拟硬盘的类型为SCSI（默认推荐），并单击“下一步”按钮，这样虚拟机中的设备名称过一会儿后应该为/dev/sdb
+
+![](./第二步：选择磁盘类型.jpg)
+
+第4步：选中“创建新虚拟磁盘”单选按钮，而不是其他选项，再次单击“下一步”按钮
+
+![](./第三步：选择创建新的磁盘.jpg)
+
+第5步：将“最大磁盘大小”设置为默认的20GB。这个数值是限制这台虚拟机所使用的最大硬盘空间，而不是立即将其填满，因此默认20GB就很合适了。单击“下一步”按钮
+
+![](./第四步：设置磁盘的大小.jpg)
+
+第6步：设置磁盘文件的文件名和保存位置（这里采用默认设置即可，无需修改），直接单击“完成”按钮
+
+![](./第五步：默认的磁盘名称即可.jpg)
+
+第7步：将新硬盘添加好后就可以看到设备信息了。这里不需要做任何修改，直接单击“确认”按钮后就可以开启虚拟机了
+
+![](./第六步：成功添加的硬盘出现在列表中.jpg)
+
+在虚拟机中模拟添加了硬盘设备后就应该能看到抽象成的硬盘设备文件了。按照前文讲解的udev服务命名规则，第二个被识别的SCSI设备应该会被保存为/dev/sdb，这个就是硬盘设备文件了。但在开始使用该硬盘之前还需要进行分区操作，例如从中取出一个2GB的分区设备以供后面的操作使用。
+
+1. fdisk命令
+
+在Linux系统中，管理硬盘设备最常用的方法就当属fdisk命令了。fdisk命令用于管理磁盘分区，格式为“fdisk  [磁盘名称]”，它提供了集添加、删除、转换分区等功能于一身的“一站式分区服务”。不过与前面讲解的直接写到命令后面的参数不同，这条命令的参数（见表6-5）是交互式的，因此在管理硬盘设备时特别方便，可以根据需求动态调整。
+
+**fdisk命令中的参数以及作用**
+
+<table id="tablepress-34" class="tablepress tablepress-id-34">
+<tbody class="row-hover">
+<tr class="row-1 odd">
+<td class="column-1">参数</td>
+<td class="column-2">作用</td>
+</tr>
+<tr class="row-2 even">
+<td class="column-1">m</td>
+<td class="column-2">查看全部可用的参数</td>
+</tr>
+<tr class="row-3 odd">
+<td class="column-1">n</td>
+<td class="column-2">添加新的分区</td>
+</tr>
+<tr class="row-4 even">
+<td class="column-1">d</td>
+<td class="column-2">删除某个分区信息</td>
+</tr>
+<tr class="row-5 odd">
+<td class="column-1">l</td>
+<td class="column-2">列出所有可用的分区类型</td>
+</tr>
+<tr class="row-6 even">
+<td class="column-1">t</td>
+<td class="column-2">改变某个分区的类型</td>
+</tr>
+<tr class="row-7 odd">
+<td class="column-1">p</td>
+<td class="column-2">查看分区表信息</td>
+</tr>
+<tr class="row-8 even">
+<td class="column-1">w</td>
+<td class="column-2">保存并退出</td>
+</tr>
+<tr class="row-9 odd">
+<td class="column-1">q</td>
+<td class="column-2">不保存直接退出</td>
+</tr>
+</tbody>
+</table>
+
+第1步：我们首先使用fdisk命令来尝试管理/dev/sdb硬盘设备。在看到提示信息后输入参数p来查看硬盘设备内已有的分区信息，其中包括了硬盘的容量大小、扇区个数等信息：
+
+```shell
+[root@linuxprobe ~]# fdisk /dev/sdb
+Welcome to fdisk (util-linux 2.23.2).
+Changes will remain in memory only, until you decide to write them.
+Be careful before using the write command.
+Device does not contain a recognized partition table
+Building a new DOS disklabel with disk identifier 0x47d24a34.
+Command (m for help): p
+Disk /dev/sdb: 21.5 GB, 21474836480 bytes, 41943040 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disk label type: dos
+Disk identifier: 0x47d24a34
+Device Boot Start End Blocks Id System
+```
+
+第2步：输入参数n尝试添加新的分区。系统会要求您是选择继续输入参数p来创建主分区，还是输入参数e来创建扩展分区。这里输入参数p来创建一个主分区：
+
+```shell
+Command (m for help): n
+Partition type:
+p primary (0 primary, 0 extended, 4 free)
+e extended
+Select (default p): p
+```
+
+第3步：在确认创建一个主分区后，系统要求您先输入主分区的编号。我们在前文得知，主分区的编号范围是1～4，因此这里输入默认的1就可以了。接下来系统会提示定义起始的扇区位置，这不需要改动，我们敲击回车键保留默认设置即可，系统会自动计算出最靠前的空闲扇区的位置。最后，系统会要求定义分区的结束扇区位置，这其实就是要去定义整个分区的大小是多少。我们不用去计算扇区的个数，只需要输入+2G即可创建出一个容量为2GB的硬盘分区。
+
+```shell
+Partition number (1-4, default 1): 1
+First sector (2048-41943039, default 2048):此处敲击回车
+Using default value 2048
+Last sector, +sectors or +size{K,M,G} (2048-41943039, default 41943039): +2G
+Partition 1 of type Linux and of size 2 GiB is set
+```
+
+第4步：再次使用参数p来查看硬盘设备中的分区信息。果然就能看到一个名称为/dev/sdb1、起始扇区位置为2048、结束扇区位置为4196351的主分区了。这时候千万不要直接关闭窗口，而应该敲击参数w后回车，这样分区信息才是真正的写入成功啦。
+
+```shell
+Command (m for help): p
+Disk /dev/sdb: 21.5 GB, 21474836480 bytes, 41943040 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disk label type: dos
+Disk identifier: 0x47d24a34
+Device Boot Start End Blocks Id System
+/dev/sdb1 2048 4196351 2097152 83 Linux
+Command (m for help): w
+The partition table has been altered!
+Calling ioctl() to re-read partition table.
+Syncing disks.
+```
+
+第5步：在上述步骤执行完毕之后，Linux系统会自动把这个硬盘主分区抽象成/dev/sdb1设备文件。我们可以使用file命令查看该文件的属性，有些时候系统并没有自动把分区信息同步给Linux内核，而且这种情况似乎还比较常见（但不能算作是严重的bug）。我们可以输入partprobe命令手动将分区信息同步到内核，而且一般推荐连续两次执行该命令，效果会更好。如果使用这个命令都无法解决问题，那么就重启计算机吧，这个杀手锏百试百灵，一定会有用的。
+
+```shell
+[root@linuxprobe ]# file /dev/sdb1
+/dev/sdb1: cannot open (No such file or directory)
+[root@linuxprobe ]# partprobe
+[root@linuxprobe ]# partprobe
+[root@linuxprobe ]# file /dev/sdb1
+/dev/sdb1: block special
+```
+
+如果硬件存储设备没有进行格式化，则Linux系统无法得知怎么在其上写入数据。因此，在对存储设备进行分区后还需要进行格式化操作。在Linux系统中用于格式化操作的命令是mkfs。这条命令很有意思，因为在Shell终端中输入mkfs名后再敲击两下用于补齐命令的Tab键，会有如下所示的效果：
+
+```shell
+[root@linuxprobe ~]# mkfs
+mkfs mkfs.cramfs mkfs.ext3 mkfs.fat mkfs.msdos mkfs.xfs
+mkfs.btrfs mkfs.ext2 mkfs.ext4 mkfs.minix mkfs.vfat
+```
+
+对！这个mkfs命令很贴心地把常用的文件系统名称用后缀的方式保存成了多个命令文件，用起来也非常简单—mkfs.文件类型名称。例如要格式分区为XFS的文件系统，则命令应为mkfs.xfs /dev/sdb1。
+
+```shell
+[root@linuxprobe ~]# mkfs.xfs /dev/sdb1
+meta-data=/dev/sdb1 isize=256 agcount=4, agsize=131072 blks
+ = sectsz=512 attr=2, projid32bit=1
+ = crc=0
+data = bsize=4096 blocks=524288, imaxpct=25
+ = sunit=0 swidth=0 blks
+naming =version 2 bsize=4096 ascii-ci=0 ftype=0
+log =internal log bsize=4096 blocks=2560, version=2
+ = sectsz=512 sunit=0 blks, lazy-count=1
+realtime =none extsz=4096 blocks=0, rtextents=0
+```
+
+终于完成了存储设备的分区和格式化操作，接下来就是要来挂载并使用存储设备了。与之相关的步骤也非常简单：首先是创建一个用于挂载设备的挂载点目录；然后使用mount命令将存储设备与挂载点进行关联；最后使用df -h命令来查看挂载状态和硬盘使用量信息。
+
+```shell
+[root@linuxprobe ~]# mkdir /newFS
+[root@linuxprobe ~]# mount /dev/sdb1 /newFS/
+[root@linuxprobe ~]# df -h
+Filesystem Size Used Avail Use% Mounted on
+/dev/mapper/rhel-root 18G 3.5G 15G 20% /
+devtmpfs 905M 0 905M 0% /dev
+tmpfs 914M 140K 914M 1% /dev/shm
+tmpfs 914M 8.8M 905M 1% /run
+tmpfs 914M 0 914M 0% /sys/fs/cgroup
+/dev/sr0 3.5G 3.5G 0 100% /media/cdrom
+/dev/sda1 497M 119M 379M 24% /boot
+/dev/sdb1 2.0G 33M 2.0G 2% /newFS
+```
+
+2. du
+既然存储设备已经顺利挂载，接下来就可以尝试通过挂载点目录向存储设备中写入文件了。在写入文件之前，先介绍一个用于查看文件数据占用量的du命令，其格式为“du [选项] [文件]”。简单来说，该命令就是用来查看一个或多个文件占用了多大的硬盘空间。我们还可以使用du -sh /*命令来查看在Linux系统根目录下所有一级目录分别占用的空间大小。下面，我们先从某些目录中复制过来一批文件，然后查看这些文件总共占用了多大的容量：
+
+```shell
+[root@linuxprobe ~]# cp -rf /etc/* /newFS/
+[root@linuxprobe ~]# ls /newFS/
+abrt hosts pulse
+adjtime hosts.allow purple
+aliases hosts.deny qemu-ga
+aliases.db hp qemu-kvm
+alsa idmapd.conf radvd.conf
+alternatives init.d rc0.d
+anacrontab inittab rc1.d
+………………省略部分输入信息………………
+[root@linuxprobe ~]# du -sh /newFS/
+33M /newFS/
+```
+细心的读者一定还记得，前面在讲解mount命令时提到，使用mount命令挂载的设备文件会在系统下一次重启的时候失效。如果想让这个设备文件的挂载永久有效，则需要把挂载的信息写入到配置文件中：
+
+```shell
+[root@linuxprobe ~]# vim /etc/fstab
+#
+# /etc/fstab
+# Created by anaconda on Wed May 4 19:26:23 2017
+#
+# Accessible filesystems, by reference, are maintained under '/dev/disk'
+# See man pages fstab(5), findfs(8), mount(8) and/or blkid(8) for more info
+#
+/dev/mapper/rhel-root / xfs defaults 1 1
+UUID=812b1f7c-8b5b-43da-8c06-b9999e0fe48b /boot xfs defaults 1 2
+/dev/mapper/rhel-swap swap swap defaults 0 0
+/dev/cdrom /media/cdrom iso9660 defaults 0 0 
+/dev/sdb1 /newFS xfs defaults 0 0
+```
