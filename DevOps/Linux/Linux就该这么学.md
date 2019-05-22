@@ -2654,3 +2654,180 @@ UUID=812b1f7c-8b5b-43da-8c06-b9999e0fe48b /boot xfs defaults 1 2
 /dev/cdrom /media/cdrom iso9660 defaults 0 0 
 /dev/sdb1 /newFS xfs defaults 0 0
 ```
+
+### 添加交换分区
+
+SWAP（交换）分区是一种通过在硬盘中预先划分一定的空间，然后将把内存中暂时不常用的数据临时存放到硬盘中，以便腾出物理内存空间让更活跃的程序服务来使用的技术，其设计目的是为了解决真实物理内存不足的问题。但由于交换分区毕竟是通过硬盘设备读写数据的，速度肯定要比物理内存慢，所以只有当真实的物理内存耗尽后才会调用交换分区的资源。
+
+交换分区的创建过程与前文讲到的挂载并使用存储设备的过程非常相似。在对/dev/sdb存储设备进行分区操作前，有必要先说一下交换分区的划分建议：在生产环境中，交换分区的大小一般为真实物理内存的1.5～2倍，为了让大家更明显地感受交换分区空间的变化，这里取出一个大小为5GB的主分区作为交换分区资源。在分区创建完毕后保存并退出即可：
+
+```shell
+[root@linuxprobe ~]# fdisk /dev/sdb
+Welcome to fdisk (util-linux 2.23.2).
+Changes will remain in memory only, until you decide to write them.
+Be careful before using the write command.
+Device does not contain a recognized partition table
+Building a new DOS disklabel with disk identifier 0xb3d27ce1.
+Command (m for help): n
+Partition type:
+p primary (1 primary, 0 extended, 3 free)
+e extendedSelect (default p): p
+Partition number (2-4, default 2): 
+First sector (4196352-41943039, default 4196352): 此处敲击回车
+Using default value 4196352
+Last sector, +sectors or +size{K,M,G} (4196352-41943039, default 41943039): +5G
+Partition 2 of type Linux and of size 5 GiB is set
+Command (m for help): p
+Disk /dev/sdb: 21.5 GB, 21474836480 bytes, 41943040 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disk label type: dos
+Disk identifier: 0xb0ced57f
+ Device Boot Start End Blocks Id System
+/dev/sdb1 2048 4196351 2097152 83 Linux
+/dev/sdb2 4196352 14682111 5242880 83 Linux
+Command (m for help): w
+The partition table has been altered!
+Calling ioctl() to re-read partition table.
+WARNING: Re-reading the partition table failed with error 16: Device or resource busy.
+The kernel still uses the old table. The new table will be used at
+the next reboot or after you run partprobe(8) or kpartx(8)
+Syncing disks.
+```
+
+使用SWAP分区专用的格式化命令mkswap，对新建的主分区进行格式化操作(出现找不到的情况下，使用partprobe命令重读分区表)：
+
+```shell
+[root@linuxprobe ~]# mkswap /dev/sdb2
+Setting up swapspace version 1, size = 5242876 KiB
+no label, UUID=2972f9cb-17f0-4113-84c6-c64b97c40c75
+```
+
+使用swapon命令把准备好的SWAP分区设备正式挂载到系统中。我们可以使用free -m命令查看交换分区的大小变化（由2047MB增加到7167MB）：
+
+```shell
+[root@linuxprobe ~]# free -m
+total used free shared buffers cached
+Mem: 1483 782 701 9 0 254
+-/+ buffers/cache: 526 957
+Swap: 2047 0 2047
+[root@linuxprobe ~]# swapon /dev/sdb2
+[root@linuxprobe ~]# free -m
+total used free shared buffers cached
+Mem: 1483 785 697 9 0 254
+-/+ buffers/cache: 530 953
+Swap: 7167 0 7167
+```
+
+为了能够让新的交换分区设备在重启后依然生效，需要按照下面的格式将相关信息写入到配置文件中，并记得保存：
+
+```shell
+root@linuxprobe ~]# vim /etc/fstab
+#
+# /etc/fstab
+# Created by anaconda on Wed May 4 19:26:23 2017
+#
+# Accessible filesystems, by reference, are maintained under '/dev/disk'
+# See man pages fstab(5), findfs(8), mount(8) and/or blkid(8) for more info
+#
+/dev/mapper/rhel-root / xfs defaults 1 1
+UUID=812b1f7c-8b5b-43da-8c06-b9999e0fe48b /boot xfs defaults 1 2
+/dev/mapper/rhel-swap swap swap defaults 0 0
+/dev/cdrom /media/cdrom iso9660 defaults 0 0 
+/dev/sdb1 /newFS xfs defaults 0 0 
+/dev/sdb2 swap swap defaults 0 0 
+```
+
+### 磁盘容量配额
+
+Linux系统的设计初衷就是让许多人一起使用并执行各自的任务，从而成为多用户、多任务的操作系统。但是，硬件资源是固定且有限的，如果某些用户不断地在Linux系统上创建文件或者存放电影，硬盘空间总有一天会被占满。针对这种情况，root管理员就需要使用磁盘容量配额服务来限制某位用户或某个用户组针对特定文件夹可以使用的最大硬盘空间或最大文件个数，一旦达到这个最大值就不再允许继续使用。可以使用quota命令进行磁盘容量配额管理，从而限制用户的硬盘可用容量或所能创建的最大文件个数。quota命令还有软限制和硬限制的功能。
+
+1. 软限制：当达到软限制时会提示用户，但仍允许用户在限定的额度内继续使用。
+2. 硬限制：当达到硬限制时会提示用户，且强制终止用户的操作。
+
+RHEL 7系统中已经安装了quota磁盘容量配额服务程序包，但存储设备却默认没有开启对quota的支持，此时需要手动编辑配置文件，让RHEL 7系统中的/boot目录能够支持quota磁盘配额技术。另外，对于学习过早期的Linux系统，或者具有RHEL 6系统使用经验的读者来说，这里需要特别注意。早期的Linux系统要想让硬盘设备支持quota磁盘容量配额服务，使用的是usrquota参数，而RHEL 7系统使用的则是uquota参数。在重启系统后使用mount命令查看，即可发现/boot目录已经支持quota磁盘配额技术了：
+
+```shell
+[root@linuxprobe ~]# vim /etc/fstab
+#
+# /etc/fstab
+# Created by anaconda on Wed May 4 19:26:23 2017
+#
+# Accessible filesystems, by reference, are maintained under '/dev/disk'
+# See man pages fstab(5), findfs(8), mount(8) and/or blkid(8) for more info
+#
+/dev/mapper/rhel-root / xfs defaults 1 1
+UUID=812b1f7c-8b5b-43da-8c06-b9999e0fe48b /boot xfs defaults,uquota 1 2
+/dev/mapper/rhel-swap swap swap defaults 0 0
+/dev/cdrom /media/cdrom iso9660 defaults 0 0 
+/dev/sdb1 /newFS xfs defaults 0 0 
+/dev/sdb2 swap swap defaults 0 0 
+[root@linuxprobe ~]# reboot
+[root@linuxprobe ~]# mount | grep boot
+/dev/sda1 on /boot type xfs (rw,relatime,seclabel,attr2,inode64,usrquota)
+```
+
+接下来创建一个用于检查quota磁盘容量配额效果的用户tom，并针对/boot目录增加其他人的写权限，保证用户能够正常写入数据：
+
+```shell
+useradd tom
+chmod -Rf o+w /boot
+```
+
+1. xfs_quota命令
+
+xfs_quota命令是一个专门针对XFS文件系统来管理quota磁盘容量配额服务而设计的命令，格式为“xfs_quota [参数] 配额 文件系统”。其中，-c参数用于以参数的形式设置要执行的命令；-x参数是专家模式，让运维人员能够对quota服务进行更多复杂的配置。接下来我们使用xfs_quota命令来设置用户tom对/boot目录的quota磁盘容量配额。具体的限额控制包括：硬盘使用量的软限制和硬限制分别为3MB和6MB；同时创建文件数量的软限制和硬限制分别为3个和6个。
+
+```shell
+[root@linuxprobe ~]# xfs_quota -x -c 'limit bsoft=3m bhard=6m isoft=3 ihard=6 tom' /boot
+[root@linuxprobe ~]# xfs_quota -x -c report /boot
+User quota on /boot (/dev/sda1)   Blocks
+User ID Used Soft Hard Warn/Grace
+---------- --------------------------------------------------
+root 95084 0 0 00 [--------]
+tom 0 3072 6144 00 [--------]
+```
+
+当配置好上述的各种软硬限制后，尝试切换到这个普通用户，然后分别尝试创建一个体积为5MB和8MB的文件。可以发现，在创建8MB的文件时受到了系统限制：
+
+```shell
+[root@linuxprobe ~]# su - tom
+[tom@linuxprobe ~]$ dd if=/dev/zero of=/boot/tom bs=5M count=1
+1+0 records in
+1+0 records out
+5242880 bytes (5.2 MB) copied, 0.123966 s, 42.3 MB/s
+[tom@linuxprobe ~]$ dd if=/dev/zero of=/boot/tom bs=8M count=1
+dd: error writing ‘/boot/tom’: Disk quota exceeded
+1+0 records in
+0+0 records out
+6291456 bytes (6.3 MB) copied, 0.0201593 s, 312 MB/s
+[tom@linuxprobe ~]$ dd if=/dev/zero of=/boot/tom bs=5M count=4
+dd: error writing ‘/boot/tom’: Disk quota exceeded
+2+0 records in
+1+0 records out
+5308416 bytes (5.3 MB) copied, 0.00773663 s, 686 MB/s
+```
+2. edquota
+
+edquota命令用于编辑用户的quota配额限制，格式为“edquota [参数] [用户] ”。在为用户设置了quota磁盘容量配额限制后，可以使用edquota命令按需修改限额的数值。其中，-u参数表示要针对哪个用户进行设置；-g参数表示要针对哪个用户组进行设置。edquota命令会调用Vi或Vim编辑器来让root管理员修改要限制的具体细节。下面把用户tom的硬盘使用量的硬限额从5MB提升到8MB：
+
+```shell
+[root@linuxprobe ~]# edquota -u tom
+Disk quotas for user tom (uid 1001):
+ Filesystem blocks soft hard inodes soft hard
+ /dev/sda1 6144 3072 8192 1 3 6
+[root@linuxprobe ~]# su - tom
+Last login: Mon Sep 7 16:43:12 CST 2017 on pts/0
+[tom@linuxprobe ~]$ dd if=/dev/zero of=/boot/tom bs=8M count=1
+1+0 records in
+1+0 records out
+8388608 bytes (8.4 MB) copied, 0.0268044 s, 313 MB/s
+[tom@linuxprobe ~]$ dd if=/dev/zero of=/boot/tom bs=10M count=1
+dd: error writing ‘/boot/tom’: Disk quota exceeded
+1+0 records in
+0+0 records out
+8388608 bytes (8.4 MB) copied, 0.167529 s, 50.1 MB/s
+```
+
+### 软硬方式链接
