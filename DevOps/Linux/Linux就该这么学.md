@@ -2836,3 +2836,69 @@ dd: error writing ‘/boot/tom’: Disk quota exceeded
 
 在Linux系统中存在硬链接和软连接两种文件。
 
+硬链接（hard link）：可以将它理解为一个“指向原始文件inode的指针”，系统不为它分配独立的inode和文件。所以，硬链接文件与原始文件其实是同一个文件，只是名字不同。我们每添加一个硬链接，该文件的inode连接数就会增加1；而且只有当该文件的inode连接数为0时，才算彻底将它删除。换言之，由于硬链接实际上是指向原文件inode的指针，因此即便原始文件被删除，依然可以通过硬链接文件来访问。需要注意的是，由于技术的局限性，我们不能跨分区对目录文件进行链接。
+
+软链接（也称为符号链接[symbolic link]）：仅仅包含所链接文件的路径名，因此能链接目录文件，也可以跨越文件系统进行链接。但是，当原始文件被删除后，链接文件也将失效，从这一点上来说与Windows系统中的“快捷方式”具有一样的性质。
+
+ln 命令
+
+ln命令用于创建链接文件，格式为“ln [选项] 目标”，其可用的参数以及作用如表6-6所示。在使用ln命令时，是否添加-s参数，将创建出性质不同的两种“快捷方式”。因此如果没有扎实的理论知识和实践经验做铺垫，尽管能够成功完成实验，但永远不会明白为什么会成功。
+
+**ln命令中可用的参数以及作用**
+
+<table id="tablepress-30" class="tablepress tablepress-id-30">
+<tbody class="row-hover">
+<tr class="row-1 odd">
+<td class="column-1">参数</td>
+<td class="column-2">作用</td>
+</tr>
+<tr class="row-2 even">
+<td class="column-1">-s</td>
+<td class="column-2">创建“符号链接”（如果不带-s参数，则默认创建硬链接）</td>
+</tr>
+<tr class="row-3 odd">
+<td class="column-1">-f</td>
+<td class="column-2">强制创建文件或目录的链接</td>
+</tr>
+<tr class="row-4 even">
+<td class="column-1">-i</td>
+<td class="column-2">覆盖前先询问</td>
+</tr>
+<tr class="row-5 odd">
+<td class="column-1">-v</td>
+<td class="column-2">显示创建链接的过程</td>
+</tr>
+</tbody>
+</table>
+
+为了更好地理解软链接、硬链接的不同性质，接下来创建一个类似于Windows系统中快捷方式的软链接。这样，当原始文件被删除后，就无法读取新建的链接文件了。
+
+```shell
+[root@linuxprobe ~]# echo "Welcome to linuxprobe.com" > readme.txt
+[root@linuxprobe ~]# ln -s readme.txt readit.txt
+[root@linuxprobe ~]# cat readme.txt 
+Welcome to linuxprobe.com
+[root@linuxprobe ~]# cat readit.txt 
+Welcome to linuxprobe.com
+[root@linuxprobe ~]# ls -l readme.txt 
+-rw-r--r-- 1 root root 26 Jan 11 00:08 readme.txt
+[root@linuxprobe ~]# rm -f readme.txt 
+[root@linuxprobe ~]# cat readit.txt 
+cat: readit.txt: No such file or directory
+```
+
+接下来针对一个原始文件创建一个硬链接，即相当于针对原始文件的硬盘存储位置创建了一个指针，这样一来，新创建的这个硬链接就不再依赖于原始文件的名称等信息，也不会因为原始文件的删除而导致无法读取。同时可以看到创建硬链接后，原始文件的硬盘链接数量增加到了2。
+
+```shell
+[root@linuxprobe ~]# echo "Welcome to linuxprobe.com" > readme.txt
+[root@linuxprobe ~]# ln readme.txt readit.txt
+[root@linuxprobe ~]# cat readme.txt 
+Welcome to linuxprobe.com
+[root@linuxprobe ~]# cat readit.txt 
+Welcome to linuxprobe.com
+[root@linuxprobe ~]# ls -l readme.txt 
+-rw-r--r-- 2 root root 26 Jan 11 00:13 readme.txt
+[root@linuxprobe ~]# rm -f readme.txt 
+[root@linuxprobe ~]# cat readit.txt 
+Welcome to linuxprobe.com
+```
