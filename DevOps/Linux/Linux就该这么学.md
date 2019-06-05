@@ -2902,3 +2902,114 @@ Welcome to linuxprobe.com
 [root@linuxprobe ~]# cat readit.txt 
 Welcome to linuxprobe.com
 ```
+
+# 第7章 使用RAID和LVM磁盘阵列技术
+
+**未实践**
+
+# 第8章 Iptables与Firewalld防火墙
+
+在RHEL 7系统中，firewalld防火墙取代了iptables防火墙。对于接触Linux系统比较早或学习过RHEL 6系统的读者来说，当他们发现曾经掌握的知识在RHEL 7中不再适用，需要全新学习firewalld时，难免会有抵触心理。其实，iptables与firewalld都不是真正的防火墙，它们都只是用来定义防火墙策略的防火墙管理工具而已，或者说，它们只是一种服务。iptables服务会把配置好的防火墙策略交由内核层面的netfilter网络过滤器来处理，而firewalld服务则是把配置好的防火墙策略交由内核层面的nftables包过滤框架来处理。换句话说，当前在Linux系统中其实存在多个防火墙管理工具，旨在方便运维人员管理Linux系统中的防火墙策略，我们只需要配置妥当其中的一个就足够了。虽然这些工具各有优劣，但它们在防火墙策略的配置思路上是保持一致的。大家甚至可以不用完全掌握本章介绍的内容，只要在这多个防火墙管理工具中任选一款并将其学透，就足以满足日常的工作需求了
+
+### 策略与规则链
+返回强会从上至下赖读取配置的策略规则，在找到匹配后就立即借宿匹配工作并去执行匹配项中的定义（即放行或阻止）。如果在读取完所有的策略规则之后没有匹配项，就去执行默认的策略。一般而言，防火墙策略规则的设置有两种：一种是“通”（即放行），一种是“堵”（即阻止）。当防火墙的默认策略为拒绝时（堵），就要设置允许规则（通），否则谁都进不来；如果防火墙的默认策略为允许时，就要设置拒绝规则，否则谁都能进来，防火墙也就失去了防范的作用。
+
+iptables服务把用于处理或过滤流量的策略条目称之为规则，多条规则可以组成一个规则链，而规则链则依据数据包处理位置的不同进行分类，具体如下：
+
+1. 在进行路由选择前处理数据包（PREROUTING）；
+
+2. 处理流入的数据包（INPUT）；
+
+3. 处理流出的数据包（OUTPUT）；
+
+4. 处理转发的数据包（FORWARD）；
+
+5. 在进行路由选择后处理数据包（POSTROUTING）。
+
+比如“允许”、“拒绝”、“登记”、“不理它”。这些动作对应到iptables服务的术语中分别是ACCEPT（允许流量通过）、REJECT（拒绝流量通过）、LOG（记录日志信息）、DROP（拒绝流量通过）。“允许流量通过”和“记录日志信息”都比较好理解，这里需要着重讲解的是REJECT和DROP的不同点。就DROP来说，它是直接将流量丢弃而且不响应；REJECT则会在拒绝流量后再回复一条“您的信息已经收到，但是被扔掉了”信息，从而让流量发送方清晰地看到数据被拒绝的响应信息。
+
+当把Linux系统中的防火墙策略设置为REJECT拒绝动作后，流量发送方会看到端口不可达的响应：
+
+```shell
+[root@linuxprobe ~]# ping -c 4 192.168.10.10
+PING 192.168.10.10 (192.168.10.10) 56(84) bytes of data.
+From 192.168.10.10 icmp_seq=1 Destination Port Unreachable
+From 192.168.10.10 icmp_seq=2 Destination Port Unreachable
+From 192.168.10.10 icmp_seq=3 Destination Port Unreachable
+From 192.168.10.10 icmp_seq=4 Destination Port Unreachable
+--- 192.168.10.10 ping statistics ---
+4 packets transmitted, 0 received, +4 errors, 100% packet loss, time 3002ms
+```
+而把Linux系统中的防火墙策略修改成DROP拒绝动作后，流量发送方会看到响应超时的提醒。但是流量发送方无法判断流量是被拒绝，还是接收方主机当前不在线：
+```shell
+[root@linuxprobe ~]# ping -c 4 192.168.10.10
+PING 192.168.10.10 (192.168.10.10) 56(84) bytes of data.
+
+--- 192.168.10.10 ping statistics ---
+4 packets transmitted, 0 received, 100% packet loss, time 3000ms
+```
+
+### 基本的命令参数
+
+ **iptables中常用的参数以及作用**
+
+ <table id="tablepress-40" class="tablepress tablepress-id-40">
+<tbody class="row-hover">
+<tr class="row-1 odd">
+<td class="column-1">参数</td>
+<td class="column-2">作用</td>
+</tr>
+<tr class="row-2 even">
+<td class="column-1">-P</td>
+<td class="column-2">设置默认策略</td>
+</tr>
+<tr class="row-3 odd">
+<td class="column-1">-F</td>
+<td class="column-2">清空规则链</td>
+</tr>
+<tr class="row-4 even">
+<td class="column-1">-L</td>
+<td class="column-2">查看规则链</td>
+</tr>
+<tr class="row-5 odd">
+<td class="column-1">-A</td>
+<td class="column-2">在规则链的末尾加入新规则</td>
+</tr>
+<tr class="row-6 even">
+<td class="column-1">-I num</td>
+<td class="column-2">在规则链的头部加入新规则</td>
+</tr>
+<tr class="row-7 odd">
+<td class="column-1">-D num</td>
+<td class="column-2">删除某一条规则</td>
+</tr>
+<tr class="row-8 even">
+<td class="column-1">-s</td>
+<td class="column-2">匹配来源地址IP/MASK，加叹号“!”表示除这个IP外</td>
+</tr>
+<tr class="row-9 odd">
+<td class="column-1">-d</td>
+<td class="column-2">匹配目标地址</td>
+</tr>
+<tr class="row-10 even">
+<td class="column-1">-i 网卡名称</td>
+<td class="column-2">匹配从这块网卡流入的数据</td>
+</tr>
+<tr class="row-11 odd">
+<td class="column-1">-o 网卡名称</td>
+<td class="column-2">匹配从这块网卡流出的数据</td>
+</tr>
+<tr class="row-12 even">
+<td class="column-1">-p</td>
+<td class="column-2">匹配协议，如TCP、UDP、ICMP</td>
+</tr>
+<tr class="row-13 odd">
+<td class="column-1">--dport num</td>
+<td class="column-2">匹配目标端口号</td>
+</tr>
+<tr class="row-14 even">
+<td class="column-1">--sport num</td>
+<td class="column-2">匹配来源端口号</td>
+</tr>
+</tbody>
+</table>
