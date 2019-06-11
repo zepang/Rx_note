@@ -165,5 +165,44 @@ test('sanity test', () => {
 npm install @vue/test-utils --save-dev
 ```
 
+接下来我们看下引入`@vue/test-utils`之后的vue组件挂载写法：
+```js
+import Vue from 'vue'
+import Alert from './Alert.vue'
+import { mount } from '@vue/test-utils'
+test('sanity test', () => {
+  const wrapper = mount(Alert, {sync: false})
+  expect(wrapper.vm.$el.textContent).toContain('Alert')
+  return
+})
+```
+mount接收两个参数，具体查看[https://vue-test-utils.vuejs.org/zh/api/options.html#context](https://vue-test-utils.vuejs.org/zh/api/options.html#context)。代码中sync设置成false是因为我这里使用的vue版本是2.5.13，若设置为true则需要vue版本大于 >2.5.18。
+
+`@vue/test-utils`提供的mount函数并没有直接返回组件的实例，因为返回的`wrapper`里边除了实例还有一些helper methods,这些方法可以帮助设置组件属性，检查实例的属性，对实例进行操作等等
+
+比如 `expect(wrapper.vm.$el.textContent).toContain('Alert')`，可以换成另一种写发`expect(wrapper.text()).toContain('Alert')`
+
+还有一个非常类似的方法`shallowMount`，和`mount` 的区别在于，不会渲染子组件，防止子组件的某些干扰。单元测试通常只关心当前的组件，所以推荐使用`shallowMount`方法。
+
+## 使用chrome来调试jest代码
+
+我们在`package.json`中添加下边代码
+```json
+"scripts": {
+  "test:unit:debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --no-cache --runInBand"
+}
+```
+其实就是node的调试命令，然后打开chrome浏览器输入`chrome://inspect`，点击node inspect就会弹出调试面板。
+
+vscode调试方式： [https://github.com/Microsoft/vscode-recipes/tree/master/debugging-jest-tests](https://github.com/Microsoft/vscode-recipes/tree/master/debugging-jest-tests)
+
+webstorm调试方式： https://www.jetbrains.com/help/webstorm/running-unit-tests-on-jest.html
+
+
+
+
+
+
+
 
 
