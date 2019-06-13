@@ -4,6 +4,7 @@
 
 ## JavaScript
 
+* [stickyBit](https://github.com/dollarshaveclub/stickybits) Stickybits is a lightweight alternative to `position: sticky` polyfills
 * [clipbord.js](https://clipboardjs.com)  Modern copy to clipboard.
 * [SelectionJS](https://simonwep.github.io/selection/) Selection - A simple and lightweight library to realize visual DOM Selections, like on your Desktop. No jQuery. Supports any CSS library, e.g. Bootstrap. Including vertical & horizontal scroll support. 
 * [Scroll Hint](https://appleple.github.io/scroll-hint/) A JS library to suggest that the elements are scrollable horizontally, with the pointer icon. 
