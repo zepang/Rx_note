@@ -21,3 +21,11 @@ git remote prune origin
 再执行 
 git branch -a 
 就可以看到已经看不见已经删除的分支了
+
+# 给分支添加描述
+
+git branch --edit-description
+
+### 查看分支描述
+
+git config branch.<branch name>.description
