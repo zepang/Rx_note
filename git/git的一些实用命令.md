@@ -29,3 +29,7 @@ git branch --edit-description
 ### 查看分支描述
 
 git config branch.<branch name>.description
+
+# 将git默认的 nano 编辑器更换成 vim
+
+git config --global core.editor vim
