@@ -16,10 +16,16 @@ git config --global --unset http.proxy
 git branch -a 
 还是可以看到已删除的远程分支，时间一长就显的非常乱了 
 以下是解决方法： 
+```shell
 git remote show origin //可以看到删除分支情况 
+```
+```shell
 git remote prune origin 
+```
 再执行 
+```shell
 git branch -a 
+```
 就可以看到已经看不见已经删除的分支了
 
 # 给分支添加描述
