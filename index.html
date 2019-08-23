@@ -83,40 +83,87 @@
         ['[object RegExp]', 'regExp']
       ])
 
-      function deepClone(target) {
-        let memory = {}
+      // function deepClone(target) {
+      //   let memory = {}
 
-        function baseClone(target) {
-          let type = typesMap.get(
-            Reflect.apply(Object.prototype.toString, target, [])
-          )
-          let result
-          switch (type) {
-            case 'array':
-              result = []
-              for (let key in target) {
-                result[key] = baseClone(target[key])
-              }
-              break
-            case 'object':
-              result = {}
-              for (let key in target) {
-                if (memory[target[key]]) {
-                  result[key] = memory[target[key]]
+      //   function baseClone(target) {
+      //     let type = typesMap.get(
+      //       Reflect.apply(Object.prototype.toString, target, [])
+      //     )
+      //     let result
+      //     switch (type) {
+      //       case 'array':
+      //         result = []
+      //         for (let key in target) {
+      //           result[key] = baseClone(target[key])
+      //         }
+      //         break
+      //       case 'object':
+      //         result = {}
+      //         for (let key in target) {
+      //           if (memory[target[key]]) {
+      //             result[key] = memory[target[key]]
+      //           } else {
+      //             memory[target[key]] = target[key]
+      //             result[key] = baseClone(target[key])
+      //           }
+      //         }
+      //         break
+      //       default:
+      //         result = target
+      //     }
+
+      //     return result
+      //   }
+
+      //   return baseClone(target)
+      // }
+
+      function deepClone(target) {
+        let memory = new Map()
+        let type = typesMap.get(
+          Reflect.apply(Object.prototype.toString, target, [])
+        )
+        let result
+
+        function baseClone(target, result) {
+          let queue = [target]
+          while (queue.length) {
+            queue.pop()
+            for (let key in target) {
+              if (memory.get(target[key])) {
+                result[key] = memory.get(target[key])
+              } else {
+                if (
+                  ['object', 'array'].indexOf(
+                    typesMap.get(
+                      Reflect.apply(Object.prototype.toString, target, [])
+                    )
+                  ) > -1
+                ) {
+                  queue.push(target)
+                  memory.set(target[key], target[key])
                 } else {
-                  memory[target[key]] = target[key]
-                  result[key] = baseClone(target[key])
+                  result[key] = target[key]
                 }
               }
-              break
-            default:
-              result = target
+            }
           }
-
           return result
         }
 
-        return baseClone(target)
+        switch (type) {
+          case 'array':
+            result = baseClone(target, [])
+            break
+          case 'object':
+            result = baseClone(target, {})
+            break
+          default:
+            result = target
+        }
+
+        return result
       }
 
       var a = {}
@@ -126,7 +173,7 @@
 
       var c = deepClone(a)
       console.log(a === c)
-      console.log(a, c);
+      console.log(a, c)
     </script>
   </body>
 </html>
