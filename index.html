@@ -7,6 +7,35 @@
     <title>Document</title>
   </head>
   <body>
+    <canvas id="chart" height="200" width="400"></canvas>
+    <script>
+      const canvas = document.getElementById('chart');
+      const ctx = canvas.getContext('2d');
+      console.log(ctx)
+      ctx.strokeStyle = 'white';
+      ctx.lineWidth = 4
+      ctx.fillStyle = 'green'
+      ctx.beginPath()
+      ctx.moveTo(100, 100)
+      ctx.arc(100, 100, 100, 0, Math.PI*2/3, false)
+      ctx.fill()
+      ctx.lineTo(100, 100)
+      ctx.stroke()
+      ctx.beginPath()
+      ctx.moveTo(100, 100)
+      ctx.arc(100, 100, 100, Math.PI*2/3, Math.PI*4/3, false)
+      ctx.fillStyle = 'red'
+      ctx.fill()
+      ctx.lineTo(100, 100)
+      ctx.stroke()
+      ctx.beginPath()
+      ctx.moveTo(100, 100)
+      ctx.arc(100, 100, 100, Math.PI*4/3, Math.PI*6/3, false)
+      ctx.fillStyle = 'yellow'
+      ctx.fill()
+      ctx.lineTo(100, 100)
+      ctx.stroke()
+    </script>
     <!-- <script>
     function add(a,b,c) {
       return a + b + c
