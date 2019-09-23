@@ -350,6 +350,14 @@ function myCo (generator) {
 测试一下：
 
 ```js
+function request (data) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(data)
+    }, 3000)
+  })
+}
+
 function *generator () {
   console.time('request')
   var data1 = yield request('data1')
@@ -357,6 +365,8 @@ function *generator () {
   console.log(data1, data2) // data1 data2
   console.timeEnd('request') // request: 6001.008056640625ms
 }
+
+myCo(generator)
 ```
 
 这样基本就完成了多个yield的时候，迭代器自动消耗，知道迭代器消耗完毕。
