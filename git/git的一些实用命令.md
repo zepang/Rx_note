@@ -58,3 +58,9 @@ git diff --name-only <commit-1> <commit-2>
 git diff-tree -r --no-commit-id --name-only d18f9d5f17e190cfbb836a4acff2d96c0d466a2c | xargs tar -rf mytarfile.tar
 ```
 把修改的文件打包
+
+# 跟踪所有的远程分支（为所有的远程分支创建本地分支）
+
+```shell
+for i in `git branch -a | grep remote | grep -v HEAD | grep -v master`; do git branch --track ${i#remotes/origin/} $i; done
+```
