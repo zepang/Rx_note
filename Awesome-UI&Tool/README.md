@@ -39,6 +39,8 @@
 * [odometer](https://github.com/HubSpot/odometer) Smoothly transitions numbers with ease. 
 * [snabbt.js](https://github.com/daniel-lundin/snabbt.js) Fast animations with javascript and CSS transforms 
 * [xtermjs](https://xtermjs.org/) 网页中运行的终端
+* [https://github.com/sindresorhus/capture-website](https://github.com/sindresorhus/capture-website) Capture-Website 是一款截图工具，为你提供另外一种网站截图的体验。借助它，你可以使用几行代码就轻松获得页面的完整截图。
+* [https://lunar.atomui.com/](https://lunar.atomui.com/) Lunar Popup 是一个基于 HTML/CSS的动画弹出窗口构建器，它是免费的，所生成的窗口是响应式的，可以自定义的，并且易于构建和部署。你可以控制它使用动画或者不使用动画，安装则只需要三个步骤：添加库、选择你想使用的模型，然后初始化就可以了。
 
 # Vue
 
@@ -105,6 +107,8 @@
 
 * [https://www.uibot.app/](https://www.uibot.app/) 随机生成布局的网站，提供灵感
 
+* [https://www.manypixels.co/gallery/](https://www.manypixels.co/gallery/) 免费插画
+
 # Nginx
 * [https://github.com/trimstray/nginx-admins-handbook](https://github.com/trimstray/nginx-admins-handbook) 想要充分利用 Nginx ，这份指南文档能够帮你。你能够在其中找到绝大多数的关于 Nginx 的主题，包括安全性控制、调试以及各种核心的基础知识。
 
@@ -115,3 +119,17 @@
 # Bash 
 
 *[https://github.com/dylanaraps/pure-bash-bible](https://github.com/dylanaraps/pure-bash-bible) 想要掌握 Bash，这份涵盖了各种提示、代码范例、最佳实践的学习素材包，能够帮到你。
+
+# 字体
+
+* [https://www.dafont.com/ohio.font](https://www.dafont.com/ohio.font)
+
+![](./imgs/ohio.jpg)
+
+* [https://www.dafont.com/pondspell.font](https://www.dafont.com/pondspell.font)
+
+![](./imgs/pond.jpg)
+
+* [https://public-sans.digital.gov/](https://public-sans.digital.gov/)
+
+![](./imgs/public-sans.jpg)
