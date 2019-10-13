@@ -2,7 +2,7 @@
 
 *收藏平常工作，学习中发现和接触的不错的库和工具，方便以后使用提高效率*
 
-## JavaScript
+# JavaScript
 
 * [stickyBit](https://github.com/dollarshaveclub/stickybits) Stickybits is a lightweight alternative to `position: sticky` polyfills
 * [clipbord.js](https://clipboardjs.com)  Modern copy to clipboard.
@@ -38,8 +38,9 @@
 * [Hover](https://github.com/IanLunn/Hover/) A collection of CSS3 powered hover effects to be applied to links, buttons, logos, SVG, featured images and so on. Easily apply to your own elements, modify or just use for inspiration. Available in CSS, Sass, and LESS. 
 * [odometer](https://github.com/HubSpot/odometer) Smoothly transitions numbers with ease. 
 * [snabbt.js](https://github.com/daniel-lundin/snabbt.js) Fast animations with javascript and CSS transforms 
+* [xtermjs](https://xtermjs.org/) 网页中运行的终端
 
-## Vue
+# Vue
 
 * [vue-infinite-loading](https://github.com/PeachScript/vue-infinite-loading) An infinite scroll plugin for Vue.js.
 * [eagle.js](https://github.com/Zulko/eagle.js) A hackable slideshow framework built with Vue.js
@@ -47,7 +48,7 @@
 * [vuido](https://github.com/mimecorg/vuido) Native desktop applications using Vue.js. 
 * [saber](https://github.com/egoist/saber) Saber.js is a simple yet powerful framework for building modern static websites.
 
-## React
+# React
 
 * [react-flight](https://github.com/jondot/react-flight) The best way to build animation compositions for React. 
 * [mdx](https://github.com/mdx-js/mdx) JSX in Markdown for ambitious projects 
@@ -56,12 +57,12 @@
 * [react-move](https://github.com/react-tools/react-move) React Move 🌀 Beautiful, data-driven animations for React 
 * [mdx-deck](https://github.com/jxnblk/mdx-deck) MDX-based presentation decks 
 
-## Node
+# Node
 
 * [cheerio](https://cheerio.js.org/) Fast, flexible, and lean implementation of core jQuery designed specifically for the server
 * * [prompts](https://github.com/terkelg/prompts) Lightweight, beautiful and user-friendly interactive prompts.
 
-##　tools
+#　tools
 
 * [https://keyframes.app/](https://keyframes.app/) An insanely simple way to create CSS animations
 * [https://reactive.how/](https://reactive.how/) Learn RxJS operators and Reactive Programming principles
@@ -72,7 +73,7 @@
 * [pure-bash-bible](https://github.com/dylanaraps/pure-bash-bible)  A collection of pure bash alternatives to external processes.
 * [zerossl](https://zerossl.com/) Free SSL Certificates and Free SSL Tools for your website.
 
-## icon
+# icon
 
 * [Feather Icons](https://github.com/feathericons/feather) Simply beautiful open source icons
 
@@ -85,8 +86,32 @@
 * [cssanimate](http://cssanimate.com/) 
 * [magic_animations](https://www.minimamente.com/example/magic_animations/)
 * [sprite-generator](https://www.toptal.com/developers/css/sprite-generator)
+* [https://cssfx.dev/](https://cssfx.dev/) 这是一套实用性超高的 CSS 效果合集，这个系列的效果注重流动性、易用性和便捷性，让你尽可能少地标记，尽可能好的使用。每个效果都是开源的，请尽情使用。
+![](./imgs/cssfx.jpg)
 
-## UI Component
+* [https://cssanimation.rocks/animating-links/](https://cssanimation.rocks/animating-links/) 这个来自 Learn CSS Animation 的教程教你如何制作带有动态效果的链接，包括如何生成动态下划线效果、过渡动画以及如何制作关键帧等等，甚至还为你详细分析了各种动画效果的优缺点。
+
+# UI Component
 * [https://www.jqwidgets.com/](https://www.jqwidgets.com/)
 
 ![](./imgs/www.jqwidgets.com.jpg)
+
+* [https://isometric.online/](https://isometric.online/) Isometric 是一组可以在数字项目中可以使用的免费的矢量等轴测插画，这些插画风格一致且都使用的是 SVG 格式，内容丰富多样。
+![](./imgs/isometric.jpg)
+
+* [https://stubborn.fun/](https://stubborn.fun/) 这是一个免费的插画生成工具，能够帮你的项目创建一个独特的、富有故事性的插画。这套工具包含 25 个角色和 50 种不同的背景，可以使用 Sketch 和 Figma 进行自定义设计。
+
+* [https://hamok.io/](https://hamok.io/) 这是一款非常易于使用的视觉稿工具，可以使用 URL 或者图片来创建视觉稿。它提供了一整套模板，并且生成响应式视觉稿，展示出各种不同的效果。
+
+* [https://www.uibot.app/](https://www.uibot.app/) 随机生成布局的网站，提供灵感
+
+# Nginx
+* [https://github.com/trimstray/nginx-admins-handbook](https://github.com/trimstray/nginx-admins-handbook) 想要充分利用 Nginx ，这份指南文档能够帮你。你能够在其中找到绝大多数的关于 Nginx 的主题，包括安全性控制、调试以及各种核心的基础知识。
+
+# Docker
+
+* [Dockerlabs](https://dockerlabs.collabnix.com/) Dockerlabs 是一个教你使用 Docker 和 Kubernetes 的系列教程合集，它提供的教程主要是文本教程，并且你可以直接在浏览器中测试。你无需在计算机上安装任何东西就可以直接体验 Docker，比如 Docker Engine、Docker Compose 和 Docker Machine。
+
+# Bash 
+
+*[https://github.com/dylanaraps/pure-bash-bible](https://github.com/dylanaraps/pure-bash-bible) 想要掌握 Bash，这份涵盖了各种提示、代码范例、最佳实践的学习素材包，能够帮到你。
