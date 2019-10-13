@@ -64,3 +64,17 @@ git diff-tree -r --no-commit-id --name-only d18f9d5f17e190cfbb836a4acff2d96c0d46
 ```shell
 for i in `git branch -a | grep remote | grep -v HEAD | grep -v master`; do git branch --track ${i#remotes/origin/} $i; done
 ```
+
+# 修改已经提交的所有commit的User和Email
+
+```shell
+git filter-branch --commit-filter '
+        if [ "$GIT_AUTHOR_EMAIL" = "laizehai@tulong.com" ];
+        then
+                GIT_AUTHOR_NAME="zepang";
+                GIT_AUTHOR_EMAIL="ummlq4@gmail.com";
+                git commit-tree "$@";
+        else
+                git commit-tree "$@";
+        fi' HEAD;
+```
