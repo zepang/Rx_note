@@ -109,7 +109,14 @@
 
 * [https://www.manypixels.co/gallery/](https://www.manypixels.co/gallery/) 免费插画
 
+* [https://www.transparenttextures.com/](https://www.transparenttextures.com/) 自由DIY纹理背景的网站
+
+* [https://www.uisdc.com/zt/photoshop-skills](https://www.uisdc.com/zt/photoshop-skills) ps技巧 
+
+* [https://www.uisdc.com/meizu-10-resume-design-principles](https://www.uisdc.com/meizu-10-resume-design-principles) 有哪些看上去很高大上，但实际很简单的PS技巧？
+
 # Nginx
+
 * [https://github.com/trimstray/nginx-admins-handbook](https://github.com/trimstray/nginx-admins-handbook) 想要充分利用 Nginx ，这份指南文档能够帮你。你能够在其中找到绝大多数的关于 Nginx 的主题，包括安全性控制、调试以及各种核心的基础知识。
 
 # Docker
