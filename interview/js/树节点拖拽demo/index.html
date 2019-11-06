@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>树节点拖拽</title>
+</head>
+<style>
+.dragging {
+  border: 2px dashed red;
+}
+.dragenter {
+  border: 2px dashed red;
+}
+</style>
+<body>
+  <script>
+    class Tree {
+      constructor (deep, width) {
+        this.deep = deep > 0 ? deep : 2
+        this.curDeep = 0
+        this.nodeIndex = 1
+        this.width = width || 2
+        this.root = this.createNode(0)
+        this.treeNodes = [this.root]
+        this.init()
+      }
+
+      init () {
+        this.curDeep = this.curDeep + 1
+        for (let j = 0; j < this.width; j++) {
+          let node = this.createNode(j)
+          this.root.children.push(node)
+        }
+        let parents = this.root.children
+        this.recursionDeep(parents)
+      }
+
+      recursionDeep (parents) {
+        let tmp = []
+        while (this.curDeep < this.deep) {
+          this.curDeep = this.curDeep + 1
+          for (let i = 0; i < parents.length; i++) {
+            let children = this.recursionWidth(parents[i])
+            tmp = tmp.concat(children)
+          }
+          parents = tmp
+          tmp = []
+        }
+      }
+
+      recursionWidth (parent) {
+        let curWidth = 0
+
+        while (curWidth < this.width) {
+          let node = this.createNode(curWidth + 1)
+          parent.children.push(node)
+          curWidth = curWidth + 1
+        }
+
+        return parent.children
+      }
+
+      createNode (id) {
+        return {
+          id: `node-${this.curDeep}-${this.nodeIndex++}`,
+          isRoot: this.curDeep === 0,
+          children: [],
+        }
+      }
+
+      traversal (node, fn) {
+        node = node ? node : this.root
+        fn = fn ? fn : () => {}
+        let stack = []
+        stack.push(node)
+        while (stack.length) {
+          let parent = stack.pop()
+          for (let i = 0; i < parent.children.length; i++) {
+            fn(parent, parent.children[i])
+            stack.unshift(parent.children[i])
+          }
+        }
+      }
+    }
+
+    var tree = new Tree(3)
+    console.log(tree)
+
+    window.onload = function () {
+      var root = document.createElement('div')
+      root.id = tree.root.id
+      root.style.cssText = 'display: flex; justify-content: space-around; flex-wrap: wrap;cursor: move;'
+      root.innerHTML = `<h3 style="text-align: center; min-width: 100%;">${tree.root.id}</h3>`
+      document.body.appendChild(root)
+
+      tree.traversal(tree.root, (parent, curNode) => {
+        var parent = document.getElementById(parent.id)
+        var child = document.createElement('div')
+        child.id = curNode.id
+        child.draggable="true"
+        child.innerHTML = `<h3 style="text-align: center; min-width: 100%;">${curNode.id}</h3>`
+        child.style.cssText = 'display: flex; justify-content: space-around; flex-wrap: wrap;'
+
+        child.addEventListener('dragstart', function (e) {
+          e.stopPropagation()
+          e.dataTransfer.setData('draggingDomHtml', this.innerHTML)
+          e.dataTransfer.setData('draggingDomId', this.id)
+          setTimeout(() => {
+            this.style.opacity = 0
+          }, 0)
+          
+          this.className += ' dragging'
+        })
+
+        child.addEventListener('dragenter', function (e) {
+          e.stopPropagation()
+          this.className += ' dragenter'
+        })
+        child.addEventListener('dragleave', function (e) {
+          e.stopPropagation()
+          this.className = ''
+        })
+        child.addEventListener('dragover', function (e) {
+          e.preventDefault()
+        })
+        child.addEventListener('dragend', function (e) {
+          e.stopPropagation()
+          e.dataTransfer.clearData()
+          this.parentNode.removeChild(this)
+          this.className = ''
+        })
+        child.addEventListener('drop', function (e) {
+          e.stopPropagation()
+          // this.appendChild(e.dataTransfer.getData('draggingDom'))
+          var div = document.createElement('div')
+          div.id = e.dataTransfer.getData('draggingDomId')
+          div.innerHTML = e.dataTransfer.getData('draggingDomHtml')
+          // let oldNode = document.getElementById(e.dataTransfer.getData('draggingDomId'))
+          // oldNode
+          this.appendChild(div)
+          this.className = ''
+        })
+
+        parent.appendChild(child)
+      })
+    }
+  </script>
+</body>
+</html>
