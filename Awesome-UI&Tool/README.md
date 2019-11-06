@@ -90,6 +90,7 @@
 * [sprite-generator](https://www.toptal.com/developers/css/sprite-generator)
 * [https://cssfx.dev/](https://cssfx.dev/) 这是一套实用性超高的 CSS 效果合集，这个系列的效果注重流动性、易用性和便捷性，让你尽可能少地标记，尽可能好的使用。每个效果都是开源的，请尽情使用。
 ![](./imgs/cssfx.jpg)
+* [https://cssgrid-generator.netlify.com/](https://cssgrid-generator.netlify.com/) grid布局代码工具
 
 * [https://cssanimation.rocks/animating-links/](https://cssanimation.rocks/animating-links/) 这个来自 Learn CSS Animation 的教程教你如何制作带有动态效果的链接，包括如何生成动态下划线效果、过渡动画以及如何制作关键帧等等，甚至还为你详细分析了各种动画效果的优缺点。
 
@@ -109,7 +110,14 @@
 
 * [https://www.manypixels.co/gallery/](https://www.manypixels.co/gallery/) 免费插画
 
+* [https://www.transparenttextures.com/](https://www.transparenttextures.com/) 自由DIY纹理背景的网站
+
+* [https://www.uisdc.com/zt/photoshop-skills](https://www.uisdc.com/zt/photoshop-skills) ps技巧 
+
+* [https://www.uisdc.com/meizu-10-resume-design-principles](https://www.uisdc.com/meizu-10-resume-design-principles) 有哪些看上去很高大上，但实际很简单的PS技巧？
+
 # Nginx
+
 * [https://github.com/trimstray/nginx-admins-handbook](https://github.com/trimstray/nginx-admins-handbook) 想要充分利用 Nginx ，这份指南文档能够帮你。你能够在其中找到绝大多数的关于 Nginx 的主题，包括安全性控制、调试以及各种核心的基础知识。
 
 # Docker
