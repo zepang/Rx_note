@@ -1,5 +1,7 @@
 # TypeScript 学习记录
 
+[TypeScript Node Starter](https://github.com/microsoft/TypeScript-Node-Starter)
+
 官方文档：[http://www.typescriptlang.org](http://www.typescriptlang.org)
 
 # 为什么需要TypeScript?

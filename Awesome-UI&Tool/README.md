@@ -14,6 +14,8 @@
 * [lazy-image](https://meowni.ca/lazy-image/) loaded only on-demand
 * [ms](https://github.com/zeit/ms) Tiny milisecond conversion utility
 * [smoothscroll](http://iamdustan.com/smoothscroll/) Scroll Behavior polyfill 
+* [smooth-scroll](https://github.com/cferdinandi/smooth-scroll#readme) 平滑滚动库
+* [Stickybits](https://github.com/dollarshaveclub/stickybits#readme)Stickybits is a lightweight alternative to position: sticky polyfills. It works perfectly for things like sticky headers.
 * [bounce.js](https://github.com/tictail/bounce.js) Create beautiful CSS3 powered animations in no time.
 * [move.js](https://github.com/visionmedia/move.js) CSS3 backed JavaScript animation framework
 * [mojs](https://github.com/mojs/mojs) The motion graphics toolbelt for the web
@@ -41,6 +43,11 @@
 * [xtermjs](https://xtermjs.org/) 网页中运行的终端
 * [https://github.com/sindresorhus/capture-website](https://github.com/sindresorhus/capture-website) Capture-Website 是一款截图工具，为你提供另外一种网站截图的体验。借助它，你可以使用几行代码就轻松获得页面的完整截图。
 * [https://lunar.atomui.com/](https://lunar.atomui.com/) Lunar Popup 是一个基于 HTML/CSS的动画弹出窗口构建器，它是免费的，所生成的窗口是响应式的，可以自定义的，并且易于构建和部署。你可以控制它使用动画或者不使用动画，安装则只需要三个步骤：添加库、选择你想使用的模型，然后初始化就可以了。
+* [https://github.com/glinford/ellipsis.js](https://github.com/glinford/ellipsis.js)纯js实现的多行省略库
+* [https://github.com/FrDH/dotdotdot-js](https://github.com/FrDH/dotdotdot-js)js多行省略插件
+* [Shave一个javascript插件实现用max-height属性对文本进行截断以适合一个html元素 ✁](https://github.com/dollarshaveclub/shave)
+* [Js 拦截全局ajax请求](https://github.com/wendux/Ajax-hook)
+* [Lining.js 让浏览器实现类似::nth-line(), ::nth-last-line()的效果](https://github.com/zmmbreeze/lining.js)
 
 # Vue
 
@@ -141,3 +148,12 @@
 * [https://public-sans.digital.gov/](https://public-sans.digital.gov/)
 
 ![](./imgs/public-sans.jpg)
+
+* [https://www.ctolib.com](https://www.ctolib.com) 一个集成多种库的网站
+
+* [https://github.com/liriliri/eruda](https://github.com/liriliri/eruda)移动端调试工具
+* [https://www.ctolib.com/wiredjs-wired-elements.html](https://www.ctolib.com/wiredjs-wired-elements.html)手绘风格库
+
+* [Fiddle - 🚀 入门使用Electron的最简单方法](https://github.com/electron/fiddle)
+* [一些可供第三方调用公共 JSON API 列表](https://github.com/davemachado/public-api)
+* [https://github.com/gothinkster/realworld](https://github.com/gothinkster/realworld) realworld的各种示例
