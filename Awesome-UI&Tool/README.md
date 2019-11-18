@@ -81,6 +81,7 @@
 * [devhints](https://devhints.io/) cheatsheets
 * [pure-bash-bible](https://github.com/dylanaraps/pure-bash-bible)  A collection of pure bash alternatives to external processes.
 * [zerossl](https://zerossl.com/) Free SSL Certificates and Free SSL Tools for your website.
+* [Surfingkeys ：另一个Chrome扩展,提供了基于键盘的导航和Web控制](https://github.com/brookhong/Surfingkeys)
 
 # icon
 
