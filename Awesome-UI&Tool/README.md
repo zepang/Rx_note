@@ -158,3 +158,10 @@
 * [Fiddle - 🚀 入门使用Electron的最简单方法](https://github.com/electron/fiddle)
 * [一些可供第三方调用公共 JSON API 列表](https://github.com/davemachado/public-api)
 * [https://github.com/gothinkster/realworld](https://github.com/gothinkster/realworld) realworld的各种示例
+* [https://github.com/JacksonTian/fks](https://github.com/JacksonTian/fks)这本 Book of Modern Frontend Tooling 是免费开源的，其中详细介绍了现代网络应用开发所需要的各类工具，它目前已经比较翔实，并且逐步完善。
+
+* [https://svgjs.com/docs/3.0/](https://svgjs.com/docs/3.0/)
+* [http://lukyvj.github.io/family.scss/](http://lukyvj.github.io/family.scss/) CSS伪类 :Nth-Child 的用法
+
+* [https://easings.net/](https://easings.net/) css 动画曲线
+* [https://github.com/zhangxinxu/Tween](https://github.com/zhangxinxu/Tween)js曲线
