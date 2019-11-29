@@ -48,6 +48,9 @@
 * [Shave一个javascript插件实现用max-height属性对文本进行截断以适合一个html元素 ✁](https://github.com/dollarshaveclub/shave)
 * [Js 拦截全局ajax请求](https://github.com/wendux/Ajax-hook)
 * [Lining.js 让浏览器实现类似::nth-line(), ::nth-last-line()的效果](https://github.com/zmmbreeze/lining.js)
+* [Moveable 实现↔️ ↕️ 🔄可拖动，可调整大小，可扩展，可旋转](https://github.com/daybrush/moveable)
+* [数据结构和算法解释并用JavaScript实现]()
+* [现代 Web 开发，现代 Web 开发导论 | 基础篇 | 进阶篇 | 架构优化篇 | React 篇 | Vue 篇](https://ngte-web.gitbook.io/i/)
 
 # Vue
 
@@ -82,6 +85,7 @@
 * [pure-bash-bible](https://github.com/dylanaraps/pure-bash-bible)  A collection of pure bash alternatives to external processes.
 * [zerossl](https://zerossl.com/) Free SSL Certificates and Free SSL Tools for your website.
 * [Surfingkeys ：另一个Chrome扩展,提供了基于键盘的导航和Web控制](https://github.com/brookhong/Surfingkeys)
+* [Chrome插件开发完整demo](https://github.com/sxei/chrome-plugin-demo)
 
 # icon
 
@@ -158,3 +162,8 @@
 * [Fiddle - 🚀 入门使用Electron的最简单方法](https://github.com/electron/fiddle)
 * [一些可供第三方调用公共 JSON API 列表](https://github.com/davemachado/public-api)
 * [https://github.com/gothinkster/realworld](https://github.com/gothinkster/realworld) realworld的各种示例
+
+* [hotcss移动端布局终极解决方案 --- 让移动端布局开发更加容易](https://github.com/imochen/hotcss)
+* [Magic Grid一个简单，轻量级的Javascript库，用于动态网格布局](https://github.com/e-oj/Magic-Grid)
+* [Muuri 能够创建响应式，可排序，可过滤和可拖动的网格布局。](https://github.com/haltu/muuri)
+* [https://popmotion.io/](https://popmotion.io/)js动画 库
