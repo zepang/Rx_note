@@ -167,3 +167,10 @@
 * [Magic Grid一个简单，轻量级的Javascript库，用于动态网格布局](https://github.com/e-oj/Magic-Grid)
 * [Muuri 能够创建响应式，可排序，可过滤和可拖动的网格布局。](https://github.com/haltu/muuri)
 * [https://popmotion.io/](https://popmotion.io/)js动画 库
+* [https://github.com/JacksonTian/fks](https://github.com/JacksonTian/fks)这本 Book of Modern Frontend Tooling 是免费开源的，其中详细介绍了现代网络应用开发所需要的各类工具，它目前已经比较翔实，并且逐步完善。
+
+* [https://svgjs.com/docs/3.0/](https://svgjs.com/docs/3.0/)
+* [http://lukyvj.github.io/family.scss/](http://lukyvj.github.io/family.scss/) CSS伪类 :Nth-Child 的用法
+
+* [https://easings.net/](https://easings.net/) css 动画曲线
+* [https://github.com/zhangxinxu/Tween](https://github.com/zhangxinxu/Tween)js曲线
