@@ -121,6 +121,8 @@
 * [https://www.uibot.app/](https://www.uibot.app/) 随机生成布局的网站，提供灵感
 
 * [https://www.manypixels.co/gallery/](https://www.manypixels.co/gallery/) 免费插画
+* [https://delesign.com/free-designs/graphics/](https://delesign.com/free-designs/graphics/) 免费插画
+* [https://isoflat.com/](https://isoflat.com/) 免费插画
 
 * [https://www.transparenttextures.com/](https://www.transparenttextures.com/) 自由DIY纹理背景的网站
 
@@ -141,6 +143,8 @@
 *[https://github.com/dylanaraps/pure-bash-bible](https://github.com/dylanaraps/pure-bash-bible) 想要掌握 Bash，这份涵盖了各种提示、代码范例、最佳实践的学习素材包，能够帮到你。
 
 # 字体
+
+* [https://www.colorsandfonts.com/](https://www.colorsandfonts.com/)不错的颜色字体选择
 
 * [https://www.dafont.com/ohio.font](https://www.dafont.com/ohio.font)
 
