@@ -179,3 +179,117 @@
 
 * [https://easings.net/](https://easings.net/) css 动画曲线
 * [https://github.com/zhangxinxu/Tween](https://github.com/zhangxinxu/Tween)js曲线
+
+# Chrome 插件
+
+#### JSON格式化
+
+JSONView
+
+#### github
+
+Octotree 侧边栏
+
+OctoLiker github内包 文件跳转
+
+Octohint github文件语法高亮
+
+##### oneTab
+
+tab页管理
+
+#### Vimium
+
+#### 沙拉查词-聚合词典划词翻译
+
+#### 谷歌上网助手
+
+#### Wappalyzer what's run
+
+#### 网页截图:注释&录屏
+
+#### 书签侧边栏
+
+#### Axure RP Extension for Chrome
+
+#### The Great Suspender
+
+#### Codelf-Best 
+
+#### Gliffy Diagrams 流程图
+
+#### WEB前端助手(FeHelper)
+
+#### Window Resizer
+
+* [https://github.com/CJex/regulex](https://github.com/CJex/regulex)正则可视化工具
+
+
+* 下载工具 motrix
+* 看/截图工具 jietu
+* brew cask tools list
+* 快速查看工具 Nicer plugins for QuickLook
+* szrz插件
+
+#### 调试工具1)
+* 1)perf代理工具，支持内存，cpu，堆栈查看，并支持火焰图.perf 工具和 go-torch 工具快捷定位程序问题.https://github.com/uber-archive/go-torchhttps://github.com/google/gops
+* 2)dlv 远程调试基于 goland+dlv 可以实现远程调式的能力.https://github.com/go-delve/delve提供了对 golang 原生的支持，相比 gdb 调试，简单太多。
+* 3)网络代理工具goproxy 代理，支持多种协议，支持 ssh 穿透和 kcp 协议.https://github.com/snail007/goproxy
+* 4)抓包工具go-sniffer 工具，可扩展的抓包工具，可以开发自定义协议的工具包. 现在只支持了 http，mysql，redis，mongodb.基于这个工具，我们开发了 qapp 协议的抓包。https://github.com/40t/go-sniffer
+* 5)反向代理工具，快捷开放内网端口供外部使用。ngrok 可以让内网服务外部调用https://ngrok.com/https://github.com/inconshreveable/ngrok
+* 6)配置化生成证书从根证书，到业务侧证书一键生成.https://github.com/cloudflare/cfssl
+* 7)免费的证书获取工具基于 acme 协议，从 letsencrypt 生成免费的证书，有效期 1 年，可自动续期。https://github.com/Neilpang/acme.sh
+* 8)开发环境管理工具，单机搭建可移植工具的利器。支持多种虚拟机后端。vagrant常被拿来同 docker 相比，值得拥有。https://github.com/hashicorp/vagrant
+* 9)轻量级容器调度工具nomad 可以非常方便的管理容器和传统应用，相比 k8s 来说，简单不要太多.https://github.com/hashicorp/nomad
+* 10)敏感信息和密钥管理工具https://github.com/hashicorp/vault
+* 11)高度可配置化的 http 转发工具，基于 etcd 配置。https://github.com/gojek/weaver
+* 12)进程监控工具 supervisorhttps://www.jianshu.com/p/39b476e808d8
+* 13)基于procFile进程管理工具. 相比 supervisor 更加简单。https://github.com/ddollar/foreman
+* 14)基于 http，https，websocket 的调试代理工具，配置功能丰富。在线教育的 nohost web 调试工具，基于此开发.https://github.com/avwo/whistle
+* 15)分布式调度工具https://github.com/shunfei/cronsun/blob/master/README_ZH.mdhttps://github.com/ouqiang/gocron
+* 16)自动化运维平台 Gaiahttps://github.com/gaia-pipeline/gaia
+
+* go 百科全书: https://awesome-go.com/
+* json 解析: https://www.json.cn/
+* 出口 IP: https://ipinfo.io/
+* redis 命令: http://doc.redisfans.com/
+* ES 命令首页: https://www.elastic.co/guide/cn/elasticsearch/guide/current/index.html
+* UrlEncode: http://tool.chinaz.com/Tools/urlencode.aspx
+* Base64: https://tool.oschina.net/encrypt?type=3
+* Guid: https://www.guidgen.com/
+* 常用工具: http://www.ofmonkey.com/
+
+#### 打字速度练习
+
+* https://typing.io/
+* https://www.keybr.com/
+* http://www.speedcoder.net/
+
+#### 前端业务代码工具库
+
+https://github.com/proYang/outils
+
+#### 1.Rufus：可能是最小的装系统神器 仅900KB
+
+#### 各种语言在线调试工具 https://tool.lu/
+
+#### 各种在线工具 https://www.toolnb.com/
+
+#### 菜鸟在线工具 https://c.runoob.com/
+
+#### vscode sublime-text atom代码片段生成工具 https://snippet-generator.app/
+
+#### gitignore 生成 http://gitignore.io/
+
+#### 免费节点 https://lncn.org/  http://ss.pythonic.life/
+
+#### 分享一个前端开发者的必备工具——whistle https://github.com/avwo/whistle
+
+#### GitHub不错的项目榜单 https://www.v2fy.com/stars-and-clown/
+
+
+
+
+
+
+
