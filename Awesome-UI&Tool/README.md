@@ -287,6 +287,11 @@ https://github.com/proYang/outils
 
 #### GitHub不错的项目榜单 https://www.v2fy.com/stars-and-clown/
 
+#### 网盘直链下载助手 https://www.baiduyun.wiki/install.html
+
+#### 视频下载 https://coverr.co/
+
+#### cloc 代码行数统计
 
 
 
