@@ -293,7 +293,9 @@ https://github.com/proYang/outils
 
 #### cloc 代码行数统计
 
+#### git 中文开发手册 https://www.php.cn/manual/view/34942.html
 
+#### 猴子都能懂的git https://backlog.com/git-tutorial/cn/
 
 
 
