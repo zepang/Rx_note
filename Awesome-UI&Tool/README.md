@@ -281,7 +281,24 @@ https://github.com/proYang/outils
 
 #### gitignore 生成 http://gitignore.io/
 
-#### 免费节点 https://lncn.org/  http://ss.pythonic.life/
+#### 免费节点 https://lncn.org/  http://ss.pythonic.life/ 
+
+### https://www.youneed.win/free-ssr
+
+```js
+const ssr = [];document.querySelectorAll('[data*=ssr]').forEach(item => ssr.push(item.getAttribute('data')));console.log(ssr.join('\r\n'));
+```
+
+#### 免费节点 https://ssrtool.github.io/p/domain/#more
+
+主域名 (需要代理访问，但是永不变更，请牢记):
+论坛
+https://www.ssrshare.us
+https://www.ssrshare.com
+
+小工具主域名
+https://www.ssrtool.us
+https://www.ssrtool.com
 
 #### 分享一个前端开发者的必备工具——whistle https://github.com/avwo/whistle
 
