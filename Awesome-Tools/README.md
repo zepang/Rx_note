@@ -313,3 +313,5 @@ https://www.ssrtool.com
 #### git 中文开发手册 https://www.php.cn/manual/view/34942.html
 
 #### 猴子都能懂的git https://backlog.com/git-tutorial/cn/
+
+### 电子书 https://b-ok.cc  https://www.letmeread.net http://libgen.lc
