@@ -315,3 +315,5 @@ https://www.ssrtool.com
 #### 猴子都能懂的git https://backlog.com/git-tutorial/cn/
 
 ### 电子书 https://b-ok.cc  https://www.letmeread.net http://libgen.lc
+
+### https://funteas.com/issues/ 前端日报
