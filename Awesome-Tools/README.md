@@ -317,3 +317,9 @@ https://www.ssrtool.com
 ### 电子书 https://b-ok.cc  https://www.letmeread.net http://libgen.lc
 
 ### https://funteas.com/issues/ 前端日报
+
+### http://httpbin.org/ 接口模拟
+
+### 占位图片生成在线 https://dummyimage.com/
+
+### 占位图片生成本地 http://holderjs.com/ https://github.com/imsky/holder
