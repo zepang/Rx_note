@@ -37,6 +37,7 @@
 * [tilt](https://github.com/gijsroge/tilt.js) A tiny requestAnimationFrame powered 60+fps lightweight parallax tilt effect for jQuery.
 * [anijs](https://github.com/anijs/anijs/) A Library to Raise your Web Design without Coding. 
 * [css-loaders](https://github.com/lukehaas/css-loaders) A collection of loading spinners animated with CSS
+* [https://loading.io/](https://loading.io/)
 * [Hover](https://github.com/IanLunn/Hover/) A collection of CSS3 powered hover effects to be applied to links, buttons, logos, SVG, featured images and so on. Easily apply to your own elements, modify or just use for inspiration. Available in CSS, Sass, and LESS. 
 * [odometer](https://github.com/HubSpot/odometer) Smoothly transitions numbers with ease. 
 * [snabbt.js](https://github.com/daniel-lundin/snabbt.js) Fast animations with javascript and CSS transforms 
@@ -323,3 +324,7 @@ https://www.ssrtool.com
 ### 占位图片生成在线 https://dummyimage.com/
 
 ### 占位图片生成本地 http://holderjs.com/ https://github.com/imsky/holder
+
+### markdown转微信文章 https://md.qikqiak.com/ https://github.com/cnych/markdown-weixin
+
+### 
