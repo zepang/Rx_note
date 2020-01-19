@@ -264,6 +264,7 @@ tab页管理
 * https://typing.io/
 * https://www.keybr.com/
 * http://www.speedcoder.net/
+* https://www.typingclub.com/
 
 #### 前端业务代码工具库
 
@@ -317,3 +318,5 @@ https://www.ssrtool.com
 ### 电子书 https://b-ok.cc  https://www.letmeread.net http://libgen.lc
 
 ### https://funteas.com/issues/ 前端日报
+
+### react native 调试 expo
