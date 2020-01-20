@@ -331,3 +331,15 @@ https://www.ssrtool.com
 ### markdown转微信文章 https://md.qikqiak.com/ https://github.com/cnych/markdown-weixin
 
 ### 一个不错的学习网站，交互不错 https://scrimba.com/
+
+### 有很多动效icon https://useanimations.com/
+
+### 截图录屏工具 https://github.com/MathewSachin/Captura
+
+### markdown编辑器 https://github.com/JasonStein/Notepads
+
+### grahpql客户端 https://github.com/imolorhe/altair
+
+### figma直接转换设计稿到app https://www.bravostudio.app/
+
+### 项目进度图片生成 https://www.gantt.io/app
