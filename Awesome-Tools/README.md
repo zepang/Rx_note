@@ -343,3 +343,19 @@ https://www.ssrtool.com
 ### figma直接转换设计稿到app https://www.bravostudio.app/
 
 ### 项目进度图片生成 https://www.gantt.io/app
+
+### 一个收藏了很多好用工具和博客的网站 https://github.com/w3ctrain/w3ctrain.github.io
+
+### js插件 https://plainjs.com/javascript/plugins/ui/ http://microjs.com/#
+
+### 前端技能汇总 https://github.com/JacksonTian/fks
+
+### github上值得关注的前端项目  https://github.com/hawx1993/github-FE-project
+
+###  网站Github资源收集  https://segmentfault.com/a/1190000003510001#articleHeader0
+
+### 各类awesome仓库 https://github.com/sindresorhus/awesome
+
+### 声音伴奏分离 https://moises.ai
+
+### 前端开发周刊 http://caibaojian.com/c/weekly
