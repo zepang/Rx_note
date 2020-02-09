@@ -12,6 +12,28 @@ npm config get registry
 npm install package -g --registry https://registry.npm.taobao.org
 ~~~
 
+### 使用nrm进行管理
+
+```
+npm i -g nrm
+
+nrm --help
+
+<!-- 查看可以用的源 -->
+nrm ls
+
+npm -------- https://registry.npmjs.org/
+yarn ------- https://registry.yarnpkg.com/
+cnpm ------- http://r.cnpmjs.org/
+taobao ----- https://registry.npm.taobao.org/
+nj --------- https://registry.nodejitsu.com/
+npmMirror -- https://skimdb.npmjs.com/registry/
+edunpm ----- http://registry.enpmjs.org/
+
+<!-- 更换淘宝源 -->
+nrm use taobao
+```
+
 ### windows 端口占用
 
 ```
