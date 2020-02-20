@@ -215,12 +215,33 @@ return funcs.reduce((a, b) => (...args) => a(b(...args)))
 由上述的compose函数逻辑可得：
 
 ```js
-dispatch = func1(func2(func3(store.dispatch))) = action => {}
+dispatch = fnc1(fnc2(fnc3(store.dispatch))) = action => {}
 ```
 
-正常的一个顺讯是 fnc3，fnc2，fnc3
+即是是把func2运行之后返回的函数 action => {函数体}，作为func1的参数，然后在 函数体 中进行消费（调用），
+func3运行之后返回的函数 action => {函数体}，作为func2的参数，然后在 函数体 中进行消费（调用）
 
-需要注意，如果在func3中，不执行 `next(action)`，也就是不执行 `store.dispatch(action)` 那么会导致redux的流程中断。
+如果以上的中间件的顺序是这样的：
+
+```js
+const fnc1 = store => next => action => {
+  console.log('fnc1')
+  next(action)
+}
+const fnc2 = store => next => action => {
+  console.log('fnc2')
+  next(action)
+}
+const fnc3 = store => next => action => {
+  console.log('fnc3')
+  next(action)
+}
+applyMiddleware(func1, func2, func3)
+```
+
+正常情况下，且每个中间件都有调用next()，输出结果为：fnc1, fnc2, fnc3
+
+需要注意，如果在fnc3中，不执行 `next(action)`，也就是不执行 `store.dispatch(action)` 那么会导致redux的流程中断。
 
 为了防止中间件瞎捣乱，在中间件正常的情况请执行 next(action)
 
