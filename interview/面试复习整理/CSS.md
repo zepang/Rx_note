@@ -479,3 +479,19 @@ animation: slide .25s ease .1s 1 normal forwards;
 具体的取值可以查看[https://developer.mozilla.org/zh-CN/docs/Web/CSS/animation-fill-mode](https://developer.mozilla.org/zh-CN/docs/Web/CSS/animation-fill-mode)
 
 钩子：`animationend`
+
+## flex布局
+
+建议查看阮一峰的那一篇博文，文字配图介绍的很详细：
+
+[http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html](http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html)
+
+> flex与margin布局有奇效，具体内容可以自己搜索
+
+## grid布局
+
+![](./网格布局.jpg)
+
+grid布局的内容比flex要多，建议查看阮一峰的一篇博文，也是文字配图讲解的很详细：
+
+[http://www.ruanyifeng.com/blog/2019/03/grid-layout-tutorial.html](http://www.ruanyifeng.com/blog/2019/03/grid-layout-tutorial.html)
