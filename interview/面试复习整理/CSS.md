@@ -130,13 +130,13 @@ p {
 }
 ```
 
-## 层叠上下文 z-index
+## 3. 层叠上下文 z-index
 
 元素提升为一个比较特殊的图层，在三维空间中 (z 轴) 高出普通元素一等。
 
 ![](./层叠等级.png)
 
-# 页面导入样式时，使用 link 和@import 有什么区别？
+# 4. 页面导入样式时，使用 link 和@import 有什么区别？
 
 1. 从语法层面来讲，link 属于 html 的语法，@import 属于 css 的语法
 
@@ -148,13 +148,13 @@ p {
 
 5. 另外，link 可以通过 js 操作，动态的进行加载样式，@import 不行
 
-## 选择器优先级
+## 5. 选择器优先级
 
 `!important` > 行内样式 > `#id` > `.class` > `tag` > \* > 继承 > 默认
 
 > 选择器从右往左解析
 
-## 伪类和伪元素
+## 6. 伪类和伪元素
 
 **伪类** 存在的意义是为了通过选择器找到那些不存在 DOM 树中的信息以及不能被常规 CSS 选择器获取到的信息。
 
@@ -168,7 +168,7 @@ p {
 
 因此，伪类与伪元素的区别在于：**有没有创建一个文档树之外的元素**。
 
-## 选择器 nth-child 和 nth-of-type
+## 7. 选择器 nth-child 和 nth-of-type
 
 ```css
 p:nth-child(n): /* 选择其父元素下的所有元素中的第二个p元素 */
@@ -176,7 +176,7 @@ p:nth-child(n): /* 选择其父元素下的所有元素中的第二个p元素 */
 p:nth-of-type(n) /* 选择其父元素下的所有p元素的第二个p元素 */
 ```
 
-## 盒子水平垂直居中
+## 8. 盒子水平垂直居中
 
 ```html
 <div class="parent">
@@ -289,7 +289,7 @@ div.child {
 }
 ```
 
-## 隐藏元素
+## 9. 隐藏元素
 
 - `opacity: 0` 不会影响页面结构，且能够触发该元素绑定的事件
 
@@ -299,7 +299,7 @@ div.child {
 
 - `z-index: -1` `transform: translate(-9999px)` 隐藏在其他元素下边或者移除页面可视区之外
 
-## 圣杯布局和双飞翼布局
+## 10. 圣杯布局和双飞翼布局
 
 圣杯布局和双飞翼布局两者的功能相同，都是为了实现一个两侧宽度固定，中间宽度自适应的三栏布局。
 
@@ -382,7 +382,7 @@ div.child {
 
 关键点：全部是 float 布局，使用 margin-left 位移
 
-## css动画
+## 11. css动画
 
 ### transition
 
@@ -480,7 +480,7 @@ animation: slide .25s ease .1s 1 normal forwards;
 
 钩子：`animationend`
 
-## flex布局
+## 12. flex布局
 
 建议查看阮一峰的那一篇博文，文字配图介绍的很详细：
 
@@ -488,10 +488,59 @@ animation: slide .25s ease .1s 1 normal forwards;
 
 > flex与margin布局有奇效，具体内容可以自己搜索
 
-## grid布局
+## 13. grid布局
 
 ![](./网格布局.jpg)
 
 grid布局的内容比flex要多，建议查看阮一峰的一篇博文，也是文字配图讲解的很详细：
 
 [http://www.ruanyifeng.com/blog/2019/03/grid-layout-tutorial.html](http://www.ruanyifeng.com/blog/2019/03/grid-layout-tutorial.html)
+
+
+## css3的新特性
+
+- 选择器
+
+  + :nth-child
+
+  + :nth-last-child
+
+  + :not
+
+  + :first-line
+
+- 文本省略换行
+
+  + text-overflow: ellipsis
+
+  + text-wrap
+
+- 字体
+
+  + @font-face
+
+- 渐变
+
+  + linear-gradient
+
+  + radial-gradient
+
+- 阴影圆角边框背景
+
+  + box=shadow
+
+  + border-raduis
+
+  + border-image
+
+  + background
+
+- 动画
+
+  + transition
+
+  + animation/@keyframes
+
+- 媒体查询
+
+  + @media 
