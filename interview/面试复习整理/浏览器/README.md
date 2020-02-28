@@ -188,4 +188,13 @@ prefetch属性可以告知浏览器页面加载完成后，在带宽可用的情
 <link rel="prefetch" href="foo.html">
 ```
 
+## dns-prefetch域名预解析
+
+解析域名的时间很短，但是也会有延迟，并且不是所有的浏览器都一定会对解析后的域名进行缓存，所以，我们告知浏览器提前对域名进行预解析，并缓存
+
+```html
+<link rel="dns-prefetch" href="//domain.com">
+```
+
+## cookie、localStorage和sessionStorage
 
