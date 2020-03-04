@@ -562,3 +562,23 @@ CSRF与XSS都属于跨站攻击--不攻击服务器攻击用户，但是，它�
 
 [https://tech.meituan.com/2018/09/27/fe-security.html](https://tech.meituan.com/2018/09/27/fe-security.html)
 [https://tech.meituan.com/2018/10/11/fe-security-csrf.html](https://tech.meituan.com/2018/10/11/fe-security-csrf.html)
+
+## 跨域
+
+跨域资源共享(CORS) 是一种机制，它使用额外的 HTTP 头来告诉浏览器  让运行在一个 origin (domain) 上的Web应用被准许访问来自不同源服务器上的指定的资源。当一个资源从与该资源本身所在的服务器不同的域、协议或端口请求一个资源时，资源会发起一个跨域 HTTP 请求。
+
+为什么会产生跨域？
+
+因为浏览器的同源策略。
+
+简单来说就是当你向不同“域”的服务器发起网络请求的时候，这个请求就跨域了。这里不同“域”指的是不同的协议、域名、端口，有任何一个不同时，浏览器都视为跨域。
+
+我们在使用postman、fiddler等一些工具模拟发起http请求的时候，不会遇到跨域的情况；当我们在浏览器中请求不同域名的时候，虽然请求正常发出了，但是浏览器在请求返回时会进行一系列的校验，判断此次请求是否“合法”；如果不合法，返回结果就被浏览器拦截了。
+
+更详细请查看：
+- [彻底读懂前端跨域CORS](https://juejin.im/post/5dac79fe518825420a281c73)
+
+- [跨域解决方案全](https://segmentfault.com/a/1190000011145364)
+
+- [九种跨域方式实现原理（完整版）](https://zhuanlan.zhihu.com/p/55858103)
+
