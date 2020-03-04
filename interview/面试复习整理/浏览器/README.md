@@ -653,3 +653,71 @@ js引擎线程：
 [浏览器与Node的事件循环(Event Loop)有何区别?](https://juejin.im/post/5c337ae06fb9a049bc4cd218)
 
 另外可以结合vue.nextTick的源码看一下，[https://github.com/answershuto/learnVue/blob/master/docs/Vue.js%E5%BC%82%E6%AD%A5%E6%9B%B4%E6%96%B0DOM%E7%AD%96%E7%95%A5%E5%8F%8AnextTick.MarkDown](https://github.com/answershuto/learnVue/blob/master/docs/Vue.js%E5%BC%82%E6%AD%A5%E6%9B%B4%E6%96%B0DOM%E7%AD%96%E7%95%A5%E5%8F%8AnextTick.MarkDown)
+
+## 事件机制
+
+通俗来讲：事件机制描述的是事件如何在DOM节点中进行传播以及响应
+
+事件触发的三个阶段：
+
+捕获阶段：
+
+事件从跟节点流向目标节点，途中流经各个DOM节点，在各个节点上触发捕获事件，直到达到目标节点
+
+目标阶段：
+
+事件到达目标节点时，就到了目标阶段，事件在目标节点上触发
+
+冒泡阶段：
+
+事件在目标节点上触发后，不会终止，一层层向上冒泡，回溯到跟节点
+
+注册事件：
+
+- 通常我们使用`addEventListener`注册事件，该函数的第三个参数可以布尔值`useCapture`，默认为false，即默认为冒泡；该值也可以是对象，包含以下几个属性：
+
+  - capture，布尔值，和 useCapture 作用一样
+
+  - once，布尔值，值为 true 表示该回调只会调用一次，调用后会移除监听
+
+  - passive，布尔值，表示永远不会调用 preventDefault
+
+- 一般来说，我们只希望事件只触发在目标上，这时候可以使用`stopPropagation` 来阻止事件的进一步传播。通常我们认为`stopPropagation` 是用来阻止事件冒泡的，其实该函数也可以阻止捕获事件。`stopImmediatePropagation` 同样也能实现阻止事件，但是还能阻止该事件目标执行别的注册事件
+
+```js
+node.addEventListener('click',(event) =>{
+	event.stopImmediatePropagation()
+	console.log('冒泡')
+},false);
+// 点击 node 只会执行上面的函数，该函数不会执行
+node.addEventListener('click',(event) => {
+	console.log('捕获 ')
+},true)
+```
+
+事件代理
+
+如果一个节点中的子节点是动态生成的，那么子节点所需要的注册事件应该注册到父节点上
+
+```html
+<ul id="ul">
+	<li>1</li>
+    <li>2</li>
+	<li>3</li>
+	<li>4</li>
+	<li>5</li>
+</ul>
+<script>
+	let ul = document.querySelector('##ul')
+	ul.addEventListener('click', (event) => {
+		console.log(event.target);
+	})
+</script>
+```
+
+事件代理的优点是：
+- 节省内存
+- 不需要给子节点注销事件
+
+## HTML5拖拽事件
+
