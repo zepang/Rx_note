@@ -721,3 +721,240 @@ node.addEventListener('click',(event) => {
 
 ## HTML5拖拽事件
 
+基于鼠标事件的拖拽：
+
+涉及的事件：onmousedown onmousemove onmouseup
+
+注意事项和存在问题：
+
+- 被拖动的对象的`position`值为`absolute`
+
+- onmousedown事件需要在window.onload加载
+
+- onmousemove 和 onmouseup 需要在onmousedown 内绑定
+
+- 需要注意超出边界
+
+具体的代码：
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #oDiv {
+            width: 100px;
+            height: 100px;
+            background-color: #000;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    55555555555
+    <div id="oDiv"></div>
+    <script>
+        oDiv.onmousedown = function(e) {
+            var ev = e || event;
+            var left = ev.clientX - oDiv.offsetLeft,
+                top = ev.clientY - oDiv.offsetTop;
+            document.onmousemove = function(e) {
+                var ev = e || event;
+                var leftW = ev.clientX - left;
+                var topH = ev.clientY - top;
+                //左边不能超出
+                if (leftW < 0) {
+                    leftW = 0;
+                }
+                //上边不能超出
+                if (topH < 0) {
+                    topH = 0;
+                }
+                //右边不能超出
+                if (leftW > document.documentElement.clientWidth - oDiv.offsetWidth) {
+                    leftW = document.documentElement.clientWidth - oDiv.offsetWidth;
+                }
+                //下边不能超出
+                if (topH > document.documentElement.clientHeight - oDiv.offsetHeight) {
+                    topH = document.documentElement.clientHeight - oDiv.offsetHeight;
+                }
+                oDiv.style.left = leftW + 'px';
+                oDiv.style.top = topH + 'px';
+            }
+            document.onmouseup = function(e) {
+                document.onmousemove = null;
+                document.onmouseup = null;
+            }
+            return false;
+        }
+    </script>
+</body>
+
+</html>
+```
+
+基于HTML5的拖拽API：
+
+MDN上关于拖拽事件的介绍：
+
+| Event     | On Event Handler | Fire When..                                                             |
+| --------- | ---------------- | ----------------------------------------------------------------------- |
+| drag      | ondrag           | 当拖动元素或者选中的文本时触发                                          |
+| dragend   | ondragend        | 当拖拽操作结束触发（比如松开鼠标按键或者敲击 Esc 键）                   |
+| dragenter | ondragenter      | 当拖动元素或者选中的文本到一个可释放的目标时触发                        |
+| dragexit  | ondragexit       | 当元素变得不再是拖动操作的选中目标时触发                                |
+| dragleave | ondragleave      | 当拖动元素或者选中的文本离开一个可释放的目标时触发                      |
+| dragover  | ondragover       | 当元素或者选中的文本呗拖到一个可释放目标上时触发（每 100 毫秒触发一次） |
+| dragstart | ondragstart      | 当用户开始拖动一个元素或者选中的文本触发                                |
+| drop      | ondrop           | 当元素或者选中的文本在可释放目标上被释放时触发                          |
+
+
+重点内容：
+
+- dataTransfer：拖拽对象用来传递的媒介，使用一般为event.dataTransfer
+
+- draggable: 拖动对象的标签元素属性一定要设置`draggable="true"`，否则不会有效果，例如：
+
+```html
+<div title="拖拽我" draggable="true">列表1</div>
+```
+
+- ondragstart 事件：当拖拽元素开始被拖拽的时候触发的事件，此事件作用在被拖曳元素上
+
+- ondragenter 事件：当拖曳元素进入目标元素的时候触发的事件，此事件作用在目标元素上
+
+-ondragover 事件：拖拽元素在目标元素上移动的时候触发的事件，此事件作用在目标元素上
+
+-ondrop 事件：被拖拽的元素在目标元素上同时鼠标放开触发的事件，此事件作用在目标元素上
+
+- ondragend 事件：当拖拽完成后触发的事件，此事件作用在被拖曳元素上
+
+-Event.preventDefault() 方法：阻止默认的些事件方法等执行。在ondragover中一定要执行preventDefault()，否则ondrop事件不会被触发。另外，如果是从其他应用软件或是文件中拖东西进来，尤其是图片的时候，默认的动作是显示这个图片或是相关信息，并不是真的执行drop。此时需要用document的ondragover事件把它直接干掉。
+
+-Event.effectAllowed 属性：就是拖拽的效果。
+
+具体的代码：
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+        #thatDiv {
+            width: 500px;
+            height: 100px;
+            border: 1px solid red;
+            position: relative;
+        }
+        #thisDiv {
+            width: 500px;
+            height: 100px;
+            border: 1px solid black;
+            margin-bottom: 20px;
+        }
+        #tarDiv,
+        #tarDiv1,
+        #tarDiv2,
+        #tarDiv3,
+        #tarDiv4 {
+            float: left;
+            width: 50px;
+            height: 50px;
+            background-color: #000;
+            border: 1px #fff solid;
+        }
+        .tarDiv {
+            color: #fff;
+            text-align: center;
+            line-height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="thisDiv">
+        <div id="tarDiv" class="tarDiv" draggable="true">1</div>
+        <div id="tarDiv1" class="tarDiv" draggable="true">2</div>
+        <div id="tarDiv2" class="tarDiv" draggable="true">3</div>
+        <div id="tarDiv3" class="tarDiv" draggable="true">4</div>
+        <div id="tarDiv4" class="tarDiv" draggable="true">5</div>
+    </div>
+    <div id="thatDiv"></div>
+
+    <script type="text/javascript">
+      var tarDiv = document.getElementsByClassName("tarDiv");
+      var thisDiv = document.getElementById("thisDiv");
+      var thatDiv = document.getElementById("thatDiv");
+      thisDiv.ondragstart = function(ev) {
+        var ev = ev || window.event;
+        ev.dataTransfer.setData("text", ev.target.id); //将被拖拽的元素的id存入dataTransfer对象中
+        window.thisId = ev.target.id;
+        ev.dataTransfer.effectAllowed = "move";
+      };
+      thatDiv.ondragover = function(ev) {
+        //阻止dragover的默认事件
+        var ev = ev || window.event;
+        if (typeof ev.preventDefault == "function") {
+          ev.preventDefault();
+        } else {
+          ev.returnValue = false;
+        }
+        this.style.border = "1px dashed red"
+
+        ev.preventDefault();
+      };
+      thatDiv.ondragenter = function(ev) {
+        //阻止dragenter的默认事件
+        var ev = ev || window.event;
+        if (typeof ev.preventDefault == "function") {
+          ev.preventDefault();
+        } else {
+          ev.returnValue = false;
+        }
+      };
+
+      thatDiv.ondragleave = function(ev) {
+        console.log(ev)
+        var ev = ev || window.event;
+        var removeDiv = document.getElementById(window.thisId);
+        this.style.border = "1px solid red"
+        thisDiv.appendChild(removeDiv);
+        removeDiv.style.cssText = "border:1px #fff solid;";
+        ev.preventDefault();
+      };
+      thatDiv.ondrop = function(ev) {
+        console.log(ev)
+        var ev = ev || window.event;
+        var divId = ev.dataTransfer.getData("Text"); //从dataTransfer对象中取出数据
+        if (typeof ev.preventDefault == "function") {
+          //阻止drop事件的默认行为
+          ev.preventDefault();
+        } else {
+          ev.returnValue = false;
+        }
+        var moveDiv = document.getElementById(divId);
+        thatDiv.appendChild(moveDiv);
+        this.style.border = "1px solid red"
+        moveDiv.setAttribute("draggable", "false");
+        moveDiv.style.cssText = "border:1px #fff solid;";
+      };
+    </script>
+</body>
+
+</html>
+```
