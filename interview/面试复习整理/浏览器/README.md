@@ -1,5 +1,21 @@
 # 面试复习-浏览器篇
 
+- [浏览器渲染UI的过程](#浏览器渲染ui的过程)
+- [回流与重绘](#回流与重绘)
+- [何时会引发回流与重绘](#何时会引发回流与重绘)
+- [如何减少回流和重绘](#如何减少回流和重绘)
+- [defer和async](#defer和async)
+- [preload和prefetch](#preload和prefetch)
+- [dns-prefetch域名预解析](#dns-prefetch域名预解析)
+- [cookie、localStorage和sessionStorage](#cookielocalstorage和sessionstorage)
+- [cookie、session、token、jwt](#cookiesessiontokenjwt)
+- [XSS和CSRF](#xss和csrf)
+- [跨域](#跨域)
+- [Event Loops事件循环](#event-loops事件循环)
+- [事件机制](#事件机制)
+- [HTML5拖拽事件](#html5拖拽事件)
+
+
 ## 浏览器渲染UI的过程
 
 1. 获取HTML文件，对HTML进行解析，并生成DOM Tree
