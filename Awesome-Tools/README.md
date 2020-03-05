@@ -359,3 +359,5 @@ https://www.ssrtool.com
 ### 声音伴奏分离 https://moises.ai
 
 ### 前端开发周刊 http://caibaojian.com/c/weekly
+
+### markdown简历制作 http://cvbox.sinaapp.com/
