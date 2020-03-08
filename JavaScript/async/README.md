@@ -36,7 +36,8 @@ http.createServer(async (req, res) => {
 }).listen(1337);
 ~~~
 ---
-### 对于迭代器的延伸：
+### 对于
+的延伸：
 ECMAScript 2015(ES6) 中 JavaScript 引入了迭代器接口（iterator）用来遍历数据，在 JavaScript 中，迭代器是一个对象，它知道如何每次访问集合中的每一项，并跟踪该序列中的当前位置。它提供了一个 next 方法，用来返回序列中的下一项，返回的下一项对象中包含两个属性: value（当前值） 和 done（是否是最后一项，布尔值）
 
 依据这个特性，我们实现一个 makeIterator 函数来生成 Iterator
@@ -57,6 +58,19 @@ function makeIterator (array) {
   }
 }
 ~~~
+
+一旦初始化，next()方法可以一次访问对象中的键值。
+
+```js
+const it = makeIterator(['j', 'u', 's', 't']);
+it.next().value;  // j
+it.next().value;  // u
+it.next().value;  // s
+it.next().value;  // t
+it.next().value;  // undefined
+it.next().done;   // true
+it.next().value;  // undefined
+```
 
 ES6 在我们熟悉的 for 和 for ... in 的基础上新增了 for ... of循环，for ... of 的值必须是iterable，所谓的 iterable（可迭代），即指一个包含可以在其值上迭代的迭代器的对象，接合 for ... of 循环来讲，iterable 就是一个能够产
 生迭代器供循环使用的对象
@@ -127,7 +141,7 @@ const something = {
     const arr = [1, 2, 3, 4, 5]
     return {
       next: () => Promise.resolve({
-        done: arr.length === 0 
+        done: arr.length === 0, 
         value: arr.unshift()
       })
     }

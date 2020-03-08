@@ -144,6 +144,12 @@ this绑定：
 
 ES6之前没有块级作用域，只有全局作用域和局部作用域的概念
 
+## 词法作用域
+
+词法作用域是作用域的一种模式，作用域有两种工作模型，另一种叫动态作用域。
+
+词法作用域就是在你写代码时将变量和块作用域写在哪里来决定，也就是词法作用域是静态的作用域，在你书写代码时就确定了。
+
 ## 闭包
 
 闭包是指有权访问另外一个函数作用域中的变量的函数，关键在于下面两点：
@@ -348,4 +354,193 @@ person1.show4().call(person2) // person1，箭头函数绑定，
 person1.show4.call(person2)() // person2
 
 ```
+## 构造函数、原型和原型链
 
+查看本目录下：重新认识构造函数、原型和原型链
+
+## 继承
+
+查看本目录下：Javascript常用八种继承方案
+
+## ES6 Class
+
+查看本目录下：Javascript常用八种继承方案/class相关
+
+## ES6 Iterator
+
+什么是迭代器？
+
+ECMAScript 2015(ES6) 中 JavaScript 引入了迭代器接口（iterator）用来遍历数据，在 JavaScript 中，迭代器是一个对象，它知道如何每次访问集合中的每一项，并跟踪该序列中的当前位置。具体点说就是这个对象（迭代器）提供了一个 next 方法，用来返回序列中的下一项，返回的下一项对象中包含两个属性: value（当前值） 和 done（是否是最后一项，布尔值）
+
+依据这个特性，我们可以创建一个函数来产生迭代器
+
+~~~js
+function makeIterator (array) {
+  let index = 0
+  return {
+    next: function () {
+      while (index < array.length) {
+        return {
+          value: array[index++],
+          done: false
+        }
+      }
+      return {done: true}
+    }
+  }
+}
+~~~
+
+一旦初始化，next()方法可以一次访问对象中的键值。
+
+```js
+const it = makeIterator(['j', 'u', 's', 't']);
+it.next().value;  // j
+it.next().value;  // u
+it.next().value;  // s
+it.next().value;  // t
+it.next().value;  // undefined
+it.next().done;   // true
+it.next().value;  // undefined
+```
+
+ES6给这个产生迭代器的函数规定了一个标准的命名：`Symbol.iterator`，Symbol.iterator是一个公开的符号
+
+我们可以调用数组和字符串的[Symbol.iterator]方法可以生成迭代器，然后使用next来访问对象中的值
+
+~~~js
+var arr = [1,2,3];
+var it = arr[Symbol.iterator]();
+it.next(); // { value: 1, done: false }
+it.next(); // { value: 2, done: false }
+it.next(); // { value: 3, done: false }
+it.next(); // { value: undefined, done: true }
+
+var greeting = "hello world";
+var it = greeting[Symbol.iterator]();
+it.next(); // { value: "h", done: false }
+it.next(); // { value: "e", done: false }
+..
+~~~
+
+类似上边这种包含Symbol.iterator的属性并且值为迭代器的对象成为可迭代（iterable）对象，
+
+我们可以自定义一个可以迭代的对象：
+
+~~~js
+var something = (function () {
+  var nextVal
+
+  return {
+    //
+    [Symbol.iterator]: function () { return this },
+    //
+    next: function () {
+      if (nextVal === undefined) {
+        nextVal = 1
+      } else {
+        nextVal = (3 * nextVal) + 6
+      }
+
+      return { done: false, value: nextVal }
+    }
+  }
+})()
+
+const it = something[Symbol.iterator]()
+it.next()
+// {done: false, value: 1}
+it.next()
+// {done: false, value: 9}
+it.next()
+// {done: false, value: 33}
+it.next()
+// {done: false, value: 105}
+it.next()
+// {done: false, value: 321}
+~~~
+
+除了手动调用next()方法来访问对象的值（或者称为消耗），ES6提供的for ... of可以直接消耗一个标准的可迭代对象
+
+```js
+for (var v of something) {
+  console.log( v );
+  // 不要死循环！
+  if (v > 500) {
+  break;
+  }
+}
+
+// 1
+// 9
+// 33
+// 105
+// 321
+// 969
+```
+
+异步迭代器：
+
+ES9(ES2018)新增了异步迭代器，符号是Symbol.asyncIterator。所谓的异步迭代器就是它的 next 函数返回 {value, done} 的 Promise。
+
+```js
+const something = {
+  [Symbol.asyncIterator]: () => {
+    const arr = [1, 2, 3, 4, 5]
+    return {
+      next: () => Promise.resolve({
+        done: arr.length === 0, 
+        value: arr.unshift()
+      })
+    }
+  }
+}
+
+(async function (){
+  for await (const item of something) {
+    console.log(item)
+  }
+})()
+```
+
+实际的应用比如： Node ReadableStreams 的例子：
+~~~js
+const http = require('http');
+http.createServer((req, res) => {
+  let body = '';
+  req.setEncoding('utf8');
+  req.on('data', (chunk) => {
+    body += chunk;
+  });
+  req.on('end', () => {
+    res.write(body);
+    res.end();
+  });
+}).listen(1337);
+~~~
+之后用 for ... of 结合 await 简化成另一种写法：
+~~~js
+const http = require('http');
+http.createServer(async (req, res) => {
+  try {
+    let body = '';
+    req.setEncoding('utf8');
+    for await (const chunk of req) {
+      body += chunk;
+    }
+    res.write(body);
+    res.end();
+  } catch {
+    res.statusCode = 500;
+    res.end();
+  }
+}).listen(1337);
+~~~
+
+## ES6 Generator
+
+## ES6 Promise
+
+## ES6 Proxy
+
+## ES6 Reflect
