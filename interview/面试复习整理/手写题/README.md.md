@@ -454,7 +454,93 @@ promises-aplus-tests [文件路径名]
 
 ## 防抖和节流
 
+防抖：
 
+n秒内多次满足触发某个动作的条件，将重新计算，当前满足条件时间与下一个满足条件时间大于n，以当前满足条件触发动作。比如实时搜索，通常会取在1秒或者其他的某个时间段内的最终输入结果，来触发搜索请求。
+
+```js
+function debounce (fn, delay = 50, immediate) {
+  let timer = null
+
+  return function (...rest) {
+    if (immediate) {
+      fn.apply(this, ...rest)
+    }
+    timer && clearTimeout(timer)
+    timer = setTimeout(() => {
+      fn.apply(this, rest)
+    }, delay)
+  }
+}
+```
+
+节流：
+
+每隔n秒触发一次（即秒内只触发一次），起到稀释执行频率的作用。
+
+```js
+function throttle (fn, delay) {
+  let isPending = false
+
+  return function (...rest) {
+    if (!isPending) {
+      isPending = true
+      setTimeout(() => {
+        fn.apply(this, rest)
+        isPending = false
+      }, delay)
+    }
+  }
+}
+```
+
+装饰器版本：
+
+```js
+function _debounce (fn, delay = 50, immediate) {
+  // ...debounce 逻辑
+}
+
+function defounce (delay = 50, immediate) {
+  return function handleDescriptor(target, prop, descriptor) {
+    const callback = descriptor.value
+    const fn = _debounce(callback, delay, immediate)
+
+    if (typeof callback !== 'function') {
+      throw new SyntaxError('Only functions can be debounced');
+    }
+
+    return {
+      ...descriptor,
+      value () {
+        fn()
+      }
+    }
+  }
+}
+
+function _throttle (fn, delay) {
+  // ... throttle 逻辑
+}
+
+function throttle (delay) {
+  return function handleDescriptor(target, prop, descriptor) {
+    const callback = descriptor.value
+    const fn = _throttle(callback, delay, immediate)
+
+    if (typeof callback !== 'function') {
+      throw new SyntaxError('Only functions can be throttle');
+    }
+
+    return {
+      ...descriptor,
+      value () {
+        fn()
+      }
+    }
+  }
+}
+```
 
 ## 深拷贝
 
