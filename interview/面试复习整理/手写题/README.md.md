@@ -542,7 +542,264 @@ function throttle (delay) {
 }
 ```
 
-## 深拷贝
+## 浅拷贝与深拷贝
+
+通过以下例子来说明什么是浅拷贝：
+
+普通的赋值复制：
+
+```js
+const arr1 = [1, [2, 3], 4, 5]
+const arr2 = arr1
+
+console.log(arr1 === arr2) // true
+```
+
+因为数组是引用类型数据，赋值赋值的仅仅是它的引用或者说“指针”，可以说是共享引用
+
+浅拷贝：
+
+```js
+const arr1 = [1, [2, 3], 4, 5]
+const arr2 = Object.assign([], arr1)
+
+console.log(arr1 === arr2) // false
+```
+
+从结果可以看出浅拷贝解决了共享引用的问题，但是却无法解决数组内部子元素的共享引用问题：
+
+```js
+console.log(arr1[1] === arr2[1]) // true
+```
+
+所以，浅拷贝只能解决引用类型数据的第一层共享引用，无法解决第二层或者下边层中引用类型数据的共享引用问题。
+
+除了上述提的Object.assign，还有ES6的拓展运算符`...`，数组的方法：slice和concat。
+
+深拷贝：
+
+深拷贝解决了浅拷贝无法解决下层引用类型数据共享引用的问题，源对象和拷贝对象完全是不同的两个对象。
+
+我们先用JavaScript提供的API来实现深拷贝，并对比一下几种方法的差异
+
+- JSON.Stringify 和 JSON.parse
+
+```js
+let a = {name: 'a', info: { age: 12 }};
+let b = {name: undefined, info: { age: 12 } };
+let c = {name: 'c', info: { age: 12 }, a: a}
+let copyA = JSON.parse(JSON.stringify(a));
+console.log(copyA, copyA === a) // {name: "a", info: {…}}false
+console.log(copyA.info === a.info) false
+
+let copyB = JSON.parse(JSON.stringify(b));
+console.log(copyB, copyB === b) // {info: {…}}false
+
+a.c = c
+let copyC = JSON.parse(JSON.stringify(c));
+console.log(copyC)
+
+// VM9517:9 Uncaught TypeError:Converting circular structure to JSON
+//     --> starting at object with constructor 'Object'
+//     |     property 'a' -> object with constructor 'Object'
+//     --- property 'c' closes the circle
+```
+
+通过对a和copyA比较确定了JSON.Stringify 和 JSON.parse能够进行深拷贝，但是通过b和copyB，c和copyC比较，发现下边两个问题：
+
+- 无法复制值为undefined的属性。比如：b.name就无法复制。其实除了undefined，Map, Set, RegExp, Date, ArrayBuffer 和其他内置类型在进行序列化时会丢失
+- 无法对循环引用的数据进行复制。所以，复制c的时候JSON直接报错。
+
+- MessageChannel
+
+~~~js
+function deepClone (obj) {
+  return new Promise(resolve => {
+    const {port1, port2} =  new MessageChannel()
+    port2.onmessage = event => resolve(event.data)
+    port1.postMessage(obj)
+  })
+}
+
+let a = {name: 'a', info: { age: 12 }};
+deepClone(a).then(copy => {
+  console.log(copy, copy === a) // {name: "a", info: {…}} false
+})
+~~~
+
+此方法解决了上述JSON方法不能解决的问题，但是此方法是异步的，使用的时候要注意。
+
+- History Api
+
+~~~js
+function deepClone(obj) {
+  const oldState = history.state
+  history.replaceState(obj, document.title)
+  const copy = history.state
+  history.replaceState(oldState, document.title)
+  return copy
+}
+let a = {name: 'a', info: { age: 12 }};
+let copyA = deepClone(a)
+console.log(copyA, copyA === a) // {name: "a", info: {…}} false
+~~~
+
+此方法也能解决JSON方法的问题，并且还是同步方法。就是有的浏览器会限制调用的频率，比如 safari 每 30 秒只允许调用 100 次。
+
+- Notification Api
+  
+~~~js
+function deepClone(obj) {
+  return new Notification('', {data: obj, slient: true}).data
+}
+
+let a = {name: 'a', info: { age: 12 }};
+let copyA = deepClone(a)
+console.log(copyA, copyA === a) // {name: "a", info: {…}} false
+~~~
+
+同样是优点和缺点并存，优点就是可以解决循环对象问题，也支持许多内置类型的克隆，并且是同步的。缺点就是这个需要api的使用需要向用户请求权限，但是用在这里克隆数据的时候，不经用户授权也可以使用。在http协议的情况下会提示你再https的场景下使用。
+
+- 自定义实现深拷贝
+
+  需要注意的问题：
+  - 循环引用
+  - 拷贝Symbol为键数据
+
+首先我们创建一个deepClone的函数，定义一个新值并且返回：
+
+```js
+function deepClone (source) {
+  let result
+
+  return result
+}
+```
+
+区分基础类型数据和引用类型数据处理：
+
+```js
+function deepClone (source) {
+  let result
+  // 判断是不是引用类型数据
+  const isObject = source !== null && typeof source === 'object'
+
+  if (isObject) {
+    result = Array.isArray(source) ? [] : {}
+    for (let key in source) {
+      result[key] = deepClone(source[key])
+    }
+  } else {
+    result = source
+  }
+
+  return result
+}
+```
+
+测试一下：
+
+```js
+let a = {name: 'a', info: { age: 12 }, age: undefined};
+let copyA = deepClone(a)
+console.log(copyA, copyA === a) // {name: "a", info: {…}, age: undefined} false
+console.log(copyA.info === a.info) // false
+```
+
+大概满足了深拷贝的基本功能，接下解决循环引用。大概思路就是将已经拷贝的对象存起来，下次遇到一样的就不继续拷贝了，直接取出来返回。我这里用的是 WeakMap，你也可以用其他数据结构，比如数组。
+
+下边是改造后的函数
+
+```js
+function isObject (obj) {
+  return obj !== null && typeof obj === 'object'
+}
+function deepClone (source, hash = new WeakMap()) {
+  // 获取数据类型
+  if (!isObject(source)) return source
+  // 取出已经拷贝过的数据
+  if (hash.get(source)) return hash.get(source)
+
+  let result = Array.isArray(source) ? [] : {}
+  // 将拷贝的result存起来
+  hash.set(source, result)
+  for (let key in source) {
+    if (isObject(source[key])) {
+      result[key] = deepClone(source[key], hash)
+    } else {
+      result[key] = source[key]
+    }
+  }
+
+  return result
+}
+```
+
+测试一下：
+
+```js
+let b = {name: 'name_b'}
+let c = {name: 'name_c'}
+b.c = c
+c.b = b
+
+let copyB = deepClone(b)
+console.log(copyB === b) // false
+console.log(copyB.c === b.c) // false
+console.log(copyB.c.b.c.b.c === b.c) //false
+```
+
+顺利解决循环引用，接下来解决Symbol键拷贝的问题。
+
+我们上述使用的for ... in遍历对象实际上无法遍历出以Symbol作为键名的键，需要用到以下两个方法中的任意一个，我这里直接使用`Reflect.ownKeys`：
+
+```js
+// 方法一：
+Object.getOwnPropertySymbols(…)
+
+// 方法二：
+Reflect.ownKeys(…)
+```
+
+下边是改造后的函数
+
+```js
+function isObject (obj) {
+  return obj !== null && typeof obj === 'object'
+}
+function deepClone (source, hash = new WeakMap()) {
+  // 获取数据类型
+  if (!isObject(source)) return source
+  // 取出已经拷贝过的数据
+  if (hash.get(source)) return hash.get(source)
+
+  let result = Array.isArray(source) ? [] : {}
+  // 将拷贝的result存起来
+  hash.set(source, result)
+  Reflect.ownKeys(source).forEach(key => {
+    if (isObject(source[key])) {
+      result[key] = deepClone(source[key], hash)
+    } else {
+      result[key] = source[key]
+    }
+  })
+
+  return result
+}
+```
+
+测试一下：
+
+```js
+const obj = {}
+const symbolA = Symbol('A')
+const symbolB = Symbol('B')
+obj[symbolA] = 'symbolA'
+obj[symbolB] = 'symbolB'
+
+const copy = deepClone(obj)
+console.log(copy) // {Symbol(A): "symbolA", Symbol(B): "symbolB"}
+```
 
 ## 去重
 
