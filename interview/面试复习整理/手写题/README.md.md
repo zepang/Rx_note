@@ -803,6 +803,89 @@ console.log(copy) // {Symbol(A): "symbolA", Symbol(B): "symbolB"}
 
 ## 去重
 
+- Set
+
+```js
+Array.prototype.distinct = (arr) => {
+  return Array.from([...(new Set(arr))])
+}
+```
+
+- indexOf + filter
+
+```js
+Array.prototype.distinct = (arr) => {
+  arr.filter((item, i, source) => {
+    let index = source.indexOf(item)
+    // 当前索引与indexOf索引不一样说明存在相同
+    return index === i
+  })
+}
+```
+
+```js
+Array.prototype.distinct = (arr) => {
+  arr.filter((item, i, source) => {
+    let result = []
+    // 从当前位置之后开始找
+    let index = source.indexOf(item, i + 1)
+    if (index === -1) {
+      result.push(item)
+    }
+
+    return result
+  })
+}
+```
+
+- 利用对象属性不会重复
+
+```js
+Array.prototype.distinct = function () {
+  let arr = this
+  let obj = {}
+  for (let i = 0; i < arr.length; i++) {
+    obj[arr[i]] = arr[i]
+  }
+
+  return Object.values(obj)
+}
+```
+
+- for循环
+
+```js
+Array.prototype.distinct = function () {
+  let arr = this
+
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[i] === arr[j]) {
+        arr.splice(j, 1)
+        len = len -1
+        j = j -1
+      }
+    }
+  }
+
+  return arr
+}
+```
+
+## set交集，并集，差集
+
+```js
+let set1 = new Set([1,2,3])
+let set2 = new Set([4,3,2])
+
+let intersect = new Set([...set1].filter(value => set2.has(value)))
+let union = new Set([...set1, ...set2])
+let difference = new Set([...set1].filter(value => !set2.has(value)))
+console.log(intersect)	// Set {2, 3}
+console.log(union)		// Set {1, 2, 3, 4}
+console.log(difference)	// Set {1}
+```
+
 ## instance of
 
 ## call、apply、bind
