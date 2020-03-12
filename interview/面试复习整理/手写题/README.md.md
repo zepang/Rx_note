@@ -913,7 +913,160 @@ function instanceOf (left, right) {
 
 - bind返回的是一个函数
 
+call 模拟实现思路：大概的思路就是给call函数传入的上下文添加一个函数，然后通过上下文对象隐士调用这个函数，达到改变this的绑定
+
+```js
+Function.prototype.myCall = function (context) {
+  // 不传context的情况下默认未 window
+  context = context || window
+  let args = [...arguments].slice(1)
+  context.fn = this
+  let result = context.fn(...args)
+  // 删除 fn 属性
+  Reflect.deleteProperty(context, 'fn')
+
+  return result
+}
+```
+
+apply 模式实现思路和 call的一样。
+
+```js
+Function.prototype.myApply = function (context) {
+  // 不传context的情况下默认未 window
+  context = context || window
+  let result
+  if (arguments[1]) {
+    result = context.fn(...arguments[1])
+  } else {
+    result = context.fn()
+  }
+
+   // 删除 fn 属性
+  Reflect.deleteProperty(context, 'fn')
+
+  return result
+}
+```
+
+bind的功能点：
+
+1. 改变this的指向
+2. 可以返回函数
+3. 返回的函数还可以传入参数
+4. bind返回的函数作为构造函数
+
+我们先基于前三点来实现一个可用的bind函数：
+
+```js
+Function.prototype.myBind = function (context) {
+  context = context || window
+  let args = Array.prototype.slice.call(arguments, 1)
+  let self = this
+
+  function fnBound () {
+    // 3. 接收返回参数传入的参数，并在调用的时候和bind传入参数合并
+    let bindArgs = Array.prototype.slice.call(arguments)
+    // 1. apply改变this指向
+    self.apply(
+      context,
+      args.concat(bindArgs)
+    )
+  }
+
+  // 2. 返回函数
+  return fnBound
+}
+```
+   
+我们看下上述第四点，bind返回函数作为构造函数，在实例化的时候会发生什么？
+
+```js
+const context = {
+  name: 'context'
+}
+
+function source(name, age) {
+    this.habit = 'shopping';
+    console.log(this.value);
+    console.log(this.habit);
+    console.log(name);
+    console.log(age);
+}
+
+let Bound = source.bind(context, 'bound')
+let bound = new Bound(18)
+// undefined
+// shopping
+// Jack
+// 20
+
+bound.habit // shopping
+console.log(bound.__proto__ === source.prototype) // true
+console.log(bound instanceof source) // true
+```
+- 提供的上下文（context）将会被忽略，所以 `this.value` 返回undefined
+- 实例的构造函数是source，所以 instanceof 返回的结果为true，通过 __proto__属性访问器也能访问到原型为 source.prototype
+
+对比我们实现的myBind函数，发现实例bound的构造函数为fnBound函数，原型为 fnBound.prototype，所以想要达到bind的效果，需要让fnBound继承source。
+
+```js
+Function.prototype.myBind = function (context) {
+  context = context || window
+  let args = Array.prototype.slice.call(arguments, 1)
+  let self = this
+
+  function fnBound () {
+    // 3. 接收返回参数传入的参数，并在调用的时候和bind传入参数合并
+    let bindArgs = Array.prototype.slice.call(arguments)
+    // 1. apply改变this指向
+    self.apply(
+      // 忽略传入的context，绑定正确的this，在new的时候会指向实例
+      this instanceof fnBound ? this : context,
+      args.concat(bindArgs)
+    )
+  }
+  // 使fnBound继承（Function.prototype），然后实例可以访问到fnBound.prototype原型
+  fnBound.prototype = Object.create(this.prototype)
+  // 2. 返回函数
+  return fnBound
+}
+```
+
+但是，我们模拟实现bind的出发点是浏览器不支持bind，Object.create()和bind都是ES5的方法，所以这里不能用Object.create
+
+下边是改进后的代码：
+
+```js
+Function.prototype.myBind = function (context) {
+  context = context || window
+  var args = Array.prototype.slice.call(arguments, 1)
+  var self = this
+  
+  function fnPrototype () {}
+
+  function fnBound () {
+    // 3. 接收返回参数传入的参数，并在调用的时候和bind传入参数合并
+    var bindArgs = Array.prototype.slice.call(arguments)
+    // 1. apply改变this指向
+    self.apply(
+      this instanceof fnBound ? this : context,
+      args.concat(bindArgs)
+    )
+  }
+
+  // 原型链继承
+  fnPrototype.prototype = this.prototype
+  // 使fnBound继承（Function.prototype）
+  fnBound.prototype = new fnPrototype()
+  // 2. 返回函数
+  return fnBound
+}
+```
+
 ## new
+
+
 
 ## 写一个通用的事件监听器
 
