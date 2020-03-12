@@ -888,6 +888,23 @@ console.log(difference)	// Set {1}
 
 ## instance of
 
+instance of 的原理是会遍历左边对象的原型链，如果能够确定右边对象的prototype位于左边对象的原型链上，则返回 true
+
+对象的属性访问器__proto__指向其原型，所以可以通过`left.__proto__ === right.prototype`来判断right.prototype是否是左边原型链上的原型之一
+
+```js
+function instanceOf (left, right) {
+  let proto = left.__proto__
+  let prototype = right.prototype
+
+  while (true) {
+    if (proto === null) return false
+    if (proto === prototype) return true
+    proto = proto.__proto__
+  }
+}
+```
+
 ## call、apply、bind
 
 三者区别：
