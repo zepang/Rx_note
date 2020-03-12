@@ -949,7 +949,7 @@ Function.prototype.myApply = function (context) {
 }
 ```
 
-bind的功能点：
+bind的模拟需要注意几点：
 
 1. 改变this的指向
 2. 可以返回函数
