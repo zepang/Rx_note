@@ -1066,7 +1066,27 @@ Function.prototype.myBind = function (context) {
 
 ## new
 
+new操作符操作对象的时候会发生以下几件事情，具体的可以查看MDN
 
+1. 创建一个空白对象（obj）
+2. 空白对象继承构造函数的原型（prototype）
+3. 将步骤1创建的对象作为执行该构造函数的上下文对象
+4. 如果该构造函数有返回的对象，则用返回的对象，没有则返回步骤1创建的对象
+
+```js
+function create () {
+  var obj = new Object()
+  var constructorFn = Array.prototype.shift.call(arguments)
+  obj.__proto__ = constructorFn.prototype
+
+  var result = constructorFn.apply(
+    obj,
+    Array.prototype.slice.call(arguments)
+  )
+  
+  return result instanceof Object ? result : obj
+}
+```
 
 ## 写一个通用的事件监听器
 
