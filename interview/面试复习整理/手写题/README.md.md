@@ -1184,6 +1184,12 @@ function ajax (options) {
 }
 ```
 
+## generator自执行
+
+有点类似co模块的执行
+
+## vue-router的路由
+
 ## 写一个通用的事件监听器
 
 ```js
