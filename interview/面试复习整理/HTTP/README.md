@@ -54,6 +54,10 @@ HTTP，全称超文本传输协议，用于传输超媒体文档（例如HTML）
 
 服务器暂时无法处理用户请求，服务无法使用
 
+## HTTP三次握手和四次挥手
+
+查看本目录下，http三次握手和四次挥手
+
 ## 缓存
 
 强缓存：
@@ -146,6 +150,7 @@ Last-Modified: Mon, 10 Nov 2018 09:10:11 GMT
 7. 如果service work匹配到资源并且调用了cache.put()，会把响应内容缓存到Service Worker 的 Cache Storage
 
 具体的内容参考本目录下 一文读懂前端缓存 - 知乎
+
 ## HTTPS
 
 ## HTTP2
