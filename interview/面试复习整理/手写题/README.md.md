@@ -1088,6 +1088,102 @@ function create () {
 }
 ```
 
+优化改进版：
+
+```js
+function create () {
+  let constructorFn = Array.prototype.shift.call(arguments)
+  let obj = Object.create(constructorFn.prototype)
+  let result = constructorFn.apply(
+    obj,
+    Array.prototype.slice.call(arguments)
+  )
+
+  return result instanceof Object ? result : obj
+}
+```
+
+## 实现js柯里化
+
+柯里化（Currying）是把接受多个参数的函数变换成接受一个单一参数（最初函数的第一个参数）的函数，并且返回接受余下的参数且返回结果的新函数的技术。主要作用和特点就是参数复用、提前返回和延迟执行。
+
+```js
+function curry(fn, args) {
+  var length = fn.length
+  var args = args || []
+
+  return function () {
+    var newArgs = args.concat(Array.prototype.slice(arguments))
+    if (newArgs.length < length) {
+      return curry.apply(this, fn, newArgs)
+    } else {
+      return fn.apply(this, newArgs)
+    }
+  }
+}
+
+function multiFn(a, b, c) {
+    return a * b * c;
+}
+
+var multi = curry(multiFn);
+
+multi(2)(3)(4)
+multi(2,3,4)
+multi(2)(3,4)
+multi(2,3)(4)
+```
+
+## 封装Ajax
+
+首先，得对原生的Ajax的有一定的了解
+
+说实话这个比较无聊，项目中通常也会现有的库或者基于现有的库进行一些特殊封装，说白了用处不大
+
+```js
+function ajax (options) {
+  let { method, url, headers, params, data, success, failed, isAsync } = options
+  let request
+  if (window.XMLHttpRequest) {
+    request = new window.XMLHttpRequest()
+  } else {
+    request = new ActiveXObject('Microsoft.XMLHTTP')
+  }
+
+  request.onreadystatechange = () => {
+    /**
+    readyState:
+      0 请求未初始化（在调用 open() 之前） 
+      1 请求已提出（调用 send() 之前） 
+      2 请求已发送（这里通常可以从响应得到内容头部） 
+      3 请求处理中（响应中通常有部分数据可用，但是服务器还没有完成响应） 
+      4 请求已完成（可以访问服务器响应并使用它）
+
+    status: HTTP 状态码
+    **/
+    if (request.readyState === 4 && request.status === 200) {
+      success && success(request.responseText)
+    }
+  }
+
+  request.onerror = function (error) {
+    failed && failed(error)
+  }
+
+  request.open(
+    method ? method : 'GET',
+    params ? `${url}?${Object.keys(params).map(param => `${key}=${params[key]}`).join('&')}` : url,
+    isAsync === false ? false : true
+  )
+  // setRequestHeader 设置请求头部信息，必须在open之后，send之前
+  if (headers) {
+    Object.keys(headers).forEach(key => request.setRequestHeader(key, headers[key]));
+  }
+
+  method === 'GET' ? request.send() : request.send(data)
+}
+```
+
 ## 写一个通用的事件监听器
 
 ```js
