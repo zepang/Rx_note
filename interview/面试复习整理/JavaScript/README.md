@@ -1,5 +1,24 @@
 # JavaScript 基础知识
 
+  - [JavaScript数据类型](#javascript%e6%95%b0%e6%8d%ae%e7%b1%bb%e5%9e%8b)
+  - [判断输据类型的方法](#%e5%88%a4%e6%96%ad%e8%be%93%e6%8d%ae%e7%b1%bb%e5%9e%8b%e7%9a%84%e6%96%b9%e6%b3%95)
+  - [执行上下文](#%e6%89%a7%e8%a1%8c%e4%b8%8a%e4%b8%8b%e6%96%87)
+  - [执行栈（调用栈）](#%e6%89%a7%e8%a1%8c%e6%a0%88%e8%b0%83%e7%94%a8%e6%a0%88)
+  - [创建上下文](#%e5%88%9b%e5%bb%ba%e4%b8%8a%e4%b8%8b%e6%96%87)
+  - [作用域](#%e4%bd%9c%e7%94%a8%e5%9f%9f)
+  - [词法作用域](#%e8%af%8d%e6%b3%95%e4%bd%9c%e7%94%a8%e5%9f%9f)
+  - [闭包](#%e9%97%ad%e5%8c%85)
+  - [this绑定](#this%e7%bb%91%e5%ae%9a)
+  - [构造函数、原型和原型链](#%e6%9e%84%e9%80%a0%e5%87%bd%e6%95%b0%e5%8e%9f%e5%9e%8b%e5%92%8c%e5%8e%9f%e5%9e%8b%e9%93%be)
+  - [继承](#%e7%bb%a7%e6%89%bf)
+  - [ES6 Class](#es6-class)
+  - [ES6 Iterator](#es6-iterator)
+  - [ES6 Generator](#es6-generator)
+  - [ES6 Promise](#es6-promise)
+  - [ES6 Proxy](#es6-proxy)
+  - [ES6 Reflect](#es6-reflect)
+  - [ES7 Decorator](#es7-decorator)
+
 ## JavaScript数据类型
 
 基本（原始）数据类型，也有叫值类型的说法：
@@ -700,4 +719,208 @@ Reflect对象一共有 13 个静态方法，具体用法需要自己去查文档
 
 - Reflect.setPrototypeOf(target, prototype)
 
-## ES6 Decorator
+## ES7 Decorator
+
+什么是装饰器？
+
+装饰器是一种与类（class）相关的语法，用于注释或者修改类与类的方法。
+
+装饰器的语法：写成@ + 函数名。它可以放在类和类方法的定义前面。
+
+```js
+@frozen
+class Foo {
+  @configurable(false)
+  @enumerable(true)
+  method() {}
+
+  @throttle(500)
+  expensiveMethod() {}
+}
+```
+
+你可以认为装饰器是一种对类或者类方法进行处理的函数，它有三个参数
+
+* target
+
+* prop
+
+* descriptor
+
+类的装饰器：
+
+```js
+@decorator
+class A {}
+
+function decorator (target, prop, descriptor) {
+  console.log(target, prop, descriptor)
+  // class A {} undefined undefined
+  console.log(target === A) // true
+}
+```
+类的装饰器函数只有第一个参数有值，为类本身，所以基于类的修改都是类的本身
+
+需要注意的是，就是target的constructor是不能修改的，如果需要对类的constructor函数进行修改，需要返回一个新的类：
+
+```js
+function decorator(target, key, descriptor) {
+  return class extends target {
+    constructor(...params) {
+      super(...params)
+      this.foo() // 你自定义的调用放在这里
+    }
+
+    foo () {
+      console.log('foo')
+    }
+  }
+}
+```
+
+推荐使用返回一个新的对象的方式来写类的装饰器。
+
+类属性的装饰器：
+
+```js
+class A {
+  @decorator
+  method () {}
+}
+
+function decorator (target, prop, descriptor) {
+  console.log(target, prop, descriptor)
+}
+
+let a = new A()
+A.method1()
+// ƒ A() {
+//     _classCallCheck(this, A);
+//   } 
+// "method1" 
+// {value: ƒ, writable: true, enumerable: false, configurable: true}
+a.method2()
+// {constructor: ƒ, method2: ƒ}constructor: ƒ A()method2: ƒ method2()__proto__: Object 
+// "method2" 
+// {value: ƒ, writable: true, enumerable: false, configurable: true}
+```
+
+类属性的装饰器函数接收三个参数：
+- 当类的属性为静态成员的时候返回类的构造函数，为实例成员返回实例原型
+- 属性名称
+- 属性描述符
+
+需要注意一下下边这种写法（class properties）：
+
+```js
+class A {
+  @decorator
+  method = () => {}
+}
+```
+
+需要用到并配置`@babel/plugin-proposal-class-properties`插件，另外由于目前的目前decorator的兼容性，开发中常会使用`@babel/plugin-proposal-decorators`插件。配置这两个插件需要注意，`@babel/plugin-proposal-decorators`需放置在`@babel/plugin-proposal-class-properties`前边，否则babel将报错，如下配置：
+
+```json
+{
+  "plugins": [["@babel/plugin-proposal-decorators", {
+    "legacy": true
+  }], "@babel/plugin-proposal-class-properties"]
+}
+```
+
+网上有文章说有的属性装饰器没有返回descriptor，那么可以通过`Object.getOwnPropertyDescriptor(target, name)`来手动获取
+
+对于需要额外接收参数的装饰器，可以在原本的装饰器函数外包一层函数，用于接收参数，比如dedounce装饰器：
+
+```js
+function _debounce(func, wait, immediate) {
+
+  var timeout;
+
+  return function () {
+    var context = this;
+    var args = arguments;
+
+    if (timeout) clearTimeout(timeout);
+    if (immediate) {
+      var callNow = !timeout;
+      timeout = setTimeout(function(){
+        timeout = null;
+      }, wait)
+      if (callNow) func.apply(context, args)
+    }
+    else {
+      timeout = setTimeout(function(){
+          func.apply(context, args)
+      }, wait);
+    }
+  }
+}
+
+function debounce(wait, immediate) {
+  return function handleDescriptor(target, key, descriptor) {
+    const callback = descriptor.value;
+
+    if (typeof callback !== 'function') {
+      throw new SyntaxError('Only functions can be debounced');
+    }
+
+    var fn = _debounce(callback, wait, immediate)
+
+    return {
+      ...descriptor,
+      value() {
+        fn()
+      }
+    };
+  }
+}
+```
+
+装饰器的原理：
+
+```js
+class A {
+  hello (){
+    console.log('hello');
+  }
+}
+```
+
+利用babel可以查看到类似下边的代码（经过整理）：
+```js
+Object.defineProperty(A.prototype, 'hello', {
+  value: function hello() {
+    console.log('hello');
+  },
+  enumerable:false,
+  configurable:true,
+  writable:true
+})
+```
+
+使用装饰器之后：
+
+```js
+class A {
+  @decorator
+  hello (){
+    console.log('hello');
+  }
+}
+```
+
+相当于：
+
+```js
+let descriptor = {
+  value:specifiedFunction,
+  enumerable:false,
+  configurable:true,
+  writeable:true
+};
+
+descriptor = readonly(A.prototype,'hello',descriptor)||descriptor;
+Object.defineProperty(A.prototype,'hello',descriptor);
+```
