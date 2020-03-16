@@ -461,14 +461,15 @@ n秒内多次满足触发某个动作的条件，将重新计算，当前满足�
 ```js
 function debounce (fn, delay = 50, immediate) {
   let timer = null
+  let self = this
 
   return function (...rest) {
     if (immediate) {
-      fn.apply(this, ...rest)
+      fn.apply(self, ...rest)
     }
     timer && clearTimeout(timer)
     timer = setTimeout(() => {
-      fn.apply(this, rest)
+      fn.apply(self, rest)
     }, delay)
   }
 }
@@ -481,12 +482,13 @@ function debounce (fn, delay = 50, immediate) {
 ```js
 function throttle (fn, delay) {
   let isPending = false
+  let self = this
 
   return function (...rest) {
     if (!isPending) {
       isPending = true
       setTimeout(() => {
-        fn.apply(this, rest)
+        fn.apply(self, rest)
         isPending = false
       }, delay)
     }
@@ -1243,3 +1245,88 @@ markyun.Event = {
 ```
 
 ## 图片懒加载
+
+重点：
+
+- 如何判断当前图片出现在视口
+- 如何加载图片
+
+优先使用 IntersectionObserver，然后使用传统的写法
+
+```js
+function debounce (fn, delay = 200) {
+  let timer = null
+
+  return (...rest) => {
+    timer && clearTimeout(timer)
+    timer = setTimeout(() => {
+      fn.apply(this, ...rest)
+    }, delay);
+  }
+}
+class Lazy {
+  constructor (selector = '.lazy') {
+    this.distance = distance
+    this.imgList = Array.prototype.slice.call(selector)
+    if (typeof selector === 'string') {
+      this.imgList = Array.prototype.slice.call(document.querySelectorAll(selector))
+    }
+    this.init()
+  }
+
+  init () {
+    // 优先使用 IntersectionObserver Api
+    if ('IntersectionObserver' in window) {
+      this.intersectionObserver()
+    } else {
+      // 首次直接加载
+      this.load()
+      let handle = debounce.call(this, this.load)
+      // 建议添加debounce进行优化
+      window.addEventListener('scroll', handle)
+    }
+  }
+
+  intersectionObserver () {
+    let observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          let src = entry.target.getAttribute('data-lazy')
+          entry.target.src = src
+          observer.unobserve(entry.target)
+        }
+      })
+    })
+    this.imgList.forEach(img => {
+      observer.observe(img)
+    })
+  }
+
+  // 判断当前图片进入视口
+  enableLoad (el) {
+    let clientHeight = document.documentElement.clientHeight || document.body.clientHeight
+    let elRect = el.getBoundingClientRect()
+    let flag = false
+    if (elRect.bottom >= 0 && elRect.top < clientHeight) {
+      flag = true
+    }
+    return flag
+  }
+
+  // 加载图片
+  load () {
+    let imgList = this.imgList
+    imgList.forEach((img, i) => {
+      if (this.enableLoad(img)) {
+        let src = img.getAttribute('data-lazy')
+        // 为了避免重复加载，将确定加载的图片从列表中移除
+        img.onload = () => {
+          imgList.splice(i, 1)
+        }
+
+        img.src = src
+      }
+    })
+  }
+}
+```
