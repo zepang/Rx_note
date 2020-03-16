@@ -1,5 +1,9 @@
 # Vue
 
+建议查看https://ustbhuangyi.github.io/vue-analysis/[https://ustbhuangyi.github.io/vue-analysis/]
+
+也可以看看
+
 ## vue 生命周期
 
 每个 Vue 实例在被创建时都要经过一系列的初始化过程——例如，需要设置数据监听、编译模板、将实例挂载到 DOM 并在数据变化时更新 DOM 等。同时在这个过程中也会运行一些叫做生命周期钩子的函数，这给了用户在不同阶段添加自己的代码的机会。
@@ -102,6 +106,24 @@ function mountComponent (
 7. beforeDestroy发生在实例销毁之前，在当前阶段实例完全可以被使用，我们可以在这时进行善后收尾工作，比如清除计时器。
 
 8. destroyed发生在实例销毁之后，这个时候只剩下了dom空壳。组件已被拆解，数据绑定被卸除，监听被移出，子实例也统统被销毁。
+
+生命周期的另类写法：
+
+```html
+<child
+  @hook:beforeCreate="handleChildBeforeCreate"
+  @hook:created="handleChildCreated"
+  @hook:mounted="handleChildMounted"
+  @hook:生命周期钩子
+ />
+```
+
+因为，callHook 函数的最后有这样一段代码:
+```js
+if (vm._hasHookEvent) {
+  vm.$emit('hook:' + hook)
+}
+```
 
 ## nextTick
 
