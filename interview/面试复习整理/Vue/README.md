@@ -971,4 +971,6 @@ function copyAugment (target, src, keys) {
 
 ## vue 虚拟DOM diff
 
+查看本目录下，vue源码-虚拟DOM的diff过程
+
 ## vue-loader的实现原理
