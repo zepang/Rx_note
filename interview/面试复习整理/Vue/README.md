@@ -4,7 +4,162 @@
 
 也可以看看
 
-## vue 生命周期
+## SPA单页应用的理解
+
+SPA（Single Page Application），简单来讲就是只有一个页面的应用，使用路由机制来是实现页面内容的替换。
+
+优点：
+
+1. 使用客户端渲染页面，能够减少服务器压力
+2. 用户体验好，内容更新不需要刷新整个页面
+3. SPA开发是前后端分离的开发，职责分离，架构清晰。
+
+缺点：
+
+1. 由于使用客户端进行渲染，初次需要加载的资源较多，首页白屏时间长。
+2. 页面内容实在前端动态生成，SEO难度较大。
+
+## v-show 和 v-if的区别
+
+- v-if 是真正的条件渲染，能够保证组件本身和子组件的重建和销毁；v-if为惰性渲染，如果初始化值为 false 的时候不会渲染DOM
+- v-show 元素总是会被渲染，使用简单的css属性`display`进行切换
+
+## v-model的原理
+
+在Vue项目中v-model主要用于input、textarea、select等这些表单元素创建双向数据绑定。
+
+v-model本质是语法糖，v-model 在内部为不同的输入元素使用不同的属性并抛出不同的事件：
+
+1. input 和 textarea 元素使用 value 属性和 input 事件，.lazy修饰符的情况下使用 value 属性和 change 事件
+2. checkbox 和 radio 使用 checked 属性和 change 事件
+3. select 字段将 value 作为 prop 并将 change 作为事件
+
+以input为例：
+
+```html
+<input v-model='something'>
+<!-- 相当于 -->
+<input v-bind:value="something" v-on:input="something = $event.target.value">
+```
+
+类似的用法的还有.sync修饰符：
+
+```html
+<comp :foo.sync="bar"></comp>
+<!-- 相当于 -->
+<comp :foo="bar" @update:foo="val => bar = val"></comp>
+```
+
+```js
+// 子组件需要更新foo的值的时候，需要手动触发一个更新事件
+this.$emit('update:foo', newValue)
+```
+
+下边是model源码：
+```js
+function model (
+  el,
+  dir,
+  _warn
+) {
+  warn$1 = _warn;
+  var value = dir.value;
+  var modifiers = dir.modifiers;
+  var tag = el.tag;
+  var type = el.attrsMap.type;
+
+  {
+    // inputs with type="file" are read only and setting the input's
+    // value will throw an error.
+    if (tag === 'input' && type === 'file') {
+      warn$1(
+        "<" + (el.tag) + " v-model=\"" + value + "\" type=\"file\">:\n" +
+        "File inputs are read only. Use a v-on:change listener instead.",
+        el.rawAttrsMap['v-model']
+      );
+    }
+  }
+
+  if (el.component) {
+    genComponentModel(el, value, modifiers);
+    // component v-model doesn't need extra runtime
+    return false
+  } else if (tag === 'select') {
+    genSelect(el, value, modifiers);
+  } else if (tag === 'input' && type === 'checkbox') {
+    genCheckboxModel(el, value, modifiers);
+  } else if (tag === 'input' && type === 'radio') {
+    genRadioModel(el, value, modifiers);
+  } else if (tag === 'input' || tag === 'textarea') {
+    genDefaultModel(el, value, modifiers);
+  } else if (!config.isReservedTag(tag)) {
+    genComponentModel(el, value, modifiers);
+    // component v-model doesn't need extra runtime
+    return false
+  } else {
+    warn$1(
+      "<" + (el.tag) + " v-model=\"" + value + "\">: " +
+      "v-model is not supported on this element type. " +
+      'If you are working with contenteditable, it\'s recommended to ' +
+      'wrap a library dedicated for that purpose inside a custom component.',
+      el.rawAttrsMap['v-model']
+    );
+  }
+
+  // ensure runtime directive metadata
+  return true
+}
+```
+
+给组件使用v-model指令的时候，会进行特殊处理。如果没有自定义组件model属性，默认使用 value 属性和 input 事件
+
+```js
+function createComponent() {
+  // transform component v-model data into props & events
+  if (isDef(data.model)) {
+    transformModel(Ctor.options, data);
+  }
+}
+
+function transformModel (options, data) {
+  var prop = (options.model && options.model.prop) || 'value';
+  var event = (options.model && options.model.event) || 'input'
+  ;(data.attrs || (data.attrs = {}))[prop] = data.model.value;
+  var on = data.on || (data.on = {});
+  var existing = on[event];
+  var callback = data.model.callback;
+  if (isDef(existing)) {
+    if (
+      Array.isArray(existing)
+        ? existing.indexOf(callback) === -1
+        : existing !== callback
+    ) {
+      on[event] = [callback].concat(existing);
+    }
+  } else {
+    on[event] = callback;
+  }
+}
+```
+
+## Vue组件的通信方式
+
+- 父子组件通信：
+  - props / $emit
+  - ref 与 $parent / $children
+
+- 隔代通信
+  - provide / inject
+  - `$attrs/$listeners`
+  - EventBus （$emit / $on）
+
+- 隔代、兄弟组件通信：
+  - EventBus （$emit / $on）
+
+- 父子、隔代、兄弟组件通信：
+  - vuex 这一类三方状态管理库
+
+## Vue 生命周期
 
 每个 Vue 实例在被创建时都要经过一系列的初始化过程——例如，需要设置数据监听、编译模板、将实例挂载到 DOM 并在数据变化时更新 DOM 等。同时在这个过程中也会运行一些叫做生命周期钩子的函数，这给了用户在不同阶段添加自己的代码的机会。
 
@@ -968,6 +1123,8 @@ function copyAugment (target, src, keys) {
   }
 }
 ```
+
+## 前端路由原理
 
 ## vue 虚拟DOM diff
 
