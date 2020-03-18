@@ -19,6 +19,44 @@ SPA（Single Page Application），简单来讲就是只有一个页面的应用
 1. 由于使用客户端进行渲染，初次需要加载的资源较多，首页白屏时间长。
 2. 页面内容实在前端动态生成，SEO难度较大。
 
+## 什么是MVVM
+
+MVVM是一种软件架构设计模式。
+
+MVVM设计模式分为三层：
+
+- View 层：View 是视图层，也就是用户界面。前端主要由 HTML 和 CSS 来构建 。
+
+- Modal 层：Model指数据模型，泛指后端进行的各种业务逻辑处理和数据操控，对于前端来说就是后端提供的API。
+
+- ViewModel：ViewModel是由前端开发人员组织生成和维护的视图数据层。包含视图的状态和行为两部分。
+  
+![](./mvvm.png)
+
+MVVM的特点是双向绑定，View的变动能够反映到ViewModel，反之也是一样。
+
+## Vue是如何实现双向绑定？
+
+要理解Vue的双向绑定你需要了解它的响应式原理。
+
+Vue主要通过以下几个个步骤来实现数据双向绑定：
+
+1. 实现响应式对象。使用`Object.defineProperty()`API，对属性都加上 setter 和 getter，进行读写拦截，能够再读写的时候触发依赖收集和派发更新。
+2. 实现一个解析器Compile。解析Vue的模板和指令，实现变量替换，完成页面渲染。
+3. 利用观察者（Watcher）和发布订阅（Dep）模式，帮助进行收集依赖和更新视图。
+
+## Object.defineProperty和Proxy
+
+Proxy优势：
+
+- Proxy 可以直接监听对象而非属性
+- Proxy 可以直接监听数组的变化
+- Proxy 支持的拦截方式比较多
+
+Object.defineProperty优势：
+
+- 兼容性好，支持IE9。Proxy的兼容性差而且无法用polyfill抹平
+
 ## v-show 和 v-if的区别
 
 - v-if 是真正的条件渲染，能够保证组件本身和子组件的重建和销毁；v-if为惰性渲染，如果初始化值为 false 的时候不会渲染DOM
@@ -389,7 +427,7 @@ function add$1 (
 }
 ```
 
-## vue 响应式原理
+## Vue 响应式原理
 
 > 基于2x版本
 
@@ -1126,8 +1164,105 @@ function copyAugment (target, src, keys) {
 
 ## 前端路由原理
 
-## vue 虚拟DOM diff
+前端路由实现方式通常有两种：Hash 和 History
+
+Hash 和 History 除了外观上的不同，还有一个区别是：Hash 方式实现的路由的状态保存是需要另行传递的，History 原生提供了自定义状态传递能力。
+
+**Hash 路由：**
+
+Hash 方式的路由在路由末尾都带有`#`，主要通过监听`#`后的URL路径标识符的更改而触发的浏览器的 `hashchange` 事件，然后通过 `location.hash` 得到当前路径标识，再进行一些路由跳转的操作。
+
+相关的API:
+
+- location.href：返回完整的URL
+- location.hash：返回URL的锚点部分
+- location.pathname：返回URL的路径名
+- hashchange：location.hash 发生变化会触发该事件
+
+简单是实现：
+
+```js
+class RouterClass {
+  constructor () {
+    this.routes = {}
+    this.currentPath = ''
+    this.history = []
+    this.init()
+  }
+
+  init () {
+    window.addEventListener('load', this.render)
+    window.addEventListener('hashchange', this.render)
+  }
+
+  // 注册路由
+  register ({path, cb}) {
+    this.routes[path] = cb
+  }
+
+  // 渲染 path 对应的视图
+  render () {
+    this.currentPath = location.hash.slice(1) || '/'
+    if (this.routes[this.currentPath]) {
+      this.routes[this.currentPath]()
+    } else if (this.routes['*']) {
+      this.routes['*']()
+    } else {
+      (() => {})()
+    }
+    this.history.push(this.current)
+  }
+
+  // 路由后退
+  back () {
+    this.history.pop()
+    if (!this.history.length) return
+    let prev = this.history[this.history.length - 1]
+    // 修改路由hash
+    location.hash = `#${prev}`
+    this.currentPath = prev
+    this.routes[prev]()
+  }
+}
+```
+
+**History 路由：**
+
+
+
+## Vue 虚拟DOM diff
 
 查看本目录下，vue源码-虚拟DOM的diff过程
 
 ## vue-loader的实现原理
+
+## Vue.use
+
+```js
+function initUse (Vue) {
+  Vue.use = function (plugin) {
+    var installedPlugins = (this._installedPlugins || (this._installedPlugins = []));
+    if (installedPlugins.indexOf(plugin) > -1) {
+      return this
+    }
+
+    // additional parameters
+    var args = toArray(arguments, 1);
+    args.unshift(this);
+    if (typeof plugin.install === 'function') {
+      plugin.install.apply(plugin, args);
+    } else if (typeof plugin === 'function') {
+      plugin.apply(null, args);
+    }
+    installedPlugins.push(plugin);
+    return this
+  };
+}
+```
+
+- use函数接收一个`plugin`参数，并且维护一个`_installedPlugins`列表，它存储所有注册过的 plugin。
+- 每次调用use注册插件的时候，会判断`plugin`的install方法，有则会将`Vue`作为第一个参数调用该`install`方法。
+
+## Vue项目的优化
+
+查看本目录下：(29) Vue 项目性能优化 — 实践指南（网上最全 _ 详细） - 掘金
