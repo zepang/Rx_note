@@ -1,8 +1,28 @@
 # Vue
 
-建议查看https://ustbhuangyi.github.io/vue-analysis/[https://ustbhuangyi.github.io/vue-analysis/]
+建议查看 vue 技术解密 https://ustbhuangyi.github.io/vue-analysis/[https://ustbhuangyi.github.io/vue-analysis/]
 
-也可以看看
+也可以看看 vue 技术内幕 http://caibaojian.com/vue-design/[http://caibaojian.com/vue-design/]
+
+- [Vue](#vue)
+  - [SPA单页应用的理解](#spa%e5%8d%95%e9%a1%b5%e5%ba%94%e7%94%a8%e7%9a%84%e7%90%86%e8%a7%a3)
+  - [什么是MVVM](#%e4%bb%80%e4%b9%88%e6%98%afmvvm)
+  - [Vue是如何实现双向绑定？](#vue%e6%98%af%e5%a6%82%e4%bd%95%e5%ae%9e%e7%8e%b0%e5%8f%8c%e5%90%91%e7%bb%91%e5%ae%9a)
+  - [Object.defineProperty和Proxy](#objectdefineproperty%e5%92%8cproxy)
+  - [v-show 和 v-if的区别](#v-show-%e5%92%8c-v-if%e7%9a%84%e5%8c%ba%e5%88%ab)
+  - [v-model的原理](#v-model%e7%9a%84%e5%8e%9f%e7%90%86)
+  - [Vue组件的通信方式](#vue%e7%bb%84%e4%bb%b6%e7%9a%84%e9%80%9a%e4%bf%a1%e6%96%b9%e5%bc%8f)
+  - [Vue 生命周期](#vue-%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f)
+  - [nextTick](#nexttick)
+  - [Vue 响应式原理](#vue-%e5%93%8d%e5%ba%94%e5%bc%8f%e5%8e%9f%e7%90%86)
+  - [$set](#set)
+  - [Vue变动数组响应式](#vue%e5%8f%98%e5%8a%a8%e6%95%b0%e7%bb%84%e5%93%8d%e5%ba%94%e5%bc%8f)
+  - [前端路由原理](#%e5%89%8d%e7%ab%af%e8%b7%af%e7%94%b1%e5%8e%9f%e7%90%86)
+  - [Vue 虚拟DOM diff](#vue-%e8%99%9a%e6%8b%9fdom-diff)
+  - [vue-loader的实现原理](#vue-loader%e7%9a%84%e5%ae%9e%e7%8e%b0%e5%8e%9f%e7%90%86)
+  - [Vue.use](#vueuse)
+  - [Vue项目的优化](#vue%e9%a1%b9%e7%9b%ae%e7%9a%84%e4%bc%98%e5%8c%96)
+  - [Vue 和 React 的一些对比](#vue-%e5%92%8c-react-%e7%9a%84%e4%b8%80%e4%ba%9b%e5%af%b9%e6%af%94)
 
 ## SPA单页应用的理解
 
@@ -1228,8 +1248,6 @@ class RouterClass {
 
 **History 路由：**
 
-
-
 ## Vue 虚拟DOM diff
 
 查看本目录下，vue源码-虚拟DOM的diff过程
@@ -1266,3 +1284,35 @@ function initUse (Vue) {
 ## Vue项目的优化
 
 查看本目录下：(29) Vue 项目性能优化 — 实践指南（网上最全 _ 详细） - 掘金
+
+## Vue 和 React 的一些对比
+
+相似之处：
+
+- 使用Virtual DOM
+- 响应式和组件化
+- 将注意力集中保持在核心库，而将其他功能如路由和全局状态管理交给其他库
+
+不同：
+
+- 组件开发层面
+
+  Vue使用模板语法，而React使用JSX。使用JSX的渲染函数可以使用JavaScript自带的临时变量、流程控制以及直接引用JavaScript作用域的一些值等等。Vue也 提供了渲染函数，甚至支持JSX。其本身推荐还是模板语法，模板语法对本身熟悉HTML的开发者来说，比JSX更加自然。基于HTML的模板项目转移到Vue也更加容易。相对JSX缺点也明显，就是得学习模板语法。
+
+- 组件内的CSS作用域
+
+  React通常使用CSS-in-JS的方案实现CSS的作用域，比如`styled-components`。需要引入一个面向组件的样式规范，和普通的CSS有一些区别。
+
+  这些CSS-in-Js的库也支持Vue。
+
+  Vue单文件组件的CSS作用域处理方式是给`<style>`添加`scoped`属性，让你可以在同一个文件里完全控制 CSS，将其作为组件代码的一部分。书写方式和普通的CSS是一样的。当然，这都得依赖`vue-loader`。
+
+  另外还有`CSS Modules`的处理方案，同样适用Vue和React
+
+- 项目方面
+
+  Vue提供了CLI脚手架，React也提供了create-react-app来帮助开发者快速进行项目开发。
+
+- 生态圈
+
+  Vue 的路由库和状态管理库都是由官方维护支持且与核心库同步更新的，React 则是选择把这些问题交给社区维护。加上React本身的出现时间较Vue早，React的社区活跃度和生态系统比Vue更繁荣一些。
