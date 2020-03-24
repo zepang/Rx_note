@@ -165,5 +165,37 @@ var p = new Promise(function (resolve, reject) {
 
 # polyfill
 
+`@babel/polyfill`模块包含两部分`core-js`和`regenerator runtime`
+
+注意：V7.4.0 版本开始，@babel/polyfill 已经被废弃(前端发展日新月异)，需单独安装 core-js 和 regenerator-runtime 模块。请大家注意自己使用的babel版本。
+
+```
+npm install --save core-js@3
+npm install --save regenerator-runtime
+```
+
+然后在入口文件的最前面引入：
+
+```js
+import "core-js/stable";
+import "regenerator-runtime/runtime";
+// 之后开始是逻辑代码
+```
+
+默认情况下会引入core-js支持所有的新特性的polyfill，可以通过设置`useBuiltIns`值为`usage`来实现按需引入，不使用的新特性将不会引入polyfill以节省空间。
+
+```json
+{
+  "presets": [
+    [
+      "@babel/preset-env", 
+      {
+        "useBuiltIns": "usage",
+        "corejs": 3
+      }
+    ]
+  ]
+}
+```
 
 
