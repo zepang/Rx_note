@@ -924,3 +924,142 @@ let descriptor = {
 descriptor = readonly(A.prototype,'hello',descriptor)||descriptor;
 Object.defineProperty(A.prototype,'hello',descriptor);
 ```
+
+## JavaScript模块化开发
+
+为什么需要模块？
+
+*   解决命名冲突
+*   提供复用性
+*   提高代码可维护性
+
+IIFE：
+
+JavaScript最早用来是先模块化的方式就是立即执行函数，通过函数作用域解决了命名冲突、污染全局作用域的问题
+
+```js
+(function(globalVariable){
+   globalVariable.test = function() {}
+   // ... 声明各种变量、函数都不会污染全局作用域
+})(globalVariable)
+```
+
+AMD：
+
+异步模块定义，规范加载模块是异步的，并允许函数回调，不必等到所有模块都加载完成，后续操作可以正常执行
+
+```js
+//规范 API
+define(id?, dependencies?, factory);
+define.amd = {};
+
+// 定义无依赖的模块
+define({
+  add: function(x,y){
+    return x + y;
+  }
+});
+
+
+// 定义有依赖的模块
+define(["alpha"], function(alpha){
+  return {
+    verb: function(){
+      return alpha.verb() + 1;
+    }
+  }
+});
+```
+具体的用法可以参考require.js
+
+CMD：
+
+CMD规范和AMD类似，都主要运行于浏览器端，写法上看起来也很类似。主要是区别在于 模块初始化时机
+
+- AMD中只要模块作为依赖时，就会加载并初始化
+- CMD中，模块作为依赖且被引用时才会初始化，否则只会加载
+
+```js
+//AMD
+define(['./a','./b'], function (a, b) {
+  //依赖一开始就写好
+  a.test();
+  b.test();
+});
+ 
+//CMD
+define(function (requie, exports, module) {
+  //依赖可以就近书写
+  var a = require('./a');
+  a.test();
+   
+  ...
+  //软依赖
+  if (status) {
+    var b = requie('./b');
+    b.test();
+  }
+});
+```
+用法参考sea.js
+
+Commonjs：
+
+CommonJS是服务器模块的规范，Node.js采用了这个规范。
+
+根据 CommonJS 规范，一个单独的文件就是一个模块，每一个模块都是一个单独的作用域，在一个文件定义的变量（还包括函数和类），都是私有的，对其他文件是不可见的。
+
+CommonJS规范加载模块是同步的，也就是说，只有加载完成，才能执行后面的操作。
+
+```js
+var x = 5;
+var addX = function(value) {
+  return value + x;
+};
+
+module.exports.x = x;
+module.exports.addX = addX;
+
+
+// 也可以改写为如下
+module.exports = {
+  x: x,
+  addX: addX,
+};
+```
+
+```js
+let math = require('./math.js');
+console.log('math.x',math.x);
+console.log('math.addX', math.addX(4));
+```
+UMD：
+
+UMD = Universal Module Definition，即通用模块定义。UMD 是AMD 和 CommonJS的糅合
+
+UMD 先判断是否支持 Node.js 的模块（exports）是否存在，存在则使用 Node.js 模块模式。再判断是否支持 AMD（define 是否存在），存在则使用 AMD 方式加载模块
+
+```js
+(function (window, factory) {
+  if (typeof exports === 'object') {
+    module.exports = factory();
+  } else if (typeof define === 'function' && define.amd) {
+    define(factory);
+  } else {
+    window.eventUtil = factory();
+  }
+})(this, function () {
+  //module ...
+});
+```
+
+目前很多库都是以这种模块化规范进行打包的，比如 Vue。
+
+ES6模块化：
+
+ES6模块和CommonJS区别：
+- ES6 模块输出的是值的引用，输出接口动态绑定，而 CommonJS 输出的是值的拷贝。
+
+- CommonJS 模块是运行时加载，ES6 模块是编译时输出接口。
+
+剩下内容参考：本目录下 (29) JS模块化——CommonJS AMD CMD UMD ES6 Module 比较 - 掘金
