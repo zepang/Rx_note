@@ -1,19 +1,21 @@
 # 面试复习-浏览器篇
 
-- [浏览器渲染UI的过程](#浏览器渲染ui的过程)
-- [回流与重绘](#回流与重绘)
-- [何时会引发回流与重绘](#何时会引发回流与重绘)
-- [如何减少回流和重绘](#如何减少回流和重绘)
-- [defer和async](#defer和async)
-- [preload和prefetch](#preload和prefetch)
-- [dns-prefetch域名预解析](#dns-prefetch域名预解析)
-- [cookie、localStorage和sessionStorage](#cookielocalstorage和sessionstorage)
-- [cookie、session、token、jwt](#cookiesessiontokenjwt)
-- [XSS和CSRF](#xss和csrf)
-- [跨域](#跨域)
-- [Event Loops事件循环](#event-loops事件循环)
-- [事件机制](#事件机制)
-- [HTML5拖拽事件](#html5拖拽事件)
+- [面试复习-浏览器篇](#%e9%9d%a2%e8%af%95%e5%a4%8d%e4%b9%a0-%e6%b5%8f%e8%a7%88%e5%99%a8%e7%af%87)
+  - [浏览器渲染UI的过程](#%e6%b5%8f%e8%a7%88%e5%99%a8%e6%b8%b2%e6%9f%93ui%e7%9a%84%e8%bf%87%e7%a8%8b)
+  - [回流与重绘](#%e5%9b%9e%e6%b5%81%e4%b8%8e%e9%87%8d%e7%bb%98)
+  - [何时会引发回流与重绘](#%e4%bd%95%e6%97%b6%e4%bc%9a%e5%bc%95%e5%8f%91%e5%9b%9e%e6%b5%81%e4%b8%8e%e9%87%8d%e7%bb%98)
+  - [如何减少回流和重绘](#%e5%a6%82%e4%bd%95%e5%87%8f%e5%b0%91%e5%9b%9e%e6%b5%81%e5%92%8c%e9%87%8d%e7%bb%98)
+  - [defer和async](#defer%e5%92%8casync)
+  - [preload和prefetch](#preload%e5%92%8cprefetch)
+  - [dns-prefetch域名预解析](#dns-prefetch%e5%9f%9f%e5%90%8d%e9%a2%84%e8%a7%a3%e6%9e%90)
+  - [cookie、localStorage和sessionStorage](#cookielocalstorage%e5%92%8csessionstorage)
+  - [cookie、session、token、jwt](#cookiesessiontokenjwt)
+  - [XSS和CSRF](#xss%e5%92%8ccsrf)
+  - [跨域](#%e8%b7%a8%e5%9f%9f)
+  - [Event Loops事件循环](#event-loops%e4%ba%8b%e4%bb%b6%e5%be%aa%e7%8e%af)
+  - [事件机制](#%e4%ba%8b%e4%bb%b6%e6%9c%ba%e5%88%b6)
+  - [HTML5拖拽事件](#html5%e6%8b%96%e6%8b%bd%e4%ba%8b%e4%bb%b6)
+  - [浏览器缓存](#%e6%b5%8f%e8%a7%88%e5%99%a8%e7%bc%93%e5%ad%98)
 
 
 ## 浏览器渲染UI的过程
@@ -657,7 +659,7 @@ js引擎线程：
 
 - 同步任务都在主线程上执行，形成一个执行栈
 
--主线程之外，事件触发线程管理着一个任务队列，只要异步任务有了运行结果，就在任务队列之中放置一个事件。
+- 主线程之外，事件触发线程管理着一个任务队列，只要异步任务有了运行结果，就在任务队列之中放置一个事件。
 
 - 一旦执行栈中的所有同步任务执行完毕（此时JS引擎空闲），系统就会读取任务队列，将可运行的异步任务添加到可执行栈中，开始执行。
 
