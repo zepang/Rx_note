@@ -26,8 +26,8 @@
 
 盒模型分为两种：
 
-1. 标准盒模型(w3c 盒模型) 标准盒模型的 width = content
-2. IE 盒模型 IE 盒模型的 width = padding + border + content
+1. 标准盒模型(w3c 盒模型) 标准盒模型的 width = 内容(content) + padding + border + margin
+2. IE 盒模型 IE 盒模型的 width = 内容(padding + border + content) + marigin
 
 ![](./盒模型.png)
 
@@ -361,6 +361,35 @@ div.child {
 ```
 
 关键点：全部是 float 布局，使用 margin-left 位移，然后用 position 定位矫正
+
+flex布局也可以利用order实现该布局，更好理解：
+
+```css
+.container {
+  display: flex;
+  width: 100%;
+  height: 200px;
+  align-items: strech;
+}
+
+.center {
+  flex-grow: 1;
+  order: 2;
+  background-color: blue;
+}
+
+.left {
+  order: 1;
+  min-width: 100px;
+  background-color: green;
+}
+
+.right {
+  order: 3;
+  min-width: 200px;
+  background-color: red;
+}
+```
 
 双飞翼布局：
 
