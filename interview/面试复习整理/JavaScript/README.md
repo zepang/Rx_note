@@ -617,6 +617,11 @@ Map: 是一种键值对的数据结构，与Object的区别是，Map的键可以
 
 WeakMap: 类似Map，区别是WeakMap成员的键只能是对像，另外，WeakMap的成员的键名引用的对象是弱引用，并且，WeakSet不能够进行遍历。
 
+WeakMap的使用场景主要有两点：
+
+- 以dom节点为键名
+- 用作类私有属性
+
 ## ES6 Proxy
 
 先来看看ES5中defineProperty：
