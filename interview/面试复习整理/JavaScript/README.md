@@ -605,6 +605,18 @@ const p = request()
 
 关于具体的用法可以查看相关的文档
 
+## ES Set Map WeakSet WeakMap
+
+Set，Map，WeakSet，WeakMap都是ES6新增的数据结构。
+
+Set: 类似数组，但是成员值都是唯一的，没有重复的值。
+
+WeakSet：和Set类似，不能有重复的值，区别是WeakSet的成员只能是对象，不能是其他类型的值，另外，WeakSet的中的对象都是弱引用，如果没有其他对象都不在引用该对象，那么垃圾回收机制会自动回收该对象的内存，并且，WeakSet不能够进行遍历。
+
+Map: 是一种键值对的数据结构，与Object的区别是，Map的键可以是任意值，Object的键只能是字符串。
+
+WeakMap: 类似Map，区别是WeakMap成员的键只能是对像，另外，WeakMap的成员的键名引用的对象是弱引用，并且，WeakSet不能够进行遍历。
+
 ## ES6 Proxy
 
 先来看看ES5中defineProperty：
