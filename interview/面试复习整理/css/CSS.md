@@ -26,8 +26,8 @@
 
 盒模型分为两种：
 
-1. 标准盒模型(w3c 盒模型) 标准盒模型的 width = content
-2. IE 盒模型 IE 盒模型的 width = padding + border + content
+1. 标准盒模型(w3c 盒模型) 标准盒模型的 width = 内容宽度(content) + padding + border + margin
+2. IE 盒模型 IE 盒模型的 width = 内容宽度(padding + border + content) + marigin
 
 ![](./盒模型.png)
 
@@ -362,6 +362,35 @@ div.child {
 
 关键点：全部是 float 布局，使用 margin-left 位移，然后用 position 定位矫正
 
+flex布局也可以利用order实现该布局，更好理解：
+
+```css
+.container {
+  display: flex;
+  width: 100%;
+  height: 200px;
+  align-items: strech;
+}
+
+.center {
+  flex-grow: 1;
+  order: 2;
+  background-color: blue;
+}
+
+.left {
+  order: 1;
+  min-width: 100px;
+  background-color: green;
+}
+
+.right {
+  order: 3;
+  min-width: 200px;
+  background-color: red;
+}
+```
+
 双飞翼布局：
 
 ```html
@@ -497,7 +526,21 @@ animation: slide .25s ease .1s 1 normal forwards;
 
 ## 12. flex布局
 
-建议查看阮一峰的那一篇博文，文字配图介绍的很详细：
+flex又称为弹性布局，可以简便，响应式的创建页面布局。
+
+理解flex布局需要理解以下几点：
+
+1. 通过`display: flex;`设置元素为flex容器
+
+2. flex容器内部默认存在两根轴：水平方向的主轴和垂直方向的交叉轴，通过flex-direction属性可以自定义主轴为水平方向还是垂直方向
+
+3. 通过justify-content属性来控制主轴方向的元素排列，通过align-items属性来控制交叉轴方向的元素排列
+
+4. flex容器的子元素可以通过设置mi/max-with/height这些最大最小值属性，或者flex属性来更加精准的控制空间占比
+
+5. 此外，flex布局还可以和margin属性进行结合，比如垂直居中，或者是常见导航菜单布局
+
+具体的内容建议查看阮一峰的那一篇博文，文字配图介绍的很详细：
 
 [http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html](http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html)
 
@@ -559,3 +602,17 @@ grid布局的内容比flex要多，建议查看阮一峰的一篇博文，也是
 - 媒体查询
 
   + @media 
+
+
+## 清除浮动的方式
+
+通常有以下几种：
+
+1. 固定父级元素的高度
+
+2. 设置父级元素overflow值为hidden或者auto
+
+3. 设置父级元素的zoom值
+
+4. 在父级元素下边添加一个块级元素或者是块级伪类元素，并设置clear值为both
+

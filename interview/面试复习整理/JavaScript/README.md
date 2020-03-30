@@ -188,7 +188,9 @@ function getOuter(){
 getOuter();
 ```
 
-## this绑定
+## this
+
+this是执行上下文创建时中确定的一个变量。关于this的值得问题，需要了解它的绑定。
 
 this的绑定可以分为以下几类：
 
