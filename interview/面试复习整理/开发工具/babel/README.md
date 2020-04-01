@@ -174,14 +174,6 @@ npm install --save core-js@3
 npm install --save regenerator-runtime
 ```
 
-然后在入口文件的最前面引入：
-
-```js
-import "core-js/stable";
-import "regenerator-runtime/runtime";
-// 之后开始是逻辑代码
-```
-
 默认情况下会引入core-js支持所有的新特性的polyfill，可以通过设置`useBuiltIns`值为`usage`来实现按需引入，不使用的新特性将不会引入polyfill以节省空间。
 
 ```json
@@ -198,4 +190,184 @@ import "regenerator-runtime/runtime";
 }
 ```
 
+然后，我们可以看到babel处理后的文件包含了一些polyfil:
 
+```js
+require("core-js/modules/es.array.includes");
+
+require("core-js/modules/es.function.name");
+
+require("core-js/modules/es.object.to-string");
+
+require("core-js/modules/es.promise");
+```
+
+
+# @babel/plugin-transform-runtime
+
+比如，我们添加如下代码：
+
+```js
+class Animal {
+  constructor (name) {
+    this.name = name
+  }
+
+  getName () {
+    return this.name
+  }
+}
+
+const dog = new Animal('dog')
+```
+
+创建other.js添加相同的代码。
+
+用babel处理后，你就会发现lib下的other和index文件中都存在了以下相同代码：
+
+```js
+function _classCallCheck(instance, Constructor) {...}
+function _defineProperties(target, props) {...}
+function _createClass(Constructor, protoProps, staticProps) {...}
+```
+
+babel在给我们转换语法的时候会用到一些小的辅助方法，上边的三个就是。因为，index和other文件中都需要这些方法，所以，babel给每个文件分别注入了一份。
+
+@babel/plugin-transform-runtime 是一个可以重复使用 Babel 注入的帮助程序，以节省代码大小的插件。
+
+@babel/plugin-transform-runtime 需要和 @babel/runtime 配合使用。
+
+@babel/plugin-transform-runtime 通常仅在开发时使用，但是运行时最终代码需要依赖 @babel/runtime，所以 @babel/runtime 必须要作为生产依赖被安装，如下:
+
+```
+npm install --save-dev @babel/plugin-transform-runtime
+npm install --save @babel/runtime
+```
+
+并在.babelrc添加如下配置：
+
+```json
+{
+  ...
+  "plugins": [
+    [
+      "@babel/plugin-transform-runtime"
+    ]
+  ]
+}
+```
+
+下边是babel处理后的文件：
+
+```js
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
+
+var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));
+```
+
+帮助函数不会直接注入到文件中，而是从`@babel/runtime`中重新引入。
+
+### 避免全局污染
+
+@babel/plugin-transform-runtime还能够帮助处理变量全局污染的问题。
+
+```json
+{
+  ...
+  "plugins": [
+    [
+      "@babel/plugin-transform-runtime", {
+        "corejs": 3
+      }
+    ]
+  ]
+}
+```
+
+以下是前后的对比：
+
+```js
+// 处理前
+var isHas = [1, 2, 3].includes(2);
+var p = new Promise(function (resolve, reject) {
+  resolve(100);
+});
+
+```
+
+```js
+// 处理后
+var isHas = (0, _includes["default"])(_context = [1, 2, 3]).call(_context, 2);
+var p = new _promise["default"](function (resolve, reject) {
+  resolve(100);
+});
+```
+
+## 插件的排序顺序很重要
+
+如果两个转换插件都将处理程序的某个代码片段，则将根据插件或者`preset`的排列顺序依次进行。
+
+- 插件在Presets前运行
+
+- 插件顺序从前往后
+
+- presets 顺序从后往前
+
+
+## 插件参数和短名称
+
+插件设置参数可以使用以下的形式：
+
+```json
+{
+    "plugins": [
+        [
+            "@babel/plugin-proposal-class-properties", 
+            { "loose": true }
+        ]
+    ]
+}
+```
+
+插件如果是按照`@babel/plugin-xxx`这种格式命名，可以使用短名称`@babel/xxx`
+
+```json
+{    
+  "plugins": [        
+    "newPlugin", //同 "babel-plugin-newPlugin"        
+    "@scp/myPlugin" //同 "@scp/babel-plugin-myPlugin"    
+]}
+```
+
+## babel的配置方式
+
+- .babelrc
+
+```json
+{
+  "presets": [],
+  "plugins": []
+}
+```
+
+- package.json
+
+```json
+{
+  "babel": {
+    "presets": [],
+    "plugins": []
+  }
+}
+```
+
+- .babelrc.js
+
+```js
+module.export = {
+  presets: [],
+  plugins: []
+}
+```
