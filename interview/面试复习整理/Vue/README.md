@@ -1285,6 +1285,208 @@ function initUse (Vue) {
 
 查看本目录下：(29) Vue 项目性能优化 — 实践指南（网上最全 _ 详细） - 掘金
 
+### 代码层面的优化
+
+1. v-if和v-show
+
+v-if: 是真正的条件渲染，能够确保切换过程中条件块内的时间监听器和子组件适当的销毁和重建。同时，v-if是惰性的，如果在初始化条件为假的时候，v-if绑定的元素萨满都不会做，知道第一次变为真，才会开始渲染。
+
+v-show: 是指css层面display属性的切换，不管初始条件是什么，元素总会被渲染
+
+v-if适合不需要频繁切换条件的场景；v-show适合需要非常频繁切换条件的场景。
+
+2. computed和watch
+
+computed: 是计算属性，依赖其他属性值，并且computed的值有缓存，只有依赖的属性值发生改变，下次获取computed的值时才会重新计算。
+
+watch: 更多的观察作用，类似某些数据的监听回调。
+
+应用场景：
+
+- 当我们需要进行数值的计算，并且依赖于其他的数据时，应该使用computed，因为可以利用computed的缓存特性，避免每次获取值都要重新计算。
+
+- 当我们需要在数据变化时执行异步或开销较大的操作时，应该使用 watch，使用 watch 选项允许我们执行异步操作 ( 访问一个 API )，限制我们执行该操作的频率，并在我们得到最终结果前，设置中间状态。这些都是计算属性无法做到的。
+
+3. v-for遍历必须添加key
+
+在列表数据进行遍历渲染时，需要为每一项 item 设置唯一 key 值，方便 Vue.js 内部机制精准找到该条列表数据，因为在diff的时候，有key会存储一个旧节点的列表，通过对比key可以更快的判断是否需要更新。当 state 更新时，新的状态值和旧的状态值对比，较快地定位到 diff 。
+
+```js
+function createKeyToOldIdx (children, beginIdx, endIdx) {
+  var i, key;
+  var map = {};
+  for (i = beginIdx; i <= endIdx; ++i) {
+    key = children[i].key;
+    if (isDef(key)) { map[key] = i; }
+  }
+  return map
+}
+```
+
+4. v-for遍历避免同时使用v-if
+
+v-for 比 v-if优先级更高，如果每一次都需要遍历整个数组，将会影响速度，尤其是只需要渲染很小的一部分的时候，必要情况下请使用computed属性：
+
+```html
+<ul>
+  <li
+    v-for="user in activeUsers"
+    :key="user.id">
+    {{ user.name }}
+  </li>
+</ul>
+<script>
+  export default {
+    computed: {
+      activeUsers: function () {
+        return this.users.filter(function (user) {
+      return user.isActive
+        })
+      }
+    }
+  }
+</script>
+```
+
+5. 长列表的性能优化
+
+Vue会通过Object.defineProperty对数据进行劫持，来实现视图响应式数据的变化，然而有些时候，我们的组件纯粹就是想展示数据，不会有任何改变。可以通过Object.freeze来冻结一个对象。
+
+```js
+export default {
+  data: () => ({
+    users: {}
+  }),
+  async created() {
+    const users = await axios.get("/api/users");
+    this.users = Object.freeze(users);
+  }
+};
+```
+
+6. 事件销毁
+
+组件内部定义的事件监听器或者定时器，需要在组件销毁的时候进行删除
+
+7. 图片懒加载
+
+```js
+import VueLazyload from 'vue-lazyload'
+
+Vue.use(VueLazyload)
+
+Vue.use(VueLazyload, {
+  preLoad: 1.3,
+  error: 'dist/error.png',
+  loading: 'dist/loading.gif',
+  attempt: 1
+})
+```
+
+```html
+<img v-lazy="/static/img/1.png" />
+```
+
+8. 路由懒加载
+
+webpack会将`import()`导入的组件自动分割成不同的代码块，然后当路由被访问的时候才会被加载。
+
+```js
+const Foo = () => import('./Foo.vue')
+const router = new VueRouter({
+  routes: [
+    { path: '/foo', component: Foo }
+  ]
+})
+```
+
+9. 第三方插件按需引入，比如ui库或者工具库等等
+
+10. 优化无线列表的性能
+
+参考[vue-virtual-scroll-list](https://github.com/tangbc/vue-virtual-scroll-list)或者[vue-virtual-scroller](https://github.com/Akryum/vue-virtual-scroller)
+
+11. 服务端渲染 SSR 或者是预渲染
+
+[ssr采坑之旅](https://juejin.im/post/5cb6c36e6fb9a068af37aa35)
+
+[预渲染prerender-spa-plugin](https://github.com/chrisvfritz/prerender-spa-plugin)
+
+### webpack层面的优化
+
+1. 压缩图片
+
+webpack一般会使用url-loader将一些小图片转化为base64的格式，其余的图片我们可以使用image-webpack-loader来压缩图片
+
+```
+npm install image-webpack-loader --save-dev
+```
+
+```js
+{
+  test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+  use:[
+    {
+    loader: 'url-loader',
+    options: {
+      limit: 10000,
+      name: utils.assetsPath('img/[name].[hash:7].[ext]')
+      }
+    },
+    {
+      loader: 'image-webpack-loader',
+      options: {
+        bypassOnDebug: true,
+      }
+    }
+  ]
+}
+```
+
+2. 减少babel的辅助方法代码
+
+babel在转换语法的时候，会注入一些辅助方法，并且每个文件都会注入，这个时候可以通过安装@babel/plugin-transform-runtime插件来处理，需要注意的是，生成环境需要还安装@babel/runtime：
+
+```
+npm install babel-plugin-transform-runtime --save-dev
+```
+
+```json
+{
+  "plugins": [
+    "@babel/plugin-transform-runtime"
+  ]
+}
+```
+
+3. 提取公共的代码
+
+4. 提取css
+
+@vue/cli建立的项目应该是优化好了的
+
+5. 优化sourcemap
+
+开发环境推荐： cheap-module-eval-source-map
+
+生产环境推荐： cheap-module-source-map
+
+### 基于web技术
+
+1. 开启gzip压缩
+
+通常使用nginx作为web服务器的都会开启，express这一类的服务端框架有对应的包比如 `compression`
+
+2. 使用浏览器缓存
+
+3. cdn
+
+4. 雪碧图
+
+5. 域名分片
+
+6. 使用HTTP2协议
+
 ## Vue 和 React 的一些对比
 
 相似之处：
