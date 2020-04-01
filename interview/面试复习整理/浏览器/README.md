@@ -248,7 +248,7 @@ cookie是存储在浏览器端的一小块数据
   /docs/Web/
   /docs/Web/HTTP
 
-- Expries / Max-Age Cookie 的过期时间，过了这个时间之后 Cookie 将会自动删除
+- Expires / Max-Age Cookie 的过期时间，过了这个时间之后 Cookie 将会自动删 除
 
   ```
   Set-Cookie: id=a3fWa; Expires=Wed, 21 Oct 2015 07:28:00 GMT;
