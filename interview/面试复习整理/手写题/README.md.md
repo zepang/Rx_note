@@ -1168,6 +1168,18 @@ function ajax (options) {
     }
   }
 
+  // 或者使用onload，在readyState为 4 的时候才会触发
+
+  request.onload = function () {
+    console.log(request.readyState) // 4
+  }
+
+  // onprogress，在readyState为 3 的时候触发
+
+  request.onprogress = function () {
+    console.log(request.readyState) // 3
+  }
+
   request.onerror = function (error) {
     failed && failed(error)
   }
