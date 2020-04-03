@@ -1184,6 +1184,20 @@ function copyAugment (target, src, keys) {
 
 ## 前端路由原理
 
+关联的问题：
+
+- vue-loader的模式有哪些？
+
+官方文档提供的配置有三种模式：
+
+- hash：使用url hash值来做路由。这种的兼容性比较好，支持所有浏览器。
+
+- history：依赖于HTML5提供的History API和服务器的配置。
+
+- abstract：支持所有的JavaScript环境，如node.js服务端。如果没有浏览器的API，路由会自动强制进入这个模式。
+
+hash路由和history路由实现的原理：
+
 前端路由实现方式通常有两种：Hash 和 History
 
 Hash 和 History 除了外观上的不同，还有一个区别是：Hash 方式实现的路由的状态保存是需要另行传递的，History 原生提供了自定义状态传递能力。
@@ -1247,6 +1261,48 @@ class RouterClass {
 ```
 
 **History 路由：**
+
+相关的API：
+
+history.push()
+history.state
+history.go()
+history.back()
+history.forward()
+history.replaceState()
+事件：popstate
+
+两种模式的不同：
+
+1. url外观，hash模式带有`#`号
+
+2. hash模式下，页面刷新还是正常的页面，history模式页面刷新会显示404，需要在后端设置静态资源跟路径，详细请看[https://router.vuejs.org/zh/guide/essentials/history-mode.html](https://router.vuejs.org/zh/guide/essentials/history-mode.html)
+
+3. hash模式下会通过判断是否支持history和history.pushState方法是否存在，存在则 `popstate`事件，反之则监听 `hashchange`事件，history模式只监听 `popstate`事件
+
+4. history模式实际向后端发出了请求，而hash模式则不会给后端发出请求
+
+关于abstract模式
+
+1. 用数组方式来存储路由
+
+2. 不监听任何事件
+
+3. URL外观上没有任何变化
+
+## Vuex
+
+Vuex是专门为vue.js应用程序开发的状态管理模式。
+
+Vuex的数据流：
+
+![](./vuex.png)
+
+什么情况下需要使用vuex：
+
+- 多个视图依赖同一个状态
+
+- 不同视图的行为需要变更同一个状态
 
 ## Vue 虚拟DOM diff
 
