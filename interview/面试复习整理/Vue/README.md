@@ -1272,6 +1272,33 @@ history.forward()
 history.replaceState()
 事件：popstate
 
+history.go()，history.forward()，history.back()这些方法或者是浏览器前进后退按钮的动作都可以触发popstate事件，但是history.pushState或者history.replaceState无法触发该事件，如果需要监听该事件，需要自己创建两个事件：
+
+```js
+var _wr = function (type) { 
+  var origin = history[type]
+
+  return function () {
+    var result = origin.apply(this, arguments)
+    var event = new Event(type)
+    event.arguments = arguments
+    window.dispatchEvent(event)
+    return result
+  }
+}
+
+//重写方法
+history.pushState = _wr('pushState');
+history.replaceState = _wr('replaceState');
+//实现监听
+window.addEventListener('replaceState', function(e) {
+  console.log('THEY DID IT AGAIN! replaceState 111111');
+})
+window.addEventListener('pushState', function(e) {
+  console.log('THEY DID IT AGAIN! pushState 2222222');
+})
+```
+
 两种模式的不同：
 
 1. url外观，hash模式带有`#`号
