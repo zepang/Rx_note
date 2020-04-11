@@ -1186,3 +1186,288 @@ setInterval(function() {
 ## 前端性能优化
 
 https://alienzhou.github.io/fe-performance-journey/
+
+## ES7
+
+- Array.prototype.includes()
+
+ES6中有String.prototype.includes()用来查询给定字符串中是否包含某个字符，Array.prototype.includes()用来查询给定数组内是否包含某个元素。
+
+类似的数组方法还有 indexOf，find，findIndex，需要注意的是indexOf无法发现`NaN`这个元素。
+
+- 求幂运算符 **
+
+```js
+console.log(2**10);// 输出1024
+console.log(Math.pow(2, 10)) // 输出1024
+```
+
+## ES8
+
+- async/await
+
+async/await是JavaScript异步编程的一个重大改进，提供了在不阻塞主线程的情况下使用同步代码实现异步访问资源的能力。
+
+async函数是一个通过异步执行并隐式返回Promise作为结果的函数
+
+await无法脱离async来使用
+
+- Object.values() 和 Object.entries()
+
+ES5引入了Object.keys()方法，返回一个数组，成员是一个对象的所有可遍历的属性键名。
+
+Object.vlues()同样返回一个数组，成员是一个对象所有可以遍历的属性键值，需要注意，如果对象的属性名是数值类型的键名，是按照数值的大小，从小到大进行遍历，并返回结果。比如：
+
+```js
+const obj = { 100: 'a', 2: 'b', 7: 'c' };
+Object.values(obj) // ["b", "c", "a"]
+```
+
+Object.entries()返回一个数组，成员是对象的所有可以遍历属性的键值对组成的数组`[[key, value]]`。
+
+- String padding
+
+String.prototype.padStart 和 String.prototype.padEnd，允许将空字符串或其他字符串添加到原始字符串的开头或结尾
+
+```js
+'123'.padStart(10, 'a') // "aaaaaaa123"
+'123'.padEnd(10, 'a') // "123aaaaaaa"
+```
+
+有时候我们处理日期、金额的时候经常要格式化，这个特性就派上用场：
+
+```js
+'12'.padStart(10, 'YYYY-MM-DD') // "YYYY-MM-12"
+'09-12'.padStart(10, 'YYYY-MM-DD') // "YYYY-09-12"
+```
+
+- Object.getOwnPropertyDescriptors()
+
+ES5 的Object.getOwnPropertyDescriptor()方法会返回某个对象属性的描述对象（descriptor）。ES8 引入了Object.getOwnPropertyDescriptors()方法，返回指定对象所有自身属性（非继承属性）的描述对象。
+
+之所以需要Object.getOwnPropertyDescriptors()方法，是为了解决Object.assign()方法无法拷贝get和set属性的问题，因为Object.assign方法总是拷贝一个属性的值，而不会拷贝它背后的赋值方法或取值方法。
+
+Object.getOwnPropertyDescriptors()方法配合Object.defineProperties()方法，就可以实现正确拷贝。
+
+具体查看 本目录下 (29) 盘点ES7、ES8、ES9、ES10新特性 - 掘金
+
+## ES9
+
+- for await of
+
+```js
+// for of遍历
+function Gen (time) {
+  return new Promise(function (resolve, reject) {
+    setTimeout(function () {
+      resolve(time)
+    }, time)
+  })
+}
+async function test () {
+  let arr = [Gen(2000), Gen(100), Gen(3000)]
+  for (let item of arr) {
+    console.log(Date.now(), item.then(console.log))
+  }
+}
+test()
+
+// 1586245161402 Promise {<pending>}
+// 1586245161411 Promise {<pending>}
+// 1586245161411 Promise {<pending>}
+
+// 100
+// 2000
+// 3000
+```
+
+for of方法能够遍历具有Symbol.iterator接口的同步迭代器数据，但是不能遍历异步迭代器。
+ES9新增的for await of可以用来遍历具有Symbol.asyncIterator方法的数据结构，也就是异步迭代器，且会等待前一个成员的状态改变后才会遍历到下一个成员，相当于async函数内部的await。
+
+```js
+function Gen (time) {
+  return new Promise(function (resolve, reject) {
+    setTimeout(function () {
+      resolve(time)
+    }, time)
+  })
+}
+async function test () {
+  let arr = [Gen(2000), Gen(100), Gen(3000)]
+  for await (let item of arr) {
+    console.log(Date.now(), item)
+  }
+}
+test()
+// 1575536194608 2000
+// 1575536194608 100
+// 1575536195608 3000
+```
+
+换成await关键字：
+
+```js
+function Gen (time) {
+  return new Promise(function (resolve, reject) {
+    setTimeout(function () {
+      resolve(time)
+    }, time)
+  })
+}
+async function test () {
+  let arr = [Gen(2000), Gen(100), Gen(3000)]
+  for await (let item of arr) {
+    let result = await item
+    console.log(Date.now(), result)
+  }
+}
+test()
+
+// 1586245240532 2000
+// 1586245240532 100
+// 1586245241532 3000
+```
+
+- Object Rest Spread
+
+ES6添加的Spread操作符，可以方便的进行数组的复制，合并，拆解参数。
+
+ES9添加了对象添加了这种语法，需要注意的是，这种对象的拷贝只是浅拷贝。
+
+
+- Promise.prototype.finally()
+
+Promise.prototype.finally() 方法返回一个Promise，在promise执行结束时，无论结果是fulfilled或者是rejected，在执行then()和catch()后，都会执行finally指定的回调函数。
+
+```js
+fetch('https://juejin.im')
+  .then((response) => {
+    console.log(response.status);
+	return response.status
+  })
+  .catch((error) => { 
+    console.log(error);
+  })
+  .finally(() => { 
+    console.log('finally')
+  })
+  .then(status => {
+	console.log(status)	
+  })
+
+  // 200
+  // finally
+  // 200
+```
+
+无论操作是否成功，当您需要在操作完成后进行一些清理时，finally()方法就派上用场了。另外需要注意，在finally之后的then回调中，能够收到上一个then返回的内容。
+
+- 正则s(dotAll)flag
+
+- 正则命名捕获组
+
+在一些正则表达式模式中，使用数字进行匹配可能会令人混淆。例如，使用正则表达式/(\d{4})-(\d{2})-(\d{2})/来匹配日期。因为美式英语中的日期表示法和英式英语中的日期表示法不同，所以很难区分哪一组表示日期，哪一组表示月份:
+
+```js
+const re = /(\d{4})-(\d{2})-(\d{2})/;
+const match= re.exec('2019-01-01');
+console.log(match[0]);    // → 2019-01-01
+console.log(match[1]);    // → 2019
+console.log(match[2]);    // → 01
+console.log(match[3]);    // → 01
+```
+
+ES9引入了命名捕获组，允许为每一个组匹配指定一个名字，既便于阅读代码，又便于引用。
+
+```js
+const re = /(?<year>\d{4})-(?<month>\d{2})-(?<day>\d{2})/;
+const match = re.exec('2019-01-01');
+console.log(match.groups);          // → {year: "2019", month: "01", day: "01"}
+console.log(match.groups.year);     // → 2019
+console.log(match.groups.month);    // → 01
+console.log(match.groups.day);      // → 01
+```
+
+上面代码中，“命名捕获组”在圆括号内部，模式的头部添加“问号 + 尖括号 + 组名”（?），然后就可以在exec方法返回结果的groups属性上引用该组名。
+命名捕获组也可以使用在replace()方法中，例如将日期转换为美国的 MM-DD-YYYY 格式：
+
+```js
+const re = /(?<year>\d{4})-(?<month>\d{2})-(?<day>\d{2})/
+const usDate = '2018-04-30'.replace(re, '$<month>-$<day>-$<year>')
+console.log(usDate) // 04-30-2018
+```
+
+## ES10
+
+- Array.prototype.flat()
+
+- Array.prototype.flatMap()
+
+- Object.fromEntries()
+
+- String.trimStart 和 String.trimEnd
+
+trimStart() 方法从字符串的开头删除空格，trimLeft()是此方法的别名。
+
+trimEnd() 方法从一个字符串的右端移除空白字符，trimRight 是 trimEnd 的别名。
+
+trime() 清楚首位的空格。
+
+也可以使用正则来清空格：
+
+```js
+// 去左边空格
+name.replace(/^\s*/g, '');
+
+// 去右边空格
+name.replace(/\s*$/g,'');
+
+// 去掉两边空格
+name.replace(/(^\s*)|(\s*$)/g,''); // name.trim()
+
+// 去掉中间的空格
+
+name.replace(/(?<=\w)\s+(?=\w)/g, '')
+
+// 去掉所有空格
+name.replace(/\s+/g, '')
+```
+
+- String.prototype.matchAll
+
+相当于正则 /g 修饰符
+
+- try…catch
+
+在ES10中，try-catch语句中的参数变为了一个可选项。
+
+以前我们写catch语句时，必须传递一个异常（error）参数。这就意味着，即便我们在catch里面根本不需要用到这个异常参数也必须将其传递进去，在 ES10 可以省略这个参数。
+
+- BigInt
+
+JavaScript 所有数字都保存成 64 位浮点数，这给数值的表示带来了两大限制。一是数值的精度只能到 53 个二进制位（相当于 16 个十进制位），大于这个范围的整数，JavaScript 是无法精确表示的，这使得 JavaScript 不适合进行科学和金融方面的精确计算。二是大于或等于2的1024次方的数值，JavaScript 无法表示，会返回Infinity。
+
+现在ES10引入了一种新的数据类型 BigInt（大整数），来解决这个问题。BigInt 只用来表示整数，没有位数的限制，任何位数的整数都可以精确表示。
+
+- Symbol.prototype.description
+
+我们知道，Symbol 的描述只被存储在内部的 `[[Description]]`，没有直接对外暴露，我们只有调用 Symbol 的 toString() 时才可以读取这个属性：
+
+```js
+Symbol('desc').description;  // "desc"
+Symbol('').description;      // ""
+Symbol().description;        // undefined
+```
+- Function.prototype.toString()
+
+ES2019中，Function.toString()发生了变化。之前执行这个方法时，得到的字符串是去空白符号的。而现在，得到的字符串呈现出原本源码的样子：
+
+```js
+function sum(a, b) {
+  return a + b;
+}
+console.log(sum.toString());
+// function sum(a, b) {
+//  return a + b;
+// }
+```
