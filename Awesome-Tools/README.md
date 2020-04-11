@@ -371,3 +371,7 @@ https://www.ssrtool.com
 ## https://www.jianshu.com/p/916a01670a23 pwa系列文章
 
 ### 高度优化的通配符和全局匹配库。 更快，直接替换到minimatch和multimatch。 由webpack，babel core，yarn，jest，浏览器同步，documentation.js，stylelint，nyc，ava和许多其他文件使用！ https://github.com/micromatch
+
+### https://blog.jimmylv.info/2018-09-19-vue-application-unit-test-strategy-and-practice-01-introduction/ vue test
+
+### Hiper：一款令人愉悦的性能分析工具

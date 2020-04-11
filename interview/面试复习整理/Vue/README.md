@@ -338,13 +338,63 @@ if (vm._hasHookEvent) {
 }
 ```
 
-## nextTick
+## $nextTick
 
-nextTick是Vue实现的一个函数，其作用是让我们在下次 DOM 更新循环结束之后执行延迟回调，用于获得更新后的 DOM
+vue.prototype.$nextTick是一个函数，它将回调延迟到下次 DOM 更新循环之后执行。
 
-下边是2.6版本的实现：
+应用场景举例：
+
+1. 在beforeCreate或者created这些在dom挂载之前的生命周期钩子函数内去完成正确的操作dom的逻辑
+
+2. 想拿到正确更新后的组件数据或者状态
+
+```html
+<template>
+  <div class="home">
+    <Comp ref="comp" :msg="msg"/>
+  </div>
+</template>
+<script>
+  export default {
+    // ...
+    data() {
+      return {
+        msg: 'Welcome to Your Vue.js App',
+      };
+    },
+    created() {
+      console.log(this.$refs.hello); // undefined
+      this.$nextTick(() => {
+        console.log(this.$refs.hello.$el); // <div data-v-469af010 class="hello"></div>
+      });
+    },
+    mounted() {
+      console.log(this.$refs.hello.msg); // Welcome to Your Vue.js App
+      this.msg = 'New Greeting';
+      console.log(this.$refs.hello.msg); // Welcome to Your Vue.js App
+      this.$nextTick(() => {
+        console.log(this.$refs.hello.msg); // New Greeting
+      })
+    },
+  };
+</script>
+```
+
+我们通过源码具体来看下它的实现：
 
 ```js
+var callbacks = [];
+var pending = false;
+
+function flushCallbacks () {
+  pending = false;
+  var copies = callbacks.slice(0);
+  callbacks.length = 0;
+  for (var i = 0; i < copies.length; i++) {
+    copies[i]();
+  }
+}
+
 var timerFunc;
 
 // The nextTick behavior leverages the microtask queue, which can be accessed
@@ -398,13 +448,47 @@ if (typeof Promise !== 'undefined' && isNative(Promise)) {
     setTimeout(flushCallbacks, 0);
   };
 }
+
+function nextTick (cb, ctx) {
+  var _resolve;
+  callbacks.push(function () {
+    if (cb) {
+      try {
+        cb.call(ctx);
+      } catch (e) {
+        handleError(e, ctx, 'nextTick');
+      }
+    } else if (_resolve) {
+      _resolve(ctx);
+    }
+  });
+  if (!pending) {
+    pending = true;
+    timerFunc();
+  }
+  // $flow-disable-line
+  if (!cb && typeof Promise !== 'undefined') {
+    return new Promise(function (resolve) {
+      _resolve = resolve;
+    })
+  }
+}
 ```
 
-从代码中可以看出，优先使用microtask。
+nextTick内的回调都会被推入到一个回调队列（callbacks）中，在之后会循环调用callbacks中的回调，这个执行的逻辑封装成了一函数flushCallbacks。
 
-2.4版本之前也是优先microtask，但是microtask的优先级过高，比如冒泡事件中，更新数据优先级比冒泡事件快，可能会导致数据更新不正确，所以之后，在这类情况下，会使用macrotask。
+按照下边的api的优先级`Promise` -> `MutationObserver` -> `setImmediate` -> `setTimeout`，创建任务，并把flushCallbacks作为任务的回调执行，达到所有通过$nextTick注册的回调函数都会在同步代码之后执行的效果。
 
-但是在2.6版本之后对这个情况进行了修复，所以看不到特殊情况下使用macrotask的判断：
+vue的视图更新是异步，也是通过$nextTick实现的异步。假设，我们的代码是这样的一个书写顺序：
+
+```js
+this.msg = 'New Greeting';
+this.$nextTick(() => {
+  console.log(this.$refs.hello.msg);
+})
+```
+
+更新`msg`属性值，vue会通过$nextTick(`更新视图回调fn`)创建更新视图的任务回调，更新视图的任务回调会推入callbacks队列中，然后，我们手动调用的$nextTick()传入的回调也会推到callbacks队列中，排在视图更新任务回调之后。在同步代码执行完毕之后，调用flushCallbacks执行回调，执行视图更新回调，执行手动创建的回调，所以，在手动创建的回调中能够拿到更新后的组件或者组件数据。
 
 ```js
 function add$1 (
@@ -1601,3 +1685,35 @@ npm install babel-plugin-transform-runtime --save-dev
 - 生态圈
 
   Vue 的路由库和状态管理库都是由官方维护支持且与核心库同步更新的，React 则是选择把这些问题交给社区维护。加上React本身的出现时间较Vue早，React的社区活跃度和生态系统比Vue更繁荣一些。
+
+## Vue SSR 或者说 nuxt的原理
+
+SSR（server-side-rendering）:服务端渲染。
+
+什么是服务端渲染？
+
+简单的理解就是在服务端生成HTML字符串，如传统的MVC框架的view层渲染。
+
+vue.js是构建客户端应用程序的框架，即SPA（单页应用程序）。使用服务端渲染的vue.js程序称为同构或者通用应用。
+
+vue.js服务端渲染依赖于vue-server-renderer这个包，它的一个大概的过程如下：
+
+1. 分为两个端（服务端和客户端），服务端应用进行HTML字符串的渲染，然后返回给客户端应用接手
+
+2. 首先需要匹配路由组件视图。服务端接收到用户的请求url，利用url来匹配对应vue组件视图官方推荐使用vue-router，使用router.push()，设置服务端路由位置。对于vue-router都不需要的应用，官方推荐只要做预渲染即可，不需要SSR
+
+3. 服务端匹配到视图之后，在组件渲染之前需要预取数据和状态，比如给需要异步请求数据的组件添加asyncData方法，服务端匹配到组件之后直接调用进行获取数据，然后才进行渲染
+
+4. 服务端预取的数据和状态需要通过vuex或者其他的方式同步到客户端，vue-server-renderer会自动将store.state上的数据在渲染的时候挂载到`window.__INITIAL_STATE__`，然后在客户端接手的时候替换到客户端的store中
+
+```js
+if (window.__INITIAL_STATE__) {
+  store.replaceState(window.__INITIAL_STATE__)
+}
+```
+
+5. 在客户端接手应用之后，之后的一个非刷新跳转都是客户端的路由跳转，服务端抓不到对应的req.url，也就是匹配不出组件。所以，客户端也需要预取数据。
+
+6. 客户端的预取数据可以在beforeMount或者router.beforeResolve的钩子中进行预取数据。具体的查看官方文档：[https://ssr.vuejs.org/zh/guide/data.html#客户端数据预取-client-data-fetching](https://ssr.vuejs.org/zh/guide/data.html#客户端数据预取-client-data-fetching)
+
+7. 服务端输出的html字符串的更元素上会挂载`data-server-render="true"`的属性，客户端的vue在挂载dom的时候，不会进行重新创建，会合并这些dom，并且激活它们，使它们可以响应后续的变化
