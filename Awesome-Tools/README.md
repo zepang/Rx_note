@@ -375,3 +375,5 @@ https://www.ssrtool.com
 ### https://blog.jimmylv.info/2018-09-19-vue-application-unit-test-strategy-and-practice-01-introduction/ vue test
 
 ### Hiper：一款令人愉悦的性能分析工具
+
+### win10 terminal 颜色 https://terminalsplash.com/
