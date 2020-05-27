@@ -377,3 +377,12 @@ https://www.ssrtool.com
 ### Hiper：一款令人愉悦的性能分析工具
 
 ### win10 terminal 颜色 https://terminalsplash.com/
+
+### vmware-tools http://softwareupdate.vmware.com/cds/vmw-desktop/fusion/
+
+### VMware虚拟机安装Mac OS X后怎么安装VMware Tools? 
+
+- https://www.lovyou.top/post/52.html
+- https://www.lovyou.top/post/51.html
+- https://qianfanguojin.github.io/2020/01/12/%E4%B8%BA%E4%BD%A0%E7%9A%84VMware-15-5-MacOS%E6%89%8B%E5%8A%A8%E5%AE%89%E8%A3%85VMware-Tools/
+- https://qianfanguojin.github.io/2020/01/12/%E4%B8%BA%E4%BD%A0%E7%9A%84VMware-15-5-MacOS%E6%89%8B%E5%8A%A8%E5%AE%89%E8%A3%85VMware-Tools/
