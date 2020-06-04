@@ -386,3 +386,7 @@ https://www.ssrtool.com
 - https://www.lovyou.top/post/51.html
 - https://qianfanguojin.github.io/2020/01/12/%E4%B8%BA%E4%BD%A0%E7%9A%84VMware-15-5-MacOS%E6%89%8B%E5%8A%A8%E5%AE%89%E8%A3%85VMware-Tools/
 - https://qianfanguojin.github.io/2020/01/12/%E4%B8%BA%E4%BD%A0%E7%9A%84VMware-15-5-MacOS%E6%89%8B%E5%8A%A8%E5%AE%89%E8%A3%85VMware-Tools/
+
+### 免费ocr api http://ocr.space/OCRAPI
+
+### https://www.designnotes.co/
