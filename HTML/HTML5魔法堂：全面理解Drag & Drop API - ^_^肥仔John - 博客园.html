@@ -1,0 +1,1931 @@
+<!DOCTYPE html>
+<!-- saved from url=(0050)https://www.cnblogs.com/fsjohnhuang/p/3961066.html -->
+<html lang="zh-cn"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="origin">
+    <meta property="og:description" content="一、前言 在HTML4的时代，各前端工程师为了实现拖拽功能可说是煞费苦心，初听HTML5的DnD API觉得那些痛苦的日子将一去不复返，但事实又是怎样的呢？下面我们一起来看看DnD API的真面目吧！">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>HTML5魔法堂：全面理解Drag &amp; Drop API - ^_^肥仔John - 博客园</title>
+    
+    <link rel="stylesheet" href="./HTML5魔法堂：全面理解Drag &amp; Drop API - ^_^肥仔John - 博客园_files/blog-common.min.css">
+    <link id="MainCss" rel="stylesheet" href="./HTML5魔法堂：全面理解Drag &amp; Drop API - ^_^肥仔John - 博客园_files/bundle-simpleblue.min.css">
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="./HTML5魔法堂：全面理解Drag &amp; Drop API - ^_^肥仔John - 博客园_files/bundle-simpleblue-mobile.min.css">
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/fsjohnhuang/rss">
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/fsjohnhuang/rsd.xml">
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/fsjohnhuang/wlwmanifest.xml">
+    <script src="./HTML5魔法堂：全面理解Drag &amp; Drop API - ^_^肥仔John - 博客园_files/amp4ads-host-v0.js.下载"></script><script async="" src="./HTML5魔法堂：全面理解Drag &amp; Drop API - ^_^肥仔John - 博客园_files/analytics.js.下载"></script><script type="text/javascript" src="./HTML5魔法堂：全面理解Drag &amp; Drop API - ^_^肥仔John - 博客园_files/encoder.js.下载"></script><script src="./HTML5魔法堂：全面理解Drag &amp; Drop API - ^_^肥仔John - 博客园_files/jquery-2.2.0.min.js.下载"></script>
+    <script src="./HTML5魔法堂：全面理解Drag &amp; Drop API - ^_^肥仔John - 博客园_files/blog-common.min.js.下载"></script>
+    <script>
+        var currentBlogId = 100828;
+        var currentBlogApp = 'fsjohnhuang';
+        var cb_enable_mathjax = false;
+        var isLogined = false;
+        var skinName = 'SimpleBlue';
+    </script>
+    
+    
+    
+<link rel="preload" href="./HTML5魔法堂：全面理解Drag &amp; Drop API - ^_^肥仔John - 博客园_files/f.txt" as="script"><script type="text/javascript" src="./HTML5魔法堂：全面理解Drag &amp; Drop API - ^_^肥仔John - 博客园_files/f.txt"></script><script src="./HTML5魔法堂：全面理解Drag &amp; Drop API - ^_^肥仔John - 博客园_files/pubads_impl_2020050602.js.下载" async=""></script><link rel="prefetch" href="https://a7dffc012d776bc1cd2d16b64c355eb5.safeframe.googlesyndication.com/safeframe/1-0-37/html/container.html"><link rel="prefetch" href="https://tpc.googlesyndication.com/safeframe/1-0-37/html/container.html"></head>
+<body>
+    <a name="top"></a>
+    
+    <div id="home">
+    <div id="header">
+        <div id="blogTitle">
+            
+<div class="title"><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/fsjohnhuang/">^_^肥仔John</a>
+</div>
+<div class="subtitle">
+偏前端的临栈工程师@Midea/QMS
+阿里云栖社区认证专家
+</div>
+
+        </div>
+        <div id="navigator">
+            
+<ul id="navList">
+    <li id="nav_sitehome"><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+    <li id="nav_myhome">
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/fsjohnhuang/">
+首页</a>
+</li>
+    <li id="nav_newpost">
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+    <li id="nav_contact">
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/%5E_%5E%E8%82%A5%E4%BB%94John">
+联系</a></li>
+    <li id="nav_rss">
+<a id="blog_nav_rss" class="menu" href="javascript:void(0)" data-rss="https://www.cnblogs.com/fsjohnhuang/rss/">
+订阅</a></li>
+    <li id="nav_admin">
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+            <div class="blogStats">
+                
+<span id="stats_post_count">随笔 - 
+242&nbsp;</span>
+<span id="stats_article_count">文章 - 
+170&nbsp;</span>
+<!-- <span id="stats-comment_count"></span> -->
+<span id="stats_comment_count">评论 - 
+405</span>
+            </div>
+        </div>
+    </div>
+    <div id="main">
+        <div id="mainContent">
+            <div class="forFlow">
+                <div id="post_detail">
+    <div id="topics">
+        <div class="post">
+            <h1 class="postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/fsjohnhuang/p/3961066.html">HTML5魔法堂：全面理解Drag &amp; Drop API</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                
+<div id="cnblogs_post_body" class="blogpost-body ">
+    <p><span style="font-size: 18px; background-color: #888888;"><strong>一、前言　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 &nbsp;&nbsp;</strong></span></p>
+<p>&nbsp; 在HTML4的时代，各前端工程师为了实现拖拽功能可说是煞费苦心，初听HTML5的DnD API觉得那些痛苦的日子将一去不复返，但事实又是怎样的呢？下面我们一起来看看DnD API的真面目吧！</p>
+<p>&nbsp;</p>
+<p><span style="font-size: 18px; background-color: #888888;"><strong>二、由于篇幅较长，特设目录一陀　　　　　　　　　　　　　　　　　　　　　　</strong></span></p>
+<p style="margin-left: 30px;"><a href="https://www.cnblogs.com/fsjohnhuang/p/3961066.html#t3">三、HTML4下实现简单拖拽</a></p>
+<p style="margin-left: 30px;"><a href="https://www.cnblogs.com/fsjohnhuang/p/3961066.html#t4">四、HTML5下实现简单拖拽</a></p>
+<p style="margin-left: 30px;"><a href="https://www.cnblogs.com/fsjohnhuang/p/3961066.html#t5">五、如何启用DnD效果</a></p>
+<p style="margin-left: 30px;"><a href="https://www.cnblogs.com/fsjohnhuang/p/3961066.html#t6">六、draggable属性详解</a></p>
+<p style="margin-left: 30px;"><a href="https://www.cnblogs.com/fsjohnhuang/p/3961066.html#t7">七、DnD的生命周期</a></p>
+<p style="margin-left: 30px;"><a href="https://www.cnblogs.com/fsjohnhuang/p/3961066.html#t8">八、DnD中最重要的数据传递对象──DataTransfer对象</a></p>
+<p style="margin-left: 30px;"><a href="https://www.cnblogs.com/fsjohnhuang/p/3961066.html#t9">九、[object DataTransferItemList]类型</a></p>
+<p style="margin-left: 30px;"><a href="https://www.cnblogs.com/fsjohnhuang/p/3961066.html#t10">十、[object DataTransferItem]类型</a></p>
+<p style="margin-left: 30px;"><a href="https://www.cnblogs.com/fsjohnhuang/p/3961066.html#t11">十一、浏览器支持</a></p>
+<p style="margin-left: 30px;"><a href="https://www.cnblogs.com/fsjohnhuang/p/3961066.html#t12" target="_blank">十二、特征检测是否支持HTML5的DnD API</a></p>
+<p style="margin-left: 30px;"><a href="https://www.cnblogs.com/fsjohnhuang/p/3961066.html#t13">十三、总结</a></p>
+<p style="margin-left: 30px;"><a href="https://www.cnblogs.com/fsjohnhuang/p/3961066.html#t14">十四、参考</a></p>
+<p style="margin-left: 30px;"><a href="https://www.cnblogs.com/fsjohnhuang/p/3961066.html#t15">十五、勘误</a></p>
+<p style="margin-left: 30px;"><a href="https://www.cnblogs.com/fsjohnhuang/p/3961066.html#t16">十六、书评</a></p>
+<p>&nbsp;</p>
+<p><span style="font-size: 18px; background-color: #888888;"><strong><a name="t3"></a>三、HTML4下实现简单拖拽　　　　　　　　　　　　　　　　　　　　　　　　　　</strong></span></p>
+<p>功能：实现在div#title上按下鼠标左键并移动鼠标时，拖拽整个div#dialog，但释放鼠标时停止拖拽。</p>
+<p>html代码片断</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./HTML5魔法堂：全面理解Drag &amp; Drop API - ^_^肥仔John - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre>&lt;div id=<span style="color: #800000;">"</span><span style="color: #800000;">dialog</span><span style="color: #800000;">"</span>&gt; 
+     &lt;div id=<span style="color: #800000;">"</span><span style="color: #800000;">title</span><span style="color: #800000;">"</span>&gt;<span style="color: #000000;">
+        Hi there</span>!
+     &lt;/div&gt;
+     &lt;div id=<span style="color: #800000;">"</span><span style="color: #800000;">content</span><span style="color: #800000;">"</span>&gt;<span style="color: #000000;">
+        Welcome here every one. We would learn the HTML5 feature DnD API now</span>!
+     &lt;div&gt;
+&lt;/div&gt;</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./HTML5魔法堂：全面理解Drag &amp; Drop API - ^_^肥仔John - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>js代码片断</p>
+<div class="cnblogs_code">
+<pre>DnD &amp;&amp; DnD(document.getElementById(<span style="color: #800000;">'</span><span style="color: #800000;">title</span><span style="color: #800000;">'</span>), document.getElementById(<span style="color: #800000;">'</span><span style="color: #800000;">dialog</span><span style="color: #800000;">'</span>));</pre>
+</div>
+<p>DnD.js工具库</p>
+<div class="cnblogs_code" onclick="cnblogs_code_show(&#39;81aa4a72-9825-47e5-b64f-1669f9bea19c&#39;)"><img id="code_img_closed_81aa4a72-9825-47e5-b64f-1669f9bea19c" class="code_img_closed" src="./HTML5魔法堂：全面理解Drag &amp; Drop API - ^_^肥仔John - 博客园_files/ContractedBlock.gif" alt=""><img id="code_img_opened_81aa4a72-9825-47e5-b64f-1669f9bea19c" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide(&#39;81aa4a72-9825-47e5-b64f-1669f9bea19c&#39;,event)" src="./HTML5魔法堂：全面理解Drag &amp; Drop API - ^_^肥仔John - 博客园_files/ExpandedBlockStart.gif" alt="">
+<div id="cnblogs_code_open_81aa4a72-9825-47e5-b64f-1669f9bea19c" class="cnblogs_code_hide">
+<pre><span style="color: #000000;">;(function(exports, contains){
+    </span><span style="color: #0000ff;">var</span> evtPrefix = <span style="color: #800000;">''</span><span style="color: #000000;">, 
+        off </span>= <span style="color: #800000;">'</span><span style="color: #800000;">removeEventListener</span><span style="color: #800000;">'</span><span style="color: #000000;">,
+        on </span>= <span style="color: #800000;">'</span><span style="color: #800000;">addEventListener</span><span style="color: #800000;">'</span> <span style="color: #0000ff;">in</span> document  &amp;&amp; <span style="color: #800000;">'</span><span style="color: #800000;">addEventListener</span><span style="color: #800000;">'</span> ||<span style="color: #000000;"> 
+            (evtPrefix </span>= <span style="color: #800000;">'</span><span style="color: #800000;">on</span><span style="color: #800000;">'</span>, off = <span style="color: #800000;">'</span><span style="color: #800000;">detachEvent</span><span style="color: #800000;">'</span>) &amp;&amp; <span style="color: #800000;">'</span><span style="color: #800000;">attachEvent</span><span style="color: #800000;">'</span><span style="color: #000000;">; 
+    </span><span style="color: #0000ff;">var</span> docEl =<span style="color: #000000;"> document.documentElement, 
+        body </span>=<span style="color: #000000;"> document.body;
+
+    </span><span style="color: #0000ff;">var</span> css =<span style="color: #000000;"> function(el, prop, expectedVal){
+            </span><span style="color: #0000ff;">var</span><span style="color: #000000;"> val;
+            </span><span style="color: #0000ff;">if</span><span style="color: #000000;"> (el.currentStyle){
+                 val </span>=<span style="color: #000000;"> el.currentStyle[prop];
+            }
+            </span><span style="color: #0000ff;">else</span><span style="color: #000000;">{
+                val </span>= window.getComputedStyle(el, <span style="color: #0000ff;">null</span><span style="color: #000000;">)[prop];
+            }
+            </span><span style="color: #0000ff;">if</span> (arguments.length === <span style="color: #800080;">3</span><span style="color: #000000;">){
+                </span><span style="color: #0000ff;">if</span> (<span style="color: #0000ff;">typeof</span> expectedVal === <span style="color: #800000;">'</span><span style="color: #800000;">string</span><span style="color: #800000;">'</span><span style="color: #000000;">)
+                    </span><span style="color: #0000ff;">return</span> val ===<span style="color: #000000;"> expectedVal;
+                </span><span style="color: #0000ff;">if</span> (Object.prototype.toString.call(expectedVal) === <span style="color: #800000;">'</span><span style="color: #800000;">[object RegExp]</span><span style="color: #800000;">'</span><span style="color: #000000;">)
+                    </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> expectedVal.test(val);
+                </span><span style="color: #0000ff;">return</span> <span style="color: #0000ff;">false</span><span style="color: #000000;">;
+            }
+            </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> val;
+        };
+
+    </span><span style="color: #008000;">//</span><span style="color: #008000;"> 修正获取元素离页面左上角距离的bug</span>
+    <span style="color: #0000ff;">var</span> props = [[<span style="color: #800000;">'</span><span style="color: #800000;">marginLeft</span><span style="color: #800000;">'</span>, <span style="color: #800000;">'</span><span style="color: #800000;">marginTop</span><span style="color: #800000;">'</span>], [<span style="color: #800000;">'</span><span style="color: #800000;">borderLeft</span><span style="color: #800000;">'</span>, <span style="color: #800000;">'</span><span style="color: #800000;">borderTop</span><span style="color: #800000;">'</span>], [<span style="color: #800000;">'</span><span style="color: #800000;">left</span><span style="color: #800000;">'</span>, <span style="color: #800000;">'</span><span style="color: #800000;">top</span><span style="color: #800000;">'</span><span style="color: #000000;">]];
+    </span><span style="color: #0000ff;">var</span> getOffsetXY =<span style="color: #000000;"> function(el){
+            </span><span style="color: #0000ff;">var</span> oxy =<span style="color: #000000;"> {ox: el.offsetLeft, oy: el.offsetTop};
+            </span><span style="color: #0000ff;">if</span><span style="color: #000000;"> (el.offsetParent){
+                </span><span style="color: #0000ff;">var</span> poxy =<span style="color: #000000;"> getOffsetXY(el.offsetParent);
+                oxy </span>= {ox: oxy.ox + poxy.ox, oy: oxy.oy +<span style="color: #000000;"> poxy.oy};
+            }
+            </span><span style="color: #0000ff;">else</span> <span style="color: #0000ff;">if</span> (css(el, <span style="color: #800000;">'</span><span style="color: #800000;">position</span><span style="color: #800000;">'</span>, /relative|absolute/<span style="color: #000000;">i)){
+                </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">var</span> i = <span style="color: #800080;">0</span>, prop; prop = props[i++<span style="color: #000000;">];){
+                    oxy </span>=<span style="color: #000000;"> {
+                        ox: oxy.ox </span>+ (parseInt(css(el, prop[<span style="color: #800080;">0</span>])) || <span style="color: #800080;">0</span><span style="color: #000000;">), 
+                        oy: oxy.oy </span>+ (parseInt(css(el, prop[<span style="color: #800080;">1</span>])) || <span style="color: #800080;">0</span><span style="color: #000000;">)
+                    };
+                }
+            }
+            </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> oxy;
+        };
+    </span><span style="color: #0000ff;">var</span> getPointXY =<span style="color: #000000;"> function(evt){
+            </span><span style="color: #0000ff;">if</span> (<span style="color: #800000;">'</span><span style="color: #800000;">pageX</span><span style="color: #800000;">'</span> <span style="color: #0000ff;">in</span><span style="color: #000000;"> evt){
+                </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> {
+                        x: evt.pageX,
+                        y: evt.pageY
+                    };
+            }
+            </span><span style="color: #0000ff;">else</span><span style="color: #000000;">{
+                </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> {
+                        x: evt.clientX </span>+ (docEl &amp;&amp; docEl.scrollLeft || body &amp;&amp; body.scrollLeft || <span style="color: #800080;">0</span>) - (docEl &amp;&amp; docEl.clientLeft || body &amp;&amp; body.clientLeft || <span style="color: #800080;">0</span><span style="color: #000000;">), 
+                        y: evt.clientY </span>+ (docEl &amp;&amp; docEl.scrollLeft || body &amp;&amp; body.scrollTop || <span style="color: #800080;">0</span>) - (docEl &amp;&amp; docEl.clientLeft || body &amp;&amp; body.clientTop || <span style="color: #800080;">0</span><span style="color: #000000;">) 
+                    };
+            }
+        };
+
+    exports.DnD </span>=<span style="color: #000000;"> function(dragEl, addedEl){
+        </span><span style="color: #0000ff;">if</span> (!<span style="color: #0000ff;">this</span><span style="color: #000000;"> instanceof DnD){
+            </span><span style="color: #0000ff;">return</span> <span style="color: #0000ff;">new</span><span style="color: #000000;"> DnD(dragEl, addedEl);
+        }
+
+        </span><span style="color: #0000ff;">var</span> dragEls =<span style="color: #000000;"> [];
+        </span><span style="color: #0000ff;">if</span><span style="color: #000000;"> (contains(dragEl, addedEl)){
+            dragEls.push({
+                el: dragEl,
+                ox: </span><span style="color: #800080;">0</span><span style="color: #000000;">,
+                oy: </span><span style="color: #800080;">0</span><span style="color: #000000;">
+            });
+        }
+        </span><span style="color: #0000ff;">else</span> <span style="color: #0000ff;">if</span><span style="color: #000000;"> (contains(addedEl, dragEl)){
+            dragEls.push({
+                el: addedEl,
+                ox: </span><span style="color: #800080;">0</span><span style="color: #000000;">,
+                oy: </span><span style="color: #800080;">0</span><span style="color: #000000;">
+            });
+        }
+        </span><span style="color: #0000ff;">else</span><span style="color: #000000;">{
+            dragEls </span>=<span style="color: #000000;"> [{
+                el: addedEl,
+                ox: </span><span style="color: #800080;">0</span><span style="color: #000000;">,
+                oy: </span><span style="color: #800080;">0</span><span style="color: #000000;">
+            },{
+                el: dragEl,
+                ox: </span><span style="color: #800080;">0</span><span style="color: #000000;">,
+                oy: </span><span style="color: #800080;">0</span><span style="color: #000000;">
+            }];
+        }
+        </span><span style="color: #0000ff;">var</span><span style="color: #000000;"> ox, oy;
+        dragEl[on](evtPrefix </span>+ <span style="color: #800000;">'</span><span style="color: #800000;">mousedown</span><span style="color: #800000;">'</span><span style="color: #000000;">, function(evt){
+            evt </span>= evt || window.<span style="color: #0000ff;">event</span><span style="color: #000000;">;
+            
+            </span><span style="color: #0000ff;">var</span> pointXY =<span style="color: #000000;"> getPointXY(evt);
+            ox </span>=<span style="color: #000000;"> pointXY.x;
+            oy </span>=<span style="color: #000000;"> pointXY.y;
+            
+            </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">var</span> i = <span style="color: #800080;">0</span>, currEl; currEl = dragEls[i++<span style="color: #000000;">];){
+                </span><span style="color: #0000ff;">var</span> oxy =<span style="color: #000000;"> getOffsetXY(currEl.el);
+                currEl.ox </span>=<span style="color: #000000;"> oxy.ox;
+                currEl.oy </span>=<span style="color: #000000;"> oxy.oy;
+                currEl.el.style.position </span>= <span style="color: #800000;">'</span><span style="color: #800000;">absolute</span><span style="color: #800000;">'</span><span style="color: #000000;">;
+                currEl.el.style.left </span>= currEl.ox + <span style="color: #800000;">'</span><span style="color: #800000;">px</span><span style="color: #800000;">'</span><span style="color: #000000;">;
+                currEl.el.style.top </span>= currEl.oy + <span style="color: #800000;">'</span><span style="color: #800000;">px</span><span style="color: #800000;">'</span><span style="color: #000000;">;
+            }
+
+            </span><span style="color: #0000ff;">var</span> onDOCMousemove =<span style="color: #000000;"> function(evt){
+                evt </span>= evt || window.<span style="color: #0000ff;">event</span><span style="color: #000000;">;
+                </span><span style="color: #0000ff;">var</span> dx = evt.clientX -<span style="color: #000000;"> ox;
+                </span><span style="color: #0000ff;">var</span> dy = evt.clientY -<span style="color: #000000;"> oy;
+                </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">var</span> i = <span style="color: #800080;">0</span>, currEl; currEl = dragEls[i++<span style="color: #000000;">];){
+                    currEl.el.style.left </span>= (currEl.ox + dx) + <span style="color: #800000;">'</span><span style="color: #800000;">px</span><span style="color: #800000;">'</span><span style="color: #000000;">;
+                    currEl.el.style.top </span>= (currEl.oy + dy) + <span style="color: #800000;">'</span><span style="color: #800000;">px</span><span style="color: #800000;">'</span><span style="color: #000000;">;
+                }
+            };
+            document[on](evtPrefix </span>+ <span style="color: #800000;">'</span><span style="color: #800000;">mousemove</span><span style="color: #800000;">'</span><span style="color: #000000;">, onDOCMousemove);
+            document[on](evtPrefix </span>+ <span style="color: #800000;">'</span><span style="color: #800000;">mouseup</span><span style="color: #800000;">'</span><span style="color: #000000;">, function(evt){
+                evt </span>= evt || window.<span style="color: #0000ff;">event</span><span style="color: #000000;">;
+                document[off](evtPrefix </span>+ <span style="color: #800000;">'</span><span style="color: #800000;">mousemove</span><span style="color: #800000;">'</span><span style="color: #000000;">, onDOCMousemove);
+            });
+        });
+    };
+}(window, window.contains));</span></pre>
+</div>
+<span class="cnblogs_code_collapse">View Code</span></div>
+<p><span style="line-height: 1.5;">contains.js工具库</span></p>
+<div class="cnblogs_code" onclick="cnblogs_code_show(&#39;5664d297-0135-4102-9d1d-73b25926c4f1&#39;)"><img id="code_img_closed_5664d297-0135-4102-9d1d-73b25926c4f1" class="code_img_closed" src="./HTML5魔法堂：全面理解Drag &amp; Drop API - ^_^肥仔John - 博客园_files/ContractedBlock.gif" alt=""><img id="code_img_opened_5664d297-0135-4102-9d1d-73b25926c4f1" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide(&#39;5664d297-0135-4102-9d1d-73b25926c4f1&#39;,event)" src="./HTML5魔法堂：全面理解Drag &amp; Drop API - ^_^肥仔John - 博客园_files/ExpandedBlockStart.gif" alt="">
+<div id="cnblogs_code_open_5664d297-0135-4102-9d1d-73b25926c4f1" class="cnblogs_code_hide">
+<pre><span style="color: #000000;">;(function(exports){
+    exports.contains </span>=<span style="color: #000000;"> function(pel, cel){
+        </span><span style="color: #008000;">//</span><span style="color: #008000;"> ie</span>
+        <span style="color: #0000ff;">if</span><span style="color: #000000;"> (pel.contains){
+            </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> pel.contains(cel);
+        }
+        </span><span style="color: #0000ff;">else</span> <span style="color: #0000ff;">if</span><span style="color: #000000;">(pel.compareDocumentPosition){
+            </span><span style="color: #0000ff;">return</span> !!pel.compareDocumentPosition(cel) &amp; <span style="color: #800080;">16</span><span style="color: #000000;">;
+        }
+        </span><span style="color: #0000ff;">else</span><span style="color: #000000;">{
+            </span><span style="color: #0000ff;">var</span><span style="color: #000000;"> p;
+            </span><span style="color: #0000ff;">while</span> ((p = cel.parentNode) &amp;&amp; p.nodeType === <span style="color: #800080;">1</span><span style="color: #000000;">){
+                </span><span style="color: #0000ff;">if</span> (pel === p) <span style="color: #0000ff;">return</span> <span style="color: #0000ff;">true</span><span style="color: #000000;">;
+            }
+            </span><span style="color: #0000ff;">return</span> <span style="color: #0000ff;">true</span><span style="color: #000000;">;
+        }
+    };
+}(window));</span></pre>
+</div>
+<span class="cnblogs_code_collapse">View Code</span></div>
+<p>具体代码地址：https://github.com/fsjohnhuang/DnD-polyfill/blob/master/sample/sample3/</p>
+<p>&nbsp;</p>
+<p><span style="font-size: 18px; background-color: #888888;"><strong><a name="t4"></a>四、HTML5实现简单拖拽　　　　　　　　　　　　　　　　　　　　　　　　　　<br></strong></span></p>
+<p>功能：实现在div#title上按下鼠标左键并移动鼠标时，拖拽整个div#dialog，但释放鼠标时停止拖拽。下面的例子仅能在FF下运行</p>
+<p>html代码片段</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./HTML5魔法堂：全面理解Drag &amp; Drop API - ^_^肥仔John - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre>&lt;div id=<span style="color: #800000;">"</span><span style="color: #800000;">dialog</span><span style="color: #800000;">"</span>&gt; 
+     &lt;div id=<span style="color: #800000;">"</span><span style="color: #800000;">title</span><span style="color: #800000;">"</span> draggable=<span style="color: #800000;">"</span><span style="color: #800000;">true</span><span style="color: #800000;">"</span>&gt;<span style="color: #000000;">
+        Hi there</span>!
+     &lt;/div&gt;
+     &lt;div id=<span style="color: #800000;">"</span><span style="color: #800000;">content</span><span style="color: #800000;">"</span>&gt;<span style="color: #000000;">
+        Welcome here every one. We would learn the HTML5 feature DnD API now</span>!
+     &lt;div&gt;
+&lt;/div&gt;</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./HTML5魔法堂：全面理解Drag &amp; Drop API - ^_^肥仔John - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>js代码片段</p>
+<div class="cnblogs_code">
+<pre>DnD &amp;&amp; DnD(document.getElementById(<span style="color: #800000;">'</span><span style="color: #800000;">title</span><span style="color: #800000;">'</span>), document.getElementById(<span style="color: #800000;">'</span><span style="color: #800000;">dialog</span><span style="color: #800000;">'</span>));</pre>
+</div>
+<p>DnD.js工具库</p>
+<div class="cnblogs_code" onclick="cnblogs_code_show(&#39;d9ad0aee-2041-4459-8449-1fa87a490521&#39;)"><img id="code_img_closed_d9ad0aee-2041-4459-8449-1fa87a490521" class="code_img_closed" src="./HTML5魔法堂：全面理解Drag &amp; Drop API - ^_^肥仔John - 博客园_files/ContractedBlock.gif" alt=""><img id="code_img_opened_d9ad0aee-2041-4459-8449-1fa87a490521" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide(&#39;d9ad0aee-2041-4459-8449-1fa87a490521&#39;,event)" src="./HTML5魔法堂：全面理解Drag &amp; Drop API - ^_^肥仔John - 博客园_files/ExpandedBlockStart.gif" alt="">
+<div id="cnblogs_code_open_d9ad0aee-2041-4459-8449-1fa87a490521" class="cnblogs_code_hide">
+<pre><span style="color: #000000;">;(function(exports, contains){
+    </span><span style="color: #0000ff;">var</span> css =<span style="color: #000000;"> function(el, prop, expectedVal){
+            </span><span style="color: #0000ff;">var</span> val = window.getComputedStyle(el, <span style="color: #0000ff;">null</span><span style="color: #000000;">)[prop];
+            </span><span style="color: #0000ff;">if</span> (arguments.length === <span style="color: #800080;">3</span><span style="color: #000000;">){
+                </span><span style="color: #0000ff;">if</span> (<span style="color: #0000ff;">typeof</span> expectedVal === <span style="color: #800000;">'</span><span style="color: #800000;">string</span><span style="color: #800000;">'</span><span style="color: #000000;">)
+                    </span><span style="color: #0000ff;">return</span> val ===<span style="color: #000000;"> expectedVal;
+                </span><span style="color: #0000ff;">if</span> (Object.prototype.toString.call(expectedVal) === <span style="color: #800000;">'</span><span style="color: #800000;">[object RegExp]</span><span style="color: #800000;">'</span><span style="color: #000000;">)
+                    </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> expectedVal.test(val);
+                </span><span style="color: #0000ff;">return</span> <span style="color: #0000ff;">false</span><span style="color: #000000;">;
+            }
+            </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> val;
+        };
+    </span><span style="color: #0000ff;">var</span> props = [[<span style="color: #800000;">'</span><span style="color: #800000;">marginLeft</span><span style="color: #800000;">'</span>, <span style="color: #800000;">'</span><span style="color: #800000;">marginTop</span><span style="color: #800000;">'</span>], [<span style="color: #800000;">'</span><span style="color: #800000;">borderLeft</span><span style="color: #800000;">'</span>, <span style="color: #800000;">'</span><span style="color: #800000;">borderTop</span><span style="color: #800000;">'</span>], [<span style="color: #800000;">'</span><span style="color: #800000;">left</span><span style="color: #800000;">'</span>, <span style="color: #800000;">'</span><span style="color: #800000;">top</span><span style="color: #800000;">'</span><span style="color: #000000;">]];
+    </span><span style="color: #0000ff;">var</span> getOffsetXY =<span style="color: #000000;"> function(el){
+            </span><span style="color: #0000ff;">var</span> oxy =<span style="color: #000000;"> {ox: el.offsetLeft, oy: el.offsetTop};
+            </span><span style="color: #0000ff;">if</span><span style="color: #000000;"> (el.offsetParent){
+                </span><span style="color: #0000ff;">var</span> poxy =<span style="color: #000000;"> getOffsetXY(el.offsetParent);
+                oxy </span>= {ox: oxy.ox + poxy.ox, oy: oxy.oy +<span style="color: #000000;"> poxy.oy};
+            }
+            </span><span style="color: #0000ff;">else</span> <span style="color: #0000ff;">if</span> (css(el, <span style="color: #800000;">'</span><span style="color: #800000;">position</span><span style="color: #800000;">'</span>, /relative|absolute/<span style="color: #000000;">i)){
+                </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">var</span> i = <span style="color: #800080;">0</span>, prop; prop = props[i++<span style="color: #000000;">];){
+                    oxy </span>=<span style="color: #000000;"> {
+                        ox: oxy.ox </span>+ (parseInt(css(el, prop[<span style="color: #800080;">0</span>])) || <span style="color: #800080;">0</span><span style="color: #000000;">), 
+                        oy: oxy.oy </span>+ (parseInt(css(el, prop[<span style="color: #800080;">1</span>])) || <span style="color: #800080;">0</span><span style="color: #000000;">)
+                    };
+                }
+            }
+            </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> oxy;
+        };
+    </span><span style="color: #0000ff;">var</span> setXY =<span style="color: #000000;"> function(e, dragEls, ox, oy){
+            </span><span style="color: #0000ff;">var</span> dx = e.clientX -<span style="color: #000000;"> ox;
+            </span><span style="color: #0000ff;">var</span> dy = e.clientY -<span style="color: #000000;"> oy;
+            dragEls.forEach(function(item, index, dragEls){
+                item.el.style.left </span>= (item.ox + dx) + <span style="color: #800000;">'</span><span style="color: #800000;">px</span><span style="color: #800000;">'</span><span style="color: #000000;">;
+                item.el.style.top </span>= (item.oy + dy) + <span style="color: #800000;">'</span><span style="color: #800000;">px</span><span style="color: #800000;">'</span><span style="color: #000000;">;
+            });
+    };
+        
+    exports.DnD </span>=<span style="color: #000000;"> function(dragEl, addedEl){
+        </span><span style="color: #0000ff;">if</span> (!<span style="color: #0000ff;">this</span><span style="color: #000000;"> instanceof DnD){
+            </span><span style="color: #0000ff;">return</span> <span style="color: #0000ff;">new</span><span style="color: #000000;"> DnD(dragEl, addedEl);
+        }
+
+        </span><span style="color: #0000ff;">var</span> dragEls = [], addElements =<span style="color: #000000;"> [];
+        </span><span style="color: #0000ff;">if</span><span style="color: #000000;"> (contains(dragEl, addedEl)){
+            dragEls.push({
+                el: dragEl,
+                ox: </span><span style="color: #800080;">0</span><span style="color: #000000;">,
+                oy: </span><span style="color: #800080;">0</span><span style="color: #000000;">
+            });
+        }
+        </span><span style="color: #0000ff;">else</span> <span style="color: #0000ff;">if</span><span style="color: #000000;"> (contains(addedEl, dragEl)){
+            dragEls.push({
+                el: addedEl,
+                ox: </span><span style="color: #800080;">0</span><span style="color: #000000;">,
+                oy: </span><span style="color: #800080;">0</span><span style="color: #000000;">
+            });
+        }
+        </span><span style="color: #0000ff;">else</span><span style="color: #000000;">{
+            dragEls </span>=<span style="color: #000000;"> [{
+                el: addedEl,
+                ox: </span><span style="color: #800080;">0</span><span style="color: #000000;">,
+                oy: </span><span style="color: #800080;">0</span><span style="color: #000000;">
+            },{
+                el: dragEl,
+                ox: </span><span style="color: #800080;">0</span><span style="color: #000000;">,
+                oy: </span><span style="color: #800080;">0</span><span style="color: #000000;">
+            }];
+        }
+        </span><span style="color: #0000ff;">var</span><span style="color: #000000;"> ox,oy;
+        dragEl.addEventListener(</span><span style="color: #800000;">'</span><span style="color: #800000;">dragstart</span><span style="color: #800000;">'</span><span style="color: #000000;">, function(e){
+            e.dataTransfer.setData(</span><span style="color: #800000;">'</span><span style="color: #800000;">Text</span><span style="color: #800000;">'</span>, <span style="color: #800000;">''</span><span style="color: #000000;">);
+            e.dataTransfer.setDragImage(document.createElement(</span><span style="color: #800000;">'</span><span style="color: #800000;">div</span><span style="color: #800000;">'</span>), <span style="color: #800080;">0</span>, <span style="color: #800080;">0</span><span style="color: #000000;">);
+            e.dataTransfer.effectAllowed </span>= <span style="color: #800000;">'</span><span style="color: #800000;">move</span><span style="color: #800000;">'</span><span style="color: #000000;">;
+            </span><span style="color: #0000ff;">if</span> (ox == <span style="color: #0000ff;">null</span><span style="color: #000000;">){
+                    ox </span>=<span style="color: #000000;"> e.pageX;    
+                    oy </span>=<span style="color: #000000;"> e.pageY;
+                    dragEls.forEach(function(item,index,dragEls){
+                        </span><span style="color: #0000ff;">var</span> oxy =<span style="color: #000000;"> getOffsetXY(item.el);
+                        item.ox </span>=<span style="color: #000000;"> oxy.ox;
+                        item.oy </span>=<span style="color: #000000;"> oxy.oy;
+                        item.el.style.position </span>= <span style="color: #800000;">'</span><span style="color: #800000;">absolute</span><span style="color: #800000;">'</span><span style="color: #000000;">;
+                        item.el.style.left </span>= item.ox + <span style="color: #800000;">'</span><span style="color: #800000;">px</span><span style="color: #800000;">'</span><span style="color: #000000;">;
+                        item.el.style.top </span>= item.oy + <span style="color: #800000;">'</span><span style="color: #800000;">px</span><span style="color: #800000;">'</span><span style="color: #000000;">;
+                    });
+                    </span><span style="color: #008000;">//</span><span style="color: #008000;"> 由于dragover是在拖动一段距离后才会触发，从而导致被拖动的元素出现突然开始移动的效果
+                    </span><span style="color: #008000;">//</span><span style="color: #008000;"> 通过在dragstart中修改被拖动元素offsetTop/Left可优化该情况</span>
+<span style="color: #000000;">                    setXY(e, dragEls, ox, oy);
+            }
+        }, </span><span style="color: #0000ff;">false</span><span style="color: #000000;">);
+        document.addEventListener(</span><span style="color: #800000;">'</span><span style="color: #800000;">dragover</span><span style="color: #800000;">'</span><span style="color: #000000;">, function(e){
+            e.preventDefault();
+            e.dataTransfer.dropEffect </span>= <span style="color: #800000;">'</span><span style="color: #800000;">move</span><span style="color: #800000;">'</span><span style="color: #000000;">;
+            setXY(e, dragEls, ox, oy);
+        }, </span><span style="color: #0000ff;">false</span><span style="color: #000000;">);
+        document.addEventListener(</span><span style="color: #800000;">'</span><span style="color: #800000;">drop</span><span style="color: #800000;">'</span><span style="color: #000000;">, function(e){
+            e.preventDefault();
+            e.stopPropagation();
+        }, </span><span style="color: #0000ff;">false</span><span style="color: #000000;">);
+    };
+}(window, window.contains));</span></pre>
+</div>
+<span class="cnblogs_code_collapse">View Code</span></div>
+<p>contains.js工具库与上一节的相同</p>
+<p>具体代码地址：https://github.com/fsjohnhuang/DnD-polyfill/blob/master/sample/sample4/</p>
+<p>&nbsp;</p>
+<p><span style="font-size: 18px; background-color: #888888;"><strong><a name="t5"></a>五、如何启用DnD效果　　　　　　　　　　　　　　　　　　　　　　　　　　　　</strong></span></p>
+<p>html片段</p>
+<div class="cnblogs_code">
+<pre>&lt;div id=<span style="color: #800000;">"</span><span style="color: #800000;">drag</span><span style="color: #800000;">"</span> draggable=<span style="color: #800000;">"</span><span style="color: #800000;">true</span><span style="color: #800000;">"</span> style=<span style="color: #800000;">"</span><span style="color: #800000;">width:100px;height:50px;background-color:red;</span><span style="color: #800000;">"</span>&gt;<span style="color: #000000;">
+test
+</span>&lt;/div&gt;</pre>
+</div>
+<p>js片段</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./HTML5魔法堂：全面理解Drag &amp; Drop API - ^_^肥仔John - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #0000ff;">var</span> drag = document.getElementById(<span style="color: #800000;">'</span><span style="color: #800000;">drag</span><span style="color: #800000;">'</span><span style="color: #000000;">);
+drag.onselectstart </span>= function(){<span style="color: #0000ff;">return</span> <span style="color: #0000ff;">false</span><span style="color: #000000;">;};
+</span><span style="color: #008000;">//</span><span style="color: #008000;"> FF下拖拽时，默认不会生成一个被拖拽元素的阴影并跟随鼠标移动
+</span><span style="color: #008000;">//</span><span style="color: #008000;"> 需通过e.dataTransfer.setData来启动该效果</span>
+drag.ondragstart =<span style="color: #000000;"> function(e){
+    e.dataTransfer.setData(</span><span style="color: #800000;">'</span><span style="color: #800000;">text</span><span style="color: #800000;">'</span><span style="color: #000000;">, e.target.innerHTML);
+};</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./HTML5魔法堂：全面理解Drag &amp; Drop API - ^_^肥仔John - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p><strong>关键点：</strong></p>
+<p>1. 为触发拖拽的元素添加&nbsp;<span class="cnblogs_code">draggable=<span style="color: #800000;">"</span><span style="color: #800000;">true</span><span style="color: #800000;">"</span></span>&nbsp;特性，用于启动HTML5的DnD功能（即元素的&nbsp;<span class="cnblogs_code">dragstart</span>&nbsp;事件可被触发）；</p>
+<p>2. 在FF下即使添加&nbsp;<span class="cnblogs_code">draggable=<span style="color: #800000;">"</span><span style="color: #800000;">true</span><span style="color: #800000;">"</span></span>&nbsp;特性，但仅仅会触发&nbsp;<span class="cnblogs_code">dragstart</span>&nbsp;事件，但DnD功能并没有被完全打开（拖拽元素时没有任何视觉效果），需要调用&nbsp;<span class="cnblogs_code"><span style="color: #0000ff;">event</span>.dataTransfer.setData(<span style="color: #800000;">'</span><span style="color: #800000;">Text</span><span style="color: #800000;">'</span>,<span style="color: #800000;">''</span>)</span>&nbsp;彻底开启DnD功能。</p>
+<p>3. 在Safari4下则需要借助CSS规则来启动DnD功能，&nbsp;<span class="cnblogs_code">[draggable=<span style="color: #0000ff;">true</span>]{ -webkit-user-drag: element; }</span>&nbsp;</p>
+<p>&nbsp;</p>
+<p><span style="font-size: 18px; background-color: #888888;"><strong><a name="t6"></a>六、draggable属性详解　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　</strong></span></p>
+<p><strong>作用</strong>：用于指定标签是否可被拖拽</p>
+<p><strong>属性值范围如下：</strong></p>
+<p>1. &nbsp;<span class="cnblogs_code"><span style="color: #0000ff;">true</span></span>&nbsp;，表示可被拖拽</p>
+<p>2. &nbsp;<span class="cnblogs_code"><span style="color: #0000ff;">false</span></span>&nbsp;，表示不可被拖拽</p>
+<p>3. &nbsp;<span class="cnblogs_code">auto</span>&nbsp;，默认值，img和带href属性的a标签则表示可拖拽，其他标签表示不可被拖拽</p>
+<p>4. 其他值，表示不可被拖拽</p>
+<p>&nbsp;</p>
+<p><span style="font-size: 18px; background-color: #888888;"><strong><a name="t7"></a>七、DnD生命周期　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　</strong></span></p>
+<p><strong>1. 被拖拽元素的生命周期</strong></p>
+<p>&nbsp;<em><strong><span class="cnblogs_code">dragstart</span></strong></em>&nbsp;：当被拖拽元素开始被拖拽时触发</p>
+<p>&nbsp; <em><strong>&nbsp;注意：</strong></em></p>
+<blockquote>
+<p>&nbsp; &nbsp; [a]. event.dataTransfer的大部分设置均在这里配置</p>
+<p>&nbsp; &nbsp; [b]. 若调用event.preventDefault()则会阻止拖拽行为，导致后续的拖拽事件不被触发</p>
+<p>&nbsp; &nbsp; [c]. 触发dragstart事件后，其他元素的mousemove,mouseover,mouseenter,mouseleave,mouseout事件均不会被触发了</p>
+</blockquote>
+<p><em><strong>&nbsp;<span class="cnblogs_code">drag</span></strong></em>&nbsp;：当被拖拽元素被拖拽时触发</p>
+<p><em><strong>&nbsp;<span class="cnblogs_code">dragend</span>&nbsp;</strong></em>：当拖拽行为结束后触发</p>
+<p><strong>2. 目标元素的生命周期</strong></p>
+<p>&nbsp;&nbsp;<em><strong><span class="cnblogs_code">dragenter</span></strong></em>&nbsp;：当被拖拽元素进入目标元素时触发</p>
+<p>&nbsp;&nbsp;<em><strong><span class="cnblogs_code">dragover</span></strong></em>&nbsp;：当被拖拽元素在目标元素上移动时触发</p>
+<p><em><strong>&nbsp; &nbsp; 注意：</strong></em></p>
+<blockquote>
+<p>&nbsp; &nbsp; &nbsp;[a]. 可以在这里设置dropEffect的值，事件的默认行为是将dropEffect设置为none</p>
+<p>&nbsp; &nbsp; &nbsp;[b]. 该事件是被拖拽元素在目标元素上移动一段时间后才触发</p>
+<p>&nbsp; &nbsp; &nbsp;[c]. 事件的默认行为是不允许被拖拽元素在其他元素上释放或放置（即无法触发&nbsp;<span class="cnblogs_code">drop</span>&nbsp;事件），需要通过&nbsp;<span class="cnblogs_code"><span style="color: #0000ff;">event</span>.preventDefault()</span>&nbsp;来阻止默认行为才能触发后续的&nbsp;<span class="cnblogs_code">drop</span>&nbsp;事件。</p>
+</blockquote>
+<p>&nbsp;&nbsp;&nbsp;<em><strong><span class="cnblogs_code"><a name="drop72"></a>drop</span></strong></em>&nbsp;：当被拖拽元素在目标元素上，而且释放鼠标左键时触发</p>
+<p>&nbsp; &nbsp;<em><strong> 注意：</strong></em></p>
+<blockquote>
+<p>&nbsp; &nbsp; [a]. 对于外来的被拖拽元素（超链接、文件、图片源），&nbsp;<span class="cnblogs_code">drop</span>&nbsp;事件的默认行为是浏览器将当前页面重定向到被拖拽元素所指向的资源上</p>
+<p>&nbsp; &nbsp; [b]. 对文档内部的被拖拽元素，IE10+和Chrome下的默认行为是不作为，而FF得默认行为是新打开一个文档用于访问被拖拽元素所指向的资源</p>
+</blockquote>
+<p>&nbsp;&nbsp; <em><strong><span class="cnblogs_code">dragleave</span></strong></em> ：当被拖拽元素离开目标元素时触发。</p>
+<p>示例代码：</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./HTML5魔法堂：全面理解Drag &amp; Drop API - ^_^肥仔John - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre>&lt;div id=<span style="color: #800000;">"</span><span style="color: #800000;">drag</span><span style="color: #800000;">"</span> style=<span style="color: #800000;">"</span><span style="color: #800000;">width:50px;height:50px;background-color:red;</span><span style="color: #800000;">"</span>&gt;Test&lt;/div&gt;
+&lt;div id=<span style="color: #800000;">"</span><span style="color: #800000;">drop</span><span style="color: #800000;">"</span> style=<span style="color: #800000;">"</span><span style="color: #800000;">width:100px;height:100px;border:solid 1px red;</span><span style="color: #800000;">"</span>&gt;&lt;/div&gt;
+&lt;script type=<span style="color: #800000;">"</span><span style="color: #800000;">text/javascript</span><span style="color: #800000;">"</span>&gt;
+  <span style="color: #0000ff;">var</span> drag = document.getElementById(<span style="color: #800000;">'</span><span style="color: #800000;">drag</span><span style="color: #800000;">'</span>), drop = document.getElementById(<span style="color: #800000;">'</span><span style="color: #800000;">drop</span><span style="color: #800000;">'</span><span style="color: #000000;">);
+  drag.ondragstart </span>=<span style="color: #000000;"> function(evt){
+      evt.dataTransfer.setData(</span><span style="color: #800000;">'</span><span style="color: #800000;">Text</span><span style="color: #800000;">'</span>, <span style="color: #800000;">'</span><span style="color: #800000;">www.baidu.com</span><span style="color: #800000;">'</span><span style="color: #000000;">);
+  };
+  drop.ondragover </span>=<span style="color: #000000;"> function(evt){
+      evt.preventDefault(); </span><span style="color: #008000;">//</span><span style="color: #008000;"> 这样才能触发drop的drop事件</span>
+<span style="color: #000000;">  };
+</span>&lt;/script&gt;</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./HTML5魔法堂：全面理解Drag &amp; Drop API - ^_^肥仔John - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p><strong>3. 整体生命周期</strong></p>
+<p>&nbsp;<span class="cnblogs_code">dragstart</span>&nbsp;-&gt;&nbsp;<span class="cnblogs_code">drag</span>&nbsp;-&gt;&nbsp;<span class="cnblogs_code">dragenter</span>&nbsp;-&gt;&nbsp;<span class="cnblogs_code">dragover</span> -&gt;&nbsp;&nbsp;<span class="cnblogs_code">dragleave</span>&nbsp; -&gt;&nbsp;<span class="cnblogs_code">drop</span>&nbsp;-&gt;&nbsp;<span class="cnblogs_code">dragend</span>&nbsp;</p>
+<p>&nbsp;</p>
+<p><span style="font-size: 18px; background-color: #888888;"><strong><a name="t8"></a>八、DnD中最重要的数据传递对象──DataTransfer对象　　　　　　　　　　</strong></span></p>
+<p>&nbsp; DataTransfer对象用于在配置拖拽行为效果，并且在拖拽过程的各事件间传递数据信息。它存储在事件对象当中，下面我们逐步了解它吧。</p>
+<p><strong>1. [object DragEvent]对象</strong></p>
+<p>&nbsp; 继承自&nbsp;<span class="cnblogs_code">[<span style="color: #0000ff;">object</span> MouseEvent]</span>&nbsp;对象，其实就多了个&nbsp;<span class="cnblogs_code">{DataTransfer} dataTransfer</span>&nbsp;属性</p>
+<p><strong>2. [object DataTransfer]对象详解</strong></p>
+<p>&nbsp; 上文说到DataTransfer对象可用于传递数据信息，而数据信息的数据类型被限定为<strong>字符串</strong>和<strong>文件</strong>类型</p>
+<p><em><strong>&nbsp; </strong></em><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>2.1. &nbsp;<span class="cnblogs_code">effectAllowed</span>&nbsp;和&nbsp;<span class="cnblogs_code">dropEffect</span>&nbsp;</strong></span><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>属性</strong></span></p>
+<p>&nbsp; &nbsp; &nbsp;这个两个属性对于初次接触DnD的朋友来说，可谓最令人摸不着头脑的，网上和各书籍上对这两个属性的解释均不全面，下面我试图尽量把它们讲明白。</p>
+<p>&nbsp; &nbsp;&nbsp;&nbsp;<span class="cnblogs_code">effectAllowed</span>&nbsp;和&nbsp;<span class="cnblogs_code">dropEffect</span>&nbsp;最主要的作用是，用于配置拖拽操作过程中鼠标指针的类型以便提示用户后续可执行怎样的操作；其次的作用是，控制&nbsp;<span class="cnblogs_code">drop</span>&nbsp;事件的触发与否。</p>
+<p><em><strong>&nbsp; &nbsp; &nbsp;[a]&nbsp;<span class="cnblogs_code">effectAllowed</span>&nbsp;</strong></em></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; <strong>作用：</strong>用于设置被拖拽元素可执行的操作。</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; <strong>取值范围：</strong></p>
+<p>&nbsp; &nbsp; 　　&nbsp;<span class="cnblogs_code">copy</span>&nbsp;，限定dropEffect的属性值为copy，否则会鼠标指针为禁止样式</p>
+<p>　 &nbsp; 　&nbsp;&nbsp;<span class="cnblogs_code">link</span>&nbsp;，限定dropEffect的属性值为link，否则会鼠标指针为禁止样式</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cnblogs_code">move</span>&nbsp;，限定dropEffect的属性值为move，否则会鼠标指针为禁止样式</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;<span class="cnblogs_code">copyLink</span>&nbsp;，限定dropEffect的属性值为copy和link，否则会鼠标指针为禁止样式</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;<span class="cnblogs_code">copyMove</span>&nbsp;，限定dropEffect的属性值为copy和move，否则会鼠标指针为禁止样式</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;<span class="cnblogs_code">linkMove</span>&nbsp;，限定dropEffect的属性值为link和move，否则会鼠标指针为禁止样式</p>
+<p>　　 &nbsp; &nbsp;&nbsp;<span class="cnblogs_code">all</span>&nbsp;，允许dropEffect的属性值为任意值</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;<span class="cnblogs_code">none</span>&nbsp;，鼠标指针一直为禁止样式，不管dropEffect的属性值是什么</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;<span class="cnblogs_code">uninitialized</span>&nbsp;，没有限定dropEffect属性的值，效果和&nbsp;<span class="cnblogs_code">all</span>&nbsp;一样。</p>
+<blockquote>
+<p>&nbsp; &nbsp; &nbsp; <strong>注意：</strong>仅能在&nbsp;<span class="cnblogs_code">dragstart</span>&nbsp;事件中设置该属性，其他事件中设置均无效。</p>
+</blockquote>
+<p>&nbsp; &nbsp; &nbsp;<em><strong> [b].&nbsp;&nbsp;<span class="cnblogs_code">dropEffect</span>&nbsp;</strong></em></p>
+<p>　　 &nbsp; <strong>作用：</strong>用于设置目标元素将执行的操作，若属性值属于&nbsp;<span class="cnblogs_code">effectAllowed</span>&nbsp;范围内，则鼠标指针将显示对应的指针样式，否则则显示禁止的指针样式。</p>
+<p>&nbsp;&nbsp;　　&nbsp;<strong><span style="line-height: 1.5;">取值范围：</span></strong></p>
+<p><span style="line-height: 1.5;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;<span class="cnblogs_code">copy</span>&nbsp;：被拖拽元素将被复制到目标元素内，若属于&nbsp;<span class="cnblogs_code">effectAllowed</span>&nbsp;范围内时，则鼠标指针显示复制的样式，否则则显示禁止的指针样式。</span></p>
+<p><span style="line-height: 1.5;">&nbsp;　　　　<span class="cnblogs_code">link</span>&nbsp;：被拖拽元素将以超链接的形式打开资源（具体是否打开资源请参考<a href="https://www.cnblogs.com/fsjohnhuang/p/3961066.html#drop72" target="_blank">七、2</a>），若属于&nbsp;<span class="cnblogs_code">effectAllowed&nbsp;</span>&nbsp;范围内时，则鼠标指针显示超链接的样式，否则则显示禁止的指针样式。</span></p>
+<p><span style="line-height: 1.5;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cnblogs_code">move</span>&nbsp;：被拖拽元素将被移动到目标元素内，若属于&nbsp;<span class="cnblogs_code">effectAllowed&nbsp;&nbsp;</span>&nbsp;范围内时，则鼠标指针显示移动的样式，否则则显示禁止的指针样式。</span></p>
+<p><span style="line-height: 1.5;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;<span class="cnblogs_code">none</span>&nbsp;：被拖拽元素不能在目标元素上作任何操作，一直显示禁止的指针样式。除了文本框外其他元素的默认值均为none</span></p>
+<blockquote>
+<p><span style="line-height: 1.5;">　<strong>注意：</strong>　　　</span></p>
+<p><span style="line-height: 1.5;">　　1.&nbsp;仅能在&nbsp;<span class="cnblogs_code">dragover</span>&nbsp;事件中设置该属性值，其他事件中设置均无效</span></p>
+<p><span style="line-height: 1.5;">　　2. 当显示禁止的指针样式时，将无法触发目标元素的&nbsp;<span class="cnblogs_code">drop</span>&nbsp;事件。</span></p>
+</blockquote>
+<p><span style="line-height: 1.5;">&nbsp; &nbsp; &nbsp;<em><strong>[c]. 在真实浏览器中的测试结果</strong></em></span></p>
+<p><span style="line-height: 1.5;">&nbsp; &nbsp; &nbsp;</span></p>
+<table style="height: 834px; width: 808px;" border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><span style="font-size: 14px;"><strong>浏览器</strong></span></td>
+<td style="text-align: center;"><span style="font-size: 14px;"><strong>effectAllowed默认值</strong></span></td>
+<td style="text-align: center;"><span style="font-size: 14px;"><strong>effectAllowed值</strong></span></td>
+<td style="text-align: center;">
+<p><span style="font-size: 14px;"><strong>dropEffect默认值</strong></span></p>
+</td>
+<td style="text-align: center;">
+<p><span style="font-size: 14px;"><strong>默认使用鼠标指针的效果</strong></span></p>
+</td>
+</tr>
+<tr>
+<td style="text-align: center;" rowspan="9"><span style="color: #3366ff;"><strong>IE10+</strong></span></td>
+<td style="text-align: center;" rowspan="9"><span style="color: #3366ff;">uninitialized</span></td>
+<td><span style="color: #3366ff;">uninitialized</span></td>
+<td><span style="color: #3366ff;">copy</span></td>
+<td><span style="color: #3366ff;">copy</span></td>
+</tr>
+<tr>
+<td><span style="color: #3366ff;">copyLink</span></td>
+<td><span style="color: #3366ff;">none</span></td>
+<td><span style="color: #3366ff;">link</span></td>
+</tr>
+<tr>
+<td><span style="color: #3366ff;">copyMove</span></td>
+<td><span style="color: #3366ff;">none</span></td>
+<td><span style="color: #3366ff;">copy</span></td>
+</tr>
+<tr>
+<td><span style="color: #3366ff;">linkMove</span></td>
+<td><span style="color: #3366ff;">none</span></td>
+<td><span style="color: #3366ff;">link</span></td>
+</tr>
+<tr>
+<td><span style="color: #3366ff;">all</span></td>
+<td><span style="color: #3366ff;">copy</span></td>
+<td><span style="color: #3366ff;">link</span></td>
+</tr>
+<tr>
+<td><span style="color: #3366ff;">none</span></td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><span style="color: #3366ff;">move</span></td>
+<td><span style="color: #3366ff;">move</span></td>
+<td><span style="color: #3366ff;">move</span></td>
+</tr>
+<tr>
+<td><span style="color: #3366ff;">link</span></td>
+<td><span style="color: #3366ff;">link</span></td>
+<td><span style="color: #3366ff;">link</span></td>
+</tr>
+<tr>
+<td><span style="color: #3366ff;">copy</span></td>
+<td><span style="color: #3366ff;">copy</span></td>
+<td><span style="color: #3366ff;">copy</span></td>
+</tr>
+<tr>
+<td><span style="color: #3366ff;"><strong>备注：</strong></span></td>
+<td colspan="4">
+<p><span style="color: #3366ff;"><strong>1. 无法通过&nbsp;<span class="cnblogs_code">shift键</span>&nbsp;切换copyLink，copyMove和linkMove的样式；</strong></span></p>
+<p><span style="color: #3366ff;"><strong>2.&nbsp;若effectAllowed设置为copyLink、copyMove或linkMove，且dropEffect与之对应，则鼠标样式将为dropEffect所设置的样式</strong></span></p>
+</td>
+</tr>
+<tr>
+<td style="text-align: center;" rowspan="7"><span style="color: #339966;"><strong>Chrome37</strong></span></td>
+<td style="text-align: center;" rowspan="7"><span style="color: #339966;">all</span></td>
+<td><span style="color: #339966;">copyLink</span></td>
+<td><span style="color: #339966;">none</span></td>
+<td><span style="color: #339966;">copy</span></td>
+</tr>
+<tr>
+<td><span style="color: #339966;">copyMove</span></td>
+<td><span style="color: #339966;">none</span></td>
+<td><span style="color: #339966;">move</span></td>
+</tr>
+<tr>
+<td><span style="color: #339966;">linkMove</span></td>
+<td><span style="color: #339966;">none</span></td>
+<td><span style="color: #339966;">move</span></td>
+</tr>
+<tr>
+<td><span style="color: #339966;">move</span></td>
+<td><span style="color: #339966;">move</span></td>
+<td><span style="color: #339966;">move</span></td>
+</tr>
+<tr>
+<td><span style="color: #339966;">link</span></td>
+<td><span style="color: #339966;">link</span></td>
+<td><span style="color: #339966;">link</span></td>
+</tr>
+<tr>
+<td><span style="color: #339966;">copy</span></td>
+<td><span style="color: #339966;">copy</span></td>
+<td><span style="color: #339966;">copy</span></td>
+</tr>
+<tr>
+<td><span style="color: #339966;">all</span></td>
+<td><span style="color: #339966;">copy</span></td>
+<td><span style="color: #339966;">move</span></td>
+</tr>
+<tr>
+<td><span style="color: #339966;"><strong>备注：</strong></span></td>
+<td colspan="4">
+<p><span style="color: #339966;"><strong>1. 无法通过&nbsp;<span class="cnblogs_code">shift键</span>&nbsp;切换copyLink，copyMove和linkMove的样式；</strong></span></p>
+<p><span style="color: #339966;"><strong>2.&nbsp;若effectAllowed设置为copyLink、copyMove或linkMove，且dropEffect与之对应，则鼠标样式将为dropEffect所设置的样式</strong></span></p>
+</td>
+</tr>
+<tr>
+<td style="text-align: center;" rowspan="7"><span style="color: #ff0000;"><strong>FF31 for Windows</strong></span></td>
+<td style="text-align: center;" rowspan="7"><span style="color: #ff0000;">uninitialized</span></td>
+<td><span style="color: #ff0000;">copyLink</span></td>
+<td><span style="color: #ff0000;">copy</span></td>
+<td><span style="color: #ff0000;">copy</span></td>
+</tr>
+<tr>
+<td><span style="color: #ff0000;">copyMove</span></td>
+<td><span style="color: #ff0000;">move</span></td>
+<td><span style="color: #ff0000;">move</span></td>
+</tr>
+<tr>
+<td><span style="color: #ff0000;">linkMove</span></td>
+<td><span style="color: #ff0000;">move</span></td>
+<td><span style="color: #ff0000;">move</span></td>
+</tr>
+<tr>
+<td><span style="color: #ff0000;">move</span></td>
+<td><span style="color: #ff0000;">move</span></td>
+<td><span style="color: #ff0000;">move</span></td>
+</tr>
+<tr>
+<td><span style="color: #ff0000;">link</span></td>
+<td><span style="color: #ff0000;">link</span></td>
+<td><span style="color: #ff0000;">link</span></td>
+</tr>
+<tr>
+<td><span style="color: #ff0000;">copy</span></td>
+<td><span style="color: #ff0000;">copy</span></td>
+<td><span style="color: #ff0000;">copy</span></td>
+</tr>
+<tr>
+<td><span style="color: #ff0000;">uninitialized</span></td>
+<td><span style="color: #ff0000;">move</span></td>
+<td><span style="color: #ff0000;">move</span></td>
+</tr>
+<tr>
+<td><span style="color: #ff0000;"><strong>备注：</strong></span></td>
+<td colspan="4">
+<p><span style="color: #ff0000;"><strong>1. 可通过&nbsp;<span class="cnblogs_code">shift键</span>&nbsp;切换copyLink，copyMove和linkMove的样式；</strong></span></p>
+<p><span style="color: #ff0000;"><strong>2.&nbsp;若effectAllowed设置为copyLink、copyMove或linkMove，且dropEffect与之对应，则鼠标样式将为dropEffect所设置的样式</strong></span></p>
+</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>FF33 for Linux</strong></td>
+<td colspan="4">仅能触发dragstart事件，其他事件一律无效，因此不用理会</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp; &nbsp; &nbsp;</p>
+<p><strong>&nbsp; 2.2. 其他属性</strong></p>
+<p>　　&nbsp;<strong><span class="cnblogs_code">items</span>&nbsp;：</strong>数据类型为DataTransferItemList，存储DataTransfer对象中所有的数据项</p>
+<blockquote>
+<p>&nbsp; &nbsp; &nbsp; <strong>&nbsp;注意：</strong>1. FF33 for Linux下没有该属性</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;2. IE10+没有该属性</p>
+</blockquote>
+<p>&nbsp; 　&nbsp;&nbsp;<strong><span class="cnblogs_code">files</span>&nbsp;：</strong>数据类型为FileList（IE5~9没有该属性）</p>
+<p>&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;<strong><span class="cnblogs_code">types</span>&nbsp;：</strong>数据类型为DOMStringList，存储DataTransfer对象中所有数据项的数据类型</p>
+<blockquote>
+<p>　　<strong>注意：</strong>1. IE5~9下没有该属性</p>
+<p>　　　　 &nbsp; 2. 仅能在dragenter，dragover和drop中获取该属性</p>
+</blockquote>
+<p><strong>&nbsp;2.3. 方法</strong></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; <span class="cnblogs_code">void addElement({HTMLElement} element)</span>&nbsp;：添加一起跟随鼠标移动的元素。仅在&nbsp;<span class="cnblogs_code">dragstart</span>&nbsp;事件中调用，Chrome37和IE10+不支持该方法；</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<span class="cnblogs_code"><span style="color: #0000ff;">void</span> setDragImage({Element} image, {<span style="color: #0000ff;">long</span>} x, {<span style="color: #0000ff;">long</span>} y)</span>&nbsp;：设置拖动时跟随鼠标移动的图片，用来替代默认的元素，若image不是图片元素则会元素临时转换为图片；x用于设置图标与鼠标在水平方向上的距离，y设置图标与鼠标在垂直方向上的距离。仅在&nbsp;<span class="cnblogs_code">dragstart</span>&nbsp;事件中调用。IE10+不支持该方法；</p>
+<blockquote>
+<p>&nbsp;　&nbsp;<strong>注意：</strong></p>
+<p>　　　1. {Element} image必须在DOM树中，而且在渲染树中（即display不为none）为有效元素，否则会导致没有元素跟随鼠标移动；</p>
+<p>　　　2. Chrome37下，若{Element} image为无效元素时，将不会触发dragstart事件后的其他事件。</p>
+</blockquote>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;<span class="cnblogs_code">boolean setData({DOMString} format, {DOMString} data)</span>&nbsp;：将指定格式的数据赋值给dataTransfer或clipboardData，format值范围为URL、Text（或text）和各种MIME类型，其实Text会被自动映射为text/plain，URL会被自动映射为text/uri-list类型。仅在&nbsp;<span class="cnblogs_code">dragstart</span>&nbsp;事件中调用。</p>
+<blockquote>
+<p>&nbsp; &nbsp; &nbsp;<strong>注意：</strong></p>
+<p>　　　1.&nbsp;FF5-是不会将text映射为text/plain，而仅仅支持Text映射为text/plain，因此使用Text或直接使用text/plain</p>
+<p>　　　2.&nbsp;IE10+仅支持Text和URL两种类型，不支持text/plain、text/uri-list等类型</p>
+<p>　　　3.&nbsp;&nbsp;text/plain类型则不会对数据进行额外处理，而text/uri-list类型则会将数据视为url来使用（体现在当将元素拖拽到OS桌面释放时）</p>
+<p>　　　4.&nbsp;&nbsp;Chrome和FF支持任意的非空字符串作为format</p>
+<p>　　　5.&nbsp;当没有填写第二个入参时，则会根据format来删除相应的数据项</p>
+<p>　　　6.&nbsp;当设置text/uri-list类型的数据时，数据必须带协议名，如http://fsjohnhuang.cnblogs.com；若仅写为fsjohnhuang.cnblogs.com，那么dataTransfer将自动弃除，在`dragstart`事件还能获取到，但在drop事件中将无法获</p>
+</blockquote>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<span class="cnblogs_code">DOMString getData({DOMString} format)</span>&nbsp;：从DataTransfer对象或ClipboardData对象中获取指定格式的数据</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<span class="cnblogs_code"><span style="color: #0000ff;">void</span> clearData([{DOMString} format])</span>&nbsp;：从DataTransfer对象或ClipboardData对象中删除指定格式或全部kind值为string的数据。仅在&nbsp;<span class="cnblogs_code">dragstart</span>&nbsp;事件中调用，在其他事件中调用会抛InvalidStateError。</p>
+<p><strong>&nbsp;2.4. 数据存储模式</strong></p>
+<blockquote>
+<p>　　<strong>Read/Write mode：</strong>在&nbsp;<span class="cnblogs_code">dragstart</span>&nbsp;事件为该模式，可读写数据</p>
+<p>　　<strong>Read-only mode：</strong>在&nbsp;<span class="cnblogs_code">drop</span>&nbsp;事件为该模式，仅能读取数据</p>
+<p>　　<strong>Protected mode：</strong>在其他事件为该模式，仅能枚举数据</p>
+</blockquote>
+<p>&nbsp;</p>
+<p><span style="font-size: 18px; background-color: #888888;"><strong><a name="t9"></a>九、[object DataTransferItemList]类型　　　　　　　　　　　　　　　　　　</strong></span></p>
+<p>&nbsp;<span class="cnblogs_code"><span style="color: #0000ff;">readonly</span> unsigined <span style="color: #0000ff;">long</span> length</span>&nbsp;</p>
+<p>&nbsp;<span class="cnblogs_code">getter DataTransferItem(unsigned <span style="color: #0000ff;">long</span> index)</span>&nbsp;，使用方式：items[1]</p>
+<p>&nbsp;<span class="cnblogs_code">deleter <span style="color: #0000ff;">void</span>(unsigned <span style="color: #0000ff;">long</span> index)</span>&nbsp;，使用方式：delete items[1]，在非Read/Write mode下会报InvalidStateError，而添加数据则不会有问题</p>
+<p>&nbsp;<span class="cnblogs_code"><span style="color: #0000ff;">void</span> clear()</span>&nbsp;</p>
+<p>&nbsp;<span class="cnblogs_code">DataTransferItem add(DOMString data, DOMString type)</span>&nbsp;</p>
+<p>&nbsp;<span class="cnblogs_code">DataTransferItem add(File data)</span>&nbsp;</p>
+<p>&nbsp;</p>
+<p><span style="font-size: 18px; background-color: #888888;"><strong><a name="t10"></a>十、[object DataTransferItem]类型　　　　　　　　　　　　　　　　　　　　</strong></span></p>
+<p>&nbsp;<span class="cnblogs_code"><span style="color: #0000ff;">readonly</span> attribute DOMString kind</span>&nbsp;，表示数据的大类型，值范围string和file</p>
+<p>&nbsp;<span class="cnblogs_code"><span style="color: #0000ff;">readonly</span> attribute DOMString type</span>&nbsp;，表示数据的小类型，一般使用mimetype表示，但在Chrome和FF下可以是任意非空字符串</p>
+<p>&nbsp;<span class="cnblogs_code"><span style="color: #0000ff;">void</span> getAsString(FunctionStringCallback cb)</span>&nbsp;，当kind为string时，则只能在Read-only mode和Read/Write mode下才可用。其中cb仅有一个类型为{DOMString}的入参</p>
+<p>&nbsp;<span class="cnblogs_code">File getAsFile()</span>&nbsp;，当kind为file时，则只能在Read-only mode和Read/Write mode下才可用，没有数据时返回null</p>
+<p>&nbsp;</p>
+<p><span style="font-size: 18px; background-color: #888888;"><strong><a name="t11"></a>十一、浏览器支持　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　</strong></span></p>
+<p>&nbsp;IE5~9部分标签支持；</p>
+<p>&nbsp;IE10+、FF、Chrome支持。</p>
+<p>&nbsp;也许大家会好惊讶IE5已经开始支持DnD API啦？？其实DnD API的最初是由IE提出来的，只是后来被HTML5纳入草案而已。大家也许会问在IE5~9上运行上文的代码没有效果，是不是我写错了，下一篇《JS魔法堂：IE5~9的Drag &amp; Drop API(http://www.cnblogs.com/fsjohnhuang/p/3980563.html)》我们将一起探讨IE5~9的DnD API。</p>
+<p>&nbsp;</p>
+<p><span style="font-size: 18px; background-color: #888888;"><strong><a name="t12"></a>十二、特征检测是否支持HTML5的DnD API　　　　　　　　　　　　　　　　　　</strong></span></p>
+<p>&nbsp;由于IE5~9的DnD API与HTML5标准的有差异，因此特征检测变得尤为必要了。下面的代码参考了Modernizr.draganddrop的实现（地址：https://github.com/Modernizr/Modernizr/blob/master/feature-detects/draganddrop.js）</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">var</span> supportDnD =<span style="color: #000000;"> function(){
+        </span><span style="color: #0000ff;">var</span> div = document.createElement(<span style="color: #800000;">'</span><span style="color: #800000;">div</span><span style="color: #800000;">'</span><span style="color: #000000;">);
+        </span><span style="color: #0000ff;">return</span> (<span style="color: #800000;">'</span><span style="color: #800000;">draggable</span><span style="color: #800000;">'</span> <span style="color: #0000ff;">in</span> div) || (<span style="color: #800000;">'</span><span style="color: #800000;">ondragstart</span><span style="color: #800000;">'</span> <span style="color: #0000ff;">in</span> div &amp;&amp; <span style="color: #800000;">'</span><span style="color: #800000;">ondrop</span><span style="color: #800000;">'</span> <span style="color: #0000ff;">in</span><span style="color: #000000;"> div);
+    };</span></pre>
+</div>
+<p>&nbsp;</p>
+<p><span style="font-size: 18px; background-color: #888888;"><strong><a name="t13"></a>十三、总结　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　</strong></span></p>
+<p>&nbsp; 回到文章最开头的两个示例，会发现使用HTML5 DnD API实现拖拽效果的代码量并不比HTML4中的少，效果也并不理想（个人水平有限优化也没做好），最让人心酸的是各浏览器在细节上还是有差异的（兼容性是前端工程师一直的痛啊）。也许大家会说那么DnD API是不是就仅仅好看而不实用呢？其实不然，只是示例把这个特性用到不适合的地方而已。</p>
+<p>&nbsp; HTML5 DnD API最常见的用法就是文件拖拽上传，或把文档内某元素拖到其他元素内或OS桌面上等。这些都是HTML4时代的js很难处理，或者无法处理的。</p>
+<p>&nbsp; 尊重原创，转载请注明来自：<a id="Editor_Edit_hlEntryLink" title="view: HTML5魔法堂：Drag &amp;amp; Drop API详解" href="http://www.cnblogs.com/fsjohnhuang/p/3961066.html" target="_blank">http://www.cnblogs.com/fsjohnhuang/p/3961066.html</a>&nbsp; ^_^肥仔John</p>
+<p>&nbsp;</p>
+<p><span style="font-size: 18px; background-color: #888888;"><strong><a name="t14"></a>十四、参考　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　</strong></span></p>
+<p>http://www.w3school.com.cn/html5/html_5_draganddrop.asp<br>http://www.cnblogs.com/wpfpizicai/archive/2012/04/07/2436454.html<br>http://www.kankanews.com/ICkengine/archives/82862.shtml<br>http://jingyan.baidu.com/article/6dad5075cf6e62a123e36e11.html<br>http://www.zhangxinxu.com/wordpress/2011/02/html5-drag-drop-%E6%8B%96%E6%8B%BD%E4%B8%8E%E6%8B%96%E6%94%BE%E7%AE%80%E4%BB%8B/<br>http://my.oschina.net/caixw/blog/102845<br>http://www.cnblogs.com/birdshome/archive/2006/07/22/Drag_Drop.html<br>《HTML5实战》第11章、HTML5中元素的拖放<br>《HTML5用户指南》第8章、拖放<br>http://msdn.microsoft.com/en-us/library/ff974353(v=vs.85).aspx<br>《HTML5与CSS3权威指南》4.5.拖放<br>《论道HTML5》3.3.Drag &amp; Drop API</p>
+<p>&nbsp;</p>
+<p><span style="font-size: 18px; background-color: #888888;"><strong><a name="t15"></a>十五、勘误　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　</strong></span></p>
+<p>《HTML5实战》P292 setData的format参数格式包含text/url-list，<strong>应更正为text/uri-list</strong></p>
+<p>&nbsp;</p>
+<p><span style="font-size: 18px; background-color: #888888;"><strong><a name="t16"></a>十六、书评　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　</strong></span></p>
+<p>《HTML5实战》第11章、HTML5中元素的拖放，这一章感觉就一笔带过，纯属印象派。<br>《HTML5用户指南》第8章、拖放，除了简单介绍HTML5 DnD API外，还介绍起源和IE上DnD的特点和作者对DnD API不完美的抱怨，比《HTML5实战》更值得拜读。<br>《HTML5与CSS3权威指南》4.5.拖放,内容，深度与《HTML5实战》相似<br>《论道HTML5》3.3.Drag &amp; Drop API,对比上述三本书，它提及到使用Modernizr作DnD特征检测,其他基本相似</p>
+</div>
+<div id="MySignature" style="display: block;"><p>如果您觉得本文的内容有趣就扫一下吧！捐赠互勉！<br>  <img src="./HTML5魔法堂：全面理解Drag &amp; Drop API - ^_^肥仔John - 博客园_files/072251001672726.png" alt=""></p></div>
+<div class="clear"></div>
+<div id="blog_post_info_block"><div id="BlogPostCategory">
+    分类: 
+            <a href="https://www.cnblogs.com/fsjohnhuang/category/612922.html" target="_blank">HTML5</a>,             <a href="https://www.cnblogs.com/fsjohnhuang/category/456702.html" target="_blank">JavaScript</a></div>
+
+
+    <div id="blog_post_info">
+<div id="green_channel">
+        <a href="javascript:void(0);" id="green_channel_digg" onclick="DiggIt(3961066,cb_blogId,1);green_channel_success(this,&#39;谢谢推荐！&#39;);">好文要顶</a>
+        <a id="green_channel_follow" onclick="follow(&#39;34e08fc6-f604-e111-b7b9-842b2b196315&#39;);" href="javascript:void(0);">关注我</a>
+    <a id="green_channel_favorite" onclick="AddToWz(cb_entryId);return false;" href="javascript:void(0);">收藏该文</a>
+    <a id="green_channel_weibo" href="javascript:void(0);" title="分享至新浪微博" onclick="ShareToTsina()"><img src="./HTML5魔法堂：全面理解Drag &amp; Drop API - ^_^肥仔John - 博客园_files/icon_weibo_24.png" alt=""></a>
+    <a id="green_channel_wechat" href="javascript:void(0);" title="分享至微信" onclick="shareOnWechat()"><img src="./HTML5魔法堂：全面理解Drag &amp; Drop API - ^_^肥仔John - 博客园_files/wechat.png" alt=""></a>
+</div>
+<div id="author_profile">
+    <div id="author_profile_info" class="author_profile_info">
+            <a href="https://home.cnblogs.com/u/fsjohnhuang/" target="_blank"><img src="./HTML5魔法堂：全面理解Drag &amp; Drop API - ^_^肥仔John - 博客园_files/20141205140116.png" class="author_avatar" alt=""></a>
+        <div id="author_profile_detail" class="author_profile_info">
+            <a href="https://home.cnblogs.com/u/fsjohnhuang/">^_^肥仔John</a><br>
+            <a href="https://home.cnblogs.com/u/fsjohnhuang/followees/">关注 - 84</a><br>
+            <a href="https://home.cnblogs.com/u/fsjohnhuang/followers/">粉丝 - 837</a>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div id="author_profile_honor"></div>
+    <div id="author_profile_follow">
+                <a href="javascript:void(0);" onclick="follow(&#39;34e08fc6-f604-e111-b7b9-842b2b196315&#39;);return false;">+加关注</a>
+    </div>
+</div>
+<div id="div_digg">
+    <div class="diggit" onclick="votePost(3961066,&#39;Digg&#39;)" style="top: 200px; right: 50px; position: fixed;">
+        <span class="diggnum" id="digg_count">8</span>
+    </div>
+    <div class="buryit" onclick="votePost(3961066,&#39;Bury&#39;)">
+        <span class="burynum" id="bury_count">0</span>
+    </div>
+    <div class="clear"></div>
+    <div class="diggword" id="digg_tips">
+    </div>
+</div>
+
+<script type="text/javascript">
+    currentDiggType = 0;
+</script></div>
+    <div class="clear"></div>
+    <div id="post_next_prev">
+
+    <a href="https://www.cnblogs.com/fsjohnhuang/p/3972205.html" class="p_n_p_prefix">« </a> 上一篇：    <a href="https://www.cnblogs.com/fsjohnhuang/p/3972205.html" title="发布于 2014-09-15 09:38">Weblogic魔法堂：AdminServer.lok被锁导致启动、关闭域失败</a>
+    <br>
+    <a href="https://www.cnblogs.com/fsjohnhuang/p/3976331.html" class="p_n_p_prefix">» </a> 下一篇：    <a href="https://www.cnblogs.com/fsjohnhuang/p/3976331.html" title="发布于 2014-09-17 07:32">CentOS6.5菜鸟之旅：安装VirtualBox4.3</a>
+
+</div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2014-09-16 21:14</span>&nbsp;
+<a href="https://www.cnblogs.com/fsjohnhuang/">^_^肥仔John</a>&nbsp;
+阅读(<span id="post_view_count">20666</span>)&nbsp;
+评论(<span id="post_comment_count">6</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=3961066" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(3961066);return false;">收藏</a></div>
+        </div>
+<script src="./HTML5魔法堂：全面理解Drag &amp; Drop API - ^_^肥仔John - 博客园_files/highlight.min.js.下载"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 100828, cb_blogApp = 'fsjohnhuang', cb_blogUserGuid = '34e08fc6-f604-e111-b7b9-842b2b196315';
+    var cb_entryId = 3961066, cb_entryCreatedDate = '2014-09-16 21:14', cb_postType = 1; 
+    loadViewCount(cb_entryId);
+    loadSideColumnAd();
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder">
+
+<div id="comment_pager_top">
+    
+</div>
+
+
+<div class="feedback_area_title">评论列表</div>
+<div class="feedbackNoItems"></div>
+
+        <div class="feedbackItem">
+            <div class="feedbackListSubtitle">
+                <div class="feedbackManage">
+                    &nbsp;&nbsp;
+                    
+
+<span class="comment_actions">
+    
+    
+    
+    
+</span>
+
+
+                </div>
+                <!-- Title -->
+                
+<a href="https://www.cnblogs.com/fsjohnhuang/p/3961066.html#3048606" class="layer">#1楼</a>
+<a name="3048606" id="comment_anchor_3048606"></a>
+
+
+                <!-- PostDate -->
+                
+<span class="comment_date">2014-10-22 10:42</span>
+
+
+                <!--NameLink-->
+                
+
+            <a id="a_comment_author_3048606" href="https://home.cnblogs.com/u/604308/" target="_blank">晨雨零稀</a>
+
+                <div class="feedbackCon">
+                    
+<div id="comment_body_3048606" data-format-type="Ubb" class="blog_comment_body cnblogs-ubb">
+    好文！感谢博主。
+</div>
+        <div class="comment_vote">
+            <span class="comment_error" style="color: red"></span>
+            <a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3048606, &#39;Digg&#39;, this.parentElement, false);">
+                支持(0)
+            </a>
+            <a href="javascript:void(0);" class="comment_burry" onclick="return voteComment(3048606, &#39;Bury&#39;, this.parentElement, false);">
+                反对(0)
+            </a>
+        </div>
+        
+
+                </div>
+            </div>
+        </div>
+        <div class="feedbackItem">
+            <div class="feedbackListSubtitle">
+                <div class="feedbackManage">
+                    &nbsp;&nbsp;
+                    
+
+<span class="comment_actions">
+    
+    
+    
+    
+</span>
+
+
+                </div>
+                <!-- Title -->
+                
+<a href="https://www.cnblogs.com/fsjohnhuang/p/3961066.html#3066549" class="layer">#2楼</a>
+<a name="3066549" id="comment_anchor_3066549"></a>
+
+
+                <!-- PostDate -->
+                
+<span class="comment_date">2014-11-18 14:19</span>
+
+
+                <!--NameLink-->
+                
+
+            <a id="a_comment_author_3066549" href="https://home.cnblogs.com/u/504523/" target="_blank">rambo1</a>
+
+                <div class="feedbackCon">
+                    
+<div id="comment_body_3066549" data-format-type="Ubb" class="blog_comment_body cnblogs-ubb">
+    我在dragenter的时候  可以设置他的 移动值吗？  现在貌似  被拖拽Dom 被拖拽 1半的时候， 才触发dragenter。  我如何让其 拖拽1/3就触发dragenter
+</div>
+        <div class="comment_vote">
+            <span class="comment_error" style="color: red"></span>
+            <a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3066549, &#39;Digg&#39;, this.parentElement, false);">
+                支持(0)
+            </a>
+            <a href="javascript:void(0);" class="comment_burry" onclick="return voteComment(3066549, &#39;Bury&#39;, this.parentElement, false);">
+                反对(0)
+            </a>
+        </div>
+        
+
+                </div>
+            </div>
+        </div>
+        <div class="feedbackItem">
+            <div class="feedbackListSubtitle">
+                <div class="feedbackManage">
+                    &nbsp;&nbsp;
+                    
+
+<span class="comment_actions">
+    
+    
+    
+    
+</span>
+
+
+                </div>
+                <!-- Title -->
+                
+<a href="https://www.cnblogs.com/fsjohnhuang/p/3961066.html#3069762" class="layer">#3楼</a>
+<a name="3069762" id="comment_anchor_3069762"></a>
+[<span class="louzhu">楼主</span>]
+
+                <!-- PostDate -->
+                
+<span class="comment_date">2014-11-23 12:52</span>
+
+
+                <!--NameLink-->
+                
+
+            <a id="a_comment_author_3069762" href="https://www.cnblogs.com/fsjohnhuang/" target="_blank">^_^肥仔John</a>
+
+                <div class="feedbackCon">
+                    
+<div id="comment_body_3069762" data-format-type="Ubb" class="blog_comment_body cnblogs-ubb">
+    <a href="https://www.cnblogs.com/fsjohnhuang/p/3961066.html#3066549" title="查看所回复的评论" onclick="commentManager.renderComments(0,50,3066549);">@</a>
+rambo1<br>dragenter当被拖拽元素进入目标元素时触发的，并非被拖拽dom自身的事件，而dragstart才是被拖拽dom自身的事件。另外鼠标移动等事件的触发受到移动速度的影响，因此是无法精准控制的，其中一个解决的办法是写个位移的逻辑判断，当位移为一半时执行指定动作
+</div>
+        <div class="comment_vote">
+            <span class="comment_error" style="color: red"></span>
+            <a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3069762, &#39;Digg&#39;, this.parentElement, false);">
+                支持(0)
+            </a>
+            <a href="javascript:void(0);" class="comment_burry" onclick="return voteComment(3069762, &#39;Bury&#39;, this.parentElement, false);">
+                反对(0)
+            </a>
+        </div>
+        <span id="comment_3069762_avatar" style="display:none">
+            https://pic.cnblogs.com/face/347002/20141205140116.png
+        </span>
+
+                </div>
+            </div>
+        </div>
+        <div class="feedbackItem">
+            <div class="feedbackListSubtitle">
+                <div class="feedbackManage">
+                    &nbsp;&nbsp;
+                    
+
+<span class="comment_actions">
+    
+    
+    
+    
+</span>
+
+
+                </div>
+                <!-- Title -->
+                
+<a href="https://www.cnblogs.com/fsjohnhuang/p/3961066.html#3070062" class="layer">#4楼</a>
+<a name="3070062" id="comment_anchor_3070062"></a>
+
+
+                <!-- PostDate -->
+                
+<span class="comment_date">2014-11-24 08:29</span>
+
+
+                <!--NameLink-->
+                
+
+            <a id="a_comment_author_3070062" href="https://home.cnblogs.com/u/504523/" target="_blank">rambo1</a>
+
+                <div class="feedbackCon">
+                    
+<div id="comment_body_3070062" data-format-type="Ubb" class="blog_comment_body cnblogs-ubb">
+    <a href="https://www.cnblogs.com/fsjohnhuang/p/3961066.html#3069762" title="查看所回复的评论" onclick="commentManager.renderComments(0,50,3069762);">@</a>
+^_^肥仔John<br>恩 是的  我最后也是采用手动。 发现过于麻烦。  就使用了老式的mousedown mouseover<br><br>其实还有一个原因（当然我个人比较否定这个网站的说的原因。其实根本原因还是在于  dropzone 不精确 导致 冒泡 捕获事件频繁）<br><a href="http://www.quirksmode.org/blog/archives/2009/09/the_html5_drag.html" target="_blank">http://www.quirksmode.org/blog/archives/2009/09/the_html5_drag.html</a>
+</div>
+        <div class="comment_vote">
+            <span class="comment_error" style="color: red"></span>
+            <a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3070062, &#39;Digg&#39;, this.parentElement, false);">
+                支持(0)
+            </a>
+            <a href="javascript:void(0);" class="comment_burry" onclick="return voteComment(3070062, &#39;Bury&#39;, this.parentElement, false);">
+                反对(0)
+            </a>
+        </div>
+        
+
+                </div>
+            </div>
+        </div>
+        <div class="feedbackItem">
+            <div class="feedbackListSubtitle">
+                <div class="feedbackManage">
+                    &nbsp;&nbsp;
+                    
+
+<span class="comment_actions">
+    
+    
+    
+    
+</span>
+
+
+                </div>
+                <!-- Title -->
+                
+<a href="https://www.cnblogs.com/fsjohnhuang/p/3961066.html#3328744" class="layer">#5楼</a>
+<a name="3328744" id="comment_anchor_3328744"></a>
+
+
+                <!-- PostDate -->
+                
+<span class="comment_date">2015-12-17 10:36</span>
+
+
+                <!--NameLink-->
+                
+
+            <a id="a_comment_author_3328744" href="https://www.cnblogs.com/steamedCray/" target="_blank">清蒸小龙虾</a>
+
+                <div class="feedbackCon">
+                    
+<div id="comment_body_3328744" data-format-type="Ubb" class="blog_comment_body cnblogs-ubb">
+    高手
+</div>
+        <div class="comment_vote">
+            <span class="comment_error" style="color: red"></span>
+            <a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3328744, &#39;Digg&#39;, this.parentElement, false);">
+                支持(0)
+            </a>
+            <a href="javascript:void(0);" class="comment_burry" onclick="return voteComment(3328744, &#39;Bury&#39;, this.parentElement, false);">
+                反对(0)
+            </a>
+        </div>
+        <span id="comment_3328744_avatar" style="display:none">
+            https://pic.cnblogs.com/face/859007/20160128102428.png
+        </span>
+
+                </div>
+            </div>
+        </div>
+        <div class="feedbackItem">
+            <div class="feedbackListSubtitle">
+                <div class="feedbackManage">
+                    &nbsp;&nbsp;
+                    
+
+<span class="comment_actions">
+    
+    
+    
+    
+</span>
+
+
+                </div>
+                <!-- Title -->
+                
+<a href="https://www.cnblogs.com/fsjohnhuang/p/3961066.html#3429100" class="layer">#6楼</a>
+<a name="3429100" id="comment_anchor_3429100"></a>
+
+        <span id="comment-maxId" style="display:none">3429100</span>
+        <span id="comment-maxDate" style="display:none">2016/5/12 上午1:30:23</span>
+
+                <!-- PostDate -->
+                
+<span class="comment_date">2016-05-12 01:30</span>
+
+
+                <!--NameLink-->
+                
+
+            <a id="a_comment_author_3429100" href="https://www.cnblogs.com/sadkilo/" target="_blank">sadkilo</a>
+
+                <div class="feedbackCon">
+                    
+<div id="comment_body_3429100" data-format-type="Ubb" class="blog_comment_body cnblogs-ubb">
+    effectAllowed;effectDrop 解释得最好的就是这篇了
+</div>
+        <div class="comment_vote">
+            <span class="comment_error" style="color: red"></span>
+            <a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3429100, &#39;Digg&#39;, this.parentElement, false);">
+                支持(0)
+            </a>
+            <a href="javascript:void(0);" class="comment_burry" onclick="return voteComment(3429100, &#39;Bury&#39;, this.parentElement, false);">
+                反对(0)
+            </a>
+        </div>
+        <span id="comment_3429100_avatar" style="display:none">
+            https://pic.cnblogs.com/face/594871/20151024005932.png
+        </span>
+
+                </div>
+            </div>
+        </div>
+
+
+<div id="comment_pager_bottom">
+    
+</div>
+</div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="https://www.cnblogs.com/fsjohnhuang/p/3961066.html#" onclick="return RefreshPage();">刷新页面</a><a href="https://www.cnblogs.com/fsjohnhuang/p/3961066.html#top">返回顶部</a></div>
+    <div id="comment_form_container" style="visibility: visible;"><div class="login_tips">
+    注册用户登录后才能发表评论，请 
+    <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return login(&#39;commentform&#39;);">登录</a>
+     或 
+    <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return register();">注册</a>，
+    <a href="https://www.cnblogs.com/">访问</a> 网站首页。
+</div></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"><a href="https://www.wenjuan.com/s/3uIjeq0/" target="_blank" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;T2-博客园问卷调查&#39;)">【推荐】了解你才能更懂你，博客园首发问卷调查，助力社区新升级</a><br><a href="http://www.givinghunter.com/Inner.html?id=1&amp;bk=six" target="_blank" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;T2-极客令&#39;)">【推荐】悬赏10万，基于领先NLP技术，开发新一代交互式文本智能机器人</a><br><a href="http://www.ucancode.com/index.htm" target="_blank" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;T2-ucancode&#39;)">【推荐】超50万行VC++源码: 大型组态工控、电力仿真CAD与GIS源码库</a><br><a href="https://www.slidestalk.com/m/169" target="_blank" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;T2-智慧医疗&#39;)">【推荐】5.23智慧医疗前沿技术沙龙，特邀多位医疗公司CEO上线直播</a><br></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="./HTML5魔法堂：全面理解Drag &amp; Drop API - ^_^肥仔John - 博客园_files/gpt.js.下载"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;" data-google-query-id="COy7saG2xukCFdN6iwodE-8FsA"><div id="google_ads_iframe_/1090369/C1_0__container__" style="border: 0pt none;"><iframe id="google_ads_iframe_/1090369/C1_0" title="3rd party ad content" name="google_ads_iframe_/1090369/C1_0" width="300" height="250" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" style="border: 0px; vertical-align: bottom;" data-google-container-id="1" data-load-complete="true" src="./HTML5魔法堂：全面理解Drag &amp; Drop API - ^_^肥仔John - 博客园_files/saved_resource.html"></iframe></div></div>
+    </div>
+    <div id="under_post_news"><div class="recomm-block"><b>相关博文：</b><br>·  <a title="html5 drap &amp; drop" href="https://www.cnblogs.com/btgyoyo/p/6138705.html" target="_blank" onclick="clickRecomItmem(6138705)">html5 drap &amp; drop</a><br>·  <a title="原生拖拽,拖放事件(drag and drop)" href="https://www.cnblogs.com/lzijian/p/6358598.html" target="_blank" onclick="clickRecomItmem(6358598)">原生拖拽,拖放事件(drag and drop)</a><br>·  <a title="HTML 5 drag and drop 简介" href="https://www.cnblogs.com/stephenykk/p/5820323.html" target="_blank" onclick="clickRecomItmem(5820323)">HTML 5 drag and drop 简介</a><br>·  <a title="HTML5学习之一：Drag and Drop（原创）" href="https://www.cnblogs.com/wpfpizicai/archive/2012/04/07/2436454.html" target="_blank" onclick="clickRecomItmem(2436454)">HTML5学习之一：Drag and Drop（原创）</a><br>·  <a title="原生 drag drop    HTML5" href="https://www.cnblogs.com/chuangweili/p/5166294.html" target="_blank" onclick="clickRecomItmem(5166294)">原生 drag drop    HTML5</a><br>»  <a target="_blank" href="https://recomm.cnblogs.com/blogpost/3961066">更多推荐...</a></div></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;" data-google-query-id="CO27saG2xukCFdN6iwodE-8FsA">
+        <div id="google_ads_iframe_/1090369/C2_0__container__" style="border: 0pt none;"><iframe id="google_ads_iframe_/1090369/C2_0" title="3rd party ad content" name="google_ads_iframe_/1090369/C2_0" width="468" height="60" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" style="border: 0px; vertical-align: bottom;" data-google-container-id="2" data-load-complete="true" src="./HTML5魔法堂：全面理解Drag &amp; Drop API - ^_^肥仔John - 博客园_files/saved_resource(1).html"></iframe></div></div>
+    </div>
+    <div id="under_post_kb">
+<div class="itnews c_ad_block">
+    <b>最新 IT 新闻</b>:
+    <br>
+ ·              <a href="https://news.cnblogs.com/n/662494/" target="_blank">罗永浩带货“花点时间”翻车 鲜花电商背后的坑有多大？</a>
+            <br>
+ ·              <a href="https://news.cnblogs.com/n/662489/" target="_blank">汤钊猷院士：人类不断制造癌症 再不收敛癌会越治越多</a>
+            <br>
+ ·              <a href="https://news.cnblogs.com/n/662498/" target="_blank">抄袭、盗版、流量存疑，跟谁学是下一个瑞幸？</a>
+            <br>
+ ·              <a href="https://news.cnblogs.com/n/662507/" target="_blank">明年发布？传苹果眼镜今年上半年将"小批量"生产</a>
+            <br>
+ ·              <a href="https://news.cnblogs.com/n/662506/" target="_blank">超高清到底是几K？工信部告诉你答案：4K以上</a>
+            <br>
+    » <a href="https://news.cnblogs.com/" title="IT 新闻" target="_blank">更多新闻...</a>
+</div></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+        deliverBigBanner();
+setTimeout(function() { incrementViewCount(cb_entryId); }, 50);        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>    </div>
+</div>
+            </div>
+        </div>
+
+        <div id="sideBar">
+            <div id="sideBarMain">
+                
+<div id="sidebar_news" class="newsItem">
+<h3 class="catListTitle">公告</h3>
+
+<div id="blog-news">
+    <a target="_blank" href="https://github.com/fsjohnhuang">肥仔John@github</a><br>
+作品：<br>
+<a target="_blank" title="v0.1.0 由python实现的Scheme解释器" href="https://github.com/fsjohnhuang/iScheme">iScheme—Scheme解释器</a><br>
+<a target="_blank" title="v1.2.0 支持IE5.5~IE11、Chrome、FF、Safari和Opera" href="https://github.com/fsjohnhuang/preview">preview.js—纯前端的图片预览组件</a><br>
+<a target="_blank" title="v0.8.1 Promises/A+的实现，并支持ES6的GeneratorFunction" href="https://github.com/fsjohnhuang/iPromise">iPromise.js—Promises/A+的实现</a><br>
+<script type="text/javascript">window['__document_write_ajax_callbacks__']['3']();</script><script>window['__document_write_ajax_callbacks__']['1']();</script>
+    <div id="profile_block">
+        昵称：
+        <a href="https://home.cnblogs.com/u/fsjohnhuang/">
+            ^_^肥仔John
+        </a>
+        <br>
+        园龄：
+        <a href="https://home.cnblogs.com/u/fsjohnhuang/" title="入园时间：2011-11-02">
+            8年6个月
+        </a>
+        <br>
+        粉丝：
+        <a href="https://home.cnblogs.com/u/fsjohnhuang/followers/">
+            837
+        </a>
+        <br>
+        关注：
+        <a href="https://home.cnblogs.com/u/fsjohnhuang/followees/">
+            84
+        </a>
+        <div id="p_b_follow">
+<a href="javascript:void(0)" onclick="follow(&#39;34e08fc6-f604-e111-b7b9-842b2b196315&#39;)">+加关注</a></div>
+        <script type="text/javascript">window['__document_write_ajax_callbacks__']['4']();</script><script>window['__document_write_ajax_callbacks__']['2']();</script>
+    </div>
+</div></div>
+
+<div id="sidebar_ad"></div>
+                <div id="calendar"><div id="blog-calendar" style="display:none"></div></div>                
+                <script>loadBlogDefaultCalendar();</script>
+                <div id="leftcontentcontainer">
+                    <!-- begin:SingleColumn -->
+                    <div id="blog-sidecolumn">
+<!-- 搜索 -->
+<div id="sidebar_search" class="sidebar-block">
+    
+</div>
+
+<!-- 常用链接 -->
+
+
+<!-- 最新随笔 -->
+
+
+
+<!-- 我的标签 -->
+
+
+<!-- 积分与排名 -->
+
+
+<!-- 随笔分类、随笔档案、文章分类、新闻分类、相册、链接 -->
+<div id="sidebar_categories">
+    
+        <div class="catListPostCategory">
+            <h3 class="catListTitle">
+                
+
+随笔分类
+
+
+
+            </h3>
+            <ul>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/fsjohnhuang/category/339248.html" rel="" target="">
+    .NET(5)
+</a>
+
+                            
+
+                        </li>
+                        
+                        <li>
+                            
+<a href="https://www.cnblogs.com/fsjohnhuang/category/339247.html" rel="" target="">
+    asp.net实现(7)
+</a>
+
+                            
+
+                        </li>
+                        
+                        <li>
+                            
+<a href="https://www.cnblogs.com/fsjohnhuang/category/339249.html" rel="" target="">
+    asp.net性能优化(3)
+</a>
+
+                            
+
+                        </li>
+                        
+                        <li>
+                            
+<a href="https://www.cnblogs.com/fsjohnhuang/category/602515.html" rel="" target="">
+    CentOS6.5(14)
+</a>
+
+                            
+
+                        </li>
+                        
+                        <li>
+                            
+<a href="https://www.cnblogs.com/fsjohnhuang/category/648760.html" rel="" target="">
+    Clojure/ClojureScript(14)
+</a>
+
+                            
+
+                        </li>
+                        
+                        <li>
+                            
+<a href="https://www.cnblogs.com/fsjohnhuang/category/610909.html" rel="" target="">
+    cmd(3)
+</a>
+
+                            
+
+                        </li>
+                        
+                        <li>
+                            
+<a href="https://www.cnblogs.com/fsjohnhuang/category/607962.html" rel="" target="">
+    CSS(37)
+</a>
+
+                            
+
+                        </li>
+                        
+                        <li>
+                            
+<a href="https://www.cnblogs.com/fsjohnhuang/category/708450.html" rel="" target="">
+    Design Pattern(3)
+</a>
+
+                            
+
+                        </li>
+                        
+                        <li>
+                            
+<a href="https://www.cnblogs.com/fsjohnhuang/category/443040.html" rel="" target="">
+    Extjs(5)
+</a>
+
+                            
+
+                        </li>
+                        
+                        <li>
+                            
+<a href="https://www.cnblogs.com/fsjohnhuang/category/612922.html" rel="" target="">
+    HTML5(8)
+</a>
+
+                            
+
+                        </li>
+                        
+                        <li>
+                            
+<a href="https://www.cnblogs.com/fsjohnhuang/category/622839.html" rel="" target="">
+    IIS(1)
+</a>
+
+                            
+
+                        </li>
+                        
+                        <li>
+                            
+<a href="https://www.cnblogs.com/fsjohnhuang/category/612455.html" rel="" target="">
+    Java(26)
+</a>
+
+                            
+
+                        </li>
+                        
+                        <li>
+                            
+<a href="https://www.cnblogs.com/fsjohnhuang/category/456702.html" rel="" target="">
+    JavaScript(61)
+</a>
+
+                            
+
+                        </li>
+                        
+                        <li>
+                            
+<a href="https://www.cnblogs.com/fsjohnhuang/category/618850.html" rel="" target="">
+    MyBatis(5)
+</a>
+
+                            
+
+                        </li>
+                        
+                        <li>
+                            
+<a href="https://www.cnblogs.com/fsjohnhuang/category/642752.html" rel="" target="">
+    nodejs(1)
+</a>
+
+                            
+
+                        </li>
+                        
+                        <li>
+                            
+<a href="https://www.cnblogs.com/fsjohnhuang/category/719274.html" rel="" target="">
+    PLT(1)
+</a>
+
+                            
+
+                        </li>
+                        
+                        <li>
+                            
+<a href="https://www.cnblogs.com/fsjohnhuang/category/908194.html" rel="" target="">
+    Ubuntu(4)
+</a>
+
+                            
+
+                        </li>
+                        
+                        <li>
+                            
+<a href="https://www.cnblogs.com/fsjohnhuang/category/632836.html" rel="" target="">
+    Velocity(3)
+</a>
+
+                            
+
+                        </li>
+                        
+                        <li>
+                            
+<a href="https://www.cnblogs.com/fsjohnhuang/category/603925.html" rel="" target="">
+    Vim(3)
+</a>
+
+                            
+
+                        </li>
+                        
+                        <li>
+                            
+<a href="https://www.cnblogs.com/fsjohnhuang/category/346724.html" rel="" target="">
+    WPF(1)
+</a>
+
+                            
+
+                        </li>
+                        
+                        <li>
+                            
+<a href="https://www.cnblogs.com/fsjohnhuang/category/583128.html" rel="" target="">
+    翻译(2)
+</a>
+
+                            
+
+                        </li>
+                        
+                        <li>
+                            
+<a href="https://www.cnblogs.com/fsjohnhuang/category/642627.html" rel="" target="">
+    前端构建(2)
+</a>
+
+                            
+
+                        </li>
+                        
+                        <li>
+                            
+<a href="https://www.cnblogs.com/fsjohnhuang/category/659881.html" rel="" target="">
+    数学之美(2)
+</a>
+
+                            
+
+                        </li>
+                        
+                        <li>
+                            
+<a href="https://www.cnblogs.com/fsjohnhuang/category/351006.html" rel="" target="">
+    项目小结(2)
+</a>
+
+                            
+
+                        </li>
+                        
+                        <li>
+                            
+<a href="https://www.cnblogs.com/fsjohnhuang/category/641940.html" rel="" target="">
+    语义化(5)
+</a>
+
+                            
+
+                        </li>
+                        
+                        <li>
+                            
+<a href="https://www.cnblogs.com/fsjohnhuang/category/593217.html" rel="" target="">
+    原文备份(1)
+</a>
+
+                            
+
+                        </li>
+                        
+            </ul>
+        </div>
+        <div class="catList">
+            <h3 class="catListTitle">
+                
+
+.Net
+
+
+
+            </h3>
+            <ul>
+                        <li>
+                            
+<a href="http://www.projky.com/" rel="nofollow noopener noreferrer" target="_blank">
+    .Net源码
+</a>
+
+                            
+
+                        </li>
+                        
+            </ul>
+        </div>
+        <div class="catList">
+            <h3 class="catListTitle">
+                
+
+Java资源
+
+
+
+            </h3>
+            <ul>
+                        <li>
+                            
+<a href="http://www.onjava.com/" rel="nofollow noopener noreferrer" target="_blank">
+    onjava
+</a>
+
+                            
+
+                        </li>
+                        
+            </ul>
+        </div>
+        <div class="catList">
+            <h3 class="catListTitle">
+                
+
+前端资源
+
+
+
+            </h3>
+            <ul>
+                        <li>
+                            
+<a href="http://www.alloyteam.com/" rel="nofollow noopener noreferrer" target="_blank">
+    AlloyTeam
+</a>
+
+                            
+
+                        </li>
+                        <li class="c_b_p_link_desc">腾讯全端AlloyTeam</li>
+                        <li>
+                            
+<a href="http://getify.me/" rel="nofollow noopener noreferrer" target="_blank">
+    Kyel Simpson
+</a>
+
+                            
+
+                        </li>
+                        <li class="c_b_p_link_desc">Labjs作者</li>
+                        <li>
+                            
+<a href="http://note.youdao.com/share/?id=8a777eda4842aa0f3d7fc6161577ab9b&amp;type=note" rel="nofollow noopener noreferrer" target="_blank">
+    前端资源合集
+</a>
+
+                            
+
+                        </li>
+                        
+                        <li>
+                            
+<a href="http://ascii.cl/" rel="nofollow noopener noreferrer" target="">
+    ASCII编码
+</a>
+
+                            
+
+                        </li>
+                        
+                        <li>
+                            
+<a href="http://efe.baidu.com/" rel="nofollow noopener noreferrer" target="_blank">
+    百度EFE
+</a>
+
+                            
+
+                        </li>
+                        
+                        <li>
+                            
+<a href="http://tid.tenpay.com/" rel="nofollow noopener noreferrer" target="_blank">
+    TID
+</a>
+
+                            
+
+                        </li>
+                        
+                        <li>
+                            
+<a href="http://justjavac.com/" rel="nofollow noopener noreferrer" target="_blank">
+    迷渡
+</a>
+
+                            
+
+                        </li>
+                        
+                        <li>
+                            
+<a href="http://www.qwrap.com/" rel="nofollow noopener noreferrer" target="_blank">
+    qwrap
+</a>
+
+                            
+
+                        </li>
+                        
+                        <li>
+                            
+<a href="http://es5.github.io/" rel="nofollow noopener noreferrer" target="_blank">
+    Annotated ECMAScript 5.1
+</a>
+
+                            
+
+                        </li>
+                        
+                        <li>
+                            
+<a href="http://subject.csdn.net/w3help/" rel="nofollow noopener noreferrer" target="_blank">
+    跨浏览器开发知识库
+</a>
+
+                            
+
+                        </li>
+                        
+                        <li>
+                            
+<a href="http://caniuse.com/" rel="nofollow noopener noreferrer" target="_blank">
+    caniuse.com
+</a>
+
+                            
+
+                        </li>
+                        
+                        <li>
+                            
+<a href="http://usejsdoc.org/" rel="nofollow noopener noreferrer" target="_blank">
+    jsdoc
+</a>
+
+                            
+
+                        </li>
+                        
+                        <li>
+                            
+<a href="http://blog.getify.com/" rel="nofollow noopener noreferrer" target="_blank">
+    blog.getify.com/
+</a>
+
+                            
+
+                        </li>
+                        
+                        <li>
+                            
+<a href="http://hikejun.com/blog/" rel="nofollow noopener noreferrer" target="">
+    张克军的blog
+</a>
+
+                            
+
+                        </li>
+                        
+                        <li>
+                            
+<a href="http://jointjs.com/demos/javascript-ast" rel="nofollow noopener noreferrer" target="_blank">
+    javascript-ast
+</a>
+
+                            
+
+                        </li>
+                        
+            </ul>
+        </div>
+
+</div>
+
+<!-- 最新评论 -->
+
+
+
+
+<!-- 阅读排行榜 -->
+<div id="sidebar_topviewedposts" class="sidebar-block">
+    
+<div id="topview_posts_wrap">
+    <h3 class="catListTitle">阅读排行榜</h3>
+    <div id="TopViewPostsBlock">
+        <ul style="word-break:break-all">
+                    <li>
+                        <a href="https://www.cnblogs.com/fsjohnhuang/p/4078659.html">
+                            1. MyBatis魔法堂：Insert操作详解（返回主键、批量插入）(249357)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.cnblogs.com/fsjohnhuang/p/4040785.html">
+                            2. Java魔法堂：注解用法详解——@SuppressWarnings(208979)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.cnblogs.com/fsjohnhuang/p/4094777.html">
+                            3. Java魔法堂：String.format详解(138468)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.cnblogs.com/fsjohnhuang/p/4076592.html">
+                            4. MyBatis魔法堂：ResultMap详解(130132)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.cnblogs.com/fsjohnhuang/p/4147810.html">
+                            5. JS魔法堂：函数节流（throttle）与函数去抖（debounce）(106506)
+                        </a>
+                    </li>
+        </ul>
+    </div>
+</div>
+</div>
+
+<!-- 评论排行榜 -->
+<div id="sidebar_topcommentedposts" class="sidebar-block">
+    
+<div id="topfeedback_posts_wrap">
+    <h3 class="catListTitle">评论排行榜</h3>
+    <div id="TopFeedbackPostsBlock">
+        <ul style="word-break:break-all">
+                    <li>
+                        <a href="https://www.cnblogs.com/fsjohnhuang/p/4147810.html">
+                            1. JS魔法堂：函数节流（throttle）与函数去抖（debounce）(17)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.cnblogs.com/fsjohnhuang/p/3823102.html">
+                            2. .Net魔法堂：史上最全的ActiveX开发教程——开发篇(16)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.cnblogs.com/fsjohnhuang/p/4455822.html">
+                            3. JS魔法堂：再识IE的内存泄露(10)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.cnblogs.com/fsjohnhuang/p/4078659.html">
+                            4. MyBatis魔法堂：Insert操作详解（返回主键、批量插入）(9)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.cnblogs.com/fsjohnhuang/archive/2012/07/09/2583230.html">
+                            5. 根据标准word模板生成word文档类库（开源）(9)
+                        </a>
+                    </li>
+        </ul>
+    </div>
+</div>
+</div>
+
+<!-- 推荐排行榜 -->
+<div id="sidebar_topdiggedposts" class="sidebar-block">
+    
+<div id="topdigg_posts_wrap">
+    <div class="catListView">
+        <h3 class="catListTitle">推荐排行榜</h3>
+        <div id="TopDiggPostsBlock">
+            <ul style="word-break: break-all">
+                        <li>
+                            <a href="https://www.cnblogs.com/fsjohnhuang/p/4147810.html">
+                                1. JS魔法堂：函数节流（throttle）与函数去抖（debounce）(24)
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.cnblogs.com/fsjohnhuang/p/4094777.html">
+                                2. Java魔法堂：String.format详解(23)
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.cnblogs.com/fsjohnhuang/p/3823102.html">
+                                3. .Net魔法堂：史上最全的ActiveX开发教程——开发篇(21)
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.cnblogs.com/fsjohnhuang/p/4078659.html">
+                                4. MyBatis魔法堂：Insert操作详解（返回主键、批量插入）(20)
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.cnblogs.com/fsjohnhuang/p/4040785.html">
+                                5. Java魔法堂：注解用法详解——@SuppressWarnings(19)
+                            </a>
+                        </li>
+            </ul>
+        </div>
+    </div>
+</div>
+</div></div>
+                    <script>loadBlogSideColumn();</script>
+                    <!-- end:  SingleColumn -->
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+    <div id="footer">
+        <!--done-->
+Copyright © 2020 ^_^肥仔John
+<br><span id="poweredby">Powered by .NET Core on Kubernetes</span>
+
+    </div>
+</div>
+
+    
+
+<script type="text/javascript">
+var $diggit = $('.diggit')
+$diggit.css({top: '200px', right: '50px', position:'fixed'})
+</script><script type="text/javascript">getFollowStatus('34e08fc6-f604-e111-b7b9-842b2b196315');</script></body></html>
