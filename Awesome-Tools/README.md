@@ -390,3 +390,5 @@ https://www.ssrtool.com
 ### 免费ocr api http://ocr.space/OCRAPI
 
 ### https://www.designnotes.co/
+
+### https://zh.javascript.info/
