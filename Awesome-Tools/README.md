@@ -60,6 +60,7 @@
 * [vue-select](https://github.com/sagalbot/vue-select) A Vue.js component that provides similar functionality to Select2 without the overhead of jQuery.
 * [vuido](https://github.com/mimecorg/vuido) Native desktop applications using Vue.js. 
 * [saber](https://github.com/egoist/saber) Saber.js is a simple yet powerful framework for building modern static websites.
+* https://template-explorer.vuejs.org/ 
 
 # React
 
@@ -392,3 +393,9 @@ https://www.ssrtool.com
 ### https://www.designnotes.co/
 
 ### https://zh.javascript.info/
+
+### 比较好的TypeScript入门教程https://objectcomputing.com/resources/publications/sett/typescript-the-good-parts
+
+### node 相关https://objectcomputing.com/resources/publications/sett/april-2017-web-app-step-by-step
+
+### https://objectcomputing.com/resources/publications/sett/august-2019-thats-what-i-sed
