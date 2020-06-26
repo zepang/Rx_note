@@ -99,6 +99,13 @@ cat ~/.ssh/id_rsa.pub
 
 推荐使用n/nvm进行node安装和管理，具体的用法请查看对应的文档
 
+nvm换淘宝源：
+
+```sh
+echo -e "\nexport NVM_NODEJS_ORG_MIRROR=http://npm.taobao.org/mirrors/node" >> ~/.bashrc
+source ~/.bashrc
+```
+
 安装完毕之后需要对npm进行换源
 
 临时使用
