@@ -106,6 +106,12 @@ echo -e "\nexport NVM_NODEJS_ORG_MIRROR=http://npm.taobao.org/mirrors/node" >> ~
 source ~/.bashrc
 ```
 
+n下载
+
+```
+curl -L https://git.io/n-install | bash
+```
+
 安装完毕之后需要对npm进行换源
 
 临时使用
@@ -123,6 +129,10 @@ npm config set registry https://registry.npm.taobao.org
 
 ```
 nrm use taobao
+```
+
+```
+sudo apt install -y build-essential
 ```
 
 ## 软件推荐
