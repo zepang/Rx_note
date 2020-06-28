@@ -405,3 +405,5 @@ https://www.ssrtool.com
 ### 图片比较https://image-compare-viewer.netlify.app/
 
 ### windups 打字效果 https://windups.gwil.co/
+
+## 解决字体图片视频这些素材的网站 http://thestocks.im/
