@@ -99,6 +99,19 @@ cat ~/.ssh/id_rsa.pub
 
 推荐使用n/nvm进行node安装和管理，具体的用法请查看对应的文档
 
+nvm换淘宝源：
+
+```sh
+echo -e "\nexport NVM_NODEJS_ORG_MIRROR=http://npm.taobao.org/mirrors/node" >> ~/.bashrc
+source ~/.bashrc
+```
+
+n下载
+
+```
+curl -L https://git.io/n-install | bash
+```
+
 安装完毕之后需要对npm进行换源
 
 临时使用
@@ -116,6 +129,10 @@ npm config set registry https://registry.npm.taobao.org
 
 ```
 nrm use taobao
+```
+
+```
+sudo apt install -y build-essential
 ```
 
 ## 软件推荐

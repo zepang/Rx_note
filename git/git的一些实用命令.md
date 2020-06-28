@@ -78,3 +78,23 @@ git filter-branch --commit-filter '
                 git commit-tree "$@";
         fi' HEAD;
 ```
+
+## github release 下载文件
+
+https://www.offcloud.com 
+
+https://d.serctl.com/
+
+## wsl中git出现下边错误
+
+```bash
+error: chmod on /mnt/c/projects/<repo>/.git/config.lock failed: Operation not permitted
+fatal: could not set 'core.filemode' to 'false'
+```
+
+解决方法，重新挂载对应的盘
+
+```bash
+sudo umount /mnt/c
+sudo mount -t drvfs C: /mnt/c -o metadata
+```
