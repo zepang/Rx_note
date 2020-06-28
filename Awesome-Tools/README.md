@@ -403,3 +403,5 @@ https://www.ssrtool.com
 ### 拟物化 https://neumorphism.io/
 
 ### 图片比较https://image-compare-viewer.netlify.app/
+
+### windups 打字效果 https://windups.gwil.co/
