@@ -406,4 +406,6 @@ https://www.ssrtool.com
 
 ### windups 打字效果 https://windups.gwil.co/
 
-## 解决字体图片视频这些素材的网站 http://thestocks.im/
+### 解决字体图片视频这些素材的网站 http://thestocks.im/
+
+### node cli 交互工具 inquerier https://www.npmjs.com/package/inquirer
