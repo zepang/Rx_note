@@ -411,3 +411,6 @@ https://www.ssrtool.com
 ### node cli 交互工具 inquerier https://www.npmjs.com/package/inquirer
 
 ### 配色 https://mycolor.space/
+
+
+### https://docs.cypress.io/ 参考这篇文章 https://glebbahmutov.com/blog/first-vue-component-test/
