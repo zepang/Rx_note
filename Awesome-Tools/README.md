@@ -414,3 +414,33 @@ https://www.ssrtool.com
 
 
 ### https://docs.cypress.io/ 参考这篇文章 https://glebbahmutov.com/blog/first-vue-component-test/
+
+### 图解 HTTP 缓存 https://zoo.team/article/http-cache
+
+### 开放api和学习资源的汇总 https://apicoding.io/
+
+### 基于VuePress的博客，主题很不错 https://github.com/xugaoyi/vuepress-theme-vdoing
+
+### vue3 的开发构建工具vite https://mp.weixin.qq.com/s/AV98v2LFes7ojP9vX-6-nQ
+
+### 针对程序员的搜索引擎 https://quickref.dev/
+
+### network+ chrome devtool 可以重新编辑请求并发送 https://github.com/ClearStudio/network-plus
+
+### git 异常处理清单 https://zoo.team/article/git-exception
+
+### flowy：一个轻量级的 JavaScript 库，可用于快速创建流程图 https://github.com/alyssaxuu/flowy
+
+### 删除视频背景： https://www.unscreen.com/
+
+### SQL Zoo：在线 SQL 交互式练习平台 https://sqlzoo.net/
+
+### RegexOne：正则表达式在线练习平台 https://regexone.com/
+
+### nodeppt：将 Markdown 文档转成高大上 PPT 的开源工具 https://github.com/ksky521/nodeppt
+
+### 一行命令生成https证书 https://github.com/FiloSottile/mkcert
+
+### translate-shell：一款可在终端下使用的翻译工具，支持切换 Google Translate https://github.com/soimort/translate-shell
+
+### cloudquery：将任何网站转换成 API https://github.com/t9tio/cloudquery
