@@ -444,3 +444,13 @@ https://www.ssrtool.com
 ### translate-shell：一款可在终端下使用的翻译工具，支持切换 Google Translate https://github.com/soimort/translate-shell
 
 ### cloudquery：将任何网站转换成 API https://github.com/t9tio/cloudquery
+
+### hexo 主题开发 https://www.hojun.cn/
+
+### comicgen：在线制作漫画人物，可保存图片或生成代码 https://gramener.com/comicgen/
+
+### generate-avatar：根据用户的唯一 ID，自动生成头像图片的 JS 库 https://github.com/qiniu/goplus
+
+### any-rule：一份收集整理 60+ 条常用正则表达式， 并支持 Web/VSCode 插件查询 https://github.com/any86/any-rule
+
+### 政采云团队博客 https://zoo.team/
