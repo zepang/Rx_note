@@ -454,3 +454,7 @@ https://www.ssrtool.com
 ### any-rule：一份收集整理 60+ 条常用正则表达式， 并支持 Web/VSCode 插件查询 https://github.com/any86/any-rule
 
 ### 政采云团队博客 https://zoo.team/
+
+### jsdocs https://www.html.cn/doc/jsdoc/tags-description.html
+
+### ui 库 https://quasar.dev/
