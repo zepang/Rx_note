@@ -458,3 +458,8 @@ https://www.ssrtool.com
 ### jsdocs https://www.html.cn/doc/jsdoc/tags-description.html
 
 ### ui 库 https://quasar.dev/
+
+### 快速创建后端api https://www.base-api.io/
+
+### html Dom学习操作 https://htmldom.dev/
+### HTTP/3 原理实践 http://www.alloyteam.com/2020/05/14385/
