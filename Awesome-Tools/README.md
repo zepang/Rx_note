@@ -463,3 +463,9 @@ https://www.ssrtool.com
 
 ### html Dom学习操作 https://htmldom.dev/
 ### HTTP/3 原理实践 http://www.alloyteam.com/2020/05/14385/
+
+3D 图书 CSS 生成器：https://3d-book-css.netlify.app/
+
+一个轻量级解决货币相关问题的 js 库：https://currency.js.org/
+
+了不起的 Webpack 构建流程学习指南 https://xie.infoq.cn/article/54882da91591f54c72bdda2ec
