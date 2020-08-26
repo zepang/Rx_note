@@ -461,7 +461,7 @@ https://www.ssrtool.com
 
 ### 快速创建后端api https://www.base-api.io/
 
-### html Dom学习操作 https://htmldom.dev/
+### ie11 和 现代浏览器的 html Dom学习操作 https://htmldom.dev/
 ### HTTP/3 原理实践 http://www.alloyteam.com/2020/05/14385/
 
 3D 图书 CSS 生成器：https://3d-book-css.netlify.app/

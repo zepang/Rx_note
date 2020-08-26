@@ -69,7 +69,7 @@ for i in `git branch -a | grep remote | grep -v HEAD | grep -v master`; do git b
 
 ```shell
 git filter-branch --commit-filter '
-        if [ "$GIT_AUTHOR_EMAIL" = "laizehai@tulong.com" ];
+        if [ "$GIT_AUTHOR_EMAIL" = "laizehai@kingsoft.com" ];
         then
                 GIT_AUTHOR_NAME="zepang";
                 GIT_AUTHOR_EMAIL="ummlq4@gmail.com";
