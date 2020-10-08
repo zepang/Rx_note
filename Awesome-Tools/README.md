@@ -454,3 +454,28 @@ https://www.ssrtool.com
 ### any-rule：一份收集整理 60+ 条常用正则表达式， 并支持 Web/VSCode 插件查询 https://github.com/any86/any-rule
 
 ### 政采云团队博客 https://zoo.team/
+
+### jsdocs https://www.html.cn/doc/jsdoc/tags-description.html
+
+### ui 库 https://quasar.dev/
+
+### 快速创建后端api https://www.base-api.io/
+
+### ie11 和 现代浏览器的 html Dom学习操作 https://htmldom.dev/
+### HTTP/3 原理实践 http://www.alloyteam.com/2020/05/14385/
+
+3D 图书 CSS 生成器：https://3d-book-css.netlify.app/
+
+一个轻量级解决货币相关问题的 js 库：https://currency.js.org/
+
+了不起的 Webpack 构建流程学习指南 https://xie.infoq.cn/article/54882da91591f54c72bdda2ec
+
+Device Shots 是一个小型的 Web 应用，可以帮你生成各式各样适合展示网站和页面的样机，它几乎支持你能想到的所有的设备类型，非常实用。 https://deviceshots.com/
+
+这是一套完全使用CSS构建图标集合，总计有500 个 https://css.gg/app
+
+RevKit 是一个非常全面的设计系统 UIKit，有 Sketch、Figma 和 Adobe XD 对应的格式版本。其中包含全面的样式指南，各种常用的元素和控件，它是完全免费的。https://rev.webkul.design/kit/
+
+Barchartrace 是一款非常便捷的开源图表生成工具，它可以创建一些在社交媒体上经常可以看到的动画图表，只需要插入 CSV 格式的数据信息，然后选择你想要的动画，就能最终生成动态图表。https://fabdevgit.github.io/barchartrace/#myModal
+
+《语雀 IT 百科》发布了！ https://www.yuque.com/yuque/blog/yuque-info-tech-encyclopedia
