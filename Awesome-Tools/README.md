@@ -489,3 +489,5 @@ koa实践 https://chenshenhai.github.io/koa2-note/
 #### https://www.uisdc.com/figma-complete-guide 新晋黑马神器！Figma完全入门指南（附超多插件+教程） https://www.uisdc.com/comprehensive-interpretation-of-figma 全面解读2020最值得上手的界面设计工具：Figma
 
 #### 渐变背景 https://www.gradientmagic.com/browse 相关颜色 https://picular.co/blog
+
+#### npm register https://help.sonatype.com/repomanager3/formats/npm-registry
