@@ -488,3 +488,5 @@ Barchartrace 是一款非常便捷的开源图表生成工具，它可以创建�
 #### https://www.uisdc.com/figma-complete-guide 新晋黑马神器！Figma完全入门指南（附超多插件+教程） https://www.uisdc.com/comprehensive-interpretation-of-figma 全面解读2020最值得上手的界面设计工具：Figma
 
 #### 渐变背景 https://www.gradientmagic.com/browse 相关颜色 https://picular.co/blog
+
+#### 前端库技术收集： https://www.zdzn.net/page/web.html
