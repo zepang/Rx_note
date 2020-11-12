@@ -98,3 +98,6 @@ fatal: could not set 'core.filemode' to 'false'
 sudo umount /mnt/c
 sudo mount -t drvfs C: /mnt/c -o metadata
 ```
+
+## clone并切换到对应分支
+git clone --single-branch --branch <branchname> <remote-repo> <local-dir>
