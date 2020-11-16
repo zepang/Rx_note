@@ -100,4 +100,9 @@ sudo mount -t drvfs C: /mnt/c -o metadata
 ```
 
 ## clone并切换到对应分支
+
+```
 git clone --single-branch --branch <branchname> <remote-repo> <local-dir>
+
+git clone -b <branch> <remote_repo>
+```
