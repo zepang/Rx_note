@@ -52,11 +52,67 @@ deb https://mirrors.ustc.edu.cn/ubuntu/ bionic-proposed main restricted universe
 deb-src https://mirrors.ustc.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse
 ```
 
+推荐
+
+```
+deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal main restricted
+deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-updates main restricted
+deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal universe
+deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-updates universe
+deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal multiverse
+deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-updates multiverse
+deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-backports main restricted universe multiverse
+deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-security main restricted
+deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-security universe
+deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-security multiverse
+```
+
 3. 更新软件列表
 
 ```
 sudo apt-get update
 sudo apt-get upgrade
+```
+
+安装oh-my-zsh
+
+```
+sudo apt-get install zsh -y
+sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+```
+
+ob-my-zsh主题为honukai主题：https://github.com/oskarkrawczyk/honukai-iterm-zsh
+
+查看并通过`vim ~/.zshrc`添加一些plugins
+
+```
+ls ~/oh-my-zsh/plugins
+
+# vim ~/.zshrc
+plugins=(
+  cargo
+  command-not-found
+  compleat
+  docker
+  docker-compose
+  docker-machine
+  fasd
+  github
+  gitignore
+  history
+  history-substring-search
+  node
+  npm
+  npx
+  nvm
+  git
+)
+```
+
+### install docker
+
+```
+https://docs.docker.com/engine/install/ubuntu/
 ```
 
 ## 生成SSH Key
