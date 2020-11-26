@@ -43,3 +43,17 @@ docker run -p 49000:8080
 ```
 cat /var/jenkins_home/secrets/initialAdminPassword
 ```
+# 遇到问题
+
+登陆的时候发现jekins离线，直接跳过安装plugin
+
+进入之后点击右侧manager jekins -> manager plugins，发现存在报错
+
+`There were errors checking the update sites: SSLHandshakeException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target`
+
+点击 advanced ，将下边的链接
+
+https://updates.jenkins-ci.org/update-center.json 改成 http://updates.jenkins-ci.org/update-center.json，使用http协议
+登陆的时候发现jekins离线，直接跳过安装plugin
+
+在浏览器输入 `http://localhost:49000/reload`重载配置，之后就好了，另外还支持 exit（关闭）restart（重启）
