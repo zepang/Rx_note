@@ -494,3 +494,5 @@ koa实践 https://chenshenhai.github.io/koa2-note/
 
 #### 前端库技术收集： https://www.zdzn.net/page/web.html
 #### npm register https://help.sonatype.com/repomanager3/formats/npm-registry
+
+### https://formito.com/tools/favicon 这是一个免费的小图标制作工具，你可以通过简单的点击就快速制作出 SVG 和 PNG 格式的图标，你可以设置字母也可以设置表情符号，自由度很高。
