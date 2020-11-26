@@ -490,5 +490,7 @@ koa实践 https://chenshenhai.github.io/koa2-note/
 
 #### 渐变背景 https://www.gradientmagic.com/browse 相关颜色 https://picular.co/blog
 
+#### CSS Background Patterns 是一款包含了很多时髦设计的背景图案，你只需要稍加调整就可以应用到你自己的网站当中。 https://www.magicpattern.design/tools/css-backgrounds
+
 #### 前端库技术收集： https://www.zdzn.net/page/web.html
 #### npm register https://help.sonatype.com/repomanager3/formats/npm-registry
