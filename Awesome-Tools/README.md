@@ -500,3 +500,5 @@ koa实践 https://chenshenhai.github.io/koa2-note/
 ### Urlcat 是一个超级小的 JavaScript 库，它可以帮你构建具有动态参数且没有错误的 Url，它有着友好的 API ，没有依赖关系，压缩之后只有 0.8KB。 https://github.com/balazsbotond/urlcat
 
 ### 链接上画圈  https://codepen.io/aaroniker/pen/VwjexVy
+
+### http://www.sheshbabu.com/tags/Rust-Beginners/ rust tutorial for JavaScript developer
