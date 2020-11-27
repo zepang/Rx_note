@@ -502,3 +502,6 @@ koa实践 https://chenshenhai.github.io/koa2-note/
 ### 链接上画圈  https://codepen.io/aaroniker/pen/VwjexVy
 
 ### http://www.sheshbabu.com/tags/Rust-Beginners/ rust tutorial for JavaScript developer
+
+
+#### HitCount 是一款简单到令人置信点击量计数器，就像添加图片一样简单，复制代码之后进行自定义就好了，非常方便。 https://hitcount.io/
