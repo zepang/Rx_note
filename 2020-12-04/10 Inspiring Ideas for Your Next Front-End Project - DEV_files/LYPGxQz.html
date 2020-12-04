@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<!-- saved from url=(0087)https://codepen.io/goodkatz/embed/LYPGxQz?height=600&default-tab=result&embed-version=2 -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width">
+<title>CodePen Embed - Simple CSS Waves | Mobile &amp; Full width</title>
+<meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="ZNQJnJLoyxjBfnuiY9lK49eTMcyP5Za2EbhbIJ53Tfn3iSG9YkDIo52Ol0wRfsN+SR5Ss6sQM4ZmrXp5EPC89Q==">
+<link rel="stylesheet" media="all" href="./embed-fd9a942046213e4a713b4bd7ce0f59ae4577bbfc384f6c1cf187c3f795043b55.css">
+<style>
+    .hide {
+      display: none !important;
+    }
+
+    #result-box {
+      background: #3d3d3e;
+      color: #ffffff;
+    }
+    .embed-footer,
+    .embed-nav {
+      background: #3d3d3e;
+      
+    }
+    .embed-nav .code-types a,
+    .embed-nav .result-button-list a,
+    .action-button {
+      color: #ffffff;
+      background-color: #666666;
+    }
+    .embed-nav .code-types a.active,
+    .embed-nav .result-button-list a.active,
+    .action-button.active {
+      background: #888888;
+      color: #ffffff;
+      box-shadow: inset 0px 3px #dddddd;
+    }
+    .embed-nav .logo-wrap .edit-on-codepen {
+      color: #ffffff;
+    }
+
+    .embed-nav svg {
+      stroke: #ffffff !important;
+    }
+  </style>
+<link rel="stylesheet" media="all" href="./twilight-bbb3d58f8024c27567f788f3990f2dce8754c2b67246bf12ad766768fe51955b.css">
+<meta name="monetization" content="$ilp.uphold.com/biyqg2MkQKbe">
+</head>
+<body id="the-body" style="border: 1px solid #555555; --borderWidth: 1px;" class="codepen-embed-body static results-active" data-new-gr-c-s-check-loaded="14.984.0" data-gr-ext-installed="">
+<nav class="embed-nav group" id="embed-nav">
+<ul class="code-types">
+<li class="code-type">
+<a id="html-link" href="https://codepen.io/goodkatz/embed/LYPGxQz?height=600&amp;default-tab=result&amp;embed-version=2#html-box" role="button" aria-pressed="false">
+HTML
+</a>
+</li>
+<li class="code-type">
+<a id="css-link" href="https://codepen.io/goodkatz/embed/LYPGxQz?height=600&amp;default-tab=result&amp;embed-version=2#css-box" role="button" aria-pressed="false">
+CSS
+</a>
+</li>
+</ul>
+<ul class="result-button-list">
+<li class="results results-type">
+<a id="result-link" href="https://codepen.io/goodkatz/embed/LYPGxQz?height=600&amp;default-tab=result&amp;embed-version=2#result-box" class="active" aria-pressed="true" role="button">
+Result
+</a>
+</li>
+<li>
+<a href="https://codepen.io/goodkatz/embed/LYPGxQz?height=600&amp;default-tab=result&amp;embed-version=2#resources-link" id="skip-results-iframe-link">Skip Results Iframe</a>
+</li>
+</ul>
+<div class="logo-wrap" id="edit-area">
+<a class="edit-on-codepen" target="_blank" rel="noopener" href="https://codepen.io/goodkatz/pen/LYPGxQz" title="Edit on CodePen">
+<div class="large-logo">
+<span id="edit-on-text" class="open-on">EDIT ON</span>
+<svg id="embed-codepen-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 138 26" fill="none" stroke="#000" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="CodePen">
+<path d="M80 6h-9v14h9m34-14h-9v14h9m-3-7h-6m-28 0h-6m51 7V6l11 14V6M22 16.7L33 24l11-7.3V9.3L33 2 22 9.3v7.4zm22 0L33 9.3l-11 7.4m0-7.4l11 7.3 11-7.3M33 2v7.3m0 7.4V24m55-10h6c2.2 0 4-1.8 4-4s-1.8-4-4-4h-6v14M15 8c-1.3-1.3-3-2-5-2-4 0-7 3-7 7s3 7 7 7c2 0 3.7-.8 5-2m49-5c0 4-3 7-7 7h-5V6h5c4 0 7 3 7 7z"></path>
+</svg>
+</div>
+<div class="box-logo">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="20 0 26 26" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.3" role="img" aria-label="Edit on CodePen">
+<path id="icon-codepen-box" d="M22 16.7L33 24l11-7.3V9.3L33 2 22 9.3v7.4zm22 0L33 9.3l-11 7.4m0-7.4l11 7.3 11-7.3M33 2v7.3m0 7.4V24"></path>
+</svg>
+</div>
+</a>
+</div>
+</nav>
+<div id="output" data-border-style="thin" data-header="true">
+<div id="html-box" class="code-wrap code-box box " role="region" aria-label="HTML">
+<pre tabindex="0"><code data-lang="htmlmixed" id="actual-html-code" class=" cm-s-default"><span class="cm-comment">&lt;!--Hey! This is the original version</span>
+<span class="cm-comment">of Simple CSS Waves--&gt;</span>
+
+<span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">"header"</span><span class="cm-tag cm-bracket">&gt;</span>
+
+<span class="cm-comment">&lt;!--Content before waves--&gt;</span>
+<span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">"inner-header flex"</span><span class="cm-tag cm-bracket">&gt;</span>
+<span class="cm-comment">&lt;!--Just the logo.. Don't mind this--&gt;</span>
+<span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">svg</span> <span class="cm-attribute">version</span>=<span class="cm-string">"1.1"</span> <span class="cm-attribute">class</span>=<span class="cm-string">"logo"</span> <span class="cm-attribute">baseProfile</span>=<span class="cm-string">"tiny"</span> <span class="cm-attribute">id</span>=<span class="cm-string">"Layer_1"</span> <span class="cm-attribute">xmlns</span>=<span class="cm-string">"http://www.w3.org/2000/svg"</span>
+<span class="cm-attribute">xmlns:xlink</span>=<span class="cm-string">"http://www.w3.org/1999/xlink"</span> <span class="cm-attribute">x</span>=<span class="cm-string">"0px"</span> <span class="cm-attribute">y</span>=<span class="cm-string">"0px"</span> <span class="cm-attribute">viewBox</span>=<span class="cm-string">"0 0 500 500"</span> <span class="cm-attribute">xml:space</span>=<span class="cm-string">"preserve"</span><span class="cm-tag cm-bracket">&gt;</span>
+<span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">path</span> <span class="cm-attribute">fill</span>=<span class="cm-string">"#FFFFFF"</span> <span class="cm-attribute">stroke</span>=<span class="cm-string">"#000000"</span> <span class="cm-attribute">stroke-width</span>=<span class="cm-string">"10"</span> <span class="cm-attribute">stroke-miterlimit</span>=<span class="cm-string">"10"</span> <span class="cm-attribute">d</span>=<span class="cm-string">"M57,283"</span> <span class="cm-tag cm-bracket">/&gt;</span>
+<span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">g</span><span class="cm-tag cm-bracket">&gt;</span><span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">path</span> <span class="cm-attribute">fill</span>=<span class="cm-string">"#fff"</span>
+<span class="cm-attribute">d</span>=<span class="cm-string">"M250.4,0.8C112.7,0.8,1,112.4,1,250.2c0,137.7,111.7,249.4,249.4,249.4c137.7,0,249.4-111.7,249.4-249.4</span>
+<span class="cm-string">C499.8,112.4,388.1,0.8,250.4,0.8z M383.8,326.3c-62,0-101.4-14.1-117.6-46.3c-17.1-34.1-2.3-75.4,13.2-104.1</span>
+<span class="cm-string">c-22.4,3-38.4,9.2-47.8,18.3c-11.2,10.9-13.6,26.7-16.3,45c-3.1,20.8-6.6,44.4-25.3,62.4c-19.8,19.1-51.6,26.9-100.2,24.6l1.8-39.7    c35.9,1.6,59.7-2.9,70.8-13.6c8.9-8.6,11.1-22.9,13.5-39.6c6.3-42,14.8-99.4,141.4-99.4h41L333,166c-12.6,16-45.4,68.2-31.2,96.2  c9.2,18.3,41.5,25.6,91.2,24.2l1.1,39.8C390.5,326.2,387.1,326.3,383.8,326.3z"</span> <span class="cm-tag cm-bracket">/&gt;</span>
+<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">g</span><span class="cm-tag cm-bracket">&gt;</span>
+<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">svg</span><span class="cm-tag cm-bracket">&gt;</span>
+<span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">h1</span><span class="cm-tag cm-bracket">&gt;</span>Simple CSS Waves<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">h1</span><span class="cm-tag cm-bracket">&gt;</span>
+<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tag cm-bracket">&gt;</span>
+
+<span class="cm-comment">&lt;!--Waves Container--&gt;</span>
+<span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">div</span><span class="cm-tag cm-bracket">&gt;</span>
+<span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">svg</span> <span class="cm-attribute">class</span>=<span class="cm-string">"waves"</span> <span class="cm-attribute">xmlns</span>=<span class="cm-string">"http://www.w3.org/2000/svg"</span> <span class="cm-attribute">xmlns:xlink</span>=<span class="cm-string">"http://www.w3.org/1999/xlink"</span>
+<span class="cm-attribute">viewBox</span>=<span class="cm-string">"0 24 150 28"</span> <span class="cm-attribute">preserveAspectRatio</span>=<span class="cm-string">"none"</span> <span class="cm-attribute">shape-rendering</span>=<span class="cm-string">"auto"</span><span class="cm-tag cm-bracket">&gt;</span>
+<span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">defs</span><span class="cm-tag cm-bracket">&gt;</span>
+<span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">path</span> <span class="cm-attribute">id</span>=<span class="cm-string">"gentle-wave"</span> <span class="cm-attribute">d</span>=<span class="cm-string">"M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"</span> <span class="cm-tag cm-bracket">/&gt;</span>
+<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">defs</span><span class="cm-tag cm-bracket">&gt;</span>
+<span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">g</span> <span class="cm-attribute">class</span>=<span class="cm-string">"parallax"</span><span class="cm-tag cm-bracket">&gt;</span>
+<span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">use</span> <span class="cm-attribute">xlink:href</span>=<span class="cm-string">"#gentle-wave"</span> <span class="cm-attribute">x</span>=<span class="cm-string">"48"</span> <span class="cm-attribute">y</span>=<span class="cm-string">"0"</span> <span class="cm-attribute">fill</span>=<span class="cm-string">"rgba(255,255,255,0.7"</span> <span class="cm-tag cm-bracket">/&gt;</span>
+<span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">use</span> <span class="cm-attribute">xlink:href</span>=<span class="cm-string">"#gentle-wave"</span> <span class="cm-attribute">x</span>=<span class="cm-string">"48"</span> <span class="cm-attribute">y</span>=<span class="cm-string">"3"</span> <span class="cm-attribute">fill</span>=<span class="cm-string">"rgba(255,255,255,0.5)"</span> <span class="cm-tag cm-bracket">/&gt;</span>
+<span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">use</span> <span class="cm-attribute">xlink:href</span>=<span class="cm-string">"#gentle-wave"</span> <span class="cm-attribute">x</span>=<span class="cm-string">"48"</span> <span class="cm-attribute">y</span>=<span class="cm-string">"5"</span> <span class="cm-attribute">fill</span>=<span class="cm-string">"rgba(255,255,255,0.3)"</span> <span class="cm-tag cm-bracket">/&gt;</span>
+<span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">use</span> <span class="cm-attribute">xlink:href</span>=<span class="cm-string">"#gentle-wave"</span> <span class="cm-attribute">x</span>=<span class="cm-string">"48"</span> <span class="cm-attribute">y</span>=<span class="cm-string">"7"</span> <span class="cm-attribute">fill</span>=<span class="cm-string">"#fff"</span> <span class="cm-tag cm-bracket">/&gt;</span>
+<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">g</span><span class="cm-tag cm-bracket">&gt;</span>
+<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">svg</span><span class="cm-tag cm-bracket">&gt;</span>
+<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tag cm-bracket">&gt;</span>
+<span class="cm-comment">&lt;!--Waves end--&gt;</span>
+
+<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tag cm-bracket">&gt;</span>
+<span class="cm-comment">&lt;!--Header ends--&gt;</span>
+
+<span class="cm-comment">&lt;!--Content starts--&gt;</span>
+<span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">"content flex"</span><span class="cm-tag cm-bracket">&gt;</span>
+<span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">p</span><span class="cm-tag cm-bracket">&gt;</span>Daniel Österman | 2019 |&nbsp;Free to use<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">p</span><span class="cm-tag cm-bracket">&gt;</span>
+<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tag cm-bracket">&gt;</span>
+<span class="cm-comment">&lt;!--Content ends--&gt;</span></code></pre>
+</div>
+<div id="css-box" class="code-wrap code-box box " role="region" aria-label="CSS">
+<pre tabindex="0"><code data-lang="css" id="actual-css-code" class=" cm-s-default"><span class="cm-def">@import</span> <span class="cm-variable cm-callee">url</span>(<span class="cm-string">//fonts.googleapis.com/css?family=Lato:300:400</span>);
+
+<span class="cm-tag">body</span> {
+  <span class="cm-property">margin</span>:<span class="cm-number">0</span>;
+}
+
+<span class="cm-tag">h1</span> {
+  <span class="cm-property">font-family</span>: <span class="cm-string">'Lato'</span>, <span class="cm-atom">sans-serif</span>;
+  <span class="cm-property">font-weight</span>:<span class="cm-number">300</span>;
+  <span class="cm-property">letter-spacing</span>: <span class="cm-number">2px</span>;
+  <span class="cm-property">font-size</span>:<span class="cm-number">48px</span>;
+}
+<span class="cm-tag">p</span> {
+  <span class="cm-property">font-family</span>: <span class="cm-string">'Lato'</span>, <span class="cm-atom">sans-serif</span>;
+  <span class="cm-property">letter-spacing</span>: <span class="cm-number">1px</span>;
+  <span class="cm-property">font-size</span>:<span class="cm-number">14px</span>;
+  <span class="cm-property">color</span>: <span class="cm-atom">#333333</span>;
+}
+
+<span class="cm-qualifier">.header</span> {
+  <span class="cm-property">position</span>:<span class="cm-atom">relative</span>;
+  <span class="cm-property">text-align</span>:<span class="cm-atom">center</span>;
+  <span class="cm-property">background</span>: <span class="cm-variable cm-callee">linear-gradient</span>(<span class="cm-number">60deg</span>, <span class="cm-variable cm-callee">rgba</span>(<span class="cm-number">84</span>,<span class="cm-number">58</span>,<span class="cm-number">183</span>,<span class="cm-number">1</span>) <span class="cm-number">0%</span>, <span class="cm-variable cm-callee">rgba</span>(<span class="cm-number">0</span>,<span class="cm-number">172</span>,<span class="cm-number">193</span>,<span class="cm-number">1</span>) <span class="cm-number">100%</span>);
+  <span class="cm-property">color</span>:<span class="cm-keyword">white</span>;
+}
+<span class="cm-qualifier">.logo</span> {
+  <span class="cm-property">width</span>:<span class="cm-number">50px</span>;
+  <span class="cm-property">fill</span>:<span class="cm-keyword">white</span>;
+  <span class="cm-property">padding-right</span>:<span class="cm-number">15px</span>;
+  <span class="cm-property">display</span>:<span class="cm-atom">inline-block</span>;
+  <span class="cm-property">vertical-align</span>: <span class="cm-atom">middle</span>;
+}
+
+<span class="cm-qualifier">.inner-header</span> {
+  <span class="cm-property">height</span>:<span class="cm-number">65vh</span>;
+  <span class="cm-property">width</span>:<span class="cm-number">100%</span>;
+  <span class="cm-property">margin</span>: <span class="cm-number">0</span>;
+  <span class="cm-property">padding</span>: <span class="cm-number">0</span>;
+}
+
+<span class="cm-qualifier">.flex</span> { <span class="cm-comment">/*Flexbox for containers*/</span>
+  <span class="cm-property">display</span>: <span class="cm-atom">flex</span>;
+  <span class="cm-property">justify-content</span>: <span class="cm-atom">center</span>;
+  <span class="cm-property">align-items</span>: <span class="cm-atom">center</span>;
+  <span class="cm-property">text-align</span>: <span class="cm-atom">center</span>;
+}
+
+<span class="cm-qualifier">.waves</span> {
+  <span class="cm-property">position</span>:<span class="cm-atom">relative</span>;
+  <span class="cm-property">width</span>: <span class="cm-number">100%</span>;
+  <span class="cm-property">height</span>:<span class="cm-number">15vh</span>;
+  <span class="cm-property">margin-bottom</span>:<span class="cm-number">-7px</span>; <span class="cm-comment">/*Fix for safari gap*/</span>
+  <span class="cm-property">min-height</span>:<span class="cm-number">100px</span>;
+  <span class="cm-property">max-height</span>:<span class="cm-number">150px</span>;
+}
+
+<span class="cm-qualifier">.content</span> {
+  <span class="cm-property">position</span>:<span class="cm-atom">relative</span>;
+  <span class="cm-property">height</span>:<span class="cm-number">20vh</span>;
+  <span class="cm-property">text-align</span>:<span class="cm-atom">center</span>;
+  <span class="cm-property">background-color</span>: <span class="cm-keyword">white</span>;
+}
+
+<span class="cm-comment">/* Animation */</span>
+
+<span class="cm-qualifier">.parallax</span> &gt; <span class="cm-tag">use</span> {
+  <span class="cm-property">animation</span>: <span class="cm-variable">move-forever</span> <span class="cm-number">25s</span> <span class="cm-variable cm-callee">cubic-bezier</span>(<span class="cm-number">.55</span>,<span class="cm-number">.5</span>,<span class="cm-number">.45</span>,<span class="cm-number">.5</span>)     <span class="cm-atom">infinite</span>;
+}
+<span class="cm-qualifier">.parallax</span> &gt; <span class="cm-tag">use</span>:<span class="cm-variable cm-callee">nth-child</span>(<span class="cm-number">1</span>) {
+  <span class="cm-property">animation-delay</span>: <span class="cm-number">-2s</span>;
+  <span class="cm-property">animation-duration</span>: <span class="cm-number">7s</span>;
+}
+<span class="cm-qualifier">.parallax</span> &gt; <span class="cm-tag">use</span>:<span class="cm-variable cm-callee">nth-child</span>(<span class="cm-number">2</span>) {
+  <span class="cm-property">animation-delay</span>: <span class="cm-number">-3s</span>;
+  <span class="cm-property">animation-duration</span>: <span class="cm-number">10s</span>;
+}
+<span class="cm-qualifier">.parallax</span> &gt; <span class="cm-tag">use</span>:<span class="cm-variable cm-callee">nth-child</span>(<span class="cm-number">3</span>) {
+  <span class="cm-property">animation-delay</span>: <span class="cm-number">-4s</span>;
+  <span class="cm-property">animation-duration</span>: <span class="cm-number">13s</span>;
+}
+<span class="cm-qualifier">.parallax</span> &gt; <span class="cm-tag">use</span>:<span class="cm-variable cm-callee">nth-child</span>(<span class="cm-number">4</span>) {
+  <span class="cm-property">animation-delay</span>: <span class="cm-number">-5s</span>;
+  <span class="cm-property">animation-duration</span>: <span class="cm-number">20s</span>;
+}
+<span class="cm-def">@keyframes</span> <span class="cm-variable">move-forever</span> {
+  <span class="cm-number">0%</span> {
+   <span class="cm-property">transform</span>: <span class="cm-variable cm-callee">translate3d</span>(<span class="cm-number">-90px</span>,<span class="cm-number">0</span>,<span class="cm-number">0</span>);
+  }
+  <span class="cm-number">100%</span> { 
+    <span class="cm-property">transform</span>: <span class="cm-variable cm-callee">translate3d</span>(<span class="cm-number">85px</span>,<span class="cm-number">0</span>,<span class="cm-number">0</span>);
+  }
+}
+<span class="cm-comment">/*Shrinking for mobile*/</span>
+<span class="cm-def">@media</span> (<span class="cm-property">max-width</span>: <span class="cm-number">768px</span>) {
+  <span class="cm-qualifier">.waves</span> {
+    <span class="cm-property">height</span>:<span class="cm-number">40px</span>;
+    <span class="cm-property">min-height</span>:<span class="cm-number">40px</span>;
+  }
+  <span class="cm-qualifier">.content</span> {
+    <span class="cm-property">height</span>:<span class="cm-number">30vh</span>;
+  }
+  <span class="cm-tag">h1</span> {
+    <span class="cm-property">font-size</span>:<span class="cm-number">24px</span>;
+  }
+}</code></pre>
+</div>
+<div id="result-box" class="code-box active" role="region" aria-label="Result">
+<iframe allow="accelerometer; camera; encrypted-media; geolocation; gyroscope; microphone; midi" allowfullscreen="true" allowpaymentrequest="true" allowtransparency="true" class="result-iframe " frameborder="0" id="result-iframe" name="CodePen Preview for Simple CSS Waves | Mobile &amp; Full width" sandbox="allow-downloads allow-forms allow-modals allow-pointer-lock allow-popups allow-presentation allow-same-origin allow-scripts allow-top-navigation-by-user-activation" scrolling="yes" title="CodePen Preview for Simple CSS Waves | Mobile &amp; Full width" data-src="https://cdpn.io/goodkatz/fullembedgrid/LYPGxQz?animations=run&amp;type=embed" src="./LYPGxQz(1).html">
+  </iframe>
+</div>
+<div id="about-box">
+<div class="about-container">
+<div class="about-user">
+<a href="https://codepen.io/goodkatz" target="_blank" rel="noopener"><img src="./default(5).png" loading="lazy" alt="" class="about-image"></a>
+<div class="about-user-info">
+<p>
+This Pen is owned by <a href="https://codepen.io/goodkatz" target="_blank" rel="noopener">Goodkatz</a> on <a href="https://codepen.io/" target="_blank" rel="noopener">CodePen</a>.
+</p>
+<p>
+<a href="https://codepen.io/goodkatz" target="_blank" rel="noopener" class="about-user-more">
+See more by @goodkatz on CodePen
+</a>
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="resources-box" class="resources-box">
+<h3>External CSS</h3>
+<p>
+This Pen doesn't use any external CSS resources.
+</p>
+<h3>External JavaScript</h3>
+<p>
+This Pen doesn't use any external JavaScript resources.
+</p>
+</div>
+</div>
+<footer class="embed-footer" id="embed-footer">
+<button id="resources-link" class="resources-link action-button bottom left" href="#resources-box" aria-pressed="false" role="button">
+Resources
+</button>
+<ul class="scaling-choices bottom right">
+<li><button class="action-button active" id="zoom-button-1">1×</button></li><li><button class="action-button" id="zoom-button-05">0.5×</button></li><li><button class="action-button" id="zoom-button-025">0.25×</button></li>
+</ul>
+<button id="rerun-button" class="action-button rerun-button bottom right">
+Rerun
+</button>
+</footer>
+<script>
+    __processedPen = {"html":"&lt;!--Hey! This is the original version\nof Simple CSS Waves--&gt;\n\n&lt;div class=&quot;header&quot;&gt;\n\n&lt;!--Content before waves--&gt;\n&lt;div class=&quot;inner-header flex&quot;&gt;\n&lt;!--Just the logo.. Don&#39;t mind this--&gt;\n&lt;svg version=&quot;1.1&quot; class=&quot;logo&quot; baseProfile=&quot;tiny&quot; id=&quot;Layer_1&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;\nxmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; x=&quot;0px&quot; y=&quot;0px&quot; viewBox=&quot;0 0 500 500&quot; xml:space=&quot;preserve&quot;&gt;\n&lt;path fill=&quot;#FFFFFF&quot; stroke=&quot;#000000&quot; stroke-width=&quot;10&quot; stroke-miterlimit=&quot;10&quot; d=&quot;M57,283&quot; /&gt;\n&lt;g&gt;&lt;path fill=&quot;#fff&quot;\nd=&quot;M250.4,0.8C112.7,0.8,1,112.4,1,250.2c0,137.7,111.7,249.4,249.4,249.4c137.7,0,249.4-111.7,249.4-249.4\nC499.8,112.4,388.1,0.8,250.4,0.8z M383.8,326.3c-62,0-101.4-14.1-117.6-46.3c-17.1-34.1-2.3-75.4,13.2-104.1\nc-22.4,3-38.4,9.2-47.8,18.3c-11.2,10.9-13.6,26.7-16.3,45c-3.1,20.8-6.6,44.4-25.3,62.4c-19.8,19.1-51.6,26.9-100.2,24.6l1.8-39.7\t\tc35.9,1.6,59.7-2.9,70.8-13.6c8.9-8.6,11.1-22.9,13.5-39.6c6.3-42,14.8-99.4,141.4-99.4h41L333,166c-12.6,16-45.4,68.2-31.2,96.2\tc9.2,18.3,41.5,25.6,91.2,24.2l1.1,39.8C390.5,326.2,387.1,326.3,383.8,326.3z&quot; /&gt;\n&lt;/g&gt;\n&lt;/svg&gt;\n&lt;h1&gt;Simple CSS Waves&lt;/h1&gt;\n&lt;/div&gt;\n\n&lt;!--Waves Container--&gt;\n&lt;div&gt;\n&lt;svg class=&quot;waves&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot;\nviewBox=&quot;0 24 150 28&quot; preserveAspectRatio=&quot;none&quot; shape-rendering=&quot;auto&quot;&gt;\n&lt;defs&gt;\n&lt;path id=&quot;gentle-wave&quot; d=&quot;M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z&quot; /&gt;\n&lt;/defs&gt;\n&lt;g class=&quot;parallax&quot;&gt;\n&lt;use xlink:href=&quot;#gentle-wave&quot; x=&quot;48&quot; y=&quot;0&quot; fill=&quot;rgba(255,255,255,0.7&quot; /&gt;\n&lt;use xlink:href=&quot;#gentle-wave&quot; x=&quot;48&quot; y=&quot;3&quot; fill=&quot;rgba(255,255,255,0.5)&quot; /&gt;\n&lt;use xlink:href=&quot;#gentle-wave&quot; x=&quot;48&quot; y=&quot;5&quot; fill=&quot;rgba(255,255,255,0.3)&quot; /&gt;\n&lt;use xlink:href=&quot;#gentle-wave&quot; x=&quot;48&quot; y=&quot;7&quot; fill=&quot;#fff&quot; /&gt;\n&lt;/g&gt;\n&lt;/svg&gt;\n&lt;/div&gt;\n&lt;!--Waves end--&gt;\n\n&lt;/div&gt;\n&lt;!--Header ends--&gt;\n\n&lt;!--Content starts--&gt;\n&lt;div class=&quot;content flex&quot;&gt;\n&lt;p&gt;Daniel Österman | 2019 | Free to use&lt;/p&gt;\n&lt;/div&gt;\n&lt;!--Content ends--&gt;","css":"@import url(//fonts.googleapis.com/css?family=Lato:300:400);\n\nbody {\n  margin:0;\n}\n\nh1 {\n  font-family: &#39;Lato&#39;, sans-serif;\n  font-weight:300;\n  letter-spacing: 2px;\n  font-size:48px;\n}\np {\n  font-family: &#39;Lato&#39;, sans-serif;\n  letter-spacing: 1px;\n  font-size:14px;\n  color: #333333;\n}\n\n.header {\n  position:relative;\n  text-align:center;\n  background: linear-gradient(60deg, rgba(84,58,183,1) 0%, rgba(0,172,193,1) 100%);\n  color:white;\n}\n.logo {\n  width:50px;\n  fill:white;\n  padding-right:15px;\n  display:inline-block;\n  vertical-align: middle;\n}\n\n.inner-header {\n  height:65vh;\n  width:100%;\n  margin: 0;\n  padding: 0;\n}\n\n.flex { /*Flexbox for containers*/\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  text-align: center;\n}\n\n.waves {\n  position:relative;\n  width: 100%;\n  height:15vh;\n  margin-bottom:-7px; /*Fix for safari gap*/\n  min-height:100px;\n  max-height:150px;\n}\n\n.content {\n  position:relative;\n  height:20vh;\n  text-align:center;\n  background-color: white;\n}\n\n/* Animation */\n\n.parallax &gt; use {\n  animation: move-forever 25s cubic-bezier(.55,.5,.45,.5)     infinite;\n}\n.parallax &gt; use:nth-child(1) {\n  animation-delay: -2s;\n  animation-duration: 7s;\n}\n.parallax &gt; use:nth-child(2) {\n  animation-delay: -3s;\n  animation-duration: 10s;\n}\n.parallax &gt; use:nth-child(3) {\n  animation-delay: -4s;\n  animation-duration: 13s;\n}\n.parallax &gt; use:nth-child(4) {\n  animation-delay: -5s;\n  animation-duration: 20s;\n}\n@keyframes move-forever {\n  0% {\n   transform: translate3d(-90px,0,0);\n  }\n  100% { \n    transform: translate3d(85px,0,0);\n  }\n}\n/*Shrinking for mobile*/\n@media (max-width: 768px) {\n  .waves {\n    height:40px;\n    min-height:40px;\n  }\n  .content {\n    height:30vh;\n  }\n  h1 {\n    font-size:24px;\n  }\n}","js":""};
+    __preprocessors = {
+      "html": "none",
+      "css": "none",
+      "js": "none"
+    };
+    __preprocessorNames = {
+      "html": "HTML",
+      "css": "CSS",
+      "js": "JS"
+    };
+    __pageType = "embed";
+    __editable = false;
+    __embed_prefill = false;
+  </script>
+<script src="./embed-3690985ea2a3216737903c1e943e37377719fb52620886c141f0584d7a4f3a6b.js.下载"></script>
+
+
+</body></html>

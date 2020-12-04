@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<!-- saved from url=(0095)https://codepen.io/JavaScriptJunkie/embed/YzzNGeR?height=600&default-tab=result&embed-version=2 -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width">
+<title>CodePen Embed - Credit Card Form - VueJs</title>
+<meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="5jZj6780xOgvQ/kNx73FpVb7yjOnfvtrdi0Z8Hajf2OwCtIJcQfcbBauYM6sIDk2AjD7QR8ggJOMRMfslQ08Rw==">
+<link rel="stylesheet" media="all" href="./embed-fd9a942046213e4a713b4bd7ce0f59ae4577bbfc384f6c1cf187c3f795043b55.css">
+<style>
+    .hide {
+      display: none !important;
+    }
+
+    #result-box {
+      background: #3d3d3e;
+      color: #ffffff;
+    }
+    .embed-footer,
+    .embed-nav {
+      background: #3d3d3e;
+      
+    }
+    .embed-nav .code-types a,
+    .embed-nav .result-button-list a,
+    .action-button {
+      color: #ffffff;
+      background-color: #666666;
+    }
+    .embed-nav .code-types a.active,
+    .embed-nav .result-button-list a.active,
+    .action-button.active {
+      background: #888888;
+      color: #ffffff;
+      box-shadow: inset 0px 3px #dddddd;
+    }
+    .embed-nav .logo-wrap .edit-on-codepen {
+      color: #ffffff;
+    }
+
+    .embed-nav svg {
+      stroke: #ffffff !important;
+    }
+  </style>
+<link rel="stylesheet" media="all" href="./twilight-bbb3d58f8024c27567f788f3990f2dce8754c2b67246bf12ad766768fe51955b.css">
+<meta name="monetization" content="$ilp.uphold.com/biyqg2MkQKbe">
+</head>
+<body id="the-body" style="border: 1px solid #555555; --borderWidth: 1px;" class="codepen-embed-body static results-active" data-new-gr-c-s-check-loaded="14.984.0" data-gr-ext-installed="" data-new-gr-c-s-loaded="14.984.0">
+<nav class="embed-nav group" id="embed-nav">
+<ul class="code-types">
+<li class="code-type">
+<a id="html-link" href="https://codepen.io/JavaScriptJunkie/embed/YzzNGeR?height=600&amp;default-tab=result&amp;embed-version=2#html-box" role="button" aria-pressed="false">
+HTML
+</a>
+</li>
+<li class="code-type">
+<a id="css-link" href="https://codepen.io/JavaScriptJunkie/embed/YzzNGeR?height=600&amp;default-tab=result&amp;embed-version=2#css-box" role="button" aria-pressed="false">
+SCSS
+</a>
+</li>
+<li class="code-type">
+<a id="js-link" href="https://codepen.io/JavaScriptJunkie/embed/YzzNGeR?height=600&amp;default-tab=result&amp;embed-version=2#js-box" role="button" aria-pressed="false">
+JS
+</a>
+</li>
+</ul>
+<ul class="result-button-list">
+<li class="results results-type">
+<a id="result-link" href="https://codepen.io/JavaScriptJunkie/embed/YzzNGeR?height=600&amp;default-tab=result&amp;embed-version=2#result-box" class="active" aria-pressed="true" role="button">
+Result
+</a>
+</li>
+<li>
+<a href="https://codepen.io/JavaScriptJunkie/embed/YzzNGeR?height=600&amp;default-tab=result&amp;embed-version=2#resources-link" id="skip-results-iframe-link">Skip Results Iframe</a>
+</li>
+</ul>
+<div class="logo-wrap" id="edit-area">
+<a class="edit-on-codepen" target="_blank" rel="noopener" href="https://codepen.io/JavaScriptJunkie/pen/YzzNGeR" title="Edit on CodePen">
+<div class="large-logo">
+<span id="edit-on-text" class="open-on">EDIT ON</span>
+<svg id="embed-codepen-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 138 26" fill="none" stroke="#000" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="CodePen">
+<path d="M80 6h-9v14h9m34-14h-9v14h9m-3-7h-6m-28 0h-6m51 7V6l11 14V6M22 16.7L33 24l11-7.3V9.3L33 2 22 9.3v7.4zm22 0L33 9.3l-11 7.4m0-7.4l11 7.3 11-7.3M33 2v7.3m0 7.4V24m55-10h6c2.2 0 4-1.8 4-4s-1.8-4-4-4h-6v14M15 8c-1.3-1.3-3-2-5-2-4 0-7 3-7 7s3 7 7 7c2 0 3.7-.8 5-2m49-5c0 4-3 7-7 7h-5V6h5c4 0 7 3 7 7z"></path>
+</svg>
+</div>
+<div class="box-logo">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="20 0 26 26" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.3" role="img" aria-label="Edit on CodePen">
+<path id="icon-codepen-box" d="M22 16.7L33 24l11-7.3V9.3L33 2 22 9.3v7.4zm22 0L33 9.3l-11 7.4m0-7.4l11 7.3 11-7.3M33 2v7.3m0 7.4V24"></path>
+</svg>
+</div>
+</a>
+</div>
+</nav>
+<div id="output" data-border-style="thin" data-header="true">
+<div id="html-box" class="code-wrap code-box box " role="region" aria-label="HTML">
+<pre tabindex="0"><code data-lang="htmlmixed" id="actual-html-code" class=" cm-s-default">  <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">"wrapper"</span> <span class="cm-attribute">id</span>=<span class="cm-string">"app"</span><span class="cm-tag cm-bracket">&gt;</span>
+    <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">"card-form"</span><span class="cm-tag cm-bracket">&gt;</span>
+      <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">"card-list"</span><span class="cm-tag cm-bracket">&gt;</span>
+        <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">"card-item"</span> <span class="cm-attribute">v-bind:class</span>=<span class="cm-string">"{ '-active' : isCardFlipped }"</span><span class="cm-tag cm-bracket">&gt;</span>
+          <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">"card-item__side -front"</span><span class="cm-tag cm-bracket">&gt;</span>
+            <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">"card-item__focus"</span> <span class="cm-attribute">v-bind:class</span>=<span class="cm-string">"{'-active' : focusElementStyle }"</span> <span class="cm-attribute">v-bind:style</span>=<span class="cm-string">"focusElementStyle"</span> <span class="cm-attribute">ref</span>=<span class="cm-string">"focusElement"</span><span class="cm-tag cm-bracket">&gt;</span><span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tag cm-bracket">&gt;</span>
+            <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">"card-item__cover"</span><span class="cm-tag cm-bracket">&gt;</span>
+              <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">img</span>
+              <span class="cm-attribute">v-bind:src</span>=<span class="cm-string">"'https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/' + currentCardBackground + '.jpeg'"</span> <span class="cm-attribute">class</span>=<span class="cm-string">"card-item__bg"</span><span class="cm-tag cm-bracket">&gt;</span>
+            <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tag cm-bracket">&gt;</span>
+            
+            <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">"card-item__wrapper"</span><span class="cm-tag cm-bracket">&gt;</span>
+              <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">"card-item__top"</span><span class="cm-tag cm-bracket">&gt;</span>
+                <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">img</span> <span class="cm-attribute">src</span>=<span class="cm-string">"https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/chip.png"</span> <span class="cm-attribute">class</span>=<span class="cm-string">"card-item__chip"</span><span class="cm-tag cm-bracket">&gt;</span>
+                <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">"card-item__type"</span><span class="cm-tag cm-bracket">&gt;</span>
+                  <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">transition</span> <span class="cm-attribute">name</span>=<span class="cm-string">"slide-fade-up"</span><span class="cm-tag cm-bracket">&gt;</span>
+                    <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">img</span> <span class="cm-attribute">v-bind:src</span>=<span class="cm-string">"'https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/' + getCardType + '.png'"</span> <span class="cm-attribute">v-if</span>=<span class="cm-string">"getCardType"</span> <span class="cm-attribute">v-bind:key</span>=<span class="cm-string">"getCardType"</span> <span class="cm-attribute">alt</span>=<span class="cm-string">""</span> <span class="cm-attribute">class</span>=<span class="cm-string">"card-item__typeImg"</span><span class="cm-tag cm-bracket">&gt;</span>
+                  <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">transition</span><span class="cm-tag cm-bracket">&gt;</span>
+                <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tag cm-bracket">&gt;</span>
+              <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tag cm-bracket">&gt;</span>
+              <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">label</span> <span class="cm-attribute">for</span>=<span class="cm-string">"cardNumber"</span> <span class="cm-attribute">class</span>=<span class="cm-string">"card-item__number"</span> <span class="cm-attribute">ref</span>=<span class="cm-string">"cardNumber"</span><span class="cm-tag cm-bracket">&gt;</span>
+                <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">template</span> <span class="cm-attribute">v-if</span>=<span class="cm-string">"getCardType === 'amex'"</span><span class="cm-tag cm-bracket">&gt;</span>
+                 <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">span</span> <span class="cm-attribute">v-for</span>=<span class="cm-string">"(n, $index) in amexCardMask"</span> <span class="cm-attribute">:key</span>=<span class="cm-string">"$index"</span><span class="cm-tag cm-bracket">&gt;</span>
+                  <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">transition</span> <span class="cm-attribute">name</span>=<span class="cm-string">"slide-fade-up"</span><span class="cm-tag cm-bracket">&gt;</span>
+                    <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">div</span>
+                      <span class="cm-attribute">class</span>=<span class="cm-string">"card-item__numberItem"</span>
+                      <span class="cm-attribute">v-if</span>=<span class="cm-string">"$index &gt; 4 &amp;&amp; $index &lt; 14 &amp;&amp; cardNumber.length &gt; $index &amp;&amp; n.trim() !== ''"</span>
+                    <span class="cm-tag cm-bracket">&gt;</span>*<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tag cm-bracket">&gt;</span>
+                    <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">"card-item__numberItem"</span>
+                      <span class="cm-attribute">:class</span>=<span class="cm-string">"{ '-active' : n.trim() === '' }"</span>
+                      <span class="cm-attribute">:key</span>=<span class="cm-string">"$index"</span> <span class="cm-attribute">v-else-if</span>=<span class="cm-string">"cardNumber.length &gt; $index"</span><span class="cm-tag cm-bracket">&gt;</span>
+                      {{cardNumber[$index]}}
+                    <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tag cm-bracket">&gt;</span>
+                    <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">div</span>
+                      <span class="cm-attribute">class</span>=<span class="cm-string">"card-item__numberItem"</span>
+                      <span class="cm-attribute">:class</span>=<span class="cm-string">"{ '-active' : n.trim() === '' }"</span>
+                      <span class="cm-attribute">v-else</span>
+                      <span class="cm-attribute">:key</span>=<span class="cm-string">"$index + 1"</span>
+                    <span class="cm-tag cm-bracket">&gt;</span>{{n}}<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tag cm-bracket">&gt;</span>
+                  <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">transition</span><span class="cm-tag cm-bracket">&gt;</span>
+                <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">span</span><span class="cm-tag cm-bracket">&gt;</span>
+                <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">template</span><span class="cm-tag cm-bracket">&gt;</span>
+
+                <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">template</span> <span class="cm-attribute">v-else</span><span class="cm-tag cm-bracket">&gt;</span>
+                  <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">span</span> <span class="cm-attribute">v-for</span>=<span class="cm-string">"(n, $index) in otherCardMask"</span> <span class="cm-attribute">:key</span>=<span class="cm-string">"$index"</span><span class="cm-tag cm-bracket">&gt;</span>
+                    <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">transition</span> <span class="cm-attribute">name</span>=<span class="cm-string">"slide-fade-up"</span><span class="cm-tag cm-bracket">&gt;</span>
+                      <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">div</span>
+                        <span class="cm-attribute">class</span>=<span class="cm-string">"card-item__numberItem"</span>
+                        <span class="cm-attribute">v-if</span>=<span class="cm-string">"$index &gt; 4 &amp;&amp; $index &lt; 15 &amp;&amp; cardNumber.length &gt; $index &amp;&amp; n.trim() !== ''"</span>
+                      <span class="cm-tag cm-bracket">&gt;</span>*<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tag cm-bracket">&gt;</span>
+                      <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">"card-item__numberItem"</span>
+                        <span class="cm-attribute">:class</span>=<span class="cm-string">"{ '-active' : n.trim() === '' }"</span>
+                        <span class="cm-attribute">:key</span>=<span class="cm-string">"$index"</span> <span class="cm-attribute">v-else-if</span>=<span class="cm-string">"cardNumber.length &gt; $index"</span><span class="cm-tag cm-bracket">&gt;</span>
+                        {{cardNumber[$index]}}
+                      <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tag cm-bracket">&gt;</span>
+                      <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">div</span>
+                        <span class="cm-attribute">class</span>=<span class="cm-string">"card-item__numberItem"</span>
+                        <span class="cm-attribute">:class</span>=<span class="cm-string">"{ '-active' : n.trim() === '' }"</span>
+                        <span class="cm-attribute">v-else</span>
+                        <span class="cm-attribute">:key</span>=<span class="cm-string">"$index + 1"</span>
+                      <span class="cm-tag cm-bracket">&gt;</span>{{n}}<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tag cm-bracket">&gt;</span>
+                    <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">transition</span><span class="cm-tag cm-bracket">&gt;</span>
+                  <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">span</span><span class="cm-tag cm-bracket">&gt;</span>
+                <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">template</span><span class="cm-tag cm-bracket">&gt;</span>
+              <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">label</span><span class="cm-tag cm-bracket">&gt;</span>
+              <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">"card-item__content"</span><span class="cm-tag cm-bracket">&gt;</span>
+                <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">label</span> <span class="cm-attribute">for</span>=<span class="cm-string">"cardName"</span> <span class="cm-attribute">class</span>=<span class="cm-string">"card-item__info"</span> <span class="cm-attribute">ref</span>=<span class="cm-string">"cardName"</span><span class="cm-tag cm-bracket">&gt;</span>
+                  <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">"card-item__holder"</span><span class="cm-tag cm-bracket">&gt;</span>Card Holder<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tag cm-bracket">&gt;</span>
+                  <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">transition</span> <span class="cm-attribute">name</span>=<span class="cm-string">"slide-fade-up"</span><span class="cm-tag cm-bracket">&gt;</span>
+                    <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">"card-item__name"</span> <span class="cm-attribute">v-if</span>=<span class="cm-string">"cardName.length"</span> <span class="cm-attribute">key</span>=<span class="cm-string">"1"</span><span class="cm-tag cm-bracket">&gt;</span>
+                      <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">transition-group</span> <span class="cm-attribute">name</span>=<span class="cm-string">"slide-fade-right"</span><span class="cm-tag cm-bracket">&gt;</span>
+                        <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">span</span> <span class="cm-attribute">class</span>=<span class="cm-string">"card-item__nameItem"</span> <span class="cm-attribute">v-for</span>=<span class="cm-string">"(n, $index) in cardName.replace(/\s\s+/g, ' ')"</span> <span class="cm-attribute">v-if</span>=<span class="cm-string">"$index === $index"</span> <span class="cm-attribute">v-bind:key</span>=<span class="cm-string">"$index + 1"</span><span class="cm-tag cm-bracket">&gt;</span>{{n}}<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">span</span><span class="cm-tag cm-bracket">&gt;</span>
+                      <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">transition-group</span><span class="cm-tag cm-bracket">&gt;</span>
+                    <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tag cm-bracket">&gt;</span>
+                    <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">"card-item__name"</span> <span class="cm-attribute">v-else</span> <span class="cm-attribute">key</span>=<span class="cm-string">"2"</span><span class="cm-tag cm-bracket">&gt;</span>Full Name<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tag cm-bracket">&gt;</span>
+                  <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">transition</span><span class="cm-tag cm-bracket">&gt;</span>
+                <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">label</span><span class="cm-tag cm-bracket">&gt;</span>
+                <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">"card-item__date"</span> <span class="cm-attribute">ref</span>=<span class="cm-string">"cardDate"</span><span class="cm-tag cm-bracket">&gt;</span>
+                  <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">label</span> <span class="cm-attribute">for</span>=<span class="cm-string">"cardMonth"</span> <span class="cm-attribute">class</span>=<span class="cm-string">"card-item__dateTitle"</span><span class="cm-tag cm-bracket">&gt;</span>Expires<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">label</span><span class="cm-tag cm-bracket">&gt;</span>
+                  <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">label</span> <span class="cm-attribute">for</span>=<span class="cm-string">"cardMonth"</span> <span class="cm-attribute">class</span>=<span class="cm-string">"card-item__dateItem"</span><span class="cm-tag cm-bracket">&gt;</span>
+                    <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">transition</span> <span class="cm-attribute">name</span>=<span class="cm-string">"slide-fade-up"</span><span class="cm-tag cm-bracket">&gt;</span>
+                      <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">span</span> <span class="cm-attribute">v-if</span>=<span class="cm-string">"cardMonth"</span> <span class="cm-attribute">v-bind:key</span>=<span class="cm-string">"cardMonth"</span><span class="cm-tag cm-bracket">&gt;</span>{{cardMonth}}<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">span</span><span class="cm-tag cm-bracket">&gt;</span>
+                      <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">span</span> <span class="cm-attribute">v-else</span> <span class="cm-attribute">key</span>=<span class="cm-string">"2"</span><span class="cm-tag cm-bracket">&gt;</span>MM<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">span</span><span class="cm-tag cm-bracket">&gt;</span>
+                    <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">transition</span><span class="cm-tag cm-bracket">&gt;</span>
+                  <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">label</span><span class="cm-tag cm-bracket">&gt;</span>
+                  /
+                  <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">label</span> <span class="cm-attribute">for</span>=<span class="cm-string">"cardYear"</span> <span class="cm-attribute">class</span>=<span class="cm-string">"card-item__dateItem"</span><span class="cm-tag cm-bracket">&gt;</span>
+                    <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">transition</span> <span class="cm-attribute">name</span>=<span class="cm-string">"slide-fade-up"</span><span class="cm-tag cm-bracket">&gt;</span>
+                      <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">span</span> <span class="cm-attribute">v-if</span>=<span class="cm-string">"cardYear"</span> <span class="cm-attribute">v-bind:key</span>=<span class="cm-string">"cardYear"</span><span class="cm-tag cm-bracket">&gt;</span>{{String(cardYear).slice(2,4)}}<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">span</span><span class="cm-tag cm-bracket">&gt;</span>
+                      <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">span</span> <span class="cm-attribute">v-else</span> <span class="cm-attribute">key</span>=<span class="cm-string">"2"</span><span class="cm-tag cm-bracket">&gt;</span>YY<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">span</span><span class="cm-tag cm-bracket">&gt;</span>
+                    <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">transition</span><span class="cm-tag cm-bracket">&gt;</span>
+                  <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">label</span><span class="cm-tag cm-bracket">&gt;</span>
+                <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tag cm-bracket">&gt;</span>
+              <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tag cm-bracket">&gt;</span>
+            <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tag cm-bracket">&gt;</span>
+          <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tag cm-bracket">&gt;</span>
+          <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">"card-item__side -back"</span><span class="cm-tag cm-bracket">&gt;</span>
+            <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">"card-item__cover"</span><span class="cm-tag cm-bracket">&gt;</span>
+              <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">img</span>
+              <span class="cm-attribute">v-bind:src</span>=<span class="cm-string">"'https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/' + currentCardBackground + '.jpeg'"</span> <span class="cm-attribute">class</span>=<span class="cm-string">"card-item__bg"</span><span class="cm-tag cm-bracket">&gt;</span>
+            <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tag cm-bracket">&gt;</span>
+            <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">"card-item__band"</span><span class="cm-tag cm-bracket">&gt;</span><span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tag cm-bracket">&gt;</span>
+            <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">"card-item__cvv"</span><span class="cm-tag cm-bracket">&gt;</span>
+                <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">"card-item__cvvTitle"</span><span class="cm-tag cm-bracket">&gt;</span>CVV<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tag cm-bracket">&gt;</span>
+                <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">"card-item__cvvBand"</span><span class="cm-tag cm-bracket">&gt;</span>
+                  <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">span</span> <span class="cm-attribute">v-for</span>=<span class="cm-string">"(n, $index) in cardCvv"</span> <span class="cm-attribute">:key</span>=<span class="cm-string">"$index"</span><span class="cm-tag cm-bracket">&gt;</span>
+                    *
+                  <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">span</span><span class="cm-tag cm-bracket">&gt;</span>
+
+              <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tag cm-bracket">&gt;</span>
+                <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">"card-item__type"</span><span class="cm-tag cm-bracket">&gt;</span>
+                    <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">img</span> <span class="cm-attribute">v-bind:src</span>=<span class="cm-string">"'https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/' + getCardType + '.png'"</span> <span class="cm-attribute">v-if</span>=<span class="cm-string">"getCardType"</span> <span class="cm-attribute">class</span>=<span class="cm-string">"card-item__typeImg"</span><span class="cm-tag cm-bracket">&gt;</span>
+                <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tag cm-bracket">&gt;</span>
+            <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tag cm-bracket">&gt;</span>
+          <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tag cm-bracket">&gt;</span>
+        <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tag cm-bracket">&gt;</span>
+      <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tag cm-bracket">&gt;</span>
+      <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">"card-form__inner"</span><span class="cm-tag cm-bracket">&gt;</span>
+        <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">"card-input"</span><span class="cm-tag cm-bracket">&gt;</span>
+          <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">label</span> <span class="cm-attribute">for</span>=<span class="cm-string">"cardNumber"</span> <span class="cm-attribute">class</span>=<span class="cm-string">"card-input__label"</span><span class="cm-tag cm-bracket">&gt;</span>Card Number<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">label</span><span class="cm-tag cm-bracket">&gt;</span>
+          <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">input</span> <span class="cm-attribute">type</span>=<span class="cm-string">"text"</span> <span class="cm-attribute">id</span>=<span class="cm-string">"cardNumber"</span> <span class="cm-attribute">class</span>=<span class="cm-string">"card-input__input"</span> <span class="cm-attribute">v-mask</span>=<span class="cm-string">"generateCardNumberMask"</span> <span class="cm-attribute">v-model</span>=<span class="cm-string">"cardNumber"</span> <span class="cm-attribute">v-on:focus</span>=<span class="cm-string">"focusInput"</span> <span class="cm-attribute">v-on:blur</span>=<span class="cm-string">"blurInput"</span> <span class="cm-attribute">data-ref</span>=<span class="cm-string">"cardNumber"</span> <span class="cm-attribute">autocomplete</span>=<span class="cm-string">"off"</span><span class="cm-tag cm-bracket">&gt;</span>
+        <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tag cm-bracket">&gt;</span>
+        <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">"card-input"</span><span class="cm-tag cm-bracket">&gt;</span>
+          <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">label</span> <span class="cm-attribute">for</span>=<span class="cm-string">"cardName"</span> <span class="cm-attribute">class</span>=<span class="cm-string">"card-input__label"</span><span class="cm-tag cm-bracket">&gt;</span>Card Holders<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">label</span><span class="cm-tag cm-bracket">&gt;</span>
+          <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">input</span> <span class="cm-attribute">type</span>=<span class="cm-string">"text"</span> <span class="cm-attribute">id</span>=<span class="cm-string">"cardName"</span> <span class="cm-attribute">class</span>=<span class="cm-string">"card-input__input"</span> <span class="cm-attribute">v-model</span>=<span class="cm-string">"cardName"</span> <span class="cm-attribute">v-on:focus</span>=<span class="cm-string">"focusInput"</span> <span class="cm-attribute">v-on:blur</span>=<span class="cm-string">"blurInput"</span> <span class="cm-attribute">data-ref</span>=<span class="cm-string">"cardName"</span> <span class="cm-attribute">autocomplete</span>=<span class="cm-string">"off"</span><span class="cm-tag cm-bracket">&gt;</span>
+        <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tag cm-bracket">&gt;</span>
+        <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">"card-form__row"</span><span class="cm-tag cm-bracket">&gt;</span>
+          <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">"card-form__col"</span><span class="cm-tag cm-bracket">&gt;</span>
+            <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">"card-form__group"</span><span class="cm-tag cm-bracket">&gt;</span>
+              <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">label</span> <span class="cm-attribute">for</span>=<span class="cm-string">"cardMonth"</span> <span class="cm-attribute">class</span>=<span class="cm-string">"card-input__label"</span><span class="cm-tag cm-bracket">&gt;</span>Expiration Date<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">label</span><span class="cm-tag cm-bracket">&gt;</span>
+              <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">select</span> <span class="cm-attribute">class</span>=<span class="cm-string">"card-input__input -select"</span> <span class="cm-attribute">id</span>=<span class="cm-string">"cardMonth"</span> <span class="cm-attribute">v-model</span>=<span class="cm-string">"cardMonth"</span> <span class="cm-attribute">v-on:focus</span>=<span class="cm-string">"focusInput"</span> <span class="cm-attribute">v-on:blur</span>=<span class="cm-string">"blurInput"</span> <span class="cm-attribute">data-ref</span>=<span class="cm-string">"cardDate"</span><span class="cm-tag cm-bracket">&gt;</span>
+                <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">option</span> <span class="cm-attribute">value</span>=<span class="cm-string">""</span> <span class="cm-attribute">disabled</span> <span class="cm-attribute">selected</span><span class="cm-tag cm-bracket">&gt;</span>Month<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">option</span><span class="cm-tag cm-bracket">&gt;</span>
+                <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">option</span> <span class="cm-attribute">v-bind:value</span>=<span class="cm-string">"n &lt; 10 ? '0' + n : n"</span> <span class="cm-attribute">v-for</span>=<span class="cm-string">"n in 12"</span> <span class="cm-attribute">v-bind:disabled</span>=<span class="cm-string">"n &lt; minCardMonth"</span> <span class="cm-attribute">v-bind:key</span>=<span class="cm-string">"n"</span><span class="cm-tag cm-bracket">&gt;</span>
+                    {{n <span class="cm-tag cm-bracket">&lt;</span> <span class="cm-tag">10</span> <span class="cm-attribute">?</span> <span class="cm-string cm-error">'0'</span> <span class="cm-attribute">+</span> <span class="cm-attribute">n</span> <span class="cm-attribute">:</span> <span class="cm-attribute">n}}</span>
+                <span class="cm-tag cm-error">&lt;/option&gt;</span>
+              <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">select</span><span class="cm-tag cm-bracket">&gt;</span>
+              <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">select</span> <span class="cm-attribute">class</span>=<span class="cm-string">"card-input__input -select"</span> <span class="cm-attribute">id</span>=<span class="cm-string">"cardYear"</span> <span class="cm-attribute">v-model</span>=<span class="cm-string">"cardYear"</span> <span class="cm-attribute">v-on:focus</span>=<span class="cm-string">"focusInput"</span> <span class="cm-attribute">v-on:blur</span>=<span class="cm-string">"blurInput"</span> <span class="cm-attribute">data-ref</span>=<span class="cm-string">"cardDate"</span><span class="cm-tag cm-bracket">&gt;</span>
+                <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">option</span> <span class="cm-attribute">value</span>=<span class="cm-string">""</span> <span class="cm-attribute">disabled</span> <span class="cm-attribute">selected</span><span class="cm-tag cm-bracket">&gt;</span>Year<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">option</span><span class="cm-tag cm-bracket">&gt;</span>
+                <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">option</span> <span class="cm-attribute">v-bind:value</span>=<span class="cm-string">"$index + minCardYear"</span> <span class="cm-attribute">v-for</span>=<span class="cm-string">"(n, $index) in 12"</span> <span class="cm-attribute">v-bind:key</span>=<span class="cm-string">"n"</span><span class="cm-tag cm-bracket">&gt;</span>
+                    {{$index + minCardYear}}
+                <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">option</span><span class="cm-tag cm-bracket">&gt;</span>
+              <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">select</span><span class="cm-tag cm-bracket">&gt;</span>
+            <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tag cm-bracket">&gt;</span>
+          <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tag cm-bracket">&gt;</span>
+          <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">"card-form__col -cvv"</span><span class="cm-tag cm-bracket">&gt;</span>
+            <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">"card-input"</span><span class="cm-tag cm-bracket">&gt;</span>
+              <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">label</span> <span class="cm-attribute">for</span>=<span class="cm-string">"cardCvv"</span> <span class="cm-attribute">class</span>=<span class="cm-string">"card-input__label"</span><span class="cm-tag cm-bracket">&gt;</span>CVV<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">label</span><span class="cm-tag cm-bracket">&gt;</span>
+              <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">input</span> <span class="cm-attribute">type</span>=<span class="cm-string">"text"</span> <span class="cm-attribute">class</span>=<span class="cm-string">"card-input__input"</span> <span class="cm-attribute">id</span>=<span class="cm-string">"cardCvv"</span> <span class="cm-attribute">v-mask</span>=<span class="cm-string">"'####'"</span> <span class="cm-attribute">maxlength</span>=<span class="cm-string">"4"</span> <span class="cm-attribute">v-model</span>=<span class="cm-string">"cardCvv"</span> <span class="cm-attribute">v-on:focus</span>=<span class="cm-string">"flipCard(true)"</span> <span class="cm-attribute">v-on:blur</span>=<span class="cm-string">"flipCard(false)"</span> <span class="cm-attribute">autocomplete</span>=<span class="cm-string">"off"</span><span class="cm-tag cm-bracket">&gt;</span>
+            <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tag cm-bracket">&gt;</span>
+          <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tag cm-bracket">&gt;</span>
+        <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tag cm-bracket">&gt;</span>
+
+        <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">"card-form__button"</span><span class="cm-tag cm-bracket">&gt;</span>
+          Submit
+        <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tag cm-bracket">&gt;</span>
+      <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tag cm-bracket">&gt;</span>
+    <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tag cm-bracket">&gt;</span>
+    
+    <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">a</span> <span class="cm-attribute">href</span>=<span class="cm-string">"https://github.com/muhammederdem/credit-card-form"</span> <span class="cm-attribute">target</span>=<span class="cm-string">"_blank"</span> <span class="cm-attribute">class</span>=<span class="cm-string">"github-btn"</span><span class="cm-tag cm-bracket">&gt;</span>
+      See on GitHub
+    <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">a</span><span class="cm-tag cm-bracket">&gt;</span>
+  <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tag cm-bracket">&gt;</span></code></pre>
+</div>
+<div id="css-box" class="code-wrap code-box box " role="region" aria-label="CSS">
+<pre tabindex="0"><code data-lang="text/x-scss" id="actual-css-code" class=" cm-s-default"><span class="cm-def">@import</span> <span class="cm-variable cm-callee">url</span>(<span class="cm-string">"https://fonts.googleapis.com/css?family=Source+Code+Pro:400,500,600,700|Source+Sans+Pro:400,600,700&amp;display=swap"</span>);
+
+
+<span class="cm-tag">body</span> {
+  <span class="cm-property">background</span>: <span class="cm-atom">#ddeefc</span>;
+  <span class="cm-property">font-family</span>: <span class="cm-string">"Source Sans Pro"</span>, <span class="cm-atom">sans-serif</span>;
+  <span class="cm-property">font-size</span>: <span class="cm-number">16px</span>;
+}
+* {
+  <span class="cm-property">box-sizing</span>: <span class="cm-atom">border-box</span>;
+  &amp;:<span class="cm-variable-3">focus</span> {
+    <span class="cm-property">outline</span>: <span class="cm-atom">none</span>;
+  }
+}
+<span class="cm-qualifier">.wrapper</span> {
+  <span class="cm-property">min-height</span>: <span class="cm-number">100vh</span>;
+  <span class="cm-property">display</span>: <span class="cm-atom">flex</span>;
+  <span class="cm-property">padding</span>: <span class="cm-number">50px</span> <span class="cm-number">15px</span>;
+  <span class="cm-def">@media</span> <span class="cm-attribute">screen</span> <span class="cm-keyword">and</span> (<span class="cm-property">max-width</span>: <span class="cm-number">700px</span>), (<span class="cm-property">max-height</span>: <span class="cm-number">500px</span>) {
+    <span class="cm-property">flex-wrap</span>: <span class="cm-atom">wrap</span>;
+    <span class="cm-property">flex-direction</span>: <span class="cm-atom">column</span>;
+  }
+}
+
+<span class="cm-qualifier">.card-form</span> {
+  <span class="cm-property">max-width</span>: <span class="cm-number">570px</span>;
+  <span class="cm-property">margin</span>: <span class="cm-atom">auto</span>;
+  <span class="cm-property">width</span>: <span class="cm-number">100%</span>;
+
+  <span class="cm-def">@media</span> <span class="cm-attribute">screen</span> <span class="cm-keyword">and</span> (<span class="cm-property">max-width</span>: <span class="cm-number">576px</span>) {
+    <span class="cm-property">margin</span>: <span class="cm-number">0</span> <span class="cm-atom">auto</span>;
+  }
+
+  &amp;<span class="cm-tag">__inner</span> {
+    <span class="cm-property">background</span>: <span class="cm-atom">#fff</span>;
+    <span class="cm-comment">// box-shadow: 3px 13px 30px 0px rgba(21, 34, 67, 0.2);</span>
+    <span class="cm-property">box-shadow</span>: <span class="cm-number">0</span> <span class="cm-number">30px</span> <span class="cm-number">60px</span> <span class="cm-number">0</span> <span class="cm-variable cm-callee">rgba</span>(<span class="cm-number">90</span>, <span class="cm-number">116</span>, <span class="cm-number">148</span>, <span class="cm-number">0.4</span>);
+    <span class="cm-property">border-radius</span>: <span class="cm-number">10px</span>;
+    <span class="cm-property">padding</span>: <span class="cm-number">35px</span>;
+    <span class="cm-property">padding-top</span>: <span class="cm-number">180px</span>;
+
+    <span class="cm-def">@media</span> <span class="cm-attribute">screen</span> <span class="cm-keyword">and</span> (<span class="cm-property">max-width</span>: <span class="cm-number">480px</span>) {
+      <span class="cm-property">padding</span>: <span class="cm-number">25px</span>;
+      <span class="cm-property">padding-top</span>: <span class="cm-number">165px</span>;
+    }
+    <span class="cm-def">@media</span> <span class="cm-attribute">screen</span> <span class="cm-keyword">and</span> (<span class="cm-property">max-width</span>: <span class="cm-number">360px</span>) {
+      <span class="cm-property">padding</span>: <span class="cm-number">15px</span>;
+      <span class="cm-property">padding-top</span>: <span class="cm-number">165px</span>;
+    }
+  }
+
+  &amp;<span class="cm-tag">__row</span> {
+    <span class="cm-property">display</span>: <span class="cm-atom">flex</span>;
+    <span class="cm-property">align-items</span>: <span class="cm-atom">flex-start</span>;
+    <span class="cm-def">@media</span> <span class="cm-attribute">screen</span> <span class="cm-keyword">and</span> (<span class="cm-property">max-width</span>: <span class="cm-number">480px</span>) {
+      <span class="cm-property">flex-wrap</span>: <span class="cm-atom">wrap</span>;
+    }
+  }
+
+  &amp;<span class="cm-tag">__col</span> {
+    <span class="cm-property">flex</span>: <span class="cm-atom">auto</span>;
+    <span class="cm-property">margin-right</span>: <span class="cm-number">35px</span>;
+
+    &amp;:<span class="cm-variable-3">last-child</span> {
+      <span class="cm-property">margin-right</span>: <span class="cm-number">0</span>;
+    }
+
+    <span class="cm-def">@media</span> <span class="cm-attribute">screen</span> <span class="cm-keyword">and</span> (<span class="cm-property">max-width</span>: <span class="cm-number">480px</span>) {
+      <span class="cm-property">margin-right</span>: <span class="cm-number">0</span>;
+      <span class="cm-property">flex</span>: <span class="cm-atom">unset</span>;
+      <span class="cm-property">width</span>: <span class="cm-number">100%</span>;
+      <span class="cm-property">margin-bottom</span>: <span class="cm-number">20px</span>;
+
+      &amp;:<span class="cm-variable-3">last-child</span> {
+        <span class="cm-property">margin-bottom</span>: <span class="cm-number">0</span>;
+      }
+    }
+
+    &amp;<span class="cm-qualifier">.-cvv</span> {
+      <span class="cm-property">max-width</span>: <span class="cm-number">150px</span>;
+      <span class="cm-def">@media</span> <span class="cm-attribute">screen</span> <span class="cm-keyword">and</span> (<span class="cm-property">max-width</span>: <span class="cm-number">480px</span>) {
+        <span class="cm-property">max-width</span>: <span class="cm-atom">initial</span>;
+      }
+    }
+  }
+
+  &amp;<span class="cm-tag">__group</span> {
+    <span class="cm-property">display</span>: <span class="cm-atom">flex</span>;
+    <span class="cm-property">align-items</span>: <span class="cm-atom">flex-start</span>;
+    <span class="cm-property">flex-wrap</span>: <span class="cm-atom">wrap</span>;
+
+    <span class="cm-qualifier">.card-input__input</span> {
+      <span class="cm-property">flex</span>: <span class="cm-number">1</span>;
+      <span class="cm-property">margin-right</span>: <span class="cm-number">15px</span>;
+
+      &amp;:<span class="cm-variable-3">last-child</span> {
+        <span class="cm-property">margin-right</span>: <span class="cm-number">0</span>;
+      }
+    }
+  }
+
+  &amp;<span class="cm-tag">__button</span> {
+    <span class="cm-property">width</span>: <span class="cm-number">100%</span>;
+    <span class="cm-property">height</span>: <span class="cm-number">55px</span>;
+    <span class="cm-property">background</span>: <span class="cm-atom">#2364d2</span>;
+    <span class="cm-property">border</span>: <span class="cm-atom">none</span>;
+    <span class="cm-property">border-radius</span>: <span class="cm-number">5px</span>;
+    <span class="cm-property">font-size</span>: <span class="cm-number">22px</span>;
+    <span class="cm-property">font-weight</span>: <span class="cm-number">500</span>;
+    <span class="cm-property">font-family</span>: <span class="cm-string">"Source Sans Pro"</span>, <span class="cm-atom">sans-serif</span>;
+    <span class="cm-property">box-shadow</span>: <span class="cm-number">3px</span> <span class="cm-number">10px</span> <span class="cm-number">20px</span> <span class="cm-number">0px</span> <span class="cm-variable cm-callee">rgba</span>(<span class="cm-number">35</span>, <span class="cm-number">100</span>, <span class="cm-number">210</span>, <span class="cm-number">0.3</span>);
+    <span class="cm-property">color</span>: <span class="cm-atom">#fff</span>;
+    <span class="cm-property">margin-top</span>: <span class="cm-number">20px</span>;
+    <span class="cm-property">cursor</span>: <span class="cm-atom">pointer</span>;
+
+    <span class="cm-def">@media</span> <span class="cm-attribute">screen</span> <span class="cm-keyword">and</span> (<span class="cm-property">max-width</span>: <span class="cm-number">480px</span>) {
+      <span class="cm-property">margin-top</span>: <span class="cm-number">10px</span>;
+    }
+  }
+}
+
+<span class="cm-qualifier">.card-item</span> {
+  <span class="cm-property">max-width</span>: <span class="cm-number">430px</span>;
+  <span class="cm-property">height</span>: <span class="cm-number">270px</span>;
+  <span class="cm-property">margin-left</span>: <span class="cm-atom">auto</span>;
+  <span class="cm-property">margin-right</span>: <span class="cm-atom">auto</span>;
+  <span class="cm-property">position</span>: <span class="cm-atom">relative</span>;
+  <span class="cm-property">z-index</span>: <span class="cm-number">2</span>;
+  <span class="cm-property">width</span>: <span class="cm-number">100%</span>;
+
+  <span class="cm-def">@media</span> <span class="cm-attribute">screen</span> <span class="cm-keyword">and</span> (<span class="cm-property">max-width</span>: <span class="cm-number">480px</span>) {
+    <span class="cm-property">max-width</span>: <span class="cm-number">310px</span>;
+    <span class="cm-property">height</span>: <span class="cm-number">220px</span>;
+    <span class="cm-property">width</span>: <span class="cm-number">90%</span>;
+  }
+
+  <span class="cm-def">@media</span> <span class="cm-attribute">screen</span> <span class="cm-keyword">and</span> (<span class="cm-property">max-width</span>: <span class="cm-number">360px</span>) {
+    <span class="cm-property">height</span>: <span class="cm-number">180px</span>;
+  }
+
+  &amp;<span class="cm-qualifier">.-active</span> {
+    <span class="cm-qualifier">.card-item__side</span> {
+      &amp;<span class="cm-qualifier">.-front</span> {
+        <span class="cm-property">transform</span>: <span class="cm-variable cm-callee">perspective</span>(<span class="cm-number">1000px</span>) <span class="cm-variable cm-callee">rotateY</span>(<span class="cm-number">180deg</span>) <span class="cm-variable cm-callee">rotateX</span>(<span class="cm-number">0deg</span>)
+          <span class="cm-variable cm-callee">rotateZ</span>(<span class="cm-number">0deg</span>);
+      }
+      &amp;<span class="cm-qualifier">.-back</span> {
+        <span class="cm-property">transform</span>: <span class="cm-variable cm-callee">perspective</span>(<span class="cm-number">1000px</span>) <span class="cm-variable cm-callee">rotateY</span>(<span class="cm-number">0</span>) <span class="cm-variable cm-callee">rotateX</span>(<span class="cm-number">0deg</span>) <span class="cm-variable cm-callee">rotateZ</span>(<span class="cm-number">0deg</span>);
+        <span class="cm-comment">// box-shadow: 0 20px 50px 0 rgba(81, 88, 206, 0.65);</span>
+      }
+    }
+  }
+
+  &amp;<span class="cm-tag">__focus</span> {
+    <span class="cm-property">position</span>: <span class="cm-atom">absolute</span>;
+    <span class="cm-property">z-index</span>: <span class="cm-number">3</span>;
+    <span class="cm-property">border-radius</span>: <span class="cm-number">5px</span>;
+    <span class="cm-property">left</span>: <span class="cm-number">0</span>;
+    <span class="cm-property">top</span>: <span class="cm-number">0</span>;
+    <span class="cm-property">width</span>: <span class="cm-number">100%</span>;
+    <span class="cm-property">height</span>: <span class="cm-number">100%</span>;
+    <span class="cm-property">transition</span>: <span class="cm-atom">all</span> <span class="cm-number">0.35s</span> <span class="cm-variable cm-callee">cubic-bezier</span>(<span class="cm-number">0.71</span>, <span class="cm-number">0.03</span>, <span class="cm-number">0.56</span>, <span class="cm-number">0.85</span>);
+    <span class="cm-property">opacity</span>: <span class="cm-number">0</span>;
+    <span class="cm-property">pointer-events</span>: <span class="cm-atom">none</span>;
+    <span class="cm-property">overflow</span>: <span class="cm-atom">hidden</span>;
+    <span class="cm-property">border</span>: <span class="cm-number">2px</span> <span class="cm-atom">solid</span> <span class="cm-variable cm-callee">rgba</span>(<span class="cm-number">255</span>, <span class="cm-number">255</span>, <span class="cm-number">255</span>, <span class="cm-number">0.65</span>);
+
+    &amp;:<span class="cm-variable-3">after</span> {
+      <span class="cm-property">content</span>: <span class="cm-string">""</span>;
+      <span class="cm-property">position</span>: <span class="cm-atom">absolute</span>;
+      <span class="cm-property">top</span>: <span class="cm-number">0</span>;
+      <span class="cm-property">left</span>: <span class="cm-number">0</span>;
+      <span class="cm-property">width</span>: <span class="cm-number">100%</span>;
+      <span class="cm-property">background</span>: <span class="cm-variable cm-callee">rgb</span>(<span class="cm-number">8</span>, <span class="cm-number">20</span>, <span class="cm-number">47</span>);
+      <span class="cm-property">height</span>: <span class="cm-number">100%</span>;
+      <span class="cm-property">border-radius</span>: <span class="cm-number">5px</span>;
+      <span class="cm-property">filter</span>: <span class="cm-variable cm-callee">blur</span>(<span class="cm-number">25px</span>);
+      <span class="cm-property">opacity</span>: <span class="cm-number">0.5</span>;
+    }
+
+    &amp;<span class="cm-qualifier">.-active</span> {
+      <span class="cm-property">opacity</span>: <span class="cm-number">1</span>;
+    }
+  }
+
+  &amp;<span class="cm-tag">__side</span> {
+    <span class="cm-property">border-radius</span>: <span class="cm-number">15px</span>;
+    <span class="cm-property">overflow</span>: <span class="cm-atom">hidden</span>;
+    <span class="cm-comment">// box-shadow: 3px 13px 30px 0px rgba(11, 19, 41, 0.5);</span>
+    <span class="cm-property">box-shadow</span>: <span class="cm-number">0</span> <span class="cm-number">20px</span> <span class="cm-number">60px</span> <span class="cm-number">0</span> <span class="cm-variable cm-callee">rgba</span>(<span class="cm-number">14</span>, <span class="cm-number">42</span>, <span class="cm-number">90</span>, <span class="cm-number">0.55</span>);
+    <span class="cm-property">transform</span>: <span class="cm-variable cm-callee">perspective</span>(<span class="cm-number">2000px</span>) <span class="cm-variable cm-callee">rotateY</span>(<span class="cm-number">0deg</span>) <span class="cm-variable cm-callee">rotateX</span>(<span class="cm-number">0deg</span>) <span class="cm-variable cm-callee">rotate</span>(<span class="cm-number">0deg</span>);
+    <span class="cm-property">transform-style</span>: <span class="cm-atom">preserve-3d</span>;
+    <span class="cm-property">transition</span>: <span class="cm-atom">all</span> <span class="cm-number">0.8s</span> <span class="cm-variable cm-callee">cubic-bezier</span>(<span class="cm-number">0.71</span>, <span class="cm-number">0.03</span>, <span class="cm-number">0.56</span>, <span class="cm-number">0.85</span>);
+    <span class="cm-property">backface-visibility</span>: <span class="cm-atom">hidden</span>;
+    <span class="cm-property">height</span>: <span class="cm-number">100%</span>;
+
+    &amp;<span class="cm-qualifier">.-back</span> {
+      <span class="cm-property">position</span>: <span class="cm-atom">absolute</span>;
+      <span class="cm-property">top</span>: <span class="cm-number">0</span>;
+      <span class="cm-property">left</span>: <span class="cm-number">0</span>;
+      <span class="cm-property">width</span>: <span class="cm-number">100%</span>;
+      <span class="cm-property">transform</span>: <span class="cm-variable cm-callee">perspective</span>(<span class="cm-number">2000px</span>) <span class="cm-variable cm-callee">rotateY</span>(<span class="cm-number">-180deg</span>) <span class="cm-variable cm-callee">rotateX</span>(<span class="cm-number">0deg</span>) <span class="cm-variable cm-callee">rotate</span>(<span class="cm-number">0deg</span>);
+      <span class="cm-property">z-index</span>: <span class="cm-number">2</span>;
+      <span class="cm-property">padding</span>: <span class="cm-number">0</span>;
+      <span class="cm-comment">// background-color: #2364d2;</span>
+      <span class="cm-comment">// background-image: linear-gradient(</span>
+      <span class="cm-comment">//   43deg,</span>
+      <span class="cm-comment">//   #4158d0 0%,</span>
+      <span class="cm-comment">//   #8555c7 46%,</span>
+      <span class="cm-comment">//   #2364d2 100%</span>
+      <span class="cm-comment">// );</span>
+      <span class="cm-property">height</span>: <span class="cm-number">100%</span>;
+
+      <span class="cm-qualifier">.card-item__cover</span> {
+        <span class="cm-property">transform</span>: <span class="cm-variable cm-callee">rotateY</span>(<span class="cm-number">-180deg</span>)
+      }
+    }
+  }
+  &amp;<span class="cm-tag">__bg</span> {
+    <span class="cm-property">max-width</span>: <span class="cm-number">100%</span>;
+    <span class="cm-property">display</span>: <span class="cm-atom">block</span>;
+    <span class="cm-property">max-height</span>: <span class="cm-number">100%</span>;
+    <span class="cm-property">height</span>: <span class="cm-number">100%</span>;
+    <span class="cm-property">width</span>: <span class="cm-number">100%</span>;
+    <span class="cm-property">object-fit</span>: <span class="cm-atom">cover</span>;
+  }
+  &amp;<span class="cm-tag">__cover</span> {
+    <span class="cm-property">height</span>: <span class="cm-number">100%</span>;
+    <span class="cm-property">background-color</span>: <span class="cm-atom">#1c1d27</span>;
+    <span class="cm-property">position</span>: <span class="cm-atom">absolute</span>;
+    <span class="cm-property">height</span>: <span class="cm-number">100%</span>;
+    <span class="cm-property">background-color</span>: <span class="cm-atom">#1c1d27</span>;
+    <span class="cm-property">left</span>: <span class="cm-number">0</span>;
+    <span class="cm-property">top</span>: <span class="cm-number">0</span>;
+    <span class="cm-property">width</span>: <span class="cm-number">100%</span>;
+    <span class="cm-property">border-radius</span>: <span class="cm-number">15px</span>;
+    <span class="cm-property">overflow</span>: <span class="cm-atom">hidden</span>;
+    &amp;:<span class="cm-variable-3">after</span> {
+      <span class="cm-property">content</span>: <span class="cm-string">""</span>;
+      <span class="cm-property">position</span>: <span class="cm-atom">absolute</span>;
+      <span class="cm-property">left</span>: <span class="cm-number">0</span>;
+      <span class="cm-property">top</span>: <span class="cm-number">0</span>;
+      <span class="cm-property">width</span>: <span class="cm-number">100%</span>;
+      <span class="cm-property">height</span>: <span class="cm-number">100%</span>;
+      <span class="cm-property">background</span>: <span class="cm-variable cm-callee">rgba</span>(<span class="cm-number">6</span>, <span class="cm-number">2</span>, <span class="cm-number">29</span>, <span class="cm-number">0.45</span>);
+    }
+  }
+
+  &amp;<span class="cm-tag">__top</span> {
+    <span class="cm-property">display</span>: <span class="cm-atom">flex</span>;
+    <span class="cm-property">align-items</span>: <span class="cm-atom">flex-start</span>;
+    <span class="cm-property">justify-content</span>: <span class="cm-atom">space-between</span>;
+    <span class="cm-property">margin-bottom</span>: <span class="cm-number">40px</span>;
+    <span class="cm-property">padding</span>: <span class="cm-number">0</span> <span class="cm-number">10px</span>;
+
+    <span class="cm-def">@media</span> <span class="cm-attribute">screen</span> <span class="cm-keyword">and</span> (<span class="cm-property">max-width</span>: <span class="cm-number">480px</span>) {
+      <span class="cm-property">margin-bottom</span>: <span class="cm-number">25px</span>;
+    }
+    <span class="cm-def">@media</span> <span class="cm-attribute">screen</span> <span class="cm-keyword">and</span> (<span class="cm-property">max-width</span>: <span class="cm-number">360px</span>) {
+      <span class="cm-property">margin-bottom</span>: <span class="cm-number">15px</span>;
+    }
+  }
+
+  &amp;<span class="cm-tag">__chip</span> {
+    <span class="cm-property">width</span>: <span class="cm-number">60px</span>;
+    <span class="cm-def">@media</span> <span class="cm-attribute">screen</span> <span class="cm-keyword">and</span> (<span class="cm-property">max-width</span>: <span class="cm-number">480px</span>) {
+      <span class="cm-property">width</span>: <span class="cm-number">50px</span>;
+    }
+    <span class="cm-def">@media</span> <span class="cm-attribute">screen</span> <span class="cm-keyword">and</span> (<span class="cm-property">max-width</span>: <span class="cm-number">360px</span>) {
+      <span class="cm-property">width</span>: <span class="cm-number">40px</span>;
+    }
+  }
+
+  &amp;<span class="cm-tag">__type</span> {
+    <span class="cm-property">height</span>: <span class="cm-number">45px</span>;
+    <span class="cm-property">position</span>: <span class="cm-atom">relative</span>;
+    <span class="cm-property">display</span>: <span class="cm-atom">flex</span>;
+    <span class="cm-property">justify-content</span>: <span class="cm-atom">flex-end</span>;
+    <span class="cm-property">max-width</span>: <span class="cm-number">100px</span>;
+    <span class="cm-property">margin-left</span>: <span class="cm-atom">auto</span>;
+    <span class="cm-property">width</span>: <span class="cm-number">100%</span>;
+
+    <span class="cm-def">@media</span> <span class="cm-attribute">screen</span> <span class="cm-keyword">and</span> (<span class="cm-property">max-width</span>: <span class="cm-number">480px</span>) {
+      <span class="cm-property">height</span>: <span class="cm-number">40px</span>;
+      <span class="cm-property">max-width</span>: <span class="cm-number">90px</span>;
+    }
+    <span class="cm-def">@media</span> <span class="cm-attribute">screen</span> <span class="cm-keyword">and</span> (<span class="cm-property">max-width</span>: <span class="cm-number">360px</span>) {
+      <span class="cm-property">height</span>: <span class="cm-number">30px</span>;
+    }
+  }
+
+  &amp;<span class="cm-tag">__typeImg</span> {
+    <span class="cm-property">max-width</span>: <span class="cm-number">100%</span>;
+    <span class="cm-property">object-fit</span>: <span class="cm-atom">contain</span>;
+    <span class="cm-property">max-height</span>: <span class="cm-number">100%</span>;
+    <span class="cm-property">object-position</span>: <span class="cm-atom">top</span> <span class="cm-atom">right</span>;
+  }
+
+  &amp;<span class="cm-tag">__info</span> {
+    <span class="cm-property">color</span>: <span class="cm-atom">#fff</span>;
+    <span class="cm-property">width</span>: <span class="cm-number">100%</span>;
+    <span class="cm-property">max-width</span>: <span class="cm-variable cm-callee">calc</span>(<span class="cm-number">100%</span> - <span class="cm-number">85px</span>);
+    <span class="cm-property">padding</span>: <span class="cm-number">10px</span> <span class="cm-number">15px</span>;
+    <span class="cm-property">font-weight</span>: <span class="cm-number">500</span>;
+    <span class="cm-property">display</span>: <span class="cm-atom">block</span>;
+
+    <span class="cm-property">cursor</span>: <span class="cm-atom">pointer</span>;
+
+    <span class="cm-def">@media</span> <span class="cm-attribute">screen</span> <span class="cm-keyword">and</span> (<span class="cm-property">max-width</span>: <span class="cm-number">480px</span>) {
+      <span class="cm-property">padding</span>: <span class="cm-number">10px</span>;
+    }
+  }
+
+  &amp;<span class="cm-tag">__holder</span> {
+    <span class="cm-property">opacity</span>: <span class="cm-number">0.7</span>;
+    <span class="cm-property">font-size</span>: <span class="cm-number">13px</span>;
+    <span class="cm-property">margin-bottom</span>: <span class="cm-number">6px</span>;
+    <span class="cm-def">@media</span> <span class="cm-attribute">screen</span> <span class="cm-keyword">and</span> (<span class="cm-property">max-width</span>: <span class="cm-number">480px</span>) {
+      <span class="cm-property">font-size</span>: <span class="cm-number">12px</span>;
+      <span class="cm-property">margin-bottom</span>: <span class="cm-number">5px</span>;
+    }
+  }
+
+  &amp;<span class="cm-tag">__wrapper</span> {
+    <span class="cm-property">font-family</span>: <span class="cm-string">"Source Code Pro"</span>, <span class="cm-atom">monospace</span>;
+    <span class="cm-property">padding</span>: <span class="cm-number">25px</span> <span class="cm-number">15px</span>;
+    <span class="cm-property">position</span>: <span class="cm-atom">relative</span>;
+    <span class="cm-property">z-index</span>: <span class="cm-number">4</span>;
+    <span class="cm-property">height</span>: <span class="cm-number">100%</span>;
+    <span class="cm-property">text-shadow</span>: <span class="cm-number">7px</span> <span class="cm-number">6px</span> <span class="cm-number">10px</span> <span class="cm-variable cm-callee">rgba</span>(<span class="cm-number">14</span>, <span class="cm-number">42</span>, <span class="cm-number">90</span>, <span class="cm-number">0.8</span>);
+    <span class="cm-property">user-select</span>: <span class="cm-atom">none</span>;
+    <span class="cm-def">@media</span> <span class="cm-attribute">screen</span> <span class="cm-keyword">and</span> (<span class="cm-property">max-width</span>: <span class="cm-number">480px</span>) {
+      <span class="cm-property">padding</span>: <span class="cm-number">20px</span> <span class="cm-number">10px</span>;
+    }
+  }
+
+  &amp;<span class="cm-tag">__name</span> {
+    <span class="cm-property">font-size</span>: <span class="cm-number">18px</span>;
+    <span class="cm-property">line-height</span>: <span class="cm-number">1</span>;
+    <span class="cm-property">white-space</span>: <span class="cm-atom">nowrap</span>;
+    <span class="cm-property">max-width</span>: <span class="cm-number">100%</span>;
+    <span class="cm-property">overflow</span>: <span class="cm-atom">hidden</span>;
+    <span class="cm-property">text-overflow</span>: <span class="cm-atom">ellipsis</span>;
+    <span class="cm-property">text-transform</span>: <span class="cm-atom">uppercase</span>;
+    <span class="cm-def">@media</span> <span class="cm-attribute">screen</span> <span class="cm-keyword">and</span> (<span class="cm-property">max-width</span>: <span class="cm-number">480px</span>) {
+      <span class="cm-property">font-size</span>: <span class="cm-number">16px</span>;
+    }
+  }
+  &amp;<span class="cm-tag">__nameItem</span> {
+    <span class="cm-property">display</span>: <span class="cm-atom">inline-block</span>;
+    <span class="cm-property">min-width</span>: <span class="cm-number">8px</span>;
+    <span class="cm-property">position</span>: <span class="cm-atom">relative</span>;
+  }
+
+  &amp;<span class="cm-tag">__number</span> {
+    <span class="cm-property">font-weight</span>: <span class="cm-number">500</span>;
+    <span class="cm-property">line-height</span>: <span class="cm-number">1</span>;
+    <span class="cm-property">color</span>: <span class="cm-atom">#fff</span>;
+    <span class="cm-property">font-size</span>: <span class="cm-number">27px</span>;
+    <span class="cm-property">margin-bottom</span>: <span class="cm-number">35px</span>;
+    <span class="cm-property">display</span>: <span class="cm-atom">inline-block</span>;
+    <span class="cm-property">padding</span>: <span class="cm-number">10px</span> <span class="cm-number">15px</span>;
+    <span class="cm-property">cursor</span>: <span class="cm-atom">pointer</span>;
+
+    <span class="cm-def">@media</span> <span class="cm-attribute">screen</span> <span class="cm-keyword">and</span> (<span class="cm-property">max-width</span>: <span class="cm-number">480px</span>) {
+      <span class="cm-property">font-size</span>: <span class="cm-number">21px</span>;
+      <span class="cm-property">margin-bottom</span>: <span class="cm-number">15px</span>;
+      <span class="cm-property">padding</span>: <span class="cm-number">10px</span> <span class="cm-number">10px</span>;
+    }
+
+    <span class="cm-def">@media</span> <span class="cm-attribute">screen</span> <span class="cm-keyword">and</span> (<span class="cm-property">max-width</span>: <span class="cm-number">360px</span>) {
+      <span class="cm-property">font-size</span>: <span class="cm-number">19px</span>;
+      <span class="cm-property">margin-bottom</span>: <span class="cm-number">10px</span>;
+      <span class="cm-property">padding</span>: <span class="cm-number">10px</span> <span class="cm-number">10px</span>;
+    }
+  }
+
+  &amp;<span class="cm-tag">__numberItem</span> {
+    <span class="cm-property">width</span>: <span class="cm-number">16px</span>;
+    <span class="cm-property">display</span>: <span class="cm-atom">inline-block</span>;
+    &amp;<span class="cm-qualifier">.-active</span> {
+      <span class="cm-property">width</span>: <span class="cm-number">30px</span>;
+    }
+
+    <span class="cm-def">@media</span> <span class="cm-attribute">screen</span> <span class="cm-keyword">and</span> (<span class="cm-property">max-width</span>: <span class="cm-number">480px</span>) {
+      <span class="cm-property">width</span>: <span class="cm-number">13px</span>;
+
+      &amp;<span class="cm-qualifier">.-active</span> {
+        <span class="cm-property">width</span>: <span class="cm-number">16px</span>;
+      }
+    }
+
+    <span class="cm-def">@media</span> <span class="cm-attribute">screen</span> <span class="cm-keyword">and</span> (<span class="cm-property">max-width</span>: <span class="cm-number">360px</span>) {
+      <span class="cm-property">width</span>: <span class="cm-number">12px</span>;
+
+      &amp;<span class="cm-qualifier">.-active</span> {
+        <span class="cm-property">width</span>: <span class="cm-number">8px</span>;
+      }
+    }
+  }
+
+  &amp;<span class="cm-tag">__content</span> {
+    <span class="cm-property">color</span>: <span class="cm-atom">#fff</span>;
+    <span class="cm-property">display</span>: <span class="cm-atom">flex</span>;
+    <span class="cm-property">align-items</span>: <span class="cm-atom">flex-start</span>;
+  }
+
+  &amp;<span class="cm-tag">__date</span> {
+    <span class="cm-property">flex-wrap</span>: <span class="cm-atom">wrap</span>;
+    <span class="cm-property">font-size</span>: <span class="cm-number">18px</span>;
+    <span class="cm-property">margin-left</span>: <span class="cm-atom">auto</span>;
+    <span class="cm-property">padding</span>: <span class="cm-number">10px</span>;
+    <span class="cm-property">display</span>: <span class="cm-atom">inline-flex</span>;
+    <span class="cm-property">width</span>: <span class="cm-number">80px</span>;
+    <span class="cm-property">white-space</span>: <span class="cm-atom">nowrap</span>;
+    <span class="cm-property">flex-shrink</span>: <span class="cm-number">0</span>;
+    <span class="cm-property">cursor</span>: <span class="cm-atom">pointer</span>;
+
+    <span class="cm-def">@media</span> <span class="cm-attribute">screen</span> <span class="cm-keyword">and</span> (<span class="cm-property">max-width</span>: <span class="cm-number">480px</span>) {
+      <span class="cm-property">font-size</span>: <span class="cm-number">16px</span>;
+    }
+  }
+
+  &amp;<span class="cm-tag">__dateItem</span> {
+    <span class="cm-property">position</span>: <span class="cm-atom">relative</span>;
+    <span class="cm-tag">span</span> {
+      <span class="cm-property">width</span>: <span class="cm-number">22px</span>;
+      <span class="cm-property">display</span>: <span class="cm-atom">inline-block</span>;
+    }
+  }
+
+  &amp;<span class="cm-tag">__dateTitle</span> {
+    <span class="cm-property">opacity</span>: <span class="cm-number">0.7</span>;
+    <span class="cm-property">font-size</span>: <span class="cm-number">13px</span>;
+    <span class="cm-property">padding-bottom</span>: <span class="cm-number">6px</span>;
+    <span class="cm-property">width</span>: <span class="cm-number">100%</span>;
+
+    <span class="cm-def">@media</span> <span class="cm-attribute">screen</span> <span class="cm-keyword">and</span> (<span class="cm-property">max-width</span>: <span class="cm-number">480px</span>) {
+      <span class="cm-property">font-size</span>: <span class="cm-number">12px</span>;
+      <span class="cm-property">padding-bottom</span>: <span class="cm-number">5px</span>;
+    }
+  }
+  &amp;<span class="cm-tag">__band</span> {
+    <span class="cm-property">background</span>: <span class="cm-variable cm-callee">rgba</span>(<span class="cm-number">0</span>, <span class="cm-number">0</span>, <span class="cm-number">19</span>, <span class="cm-number">0.8</span>);
+    <span class="cm-property">width</span>: <span class="cm-number">100%</span>;
+    <span class="cm-property">height</span>: <span class="cm-number">50px</span>;
+    <span class="cm-property">margin-top</span>: <span class="cm-number">30px</span>;
+    <span class="cm-property">position</span>: <span class="cm-atom">relative</span>;
+    <span class="cm-property">z-index</span>: <span class="cm-number">2</span>;
+    <span class="cm-def">@media</span> <span class="cm-attribute">screen</span> <span class="cm-keyword">and</span> (<span class="cm-property">max-width</span>: <span class="cm-number">480px</span>) {
+      <span class="cm-property">margin-top</span>: <span class="cm-number">20px</span>;
+    }
+    <span class="cm-def">@media</span> <span class="cm-attribute">screen</span> <span class="cm-keyword">and</span> (<span class="cm-property">max-width</span>: <span class="cm-number">360px</span>) {
+      <span class="cm-property">height</span>: <span class="cm-number">40px</span>;
+      <span class="cm-property">margin-top</span>: <span class="cm-number">10px</span>;
+    }
+  }
+
+  &amp;<span class="cm-tag">__cvv</span> {
+    <span class="cm-property">text-align</span>: <span class="cm-atom">right</span>;
+    <span class="cm-property">position</span>: <span class="cm-atom">relative</span>;
+    <span class="cm-property">z-index</span>: <span class="cm-number">2</span>;
+    <span class="cm-property">padding</span>: <span class="cm-number">15px</span>;
+    <span class="cm-qualifier">.card-item__type</span> {
+      <span class="cm-property">opacity</span>: <span class="cm-number">0.7</span>;
+    }
+
+    <span class="cm-def">@media</span> <span class="cm-attribute">screen</span> <span class="cm-keyword">and</span> (<span class="cm-property">max-width</span>: <span class="cm-number">360px</span>) {
+      <span class="cm-property">padding</span>: <span class="cm-number">10px</span> <span class="cm-number">15px</span>;
+    }
+  }
+  &amp;<span class="cm-tag">__cvvTitle</span> {
+    <span class="cm-property">padding-right</span>: <span class="cm-number">10px</span>;
+    <span class="cm-property">font-size</span>: <span class="cm-number">15px</span>;
+    <span class="cm-property">font-weight</span>: <span class="cm-number">500</span>;
+    <span class="cm-property">color</span>: <span class="cm-atom">#fff</span>;
+    <span class="cm-property">margin-bottom</span>: <span class="cm-number">5px</span>;
+  }
+  &amp;<span class="cm-tag">__cvvBand</span> {
+    <span class="cm-property">height</span>: <span class="cm-number">45px</span>;
+    <span class="cm-property">background</span>: <span class="cm-atom">#fff</span>;
+    <span class="cm-property">margin-bottom</span>: <span class="cm-number">30px</span>;
+    <span class="cm-property">text-align</span>: <span class="cm-atom">right</span>;
+    <span class="cm-property">display</span>: <span class="cm-atom">flex</span>;
+    <span class="cm-property">align-items</span>: <span class="cm-atom">center</span>;
+    <span class="cm-property">justify-content</span>: <span class="cm-atom">flex-end</span>;
+    <span class="cm-property">padding-right</span>: <span class="cm-number">10px</span>;
+    <span class="cm-property">color</span>: <span class="cm-atom">#1a3b5d</span>;
+    <span class="cm-property">font-size</span>: <span class="cm-number">18px</span>;
+    <span class="cm-property">border-radius</span>: <span class="cm-number">4px</span>;
+    <span class="cm-property">box-shadow</span>: <span class="cm-number">0px</span> <span class="cm-number">10px</span> <span class="cm-number">20px</span> <span class="cm-number">-7px</span> <span class="cm-variable cm-callee">rgba</span>(<span class="cm-number">32</span>, <span class="cm-number">56</span>, <span class="cm-number">117</span>, <span class="cm-number">0.35</span>);
+
+    <span class="cm-def">@media</span> <span class="cm-attribute">screen</span> <span class="cm-keyword">and</span> (<span class="cm-property">max-width</span>: <span class="cm-number">480px</span>) {
+      <span class="cm-property">height</span>: <span class="cm-number">40px</span>;
+      <span class="cm-property">margin-bottom</span>: <span class="cm-number">20px</span>;
+    }
+
+    <span class="cm-def">@media</span> <span class="cm-attribute">screen</span> <span class="cm-keyword">and</span> (<span class="cm-property">max-width</span>: <span class="cm-number">360px</span>) {
+      <span class="cm-property">margin-bottom</span>: <span class="cm-number">15px</span>;
+    }
+  }
+}
+
+<span class="cm-qualifier">.card-list</span> {
+  <span class="cm-property">margin-bottom</span>: <span class="cm-number">-130px</span>;
+
+  <span class="cm-def">@media</span> <span class="cm-attribute">screen</span> <span class="cm-keyword">and</span> (<span class="cm-property">max-width</span>: <span class="cm-number">480px</span>) {
+    <span class="cm-property">margin-bottom</span>: <span class="cm-number">-120px</span>;
+  }
+}
+
+<span class="cm-qualifier">.card-input</span> {
+  <span class="cm-property">margin-bottom</span>: <span class="cm-number">20px</span>;
+  &amp;<span class="cm-tag">__label</span> {
+    <span class="cm-property">font-size</span>: <span class="cm-number">14px</span>;
+    <span class="cm-property">margin-bottom</span>: <span class="cm-number">5px</span>;
+    <span class="cm-property">font-weight</span>: <span class="cm-number">500</span>;
+    <span class="cm-property">color</span>: <span class="cm-atom">#1a3b5d</span>;
+    <span class="cm-property">width</span>: <span class="cm-number">100%</span>;
+    <span class="cm-property">display</span>: <span class="cm-atom">block</span>;
+    <span class="cm-property">user-select</span>: <span class="cm-atom">none</span>;
+  }
+  &amp;<span class="cm-tag">__input</span> {
+    <span class="cm-property">width</span>: <span class="cm-number">100%</span>;
+    <span class="cm-property">height</span>: <span class="cm-number">50px</span>;
+    <span class="cm-property">border-radius</span>: <span class="cm-number">5px</span>;
+    <span class="cm-property">box-shadow</span>: <span class="cm-atom">none</span>;
+    <span class="cm-property">border</span>: <span class="cm-number">1px</span> <span class="cm-atom">solid</span> <span class="cm-atom">#ced6e0</span>;
+    <span class="cm-property">transition</span>: <span class="cm-atom">all</span> <span class="cm-number">0.3s</span> <span class="cm-atom">ease-in-out</span>;
+    <span class="cm-property">font-size</span>: <span class="cm-number">18px</span>;
+    <span class="cm-property">padding</span>: <span class="cm-number">5px</span> <span class="cm-number">15px</span>;
+    <span class="cm-property">background</span>: <span class="cm-atom">none</span>;
+    <span class="cm-property">color</span>: <span class="cm-atom">#1a3b5d</span>;
+    <span class="cm-property">font-family</span>: <span class="cm-string">"Source Sans Pro"</span>, <span class="cm-atom">sans-serif</span>;
+
+    &amp;:<span class="cm-variable-3">hover</span>,
+    &amp;:<span class="cm-variable-3">focus</span> {
+      <span class="cm-property">border-color</span>: <span class="cm-atom">#3d9cff</span>;
+    }
+
+    &amp;:<span class="cm-variable-3">focus</span> {
+      <span class="cm-property">box-shadow</span>: <span class="cm-number">0px</span> <span class="cm-number">10px</span> <span class="cm-number">20px</span> <span class="cm-number">-13px</span> <span class="cm-variable cm-callee">rgba</span>(<span class="cm-number">32</span>, <span class="cm-number">56</span>, <span class="cm-number">117</span>, <span class="cm-number">0.35</span>);
+    }
+    &amp;<span class="cm-qualifier">.-select</span> {
+      <span class="cm-meta">-webkit-</span><span class="cm-property">appearance</span>: <span class="cm-atom">none</span>;
+      <span class="cm-property">background-image</span>: <span class="cm-variable cm-callee">url</span>(<span class="cm-string">'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAeCAYAAABuUU38AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAUxJREFUeNrM1sEJwkAQBdCsngXPHsQO9O5FS7AAMVYgdqAd2IGCDWgFnryLFQiCZ8EGnJUNimiyM/tnk4HNEAg/8y6ZmMRVqz9eUJvRaSbvutCZ347bXVJy/ZnvTmdJ862Me+hAbZCTs6GHpyUi1tTSvPnqTpoWZPUa7W7ncT3vK4h4zVejy8QzM3WhVUO8ykI6jOxoGA4ig3BLHcNFSCGqGAkig2yqgpEiMsjSfY9LxYQg7L6r0X6wS29YJiYQYecemY+wHrXD1+bklGhpAhBDeu/JfIVGxaAQ9sb8CI+CQSJ+QmJg0Ii/EE2MBiIXooHRQhRCkBhNhBcEhLkwf05ZCG8ICCOpk0MULmvDSY2M8UawIRExLIQIEgHDRoghihgRIgiigBEjgiFATBACAgFgghEwSAAGgoBCBBgYAg5hYKAIFYgHBo6w9RRgAFfy160QuV8NAAAAAElFTkSuQmCC'</span>);
+      <span class="cm-property">background-size</span>: <span class="cm-number">12px</span>;
+      <span class="cm-property">background-position</span>: <span class="cm-number">90%</span> <span class="cm-atom">center</span>;
+      <span class="cm-property">background-repeat</span>: <span class="cm-atom">no-repeat</span>;
+      <span class="cm-property">padding-right</span>: <span class="cm-number">30px</span>;
+    }
+  }
+}
+
+<span class="cm-qualifier">.slide-fade-up-enter-active</span> {
+  <span class="cm-property">transition</span>: <span class="cm-atom">all</span> <span class="cm-number">0.25s</span> <span class="cm-atom">ease-in-out</span>;
+  <span class="cm-property">transition-delay</span>: <span class="cm-number">0.1s</span>;
+  <span class="cm-property">position</span>: <span class="cm-atom">relative</span>;
+}
+<span class="cm-qualifier">.slide-fade-up-leave-active</span> {
+  <span class="cm-property">transition</span>: <span class="cm-atom">all</span> <span class="cm-number">0.25s</span> <span class="cm-atom">ease-in-out</span>;
+  <span class="cm-property">position</span>: <span class="cm-atom">absolute</span>;
+}
+<span class="cm-qualifier">.slide-fade-up-enter</span> {
+  <span class="cm-property">opacity</span>: <span class="cm-number">0</span>;
+  <span class="cm-property">transform</span>: <span class="cm-variable cm-callee">translateY</span>(<span class="cm-number">15px</span>);
+  <span class="cm-property">pointer-events</span>: <span class="cm-atom">none</span>;
+}
+<span class="cm-qualifier">.slide-fade-up-leave-to</span> {
+  <span class="cm-property">opacity</span>: <span class="cm-number">0</span>;
+  <span class="cm-property">transform</span>: <span class="cm-variable cm-callee">translateY</span>(<span class="cm-number">-15px</span>);
+  <span class="cm-property">pointer-events</span>: <span class="cm-atom">none</span>;
+}
+
+<span class="cm-qualifier">.slide-fade-right-enter-active</span> {
+  <span class="cm-property">transition</span>: <span class="cm-atom">all</span> <span class="cm-number">0.25s</span> <span class="cm-atom">ease-in-out</span>;
+  <span class="cm-property">transition-delay</span>: <span class="cm-number">0.1s</span>;
+  <span class="cm-property">position</span>: <span class="cm-atom">relative</span>;
+}
+<span class="cm-qualifier">.slide-fade-right-leave-active</span> {
+  <span class="cm-property">transition</span>: <span class="cm-atom">all</span> <span class="cm-number">0.25s</span> <span class="cm-atom">ease-in-out</span>;
+  <span class="cm-property">position</span>: <span class="cm-atom">absolute</span>;
+}
+<span class="cm-qualifier">.slide-fade-right-enter</span> {
+  <span class="cm-property">opacity</span>: <span class="cm-number">0</span>;
+  <span class="cm-property">transform</span>: <span class="cm-variable cm-callee">translateX</span>(<span class="cm-number">10px</span>) <span class="cm-variable cm-callee">rotate</span>(<span class="cm-number">45deg</span>);
+  <span class="cm-property">pointer-events</span>: <span class="cm-atom">none</span>;
+}
+<span class="cm-qualifier">.slide-fade-right-leave-to</span> {
+  <span class="cm-property">opacity</span>: <span class="cm-number">0</span>;
+  <span class="cm-property">transform</span>: <span class="cm-variable cm-callee">translateX</span>(<span class="cm-number">-10px</span>) <span class="cm-variable cm-callee">rotate</span>(<span class="cm-number">45deg</span>);
+  <span class="cm-property">pointer-events</span>: <span class="cm-atom">none</span>;
+}
+
+
+
+<span class="cm-qualifier">.github-btn</span> {
+  <span class="cm-property">position</span>: <span class="cm-atom">absolute</span>;
+  <span class="cm-property">right</span>: <span class="cm-number">40px</span>;
+  <span class="cm-property">bottom</span>: <span class="cm-number">50px</span>;
+  <span class="cm-property">text-decoration</span>: <span class="cm-atom">none</span>;
+  <span class="cm-property">padding</span>: <span class="cm-number">15px</span> <span class="cm-number">25px</span>;
+  <span class="cm-property">border-radius</span>: <span class="cm-number">4px</span>;
+  <span class="cm-property">box-shadow</span>: <span class="cm-number">0px</span> <span class="cm-number">4px</span> <span class="cm-number">30px</span> <span class="cm-number">-6px</span> <span class="cm-variable cm-callee">rgba</span>(<span class="cm-number">36</span>, <span class="cm-number">52</span>, <span class="cm-number">70</span>, <span class="cm-number">0.65</span>);
+  <span class="cm-property">background</span>: <span class="cm-atom">#24292e</span>;
+  <span class="cm-property">color</span>: <span class="cm-atom">#fff</span>;
+  <span class="cm-property">font-weight</span>: <span class="cm-atom">bold</span>;
+  <span class="cm-property">letter-spacing</span>: <span class="cm-number">1px</span>;
+  <span class="cm-property">font-size</span>: <span class="cm-number">16px</span>;
+  <span class="cm-property">text-align</span>: <span class="cm-atom">center</span>;
+  <span class="cm-property">transition</span>: <span class="cm-atom">all</span> <span class="cm-number">.3s</span> <span class="cm-atom">ease-in-out</span>;
+
+  <span class="cm-def">@media</span> <span class="cm-attribute">screen</span> <span class="cm-keyword">and</span> (<span class="cm-property">min-width</span>: <span class="cm-number">500px</span>) {
+    &amp;:<span class="cm-variable-3">hover</span> {
+      <span class="cm-property">transform</span>: <span class="cm-variable cm-callee">scale</span>(<span class="cm-number">1.1</span>);
+      <span class="cm-property">box-shadow</span>: <span class="cm-number">0px</span> <span class="cm-number">17px</span> <span class="cm-number">20px</span> <span class="cm-number">-6px</span> <span class="cm-variable cm-callee">rgba</span>(<span class="cm-number">36</span>, <span class="cm-number">52</span>, <span class="cm-number">70</span>, <span class="cm-number">0.36</span>);
+    }
+  }
+
+  <span class="cm-def">@media</span> <span class="cm-attribute">screen</span> <span class="cm-keyword">and</span> (<span class="cm-property">max-width</span>: <span class="cm-number">700px</span>) {
+    <span class="cm-property">position</span>: <span class="cm-atom">relative</span>;
+    <span class="cm-property">bottom</span>: <span class="cm-atom">auto</span>;
+    <span class="cm-property">right</span>: <span class="cm-atom">auto</span>;
+    <span class="cm-property">margin-top</span>: <span class="cm-number">20px</span>;
+
+    &amp;:<span class="cm-variable-3">active</span> {
+      <span class="cm-property">transform</span>: <span class="cm-variable cm-callee">scale</span>(<span class="cm-number">1.1</span>);
+      <span class="cm-property">box-shadow</span>: <span class="cm-number">0px</span> <span class="cm-number">17px</span> <span class="cm-number">20px</span> <span class="cm-number">-6px</span> <span class="cm-variable cm-callee">rgba</span>(<span class="cm-number">36</span>, <span class="cm-number">52</span>, <span class="cm-number">70</span>, <span class="cm-number">0.36</span>);
+    }
+  }
+}</code></pre>
+ <a href="https://codepen.io/JavaScriptJunkie/embed/YzzNGeR?height=600&amp;default-tab=result&amp;embed-version=2#0" id="view-css-compiled-button" class="action-button bottom right view-compiled-button" data-type="css">
+View Compiled
+</a>
+</div>
+<div id="js-box" class="code-wrap code-box box " role="region" aria-label="JS">
+<pre tabindex="0"><code data-lang="javascript" id="actual-js-code" class=" cm-s-default"><span class="cm-comment">/*</span>
+<span class="cm-comment">See on github: https://github.com/muhammederdem/credit-card-form</span>
+<span class="cm-comment">*/</span>
+
+<span class="cm-keyword">new</span> <span class="cm-variable">Vue</span>({
+  <span class="cm-property">el</span>: <span class="cm-string">"#app"</span>,
+  <span class="cm-property">data</span>() {
+    <span class="cm-keyword">return</span> {
+      <span class="cm-property">currentCardBackground</span>: <span class="cm-variable">Math</span>.<span class="cm-property">floor</span>(<span class="cm-variable">Math</span>.<span class="cm-property">random</span>()<span class="cm-operator">*</span> <span class="cm-number">25</span> <span class="cm-operator">+</span> <span class="cm-number">1</span>), <span class="cm-comment">// just for fun :D</span>
+      <span class="cm-property">cardName</span>: <span class="cm-string">""</span>,
+      <span class="cm-property">cardNumber</span>: <span class="cm-string">""</span>,
+      <span class="cm-property">cardMonth</span>: <span class="cm-string">""</span>,
+      <span class="cm-property">cardYear</span>: <span class="cm-string">""</span>,
+      <span class="cm-property">cardCvv</span>: <span class="cm-string">""</span>,
+      <span class="cm-property">minCardYear</span>: <span class="cm-keyword">new</span> <span class="cm-variable">Date</span>().<span class="cm-property">getFullYear</span>(),
+      <span class="cm-property">amexCardMask</span>: <span class="cm-string">"#### ###### #####"</span>,
+      <span class="cm-property">otherCardMask</span>: <span class="cm-string">"#### #### #### ####"</span>,
+      <span class="cm-property">cardNumberTemp</span>: <span class="cm-string">""</span>,
+      <span class="cm-property">isCardFlipped</span>: <span class="cm-atom">false</span>,
+      <span class="cm-property">focusElementStyle</span>: <span class="cm-atom">null</span>,
+      <span class="cm-property">isInputFocused</span>: <span class="cm-atom">false</span>
+    };
+  },
+  <span class="cm-property">mounted</span>() {
+    <span class="cm-keyword">this</span>.<span class="cm-property">cardNumberTemp</span> <span class="cm-operator">=</span> <span class="cm-keyword">this</span>.<span class="cm-property">otherCardMask</span>;
+    <span class="cm-variable">document</span>.<span class="cm-property">getElementById</span>(<span class="cm-string">"cardNumber"</span>).<span class="cm-property">focus</span>();
+  },
+  <span class="cm-property">computed</span>: {
+    <span class="cm-property">getCardType</span> () {
+      <span class="cm-keyword">let</span> <span class="cm-def">number</span> <span class="cm-operator">=</span> <span class="cm-keyword">this</span>.<span class="cm-property">cardNumber</span>;
+      <span class="cm-keyword">let</span> <span class="cm-def">re</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RegExp</span>(<span class="cm-string">"^4"</span>);
+      <span class="cm-keyword">if</span> (<span class="cm-variable-2">number</span>.<span class="cm-property">match</span>(<span class="cm-variable-2">re</span>) <span class="cm-operator">!=</span> <span class="cm-atom">null</span>) <span class="cm-keyword">return</span> <span class="cm-string">"visa"</span>;
+
+      <span class="cm-variable-2">re</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RegExp</span>(<span class="cm-string">"^(34|37)"</span>);
+      <span class="cm-keyword">if</span> (<span class="cm-variable-2">number</span>.<span class="cm-property">match</span>(<span class="cm-variable-2">re</span>) <span class="cm-operator">!=</span> <span class="cm-atom">null</span>) <span class="cm-keyword">return</span> <span class="cm-string">"amex"</span>;
+
+      <span class="cm-variable-2">re</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RegExp</span>(<span class="cm-string">"^5[1-5]"</span>);
+      <span class="cm-keyword">if</span> (<span class="cm-variable-2">number</span>.<span class="cm-property">match</span>(<span class="cm-variable-2">re</span>) <span class="cm-operator">!=</span> <span class="cm-atom">null</span>) <span class="cm-keyword">return</span> <span class="cm-string">"mastercard"</span>;
+
+      <span class="cm-variable-2">re</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RegExp</span>(<span class="cm-string">"^6011"</span>);
+      <span class="cm-keyword">if</span> (<span class="cm-variable-2">number</span>.<span class="cm-property">match</span>(<span class="cm-variable-2">re</span>) <span class="cm-operator">!=</span> <span class="cm-atom">null</span>) <span class="cm-keyword">return</span> <span class="cm-string">"discover"</span>;
+      
+      <span class="cm-variable-2">re</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RegExp</span>(<span class="cm-string">'^9792'</span>)
+      <span class="cm-keyword">if</span> (<span class="cm-variable-2">number</span>.<span class="cm-property">match</span>(<span class="cm-variable-2">re</span>) <span class="cm-operator">!=</span> <span class="cm-atom">null</span>) <span class="cm-keyword">return</span> <span class="cm-string">'troy'</span>
+
+      <span class="cm-keyword">return</span> <span class="cm-string">"visa"</span>; <span class="cm-comment">// default type</span>
+    },
+    <span class="cm-property">generateCardNumberMask</span> () {
+      <span class="cm-keyword">return</span> <span class="cm-keyword">this</span>.<span class="cm-property">getCardType</span> <span class="cm-operator">===</span> <span class="cm-string">"amex"</span> <span class="cm-operator">?</span> <span class="cm-keyword">this</span>.<span class="cm-property">amexCardMask</span> : <span class="cm-keyword">this</span>.<span class="cm-property">otherCardMask</span>;
+    },
+    <span class="cm-property">minCardMonth</span> () {
+      <span class="cm-keyword">if</span> (<span class="cm-keyword">this</span>.<span class="cm-property">cardYear</span> <span class="cm-operator">===</span> <span class="cm-keyword">this</span>.<span class="cm-property">minCardYear</span>) <span class="cm-keyword">return</span> <span class="cm-keyword">new</span> <span class="cm-variable">Date</span>().<span class="cm-property">getMonth</span>() <span class="cm-operator">+</span> <span class="cm-number">1</span>;
+      <span class="cm-keyword">return</span> <span class="cm-number">1</span>;
+    }
+  },
+  <span class="cm-property">watch</span>: {
+    <span class="cm-property">cardYear</span> () {
+      <span class="cm-keyword">if</span> (<span class="cm-keyword">this</span>.<span class="cm-property">cardMonth</span> <span class="cm-operator">&lt;</span> <span class="cm-keyword">this</span>.<span class="cm-property">minCardMonth</span>) {
+        <span class="cm-keyword">this</span>.<span class="cm-property">cardMonth</span> <span class="cm-operator">=</span> <span class="cm-string">""</span>;
+      }
+    }
+  },
+  <span class="cm-property">methods</span>: {
+    <span class="cm-property">flipCard</span> (<span class="cm-def">status</span>) {
+      <span class="cm-keyword">this</span>.<span class="cm-property">isCardFlipped</span> <span class="cm-operator">=</span> <span class="cm-variable-2">status</span>;
+    },
+    <span class="cm-property">focusInput</span> (<span class="cm-def">e</span>) {
+      <span class="cm-keyword">this</span>.<span class="cm-property">isInputFocused</span> <span class="cm-operator">=</span> <span class="cm-atom">true</span>;
+      <span class="cm-keyword">let</span> <span class="cm-def">targetRef</span> <span class="cm-operator">=</span> <span class="cm-variable-2">e</span>.<span class="cm-property">target</span>.<span class="cm-property">dataset</span>.<span class="cm-property">ref</span>;
+      <span class="cm-keyword">let</span> <span class="cm-def">target</span> <span class="cm-operator">=</span> <span class="cm-keyword">this</span>.<span class="cm-property">$refs</span>[<span class="cm-variable-2">targetRef</span>];
+      <span class="cm-keyword">this</span>.<span class="cm-property">focusElementStyle</span> <span class="cm-operator">=</span> {
+        <span class="cm-property">width</span>: <span class="cm-string-2">`${</span><span class="cm-variable-2">target</span>.<span class="cm-property">offsetWidth</span><span class="cm-string-2">}</span><span class="cm-string-2">px`</span>,
+        <span class="cm-property">height</span>: <span class="cm-string-2">`${</span><span class="cm-variable-2">target</span>.<span class="cm-property">offsetHeight</span><span class="cm-string-2">}</span><span class="cm-string-2">px`</span>,
+        <span class="cm-property">transform</span>: <span class="cm-string-2">`translateX(${</span><span class="cm-variable-2">target</span>.<span class="cm-property">offsetLeft</span><span class="cm-string-2">}</span><span class="cm-string-2">px) translateY(${</span><span class="cm-variable-2">target</span>.<span class="cm-property">offsetTop</span><span class="cm-string-2">}</span><span class="cm-string-2">px)`</span>
+      }
+    },
+    <span class="cm-property">blurInput</span>() {
+      <span class="cm-keyword">let</span> <span class="cm-def">vm</span> <span class="cm-operator">=</span> <span class="cm-keyword">this</span>;
+      <span class="cm-variable">setTimeout</span>(() <span class="cm-operator">=&gt;</span> {
+        <span class="cm-keyword">if</span> (<span class="cm-operator">!</span><span class="cm-variable-2">vm</span>.<span class="cm-property">isInputFocused</span>) {
+          <span class="cm-variable-2">vm</span>.<span class="cm-property">focusElementStyle</span> <span class="cm-operator">=</span> <span class="cm-atom">null</span>;
+        }
+      }, <span class="cm-number">300</span>);
+      <span class="cm-variable-2">vm</span>.<span class="cm-property">isInputFocused</span> <span class="cm-operator">=</span> <span class="cm-atom">false</span>;
+    }
+  }
+});
+</code></pre>
+</div>
+<div id="result-box" class="code-box active" role="region" aria-label="Result">
+<iframe allow="accelerometer; camera; encrypted-media; geolocation; gyroscope; microphone; midi" allowfullscreen="true" allowpaymentrequest="true" allowtransparency="true" class="result-iframe " frameborder="0" id="result-iframe" name="CodePen Preview for Credit Card Form - VueJs" sandbox="allow-downloads allow-forms allow-modals allow-pointer-lock allow-popups allow-presentation allow-same-origin allow-scripts allow-top-navigation-by-user-activation" scrolling="yes" title="CodePen Preview for Credit Card Form - VueJs" data-src="https://cdpn.io/JavaScriptJunkie/fullembedgrid/YzzNGeR?animations=run&amp;type=embed" src="./YzzNGeR.html">
+  </iframe>
+</div>
+<div id="about-box">
+<div class="about-container">
+<div class="about-user">
+<a href="https://codepen.io/JavaScriptJunkie" target="_blank" rel="noopener"><img src="./default.png" loading="lazy" alt="" class="about-image"></a>
+<div class="about-user-info">
+<p>
+This Pen is owned by <a href="https://codepen.io/JavaScriptJunkie" target="_blank" rel="noopener">Muhammed Erdem</a> on <a href="https://codepen.io/" target="_blank" rel="noopener">CodePen</a>.
+</p>
+<p>
+<a href="https://codepen.io/JavaScriptJunkie" target="_blank" rel="noopener" class="about-user-more">
+See more by @JavaScriptJunkie on CodePen
+</a>
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="resources-box" class="resources-box">
+<h3>External CSS</h3>
+<p>
+This Pen doesn't use any external CSS resources.
+</p>
+<h3>External JavaScript</h3>
+<ol class="list-of-resources">
+<li>
+<a href="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js" target="_blank">https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js</a>
+</li>
+<li>
+<a href="https://unpkg.com/vue-the-mask@0.11.1/dist/vue-the-mask.js" target="_blank">https://unpkg.com/vue-the-mask@0.11.1/dist/vue-the-mask.js</a>
+</li>
+</ol>
+</div>
+</div>
+<footer class="embed-footer" id="embed-footer">
+<button id="resources-link" class="resources-link action-button bottom left" href="#resources-box" aria-pressed="false" role="button">
+Resources
+</button>
+<ul class="scaling-choices bottom right">
+<li><button class="action-button active" id="zoom-button-1">1×</button></li><li><button class="action-button" id="zoom-button-05">0.5×</button></li><li><button class="action-button" id="zoom-button-025">0.25×</button></li>
+</ul>
+<button id="rerun-button" class="action-button rerun-button bottom right">
+Rerun
+</button>
+</footer>
+<script>
+    __processedPen = {"html":"&lt;div class=&quot;wrapper&quot; id=&quot;app&quot;&gt;\n    &lt;div class=&quot;card-form&quot;&gt;\n      &lt;div class=&quot;card-list&quot;&gt;\n        &lt;div class=&quot;card-item&quot; v-bind:class=&quot;{ &#39;-active&#39; : isCardFlipped }&quot;&gt;\n          &lt;div class=&quot;card-item__side -front&quot;&gt;\n            &lt;div class=&quot;card-item__focus&quot; v-bind:class=&quot;{&#39;-active&#39; : focusElementStyle }&quot; v-bind:style=&quot;focusElementStyle&quot; ref=&quot;focusElement&quot;&gt;&lt;/div&gt;\n            &lt;div class=&quot;card-item__cover&quot;&gt;\n              &lt;img\n              v-bind:src=&quot;&#39;https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/&#39; + currentCardBackground + &#39;.jpeg&#39;&quot; class=&quot;card-item__bg&quot;&gt;\n            &lt;/div&gt;\n            \n            &lt;div class=&quot;card-item__wrapper&quot;&gt;\n              &lt;div class=&quot;card-item__top&quot;&gt;\n                &lt;img src=&quot;https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/chip.png&quot; class=&quot;card-item__chip&quot;&gt;\n                &lt;div class=&quot;card-item__type&quot;&gt;\n                  &lt;transition name=&quot;slide-fade-up&quot;&gt;\n                    &lt;img v-bind:src=&quot;&#39;https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/&#39; + getCardType + &#39;.png&#39;&quot; v-if=&quot;getCardType&quot; v-bind:key=&quot;getCardType&quot; alt=&quot;&quot; class=&quot;card-item__typeImg&quot;&gt;\n                  &lt;/transition&gt;\n                &lt;/div&gt;\n              &lt;/div&gt;\n              &lt;label for=&quot;cardNumber&quot; class=&quot;card-item__number&quot; ref=&quot;cardNumber&quot;&gt;\n                &lt;template v-if=&quot;getCardType === &#39;amex&#39;&quot;&gt;\n                 &lt;span v-for=&quot;(n, $index) in amexCardMask&quot; :key=&quot;$index&quot;&gt;\n                  &lt;transition name=&quot;slide-fade-up&quot;&gt;\n                    &lt;div\n                      class=&quot;card-item__numberItem&quot;\n                      v-if=&quot;$index &gt; 4 &amp;&amp; $index &lt; 14 &amp;&amp; cardNumber.length &gt; $index &amp;&amp; n.trim() !== &#39;&#39;&quot;\n                    &gt;*&lt;/div&gt;\n                    &lt;div class=&quot;card-item__numberItem&quot;\n                      :class=&quot;{ &#39;-active&#39; : n.trim() === &#39;&#39; }&quot;\n                      :key=&quot;$index&quot; v-else-if=&quot;cardNumber.length &gt; $index&quot;&gt;\n                      {{cardNumber[$index]}}\n                    &lt;/div&gt;\n                    &lt;div\n                      class=&quot;card-item__numberItem&quot;\n                      :class=&quot;{ &#39;-active&#39; : n.trim() === &#39;&#39; }&quot;\n                      v-else\n                      :key=&quot;$index + 1&quot;\n                    &gt;{{n}}&lt;/div&gt;\n                  &lt;/transition&gt;\n                &lt;/span&gt;\n                &lt;/template&gt;\n\n                &lt;template v-else&gt;\n                  &lt;span v-for=&quot;(n, $index) in otherCardMask&quot; :key=&quot;$index&quot;&gt;\n                    &lt;transition name=&quot;slide-fade-up&quot;&gt;\n                      &lt;div\n                        class=&quot;card-item__numberItem&quot;\n                        v-if=&quot;$index &gt; 4 &amp;&amp; $index &lt; 15 &amp;&amp; cardNumber.length &gt; $index &amp;&amp; n.trim() !== &#39;&#39;&quot;\n                      &gt;*&lt;/div&gt;\n                      &lt;div class=&quot;card-item__numberItem&quot;\n                        :class=&quot;{ &#39;-active&#39; : n.trim() === &#39;&#39; }&quot;\n                        :key=&quot;$index&quot; v-else-if=&quot;cardNumber.length &gt; $index&quot;&gt;\n                        {{cardNumber[$index]}}\n                      &lt;/div&gt;\n                      &lt;div\n                        class=&quot;card-item__numberItem&quot;\n                        :class=&quot;{ &#39;-active&#39; : n.trim() === &#39;&#39; }&quot;\n                        v-else\n                        :key=&quot;$index + 1&quot;\n                      &gt;{{n}}&lt;/div&gt;\n                    &lt;/transition&gt;\n                  &lt;/span&gt;\n                &lt;/template&gt;\n              &lt;/label&gt;\n              &lt;div class=&quot;card-item__content&quot;&gt;\n                &lt;label for=&quot;cardName&quot; class=&quot;card-item__info&quot; ref=&quot;cardName&quot;&gt;\n                  &lt;div class=&quot;card-item__holder&quot;&gt;Card Holder&lt;/div&gt;\n                  &lt;transition name=&quot;slide-fade-up&quot;&gt;\n                    &lt;div class=&quot;card-item__name&quot; v-if=&quot;cardName.length&quot; key=&quot;1&quot;&gt;\n                      &lt;transition-group name=&quot;slide-fade-right&quot;&gt;\n                        &lt;span class=&quot;card-item__nameItem&quot; v-for=&quot;(n, $index) in cardName.replace(/\\s\\s+/g, &#39; &#39;)&quot; v-if=&quot;$index === $index&quot; v-bind:key=&quot;$index + 1&quot;&gt;{{n}}&lt;/span&gt;\n                      &lt;/transition-group&gt;\n                    &lt;/div&gt;\n                    &lt;div class=&quot;card-item__name&quot; v-else key=&quot;2&quot;&gt;Full Name&lt;/div&gt;\n                  &lt;/transition&gt;\n                &lt;/label&gt;\n                &lt;div class=&quot;card-item__date&quot; ref=&quot;cardDate&quot;&gt;\n                  &lt;label for=&quot;cardMonth&quot; class=&quot;card-item__dateTitle&quot;&gt;Expires&lt;/label&gt;\n                  &lt;label for=&quot;cardMonth&quot; class=&quot;card-item__dateItem&quot;&gt;\n                    &lt;transition name=&quot;slide-fade-up&quot;&gt;\n                      &lt;span v-if=&quot;cardMonth&quot; v-bind:key=&quot;cardMonth&quot;&gt;{{cardMonth}}&lt;/span&gt;\n                      &lt;span v-else key=&quot;2&quot;&gt;MM&lt;/span&gt;\n                    &lt;/transition&gt;\n                  &lt;/label&gt;\n                  /\n                  &lt;label for=&quot;cardYear&quot; class=&quot;card-item__dateItem&quot;&gt;\n                    &lt;transition name=&quot;slide-fade-up&quot;&gt;\n                      &lt;span v-if=&quot;cardYear&quot; v-bind:key=&quot;cardYear&quot;&gt;{{String(cardYear).slice(2,4)}}&lt;/span&gt;\n                      &lt;span v-else key=&quot;2&quot;&gt;YY&lt;/span&gt;\n                    &lt;/transition&gt;\n                  &lt;/label&gt;\n                &lt;/div&gt;\n              &lt;/div&gt;\n            &lt;/div&gt;\n          &lt;/div&gt;\n          &lt;div class=&quot;card-item__side -back&quot;&gt;\n            &lt;div class=&quot;card-item__cover&quot;&gt;\n              &lt;img\n              v-bind:src=&quot;&#39;https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/&#39; + currentCardBackground + &#39;.jpeg&#39;&quot; class=&quot;card-item__bg&quot;&gt;\n            &lt;/div&gt;\n            &lt;div class=&quot;card-item__band&quot;&gt;&lt;/div&gt;\n            &lt;div class=&quot;card-item__cvv&quot;&gt;\n                &lt;div class=&quot;card-item__cvvTitle&quot;&gt;CVV&lt;/div&gt;\n                &lt;div class=&quot;card-item__cvvBand&quot;&gt;\n                  &lt;span v-for=&quot;(n, $index) in cardCvv&quot; :key=&quot;$index&quot;&gt;\n                    *\n                  &lt;/span&gt;\n\n              &lt;/div&gt;\n                &lt;div class=&quot;card-item__type&quot;&gt;\n                    &lt;img v-bind:src=&quot;&#39;https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/&#39; + getCardType + &#39;.png&#39;&quot; v-if=&quot;getCardType&quot; class=&quot;card-item__typeImg&quot;&gt;\n                &lt;/div&gt;\n            &lt;/div&gt;\n          &lt;/div&gt;\n        &lt;/div&gt;\n      &lt;/div&gt;\n      &lt;div class=&quot;card-form__inner&quot;&gt;\n        &lt;div class=&quot;card-input&quot;&gt;\n          &lt;label for=&quot;cardNumber&quot; class=&quot;card-input__label&quot;&gt;Card Number&lt;/label&gt;\n          &lt;input type=&quot;text&quot; id=&quot;cardNumber&quot; class=&quot;card-input__input&quot; v-mask=&quot;generateCardNumberMask&quot; v-model=&quot;cardNumber&quot; v-on:focus=&quot;focusInput&quot; v-on:blur=&quot;blurInput&quot; data-ref=&quot;cardNumber&quot; autocomplete=&quot;off&quot;&gt;\n        &lt;/div&gt;\n        &lt;div class=&quot;card-input&quot;&gt;\n          &lt;label for=&quot;cardName&quot; class=&quot;card-input__label&quot;&gt;Card Holders&lt;/label&gt;\n          &lt;input type=&quot;text&quot; id=&quot;cardName&quot; class=&quot;card-input__input&quot; v-model=&quot;cardName&quot; v-on:focus=&quot;focusInput&quot; v-on:blur=&quot;blurInput&quot; data-ref=&quot;cardName&quot; autocomplete=&quot;off&quot;&gt;\n        &lt;/div&gt;\n        &lt;div class=&quot;card-form__row&quot;&gt;\n          &lt;div class=&quot;card-form__col&quot;&gt;\n            &lt;div class=&quot;card-form__group&quot;&gt;\n              &lt;label for=&quot;cardMonth&quot; class=&quot;card-input__label&quot;&gt;Expiration Date&lt;/label&gt;\n              &lt;select class=&quot;card-input__input -select&quot; id=&quot;cardMonth&quot; v-model=&quot;cardMonth&quot; v-on:focus=&quot;focusInput&quot; v-on:blur=&quot;blurInput&quot; data-ref=&quot;cardDate&quot;&gt;\n                &lt;option value=&quot;&quot; disabled selected&gt;Month&lt;/option&gt;\n                &lt;option v-bind:value=&quot;n &lt; 10 ? &#39;0&#39; + n : n&quot; v-for=&quot;n in 12&quot; v-bind:disabled=&quot;n &lt; minCardMonth&quot; v-bind:key=&quot;n&quot;&gt;\n                    {{n &lt; 10 ? &#39;0&#39; + n : n}}\n                &lt;/option&gt;\n              &lt;/select&gt;\n              &lt;select class=&quot;card-input__input -select&quot; id=&quot;cardYear&quot; v-model=&quot;cardYear&quot; v-on:focus=&quot;focusInput&quot; v-on:blur=&quot;blurInput&quot; data-ref=&quot;cardDate&quot;&gt;\n                &lt;option value=&quot;&quot; disabled selected&gt;Year&lt;/option&gt;\n                &lt;option v-bind:value=&quot;$index + minCardYear&quot; v-for=&quot;(n, $index) in 12&quot; v-bind:key=&quot;n&quot;&gt;\n                    {{$index + minCardYear}}\n                &lt;/option&gt;\n              &lt;/select&gt;\n            &lt;/div&gt;\n          &lt;/div&gt;\n          &lt;div class=&quot;card-form__col -cvv&quot;&gt;\n            &lt;div class=&quot;card-input&quot;&gt;\n              &lt;label for=&quot;cardCvv&quot; class=&quot;card-input__label&quot;&gt;CVV&lt;/label&gt;\n              &lt;input type=&quot;text&quot; class=&quot;card-input__input&quot; id=&quot;cardCvv&quot; v-mask=&quot;&#39;####&#39;&quot; maxlength=&quot;4&quot; v-model=&quot;cardCvv&quot; v-on:focus=&quot;flipCard(true)&quot; v-on:blur=&quot;flipCard(false)&quot; autocomplete=&quot;off&quot;&gt;\n            &lt;/div&gt;\n          &lt;/div&gt;\n        &lt;/div&gt;\n\n        &lt;button class=&quot;card-form__button&quot;&gt;\n          Submit\n        &lt;/button&gt;\n      &lt;/div&gt;\n    &lt;/div&gt;\n    \n    &lt;a href=&quot;https://github.com/muhammederdem/credit-card-form&quot; target=&quot;_blank&quot; class=&quot;github-btn&quot;&gt;\n      See on GitHub\n    &lt;/a&gt;\n  &lt;/div&gt;","css":"@import url(&quot;https://fonts.googleapis.com/css?family=Source+Code+Pro:400,500,600,700|Source+Sans+Pro:400,600,700&amp;display=swap&quot;);\nbody {\n  background: #ddeefc;\n  font-family: &quot;Source Sans Pro&quot;, sans-serif;\n  font-size: 16px;\n}\n\n* {\n  box-sizing: border-box;\n}\n*:focus {\n  outline: none;\n}\n\n.wrapper {\n  min-height: 100vh;\n  display: flex;\n  padding: 50px 15px;\n}\n@media screen and (max-width: 700px), (max-height: 500px) {\n  .wrapper {\n    flex-wrap: wrap;\n    flex-direction: column;\n  }\n}\n\n.card-form {\n  max-width: 570px;\n  margin: auto;\n  width: 100%;\n}\n@media screen and (max-width: 576px) {\n  .card-form {\n    margin: 0 auto;\n  }\n}\n.card-form__inner {\n  background: #fff;\n  box-shadow: 0 30px 60px 0 rgba(90, 116, 148, 0.4);\n  border-radius: 10px;\n  padding: 35px;\n  padding-top: 180px;\n}\n@media screen and (max-width: 480px) {\n  .card-form__inner {\n    padding: 25px;\n    padding-top: 165px;\n  }\n}\n@media screen and (max-width: 360px) {\n  .card-form__inner {\n    padding: 15px;\n    padding-top: 165px;\n  }\n}\n.card-form__row {\n  display: flex;\n  align-items: flex-start;\n}\n@media screen and (max-width: 480px) {\n  .card-form__row {\n    flex-wrap: wrap;\n  }\n}\n.card-form__col {\n  flex: auto;\n  margin-right: 35px;\n}\n.card-form__col:last-child {\n  margin-right: 0;\n}\n@media screen and (max-width: 480px) {\n  .card-form__col {\n    margin-right: 0;\n    flex: unset;\n    width: 100%;\n    margin-bottom: 20px;\n  }\n  .card-form__col:last-child {\n    margin-bottom: 0;\n  }\n}\n.card-form__col.-cvv {\n  max-width: 150px;\n}\n@media screen and (max-width: 480px) {\n  .card-form__col.-cvv {\n    max-width: initial;\n  }\n}\n.card-form__group {\n  display: flex;\n  align-items: flex-start;\n  flex-wrap: wrap;\n}\n.card-form__group .card-input__input {\n  flex: 1;\n  margin-right: 15px;\n}\n.card-form__group .card-input__input:last-child {\n  margin-right: 0;\n}\n.card-form__button {\n  width: 100%;\n  height: 55px;\n  background: #2364d2;\n  border: none;\n  border-radius: 5px;\n  font-size: 22px;\n  font-weight: 500;\n  font-family: &quot;Source Sans Pro&quot;, sans-serif;\n  box-shadow: 3px 10px 20px 0px rgba(35, 100, 210, 0.3);\n  color: #fff;\n  margin-top: 20px;\n  cursor: pointer;\n}\n@media screen and (max-width: 480px) {\n  .card-form__button {\n    margin-top: 10px;\n  }\n}\n\n.card-item {\n  max-width: 430px;\n  height: 270px;\n  margin-left: auto;\n  margin-right: auto;\n  position: relative;\n  z-index: 2;\n  width: 100%;\n}\n@media screen and (max-width: 480px) {\n  .card-item {\n    max-width: 310px;\n    height: 220px;\n    width: 90%;\n  }\n}\n@media screen and (max-width: 360px) {\n  .card-item {\n    height: 180px;\n  }\n}\n.card-item.-active .card-item__side.-front {\n  transform: perspective(1000px) rotateY(180deg) rotateX(0deg) rotateZ(0deg);\n}\n.card-item.-active .card-item__side.-back {\n  transform: perspective(1000px) rotateY(0) rotateX(0deg) rotateZ(0deg);\n}\n.card-item__focus {\n  position: absolute;\n  z-index: 3;\n  border-radius: 5px;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  transition: all 0.35s cubic-bezier(0.71, 0.03, 0.56, 0.85);\n  opacity: 0;\n  pointer-events: none;\n  overflow: hidden;\n  border: 2px solid rgba(255, 255, 255, 0.65);\n}\n.card-item__focus:after {\n  content: &quot;&quot;;\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  background: #08142f;\n  height: 100%;\n  border-radius: 5px;\n  filter: blur(25px);\n  opacity: 0.5;\n}\n.card-item__focus.-active {\n  opacity: 1;\n}\n.card-item__side {\n  border-radius: 15px;\n  overflow: hidden;\n  box-shadow: 0 20px 60px 0 rgba(14, 42, 90, 0.55);\n  transform: perspective(2000px) rotateY(0deg) rotateX(0deg) rotate(0deg);\n  transform-style: preserve-3d;\n  transition: all 0.8s cubic-bezier(0.71, 0.03, 0.56, 0.85);\n  backface-visibility: hidden;\n  height: 100%;\n}\n.card-item__side.-back {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  transform: perspective(2000px) rotateY(-180deg) rotateX(0deg) rotate(0deg);\n  z-index: 2;\n  padding: 0;\n  height: 100%;\n}\n.card-item__side.-back .card-item__cover {\n  transform: rotateY(-180deg);\n}\n.card-item__bg {\n  max-width: 100%;\n  display: block;\n  max-height: 100%;\n  height: 100%;\n  width: 100%;\n  object-fit: cover;\n}\n.card-item__cover {\n  height: 100%;\n  background-color: #1c1d27;\n  position: absolute;\n  height: 100%;\n  background-color: #1c1d27;\n  left: 0;\n  top: 0;\n  width: 100%;\n  border-radius: 15px;\n  overflow: hidden;\n}\n.card-item__cover:after {\n  content: &quot;&quot;;\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  background: rgba(6, 2, 29, 0.45);\n}\n.card-item__top {\n  display: flex;\n  align-items: flex-start;\n  justify-content: space-between;\n  margin-bottom: 40px;\n  padding: 0 10px;\n}\n@media screen and (max-width: 480px) {\n  .card-item__top {\n    margin-bottom: 25px;\n  }\n}\n@media screen and (max-width: 360px) {\n  .card-item__top {\n    margin-bottom: 15px;\n  }\n}\n.card-item__chip {\n  width: 60px;\n}\n@media screen and (max-width: 480px) {\n  .card-item__chip {\n    width: 50px;\n  }\n}\n@media screen and (max-width: 360px) {\n  .card-item__chip {\n    width: 40px;\n  }\n}\n.card-item__type {\n  height: 45px;\n  position: relative;\n  display: flex;\n  justify-content: flex-end;\n  max-width: 100px;\n  margin-left: auto;\n  width: 100%;\n}\n@media screen and (max-width: 480px) {\n  .card-item__type {\n    height: 40px;\n    max-width: 90px;\n  }\n}\n@media screen and (max-width: 360px) {\n  .card-item__type {\n    height: 30px;\n  }\n}\n.card-item__typeImg {\n  max-width: 100%;\n  object-fit: contain;\n  max-height: 100%;\n  object-position: top right;\n}\n.card-item__info {\n  color: #fff;\n  width: 100%;\n  max-width: calc(100% - 85px);\n  padding: 10px 15px;\n  font-weight: 500;\n  display: block;\n  cursor: pointer;\n}\n@media screen and (max-width: 480px) {\n  .card-item__info {\n    padding: 10px;\n  }\n}\n.card-item__holder {\n  opacity: 0.7;\n  font-size: 13px;\n  margin-bottom: 6px;\n}\n@media screen and (max-width: 480px) {\n  .card-item__holder {\n    font-size: 12px;\n    margin-bottom: 5px;\n  }\n}\n.card-item__wrapper {\n  font-family: &quot;Source Code Pro&quot;, monospace;\n  padding: 25px 15px;\n  position: relative;\n  z-index: 4;\n  height: 100%;\n  text-shadow: 7px 6px 10px rgba(14, 42, 90, 0.8);\n  user-select: none;\n}\n@media screen and (max-width: 480px) {\n  .card-item__wrapper {\n    padding: 20px 10px;\n  }\n}\n.card-item__name {\n  font-size: 18px;\n  line-height: 1;\n  white-space: nowrap;\n  max-width: 100%;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  text-transform: uppercase;\n}\n@media screen and (max-width: 480px) {\n  .card-item__name {\n    font-size: 16px;\n  }\n}\n.card-item__nameItem {\n  display: inline-block;\n  min-width: 8px;\n  position: relative;\n}\n.card-item__number {\n  font-weight: 500;\n  line-height: 1;\n  color: #fff;\n  font-size: 27px;\n  margin-bottom: 35px;\n  display: inline-block;\n  padding: 10px 15px;\n  cursor: pointer;\n}\n@media screen and (max-width: 480px) {\n  .card-item__number {\n    font-size: 21px;\n    margin-bottom: 15px;\n    padding: 10px 10px;\n  }\n}\n@media screen and (max-width: 360px) {\n  .card-item__number {\n    font-size: 19px;\n    margin-bottom: 10px;\n    padding: 10px 10px;\n  }\n}\n.card-item__numberItem {\n  width: 16px;\n  display: inline-block;\n}\n.card-item__numberItem.-active {\n  width: 30px;\n}\n@media screen and (max-width: 480px) {\n  .card-item__numberItem {\n    width: 13px;\n  }\n  .card-item__numberItem.-active {\n    width: 16px;\n  }\n}\n@media screen and (max-width: 360px) {\n  .card-item__numberItem {\n    width: 12px;\n  }\n  .card-item__numberItem.-active {\n    width: 8px;\n  }\n}\n.card-item__content {\n  color: #fff;\n  display: flex;\n  align-items: flex-start;\n}\n.card-item__date {\n  flex-wrap: wrap;\n  font-size: 18px;\n  margin-left: auto;\n  padding: 10px;\n  display: inline-flex;\n  width: 80px;\n  white-space: nowrap;\n  flex-shrink: 0;\n  cursor: pointer;\n}\n@media screen and (max-width: 480px) {\n  .card-item__date {\n    font-size: 16px;\n  }\n}\n.card-item__dateItem {\n  position: relative;\n}\n.card-item__dateItem span {\n  width: 22px;\n  display: inline-block;\n}\n.card-item__dateTitle {\n  opacity: 0.7;\n  font-size: 13px;\n  padding-bottom: 6px;\n  width: 100%;\n}\n@media screen and (max-width: 480px) {\n  .card-item__dateTitle {\n    font-size: 12px;\n    padding-bottom: 5px;\n  }\n}\n.card-item__band {\n  background: rgba(0, 0, 19, 0.8);\n  width: 100%;\n  height: 50px;\n  margin-top: 30px;\n  position: relative;\n  z-index: 2;\n}\n@media screen and (max-width: 480px) {\n  .card-item__band {\n    margin-top: 20px;\n  }\n}\n@media screen and (max-width: 360px) {\n  .card-item__band {\n    height: 40px;\n    margin-top: 10px;\n  }\n}\n.card-item__cvv {\n  text-align: right;\n  position: relative;\n  z-index: 2;\n  padding: 15px;\n}\n.card-item__cvv .card-item__type {\n  opacity: 0.7;\n}\n@media screen and (max-width: 360px) {\n  .card-item__cvv {\n    padding: 10px 15px;\n  }\n}\n.card-item__cvvTitle {\n  padding-right: 10px;\n  font-size: 15px;\n  font-weight: 500;\n  color: #fff;\n  margin-bottom: 5px;\n}\n.card-item__cvvBand {\n  height: 45px;\n  background: #fff;\n  margin-bottom: 30px;\n  text-align: right;\n  display: flex;\n  align-items: center;\n  justify-content: flex-end;\n  padding-right: 10px;\n  color: #1a3b5d;\n  font-size: 18px;\n  border-radius: 4px;\n  box-shadow: 0px 10px 20px -7px rgba(32, 56, 117, 0.35);\n}\n@media screen and (max-width: 480px) {\n  .card-item__cvvBand {\n    height: 40px;\n    margin-bottom: 20px;\n  }\n}\n@media screen and (max-width: 360px) {\n  .card-item__cvvBand {\n    margin-bottom: 15px;\n  }\n}\n\n.card-list {\n  margin-bottom: -130px;\n}\n@media screen and (max-width: 480px) {\n  .card-list {\n    margin-bottom: -120px;\n  }\n}\n\n.card-input {\n  margin-bottom: 20px;\n}\n.card-input__label {\n  font-size: 14px;\n  margin-bottom: 5px;\n  font-weight: 500;\n  color: #1a3b5d;\n  width: 100%;\n  display: block;\n  user-select: none;\n}\n.card-input__input {\n  width: 100%;\n  height: 50px;\n  border-radius: 5px;\n  box-shadow: none;\n  border: 1px solid #ced6e0;\n  transition: all 0.3s ease-in-out;\n  font-size: 18px;\n  padding: 5px 15px;\n  background: none;\n  color: #1a3b5d;\n  font-family: &quot;Source Sans Pro&quot;, sans-serif;\n}\n.card-input__input:hover, .card-input__input:focus {\n  border-color: #3d9cff;\n}\n.card-input__input:focus {\n  box-shadow: 0px 10px 20px -13px rgba(32, 56, 117, 0.35);\n}\n.card-input__input.-select {\n  -webkit-appearance: none;\n  background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAeCAYAAABuUU38AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAUxJREFUeNrM1sEJwkAQBdCsngXPHsQO9O5FS7AAMVYgdqAd2IGCDWgFnryLFQiCZ8EGnJUNimiyM/tnk4HNEAg/8y6ZmMRVqz9eUJvRaSbvutCZ347bXVJy/ZnvTmdJ862Me+hAbZCTs6GHpyUi1tTSvPnqTpoWZPUa7W7ncT3vK4h4zVejy8QzM3WhVUO8ykI6jOxoGA4ig3BLHcNFSCGqGAkig2yqgpEiMsjSfY9LxYQg7L6r0X6wS29YJiYQYecemY+wHrXD1+bklGhpAhBDeu/JfIVGxaAQ9sb8CI+CQSJ+QmJg0Ii/EE2MBiIXooHRQhRCkBhNhBcEhLkwf05ZCG8ICCOpk0MULmvDSY2M8UawIRExLIQIEgHDRoghihgRIgiigBEjgiFATBACAgFgghEwSAAGgoBCBBgYAg5hYKAIFYgHBo6w9RRgAFfy160QuV8NAAAAAElFTkSuQmCC&quot;);\n  background-size: 12px;\n  background-position: 90% center;\n  background-repeat: no-repeat;\n  padding-right: 30px;\n}\n\n.slide-fade-up-enter-active {\n  transition: all 0.25s ease-in-out;\n  transition-delay: 0.1s;\n  position: relative;\n}\n\n.slide-fade-up-leave-active {\n  transition: all 0.25s ease-in-out;\n  position: absolute;\n}\n\n.slide-fade-up-enter {\n  opacity: 0;\n  transform: translateY(15px);\n  pointer-events: none;\n}\n\n.slide-fade-up-leave-to {\n  opacity: 0;\n  transform: translateY(-15px);\n  pointer-events: none;\n}\n\n.slide-fade-right-enter-active {\n  transition: all 0.25s ease-in-out;\n  transition-delay: 0.1s;\n  position: relative;\n}\n\n.slide-fade-right-leave-active {\n  transition: all 0.25s ease-in-out;\n  position: absolute;\n}\n\n.slide-fade-right-enter {\n  opacity: 0;\n  transform: translateX(10px) rotate(45deg);\n  pointer-events: none;\n}\n\n.slide-fade-right-leave-to {\n  opacity: 0;\n  transform: translateX(-10px) rotate(45deg);\n  pointer-events: none;\n}\n\n.github-btn {\n  position: absolute;\n  right: 40px;\n  bottom: 50px;\n  text-decoration: none;\n  padding: 15px 25px;\n  border-radius: 4px;\n  box-shadow: 0px 4px 30px -6px rgba(36, 52, 70, 0.65);\n  background: #24292e;\n  color: #fff;\n  font-weight: bold;\n  letter-spacing: 1px;\n  font-size: 16px;\n  text-align: center;\n  transition: all .3s ease-in-out;\n}\n@media screen and (min-width: 500px) {\n  .github-btn:hover {\n    transform: scale(1.1);\n    box-shadow: 0px 17px 20px -6px rgba(36, 52, 70, 0.36);\n  }\n}\n@media screen and (max-width: 700px) {\n  .github-btn {\n    position: relative;\n    bottom: auto;\n    right: auto;\n    margin-top: 20px;\n  }\n  .github-btn:active {\n    transform: scale(1.1);\n    box-shadow: 0px 17px 20px -6px rgba(36, 52, 70, 0.36);\n  }\n}","js":"/*\nSee on github: https://github.com/muhammederdem/credit-card-form\n*/\n\nnew Vue({\n  el: &quot;#app&quot;,\n  data() {\n    return {\n      currentCardBackground: Math.floor(Math.random() * 25 + 1), // just for fun :D\n      cardName: &quot;&quot;,\n      cardNumber: &quot;&quot;,\n      cardMonth: &quot;&quot;,\n      cardYear: &quot;&quot;,\n      cardCvv: &quot;&quot;,\n      minCardYear: new Date().getFullYear(),\n      amexCardMask: &quot;#### ###### #####&quot;,\n      otherCardMask: &quot;#### #### #### ####&quot;,\n      cardNumberTemp: &quot;&quot;,\n      isCardFlipped: false,\n      focusElementStyle: null,\n      isInputFocused: false };\n\n  },\n  mounted() {\n    this.cardNumberTemp = this.otherCardMask;\n    document.getElementById(&quot;cardNumber&quot;).focus();\n  },\n  computed: {\n    getCardType() {\n      let number = this.cardNumber;\n      let re = new RegExp(&quot;^4&quot;);\n      if (number.match(re) != null) return &quot;visa&quot;;\n\n      re = new RegExp(&quot;^(34|37)&quot;);\n      if (number.match(re) != null) return &quot;amex&quot;;\n\n      re = new RegExp(&quot;^5[1-5]&quot;);\n      if (number.match(re) != null) return &quot;mastercard&quot;;\n\n      re = new RegExp(&quot;^6011&quot;);\n      if (number.match(re) != null) return &quot;discover&quot;;\n\n      re = new RegExp(&#39;^9792&#39;);\n      if (number.match(re) != null) return &#39;troy&#39;;\n\n      return &quot;visa&quot;; // default type\n    },\n    generateCardNumberMask() {\n      return this.getCardType === &quot;amex&quot; ? this.amexCardMask : this.otherCardMask;\n    },\n    minCardMonth() {\n      if (this.cardYear === this.minCardYear) return new Date().getMonth() + 1;\n      return 1;\n    } },\n\n  watch: {\n    cardYear() {\n      if (this.cardMonth &lt; this.minCardMonth) {\n        this.cardMonth = &quot;&quot;;\n      }\n    } },\n\n  methods: {\n    flipCard(status) {\n      this.isCardFlipped = status;\n    },\n    focusInput(e) {\n      this.isInputFocused = true;\n      let targetRef = e.target.dataset.ref;\n      let target = this.$refs[targetRef];\n      this.focusElementStyle = {\n        width: `${target.offsetWidth}px`,\n        height: `${target.offsetHeight}px`,\n        transform: `translateX(${target.offsetLeft}px) translateY(${target.offsetTop}px)` };\n\n    },\n    blurInput() {\n      let vm = this;\n      setTimeout(() =&gt; {\n        if (!vm.isInputFocused) {\n          vm.focusElementStyle = null;\n        }\n      }, 300);\n      vm.isInputFocused = false;\n    } } });"};
+    __preprocessors = {
+      "html": "none",
+      "css": "scss",
+      "js": "none"
+    };
+    __preprocessorNames = {
+      "html": "HTML",
+      "css": "SCSS",
+      "js": "JS"
+    };
+    __pageType = "embed";
+    __editable = false;
+    __embed_prefill = false;
+  </script>
+<script src="./embed-3690985ea2a3216737903c1e943e37377719fb52620886c141f0584d7a4f3a6b.js.下载"></script>
+
+
+</body></html>

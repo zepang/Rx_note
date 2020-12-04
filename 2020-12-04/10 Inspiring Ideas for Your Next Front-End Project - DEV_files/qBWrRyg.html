@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<!-- saved from url=(0095)https://codepen.io/JavaScriptJunkie/embed/qBWrRyg?height=600&default-tab=result&embed-version=2 -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width">
+<title>CodePen Embed - Mini Music Player - VueJS</title>
+<meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="+JW4RP2X11LEhkwYKTgNgCxEik3Y+XPB7wQuxrj63jvhWWEF7iKaTBZ8VWoOk2fYK3E0ac319u5SGOhIjEbz9w==">
+<link rel="stylesheet" media="all" href="./embed-fd9a942046213e4a713b4bd7ce0f59ae4577bbfc384f6c1cf187c3f795043b55.css">
+<style>
+    .hide {
+      display: none !important;
+    }
+
+    #result-box {
+      background: #3d3d3e;
+      color: #ffffff;
+    }
+    .embed-footer,
+    .embed-nav {
+      background: #3d3d3e;
+      
+    }
+    .embed-nav .code-types a,
+    .embed-nav .result-button-list a,
+    .action-button {
+      color: #ffffff;
+      background-color: #666666;
+    }
+    .embed-nav .code-types a.active,
+    .embed-nav .result-button-list a.active,
+    .action-button.active {
+      background: #888888;
+      color: #ffffff;
+      box-shadow: inset 0px 3px #dddddd;
+    }
+    .embed-nav .logo-wrap .edit-on-codepen {
+      color: #ffffff;
+    }
+
+    .embed-nav svg {
+      stroke: #ffffff !important;
+    }
+  </style>
+<link rel="stylesheet" media="all" href="./twilight-bbb3d58f8024c27567f788f3990f2dce8754c2b67246bf12ad766768fe51955b.css">
+<meta name="monetization" content="$ilp.uphold.com/biyqg2MkQKbe">
+</head>
+<body id="the-body" style="border: 1px solid #555555; --borderWidth: 1px;" class="codepen-embed-body static results-active" data-new-gr-c-s-check-loaded="14.984.0" data-gr-ext-installed="">
+<nav class="embed-nav group" id="embed-nav">
+<ul class="code-types">
+<li class="code-type">
+<a id="html-link" href="https://codepen.io/JavaScriptJunkie/embed/qBWrRyg?height=600&amp;default-tab=result&amp;embed-version=2#html-box" role="button" aria-pressed="false">
+HTML
+</a>
+</li>
+<li class="code-type">
+<a id="css-link" href="https://codepen.io/JavaScriptJunkie/embed/qBWrRyg?height=600&amp;default-tab=result&amp;embed-version=2#css-box" role="button" aria-pressed="false">
+SCSS
+</a>
+</li>
+<li class="code-type">
+<a id="js-link" href="https://codepen.io/JavaScriptJunkie/embed/qBWrRyg?height=600&amp;default-tab=result&amp;embed-version=2#js-box" role="button" aria-pressed="false">
+JS
+</a>
+</li>
+</ul>
+<ul class="result-button-list">
+<li class="results results-type">
+<a id="result-link" href="https://codepen.io/JavaScriptJunkie/embed/qBWrRyg?height=600&amp;default-tab=result&amp;embed-version=2#result-box" class="active" aria-pressed="true" role="button">
+Result
+</a>
+</li>
+<li>
+<a href="https://codepen.io/JavaScriptJunkie/embed/qBWrRyg?height=600&amp;default-tab=result&amp;embed-version=2#resources-link" id="skip-results-iframe-link">Skip Results Iframe</a>
+</li>
+</ul>
+<div class="logo-wrap" id="edit-area">
+<a class="edit-on-codepen" target="_blank" rel="noopener" href="https://codepen.io/JavaScriptJunkie/pen/qBWrRyg" title="Edit on CodePen">
+<div class="large-logo">
+<span id="edit-on-text" class="open-on">EDIT ON</span>
+<svg id="embed-codepen-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 138 26" fill="none" stroke="#000" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="CodePen">
+<path d="M80 6h-9v14h9m34-14h-9v14h9m-3-7h-6m-28 0h-6m51 7V6l11 14V6M22 16.7L33 24l11-7.3V9.3L33 2 22 9.3v7.4zm22 0L33 9.3l-11 7.4m0-7.4l11 7.3 11-7.3M33 2v7.3m0 7.4V24m55-10h6c2.2 0 4-1.8 4-4s-1.8-4-4-4h-6v14M15 8c-1.3-1.3-3-2-5-2-4 0-7 3-7 7s3 7 7 7c2 0 3.7-.8 5-2m49-5c0 4-3 7-7 7h-5V6h5c4 0 7 3 7 7z"></path>
+</svg>
+</div>
+<div class="box-logo">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="20 0 26 26" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.3" role="img" aria-label="Edit on CodePen">
+<path id="icon-codepen-box" d="M22 16.7L33 24l11-7.3V9.3L33 2 22 9.3v7.4zm22 0L33 9.3l-11 7.4m0-7.4l11 7.3 11-7.3M33 2v7.3m0 7.4V24"></path>
+</svg>
+</div>
+</a>
+</div>
+</nav>
+<div id="output" data-border-style="thin" data-header="true">
+<div id="html-box" class="code-wrap code-box box " role="region" aria-label="HTML">
+<pre tabindex="0"><code data-lang="htmlmixed" id="actual-html-code" class=" cm-s-default">       <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">"wrapper"</span> <span class="cm-attribute">id</span>=<span class="cm-string">"app"</span><span class="cm-tag cm-bracket">&gt;</span>
+      <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">"player"</span><span class="cm-tag cm-bracket">&gt;</span>
+        <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">"player__top"</span><span class="cm-tag cm-bracket">&gt;</span>
+          <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">"player-cover"</span><span class="cm-tag cm-bracket">&gt;</span>
+            <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">transition-group</span> <span class="cm-attribute">:name</span>=<span class="cm-string">"transitionName"</span><span class="cm-tag cm-bracket">&gt;</span>
+                <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">"player-cover__item"</span> <span class="cm-attribute">v-if</span>=<span class="cm-string">"$index === currentTrackIndex"</span> <span class="cm-attribute">:style</span>=<span class="cm-string">"{ backgroundImage: `url(${track.cover})` }"</span>  <span class="cm-attribute">v-for</span>=<span class="cm-string">"(track, $index) in tracks"</span> <span class="cm-attribute">:key</span>=<span class="cm-string">"$index"</span><span class="cm-tag cm-bracket">&gt;</span><span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tag cm-bracket">&gt;</span>
+            <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">transition-group</span><span class="cm-tag cm-bracket">&gt;</span>
+          <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tag cm-bracket">&gt;</span>
+          <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">"player-controls"</span><span class="cm-tag cm-bracket">&gt;</span>
+            <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">"player-controls__item -favorite"</span> <span class="cm-attribute">:class</span>=<span class="cm-string">"{ active : currentTrack.favorited }"</span> <span class="cm-attribute">@click</span>=<span class="cm-string">"favorite"</span><span class="cm-tag cm-bracket">&gt;</span>
+              <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">svg</span> <span class="cm-attribute">class</span>=<span class="cm-string">"icon"</span><span class="cm-tag cm-bracket">&gt;</span>
+                <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">use</span> <span class="cm-attribute">xlink:href</span>=<span class="cm-string">"#icon-heart-o"</span><span class="cm-tag cm-bracket">&gt;</span><span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">use</span><span class="cm-tag cm-bracket">&gt;</span>
+              <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">svg</span><span class="cm-tag cm-bracket">&gt;</span>
+            <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tag cm-bracket">&gt;</span>
+            <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">a</span> <span class="cm-attribute">:href</span>=<span class="cm-string">"currentTrack.url"</span> <span class="cm-attribute">target</span>=<span class="cm-string">"_blank"</span> <span class="cm-attribute">class</span>=<span class="cm-string">"player-controls__item"</span><span class="cm-tag cm-bracket">&gt;</span>
+              <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">svg</span> <span class="cm-attribute">class</span>=<span class="cm-string">"icon"</span><span class="cm-tag cm-bracket">&gt;</span>
+                <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">use</span> <span class="cm-attribute">xlink:href</span>=<span class="cm-string">"#icon-link"</span><span class="cm-tag cm-bracket">&gt;</span><span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">use</span><span class="cm-tag cm-bracket">&gt;</span>
+              <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">svg</span><span class="cm-tag cm-bracket">&gt;</span>
+            <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">a</span><span class="cm-tag cm-bracket">&gt;</span>
+            <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">"player-controls__item"</span> <span class="cm-attribute">@click</span>=<span class="cm-string">"prevTrack"</span><span class="cm-tag cm-bracket">&gt;</span>
+              <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">svg</span> <span class="cm-attribute">class</span>=<span class="cm-string">"icon"</span><span class="cm-tag cm-bracket">&gt;</span>
+                <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">use</span> <span class="cm-attribute">xlink:href</span>=<span class="cm-string">"#icon-prev"</span><span class="cm-tag cm-bracket">&gt;</span><span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">use</span><span class="cm-tag cm-bracket">&gt;</span>
+              <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">svg</span><span class="cm-tag cm-bracket">&gt;</span>
+            <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tag cm-bracket">&gt;</span>
+            <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">"player-controls__item"</span> <span class="cm-attribute">@click</span>=<span class="cm-string">"nextTrack"</span><span class="cm-tag cm-bracket">&gt;</span>
+              <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">svg</span> <span class="cm-attribute">class</span>=<span class="cm-string">"icon"</span><span class="cm-tag cm-bracket">&gt;</span>
+                <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">use</span> <span class="cm-attribute">xlink:href</span>=<span class="cm-string">"#icon-next"</span><span class="cm-tag cm-bracket">&gt;</span><span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">use</span><span class="cm-tag cm-bracket">&gt;</span>
+              <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">svg</span><span class="cm-tag cm-bracket">&gt;</span>
+            <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tag cm-bracket">&gt;</span>
+            <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">"player-controls__item -xl js-play"</span> <span class="cm-attribute">@click</span>=<span class="cm-string">"play"</span><span class="cm-tag cm-bracket">&gt;</span>
+              <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">svg</span> <span class="cm-attribute">class</span>=<span class="cm-string">"icon"</span><span class="cm-tag cm-bracket">&gt;</span>
+                <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">use</span> <span class="cm-attribute">xlink:href</span>=<span class="cm-string">"#icon-pause"</span> <span class="cm-attribute">v-if</span>=<span class="cm-string">"isTimerPlaying"</span><span class="cm-tag cm-bracket">&gt;</span><span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">use</span><span class="cm-tag cm-bracket">&gt;</span>
+                <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">use</span> <span class="cm-attribute">xlink:href</span>=<span class="cm-string">"#icon-play"</span> <span class="cm-attribute">v-else</span><span class="cm-tag cm-bracket">&gt;</span><span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">use</span><span class="cm-tag cm-bracket">&gt;</span>
+              <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">svg</span><span class="cm-tag cm-bracket">&gt;</span>
+            <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tag cm-bracket">&gt;</span>
+          <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tag cm-bracket">&gt;</span>
+        <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tag cm-bracket">&gt;</span>
+        <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">"progress"</span> <span class="cm-attribute">ref</span>=<span class="cm-string">"progress"</span><span class="cm-tag cm-bracket">&gt;</span>
+          <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">"progress__top"</span><span class="cm-tag cm-bracket">&gt;</span>
+            <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">"album-info"</span> <span class="cm-attribute">v-if</span>=<span class="cm-string">"currentTrack"</span><span class="cm-tag cm-bracket">&gt;</span>
+              <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">"album-info__name"</span><span class="cm-tag cm-bracket">&gt;</span>{{ currentTrack.artist }}<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tag cm-bracket">&gt;</span>
+              <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">"album-info__track"</span><span class="cm-tag cm-bracket">&gt;</span>{{ currentTrack.name }}<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tag cm-bracket">&gt;</span>
+            <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tag cm-bracket">&gt;</span>
+            <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">"progress__duration"</span><span class="cm-tag cm-bracket">&gt;</span>{{ duration }}<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tag cm-bracket">&gt;</span>
+          <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tag cm-bracket">&gt;</span>
+          <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">"progress__bar"</span> <span class="cm-attribute">@click</span>=<span class="cm-string">"clickProgress"</span><span class="cm-tag cm-bracket">&gt;</span>
+            <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">"progress__current"</span> <span class="cm-attribute">:style</span>=<span class="cm-string">"{ width : barWidth }"</span><span class="cm-tag cm-bracket">&gt;</span><span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tag cm-bracket">&gt;</span>
+          <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tag cm-bracket">&gt;</span>
+          <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">"progress__time"</span><span class="cm-tag cm-bracket">&gt;</span>{{ currentTime }}<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tag cm-bracket">&gt;</span>
+        <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tag cm-bracket">&gt;</span>
+        <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">v-cloak</span><span class="cm-tag cm-bracket">&gt;</span><span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tag cm-bracket">&gt;</span>
+      <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tag cm-bracket">&gt;</span>
+      <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">a</span> <span class="cm-attribute">href</span>=<span class="cm-string">"https://github.com/muhammederdem/mini-player"</span> <span class="cm-attribute">target</span>=<span class="cm-string">"_blank"</span> <span class="cm-attribute">class</span>=<span class="cm-string">"github-btn"</span><span class="cm-tag cm-bracket">&gt;</span>
+        See on GitHub
+      <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">a</span><span class="cm-tag cm-bracket">&gt;</span>
+    <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tag cm-bracket">&gt;</span>
+
+    <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">svg</span> <span class="cm-attribute">xmlns</span>=<span class="cm-string">"http://www.w3.org/2000/svg"</span> <span class="cm-attribute">hidden</span> <span class="cm-attribute">xmlns:xlink</span>=<span class="cm-string">"http://www.w3.org/1999/xlink"</span><span class="cm-tag cm-bracket">&gt;</span>
+      <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">defs</span><span class="cm-tag cm-bracket">&gt;</span>
+        <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">symbol</span> <span class="cm-attribute">id</span>=<span class="cm-string">"icon-heart-o"</span> <span class="cm-attribute">viewBox</span>=<span class="cm-string">"0 0 32 32"</span><span class="cm-tag cm-bracket">&gt;</span>
+          <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">title</span><span class="cm-tag cm-bracket">&gt;</span>icon-heart-o<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">title</span><span class="cm-tag cm-bracket">&gt;</span>
+          <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">path</span> <span class="cm-attribute">d</span>=<span class="cm-string">"M22.88 1.952c-2.72 0-5.184 1.28-6.88 3.456-1.696-2.176-4.16-3.456-6.88-3.456-4.48 0-9.024 3.648-9.024 10.592 0 7.232 7.776 12.704 15.072 17.248 0.256 0.16 0.544 0.256 0.832 0.256s0.576-0.096 0.832-0.256c7.296-4.544 15.072-10.016 15.072-17.248 0-6.944-4.544-10.592-9.024-10.592zM16 26.56c-4.864-3.072-12.736-8.288-12.736-14.016 0-5.088 3.040-7.424 5.824-7.424 2.368 0 4.384 1.504 5.408 4.032 0.256 0.608 0.832 0.992 1.472 0.992s1.248-0.384 1.472-0.992c1.024-2.528 3.040-4.032 5.408-4.032 2.816 0 5.824 2.304 5.824 7.424 0.064 5.728-7.808 10.976-12.672 14.016z"</span><span class="cm-tag cm-bracket">&gt;</span><span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">path</span><span class="cm-tag cm-bracket">&gt;</span>
+          <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">path</span> <span class="cm-attribute">d</span>=<span class="cm-string">"M16 30.144c-0.32 0-0.64-0.096-0.896-0.256-7.296-4.576-15.104-10.048-15.104-17.344 0-7.008 4.576-10.688 9.12-10.688 2.656 0 5.152 1.216 6.88 3.392 1.728-2.144 4.224-3.392 6.88-3.392 4.544 0 9.12 3.68 9.12 10.688 0 7.296-7.808 12.768-15.104 17.344-0.256 0.16-0.576 0.256-0.896 0.256zM9.12 2.048c-4.448 0-8.928 3.616-8.928 10.496 0 7.168 7.744 12.64 15.008 17.152 0.48 0.288 1.12 0.288 1.568 0 7.264-4.544 15.008-9.984 15.008-17.152 0-6.88-4.48-10.496-8.928-10.496-2.656 0-5.088 1.216-6.816 3.392l-0.032 0.128-0.064-0.096c-1.696-2.176-4.192-3.424-6.816-3.424zM16 26.688l-0.064-0.032c-3.808-2.4-12.768-8.032-12.768-14.112 0-5.152 3.072-7.52 5.952-7.52 2.432 0 4.48 1.536 5.504 4.096 0.224 0.576 0.768 0.928 1.376 0.928s1.152-0.384 1.376-0.928c1.024-2.56 3.072-4.096 5.504-4.096 2.848 0 5.952 2.336 5.952 7.52 0 6.080-8.96 11.712-12.768 14.112l-0.064 0.032zM9.12 5.248c-2.752 0-5.728 2.304-5.728 7.328 0 5.952 8.8 11.488 12.608 13.92 3.808-2.4 12.608-7.968 12.608-13.92 0-5.024-2.976-7.328-5.728-7.328-2.336 0-4.32 1.472-5.312 3.968-0.256 0.64-0.864 1.056-1.568 1.056s-1.312-0.416-1.568-1.056c-0.992-2.496-2.976-3.968-5.312-3.968z"</span><span class="cm-tag cm-bracket">&gt;</span><span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">path</span><span class="cm-tag cm-bracket">&gt;</span>
+          <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">path</span> <span class="cm-attribute">d</span>=<span class="cm-string">"M6.816 20.704c0.384 0.288 0.512 0.704 0.48 1.12 0.224 0.256 0.384 0.608 0.384 0.96 0 0.032 0 0.032 0 0.064 0.16 0.128 0.32 0.256 0.48 0.384 0.128 0.064 0.256 0.16 0.384 0.256 0.096 0.064 0.192 0.16 0.256 0.224 0.8 0.576 1.632 1.12 2.496 1.664 0.416 0.128 0.8 0.256 1.056 0.32 1.984 0.576 4.064 0.8 6.112 0.928 2.688-1.92 5.312-3.904 8-5.792 0.896-1.088 1.92-2.080 2.912-3.104v-7.552c-0.096-0.128-0.192-0.288-0.32-0.416-0.768-1.024-1.184-2.176-1.6-3.296-0.768-0.416-1.536-0.8-2.336-1.12-0.128-0.064-0.256-0.096-0.384-0.16h-21.568v12.992c1.312 0.672 2.496 1.6 3.648 2.528z"</span><span class="cm-tag cm-bracket">&gt;</span><span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">path</span><span class="cm-tag cm-bracket">&gt;</span>
+        <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">symbol</span><span class="cm-tag cm-bracket">&gt;</span>
+        <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">symbol</span> <span class="cm-attribute">id</span>=<span class="cm-string">"icon-heart"</span> <span class="cm-attribute">viewBox</span>=<span class="cm-string">"0 0 32 32"</span><span class="cm-tag cm-bracket">&gt;</span>
+          <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">title</span><span class="cm-tag cm-bracket">&gt;</span>icon-heart<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">title</span><span class="cm-tag cm-bracket">&gt;</span>
+          <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">path</span> <span class="cm-attribute">d</span>=<span class="cm-string">"M22.88 1.952c-2.72 0-5.184 1.28-6.88 3.456-1.696-2.176-4.16-3.456-6.88-3.456-4.48 0-9.024 3.648-9.024 10.592 0 7.232 7.776 12.704 15.072 17.248 0.256 0.16 0.544 0.256 0.832 0.256s0.576-0.096 0.832-0.256c7.296-4.544 15.072-10.016 15.072-17.248 0-6.944-4.544-10.592-9.024-10.592zM16 26.56c-4.864-3.072-12.736-8.288-12.736-14.016 0-5.088 3.040-7.424 5.824-7.424 2.368 0 4.384 1.504 5.408 4.032 0.256 0.608 0.832 0.992 1.472 0.992s1.248-0.384 1.472-0.992c1.024-2.528 3.040-4.032 5.408-4.032 2.816 0 5.824 2.304 5.824 7.424 0.064 5.728-7.808 10.976-12.672 14.016z"</span><span class="cm-tag cm-bracket">&gt;</span><span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">path</span><span class="cm-tag cm-bracket">&gt;</span>
+          <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">path</span> <span class="cm-attribute">d</span>=<span class="cm-string">"M16 30.144c-0.32 0-0.64-0.096-0.896-0.256-7.296-4.576-15.104-10.048-15.104-17.344 0-7.008 4.576-10.688 9.12-10.688 2.656 0 5.152 1.216 6.88 3.392 1.728-2.144 4.224-3.392 6.88-3.392 4.544 0 9.12 3.68 9.12 10.688 0 7.296-7.808 12.768-15.104 17.344-0.256 0.16-0.576 0.256-0.896 0.256zM9.12 2.048c-4.448 0-8.928 3.616-8.928 10.496 0 7.168 7.744 12.64 15.008 17.152 0.48 0.288 1.12 0.288 1.568 0 7.264-4.544 15.008-9.984 15.008-17.152 0-6.88-4.48-10.496-8.928-10.496-2.656 0-5.088 1.216-6.816 3.392l-0.032 0.128-0.064-0.096c-1.696-2.176-4.192-3.424-6.816-3.424zM16 26.688l-0.064-0.032c-3.808-2.4-12.768-8.032-12.768-14.112 0-5.152 3.072-7.52 5.952-7.52 2.432 0 4.48 1.536 5.504 4.096 0.224 0.576 0.768 0.928 1.376 0.928s1.152-0.384 1.376-0.928c1.024-2.56 3.072-4.096 5.504-4.096 2.848 0 5.952 2.336 5.952 7.52 0 6.080-8.96 11.712-12.768 14.112l-0.064 0.032zM9.12 5.248c-2.752 0-5.728 2.304-5.728 7.328 0 5.952 8.8 11.488 12.608 13.92 3.808-2.4 12.608-7.968 12.608-13.92 0-5.024-2.976-7.328-5.728-7.328-2.336 0-4.32 1.472-5.312 3.968-0.256 0.64-0.864 1.056-1.568 1.056s-1.312-0.416-1.568-1.056c-0.992-2.496-2.976-3.968-5.312-3.968z"</span><span class="cm-tag cm-bracket">&gt;</span><span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">path</span><span class="cm-tag cm-bracket">&gt;</span>
+        <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">symbol</span><span class="cm-tag cm-bracket">&gt;</span>
+        <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">symbol</span> <span class="cm-attribute">id</span>=<span class="cm-string">"icon-infinity"</span> <span class="cm-attribute">viewBox</span>=<span class="cm-string">"0 0 32 32"</span><span class="cm-tag cm-bracket">&gt;</span>
+          <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">title</span><span class="cm-tag cm-bracket">&gt;</span>icon-infinity<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">title</span><span class="cm-tag cm-bracket">&gt;</span>
+          <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">path</span> <span class="cm-attribute">d</span>=<span class="cm-string">"M29.312 20.832c-1.28 1.28-3.008 1.984-4.832 1.984s-3.52-0.704-4.832-1.984c-0.032-0.032-0.224-0.224-0.256-0.256v0 1.28c0 0.448-0.352 0.8-0.8 0.8s-0.8-0.352-0.8-0.8v-3.168c0-0.448 0.352-0.8 0.8-0.8h3.168c0.448 0 0.8 0.352 0.8 0.8s-0.352 0.8-0.8 0.8h-1.28c0.032 0.032 0.224 0.224 0.256 0.256 0.992 0.992 2.304 1.536 3.68 1.536 1.408 0 2.72-0.544 3.68-1.536 0.992-0.992 1.536-2.304 1.536-3.68s-0.544-2.72-1.536-3.68c-0.992-0.992-2.304-1.536-3.68-1.536-1.408 0-2.72 0.544-3.68 1.536l-8.416 8.448c-1.312 1.312-3.072 1.984-4.832 1.984s-3.488-0.672-4.832-1.984c-2.656-2.656-2.656-6.976 0-9.632s6.976-2.656 9.632 0c0.032 0.032 0.16 0.16 0.192 0.192l0.064 0.064v-1.28c0-0.448 0.352-0.8 0.8-0.8s0.8 0.352 0.8 0.8v3.168c0 0.448-0.352 0.8-0.8 0.8h-3.168c-0.448 0-0.8-0.352-0.8-0.8s0.352-0.8 0.8-0.8h1.28l-0.096-0.064c-0.032-0.032-0.16-0.16-0.192-0.192-0.992-0.992-2.304-1.536-3.68-1.536s-2.72 0.544-3.68 1.536c-2.048 2.048-2.048 5.344 0 7.392 0.992 0.992 2.304 1.536 3.68 1.536s2.72-0.544 3.68-1.536l8.512-8.512c1.28-1.28 3.008-1.984 4.832-1.984s3.52 0.704 4.832 1.984c2.624 2.656 2.624 7.008-0.032 9.664z"</span><span class="cm-tag cm-bracket">&gt;</span><span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">path</span><span class="cm-tag cm-bracket">&gt;</span>
+          <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">path</span> <span class="cm-attribute">d</span>=<span class="cm-string">"M24.512 23.488c-1.6 0-3.136-0.512-4.416-1.44-0.128 0.704-0.736 1.248-1.44 1.248-0.8 0-1.472-0.672-1.472-1.472v-3.168c0-0.8 0.672-1.472 1.472-1.472h3.168c0.8 0 1.472 0.672 1.472 1.472 0 0.608-0.384 1.152-0.928 1.376 0.64 0.352 1.376 0.544 2.144 0.544 1.216 0 2.368-0.48 3.2-1.344 0.864-0.864 1.344-1.984 1.344-3.2s-0.48-2.368-1.344-3.2c-0.864-0.864-1.984-1.344-3.2-1.344s-2.368 0.48-3.2 1.344l-8.512 8.48c-1.408 1.408-3.296 2.176-5.312 2.176s-3.872-0.768-5.312-2.176c-2.912-2.912-2.912-7.68 0-10.592 1.408-1.408 3.296-2.176 5.312-2.176 0 0 0 0 0 0 1.6 0 3.136 0.512 4.416 1.44 0.128-0.704 0.736-1.248 1.472-1.248 0.8 0 1.472 0.672 1.472 1.472v3.168c0 0.8-0.672 1.472-1.472 1.472h-3.168c-0.8 0-1.472-0.672-1.472-1.472 0-0.608 0.384-1.152 0.928-1.376-0.64-0.352-1.376-0.544-2.144-0.544-1.216 0-2.368 0.48-3.2 1.344-1.76 1.76-1.76 4.64 0 6.432 0.864 0.864 2.016 1.344 3.2 1.344 1.216 0 2.368-0.48 3.2-1.344l8.48-8.544c1.408-1.408 3.296-2.208 5.312-2.208s3.872 0.768 5.312 2.208c1.408 1.408 2.176 3.296 2.176 5.312s-0.768 3.872-2.208 5.312v0c0 0 0 0 0 0-1.408 1.408-3.296 2.176-5.28 2.176zM18.752 18.912l1.44 1.44c1.152 1.152 2.688 1.792 4.32 1.792s3.168-0.64 4.32-1.792v0c1.152-1.152 1.792-2.688 1.792-4.32s-0.64-3.168-1.792-4.32c-1.152-1.152-2.688-1.792-4.352-1.792-1.632 0-3.168 0.64-4.32 1.792l-8.48 8.448c-1.12 1.12-2.592 1.728-4.16 1.728s-3.072-0.608-4.16-1.728c-2.304-2.304-2.304-6.048 0-8.352 1.12-1.12 2.592-1.728 4.16-1.728s3.072 0.608 4.16 1.728l1.44 1.408h-2.912c-0.064 0-0.128 0.064-0.128 0.128s0.064 0.128 0.128 0.128h3.168c0.064 0 0.128-0.064 0.128-0.128v-3.168c0-0.064-0.064-0.128-0.128-0.128s-0.128 0.064-0.128 0.128v2.912l-1.408-1.408c-1.152-1.152-2.688-1.792-4.352-1.792-1.632 0-3.168 0.64-4.32 1.792-2.4 2.4-2.4 6.272 0 8.672 1.152 1.152 2.688 1.792 4.32 1.792s3.168-0.64 4.32-1.792l8.512-8.512c1.12-1.12 2.592-1.728 4.16-1.728s3.072 0.608 4.16 1.728c1.12 1.12 1.728 2.592 1.728 4.16s-0.608 3.072-1.728 4.16c-1.12 1.12-2.592 1.728-4.16 1.728s-3.072-0.608-4.16-1.728l-1.408-1.408h2.912c0.064 0 0.128-0.064 0.128-0.128s-0.064-0.128-0.128-0.128h-3.168c-0.064 0-0.128 0.064-0.128 0.128v3.168c0 0.064 0.064 0.128 0.128 0.128s0.128-0.064 0.128-0.128v-2.88z"</span><span class="cm-tag cm-bracket">&gt;</span><span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">path</span><span class="cm-tag cm-bracket">&gt;</span>
+        <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">symbol</span><span class="cm-tag cm-bracket">&gt;</span>
+        <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">symbol</span> <span class="cm-attribute">id</span>=<span class="cm-string">"icon-pause"</span> <span class="cm-attribute">viewBox</span>=<span class="cm-string">"0 0 32 32"</span><span class="cm-tag cm-bracket">&gt;</span>
+          <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">title</span><span class="cm-tag cm-bracket">&gt;</span>icon-pause<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">title</span><span class="cm-tag cm-bracket">&gt;</span>
+          <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">path</span> <span class="cm-attribute">d</span>=<span class="cm-string">"M16 0.32c-8.64 0-15.68 7.040-15.68 15.68s7.040 15.68 15.68 15.68 15.68-7.040 15.68-15.68-7.040-15.68-15.68-15.68zM16 29.216c-7.296 0-13.216-5.92-13.216-13.216s5.92-13.216 13.216-13.216 13.216 5.92 13.216 13.216-5.92 13.216-13.216 13.216z"</span><span class="cm-tag cm-bracket">&gt;</span><span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">path</span><span class="cm-tag cm-bracket">&gt;</span>
+          <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">path</span> <span class="cm-attribute">d</span>=<span class="cm-string">"M16 32c-8.832 0-16-7.168-16-16s7.168-16 16-16 16 7.168 16 16-7.168 16-16 16zM16 0.672c-8.448 0-15.328 6.88-15.328 15.328s6.88 15.328 15.328 15.328c8.448 0 15.328-6.88 15.328-15.328s-6.88-15.328-15.328-15.328zM16 29.568c-7.488 0-13.568-6.080-13.568-13.568s6.080-13.568 13.568-13.568c7.488 0 13.568 6.080 13.568 13.568s-6.080 13.568-13.568 13.568zM16 3.104c-7.104 0-12.896 5.792-12.896 12.896s5.792 12.896 12.896 12.896c7.104 0 12.896-5.792 12.896-12.896s-5.792-12.896-12.896-12.896z"</span><span class="cm-tag cm-bracket">&gt;</span><span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">path</span><span class="cm-tag cm-bracket">&gt;</span>
+          <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">path</span> <span class="cm-attribute">d</span>=<span class="cm-string">"M12.16 22.336v0c-0.896 0-1.6-0.704-1.6-1.6v-9.472c0-0.896 0.704-1.6 1.6-1.6v0c0.896 0 1.6 0.704 1.6 1.6v9.504c0 0.864-0.704 1.568-1.6 1.568z"</span><span class="cm-tag cm-bracket">&gt;</span><span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">path</span><span class="cm-tag cm-bracket">&gt;</span>
+          <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">path</span> <span class="cm-attribute">d</span>=<span class="cm-string">"M19.84 22.336v0c-0.896 0-1.6-0.704-1.6-1.6v-9.472c0-0.896 0.704-1.6 1.6-1.6v0c0.896 0 1.6 0.704 1.6 1.6v9.504c0 0.864-0.704 1.568-1.6 1.568z"</span><span class="cm-tag cm-bracket">&gt;</span><span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">path</span><span class="cm-tag cm-bracket">&gt;</span>
+        <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">symbol</span><span class="cm-tag cm-bracket">&gt;</span>
+        <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">symbol</span> <span class="cm-attribute">id</span>=<span class="cm-string">"icon-play"</span> <span class="cm-attribute">viewBox</span>=<span class="cm-string">"0 0 32 32"</span><span class="cm-tag cm-bracket">&gt;</span>
+          <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">title</span><span class="cm-tag cm-bracket">&gt;</span>icon-play<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">title</span><span class="cm-tag cm-bracket">&gt;</span>
+          <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">path</span> <span class="cm-attribute">d</span>=<span class="cm-string">"M21.216 15.168l-7.616-5.088c-0.672-0.416-1.504 0.032-1.504 0.832v10.176c0 0.8 0.896 1.248 1.504 0.832l7.616-5.088c0.576-0.416 0.576-1.248 0-1.664z"</span><span class="cm-tag cm-bracket">&gt;</span><span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">path</span><span class="cm-tag cm-bracket">&gt;</span>
+          <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">path</span> <span class="cm-attribute">d</span>=<span class="cm-string">"M13.056 22.4c-0.224 0-0.416-0.064-0.608-0.16-0.448-0.224-0.704-0.672-0.704-1.152v-10.176c0-0.48 0.256-0.928 0.672-1.152s0.928-0.224 1.344 0.064l7.616 5.088c0.384 0.256 0.608 0.672 0.608 1.088s-0.224 0.864-0.608 1.088l-7.616 5.088c-0.192 0.16-0.448 0.224-0.704 0.224zM13.056 10.272c-0.096 0-0.224 0.032-0.32 0.064-0.224 0.128-0.352 0.32-0.352 0.576v10.176c0 0.256 0.128 0.48 0.352 0.576 0.224 0.128 0.448 0.096 0.64-0.032l7.616-5.088c0.192-0.128 0.288-0.32 0.288-0.544s-0.096-0.416-0.288-0.544l-7.584-5.088c-0.096-0.064-0.224-0.096-0.352-0.096z"</span><span class="cm-tag cm-bracket">&gt;</span><span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">path</span><span class="cm-tag cm-bracket">&gt;</span>
+          <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">path</span> <span class="cm-attribute">d</span>=<span class="cm-string">"M16 0.32c-8.64 0-15.68 7.040-15.68 15.68s7.040 15.68 15.68 15.68 15.68-7.040 15.68-15.68-7.040-15.68-15.68-15.68zM16 29.216c-7.296 0-13.216-5.92-13.216-13.216s5.92-13.216 13.216-13.216 13.216 5.92 13.216 13.216-5.92 13.216-13.216 13.216z"</span><span class="cm-tag cm-bracket">&gt;</span><span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">path</span><span class="cm-tag cm-bracket">&gt;</span>
+          <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">path</span> <span class="cm-attribute">d</span>=<span class="cm-string">"M16 32c-8.832 0-16-7.168-16-16s7.168-16 16-16 16 7.168 16 16-7.168 16-16 16zM16 0.672c-8.448 0-15.328 6.88-15.328 15.328s6.88 15.328 15.328 15.328c8.448 0 15.328-6.88 15.328-15.328s-6.88-15.328-15.328-15.328zM16 29.568c-7.488 0-13.568-6.080-13.568-13.568s6.080-13.568 13.568-13.568c7.488 0 13.568 6.080 13.568 13.568s-6.080 13.568-13.568 13.568zM16 3.104c-7.104 0-12.896 5.792-12.896 12.896s5.792 12.896 12.896 12.896c7.104 0 12.896-5.792 12.896-12.896s-5.792-12.896-12.896-12.896z"</span><span class="cm-tag cm-bracket">&gt;</span><span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">path</span><span class="cm-tag cm-bracket">&gt;</span>
+        <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">symbol</span><span class="cm-tag cm-bracket">&gt;</span>
+        <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">symbol</span> <span class="cm-attribute">id</span>=<span class="cm-string">"icon-link"</span> <span class="cm-attribute">viewBox</span>=<span class="cm-string">"0 0 32 32"</span><span class="cm-tag cm-bracket">&gt;</span>
+        <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">title</span><span class="cm-tag cm-bracket">&gt;</span>link<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">title</span><span class="cm-tag cm-bracket">&gt;</span>
+          <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">path</span> <span class="cm-attribute">d</span>=<span class="cm-string">"M23.584 17.92c0 0.864 0 1.728 0 2.56 0 1.312 0 2.656 0 3.968 0 0.352 0.032 0.736-0.032 1.12 0.032-0.16 0.032-0.288 0.064-0.448-0.032 0.224-0.096 0.448-0.16 0.64 0.064-0.128 0.128-0.256 0.16-0.416-0.096 0.192-0.192 0.384-0.32 0.576 0.096-0.128 0.16-0.224 0.256-0.352-0.128 0.16-0.288 0.32-0.48 0.48 0.128-0.096 0.224-0.16 0.352-0.256-0.192 0.128-0.352 0.256-0.576 0.32 0.128-0.064 0.256-0.128 0.416-0.16-0.224 0.096-0.416 0.16-0.64 0.16 0.16-0.032 0.288-0.032 0.448-0.064-0.256 0.032-0.512 0.032-0.768 0.032-0.448 0-0.896 0-1.312 0-1.472 0-2.976 0-4.448 0-1.824 0-3.616 0-5.44 0-1.568 0-3.104 0-4.672 0-0.736 0-1.44 0-2.176 0-0.128 0-0.224 0-0.352-0.032 0.16 0.032 0.288 0.032 0.448 0.064-0.224-0.032-0.448-0.096-0.64-0.16 0.128 0.064 0.256 0.128 0.416 0.16-0.192-0.096-0.384-0.192-0.576-0.32 0.128 0.096 0.224 0.16 0.352 0.256-0.16-0.128-0.32-0.288-0.48-0.48 0.096 0.128 0.16 0.224 0.256 0.352-0.128-0.192-0.256-0.352-0.32-0.576 0.064 0.128 0.128 0.256 0.16 0.416-0.096-0.224-0.16-0.416-0.16-0.64 0.032 0.16 0.032 0.288 0.064 0.448-0.032-0.256-0.032-0.512-0.032-0.768 0-0.448 0-0.896 0-1.312 0-1.472 0-2.976 0-4.448 0-1.824 0-3.616 0-5.44 0-1.568 0-3.104 0-4.672 0-0.736 0-1.44 0-2.176 0-0.128 0-0.224 0.032-0.352-0.032 0.16-0.032 0.288-0.064 0.448 0.032-0.224 0.096-0.448 0.16-0.64-0.064 0.128-0.128 0.256-0.16 0.416 0.096-0.192 0.192-0.384 0.32-0.576-0.096 0.128-0.16 0.224-0.256 0.352 0.128-0.16 0.288-0.32 0.48-0.48-0.128 0.096-0.224 0.16-0.352 0.256 0.192-0.128 0.352-0.256 0.576-0.32-0.128 0.064-0.256 0.128-0.416 0.16 0.224-0.096 0.416-0.16 0.64-0.16-0.16 0.032-0.288 0.032-0.448 0.064 0.48-0.064 0.96-0.032 1.44-0.032 0.992 0 1.952 0 2.944 0 1.216 0 2.432 0 3.616 0 1.056 0 2.112 0 3.168 0 0.512 0 1.024 0 1.536 0 0 0 0 0 0.032 0 0.448 0 0.896-0.192 1.184-0.48s0.512-0.768 0.48-1.184c-0.032-0.448-0.16-0.896-0.48-1.184s-0.736-0.48-1.184-0.48c-0.64 0-1.28 0-1.92 0-1.408 0-2.816 0-4.224 0-1.44 0-2.848 0-4.256 0-0.672 0-1.344 0-2.016 0-0.736 0-1.472 0.192-2.112 0.576s-1.216 0.96-1.568 1.6c-0.384 0.64-0.544 1.376-0.544 2.144 0 0.672 0 1.376 0 2.048 0 1.28 0 2.56 0 3.84 0 1.504 0 3.040 0 4.544 0 1.408 0 2.848 0 4.256 0 0.992 0 1.952 0 2.944 0 0.224 0 0.448 0 0.64 0 0.864 0.224 1.76 0.768 2.464 0.16 0.192 0.288 0.384 0.48 0.576s0.384 0.352 0.608 0.512c0.32 0.224 0.64 0.384 1.024 0.512 0.448 0.16 0.928 0.224 1.408 0.224 0.16 0 0.32 0 0.48 0 0.896 0 1.792 0 2.72 0 1.376 0 2.784 0 4.16 0 1.536 0 3.040 0 4.576 0 1.312 0 2.656 0 3.968 0 0.768 0 1.536 0 2.336 0 0.416 0 0.832-0.032 1.248-0.128 1.504-0.32 2.784-1.6 3.104-3.104 0.128-0.544 0.128-1.056 0.128-1.568 0-0.608 0-1.184 0-1.792 0-1.408 0-2.816 0-4.224 0-0.256 0-0.512 0-0.768 0-0.448-0.192-0.896-0.48-1.184s-0.768-0.512-1.184-0.48c-0.448 0.032-0.896 0.16-1.184 0.48-0.384 0.384-0.576 0.768-0.576 1.248v0z"</span><span class="cm-tag cm-bracket">&gt;</span><span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">path</span><span class="cm-tag cm-bracket">&gt;</span>
+          <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">path</span> <span class="cm-attribute">d</span>=<span class="cm-string">"M32 11.232c0-0.8 0-1.568 0-2.368 0-1.248 0-2.528 0-3.776 0-0.288 0-0.576 0-0.864 0-0.896-0.768-1.696-1.696-1.696-0.8 0-1.568 0-2.368 0-1.248 0-2.528 0-3.776 0-0.288 0-0.576 0-0.864 0-0.448 0-0.896 0.192-1.184 0.48s-0.512 0.768-0.48 1.184c0.032 0.448 0.16 0.896 0.48 1.184s0.736 0.48 1.184 0.48c0.8 0 1.568 0 2.368 0 1.248 0 2.528 0 3.776 0 0.288 0 0.576 0 0.864 0-0.576-0.576-1.12-1.12-1.696-1.696 0 0.8 0 1.568 0 2.368 0 1.248 0 2.528 0 3.776 0 0.288 0 0.576 0 0.864 0 0.448 0.192 0.896 0.48 1.184s0.768 0.512 1.184 0.48c0.448-0.032 0.896-0.16 1.184-0.48 0.352-0.256 0.544-0.64 0.544-1.12v0z"</span><span class="cm-tag cm-bracket">&gt;</span><span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">path</span><span class="cm-tag cm-bracket">&gt;</span>
+          <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">path</span> <span class="cm-attribute">d</span>=<span class="cm-string">"M15.040 21.888c0.16-0.16 0.288-0.288 0.448-0.448 0.384-0.384 0.8-0.8 1.184-1.184 0.608-0.608 1.184-1.184 1.792-1.792 0.704-0.704 1.44-1.44 2.176-2.176 0.8-0.8 1.568-1.568 2.368-2.368s1.6-1.6 2.4-2.4c0.736-0.736 1.504-1.504 2.24-2.24 0.64-0.64 1.248-1.248 1.888-1.888 0.448-0.448 0.896-0.896 1.344-1.344 0.224-0.224 0.448-0.416 0.64-0.64 0 0 0.032-0.032 0.032-0.032 0.32-0.32 0.48-0.768 0.48-1.184s-0.192-0.896-0.48-1.184c-0.32-0.288-0.736-0.512-1.184-0.48-0.512 0.032-0.928 0.16-1.248 0.48-0.16 0.16-0.288 0.288-0.448 0.448-0.384 0.384-0.8 0.8-1.184 1.184-0.608 0.608-1.184 1.184-1.792 1.792-0.704 0.704-1.44 1.44-2.176 2.176-0.8 0.8-1.568 1.568-2.368 2.368s-1.6 1.6-2.4 2.4c-0.736 0.736-1.504 1.504-2.24 2.24-0.64 0.64-1.248 1.248-1.888 1.888-0.448 0.448-0.896 0.896-1.344 1.344-0.224 0.224-0.448 0.416-0.64 0.64 0 0-0.032 0.032-0.032 0.032-0.32 0.32-0.48 0.768-0.48 1.184s0.192 0.896 0.48 1.184c0.32 0.288 0.736 0.512 1.184 0.48 0.48 0 0.928-0.16 1.248-0.48v0z"</span><span class="cm-tag cm-bracket">&gt;</span><span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">path</span><span class="cm-tag cm-bracket">&gt;</span>
+        <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">symbol</span><span class="cm-tag cm-bracket">&gt;</span>
+        <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">symbol</span> <span class="cm-attribute">id</span>=<span class="cm-string">"icon-next"</span> <span class="cm-attribute">viewBox</span>=<span class="cm-string">"0 0 32 32"</span><span class="cm-tag cm-bracket">&gt;</span>
+          <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">title</span><span class="cm-tag cm-bracket">&gt;</span>next<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">title</span><span class="cm-tag cm-bracket">&gt;</span>
+          <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">path</span> <span class="cm-attribute">d</span>=<span class="cm-string">"M2.304 18.304h14.688l-4.608 4.576c-0.864 0.864-0.864 2.336 0 3.232 0.864 0.864 2.336 0.864 3.232 0l8.448-8.48c0.864-0.864 0.864-2.336 0-3.232l-8.448-8.448c-0.448-0.448-1.056-0.672-1.632-0.672s-1.184 0.224-1.632 0.672c-0.864 0.864-0.864 2.336 0 3.232l4.64 4.576h-14.688c-1.248 0-2.304 0.992-2.304 2.272s1.024 2.272 2.304 2.272z"</span><span class="cm-tag cm-bracket">&gt;</span><span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">path</span><span class="cm-tag cm-bracket">&gt;</span>
+          <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">path</span> <span class="cm-attribute">d</span>=<span class="cm-string">"M29.696 26.752c1.248 0 2.304-1.024 2.304-2.304v-16.928c0-1.248-1.024-2.304-2.304-2.304s-2.304 1.024-2.304 2.304v16.928c0.064 1.28 1.056 2.304 2.304 2.304z"</span><span class="cm-tag cm-bracket">&gt;</span><span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">path</span><span class="cm-tag cm-bracket">&gt;</span>
+        <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">symbol</span><span class="cm-tag cm-bracket">&gt;</span>
+        <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">symbol</span> <span class="cm-attribute">id</span>=<span class="cm-string">"icon-prev"</span> <span class="cm-attribute">viewBox</span>=<span class="cm-string">"0 0 32 32"</span><span class="cm-tag cm-bracket">&gt;</span>
+          <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">title</span><span class="cm-tag cm-bracket">&gt;</span>prev<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">title</span><span class="cm-tag cm-bracket">&gt;</span>
+          <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">path</span> <span class="cm-attribute">d</span>=<span class="cm-string">"M29.696 13.696h-14.688l4.576-4.576c0.864-0.864 0.864-2.336 0-3.232-0.864-0.864-2.336-0.864-3.232 0l-8.448 8.48c-0.864 0.864-0.864 2.336 0 3.232l8.448 8.448c0.448 0.448 1.056 0.672 1.632 0.672s1.184-0.224 1.632-0.672c0.864-0.864 0.864-2.336 0-3.232l-4.608-4.576h14.688c1.248 0 2.304-1.024 2.304-2.304s-1.024-2.24-2.304-2.24z"</span><span class="cm-tag cm-bracket">&gt;</span><span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">path</span><span class="cm-tag cm-bracket">&gt;</span>
+          <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">path</span> <span class="cm-attribute">d</span>=<span class="cm-string">"M2.304 5.248c-1.248 0-2.304 1.024-2.304 2.304v16.928c0 1.248 1.024 2.304 2.304 2.304s2.304-1.024 2.304-2.304v-16.928c-0.064-1.28-1.056-2.304-2.304-2.304z"</span><span class="cm-tag cm-bracket">&gt;</span><span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">path</span><span class="cm-tag cm-bracket">&gt;</span>
+        <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">symbol</span><span class="cm-tag cm-bracket">&gt;</span>
+      <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">defs</span><span class="cm-tag cm-bracket">&gt;</span>
+    <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">svg</span><span class="cm-tag cm-bracket">&gt;</span></code></pre>
+</div>
+<div id="css-box" class="code-wrap code-box box " role="region" aria-label="CSS">
+<pre tabindex="0"><code data-lang="text/x-scss" id="actual-css-code" class=" cm-s-default"><span class="cm-tag">body</span> {
+  <span class="cm-comment">// background: #e1e7ec;</span>
+  <span class="cm-property">background</span>: <span class="cm-atom">#dfe7ef</span>;
+  <span class="cm-property">font-family</span>: <span class="cm-string">"Bitter"</span>, <span class="cm-atom">serif</span>;
+}
+
+* {
+  <span class="cm-property">box-sizing</span>: <span class="cm-atom">border-box</span>;
+}
+
+<span class="cm-qualifier">.icon</span> {
+  <span class="cm-property">display</span>: <span class="cm-atom">inline-block</span>;
+  <span class="cm-property">width</span>: <span class="cm-number">1em</span>;
+  <span class="cm-property">height</span>: <span class="cm-number">1em</span>;
+  <span class="cm-property">stroke-width</span>: <span class="cm-number">0</span>;
+  <span class="cm-property">stroke</span>: <span class="cm-atom">currentColor</span>;
+  <span class="cm-property">fill</span>: <span class="cm-atom">currentColor</span>;
+}
+
+<span class="cm-qualifier">.wrapper</span> {
+  <span class="cm-property">width</span>: <span class="cm-number">100%</span>;
+  <span class="cm-property">display</span>: <span class="cm-atom">flex</span>;
+  <span class="cm-property">align-items</span>: <span class="cm-atom">center</span>;
+  <span class="cm-property">justify-content</span>: <span class="cm-atom">center</span>;
+  <span class="cm-property">min-height</span>: <span class="cm-number">100vh</span>;
+  <span class="cm-comment">// background: url(../img/bg.png) no-repeat center;</span>
+  <span class="cm-property">background-size</span>: <span class="cm-atom">cover</span>;
+  <span class="cm-def">@media</span> <span class="cm-attribute">screen</span> <span class="cm-keyword">and</span> (<span class="cm-property">max-width</span>: <span class="cm-number">700px</span>), (<span class="cm-property">max-height</span>: <span class="cm-number">500px</span>) {
+    <span class="cm-property">flex-wrap</span>: <span class="cm-atom">wrap</span>;
+    <span class="cm-property">flex-direction</span>: <span class="cm-atom">column</span>;
+  }
+}
+
+<span class="cm-qualifier">.player</span> {
+  <span class="cm-property">background</span>: <span class="cm-atom">#eef3f7</span>;
+  <span class="cm-property">width</span>: <span class="cm-number">410px</span>;
+  <span class="cm-property">min-height</span>: <span class="cm-number">480px</span>;
+  <span class="cm-comment">// box-shadow: 0px 55px 75px -10px rgba(76, 70, 124, 0.5);</span>
+  <span class="cm-comment">// box-shadow: 0px 55px 105px 10px rgba(76, 70, 124, 0.35);</span>
+  <span class="cm-property">box-shadow</span>: <span class="cm-number">0px</span> <span class="cm-number">15px</span> <span class="cm-number">35px</span> <span class="cm-number">-5px</span> <span class="cm-variable cm-callee">rgba</span>(<span class="cm-number">50</span>, <span class="cm-number">88</span>, <span class="cm-number">130</span>, <span class="cm-number">0.32</span>);
+  <span class="cm-property">border-radius</span>: <span class="cm-number">15px</span>;
+  <span class="cm-property">padding</span>: <span class="cm-number">30px</span>;
+  <span class="cm-def">@media</span> <span class="cm-attribute">screen</span> <span class="cm-keyword">and</span> (<span class="cm-property">max-width</span>: <span class="cm-number">576px</span>), (<span class="cm-property">max-height</span>: <span class="cm-number">500px</span>) {
+    <span class="cm-property">width</span>: <span class="cm-number">95%</span>;
+    <span class="cm-property">padding</span>: <span class="cm-number">20px</span>;
+    <span class="cm-property">margin-top</span>: <span class="cm-number">75px</span>;
+    <span class="cm-property">min-height</span>: <span class="cm-atom">initial</span>;
+    <span class="cm-property">padding-bottom</span>: <span class="cm-number">30px</span>;
+    <span class="cm-property">max-width</span>: <span class="cm-number">400px</span>;
+  }
+  &amp;<span class="cm-tag">__top</span> {
+    <span class="cm-property">display</span>: <span class="cm-atom">flex</span>;
+    <span class="cm-property">align-items</span>: <span class="cm-atom">flex-start</span>;
+    <span class="cm-property">position</span>: <span class="cm-atom">relative</span>;
+    <span class="cm-property">z-index</span>: <span class="cm-number">4</span>;
+    <span class="cm-def">@media</span> <span class="cm-attribute">screen</span> <span class="cm-keyword">and</span> (<span class="cm-property">max-width</span>: <span class="cm-number">576px</span>), (<span class="cm-property">max-height</span>: <span class="cm-number">500px</span>) {
+      <span class="cm-property">flex-wrap</span>: <span class="cm-atom">wrap</span>;
+    }
+  }
+
+  &amp;-<span class="cm-tag">cover</span> {
+    <span class="cm-property">width</span>: <span class="cm-number">300px</span>;
+    <span class="cm-property">height</span>: <span class="cm-number">300px</span>;
+    <span class="cm-property">margin-left</span>: <span class="cm-number">-70px</span>;
+    <span class="cm-property">flex-shrink</span>: <span class="cm-number">0</span>;
+    <span class="cm-property">position</span>: <span class="cm-atom">relative</span>;
+    <span class="cm-property">z-index</span>: <span class="cm-number">2</span>;
+    <span class="cm-property">border-radius</span>: <span class="cm-number">15px</span>;
+    <span class="cm-comment">// transform: perspective(512px) translate3d(0, 0, 0);</span>
+    <span class="cm-comment">// transition: all .4s cubic-bezier(.125, .625, .125, .875);</span>
+    <span class="cm-property">z-index</span>: <span class="cm-number">1</span>;
+
+    <span class="cm-def">@media</span> <span class="cm-attribute">screen</span> <span class="cm-keyword">and</span> (<span class="cm-property">max-width</span>: <span class="cm-number">576px</span>), (<span class="cm-property">max-height</span>: <span class="cm-number">500px</span>) {
+      <span class="cm-property">margin-top</span>: <span class="cm-number">-70px</span>;
+      <span class="cm-property">margin-bottom</span>: <span class="cm-number">25px</span>;
+      <span class="cm-property">width</span>: <span class="cm-number">290px</span>;
+      <span class="cm-property">height</span>: <span class="cm-number">230px</span>;
+      <span class="cm-property">margin-left</span>: <span class="cm-atom">auto</span>;
+      <span class="cm-property">margin-right</span>: <span class="cm-atom">auto</span>;
+    }
+
+    &amp;<span class="cm-tag">__item</span> {
+      <span class="cm-property">background-repeat</span>: <span class="cm-atom">no-repeat</span>;
+      <span class="cm-property">background-position</span>: <span class="cm-atom">center</span>;
+      <span class="cm-property">background-size</span>: <span class="cm-atom">cover</span>;
+      <span class="cm-property">width</span>: <span class="cm-number">100%</span>;
+      <span class="cm-property">height</span>: <span class="cm-number">100%</span>;
+      <span class="cm-property">border-radius</span>: <span class="cm-number">15px</span>;
+      <span class="cm-property">position</span>: <span class="cm-atom">absolute</span>;
+      <span class="cm-property">left</span>: <span class="cm-number">0</span>;
+      <span class="cm-property">top</span>: <span class="cm-number">0</span>;
+
+      &amp;:<span class="cm-variable-3">before</span> {
+        <span class="cm-property">content</span>: <span class="cm-string">""</span>;
+        <span class="cm-property">background</span>: <span class="cm-atom">inherit</span>;
+        <span class="cm-property">width</span>: <span class="cm-number">100%</span>;
+        <span class="cm-property">height</span>: <span class="cm-number">100%</span>;
+        <span class="cm-property">box-shadow</span>: <span class="cm-number">0px</span> <span class="cm-number">10px</span> <span class="cm-number">40px</span> <span class="cm-number">0px</span> <span class="cm-variable cm-callee">rgba</span>(<span class="cm-number">76</span>, <span class="cm-number">70</span>, <span class="cm-number">124</span>, <span class="cm-number">0.5</span>);
+        <span class="cm-property">display</span>: <span class="cm-atom">block</span>;
+        <span class="cm-property">z-index</span>: <span class="cm-number">1</span>;
+        <span class="cm-property">position</span>: <span class="cm-atom">absolute</span>;
+        <span class="cm-property">top</span>: <span class="cm-number">30px</span>;
+        <span class="cm-property">transform</span>: <span class="cm-variable cm-callee">scale</span>(<span class="cm-number">0.9</span>);
+        <span class="cm-property">filter</span>: <span class="cm-variable cm-callee">blur</span>(<span class="cm-number">10px</span>);
+        <span class="cm-property">opacity</span>: <span class="cm-number">0.9</span>;
+        <span class="cm-property">border-radius</span>: <span class="cm-number">15px</span>;
+      }
+
+      &amp;:<span class="cm-variable-3">after</span> {
+        <span class="cm-property">content</span>: <span class="cm-string">""</span>;
+        <span class="cm-property">background</span>: <span class="cm-atom">inherit</span>;
+        <span class="cm-property">width</span>: <span class="cm-number">100%</span>;
+        <span class="cm-property">height</span>: <span class="cm-number">100%</span>;
+        <span class="cm-property">box-shadow</span>: <span class="cm-number">0px</span> <span class="cm-number">10px</span> <span class="cm-number">40px</span> <span class="cm-number">0px</span> <span class="cm-variable cm-callee">rgba</span>(<span class="cm-number">76</span>, <span class="cm-number">70</span>, <span class="cm-number">124</span>, <span class="cm-number">0.5</span>);
+        <span class="cm-property">display</span>: <span class="cm-atom">block</span>;
+        <span class="cm-property">z-index</span>: <span class="cm-number">2</span>;
+        <span class="cm-property">position</span>: <span class="cm-atom">absolute</span>;
+        <span class="cm-property">border-radius</span>: <span class="cm-number">15px</span>;
+      }
+    }
+
+    &amp;<span class="cm-tag">__img</span> {
+      <span class="cm-property">width</span>: <span class="cm-number">100%</span>;
+      <span class="cm-property">height</span>: <span class="cm-number">100%</span>;
+      <span class="cm-property">object-fit</span>: <span class="cm-atom">cover</span>;
+      <span class="cm-property">border-radius</span>: <span class="cm-number">15px</span>;
+      <span class="cm-property">box-shadow</span>: <span class="cm-number">0px</span> <span class="cm-number">10px</span> <span class="cm-number">40px</span> <span class="cm-number">0px</span> <span class="cm-variable cm-callee">rgba</span>(<span class="cm-number">76</span>, <span class="cm-number">70</span>, <span class="cm-number">124</span>, <span class="cm-number">0.5</span>);
+      <span class="cm-property">user-select</span>: <span class="cm-atom">none</span>;
+      <span class="cm-property">pointer-events</span>: <span class="cm-atom">none</span>;
+    }
+  }
+
+  &amp;-<span class="cm-tag">controls</span> {
+    <span class="cm-property">flex</span>: <span class="cm-number">1</span>;
+    <span class="cm-property">padding-left</span>: <span class="cm-number">20px</span>;
+    <span class="cm-property">display</span>: <span class="cm-atom">flex</span>;
+    <span class="cm-property">flex-direction</span>: <span class="cm-atom">column</span>;
+    <span class="cm-property">align-items</span>: <span class="cm-atom">center</span>;
+
+    <span class="cm-def">@media</span> <span class="cm-attribute">screen</span> <span class="cm-keyword">and</span> (<span class="cm-property">max-width</span>: <span class="cm-number">576px</span>), (<span class="cm-property">max-height</span>: <span class="cm-number">500px</span>) {
+      <span class="cm-property">flex-direction</span>: <span class="cm-atom">row</span>;
+      <span class="cm-property">padding-left</span>: <span class="cm-number">0</span>;
+      <span class="cm-property">width</span>: <span class="cm-number">100%</span>;
+      <span class="cm-property">flex</span>: <span class="cm-atom">unset</span>;
+    }
+
+    &amp;<span class="cm-tag">__item</span> {
+      <span class="cm-property">display</span>: <span class="cm-atom">inline-flex</span>;
+      <span class="cm-property">font-size</span>: <span class="cm-number">30px</span>;
+      <span class="cm-property">padding</span>: <span class="cm-number">5px</span>;
+      <span class="cm-property">margin-bottom</span>: <span class="cm-number">10px</span>;
+      <span class="cm-property">color</span>: <span class="cm-atom">#acb8cc</span>;
+      <span class="cm-property">cursor</span>: <span class="cm-atom">pointer</span>;
+      <span class="cm-property">width</span>: <span class="cm-number">50px</span>;
+      <span class="cm-property">height</span>: <span class="cm-number">50px</span>;
+      <span class="cm-property">align-items</span>: <span class="cm-atom">center</span>;
+      <span class="cm-property">justify-content</span>: <span class="cm-atom">center</span>;
+      <span class="cm-property">position</span>: <span class="cm-atom">relative</span>;
+      <span class="cm-property">transition</span>: <span class="cm-atom">all</span> <span class="cm-number">0.3s</span> <span class="cm-atom">ease-in-out</span>;
+
+      <span class="cm-def">@media</span> <span class="cm-attribute">screen</span> <span class="cm-keyword">and</span> (<span class="cm-property">max-width</span>: <span class="cm-number">576px</span>), (<span class="cm-property">max-height</span>: <span class="cm-number">500px</span>) {
+        <span class="cm-property">font-size</span>: <span class="cm-number">26px</span>;
+        <span class="cm-property">padding</span>: <span class="cm-number">5px</span>;
+        <span class="cm-property">margin-right</span>: <span class="cm-number">10px</span>;
+        <span class="cm-property">color</span>: <span class="cm-atom">#acb8cc</span>;
+        <span class="cm-property">cursor</span>: <span class="cm-atom">pointer</span>;
+        <span class="cm-property">width</span>: <span class="cm-number">40px</span>;
+        <span class="cm-property">height</span>: <span class="cm-number">40px</span>;
+        <span class="cm-property">margin-bottom</span>: <span class="cm-number">0</span>;
+      }
+
+      &amp;::<span class="cm-variable-3">before</span> {
+        <span class="cm-property">content</span>: <span class="cm-string">""</span>;
+        <span class="cm-property">position</span>: <span class="cm-atom">absolute</span>;
+        <span class="cm-property">width</span>: <span class="cm-number">100%</span>;
+        <span class="cm-property">height</span>: <span class="cm-number">100%</span>;
+        <span class="cm-property">border-radius</span>: <span class="cm-number">50%</span>;
+        <span class="cm-property">background</span>: <span class="cm-atom">#fff</span>;
+        <span class="cm-property">transform</span>: <span class="cm-variable cm-callee">scale</span>(<span class="cm-number">0.5</span>);
+        <span class="cm-property">opacity</span>: <span class="cm-number">0</span>;
+        <span class="cm-property">box-shadow</span>: <span class="cm-number">0px</span> <span class="cm-number">5px</span> <span class="cm-number">10px</span> <span class="cm-number">0px</span> <span class="cm-variable cm-callee">rgba</span>(<span class="cm-number">76</span>, <span class="cm-number">70</span>, <span class="cm-number">124</span>, <span class="cm-number">0.2</span>);
+        <span class="cm-property">transition</span>: <span class="cm-atom">all</span> <span class="cm-number">0.3s</span> <span class="cm-atom">ease-in-out</span>;
+        <span class="cm-property">transition</span>: <span class="cm-atom">all</span> <span class="cm-number">0.4s</span> <span class="cm-variable cm-callee">cubic-bezier</span>(<span class="cm-number">0.35</span>, <span class="cm-number">0.57</span>, <span class="cm-number">0.13</span>, <span class="cm-number">0.88</span>);
+      }
+
+      <span class="cm-def">@media</span> <span class="cm-attribute">screen</span> <span class="cm-keyword">and</span> (<span class="cm-property">min-width</span>: <span class="cm-number">500px</span>) {
+        &amp;:<span class="cm-variable-3">hover</span> {
+          <span class="cm-property">color</span>: <span class="cm-atom">#532ab9</span>;
+
+          &amp;::<span class="cm-variable-3">before</span> {
+            <span class="cm-property">opacity</span>: <span class="cm-number">1</span>;
+            <span class="cm-property">transform</span>: <span class="cm-variable cm-callee">scale</span>(<span class="cm-number">1.3</span>);
+          }
+        }
+      }
+
+      <span class="cm-def">@media</span> <span class="cm-attribute">screen</span> <span class="cm-keyword">and</span> (<span class="cm-property">max-width</span>: <span class="cm-number">576px</span>), (<span class="cm-property">max-height</span>: <span class="cm-number">500px</span>) {
+        &amp;:<span class="cm-variable-3">active</span> {
+          <span class="cm-property">color</span>: <span class="cm-atom">#532ab9</span>;
+
+          &amp;::<span class="cm-variable-3">before</span> {
+            <span class="cm-property">opacity</span>: <span class="cm-number">1</span>;
+            <span class="cm-property">transform</span>: <span class="cm-variable cm-callee">scale</span>(<span class="cm-number">1.3</span>);
+          }
+        }
+      }
+
+      <span class="cm-qualifier">.icon</span> {
+        <span class="cm-property">position</span>: <span class="cm-atom">relative</span>;
+        <span class="cm-property">z-index</span>: <span class="cm-number">2</span>;
+      }
+
+      &amp;<span class="cm-qualifier">.-xl</span> {
+        <span class="cm-property">margin-bottom</span>: <span class="cm-number">0</span>;
+        <span class="cm-property">font-size</span>: <span class="cm-number">95px</span>;
+        <span class="cm-comment">// filter: drop-shadow(0 2px 8px rgba(172, 184, 204, 0.3));</span>
+        <span class="cm-comment">// filter: drop-shadow(0 9px 6px rgba(172, 184, 204, 0.35));</span>
+        <span class="cm-property">filter</span>: <span class="cm-variable cm-callee">drop-shadow</span>(<span class="cm-number">0</span> <span class="cm-number">11px</span> <span class="cm-number">6px</span> <span class="cm-variable cm-callee">rgba</span>(<span class="cm-number">172</span>, <span class="cm-number">184</span>, <span class="cm-number">204</span>, <span class="cm-number">0.45</span>));
+        <span class="cm-property">color</span>: <span class="cm-atom">#fff</span>;
+        <span class="cm-property">width</span>: <span class="cm-atom">auto</span>;
+        <span class="cm-property">height</span>: <span class="cm-atom">auto</span>;
+        <span class="cm-property">display</span>: <span class="cm-atom">inline-flex</span>;
+        <span class="cm-def">@media</span> <span class="cm-attribute">screen</span> <span class="cm-keyword">and</span> (<span class="cm-property">max-width</span>: <span class="cm-number">576px</span>), (<span class="cm-property">max-height</span>: <span class="cm-number">500px</span>) {
+          <span class="cm-property">margin-left</span>: <span class="cm-atom">auto</span>;
+          <span class="cm-property">font-size</span>: <span class="cm-number">75px</span>;
+          <span class="cm-property">margin-right</span>: <span class="cm-number">0</span>;
+        }
+        &amp;:<span class="cm-variable-3">before</span> {
+          <span class="cm-property">display</span>: <span class="cm-atom">none</span>;
+        }
+      }
+
+      &amp;<span class="cm-qualifier">.-favorite</span> {
+        &amp;<span class="cm-qualifier">.active</span> {
+          <span class="cm-property">color</span>: <span class="cm-keyword">red</span>;
+        }
+      }
+    }
+  }
+}
+[<span class="cm-tag">v-cloak</span>] {
+  <span class="cm-property">display</span>: <span class="cm-atom">none</span>;
+}
+[<span class="cm-tag">v-cloak</span>] &gt; * {
+  <span class="cm-property">display</span>: <span class="cm-atom">none</span>;
+}
+<span class="cm-qualifier">.progress</span> {
+  <span class="cm-property">width</span>: <span class="cm-number">100%</span>;
+  <span class="cm-property">margin-top</span>: <span class="cm-number">-15px</span>;
+  <span class="cm-property">user-select</span>: <span class="cm-atom">none</span>;
+  &amp;<span class="cm-tag">__top</span> {
+    <span class="cm-property">display</span>: <span class="cm-atom">flex</span>;
+    <span class="cm-property">align-items</span>: <span class="cm-atom">flex-end</span>;
+    <span class="cm-property">justify-content</span>: <span class="cm-atom">space-between</span>;
+  }
+
+  &amp;<span class="cm-tag">__duration</span> {
+    <span class="cm-property">color</span>: <span class="cm-atom">#71829e</span>;
+    <span class="cm-property">font-weight</span>: <span class="cm-number">700</span>;
+    <span class="cm-property">font-size</span>: <span class="cm-number">20px</span>;
+    <span class="cm-property">opacity</span>: <span class="cm-number">0.5</span>;
+  }
+  &amp;<span class="cm-tag">__time</span> {
+    <span class="cm-property">margin-top</span>: <span class="cm-number">2px</span>;
+    <span class="cm-property">color</span>: <span class="cm-atom">#71829e</span>;
+    <span class="cm-property">font-weight</span>: <span class="cm-number">700</span>;
+    <span class="cm-property">font-size</span>: <span class="cm-number">16px</span>;
+    <span class="cm-property">opacity</span>: <span class="cm-number">0.7</span>;
+  }
+}
+<span class="cm-qualifier">.progress__bar</span> {
+  <span class="cm-property">height</span>: <span class="cm-number">6px</span>;
+  <span class="cm-property">width</span>: <span class="cm-number">100%</span>;
+  <span class="cm-property">cursor</span>: <span class="cm-atom">pointer</span>;
+  <span class="cm-property">background-color</span>: <span class="cm-atom">#d0d8e6</span>;
+  <span class="cm-property">display</span>: <span class="cm-atom">inline-block</span>;
+  <span class="cm-property">border-radius</span>: <span class="cm-number">10px</span>;
+}
+<span class="cm-qualifier">.progress__current</span> {
+  <span class="cm-property">height</span>: <span class="cm-atom">inherit</span>;
+  <span class="cm-property">width</span>: <span class="cm-number">0%</span>;
+  <span class="cm-property">background-color</span>: <span class="cm-atom">#a3b3ce</span>;
+  <span class="cm-property">border-radius</span>: <span class="cm-number">10px</span>;
+}
+
+<span class="cm-qualifier">.album-info</span> {
+  <span class="cm-property">color</span>: <span class="cm-atom">#71829e</span>;
+  <span class="cm-property">flex</span>: <span class="cm-number">1</span>;
+  <span class="cm-property">padding-right</span>: <span class="cm-number">60px</span>;
+  <span class="cm-property">user-select</span>: <span class="cm-atom">none</span>;
+
+  <span class="cm-def">@media</span> <span class="cm-attribute">screen</span> <span class="cm-keyword">and</span> (<span class="cm-property">max-width</span>: <span class="cm-number">576px</span>), (<span class="cm-property">max-height</span>: <span class="cm-number">500px</span>)  {
+    <span class="cm-property">padding-right</span>: <span class="cm-number">30px</span>;
+  }
+
+  &amp;<span class="cm-tag">__name</span> {
+    <span class="cm-property">font-size</span>: <span class="cm-number">20px</span>;
+    <span class="cm-property">font-weight</span>: <span class="cm-atom">bold</span>;
+    <span class="cm-property">margin-bottom</span>: <span class="cm-number">12px</span>;
+    <span class="cm-property">line-height</span>: <span class="cm-number">1.3em</span>;
+    <span class="cm-def">@media</span> <span class="cm-attribute">screen</span> <span class="cm-keyword">and</span> (<span class="cm-property">max-width</span>: <span class="cm-number">576px</span>), (<span class="cm-property">max-height</span>: <span class="cm-number">500px</span>) {
+      <span class="cm-property">font-size</span>: <span class="cm-number">18px</span>;
+      <span class="cm-property">margin-bottom</span>: <span class="cm-number">9px</span>;
+    }
+  }
+  &amp;<span class="cm-tag">__track</span> {
+    <span class="cm-property">font-weight</span>: <span class="cm-number">400</span>;
+    <span class="cm-property">font-size</span>: <span class="cm-number">20px</span>;
+    <span class="cm-property">opacity</span>: <span class="cm-number">0.7</span>;
+    <span class="cm-property">line-height</span>: <span class="cm-number">1.3em</span>;
+    <span class="cm-property">min-height</span>: <span class="cm-number">52px</span>;
+    <span class="cm-def">@media</span> <span class="cm-attribute">screen</span> <span class="cm-keyword">and</span> (<span class="cm-property">max-width</span>: <span class="cm-number">576px</span>), (<span class="cm-property">max-height</span>: <span class="cm-number">500px</span>)  {
+      <span class="cm-property">font-size</span>: <span class="cm-number">18px</span>;
+      <span class="cm-property">min-height</span>: <span class="cm-number">50px</span>;
+    }
+  }
+}
+
+<span class="cm-qualifier">.github-btn</span> {
+  <span class="cm-property">position</span>: <span class="cm-atom">absolute</span>;
+  <span class="cm-property">right</span>: <span class="cm-number">40px</span>;
+  <span class="cm-property">bottom</span>: <span class="cm-number">50px</span>;
+  <span class="cm-property">text-decoration</span>: <span class="cm-atom">none</span>;
+  <span class="cm-property">padding</span>: <span class="cm-number">15px</span> <span class="cm-number">25px</span>;
+  <span class="cm-property">border-radius</span>: <span class="cm-number">4px</span>;
+  <span class="cm-property">box-shadow</span>: <span class="cm-number">0px</span> <span class="cm-number">4px</span> <span class="cm-number">30px</span> <span class="cm-number">-6px</span> <span class="cm-variable cm-callee">rgba</span>(<span class="cm-number">36</span>, <span class="cm-number">52</span>, <span class="cm-number">70</span>, <span class="cm-number">0.65</span>);
+  <span class="cm-property">background</span>: <span class="cm-atom">#24292e</span>;
+  <span class="cm-property">color</span>: <span class="cm-atom">#fff</span>;
+  <span class="cm-property">font-weight</span>: <span class="cm-atom">bold</span>;
+  <span class="cm-property">letter-spacing</span>: <span class="cm-number">1px</span>;
+  <span class="cm-property">font-size</span>: <span class="cm-number">16px</span>;
+  <span class="cm-property">transition</span>: <span class="cm-atom">all</span> <span class="cm-number">.3s</span> <span class="cm-atom">ease-in-out</span>;
+
+  <span class="cm-def">@media</span> <span class="cm-attribute">screen</span> <span class="cm-keyword">and</span> (<span class="cm-property">min-width</span>: <span class="cm-number">500px</span>) {
+    &amp;:<span class="cm-variable-3">hover</span> {
+      <span class="cm-property">transform</span>: <span class="cm-variable cm-callee">scale</span>(<span class="cm-number">1.1</span>);
+      <span class="cm-property">box-shadow</span>: <span class="cm-number">0px</span> <span class="cm-number">17px</span> <span class="cm-number">20px</span> <span class="cm-number">-6px</span> <span class="cm-variable cm-callee">rgba</span>(<span class="cm-number">36</span>, <span class="cm-number">52</span>, <span class="cm-number">70</span>, <span class="cm-number">0.36</span>);
+    }
+  }
+
+  <span class="cm-def">@media</span> <span class="cm-attribute">screen</span> <span class="cm-keyword">and</span> (<span class="cm-property">max-width</span>: <span class="cm-number">700px</span>) {
+    <span class="cm-property">position</span>: <span class="cm-atom">relative</span>;
+    <span class="cm-property">bottom</span>: <span class="cm-atom">auto</span>;
+    <span class="cm-property">right</span>: <span class="cm-atom">auto</span>;
+    <span class="cm-property">margin-top</span>: <span class="cm-number">20px</span>;
+
+    &amp;:<span class="cm-variable-3">active</span> {
+      <span class="cm-property">transform</span>: <span class="cm-variable cm-callee">scale</span>(<span class="cm-number">1.1</span>);
+      <span class="cm-property">box-shadow</span>: <span class="cm-number">0px</span> <span class="cm-number">17px</span> <span class="cm-number">20px</span> <span class="cm-number">-6px</span> <span class="cm-variable cm-callee">rgba</span>(<span class="cm-number">36</span>, <span class="cm-number">52</span>, <span class="cm-number">70</span>, <span class="cm-number">0.36</span>);
+    }
+  }
+}
+
+<span class="cm-comment">//scale out</span>
+
+<span class="cm-qualifier">.scale-out-enter-active</span> {
+  <span class="cm-property">transition</span>: <span class="cm-atom">all</span> <span class="cm-number">.35s</span> <span class="cm-atom">ease-in-out</span>;
+}
+<span class="cm-qualifier">.scale-out-leave-active</span> {
+  <span class="cm-property">transition</span>: <span class="cm-atom">all</span> <span class="cm-number">.35s</span> <span class="cm-atom">ease-in-out</span>;
+}
+<span class="cm-qualifier">.scale-out-enter</span> {
+  <span class="cm-property">transform</span>: <span class="cm-variable cm-callee">scale</span>(<span class="cm-number">.55</span>);
+  <span class="cm-property">pointer-events</span>: <span class="cm-atom">none</span>;
+  <span class="cm-property">opacity</span>: <span class="cm-number">0</span>;
+}
+<span class="cm-qualifier">.scale-out-leave-to</span> {
+  <span class="cm-property">transform</span>: <span class="cm-variable cm-callee">scale</span>(<span class="cm-number">1.2</span>);
+  <span class="cm-property">pointer-events</span>: <span class="cm-atom">none</span>;
+  <span class="cm-property">opacity</span>: <span class="cm-number">0</span>;
+}
+
+
+<span class="cm-comment">//scale in</span>
+
+<span class="cm-qualifier">.scale-in-enter-active</span> {
+  <span class="cm-property">transition</span>: <span class="cm-atom">all</span> <span class="cm-number">.35s</span> <span class="cm-atom">ease-in-out</span>;
+}
+<span class="cm-qualifier">.scale-in-leave-active</span> {
+  <span class="cm-property">transition</span>: <span class="cm-atom">all</span> <span class="cm-number">.35s</span> <span class="cm-atom">ease-in-out</span>;
+}
+<span class="cm-qualifier">.scale-in-enter</span> {
+  <span class="cm-property">transform</span>: <span class="cm-variable cm-callee">scale</span>(<span class="cm-number">1.2</span>);
+  <span class="cm-property">pointer-events</span>: <span class="cm-atom">none</span>;
+  <span class="cm-property">opacity</span>: <span class="cm-number">0</span>;
+}
+<span class="cm-qualifier">.scale-in-leave-to</span> {
+  <span class="cm-property">transform</span>: <span class="cm-variable cm-callee">scale</span>(<span class="cm-number">.55</span>);
+  <span class="cm-property">pointer-events</span>: <span class="cm-atom">none</span>;
+  <span class="cm-property">opacity</span>: <span class="cm-number">0</span>;
+}
+</code></pre>
+<a href="https://codepen.io/JavaScriptJunkie/embed/qBWrRyg?height=600&amp;default-tab=result&amp;embed-version=2#0" id="view-css-compiled-button" class="action-button bottom right view-compiled-button" data-type="css">
+View Compiled
+</a>
+</div>
+<div id="js-box" class="code-wrap code-box box " role="region" aria-label="JS">
+<pre tabindex="0"><code data-lang="javascript" id="actual-js-code" class=" cm-s-default"><span class="cm-comment">/*</span>
+<span class="cm-comment">design by Voicu Apostol.</span>
+<span class="cm-comment">design: https://dribbble.com/shots/3533847-Mini-Music-Player</span>
+<span class="cm-comment">I can't find any open music api or mp3 api so i have to download all musics as mp3 file.</span>
+<span class="cm-comment">You can fork on github: https://github.com/muhammederdem/mini-player</span>
+<span class="cm-comment">*/</span>
+
+<span class="cm-keyword">new</span> <span class="cm-variable">Vue</span>({
+  <span class="cm-property">el</span>: <span class="cm-string">"#app"</span>,
+  <span class="cm-property">data</span>() {
+    <span class="cm-keyword">return</span> {
+      <span class="cm-property">audio</span>: <span class="cm-atom">null</span>,
+      <span class="cm-property">circleLeft</span>: <span class="cm-atom">null</span>,
+      <span class="cm-property">barWidth</span>: <span class="cm-atom">null</span>,
+      <span class="cm-property">duration</span>: <span class="cm-atom">null</span>,
+      <span class="cm-property">currentTime</span>: <span class="cm-atom">null</span>,
+      <span class="cm-property">isTimerPlaying</span>: <span class="cm-atom">false</span>,
+      <span class="cm-property">tracks</span>: [
+        {
+          <span class="cm-property">name</span>: <span class="cm-string">"Mekanın Sahibi"</span>,
+          <span class="cm-property">artist</span>: <span class="cm-string">"Norm Ender"</span>,
+          <span class="cm-property">cover</span>: <span class="cm-string">"https://raw.githubusercontent.com/muhammederdem/mini-player/master/img/1.jpg"</span>,
+          <span class="cm-property">source</span>: <span class="cm-string">"https://raw.githubusercontent.com/muhammederdem/mini-player/master/mp3/1.mp3"</span>,
+          <span class="cm-property">url</span>: <span class="cm-string">"https://www.youtube.com/watch?v=z3wAjJXbYzA"</span>,
+          <span class="cm-property">favorited</span>: <span class="cm-atom">false</span>
+        },
+        {
+          <span class="cm-property">name</span>: <span class="cm-string">"Everybody Knows"</span>,
+          <span class="cm-property">artist</span>: <span class="cm-string">"Leonard Cohen"</span>,
+          <span class="cm-property">cover</span>: <span class="cm-string">"https://raw.githubusercontent.com/muhammederdem/mini-player/master/img/2.jpg"</span>,
+          <span class="cm-property">source</span>: <span class="cm-string">"https://raw.githubusercontent.com/muhammederdem/mini-player/master/mp3/2.mp3"</span>,
+          <span class="cm-property">url</span>: <span class="cm-string">"https://www.youtube.com/watch?v=Lin-a2lTelg"</span>,
+          <span class="cm-property">favorited</span>: <span class="cm-atom">true</span>
+        },
+        {
+          <span class="cm-property">name</span>: <span class="cm-string">"Extreme Ways"</span>,
+          <span class="cm-property">artist</span>: <span class="cm-string">"Moby"</span>,
+          <span class="cm-property">cover</span>: <span class="cm-string">"https://raw.githubusercontent.com/muhammederdem/mini-player/master/img/3.jpg"</span>,
+          <span class="cm-property">source</span>: <span class="cm-string">"https://raw.githubusercontent.com/muhammederdem/mini-player/master/mp3/3.mp3"</span>,
+          <span class="cm-property">url</span>: <span class="cm-string">"https://www.youtube.com/watch?v=ICjyAe9S54c"</span>,
+          <span class="cm-property">favorited</span>: <span class="cm-atom">false</span>
+        },
+        {
+          <span class="cm-property">name</span>: <span class="cm-string">"Butterflies"</span>,
+          <span class="cm-property">artist</span>: <span class="cm-string">"Sia"</span>,
+          <span class="cm-property">cover</span>: <span class="cm-string">"https://raw.githubusercontent.com/muhammederdem/mini-player/master/img/4.jpg"</span>,
+          <span class="cm-property">source</span>: <span class="cm-string">"https://raw.githubusercontent.com/muhammederdem/mini-player/master/mp3/4.mp3"</span>,
+          <span class="cm-property">url</span>: <span class="cm-string">"https://www.youtube.com/watch?v=kYgGwWYOd9Y"</span>,
+          <span class="cm-property">favorited</span>: <span class="cm-atom">false</span>
+        },
+        {
+          <span class="cm-property">name</span>: <span class="cm-string">"The Final Victory"</span>,
+          <span class="cm-property">artist</span>: <span class="cm-string">"Haggard"</span>,
+          <span class="cm-property">cover</span>: <span class="cm-string">"https://raw.githubusercontent.com/muhammederdem/mini-player/master/img/5.jpg"</span>,
+          <span class="cm-property">source</span>: <span class="cm-string">"https://raw.githubusercontent.com/muhammederdem/mini-player/master/mp3/5.mp3"</span>,
+          <span class="cm-property">url</span>: <span class="cm-string">"https://www.youtube.com/watch?v=0WlpALnQdN8"</span>,
+          <span class="cm-property">favorited</span>: <span class="cm-atom">true</span>
+        },
+        {
+          <span class="cm-property">name</span>: <span class="cm-string">"Genius ft. Sia, Diplo, Labrinth"</span>,
+          <span class="cm-property">artist</span>: <span class="cm-string">"LSD"</span>,
+          <span class="cm-property">cover</span>: <span class="cm-string">"https://raw.githubusercontent.com/muhammederdem/mini-player/master/img/6.jpg"</span>,
+          <span class="cm-property">source</span>: <span class="cm-string">"https://raw.githubusercontent.com/muhammederdem/mini-player/master/mp3/6.mp3"</span>,
+          <span class="cm-property">url</span>: <span class="cm-string">"https://www.youtube.com/watch?v=HhoATZ1Imtw"</span>,
+          <span class="cm-property">favorited</span>: <span class="cm-atom">false</span>
+        },
+        {
+          <span class="cm-property">name</span>: <span class="cm-string">"The Comeback Kid"</span>,
+          <span class="cm-property">artist</span>: <span class="cm-string">"Lindi Ortega"</span>,
+          <span class="cm-property">cover</span>: <span class="cm-string">"https://raw.githubusercontent.com/muhammederdem/mini-player/master/img/7.jpg"</span>,
+          <span class="cm-property">source</span>: <span class="cm-string">"https://raw.githubusercontent.com/muhammederdem/mini-player/master/mp3/7.mp3"</span>,
+          <span class="cm-property">url</span>: <span class="cm-string">"https://www.youtube.com/watch?v=me6aoX0wCV8"</span>,
+          <span class="cm-property">favorited</span>: <span class="cm-atom">true</span>
+        },
+        {
+          <span class="cm-property">name</span>: <span class="cm-string">"Overdose"</span>,
+          <span class="cm-property">artist</span>: <span class="cm-string">"Grandson"</span>,
+          <span class="cm-property">cover</span>: <span class="cm-string">"https://raw.githubusercontent.com/muhammederdem/mini-player/master/img/8.jpg"</span>,
+          <span class="cm-property">source</span>: <span class="cm-string">"https://raw.githubusercontent.com/muhammederdem/mini-player/master/mp3/8.mp3"</span>,
+          <span class="cm-property">url</span>: <span class="cm-string">"https://www.youtube.com/watch?v=00-Rl3Jlx-o"</span>,
+          <span class="cm-property">favorited</span>: <span class="cm-atom">false</span>
+        },
+        {
+          <span class="cm-property">name</span>: <span class="cm-string">"Rag'n'Bone Man"</span>,
+          <span class="cm-property">artist</span>: <span class="cm-string">"Human"</span>,
+          <span class="cm-property">cover</span>: <span class="cm-string">"https://raw.githubusercontent.com/muhammederdem/mini-player/master/img/9.jpg"</span>,
+          <span class="cm-property">source</span>: <span class="cm-string">"https://raw.githubusercontent.com/muhammederdem/mini-player/master/mp3/9.mp3"</span>,
+          <span class="cm-property">url</span>: <span class="cm-string">"https://www.youtube.com/watch?v=L3wKzyIN1yk"</span>,
+          <span class="cm-property">favorited</span>: <span class="cm-atom">false</span>
+        }
+      ],
+      <span class="cm-property">currentTrack</span>: <span class="cm-atom">null</span>,
+      <span class="cm-property">currentTrackIndex</span>: <span class="cm-number">0</span>,
+      <span class="cm-property">transitionName</span>: <span class="cm-atom">null</span>
+    };
+  },
+  <span class="cm-property">methods</span>: {
+    <span class="cm-property">play</span>() {
+      <span class="cm-keyword">if</span> (<span class="cm-keyword">this</span>.<span class="cm-property">audio</span>.<span class="cm-property">paused</span>) {
+        <span class="cm-keyword">this</span>.<span class="cm-property">audio</span>.<span class="cm-property">play</span>();
+        <span class="cm-keyword">this</span>.<span class="cm-property">isTimerPlaying</span> <span class="cm-operator">=</span> <span class="cm-atom">true</span>;
+      } <span class="cm-keyword">else</span> {
+        <span class="cm-keyword">this</span>.<span class="cm-property">audio</span>.<span class="cm-property">pause</span>();
+        <span class="cm-keyword">this</span>.<span class="cm-property">isTimerPlaying</span> <span class="cm-operator">=</span> <span class="cm-atom">false</span>;
+      }
+    },
+    <span class="cm-property">generateTime</span>() {
+      <span class="cm-keyword">let</span> <span class="cm-def">width</span> <span class="cm-operator">=</span> (<span class="cm-number">100</span> <span class="cm-operator">/</span> <span class="cm-keyword">this</span>.<span class="cm-property">audio</span>.<span class="cm-property">duration</span>) <span class="cm-operator">*</span> <span class="cm-keyword">this</span>.<span class="cm-property">audio</span>.<span class="cm-property">currentTime</span>;
+      <span class="cm-keyword">this</span>.<span class="cm-property">barWidth</span> <span class="cm-operator">=</span> <span class="cm-variable-2">width</span> <span class="cm-operator">+</span> <span class="cm-string">"%"</span>;
+      <span class="cm-keyword">this</span>.<span class="cm-property">circleLeft</span> <span class="cm-operator">=</span> <span class="cm-variable-2">width</span> <span class="cm-operator">+</span> <span class="cm-string">"%"</span>;
+      <span class="cm-keyword">let</span> <span class="cm-def">durmin</span> <span class="cm-operator">=</span> <span class="cm-variable">Math</span>.<span class="cm-property">floor</span>(<span class="cm-keyword">this</span>.<span class="cm-property">audio</span>.<span class="cm-property">duration</span> <span class="cm-operator">/</span> <span class="cm-number">60</span>);
+      <span class="cm-keyword">let</span> <span class="cm-def">dursec</span> <span class="cm-operator">=</span> <span class="cm-variable">Math</span>.<span class="cm-property">floor</span>(<span class="cm-keyword">this</span>.<span class="cm-property">audio</span>.<span class="cm-property">duration</span> <span class="cm-operator">-</span> <span class="cm-variable-2">durmin</span> <span class="cm-operator">*</span> <span class="cm-number">60</span>);
+      <span class="cm-keyword">let</span> <span class="cm-def">curmin</span> <span class="cm-operator">=</span> <span class="cm-variable">Math</span>.<span class="cm-property">floor</span>(<span class="cm-keyword">this</span>.<span class="cm-property">audio</span>.<span class="cm-property">currentTime</span> <span class="cm-operator">/</span> <span class="cm-number">60</span>);
+      <span class="cm-keyword">let</span> <span class="cm-def">cursec</span> <span class="cm-operator">=</span> <span class="cm-variable">Math</span>.<span class="cm-property">floor</span>(<span class="cm-keyword">this</span>.<span class="cm-property">audio</span>.<span class="cm-property">currentTime</span> <span class="cm-operator">-</span> <span class="cm-variable-2">curmin</span> <span class="cm-operator">*</span> <span class="cm-number">60</span>);
+      <span class="cm-keyword">if</span> (<span class="cm-variable-2">durmin</span> <span class="cm-operator">&lt;</span> <span class="cm-number">10</span>) {
+        <span class="cm-variable-2">durmin</span> <span class="cm-operator">=</span> <span class="cm-string">"0"</span> <span class="cm-operator">+</span> <span class="cm-variable-2">durmin</span>;
+      }
+      <span class="cm-keyword">if</span> (<span class="cm-variable-2">dursec</span> <span class="cm-operator">&lt;</span> <span class="cm-number">10</span>) {
+        <span class="cm-variable-2">dursec</span> <span class="cm-operator">=</span> <span class="cm-string">"0"</span> <span class="cm-operator">+</span> <span class="cm-variable-2">dursec</span>;
+      }
+      <span class="cm-keyword">if</span> (<span class="cm-variable-2">curmin</span> <span class="cm-operator">&lt;</span> <span class="cm-number">10</span>) {
+        <span class="cm-variable-2">curmin</span> <span class="cm-operator">=</span> <span class="cm-string">"0"</span> <span class="cm-operator">+</span> <span class="cm-variable-2">curmin</span>;
+      }
+      <span class="cm-keyword">if</span> (<span class="cm-variable-2">cursec</span> <span class="cm-operator">&lt;</span> <span class="cm-number">10</span>) {
+        <span class="cm-variable-2">cursec</span> <span class="cm-operator">=</span> <span class="cm-string">"0"</span> <span class="cm-operator">+</span> <span class="cm-variable-2">cursec</span>;
+      }
+      <span class="cm-keyword">this</span>.<span class="cm-property">duration</span> <span class="cm-operator">=</span> <span class="cm-variable-2">durmin</span> <span class="cm-operator">+</span> <span class="cm-string">":"</span> <span class="cm-operator">+</span> <span class="cm-variable-2">dursec</span>;
+      <span class="cm-keyword">this</span>.<span class="cm-property">currentTime</span> <span class="cm-operator">=</span> <span class="cm-variable-2">curmin</span> <span class="cm-operator">+</span> <span class="cm-string">":"</span> <span class="cm-operator">+</span> <span class="cm-variable-2">cursec</span>;
+    },
+    <span class="cm-property">updateBar</span>(<span class="cm-def">x</span>) {
+      <span class="cm-keyword">let</span> <span class="cm-def">progress</span> <span class="cm-operator">=</span> <span class="cm-keyword">this</span>.<span class="cm-property">$refs</span>.<span class="cm-property">progress</span>;
+      <span class="cm-keyword">let</span> <span class="cm-def">maxduration</span> <span class="cm-operator">=</span> <span class="cm-keyword">this</span>.<span class="cm-property">audio</span>.<span class="cm-property">duration</span>;
+      <span class="cm-keyword">let</span> <span class="cm-def">position</span> <span class="cm-operator">=</span> <span class="cm-variable-2">x</span> <span class="cm-operator">-</span> <span class="cm-variable-2">progress</span>.<span class="cm-property">offsetLeft</span>;
+      <span class="cm-keyword">let</span> <span class="cm-def">percentage</span> <span class="cm-operator">=</span> (<span class="cm-number">100</span> <span class="cm-operator">*</span> <span class="cm-variable-2">position</span>) <span class="cm-operator">/</span> <span class="cm-variable-2">progress</span>.<span class="cm-property">offsetWidth</span>;
+      <span class="cm-keyword">if</span> (<span class="cm-variable-2">percentage</span> <span class="cm-operator">&gt;</span> <span class="cm-number">100</span>) {
+        <span class="cm-variable-2">percentage</span> <span class="cm-operator">=</span> <span class="cm-number">100</span>;
+      }
+      <span class="cm-keyword">if</span> (<span class="cm-variable-2">percentage</span> <span class="cm-operator">&lt;</span> <span class="cm-number">0</span>) {
+        <span class="cm-variable-2">percentage</span> <span class="cm-operator">=</span> <span class="cm-number">0</span>;
+      }
+      <span class="cm-keyword">this</span>.<span class="cm-property">barWidth</span> <span class="cm-operator">=</span> <span class="cm-variable-2">percentage</span> <span class="cm-operator">+</span> <span class="cm-string">"%"</span>;
+      <span class="cm-keyword">this</span>.<span class="cm-property">circleLeft</span> <span class="cm-operator">=</span> <span class="cm-variable-2">percentage</span> <span class="cm-operator">+</span> <span class="cm-string">"%"</span>;
+      <span class="cm-keyword">this</span>.<span class="cm-property">audio</span>.<span class="cm-property">currentTime</span> <span class="cm-operator">=</span> (<span class="cm-variable-2">maxduration</span> <span class="cm-operator">*</span> <span class="cm-variable-2">percentage</span>) <span class="cm-operator">/</span> <span class="cm-number">100</span>;
+      <span class="cm-keyword">this</span>.<span class="cm-property">audio</span>.<span class="cm-property">play</span>();
+    },
+    <span class="cm-property">clickProgress</span>(<span class="cm-def">e</span>) {
+      <span class="cm-keyword">this</span>.<span class="cm-property">isTimerPlaying</span> <span class="cm-operator">=</span> <span class="cm-atom">true</span>;
+      <span class="cm-keyword">this</span>.<span class="cm-property">audio</span>.<span class="cm-property">pause</span>();
+      <span class="cm-keyword">this</span>.<span class="cm-property">updateBar</span>(<span class="cm-variable-2">e</span>.<span class="cm-property">pageX</span>);
+    },
+    <span class="cm-property">prevTrack</span>() {
+      <span class="cm-keyword">this</span>.<span class="cm-property">transitionName</span> <span class="cm-operator">=</span> <span class="cm-string">"scale-in"</span>;
+      <span class="cm-keyword">this</span>.<span class="cm-property">isShowCover</span> <span class="cm-operator">=</span> <span class="cm-atom">false</span>;
+      <span class="cm-keyword">if</span> (<span class="cm-keyword">this</span>.<span class="cm-property">currentTrackIndex</span> <span class="cm-operator">&gt;</span> <span class="cm-number">0</span>) {
+        <span class="cm-keyword">this</span>.<span class="cm-property">currentTrackIndex</span><span class="cm-operator">--</span>;
+      } <span class="cm-keyword">else</span> {
+        <span class="cm-keyword">this</span>.<span class="cm-property">currentTrackIndex</span> <span class="cm-operator">=</span> <span class="cm-keyword">this</span>.<span class="cm-property">tracks</span>.<span class="cm-property">length</span> <span class="cm-operator">-</span> <span class="cm-number">1</span>;
+      }
+      <span class="cm-keyword">this</span>.<span class="cm-property">currentTrack</span> <span class="cm-operator">=</span> <span class="cm-keyword">this</span>.<span class="cm-property">tracks</span>[<span class="cm-keyword">this</span>.<span class="cm-property">currentTrackIndex</span>];
+      <span class="cm-keyword">this</span>.<span class="cm-property">resetPlayer</span>();
+    },
+    <span class="cm-property">nextTrack</span>() {
+      <span class="cm-keyword">this</span>.<span class="cm-property">transitionName</span> <span class="cm-operator">=</span> <span class="cm-string">"scale-out"</span>;
+      <span class="cm-keyword">this</span>.<span class="cm-property">isShowCover</span> <span class="cm-operator">=</span> <span class="cm-atom">false</span>;
+      <span class="cm-keyword">if</span> (<span class="cm-keyword">this</span>.<span class="cm-property">currentTrackIndex</span> <span class="cm-operator">&lt;</span> <span class="cm-keyword">this</span>.<span class="cm-property">tracks</span>.<span class="cm-property">length</span> <span class="cm-operator">-</span> <span class="cm-number">1</span>) {
+        <span class="cm-keyword">this</span>.<span class="cm-property">currentTrackIndex</span><span class="cm-operator">++</span>;
+      } <span class="cm-keyword">else</span> {
+        <span class="cm-keyword">this</span>.<span class="cm-property">currentTrackIndex</span> <span class="cm-operator">=</span> <span class="cm-number">0</span>;
+      }
+      <span class="cm-keyword">this</span>.<span class="cm-property">currentTrack</span> <span class="cm-operator">=</span> <span class="cm-keyword">this</span>.<span class="cm-property">tracks</span>[<span class="cm-keyword">this</span>.<span class="cm-property">currentTrackIndex</span>];
+      <span class="cm-keyword">this</span>.<span class="cm-property">resetPlayer</span>();
+    },
+    <span class="cm-property">resetPlayer</span>() {
+      <span class="cm-keyword">this</span>.<span class="cm-property">barWidth</span> <span class="cm-operator">=</span> <span class="cm-number">0</span>;
+      <span class="cm-keyword">this</span>.<span class="cm-property">circleLeft</span> <span class="cm-operator">=</span> <span class="cm-number">0</span>;
+      <span class="cm-keyword">this</span>.<span class="cm-property">audio</span>.<span class="cm-property">currentTime</span> <span class="cm-operator">=</span> <span class="cm-number">0</span>;
+      <span class="cm-keyword">this</span>.<span class="cm-property">audio</span>.<span class="cm-property">src</span> <span class="cm-operator">=</span> <span class="cm-keyword">this</span>.<span class="cm-property">currentTrack</span>.<span class="cm-property">source</span>;
+      <span class="cm-variable">setTimeout</span>(() <span class="cm-operator">=&gt;</span> {
+        <span class="cm-keyword">if</span>(<span class="cm-keyword">this</span>.<span class="cm-property">isTimerPlaying</span>) {
+          <span class="cm-keyword">this</span>.<span class="cm-property">audio</span>.<span class="cm-property">play</span>();
+        } <span class="cm-keyword">else</span> {
+          <span class="cm-keyword">this</span>.<span class="cm-property">audio</span>.<span class="cm-property">pause</span>();
+        }
+      }, <span class="cm-number">300</span>);
+    },
+    <span class="cm-property">favorite</span>() {
+      <span class="cm-keyword">this</span>.<span class="cm-property">tracks</span>[<span class="cm-keyword">this</span>.<span class="cm-property">currentTrackIndex</span>].<span class="cm-property">favorited</span> <span class="cm-operator">=</span> <span class="cm-operator">!</span><span class="cm-keyword">this</span>.<span class="cm-property">tracks</span>[
+        <span class="cm-keyword">this</span>.<span class="cm-property">currentTrackIndex</span>
+      ].<span class="cm-property">favorited</span>;
+    }
+  },
+  <span class="cm-property">created</span>() {
+    <span class="cm-keyword">let</span> <span class="cm-def">vm</span> <span class="cm-operator">=</span> <span class="cm-keyword">this</span>;
+    <span class="cm-keyword">this</span>.<span class="cm-property">currentTrack</span> <span class="cm-operator">=</span> <span class="cm-keyword">this</span>.<span class="cm-property">tracks</span>[<span class="cm-number">0</span>];
+    <span class="cm-keyword">this</span>.<span class="cm-property">audio</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">Audio</span>();
+    <span class="cm-keyword">this</span>.<span class="cm-property">audio</span>.<span class="cm-property">src</span> <span class="cm-operator">=</span> <span class="cm-keyword">this</span>.<span class="cm-property">currentTrack</span>.<span class="cm-property">source</span>;
+    <span class="cm-keyword">this</span>.<span class="cm-property">audio</span>.<span class="cm-property">ontimeupdate</span> <span class="cm-operator">=</span> <span class="cm-keyword">function</span>() {
+      <span class="cm-variable-2">vm</span>.<span class="cm-property">generateTime</span>();
+    };
+    <span class="cm-keyword">this</span>.<span class="cm-property">audio</span>.<span class="cm-property">onloadedmetadata</span> <span class="cm-operator">=</span> <span class="cm-keyword">function</span>() {
+      <span class="cm-variable-2">vm</span>.<span class="cm-property">generateTime</span>();
+    };
+    <span class="cm-keyword">this</span>.<span class="cm-property">audio</span>.<span class="cm-property">onended</span> <span class="cm-operator">=</span> <span class="cm-keyword">function</span>() {
+      <span class="cm-variable-2">vm</span>.<span class="cm-property">nextTrack</span>();
+      <span class="cm-keyword">this</span>.<span class="cm-property">isTimerPlaying</span> <span class="cm-operator">=</span> <span class="cm-atom">true</span>;
+    };
+
+    <span class="cm-comment">// this is optional (for preload covers)</span>
+    <span class="cm-keyword">for</span> (<span class="cm-keyword">let</span> <span class="cm-def">index</span> <span class="cm-operator">=</span> <span class="cm-number">0</span>; <span class="cm-variable-2">index</span> <span class="cm-operator">&lt;</span> <span class="cm-keyword">this</span>.<span class="cm-property">tracks</span>.<span class="cm-property">length</span>; <span class="cm-variable-2">index</span><span class="cm-operator">++</span>) {
+      <span class="cm-keyword">const</span> <span class="cm-def">element</span> <span class="cm-operator">=</span> <span class="cm-keyword">this</span>.<span class="cm-property">tracks</span>[<span class="cm-variable-2">index</span>];
+      <span class="cm-keyword">let</span> <span class="cm-def">link</span> <span class="cm-operator">=</span> <span class="cm-variable">document</span>.<span class="cm-property">createElement</span>(<span class="cm-string">'link'</span>);
+      <span class="cm-variable-2">link</span>.<span class="cm-property">rel</span> <span class="cm-operator">=</span> <span class="cm-string">"prefetch"</span>;
+      <span class="cm-variable-2">link</span>.<span class="cm-property">href</span> <span class="cm-operator">=</span> <span class="cm-variable-2">element</span>.<span class="cm-property">cover</span>;
+      <span class="cm-variable-2">link</span>.<span class="cm-property">as</span> <span class="cm-operator">=</span> <span class="cm-string">"image"</span>
+      <span class="cm-variable">document</span>.<span class="cm-property">head</span>.<span class="cm-property">appendChild</span>(<span class="cm-variable-2">link</span>)
+    }
+  }
+});
+</code></pre>
+</div>
+<div id="result-box" class="code-box active" role="region" aria-label="Result">
+<iframe allow="accelerometer; camera; encrypted-media; geolocation; gyroscope; microphone; midi" allowfullscreen="true" allowpaymentrequest="true" allowtransparency="true" class="result-iframe " frameborder="0" id="result-iframe" name="CodePen Preview for Mini Music Player - VueJS" sandbox="allow-downloads allow-forms allow-modals allow-pointer-lock allow-popups allow-presentation allow-same-origin allow-scripts allow-top-navigation-by-user-activation" scrolling="yes" title="CodePen Preview for Mini Music Player - VueJS" data-src="https://cdpn.io/JavaScriptJunkie/fullembedgrid/qBWrRyg?animations=run&amp;type=embed" src="./qBWrRyg(1).html">
+  </iframe>
+</div>
+<div id="about-box">
+<div class="about-container">
+<div class="about-user">
+<a href="https://codepen.io/JavaScriptJunkie" target="_blank" rel="noopener"><img src="./default.png" loading="lazy" alt="" class="about-image"></a>
+<div class="about-user-info">
+<p>
+This Pen is owned by <a href="https://codepen.io/JavaScriptJunkie" target="_blank" rel="noopener">Muhammed Erdem</a> on <a href="https://codepen.io/" target="_blank" rel="noopener">CodePen</a>.
+</p>
+<p>
+<a href="https://codepen.io/JavaScriptJunkie" target="_blank" rel="noopener" class="about-user-more">
+See more by @JavaScriptJunkie on CodePen
+</a>
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="resources-box" class="resources-box">
+<h3>External CSS</h3>
+<ol class="list-of-resources">
+<li>
+<a href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" target="_blank">https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css</a>
+</li>
+</ol>
+<h3>External JavaScript</h3>
+ <ol class="list-of-resources">
+<li>
+<a href="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js" target="_blank">https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js</a>
+</li>
+</ol>
+</div>
+</div>
+<footer class="embed-footer" id="embed-footer">
+<button id="resources-link" class="resources-link action-button bottom left" href="#resources-box" aria-pressed="false" role="button">
+Resources
+</button>
+<ul class="scaling-choices bottom right">
+<li><button class="action-button active" id="zoom-button-1">1×</button></li><li><button class="action-button" id="zoom-button-05">0.5×</button></li><li><button class="action-button" id="zoom-button-025">0.25×</button></li>
+</ul>
+<button id="rerun-button" class="action-button rerun-button bottom right">
+Rerun
+</button>
+</footer>
+<script>
+    __processedPen = {"html":"&lt;div class=&quot;wrapper&quot; id=&quot;app&quot;&gt;\n      &lt;div class=&quot;player&quot;&gt;\n        &lt;div class=&quot;player__top&quot;&gt;\n          &lt;div class=&quot;player-cover&quot;&gt;\n            &lt;transition-group :name=&quot;transitionName&quot;&gt;\n                &lt;div class=&quot;player-cover__item&quot; v-if=&quot;$index === currentTrackIndex&quot; :style=&quot;{ backgroundImage: `url(${track.cover})` }&quot;  v-for=&quot;(track, $index) in tracks&quot; :key=&quot;$index&quot;&gt;&lt;/div&gt;\n            &lt;/transition-group&gt;\n          &lt;/div&gt;\n          &lt;div class=&quot;player-controls&quot;&gt;\n            &lt;div class=&quot;player-controls__item -favorite&quot; :class=&quot;{ active : currentTrack.favorited }&quot; @click=&quot;favorite&quot;&gt;\n              &lt;svg class=&quot;icon&quot;&gt;\n                &lt;use xlink:href=&quot;#icon-heart-o&quot;&gt;&lt;/use&gt;\n              &lt;/svg&gt;\n            &lt;/div&gt;\n            &lt;a :href=&quot;currentTrack.url&quot; target=&quot;_blank&quot; class=&quot;player-controls__item&quot;&gt;\n              &lt;svg class=&quot;icon&quot;&gt;\n                &lt;use xlink:href=&quot;#icon-link&quot;&gt;&lt;/use&gt;\n              &lt;/svg&gt;\n            &lt;/a&gt;\n            &lt;div class=&quot;player-controls__item&quot; @click=&quot;prevTrack&quot;&gt;\n              &lt;svg class=&quot;icon&quot;&gt;\n                &lt;use xlink:href=&quot;#icon-prev&quot;&gt;&lt;/use&gt;\n              &lt;/svg&gt;\n            &lt;/div&gt;\n            &lt;div class=&quot;player-controls__item&quot; @click=&quot;nextTrack&quot;&gt;\n              &lt;svg class=&quot;icon&quot;&gt;\n                &lt;use xlink:href=&quot;#icon-next&quot;&gt;&lt;/use&gt;\n              &lt;/svg&gt;\n            &lt;/div&gt;\n            &lt;div class=&quot;player-controls__item -xl js-play&quot; @click=&quot;play&quot;&gt;\n              &lt;svg class=&quot;icon&quot;&gt;\n                &lt;use xlink:href=&quot;#icon-pause&quot; v-if=&quot;isTimerPlaying&quot;&gt;&lt;/use&gt;\n                &lt;use xlink:href=&quot;#icon-play&quot; v-else&gt;&lt;/use&gt;\n              &lt;/svg&gt;\n            &lt;/div&gt;\n          &lt;/div&gt;\n        &lt;/div&gt;\n        &lt;div class=&quot;progress&quot; ref=&quot;progress&quot;&gt;\n          &lt;div class=&quot;progress__top&quot;&gt;\n            &lt;div class=&quot;album-info&quot; v-if=&quot;currentTrack&quot;&gt;\n              &lt;div class=&quot;album-info__name&quot;&gt;{{ currentTrack.artist }}&lt;/div&gt;\n              &lt;div class=&quot;album-info__track&quot;&gt;{{ currentTrack.name }}&lt;/div&gt;\n            &lt;/div&gt;\n            &lt;div class=&quot;progress__duration&quot;&gt;{{ duration }}&lt;/div&gt;\n          &lt;/div&gt;\n          &lt;div class=&quot;progress__bar&quot; @click=&quot;clickProgress&quot;&gt;\n            &lt;div class=&quot;progress__current&quot; :style=&quot;{ width : barWidth }&quot;&gt;&lt;/div&gt;\n          &lt;/div&gt;\n          &lt;div class=&quot;progress__time&quot;&gt;{{ currentTime }}&lt;/div&gt;\n        &lt;/div&gt;\n        &lt;div v-cloak&gt;&lt;/div&gt;\n      &lt;/div&gt;\n      &lt;a href=&quot;https://github.com/muhammederdem/mini-player&quot; target=&quot;_blank&quot; class=&quot;github-btn&quot;&gt;\n        See on GitHub\n      &lt;/a&gt;\n    &lt;/div&gt;\n\n    &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; hidden xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot;&gt;\n      &lt;defs&gt;\n        &lt;symbol id=&quot;icon-heart-o&quot; viewBox=&quot;0 0 32 32&quot;&gt;\n          &lt;title&gt;icon-heart-o&lt;/title&gt;\n          &lt;path d=&quot;M22.88 1.952c-2.72 0-5.184 1.28-6.88 3.456-1.696-2.176-4.16-3.456-6.88-3.456-4.48 0-9.024 3.648-9.024 10.592 0 7.232 7.776 12.704 15.072 17.248 0.256 0.16 0.544 0.256 0.832 0.256s0.576-0.096 0.832-0.256c7.296-4.544 15.072-10.016 15.072-17.248 0-6.944-4.544-10.592-9.024-10.592zM16 26.56c-4.864-3.072-12.736-8.288-12.736-14.016 0-5.088 3.040-7.424 5.824-7.424 2.368 0 4.384 1.504 5.408 4.032 0.256 0.608 0.832 0.992 1.472 0.992s1.248-0.384 1.472-0.992c1.024-2.528 3.040-4.032 5.408-4.032 2.816 0 5.824 2.304 5.824 7.424 0.064 5.728-7.808 10.976-12.672 14.016z&quot;&gt;&lt;/path&gt;\n          &lt;path d=&quot;M16 30.144c-0.32 0-0.64-0.096-0.896-0.256-7.296-4.576-15.104-10.048-15.104-17.344 0-7.008 4.576-10.688 9.12-10.688 2.656 0 5.152 1.216 6.88 3.392 1.728-2.144 4.224-3.392 6.88-3.392 4.544 0 9.12 3.68 9.12 10.688 0 7.296-7.808 12.768-15.104 17.344-0.256 0.16-0.576 0.256-0.896 0.256zM9.12 2.048c-4.448 0-8.928 3.616-8.928 10.496 0 7.168 7.744 12.64 15.008 17.152 0.48 0.288 1.12 0.288 1.568 0 7.264-4.544 15.008-9.984 15.008-17.152 0-6.88-4.48-10.496-8.928-10.496-2.656 0-5.088 1.216-6.816 3.392l-0.032 0.128-0.064-0.096c-1.696-2.176-4.192-3.424-6.816-3.424zM16 26.688l-0.064-0.032c-3.808-2.4-12.768-8.032-12.768-14.112 0-5.152 3.072-7.52 5.952-7.52 2.432 0 4.48 1.536 5.504 4.096 0.224 0.576 0.768 0.928 1.376 0.928s1.152-0.384 1.376-0.928c1.024-2.56 3.072-4.096 5.504-4.096 2.848 0 5.952 2.336 5.952 7.52 0 6.080-8.96 11.712-12.768 14.112l-0.064 0.032zM9.12 5.248c-2.752 0-5.728 2.304-5.728 7.328 0 5.952 8.8 11.488 12.608 13.92 3.808-2.4 12.608-7.968 12.608-13.92 0-5.024-2.976-7.328-5.728-7.328-2.336 0-4.32 1.472-5.312 3.968-0.256 0.64-0.864 1.056-1.568 1.056s-1.312-0.416-1.568-1.056c-0.992-2.496-2.976-3.968-5.312-3.968z&quot;&gt;&lt;/path&gt;\n          &lt;path d=&quot;M6.816 20.704c0.384 0.288 0.512 0.704 0.48 1.12 0.224 0.256 0.384 0.608 0.384 0.96 0 0.032 0 0.032 0 0.064 0.16 0.128 0.32 0.256 0.48 0.384 0.128 0.064 0.256 0.16 0.384 0.256 0.096 0.064 0.192 0.16 0.256 0.224 0.8 0.576 1.632 1.12 2.496 1.664 0.416 0.128 0.8 0.256 1.056 0.32 1.984 0.576 4.064 0.8 6.112 0.928 2.688-1.92 5.312-3.904 8-5.792 0.896-1.088 1.92-2.080 2.912-3.104v-7.552c-0.096-0.128-0.192-0.288-0.32-0.416-0.768-1.024-1.184-2.176-1.6-3.296-0.768-0.416-1.536-0.8-2.336-1.12-0.128-0.064-0.256-0.096-0.384-0.16h-21.568v12.992c1.312 0.672 2.496 1.6 3.648 2.528z&quot;&gt;&lt;/path&gt;\n        &lt;/symbol&gt;\n        &lt;symbol id=&quot;icon-heart&quot; viewBox=&quot;0 0 32 32&quot;&gt;\n          &lt;title&gt;icon-heart&lt;/title&gt;\n          &lt;path d=&quot;M22.88 1.952c-2.72 0-5.184 1.28-6.88 3.456-1.696-2.176-4.16-3.456-6.88-3.456-4.48 0-9.024 3.648-9.024 10.592 0 7.232 7.776 12.704 15.072 17.248 0.256 0.16 0.544 0.256 0.832 0.256s0.576-0.096 0.832-0.256c7.296-4.544 15.072-10.016 15.072-17.248 0-6.944-4.544-10.592-9.024-10.592zM16 26.56c-4.864-3.072-12.736-8.288-12.736-14.016 0-5.088 3.040-7.424 5.824-7.424 2.368 0 4.384 1.504 5.408 4.032 0.256 0.608 0.832 0.992 1.472 0.992s1.248-0.384 1.472-0.992c1.024-2.528 3.040-4.032 5.408-4.032 2.816 0 5.824 2.304 5.824 7.424 0.064 5.728-7.808 10.976-12.672 14.016z&quot;&gt;&lt;/path&gt;\n          &lt;path d=&quot;M16 30.144c-0.32 0-0.64-0.096-0.896-0.256-7.296-4.576-15.104-10.048-15.104-17.344 0-7.008 4.576-10.688 9.12-10.688 2.656 0 5.152 1.216 6.88 3.392 1.728-2.144 4.224-3.392 6.88-3.392 4.544 0 9.12 3.68 9.12 10.688 0 7.296-7.808 12.768-15.104 17.344-0.256 0.16-0.576 0.256-0.896 0.256zM9.12 2.048c-4.448 0-8.928 3.616-8.928 10.496 0 7.168 7.744 12.64 15.008 17.152 0.48 0.288 1.12 0.288 1.568 0 7.264-4.544 15.008-9.984 15.008-17.152 0-6.88-4.48-10.496-8.928-10.496-2.656 0-5.088 1.216-6.816 3.392l-0.032 0.128-0.064-0.096c-1.696-2.176-4.192-3.424-6.816-3.424zM16 26.688l-0.064-0.032c-3.808-2.4-12.768-8.032-12.768-14.112 0-5.152 3.072-7.52 5.952-7.52 2.432 0 4.48 1.536 5.504 4.096 0.224 0.576 0.768 0.928 1.376 0.928s1.152-0.384 1.376-0.928c1.024-2.56 3.072-4.096 5.504-4.096 2.848 0 5.952 2.336 5.952 7.52 0 6.080-8.96 11.712-12.768 14.112l-0.064 0.032zM9.12 5.248c-2.752 0-5.728 2.304-5.728 7.328 0 5.952 8.8 11.488 12.608 13.92 3.808-2.4 12.608-7.968 12.608-13.92 0-5.024-2.976-7.328-5.728-7.328-2.336 0-4.32 1.472-5.312 3.968-0.256 0.64-0.864 1.056-1.568 1.056s-1.312-0.416-1.568-1.056c-0.992-2.496-2.976-3.968-5.312-3.968z&quot;&gt;&lt;/path&gt;\n        &lt;/symbol&gt;\n        &lt;symbol id=&quot;icon-infinity&quot; viewBox=&quot;0 0 32 32&quot;&gt;\n          &lt;title&gt;icon-infinity&lt;/title&gt;\n          &lt;path d=&quot;M29.312 20.832c-1.28 1.28-3.008 1.984-4.832 1.984s-3.52-0.704-4.832-1.984c-0.032-0.032-0.224-0.224-0.256-0.256v0 1.28c0 0.448-0.352 0.8-0.8 0.8s-0.8-0.352-0.8-0.8v-3.168c0-0.448 0.352-0.8 0.8-0.8h3.168c0.448 0 0.8 0.352 0.8 0.8s-0.352 0.8-0.8 0.8h-1.28c0.032 0.032 0.224 0.224 0.256 0.256 0.992 0.992 2.304 1.536 3.68 1.536 1.408 0 2.72-0.544 3.68-1.536 0.992-0.992 1.536-2.304 1.536-3.68s-0.544-2.72-1.536-3.68c-0.992-0.992-2.304-1.536-3.68-1.536-1.408 0-2.72 0.544-3.68 1.536l-8.416 8.448c-1.312 1.312-3.072 1.984-4.832 1.984s-3.488-0.672-4.832-1.984c-2.656-2.656-2.656-6.976 0-9.632s6.976-2.656 9.632 0c0.032 0.032 0.16 0.16 0.192 0.192l0.064 0.064v-1.28c0-0.448 0.352-0.8 0.8-0.8s0.8 0.352 0.8 0.8v3.168c0 0.448-0.352 0.8-0.8 0.8h-3.168c-0.448 0-0.8-0.352-0.8-0.8s0.352-0.8 0.8-0.8h1.28l-0.096-0.064c-0.032-0.032-0.16-0.16-0.192-0.192-0.992-0.992-2.304-1.536-3.68-1.536s-2.72 0.544-3.68 1.536c-2.048 2.048-2.048 5.344 0 7.392 0.992 0.992 2.304 1.536 3.68 1.536s2.72-0.544 3.68-1.536l8.512-8.512c1.28-1.28 3.008-1.984 4.832-1.984s3.52 0.704 4.832 1.984c2.624 2.656 2.624 7.008-0.032 9.664z&quot;&gt;&lt;/path&gt;\n          &lt;path d=&quot;M24.512 23.488c-1.6 0-3.136-0.512-4.416-1.44-0.128 0.704-0.736 1.248-1.44 1.248-0.8 0-1.472-0.672-1.472-1.472v-3.168c0-0.8 0.672-1.472 1.472-1.472h3.168c0.8 0 1.472 0.672 1.472 1.472 0 0.608-0.384 1.152-0.928 1.376 0.64 0.352 1.376 0.544 2.144 0.544 1.216 0 2.368-0.48 3.2-1.344 0.864-0.864 1.344-1.984 1.344-3.2s-0.48-2.368-1.344-3.2c-0.864-0.864-1.984-1.344-3.2-1.344s-2.368 0.48-3.2 1.344l-8.512 8.48c-1.408 1.408-3.296 2.176-5.312 2.176s-3.872-0.768-5.312-2.176c-2.912-2.912-2.912-7.68 0-10.592 1.408-1.408 3.296-2.176 5.312-2.176 0 0 0 0 0 0 1.6 0 3.136 0.512 4.416 1.44 0.128-0.704 0.736-1.248 1.472-1.248 0.8 0 1.472 0.672 1.472 1.472v3.168c0 0.8-0.672 1.472-1.472 1.472h-3.168c-0.8 0-1.472-0.672-1.472-1.472 0-0.608 0.384-1.152 0.928-1.376-0.64-0.352-1.376-0.544-2.144-0.544-1.216 0-2.368 0.48-3.2 1.344-1.76 1.76-1.76 4.64 0 6.432 0.864 0.864 2.016 1.344 3.2 1.344 1.216 0 2.368-0.48 3.2-1.344l8.48-8.544c1.408-1.408 3.296-2.208 5.312-2.208s3.872 0.768 5.312 2.208c1.408 1.408 2.176 3.296 2.176 5.312s-0.768 3.872-2.208 5.312v0c0 0 0 0 0 0-1.408 1.408-3.296 2.176-5.28 2.176zM18.752 18.912l1.44 1.44c1.152 1.152 2.688 1.792 4.32 1.792s3.168-0.64 4.32-1.792v0c1.152-1.152 1.792-2.688 1.792-4.32s-0.64-3.168-1.792-4.32c-1.152-1.152-2.688-1.792-4.352-1.792-1.632 0-3.168 0.64-4.32 1.792l-8.48 8.448c-1.12 1.12-2.592 1.728-4.16 1.728s-3.072-0.608-4.16-1.728c-2.304-2.304-2.304-6.048 0-8.352 1.12-1.12 2.592-1.728 4.16-1.728s3.072 0.608 4.16 1.728l1.44 1.408h-2.912c-0.064 0-0.128 0.064-0.128 0.128s0.064 0.128 0.128 0.128h3.168c0.064 0 0.128-0.064 0.128-0.128v-3.168c0-0.064-0.064-0.128-0.128-0.128s-0.128 0.064-0.128 0.128v2.912l-1.408-1.408c-1.152-1.152-2.688-1.792-4.352-1.792-1.632 0-3.168 0.64-4.32 1.792-2.4 2.4-2.4 6.272 0 8.672 1.152 1.152 2.688 1.792 4.32 1.792s3.168-0.64 4.32-1.792l8.512-8.512c1.12-1.12 2.592-1.728 4.16-1.728s3.072 0.608 4.16 1.728c1.12 1.12 1.728 2.592 1.728 4.16s-0.608 3.072-1.728 4.16c-1.12 1.12-2.592 1.728-4.16 1.728s-3.072-0.608-4.16-1.728l-1.408-1.408h2.912c0.064 0 0.128-0.064 0.128-0.128s-0.064-0.128-0.128-0.128h-3.168c-0.064 0-0.128 0.064-0.128 0.128v3.168c0 0.064 0.064 0.128 0.128 0.128s0.128-0.064 0.128-0.128v-2.88z&quot;&gt;&lt;/path&gt;\n        &lt;/symbol&gt;\n        &lt;symbol id=&quot;icon-pause&quot; viewBox=&quot;0 0 32 32&quot;&gt;\n          &lt;title&gt;icon-pause&lt;/title&gt;\n          &lt;path d=&quot;M16 0.32c-8.64 0-15.68 7.040-15.68 15.68s7.040 15.68 15.68 15.68 15.68-7.040 15.68-15.68-7.040-15.68-15.68-15.68zM16 29.216c-7.296 0-13.216-5.92-13.216-13.216s5.92-13.216 13.216-13.216 13.216 5.92 13.216 13.216-5.92 13.216-13.216 13.216z&quot;&gt;&lt;/path&gt;\n          &lt;path d=&quot;M16 32c-8.832 0-16-7.168-16-16s7.168-16 16-16 16 7.168 16 16-7.168 16-16 16zM16 0.672c-8.448 0-15.328 6.88-15.328 15.328s6.88 15.328 15.328 15.328c8.448 0 15.328-6.88 15.328-15.328s-6.88-15.328-15.328-15.328zM16 29.568c-7.488 0-13.568-6.080-13.568-13.568s6.080-13.568 13.568-13.568c7.488 0 13.568 6.080 13.568 13.568s-6.080 13.568-13.568 13.568zM16 3.104c-7.104 0-12.896 5.792-12.896 12.896s5.792 12.896 12.896 12.896c7.104 0 12.896-5.792 12.896-12.896s-5.792-12.896-12.896-12.896z&quot;&gt;&lt;/path&gt;\n          &lt;path d=&quot;M12.16 22.336v0c-0.896 0-1.6-0.704-1.6-1.6v-9.472c0-0.896 0.704-1.6 1.6-1.6v0c0.896 0 1.6 0.704 1.6 1.6v9.504c0 0.864-0.704 1.568-1.6 1.568z&quot;&gt;&lt;/path&gt;\n          &lt;path d=&quot;M19.84 22.336v0c-0.896 0-1.6-0.704-1.6-1.6v-9.472c0-0.896 0.704-1.6 1.6-1.6v0c0.896 0 1.6 0.704 1.6 1.6v9.504c0 0.864-0.704 1.568-1.6 1.568z&quot;&gt;&lt;/path&gt;\n        &lt;/symbol&gt;\n        &lt;symbol id=&quot;icon-play&quot; viewBox=&quot;0 0 32 32&quot;&gt;\n          &lt;title&gt;icon-play&lt;/title&gt;\n          &lt;path d=&quot;M21.216 15.168l-7.616-5.088c-0.672-0.416-1.504 0.032-1.504 0.832v10.176c0 0.8 0.896 1.248 1.504 0.832l7.616-5.088c0.576-0.416 0.576-1.248 0-1.664z&quot;&gt;&lt;/path&gt;\n          &lt;path d=&quot;M13.056 22.4c-0.224 0-0.416-0.064-0.608-0.16-0.448-0.224-0.704-0.672-0.704-1.152v-10.176c0-0.48 0.256-0.928 0.672-1.152s0.928-0.224 1.344 0.064l7.616 5.088c0.384 0.256 0.608 0.672 0.608 1.088s-0.224 0.864-0.608 1.088l-7.616 5.088c-0.192 0.16-0.448 0.224-0.704 0.224zM13.056 10.272c-0.096 0-0.224 0.032-0.32 0.064-0.224 0.128-0.352 0.32-0.352 0.576v10.176c0 0.256 0.128 0.48 0.352 0.576 0.224 0.128 0.448 0.096 0.64-0.032l7.616-5.088c0.192-0.128 0.288-0.32 0.288-0.544s-0.096-0.416-0.288-0.544l-7.584-5.088c-0.096-0.064-0.224-0.096-0.352-0.096z&quot;&gt;&lt;/path&gt;\n          &lt;path d=&quot;M16 0.32c-8.64 0-15.68 7.040-15.68 15.68s7.040 15.68 15.68 15.68 15.68-7.040 15.68-15.68-7.040-15.68-15.68-15.68zM16 29.216c-7.296 0-13.216-5.92-13.216-13.216s5.92-13.216 13.216-13.216 13.216 5.92 13.216 13.216-5.92 13.216-13.216 13.216z&quot;&gt;&lt;/path&gt;\n          &lt;path d=&quot;M16 32c-8.832 0-16-7.168-16-16s7.168-16 16-16 16 7.168 16 16-7.168 16-16 16zM16 0.672c-8.448 0-15.328 6.88-15.328 15.328s6.88 15.328 15.328 15.328c8.448 0 15.328-6.88 15.328-15.328s-6.88-15.328-15.328-15.328zM16 29.568c-7.488 0-13.568-6.080-13.568-13.568s6.080-13.568 13.568-13.568c7.488 0 13.568 6.080 13.568 13.568s-6.080 13.568-13.568 13.568zM16 3.104c-7.104 0-12.896 5.792-12.896 12.896s5.792 12.896 12.896 12.896c7.104 0 12.896-5.792 12.896-12.896s-5.792-12.896-12.896-12.896z&quot;&gt;&lt;/path&gt;\n        &lt;/symbol&gt;\n        &lt;symbol id=&quot;icon-link&quot; viewBox=&quot;0 0 32 32&quot;&gt;\n        &lt;title&gt;link&lt;/title&gt;\n          &lt;path d=&quot;M23.584 17.92c0 0.864 0 1.728 0 2.56 0 1.312 0 2.656 0 3.968 0 0.352 0.032 0.736-0.032 1.12 0.032-0.16 0.032-0.288 0.064-0.448-0.032 0.224-0.096 0.448-0.16 0.64 0.064-0.128 0.128-0.256 0.16-0.416-0.096 0.192-0.192 0.384-0.32 0.576 0.096-0.128 0.16-0.224 0.256-0.352-0.128 0.16-0.288 0.32-0.48 0.48 0.128-0.096 0.224-0.16 0.352-0.256-0.192 0.128-0.352 0.256-0.576 0.32 0.128-0.064 0.256-0.128 0.416-0.16-0.224 0.096-0.416 0.16-0.64 0.16 0.16-0.032 0.288-0.032 0.448-0.064-0.256 0.032-0.512 0.032-0.768 0.032-0.448 0-0.896 0-1.312 0-1.472 0-2.976 0-4.448 0-1.824 0-3.616 0-5.44 0-1.568 0-3.104 0-4.672 0-0.736 0-1.44 0-2.176 0-0.128 0-0.224 0-0.352-0.032 0.16 0.032 0.288 0.032 0.448 0.064-0.224-0.032-0.448-0.096-0.64-0.16 0.128 0.064 0.256 0.128 0.416 0.16-0.192-0.096-0.384-0.192-0.576-0.32 0.128 0.096 0.224 0.16 0.352 0.256-0.16-0.128-0.32-0.288-0.48-0.48 0.096 0.128 0.16 0.224 0.256 0.352-0.128-0.192-0.256-0.352-0.32-0.576 0.064 0.128 0.128 0.256 0.16 0.416-0.096-0.224-0.16-0.416-0.16-0.64 0.032 0.16 0.032 0.288 0.064 0.448-0.032-0.256-0.032-0.512-0.032-0.768 0-0.448 0-0.896 0-1.312 0-1.472 0-2.976 0-4.448 0-1.824 0-3.616 0-5.44 0-1.568 0-3.104 0-4.672 0-0.736 0-1.44 0-2.176 0-0.128 0-0.224 0.032-0.352-0.032 0.16-0.032 0.288-0.064 0.448 0.032-0.224 0.096-0.448 0.16-0.64-0.064 0.128-0.128 0.256-0.16 0.416 0.096-0.192 0.192-0.384 0.32-0.576-0.096 0.128-0.16 0.224-0.256 0.352 0.128-0.16 0.288-0.32 0.48-0.48-0.128 0.096-0.224 0.16-0.352 0.256 0.192-0.128 0.352-0.256 0.576-0.32-0.128 0.064-0.256 0.128-0.416 0.16 0.224-0.096 0.416-0.16 0.64-0.16-0.16 0.032-0.288 0.032-0.448 0.064 0.48-0.064 0.96-0.032 1.44-0.032 0.992 0 1.952 0 2.944 0 1.216 0 2.432 0 3.616 0 1.056 0 2.112 0 3.168 0 0.512 0 1.024 0 1.536 0 0 0 0 0 0.032 0 0.448 0 0.896-0.192 1.184-0.48s0.512-0.768 0.48-1.184c-0.032-0.448-0.16-0.896-0.48-1.184s-0.736-0.48-1.184-0.48c-0.64 0-1.28 0-1.92 0-1.408 0-2.816 0-4.224 0-1.44 0-2.848 0-4.256 0-0.672 0-1.344 0-2.016 0-0.736 0-1.472 0.192-2.112 0.576s-1.216 0.96-1.568 1.6c-0.384 0.64-0.544 1.376-0.544 2.144 0 0.672 0 1.376 0 2.048 0 1.28 0 2.56 0 3.84 0 1.504 0 3.040 0 4.544 0 1.408 0 2.848 0 4.256 0 0.992 0 1.952 0 2.944 0 0.224 0 0.448 0 0.64 0 0.864 0.224 1.76 0.768 2.464 0.16 0.192 0.288 0.384 0.48 0.576s0.384 0.352 0.608 0.512c0.32 0.224 0.64 0.384 1.024 0.512 0.448 0.16 0.928 0.224 1.408 0.224 0.16 0 0.32 0 0.48 0 0.896 0 1.792 0 2.72 0 1.376 0 2.784 0 4.16 0 1.536 0 3.040 0 4.576 0 1.312 0 2.656 0 3.968 0 0.768 0 1.536 0 2.336 0 0.416 0 0.832-0.032 1.248-0.128 1.504-0.32 2.784-1.6 3.104-3.104 0.128-0.544 0.128-1.056 0.128-1.568 0-0.608 0-1.184 0-1.792 0-1.408 0-2.816 0-4.224 0-0.256 0-0.512 0-0.768 0-0.448-0.192-0.896-0.48-1.184s-0.768-0.512-1.184-0.48c-0.448 0.032-0.896 0.16-1.184 0.48-0.384 0.384-0.576 0.768-0.576 1.248v0z&quot;&gt;&lt;/path&gt;\n          &lt;path d=&quot;M32 11.232c0-0.8 0-1.568 0-2.368 0-1.248 0-2.528 0-3.776 0-0.288 0-0.576 0-0.864 0-0.896-0.768-1.696-1.696-1.696-0.8 0-1.568 0-2.368 0-1.248 0-2.528 0-3.776 0-0.288 0-0.576 0-0.864 0-0.448 0-0.896 0.192-1.184 0.48s-0.512 0.768-0.48 1.184c0.032 0.448 0.16 0.896 0.48 1.184s0.736 0.48 1.184 0.48c0.8 0 1.568 0 2.368 0 1.248 0 2.528 0 3.776 0 0.288 0 0.576 0 0.864 0-0.576-0.576-1.12-1.12-1.696-1.696 0 0.8 0 1.568 0 2.368 0 1.248 0 2.528 0 3.776 0 0.288 0 0.576 0 0.864 0 0.448 0.192 0.896 0.48 1.184s0.768 0.512 1.184 0.48c0.448-0.032 0.896-0.16 1.184-0.48 0.352-0.256 0.544-0.64 0.544-1.12v0z&quot;&gt;&lt;/path&gt;\n          &lt;path d=&quot;M15.040 21.888c0.16-0.16 0.288-0.288 0.448-0.448 0.384-0.384 0.8-0.8 1.184-1.184 0.608-0.608 1.184-1.184 1.792-1.792 0.704-0.704 1.44-1.44 2.176-2.176 0.8-0.8 1.568-1.568 2.368-2.368s1.6-1.6 2.4-2.4c0.736-0.736 1.504-1.504 2.24-2.24 0.64-0.64 1.248-1.248 1.888-1.888 0.448-0.448 0.896-0.896 1.344-1.344 0.224-0.224 0.448-0.416 0.64-0.64 0 0 0.032-0.032 0.032-0.032 0.32-0.32 0.48-0.768 0.48-1.184s-0.192-0.896-0.48-1.184c-0.32-0.288-0.736-0.512-1.184-0.48-0.512 0.032-0.928 0.16-1.248 0.48-0.16 0.16-0.288 0.288-0.448 0.448-0.384 0.384-0.8 0.8-1.184 1.184-0.608 0.608-1.184 1.184-1.792 1.792-0.704 0.704-1.44 1.44-2.176 2.176-0.8 0.8-1.568 1.568-2.368 2.368s-1.6 1.6-2.4 2.4c-0.736 0.736-1.504 1.504-2.24 2.24-0.64 0.64-1.248 1.248-1.888 1.888-0.448 0.448-0.896 0.896-1.344 1.344-0.224 0.224-0.448 0.416-0.64 0.64 0 0-0.032 0.032-0.032 0.032-0.32 0.32-0.48 0.768-0.48 1.184s0.192 0.896 0.48 1.184c0.32 0.288 0.736 0.512 1.184 0.48 0.48 0 0.928-0.16 1.248-0.48v0z&quot;&gt;&lt;/path&gt;\n        &lt;/symbol&gt;\n        &lt;symbol id=&quot;icon-next&quot; viewBox=&quot;0 0 32 32&quot;&gt;\n          &lt;title&gt;next&lt;/title&gt;\n          &lt;path d=&quot;M2.304 18.304h14.688l-4.608 4.576c-0.864 0.864-0.864 2.336 0 3.232 0.864 0.864 2.336 0.864 3.232 0l8.448-8.48c0.864-0.864 0.864-2.336 0-3.232l-8.448-8.448c-0.448-0.448-1.056-0.672-1.632-0.672s-1.184 0.224-1.632 0.672c-0.864 0.864-0.864 2.336 0 3.232l4.64 4.576h-14.688c-1.248 0-2.304 0.992-2.304 2.272s1.024 2.272 2.304 2.272z&quot;&gt;&lt;/path&gt;\n          &lt;path d=&quot;M29.696 26.752c1.248 0 2.304-1.024 2.304-2.304v-16.928c0-1.248-1.024-2.304-2.304-2.304s-2.304 1.024-2.304 2.304v16.928c0.064 1.28 1.056 2.304 2.304 2.304z&quot;&gt;&lt;/path&gt;\n        &lt;/symbol&gt;\n        &lt;symbol id=&quot;icon-prev&quot; viewBox=&quot;0 0 32 32&quot;&gt;\n          &lt;title&gt;prev&lt;/title&gt;\n          &lt;path d=&quot;M29.696 13.696h-14.688l4.576-4.576c0.864-0.864 0.864-2.336 0-3.232-0.864-0.864-2.336-0.864-3.232 0l-8.448 8.48c-0.864 0.864-0.864 2.336 0 3.232l8.448 8.448c0.448 0.448 1.056 0.672 1.632 0.672s1.184-0.224 1.632-0.672c0.864-0.864 0.864-2.336 0-3.232l-4.608-4.576h14.688c1.248 0 2.304-1.024 2.304-2.304s-1.024-2.24-2.304-2.24z&quot;&gt;&lt;/path&gt;\n          &lt;path d=&quot;M2.304 5.248c-1.248 0-2.304 1.024-2.304 2.304v16.928c0 1.248 1.024 2.304 2.304 2.304s2.304-1.024 2.304-2.304v-16.928c-0.064-1.28-1.056-2.304-2.304-2.304z&quot;&gt;&lt;/path&gt;\n        &lt;/symbol&gt;\n      &lt;/defs&gt;\n    &lt;/svg&gt;","css":"body {\n  background: #dfe7ef;\n  font-family: &quot;Bitter&quot;, serif;\n}\n\n* {\n  box-sizing: border-box;\n}\n\n.icon {\n  display: inline-block;\n  width: 1em;\n  height: 1em;\n  stroke-width: 0;\n  stroke: currentColor;\n  fill: currentColor;\n}\n\n.wrapper {\n  width: 100%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  min-height: 100vh;\n  background-size: cover;\n}\n@media screen and (max-width: 700px), (max-height: 500px) {\n  .wrapper {\n    flex-wrap: wrap;\n    flex-direction: column;\n  }\n}\n\n.player {\n  background: #eef3f7;\n  width: 410px;\n  min-height: 480px;\n  box-shadow: 0px 15px 35px -5px rgba(50, 88, 130, 0.32);\n  border-radius: 15px;\n  padding: 30px;\n}\n@media screen and (max-width: 576px), (max-height: 500px) {\n  .player {\n    width: 95%;\n    padding: 20px;\n    margin-top: 75px;\n    min-height: initial;\n    padding-bottom: 30px;\n    max-width: 400px;\n  }\n}\n.player__top {\n  display: flex;\n  align-items: flex-start;\n  position: relative;\n  z-index: 4;\n}\n@media screen and (max-width: 576px), (max-height: 500px) {\n  .player__top {\n    flex-wrap: wrap;\n  }\n}\n.player-cover {\n  width: 300px;\n  height: 300px;\n  margin-left: -70px;\n  flex-shrink: 0;\n  position: relative;\n  z-index: 2;\n  border-radius: 15px;\n  z-index: 1;\n}\n@media screen and (max-width: 576px), (max-height: 500px) {\n  .player-cover {\n    margin-top: -70px;\n    margin-bottom: 25px;\n    width: 290px;\n    height: 230px;\n    margin-left: auto;\n    margin-right: auto;\n  }\n}\n.player-cover__item {\n  background-repeat: no-repeat;\n  background-position: center;\n  background-size: cover;\n  width: 100%;\n  height: 100%;\n  border-radius: 15px;\n  position: absolute;\n  left: 0;\n  top: 0;\n}\n.player-cover__item:before {\n  content: &quot;&quot;;\n  background: inherit;\n  width: 100%;\n  height: 100%;\n  box-shadow: 0px 10px 40px 0px rgba(76, 70, 124, 0.5);\n  display: block;\n  z-index: 1;\n  position: absolute;\n  top: 30px;\n  transform: scale(0.9);\n  filter: blur(10px);\n  opacity: 0.9;\n  border-radius: 15px;\n}\n.player-cover__item:after {\n  content: &quot;&quot;;\n  background: inherit;\n  width: 100%;\n  height: 100%;\n  box-shadow: 0px 10px 40px 0px rgba(76, 70, 124, 0.5);\n  display: block;\n  z-index: 2;\n  position: absolute;\n  border-radius: 15px;\n}\n.player-cover__img {\n  width: 100%;\n  height: 100%;\n  object-fit: cover;\n  border-radius: 15px;\n  box-shadow: 0px 10px 40px 0px rgba(76, 70, 124, 0.5);\n  user-select: none;\n  pointer-events: none;\n}\n.player-controls {\n  flex: 1;\n  padding-left: 20px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n@media screen and (max-width: 576px), (max-height: 500px) {\n  .player-controls {\n    flex-direction: row;\n    padding-left: 0;\n    width: 100%;\n    flex: unset;\n  }\n}\n.player-controls__item {\n  display: inline-flex;\n  font-size: 30px;\n  padding: 5px;\n  margin-bottom: 10px;\n  color: #acb8cc;\n  cursor: pointer;\n  width: 50px;\n  height: 50px;\n  align-items: center;\n  justify-content: center;\n  position: relative;\n  transition: all 0.3s ease-in-out;\n}\n@media screen and (max-width: 576px), (max-height: 500px) {\n  .player-controls__item {\n    font-size: 26px;\n    padding: 5px;\n    margin-right: 10px;\n    color: #acb8cc;\n    cursor: pointer;\n    width: 40px;\n    height: 40px;\n    margin-bottom: 0;\n  }\n}\n.player-controls__item::before {\n  content: &quot;&quot;;\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  border-radius: 50%;\n  background: #fff;\n  transform: scale(0.5);\n  opacity: 0;\n  box-shadow: 0px 5px 10px 0px rgba(76, 70, 124, 0.2);\n  transition: all 0.3s ease-in-out;\n  transition: all 0.4s cubic-bezier(0.35, 0.57, 0.13, 0.88);\n}\n@media screen and (min-width: 500px) {\n  .player-controls__item:hover {\n    color: #532ab9;\n  }\n  .player-controls__item:hover::before {\n    opacity: 1;\n    transform: scale(1.3);\n  }\n}\n@media screen and (max-width: 576px), (max-height: 500px) {\n  .player-controls__item:active {\n    color: #532ab9;\n  }\n  .player-controls__item:active::before {\n    opacity: 1;\n    transform: scale(1.3);\n  }\n}\n.player-controls__item .icon {\n  position: relative;\n  z-index: 2;\n}\n.player-controls__item.-xl {\n  margin-bottom: 0;\n  font-size: 95px;\n  filter: drop-shadow(0 11px 6px rgba(172, 184, 204, 0.45));\n  color: #fff;\n  width: auto;\n  height: auto;\n  display: inline-flex;\n}\n@media screen and (max-width: 576px), (max-height: 500px) {\n  .player-controls__item.-xl {\n    margin-left: auto;\n    font-size: 75px;\n    margin-right: 0;\n  }\n}\n.player-controls__item.-xl:before {\n  display: none;\n}\n.player-controls__item.-favorite.active {\n  color: red;\n}\n\n[v-cloak] {\n  display: none;\n}\n\n[v-cloak] &gt; * {\n  display: none;\n}\n\n.progress {\n  width: 100%;\n  margin-top: -15px;\n  user-select: none;\n}\n.progress__top {\n  display: flex;\n  align-items: flex-end;\n  justify-content: space-between;\n}\n.progress__duration {\n  color: #71829e;\n  font-weight: 700;\n  font-size: 20px;\n  opacity: 0.5;\n}\n.progress__time {\n  margin-top: 2px;\n  color: #71829e;\n  font-weight: 700;\n  font-size: 16px;\n  opacity: 0.7;\n}\n\n.progress__bar {\n  height: 6px;\n  width: 100%;\n  cursor: pointer;\n  background-color: #d0d8e6;\n  display: inline-block;\n  border-radius: 10px;\n}\n\n.progress__current {\n  height: inherit;\n  width: 0%;\n  background-color: #a3b3ce;\n  border-radius: 10px;\n}\n\n.album-info {\n  color: #71829e;\n  flex: 1;\n  padding-right: 60px;\n  user-select: none;\n}\n@media screen and (max-width: 576px), (max-height: 500px) {\n  .album-info {\n    padding-right: 30px;\n  }\n}\n.album-info__name {\n  font-size: 20px;\n  font-weight: bold;\n  margin-bottom: 12px;\n  line-height: 1.3em;\n}\n@media screen and (max-width: 576px), (max-height: 500px) {\n  .album-info__name {\n    font-size: 18px;\n    margin-bottom: 9px;\n  }\n}\n.album-info__track {\n  font-weight: 400;\n  font-size: 20px;\n  opacity: 0.7;\n  line-height: 1.3em;\n  min-height: 52px;\n}\n@media screen and (max-width: 576px), (max-height: 500px) {\n  .album-info__track {\n    font-size: 18px;\n    min-height: 50px;\n  }\n}\n\n.github-btn {\n  position: absolute;\n  right: 40px;\n  bottom: 50px;\n  text-decoration: none;\n  padding: 15px 25px;\n  border-radius: 4px;\n  box-shadow: 0px 4px 30px -6px rgba(36, 52, 70, 0.65);\n  background: #24292e;\n  color: #fff;\n  font-weight: bold;\n  letter-spacing: 1px;\n  font-size: 16px;\n  transition: all .3s ease-in-out;\n}\n@media screen and (min-width: 500px) {\n  .github-btn:hover {\n    transform: scale(1.1);\n    box-shadow: 0px 17px 20px -6px rgba(36, 52, 70, 0.36);\n  }\n}\n@media screen and (max-width: 700px) {\n  .github-btn {\n    position: relative;\n    bottom: auto;\n    right: auto;\n    margin-top: 20px;\n  }\n  .github-btn:active {\n    transform: scale(1.1);\n    box-shadow: 0px 17px 20px -6px rgba(36, 52, 70, 0.36);\n  }\n}\n\n.scale-out-enter-active {\n  transition: all .35s ease-in-out;\n}\n\n.scale-out-leave-active {\n  transition: all .35s ease-in-out;\n}\n\n.scale-out-enter {\n  transform: scale(0.55);\n  pointer-events: none;\n  opacity: 0;\n}\n\n.scale-out-leave-to {\n  transform: scale(1.2);\n  pointer-events: none;\n  opacity: 0;\n}\n\n.scale-in-enter-active {\n  transition: all .35s ease-in-out;\n}\n\n.scale-in-leave-active {\n  transition: all .35s ease-in-out;\n}\n\n.scale-in-enter {\n  transform: scale(1.2);\n  pointer-events: none;\n  opacity: 0;\n}\n\n.scale-in-leave-to {\n  transform: scale(0.55);\n  pointer-events: none;\n  opacity: 0;\n}","js":"/*\ndesign by Voicu Apostol.\ndesign: https://dribbble.com/shots/3533847-Mini-Music-Player\nI can&#39;t find any open music api or mp3 api so i have to download all musics as mp3 file.\nYou can fork on github: https://github.com/muhammederdem/mini-player\n*/\n\nnew Vue({\n  el: &quot;#app&quot;,\n  data() {\n    return {\n      audio: null,\n      circleLeft: null,\n      barWidth: null,\n      duration: null,\n      currentTime: null,\n      isTimerPlaying: false,\n      tracks: [\n      {\n        name: &quot;Mekanın Sahibi&quot;,\n        artist: &quot;Norm Ender&quot;,\n        cover: &quot;https://raw.githubusercontent.com/muhammederdem/mini-player/master/img/1.jpg&quot;,\n        source: &quot;https://raw.githubusercontent.com/muhammederdem/mini-player/master/mp3/1.mp3&quot;,\n        url: &quot;https://www.youtube.com/watch?v=z3wAjJXbYzA&quot;,\n        favorited: false },\n\n      {\n        name: &quot;Everybody Knows&quot;,\n        artist: &quot;Leonard Cohen&quot;,\n        cover: &quot;https://raw.githubusercontent.com/muhammederdem/mini-player/master/img/2.jpg&quot;,\n        source: &quot;https://raw.githubusercontent.com/muhammederdem/mini-player/master/mp3/2.mp3&quot;,\n        url: &quot;https://www.youtube.com/watch?v=Lin-a2lTelg&quot;,\n        favorited: true },\n\n      {\n        name: &quot;Extreme Ways&quot;,\n        artist: &quot;Moby&quot;,\n        cover: &quot;https://raw.githubusercontent.com/muhammederdem/mini-player/master/img/3.jpg&quot;,\n        source: &quot;https://raw.githubusercontent.com/muhammederdem/mini-player/master/mp3/3.mp3&quot;,\n        url: &quot;https://www.youtube.com/watch?v=ICjyAe9S54c&quot;,\n        favorited: false },\n\n      {\n        name: &quot;Butterflies&quot;,\n        artist: &quot;Sia&quot;,\n        cover: &quot;https://raw.githubusercontent.com/muhammederdem/mini-player/master/img/4.jpg&quot;,\n        source: &quot;https://raw.githubusercontent.com/muhammederdem/mini-player/master/mp3/4.mp3&quot;,\n        url: &quot;https://www.youtube.com/watch?v=kYgGwWYOd9Y&quot;,\n        favorited: false },\n\n      {\n        name: &quot;The Final Victory&quot;,\n        artist: &quot;Haggard&quot;,\n        cover: &quot;https://raw.githubusercontent.com/muhammederdem/mini-player/master/img/5.jpg&quot;,\n        source: &quot;https://raw.githubusercontent.com/muhammederdem/mini-player/master/mp3/5.mp3&quot;,\n        url: &quot;https://www.youtube.com/watch?v=0WlpALnQdN8&quot;,\n        favorited: true },\n\n      {\n        name: &quot;Genius ft. Sia, Diplo, Labrinth&quot;,\n        artist: &quot;LSD&quot;,\n        cover: &quot;https://raw.githubusercontent.com/muhammederdem/mini-player/master/img/6.jpg&quot;,\n        source: &quot;https://raw.githubusercontent.com/muhammederdem/mini-player/master/mp3/6.mp3&quot;,\n        url: &quot;https://www.youtube.com/watch?v=HhoATZ1Imtw&quot;,\n        favorited: false },\n\n      {\n        name: &quot;The Comeback Kid&quot;,\n        artist: &quot;Lindi Ortega&quot;,\n        cover: &quot;https://raw.githubusercontent.com/muhammederdem/mini-player/master/img/7.jpg&quot;,\n        source: &quot;https://raw.githubusercontent.com/muhammederdem/mini-player/master/mp3/7.mp3&quot;,\n        url: &quot;https://www.youtube.com/watch?v=me6aoX0wCV8&quot;,\n        favorited: true },\n\n      {\n        name: &quot;Overdose&quot;,\n        artist: &quot;Grandson&quot;,\n        cover: &quot;https://raw.githubusercontent.com/muhammederdem/mini-player/master/img/8.jpg&quot;,\n        source: &quot;https://raw.githubusercontent.com/muhammederdem/mini-player/master/mp3/8.mp3&quot;,\n        url: &quot;https://www.youtube.com/watch?v=00-Rl3Jlx-o&quot;,\n        favorited: false },\n\n      {\n        name: &quot;Rag&#39;n&#39;Bone Man&quot;,\n        artist: &quot;Human&quot;,\n        cover: &quot;https://raw.githubusercontent.com/muhammederdem/mini-player/master/img/9.jpg&quot;,\n        source: &quot;https://raw.githubusercontent.com/muhammederdem/mini-player/master/mp3/9.mp3&quot;,\n        url: &quot;https://www.youtube.com/watch?v=L3wKzyIN1yk&quot;,\n        favorited: false }],\n\n\n      currentTrack: null,\n      currentTrackIndex: 0,\n      transitionName: null };\n\n  },\n  methods: {\n    play() {\n      if (this.audio.paused) {\n        this.audio.play();\n        this.isTimerPlaying = true;\n      } else {\n        this.audio.pause();\n        this.isTimerPlaying = false;\n      }\n    },\n    generateTime() {\n      let width = 100 / this.audio.duration * this.audio.currentTime;\n      this.barWidth = width + &quot;%&quot;;\n      this.circleLeft = width + &quot;%&quot;;\n      let durmin = Math.floor(this.audio.duration / 60);\n      let dursec = Math.floor(this.audio.duration - durmin * 60);\n      let curmin = Math.floor(this.audio.currentTime / 60);\n      let cursec = Math.floor(this.audio.currentTime - curmin * 60);\n      if (durmin &lt; 10) {\n        durmin = &quot;0&quot; + durmin;\n      }\n      if (dursec &lt; 10) {\n        dursec = &quot;0&quot; + dursec;\n      }\n      if (curmin &lt; 10) {\n        curmin = &quot;0&quot; + curmin;\n      }\n      if (cursec &lt; 10) {\n        cursec = &quot;0&quot; + cursec;\n      }\n      this.duration = durmin + &quot;:&quot; + dursec;\n      this.currentTime = curmin + &quot;:&quot; + cursec;\n    },\n    updateBar(x) {\n      let progress = this.$refs.progress;\n      let maxduration = this.audio.duration;\n      let position = x - progress.offsetLeft;\n      let percentage = 100 * position / progress.offsetWidth;\n      if (percentage &gt; 100) {\n        percentage = 100;\n      }\n      if (percentage &lt; 0) {\n        percentage = 0;\n      }\n      this.barWidth = percentage + &quot;%&quot;;\n      this.circleLeft = percentage + &quot;%&quot;;\n      this.audio.currentTime = maxduration * percentage / 100;\n      this.audio.play();\n    },\n    clickProgress(e) {\n      this.isTimerPlaying = true;\n      this.audio.pause();\n      this.updateBar(e.pageX);\n    },\n    prevTrack() {\n      this.transitionName = &quot;scale-in&quot;;\n      this.isShowCover = false;\n      if (this.currentTrackIndex &gt; 0) {\n        this.currentTrackIndex--;\n      } else {\n        this.currentTrackIndex = this.tracks.length - 1;\n      }\n      this.currentTrack = this.tracks[this.currentTrackIndex];\n      this.resetPlayer();\n    },\n    nextTrack() {\n      this.transitionName = &quot;scale-out&quot;;\n      this.isShowCover = false;\n      if (this.currentTrackIndex &lt; this.tracks.length - 1) {\n        this.currentTrackIndex++;\n      } else {\n        this.currentTrackIndex = 0;\n      }\n      this.currentTrack = this.tracks[this.currentTrackIndex];\n      this.resetPlayer();\n    },\n    resetPlayer() {\n      this.barWidth = 0;\n      this.circleLeft = 0;\n      this.audio.currentTime = 0;\n      this.audio.src = this.currentTrack.source;\n      setTimeout(() =&gt; {\n        if (this.isTimerPlaying) {\n          this.audio.play();\n        } else {\n          this.audio.pause();\n        }\n      }, 300);\n    },\n    favorite() {\n      this.tracks[this.currentTrackIndex].favorited = !this.tracks[\n      this.currentTrackIndex].\n      favorited;\n    } },\n\n  created() {\n    let vm = this;\n    this.currentTrack = this.tracks[0];\n    this.audio = new Audio();\n    this.audio.src = this.currentTrack.source;\n    this.audio.ontimeupdate = function () {\n      vm.generateTime();\n    };\n    this.audio.onloadedmetadata = function () {\n      vm.generateTime();\n    };\n    this.audio.onended = function () {\n      vm.nextTrack();\n      this.isTimerPlaying = true;\n    };\n\n    // this is optional (for preload covers)\n    for (let index = 0; index &lt; this.tracks.length; index++) {if (window.CP.shouldStopExecution(0)) break;\n      const element = this.tracks[index];\n      let link = document.createElement(&#39;link&#39;);\n      link.rel = &quot;prefetch&quot;;\n      link.href = element.cover;\n      link.as = &quot;image&quot;;\n      document.head.appendChild(link);\n    }window.CP.exitedLoop(0);\n  } });"};
+    __preprocessors = {
+      "html": "none",
+      "css": "scss",
+      "js": "none"
+    };
+    __preprocessorNames = {
+      "html": "HTML",
+      "css": "SCSS",
+      "js": "JS"
+    };
+    __pageType = "embed";
+    __editable = false;
+    __embed_prefill = false;
+  </script>
+<script src="./embed-3690985ea2a3216737903c1e943e37377719fb52620886c141f0584d7a4f3a6b.js.下载"></script>
+
+
+</body></html>
