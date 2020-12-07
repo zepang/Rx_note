@@ -527,3 +527,5 @@ koa实践 https://chenshenhai.github.io/koa2-note/
 * marewood 一个轻量级的前端部署工具 https://github.com/xusenlin/marewood
 
 * https://www.shapedivider.app/ 定制各种形状的网站分区 SVG 的工具，调整好了自己想要的形状之后，可以一键复制和下载
+
+* https://cloud.tencent.com/developer/ 腾讯云社区
