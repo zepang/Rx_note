@@ -139,6 +139,7 @@ To do this properly, eg in a script, you need to be able to refer to the current
 
 要正确地做到这一点，例如在脚本中，您需要能够引用当前分支以及它所跟踪的远程分支。/etc/bash _ completion.d 中的 bash 提示设置函数有一些获取分支名称的有用代码。然而，你可能并不真的需要得到这些名字。Git 有一些简洁的方法来引用分支和提交(如 Git rev-parse -- help 中所述)。特别是，您可以对当前分支使用@(假设您不处于分离-head 状态) ，对于其上游分支使用@{ u }(例如 origin/master)。所以 git merge-base@{ u }将返回提交的(hash of the) ，当前分支及其上游分支和 git rev-parse@和 git rev-parse@{ u }将给出这两个提示的散列。这可以在下面的脚本中总结:
 
+```bash
 #!/bin/sh
 
 UPSTREAM=${1:-'@{u}'}
@@ -155,6 +156,8 @@ elif [ $REMOTE = $BASE ]; then
 else
     echo "Diverged"
 fi
+
+```
 Note: older versions of git didn't allow @ on its own, so you may have to use @{0} instead.
 
 注意: 旧版本的 git 本身不允许@，所以你可能不得不使用@{0}代替。
