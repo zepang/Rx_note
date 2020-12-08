@@ -176,3 +176,20 @@ The script assumes that you've done a git fetch or git remote update first, to b
 git symbolic-ref --short -q HEAD
 ```
 
+## 获取分支的最新commit hash
+
+```
+git rev-parse ${branch}^{commit}
+```
+
+## 获取最新标签tag
+
+```
+git describe --tags ${hash}
+```
+
+## 获取最新标签的hash
+
+```
+git rev-list --tags --max-count=1
+```
