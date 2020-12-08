@@ -170,3 +170,9 @@ The script assumes that you've done a git fetch or git remote update first, to b
 
 该脚本假设您已经先执行了 git 提取或 git 远程更新，以使跟踪分支更新。我没有在脚本中构建这个代码，因为它更灵活，可以作为单独的操作执行获取和比较，例如，如果您想比较而不想获取，因为您最近已经获取了。
 
+## 获取当前分支名
+
+```
+git symbolic-ref --short -q HEAD
+```
+
