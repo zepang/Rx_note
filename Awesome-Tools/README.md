@@ -529,3 +529,5 @@ koa实践 https://chenshenhai.github.io/koa2-note/
 * https://www.shapedivider.app/ 定制各种形状的网站分区 SVG 的工具，调整好了自己想要的形状之后，可以一键复制和下载
 
 * https://cloud.tencent.com/developer/ 腾讯云社区
+
+* https://www.infoq.cn/article/tsgERFV27UTYRxSMZY5T 私有NPM仓库搭建教程
