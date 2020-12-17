@@ -540,3 +540,5 @@ https://github.com/proYang/outils
 * https://dribbble.com/Sosa-Tzec/collections/3895024-Delightful-Micro-Interactions-and-Widgets 动效参考案例
 
 * rust 教程 https://www.lpalmieri.com/
+
+* 不错的JavaScript和nodejs相关的博客 https://stackabuse.com/
