@@ -193,3 +193,8 @@ git describe --tags ${hash}
 ```
 git rev-list --tags --max-count=1
 ```
+## 查看远程tags
+
+```
+git ls-remote --tags
+```
