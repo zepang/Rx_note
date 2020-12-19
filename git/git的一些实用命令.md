@@ -198,3 +198,18 @@ git rev-list --tags --max-count=1
 ```
 git ls-remote --tags
 ```
+
+## shadow clone 无法 push 问题
+
+一般会出现下面的错误
+
+```shell
+ ! [remote rejected] xxxx shallow update not allowed
+```
+
+运行下边命令在提交即可：
+
+```shell
+git fetch --unshallow origin
+```
+
