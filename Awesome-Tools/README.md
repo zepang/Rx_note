@@ -566,3 +566,5 @@ https://github.com/proYang/outils
 * Fonts of web https://fontofweb.com/ 你只需要在这里输入网站的 URL 地址，然后Fonts of web 就能够在几秒内帮你找出网站所用字体的详细信息，并且会标注出对应的字体所使用的全部规格（字体大小、字重、行高、乃至于下载链接）。
 
 * 微动效 https://dribbble.com/Sosa-Tzec/collections/3895024-Delightful-Micro-Interactions-and-Widgets
+
+* svg 可视化编辑 https://yqnn.github.io/svg-path-editor/
