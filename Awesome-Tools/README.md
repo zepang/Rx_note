@@ -574,3 +574,9 @@ https://github.com/proYang/outils
 * https://www.codewars.com/ 代码竞赛
 
 * https://unifiedjs.com/ unified ast读文件树
+
+* cli 库 https://www.npmjs.com/package/cac
+
+* kubernetes中文社区 https://www.kubernetes.org.cn/
+
+* node.js 和 next.js文章 https://coderrocketfuel.com/
