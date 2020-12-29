@@ -582,3 +582,7 @@ https://github.com/proYang/outils
 * node.js 和 next.js文章 https://coderrocketfuel.com/
 
 * 张鑫旭博客 https://www.zhangxinxu.com/
+
+* https://github.com/snowpackjs/snowpack https://github.com/vitejs/vite https://github.com/open-wc/es-dev-server https://github.com/modernweb-dev/web
+
+* 一个不错的发掘新东西的网站 https://morioh.com/explore
