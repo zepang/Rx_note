@@ -580,3 +580,5 @@ https://github.com/proYang/outils
 * kubernetes中文社区 https://www.kubernetes.org.cn/
 
 * node.js 和 next.js文章 https://coderrocketfuel.com/
+
+* 张鑫旭博客 https://www.zhangxinxu.com/
