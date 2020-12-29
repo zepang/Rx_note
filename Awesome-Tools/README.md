@@ -586,3 +586,9 @@ https://github.com/proYang/outils
 * https://github.com/snowpackjs/snowpack https://github.com/vitejs/vite https://github.com/open-wc/es-dev-server https://github.com/modernweb-dev/web
 
 * 一个不错的发掘新东西的网站 https://morioh.com/explore
+
+* 前端优化得有个好手段，比如看这个清单 https://segmentfault.com/a/1190000022014372?utm_source=sf-related
+
+* 面试复习资源 https://github.com/vue3/vue3-News/issues
+
+* canvas 的一个案例 https://github.com/ObjTube/front-end-roadmap
