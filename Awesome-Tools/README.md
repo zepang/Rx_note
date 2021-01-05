@@ -573,9 +573,8 @@ https://github.com/proYang/outils
 
 * https://www.codewars.com/ 代码竞赛
 
-<<<<<<< HEAD
 * https://bitfieldconsulting.com/golang/rust-vs-go 不错的一篇对比文章
-=======
+
 * https://unifiedjs.com/ unified ast读文件树
 
 * cli 库 https://www.npmjs.com/package/cac
@@ -595,4 +594,3 @@ https://github.com/proYang/outils
 * 面试复习资源 https://github.com/vue3/vue3-News/issues
 
 * canvas 的一个案例 https://github.com/ObjTube/front-end-roadmap
->>>>>>> a891355325701d198accb25f10240a1050692aec
