@@ -572,3 +572,5 @@ https://github.com/proYang/outils
 * https://javascript.info/ 
 
 * https://www.codewars.com/ 代码竞赛
+
+* https://bitfieldconsulting.com/golang/rust-vs-go 不错的一篇对比文章
