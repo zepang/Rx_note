@@ -610,3 +610,11 @@ https://github.com/proYang/outils
 * 图片大小适配显示插件 https://github.com/yj1438/ImageAdapt
 
 * node消息队列 https://github.com/OptimalBits/bull
+
+* 最近在用的一个 Node.js 消息队列库 - Bull https://xknow.net/introduce-bull-queue/
+
+* Building a Markdown blog with Next 9.4 and Netlify https://www.netlify.com/blog/2020/05/04/building-a-markdown-blog-with-next-9.4-and-netlify/
+
+* How to Deploy Next.js Sites to Netlify https://www.netlify.com/blog/2020/11/30/how-to-deploy-next.js-sites-to-netlify/
+
+* how-to-deploy-a-simple-site-using-postman-and-the-netlify-api https://www.netlify.com/blog/2020/09/24/how-to-deploy-a-simple-site-using-postman-and-the-netlify-api/
