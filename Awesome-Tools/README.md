@@ -618,3 +618,5 @@ https://github.com/proYang/outils
 * How to Deploy Next.js Sites to Netlify https://www.netlify.com/blog/2020/11/30/how-to-deploy-next.js-sites-to-netlify/
 
 * how-to-deploy-a-simple-site-using-postman-and-the-netlify-api https://www.netlify.com/blog/2020/09/24/how-to-deploy-a-simple-site-using-postman-and-the-netlify-api/
+
+* Games101 笔记 —— 线性代数 https://scarletsky.github.io/2020/05/23/games101-notes-linear-algebra/
