@@ -596,3 +596,11 @@ https://github.com/proYang/outils
 * canvas 的一个案例 https://github.com/ObjTube/front-end-roadmap
 
 * 25 个 Linux 下最炫酷又强大的命令行神器 https://cloud.tencent.com/developer/article/1502010
+
+* minimatch https://github.com/isaacs/minimatch
+
+* clean-code-javascript https://github.com/ryanmcdermott/clean-code-javascript
+
+* vue-lit https://github.com/yyx990803/vue-lit
+
+* web-components-chat https://github.com/thinktecture-labs/web-components-chat
