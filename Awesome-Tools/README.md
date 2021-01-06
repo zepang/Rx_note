@@ -604,3 +604,5 @@ https://github.com/proYang/outils
 * vue-lit https://github.com/yyx990803/vue-lit
 
 * web-components-chat https://github.com/thinktecture-labs/web-components-chat
+
+* 每日一linux命令 https://www.cnblogs.com/peida/tag/%E6%AF%8F%E6%97%A5%E4%B8%80linux%E5%91%BD%E4%BB%A4/
