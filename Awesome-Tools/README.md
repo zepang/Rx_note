@@ -594,3 +594,5 @@ https://github.com/proYang/outils
 * 面试复习资源 https://github.com/vue3/vue3-News/issues
 
 * canvas 的一个案例 https://github.com/ObjTube/front-end-roadmap
+
+* 25 个 Linux 下最炫酷又强大的命令行神器 https://cloud.tencent.com/developer/article/1502010
