@@ -606,3 +606,7 @@ https://github.com/proYang/outils
 * web-components-chat https://github.com/thinktecture-labs/web-components-chat
 
 * 每日一linux命令 https://www.cnblogs.com/peida/tag/%E6%AF%8F%E6%97%A5%E4%B8%80linux%E5%91%BD%E4%BB%A4/
+
+* 图片大小适配显示插件 https://github.com/yj1438/ImageAdapt
+
+* node消息队列 https://github.com/OptimalBits/bull
