@@ -573,6 +573,8 @@ https://github.com/proYang/outils
 
 * https://www.codewars.com/ 代码竞赛
 
+* https://bitfieldconsulting.com/golang/rust-vs-go 不错的一篇对比文章
+
 * https://unifiedjs.com/ unified ast读文件树
 
 * cli 库 https://www.npmjs.com/package/cac
@@ -592,3 +594,29 @@ https://github.com/proYang/outils
 * 面试复习资源 https://github.com/vue3/vue3-News/issues
 
 * canvas 的一个案例 https://github.com/ObjTube/front-end-roadmap
+
+* 25 个 Linux 下最炫酷又强大的命令行神器 https://cloud.tencent.com/developer/article/1502010
+
+* minimatch https://github.com/isaacs/minimatch
+
+* clean-code-javascript https://github.com/ryanmcdermott/clean-code-javascript
+
+* vue-lit https://github.com/yyx990803/vue-lit
+
+* web-components-chat https://github.com/thinktecture-labs/web-components-chat
+
+* 每日一linux命令 https://www.cnblogs.com/peida/tag/%E6%AF%8F%E6%97%A5%E4%B8%80linux%E5%91%BD%E4%BB%A4/
+
+* 图片大小适配显示插件 https://github.com/yj1438/ImageAdapt
+
+* node消息队列 https://github.com/OptimalBits/bull
+
+* 最近在用的一个 Node.js 消息队列库 - Bull https://xknow.net/introduce-bull-queue/
+
+* Building a Markdown blog with Next 9.4 and Netlify https://www.netlify.com/blog/2020/05/04/building-a-markdown-blog-with-next-9.4-and-netlify/
+
+* How to Deploy Next.js Sites to Netlify https://www.netlify.com/blog/2020/11/30/how-to-deploy-next.js-sites-to-netlify/
+
+* how-to-deploy-a-simple-site-using-postman-and-the-netlify-api https://www.netlify.com/blog/2020/09/24/how-to-deploy-a-simple-site-using-postman-and-the-netlify-api/
+
+* Games101 笔记 —— 线性代数 https://scarletsky.github.io/2020/05/23/games101-notes-linear-algebra/
