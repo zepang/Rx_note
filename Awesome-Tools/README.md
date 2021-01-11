@@ -634,3 +634,9 @@ https://github.com/proYang/outils
 * docker入门书籍 https://yeasy.gitbook.io/docker_practice
 
 * 前端开源免费资源推荐 https://www.thosefree.com/
+
+* 文章目录随着滚动条高亮 https://github.com/olOwOlo/hugo-theme-even
+
+* vue3 技术生态内幕 https://www.yuque.com/hugsun/vue3/yiyb0t
+
+* next-fullstack-starter-ts https://github.com/egoist/next-fullstack-starter
