@@ -640,3 +640,5 @@ https://github.com/proYang/outils
 * vue3 技术生态内幕 https://www.yuque.com/hugsun/vue3/yiyb0t
 
 * next-fullstack-starter-ts https://github.com/egoist/next-fullstack-starter
+
+* A nodejs module wich helps you handle a directory tree. https://github.com/euberdeveloper/dree
