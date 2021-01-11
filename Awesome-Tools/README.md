@@ -632,3 +632,5 @@ https://github.com/proYang/outils
 * 「一次写过瘾」手写Promise全家桶+Generator+async/await https://my.oschina.net/u/3991187/blog/4834626
 
 * docker入门书籍 https://yeasy.gitbook.io/docker_practice
+
+* 前端开源免费资源推荐 https://www.thosefree.com/
