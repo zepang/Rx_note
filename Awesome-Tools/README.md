@@ -575,6 +575,8 @@ https://github.com/proYang/outils
 
 * https://bitfieldconsulting.com/golang/rust-vs-go 不错的一篇对比文章
 
+* 用代码片段比较语言 https://programming-idioms.org/cheatsheet/rust/python/c++
+
 * https://unifiedjs.com/ unified ast读文件树
 
 * cli 库 https://www.npmjs.com/package/cac
