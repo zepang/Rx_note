@@ -651,6 +651,12 @@ https://github.com/proYang/outils
 
 * code cheatSheet https://cheatography.com/
 
+* search code 搜索代码 https://searchcode.com/
+
+* Find up to date snippets for JavaScript & React use cases https://codetogo.io/
+
+* 语言片段对比 https://programming-idioms.org/cheatsheet/go/c%23/python
+
 # 每日阅读
 
 ## 2021-01-13
@@ -660,3 +666,11 @@ https://github.com/proYang/outils
 * 如何编写漂亮的 React 代码？ https://www.infoq.cn/article/ZequtChu2jsS2ff1ZHK7
 
 * 源码 | 浅谈 Webpack 原理，以及 loader 和 plugin 实现 https://xie.infoq.cn/article/5f463d1f0ec3598973714f44a
+
+* 《前端实战总结》之使用 CSS3 实现酷炫的 3D 旋转透视 https://xie.infoq.cn/article/b696db746f126d01ff2911a20
+
+* 私有NPM仓库搭建教程 https://www.infoq.cn/article/tsgERFV27UTYRxSMZY5T
+
+* 14 BEST Algorithm & Data Structures Books (2021 List) https://www.guru99.com/data-structure-algorithms-books.html
+
+* 
