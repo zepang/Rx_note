@@ -684,3 +684,15 @@ https://github.com/proYang/outils
 * devops 绝对推荐 https://devops.phodal.com/
 
 * 2020不容错过！24个CSS新特性来了 https://mp.weixin.qq.com/s/n8E9htw0xXMyxHALLae_Eg
+
+* 手把手带你入门前端工程化——超详细教程 https://my.oschina.net/u/3991187/blog/4883368
+
+* 前端项目自动化部署——超详细教程（Jenkins、Github Actions） https://my.oschina.net/u/3991187/blog/4865094
+
+* 实战 | 使用 Webpack5 搭建多页面应用 https://jishuin.proginn.com/p/763bfbd36210
+
+* 程序员客栈 高级前端进阶 https://jishuin.proginn.com/u/455974
+
+* 使用 github 快速搭建属于自己的图床 https://jishuin.proginn.com/p/763bfbd35aee
+
+* Electron+vue从零开始打造一个本地播放器 https://jishuin.proginn.com/p/763bfbd3244f
