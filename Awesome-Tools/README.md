@@ -650,3 +650,13 @@ https://github.com/proYang/outils
 * markdownguide https://www.markdownguide.org/
 
 * code cheatSheet https://cheatography.com/
+
+# 每日阅读
+
+## 2021-01-13
+
+* 现代浏览器原理 https://xie.infoq.cn/article/bc1b309a8a3d758379538bb2f
+
+* 如何编写漂亮的 React 代码？ https://www.infoq.cn/article/ZequtChu2jsS2ff1ZHK7
+
+* 源码 | 浅谈 Webpack 原理，以及 loader 和 plugin 实现 https://xie.infoq.cn/article/5f463d1f0ec3598973714f44a
