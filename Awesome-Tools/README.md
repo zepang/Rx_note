@@ -673,4 +673,14 @@ https://github.com/proYang/outils
 
 * 14 BEST Algorithm & Data Structures Books (2021 List) https://www.guru99.com/data-structure-algorithms-books.html
 
-* 
+* Vue 3 的响应式和组合式 https://www.yuque.com/binfe/cquxg7/fr9eq3
+
+* 从头写一个 Deno 的 BitTorrent 下载器 https://cjting.me/2020/10/31/tinytorrent-a-deno-bt-downloader/
+
+* 聊一聊二维码扫描登录原理 https://juejin.cn/post/6844904111398191117
+
+* 图片加载失败后CSS样式处理最佳实践 https://www.zhangxinxu.com/wordpress/2020/10/css-style-image-load-fail/
+
+* devops 绝对推荐 https://devops.phodal.com/
+
+* 2020不容错过！24个CSS新特性来了 https://mp.weixin.qq.com/s/n8E9htw0xXMyxHALLae_Eg
