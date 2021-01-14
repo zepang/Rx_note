@@ -74,7 +74,8 @@
 # Node
 
 * [cheerio](https://cheerio.js.org/) Fast, flexible, and lean implementation of core jQuery designed specifically for the server
-* * [prompts](https://github.com/terkelg/prompts) Lightweight, beautiful and user-friendly interactive prompts.
+* [prompts](https://github.com/terkelg/prompts) Lightweight, beautiful and user-friendly interactive prompts.
+* chokidar  https://github.com/paulmillr/chokidar Minimal and efficient cross-platform file watching library
 
 #　tools
 
@@ -696,3 +697,7 @@ https://github.com/proYang/outils
 * 使用 github 快速搭建属于自己的图床 https://jishuin.proginn.com/p/763bfbd35aee
 
 * Electron+vue从零开始打造一个本地播放器 https://jishuin.proginn.com/p/763bfbd3244f
+
+* web dev server es module https://github.com/modernweb-dev/web
+
+* vue 渲染器详细解析 http://hcysun.me/vue-design/zh/
