@@ -701,3 +701,27 @@ https://github.com/proYang/outils
 * web dev server es module https://github.com/modernweb-dev/web
 
 * vue 渲染器详细解析 http://hcysun.me/vue-design/zh/
+
+# 2021-01-15
+
+* 领域驱动设计在前端中的应用 https://github.com/Vincedream/ddd-fe-demo
+
+* 改变世界的一次代码提交 https://hutusi.com/articles/the-greatest-git-commit
+
+* 前端模块化的十年征程 https://zhuanlan.zhihu.com/p/265632724
+
+* 微前端qiankun从搭建到部署的实践 https://mp.weixin.qq.com/s/zRhXU8-yDFgrbJMAmhGtTg
+
+* 小程序开发记录——魁拔喵喵喵 http://makaiqian.com/wechat-kuiba-miao-miao-miao/
+
+* 在 React 中实现 keep alive https://zhuanlan.zhihu.com/p/214166951
+
+* 请务必给 child_process 加上 on('data') 处理 https://mp.weixin.qq.com/s/so7NyNNezgS3ZBEsh-UtZw
+
+* 小程序视角下同构方案思考 https://mp.weixin.qq.com/s/FuabT1-RWiZZQoq0Ul4WFg
+
+* 轻松教你搞定组件的拖拽, 缩放, 多控制点伸缩和拖拽数据上报 https://juejin.cn/post/6917648021794586631?utm_source=gold_browser_extension
+
+* 以前我没得选，现在我只想用 Array.prototype.reduce https://juejin.cn/post/6916087983808626701?utm_source=gold_browser_extension
+
+* PicGo + Gitee(码云)实现markdown图床 https://zhuanlan.zhihu.com/p/102594554
