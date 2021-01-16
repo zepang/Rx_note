@@ -704,6 +704,8 @@ https://github.com/proYang/outils
 
 * 可视化查看npm包所有的依赖 http://npm.anvaka.com/
 
+* LeetCodeCookBook 使用go刷题的书籍 https://books.halfrost.com/leetcode/ChapterFour/0001.Two-Sum/
+
 # 2021-01-15
 
 * 领域驱动设计在前端中的应用 https://github.com/Vincedream/ddd-fe-demo
