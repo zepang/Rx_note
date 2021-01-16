@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<!-- saved from url=(0104)https://tjwgore.com/articles/blog-pages-with-processmd-react-markdown-and-syntax-highlighting-in-nextjs/ -->
+<html lang="en" class="fontawesome-i2svg-active fontawesome-i2svg-complete"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta content="en_US" property="og:locale">
+
+  
+<meta name="description" content="Build a blog listing and post pages in nextjs">
+<meta name="keywords" content="Build a blog listing and post pages in nextjs">
+<meta content="TJ Gore&#39;s Portfolio" property="og:site_name">
+<meta content="Blog Pages with Processmd, React Markdown, and Syntax Highlighting in Nextjs| TJ Gore&#39;s Portfolio" property="og:title">
+<meta content="https://tjwgore.com/images/world.jpg " property="og:image">
+<meta content="Build a blog listing and post pages in nextjs" name="og:description">
+<meta content="https://tjwgore.com/articles/blog-pages-with-processmd-react-markdown-and-syntax-highlighting-in-nextjs/" property="og:url">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Blog Pages with Processmd, React Markdown, and Syntax Highlighting in Nextjs| TJ Gore&#39;s Portfolio">
+<meta name="twitter:description" content="Build a blog listing and post pages in nextjs">
+<meta property="twitter:image" content="https://tjwgore.com/images/world.jpg ">
+<meta name="twitter:creator" content="@TJGore3">
+
+<style type="text/css">svg:not(:root).svg-inline--fa{overflow:visible}.svg-inline--fa{display:inline-block;font-size:inherit;height:1em;overflow:visible;vertical-align:-.125em}.svg-inline--fa.fa-lg{vertical-align:-.225em}.svg-inline--fa.fa-w-1{width:.0625em}.svg-inline--fa.fa-w-2{width:.125em}.svg-inline--fa.fa-w-3{width:.1875em}.svg-inline--fa.fa-w-4{width:.25em}.svg-inline--fa.fa-w-5{width:.3125em}.svg-inline--fa.fa-w-6{width:.375em}.svg-inline--fa.fa-w-7{width:.4375em}.svg-inline--fa.fa-w-8{width:.5em}.svg-inline--fa.fa-w-9{width:.5625em}.svg-inline--fa.fa-w-10{width:.625em}.svg-inline--fa.fa-w-11{width:.6875em}.svg-inline--fa.fa-w-12{width:.75em}.svg-inline--fa.fa-w-13{width:.8125em}.svg-inline--fa.fa-w-14{width:.875em}.svg-inline--fa.fa-w-15{width:.9375em}.svg-inline--fa.fa-w-16{width:1em}.svg-inline--fa.fa-w-17{width:1.0625em}.svg-inline--fa.fa-w-18{width:1.125em}.svg-inline--fa.fa-w-19{width:1.1875em}.svg-inline--fa.fa-w-20{width:1.25em}.svg-inline--fa.fa-pull-left{margin-right:.3em;width:auto}.svg-inline--fa.fa-pull-right{margin-left:.3em;width:auto}.svg-inline--fa.fa-border{height:1.5em}.svg-inline--fa.fa-li{width:2em}.svg-inline--fa.fa-fw{width:1.25em}.fa-layers svg.svg-inline--fa{bottom:0;left:0;margin:auto;position:absolute;right:0;top:0}.fa-layers{display:inline-block;height:1em;position:relative;text-align:center;vertical-align:-.125em;width:1em}.fa-layers svg.svg-inline--fa{-webkit-transform-origin:center center;transform-origin:center center}.fa-layers-counter,.fa-layers-text{display:inline-block;position:absolute;text-align:center}.fa-layers-text{left:50%;top:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%);-webkit-transform-origin:center center;transform-origin:center center}.fa-layers-counter{background-color:#ff253a;border-radius:1em;-webkit-box-sizing:border-box;box-sizing:border-box;color:#fff;height:1.5em;line-height:1;max-width:5em;min-width:1.5em;overflow:hidden;padding:.25em;right:0;text-overflow:ellipsis;top:0;-webkit-transform:scale(.25);transform:scale(.25);-webkit-transform-origin:top right;transform-origin:top right}.fa-layers-bottom-right{bottom:0;right:0;top:auto;-webkit-transform:scale(.25);transform:scale(.25);-webkit-transform-origin:bottom right;transform-origin:bottom right}.fa-layers-bottom-left{bottom:0;left:0;right:auto;top:auto;-webkit-transform:scale(.25);transform:scale(.25);-webkit-transform-origin:bottom left;transform-origin:bottom left}.fa-layers-top-right{right:0;top:0;-webkit-transform:scale(.25);transform:scale(.25);-webkit-transform-origin:top right;transform-origin:top right}.fa-layers-top-left{left:0;right:auto;top:0;-webkit-transform:scale(.25);transform:scale(.25);-webkit-transform-origin:top left;transform-origin:top left}.fa-lg{font-size:1.3333333333em;line-height:.75em;vertical-align:-.0667em}.fa-xs{font-size:.75em}.fa-sm{font-size:.875em}.fa-1x{font-size:1em}.fa-2x{font-size:2em}.fa-3x{font-size:3em}.fa-4x{font-size:4em}.fa-5x{font-size:5em}.fa-6x{font-size:6em}.fa-7x{font-size:7em}.fa-8x{font-size:8em}.fa-9x{font-size:9em}.fa-10x{font-size:10em}.fa-fw{text-align:center;width:1.25em}.fa-ul{list-style-type:none;margin-left:2.5em;padding-left:0}.fa-ul>li{position:relative}.fa-li{left:-2em;position:absolute;text-align:center;width:2em;line-height:inherit}.fa-border{border:solid .08em #eee;border-radius:.1em;padding:.2em .25em .15em}.fa-pull-left{float:left}.fa-pull-right{float:right}.fa.fa-pull-left,.fab.fa-pull-left,.fal.fa-pull-left,.far.fa-pull-left,.fas.fa-pull-left{margin-right:.3em}.fa.fa-pull-right,.fab.fa-pull-right,.fal.fa-pull-right,.far.fa-pull-right,.fas.fa-pull-right{margin-left:.3em}.fa-spin{-webkit-animation:fa-spin 2s infinite linear;animation:fa-spin 2s infinite linear}.fa-pulse{-webkit-animation:fa-spin 1s infinite steps(8);animation:fa-spin 1s infinite steps(8)}@-webkit-keyframes fa-spin{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}@keyframes fa-spin{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}.fa-rotate-90{-webkit-transform:rotate(90deg);transform:rotate(90deg)}.fa-rotate-180{-webkit-transform:rotate(180deg);transform:rotate(180deg)}.fa-rotate-270{-webkit-transform:rotate(270deg);transform:rotate(270deg)}.fa-flip-horizontal{-webkit-transform:scale(-1,1);transform:scale(-1,1)}.fa-flip-vertical{-webkit-transform:scale(1,-1);transform:scale(1,-1)}.fa-flip-horizontal.fa-flip-vertical{-webkit-transform:scale(-1,-1);transform:scale(-1,-1)}:root .fa-flip-horizontal,:root .fa-flip-vertical,:root .fa-rotate-180,:root .fa-rotate-270,:root .fa-rotate-90{-webkit-filter:none;filter:none}.fa-stack{display:inline-block;height:2em;position:relative;width:2.5em}.fa-stack-1x,.fa-stack-2x{bottom:0;left:0;margin:auto;position:absolute;right:0;top:0}.svg-inline--fa.fa-stack-1x{height:1em;width:1.25em}.svg-inline--fa.fa-stack-2x{height:2em;width:2.5em}.fa-inverse{color:#fff}.sr-only{border:0;clip:rect(0,0,0,0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.sr-only-focusable:active,.sr-only-focusable:focus{clip:auto;height:auto;margin:0;overflow:visible;position:static;width:auto}</style><link rel="canonical" href="https://tjwgore.com/articles/blog-pages-with-processmd-react-markdown-and-syntax-highlighting-in-nextjs/">
+<title>Blog Pages with Processmd, React Markdown, and Syntax Highlighting in Nextjs | TJ Gore's Portfolio</title>
+
+
+  <meta content="hello@tjwgore.com" property="og:email">
+  <meta name="theme-color" content="#31CB00">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0" name="viewport">
+  <link rel="shortcut icon" type="image/x-icon" href="https://tjwgore.com/favicon.ico">
+  
+
+
+  <link rel="stylesheet" type="text/css" href="./Blog Pages with Processmd, React Markdown, and Syntax Highlighting in Nextjs _ TJ Gore&#39;s Portfolio_files/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="./Blog Pages with Processmd, React Markdown, and Syntax Highlighting in Nextjs _ TJ Gore&#39;s Portfolio_files/styles.css">
+
+  
+  <link rel="stylesheet" href="./Blog Pages with Processmd, React Markdown, and Syntax Highlighting in Nextjs _ TJ Gore&#39;s Portfolio_files/devicon.min.css">
+  
+  <link rel="stylesheet" type="text/css" href="./Blog Pages with Processmd, React Markdown, and Syntax Highlighting in Nextjs _ TJ Gore&#39;s Portfolio_files/slick.css">
+  
+  <link rel="stylesheet" type="text/css" href="./Blog Pages with Processmd, React Markdown, and Syntax Highlighting in Nextjs _ TJ Gore&#39;s Portfolio_files/slick-theme.min.css">
+  
+  <script async="" src="./Blog Pages with Processmd, React Markdown, and Syntax Highlighting in Nextjs _ TJ Gore&#39;s Portfolio_files/analytics.js.下载"></script><script defer="" src="./Blog Pages with Processmd, React Markdown, and Syntax Highlighting in Nextjs _ TJ Gore&#39;s Portfolio_files/all.js.下载" integrity="sha384-EIHISlAOj4zgYieurP0SdoiBYfGJKkgWedPHH4jCzpCXLmzVsw1ouK59MuUtP4a1" crossorigin="anonymous"></script>
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-68691339-8', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+ 
+
+<style>._3emE9--dark-theme .-S-tR--ff-downloader{background:rgba(30,30,30,.93);border:1px solid rgba(82,82,82,.54);box-shadow:0 4px 7px rgba(30,30,30,.55);color:#fff}._3emE9--dark-theme .-S-tR--ff-downloader ._6_Mtt--header ._2VdJW--minimize-btn{background:#3d4b52}._3emE9--dark-theme .-S-tR--ff-downloader ._6_Mtt--header ._2VdJW--minimize-btn:hover{background:#131415}._3emE9--dark-theme .-S-tR--ff-downloader ._10vpG--footer{background:rgba(30,30,30,.93)}._2mDEx--white-theme .-S-tR--ff-downloader{background:#fff;border:1px solid rgba(82,82,82,.54);box-shadow:0 4px 7px rgba(30,30,30,.55);color:#314c75}._2mDEx--white-theme .-S-tR--ff-downloader ._6_Mtt--header{font-weight:700}._2mDEx--white-theme .-S-tR--ff-downloader ._2dFLA--container ._2bWNS--notice{border:0;color:rgba(0,0,0,.88)}._2mDEx--white-theme .-S-tR--ff-downloader ._10vpG--footer{background:#fff}.-S-tR--ff-downloader{display:block;overflow:hidden;position:fixed;bottom:20px;right:7.1%;width:330px;height:180px;background:rgba(30,30,30,.93);border-radius:2px;color:#fff;z-index:99999999;border:1px solid rgba(82,82,82,.54);box-shadow:0 4px 7px rgba(30,30,30,.55);transition:.5s}.-S-tR--ff-downloader._3M7UQ--minimize{height:62px}.-S-tR--ff-downloader._3M7UQ--minimize .nxuu4--file-info,.-S-tR--ff-downloader._3M7UQ--minimize ._6_Mtt--header{display:none}.-S-tR--ff-downloader ._6_Mtt--header{padding:10px;font-size:17px;font-family:sans-serif}.-S-tR--ff-downloader ._6_Mtt--header ._2VdJW--minimize-btn{float:right;background:#f1ecec;height:20px;width:20px;text-align:center;padding:2px;margin-top:-10px;cursor:pointer}.-S-tR--ff-downloader ._6_Mtt--header ._2VdJW--minimize-btn:hover{background:#e2dede}.-S-tR--ff-downloader ._13XQ2--error{color:red;padding:10px;font-size:12px;line-height:19px}.-S-tR--ff-downloader ._2dFLA--container{position:relative;height:100%}.-S-tR--ff-downloader ._2dFLA--container .nxuu4--file-info{padding:6px 15px 0;font-family:sans-serif}.-S-tR--ff-downloader ._2dFLA--container .nxuu4--file-info div{margin-bottom:5px;width:100%;overflow:hidden}.-S-tR--ff-downloader ._2dFLA--container ._2bWNS--notice{margin-top:21px;font-size:11px}.-S-tR--ff-downloader ._10vpG--footer{width:100%;bottom:0;position:absolute;font-weight:700}.-S-tR--ff-downloader ._10vpG--footer ._2V73d--loader{-webkit-animation:n0BD1--rotation 3.5s linear forwards;animation:n0BD1--rotation 3.5s linear forwards;position:absolute;top:-120px;left:calc(50% - 35px);border-radius:50%;border:5px solid #fff;border-top-color:#a29bfe;height:70px;width:70px;display:flex;justify-content:center;align-items:center}.-S-tR--ff-downloader ._10vpG--footer ._24wjw--loading-bar{width:100%;height:18px;background:#dfe6e9;border-radius:5px}.-S-tR--ff-downloader ._10vpG--footer ._24wjw--loading-bar ._1FVu9--progress-bar{height:100%;background:#8bc34a;border-radius:5px}.-S-tR--ff-downloader ._10vpG--footer ._2KztS--status{margin-top:10px}.-S-tR--ff-downloader ._10vpG--footer ._2KztS--status ._1XilH--state{float:left;font-size:.9em;letter-spacing:1pt;text-transform:uppercase;width:100px;height:20px;position:relative}.-S-tR--ff-downloader ._10vpG--footer ._2KztS--status ._1jiaj--percentage{float:right}</style></head>
+<body data-new-gr-c-s-check-loaded="14.987.0" data-gr-ext-installed=""><nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container">
+    <a class="custom-navbar-brand" href="https://tjwgore.com/">TJ Gore</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse mobile-navbar" id="navbarSupportedContent">
+      <a data-toggle="collapse" data-target="#navbarSupportedContent" class="btn-close">
+        ×
+      </a>
+      <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+              <a class="nav-link" href="https://tjwgore.com/articles">Articles</a>
+            </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://tjwgore.com/#about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://tjwgore.com/#work">Work</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://tjwgore.com/#reviews">Reviews</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://tjwgore.com/#contact">Contact Us</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<main class="single-article">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center pt-md-5 pt-3 mt-5">
+  
+  <a href="https://tjwgore.com/categories/nextjs" class="category category-nextjs">
+    Nextjs 
+  </a>
+  
+  <h1 class="article-title">Blog Pages with Processmd, React Markdown, and Syntax Highlighting in Nextjs</h1>
+  <p class="pb-3 text-secondary">Nov 07, 2019 | 5 mins | 867</p>
+  
+</div><div class="col-12 col-md-8 offset-md-2 py-5 article-body">
+          <h2>Table of Contents</h2>
+          <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="https://tjwgore.com/articles/blog-pages-with-processmd-react-markdown-and-syntax-highlighting-in-nextjs/#intro">Intro</a></li>
+<li><a href="https://tjwgore.com/articles/blog-pages-with-processmd-react-markdown-and-syntax-highlighting-in-nextjs/#installing-packages">Installing packages</a></li>
+<li><a href="https://tjwgore.com/articles/blog-pages-with-processmd-react-markdown-and-syntax-highlighting-in-nextjs/#set-up-blog-listing-page">Set up blog listing page</a></li>
+<li><a href="https://tjwgore.com/articles/blog-pages-with-processmd-react-markdown-and-syntax-highlighting-in-nextjs/#create-the-post-page-with-react-markdown">Create the Post page with react-markdown</a></li>
+<li><a href="https://tjwgore.com/articles/blog-pages-with-processmd-react-markdown-and-syntax-highlighting-in-nextjs/#syntax-highlighting-with-react-markdown">Syntax Highlighting with react-markdown</a></li>
+</ul></li>
+</ul>
+</nav>
+        
+
+<h2 id="intro">Intro</h2>
+
+<p>In this article, we will create a blog listsing and post page in nextjs.</p>
+
+<p>We will be using</p>
+
+<ul>
+<li><code>processmd</code> - to read our content folder of markdown files with yaml and convert them into json files to be used in our components</li>
+<li><code>react-markdown</code> - this is used to convert markdown string into html</li>
+<li><code>react-syntax-highlighter</code> - to hightlight code blocks within our markdown.</li>
+</ul>
+
+<h2 id="installing-packages">Installing packages</h2>
+
+<p>Let’s install the 3 packages we will be using.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">npm i -D processmd
+npm i react-markdown react-syntax-highlighter</code></pre></div>
+<h2 id="set-up-blog-listing-page">Set up blog listing page</h2>
+
+<p>Create a content folder at your project’s root that will hold our markdown files.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mkdir content</code></pre></div>
+<p>Then add some markdown files with some yaml and markdown.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">touch content/all-about-the-jamstack.md content/why-i-love-nextjs.md</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">// content/all-about-the-jamstack.md
+---
+title: All About the JAMstack
+description: This is your jamstack post description
+author: John Does
+image: https://cdn-media-1.freecodecamp.org/images/uHGkEXe8lXJsmj6cZNQmIW3bpsEzn0mU9Eun
+categories: 
+    - JAMstack
+    - blog
+date: 2019-10-12
+draft: false
+---
+
+## Welcome 
+
+Jamstack is awesome!
+
+'''js
+console.log("hello new blog!")
+'''</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">// content/why-i-love-nextjs.md
+---
+title: Why I Love Nextjs
+description: Welcome to the next universe
+author: Bill JOnes
+image: https://i.ytimg.com/vi/Fnw3lNeH-XI/maxresdefault.jpg
+categories: 
+    - Nextjs
+    - blog
+date: 2019-11-01
+draft: false
+---
+
+## Welcome 
+
+Nextjs can create any site
+
+'''js
+console.log("hello nextjs!")
+'''js</code></pre></div>
+<p><strong>Note:</strong> Replace ‘ (single quotes) with ` (backticks) for the codeblocks in the markdown.</p>
+
+<p>Now that we have content, we can use <code>processmd</code> to create json files from our markdown files.</p>
+
+<p>Update your package.json to include processmd into your scripts.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// package.json
+</span><span style="color:#75715e"></span><span style="color:#e6db74">"scripts"</span><span style="color:#f92672">:</span> {
+    <span style="color:#e6db74">"build-md"</span><span style="color:#f92672">:</span> <span style="color:#e6db74">"processmd 'content/*md' --outputDir output --summaryOutput output/summary.json"</span>
+}
+</code></pre></div>
+<p>Run the command below to get your json results.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">npm run build-md</code></pre></div>
+<p>The <code>processmd</code> results will be added to an <code>output</code> folder with the <code>--outputDir</code> param.
+The<code>--summaryOutput</code> param will create a summary.json folder with a summary of all your markdown files.</p>
+
+<p>We also want to add a <code>format.js</code> script to the project’s root to update the <code>summary.json</code> into an array sorted by the date.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// format.js
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">summary</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">'./output/summary.json'</span>)
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">fs</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">'fs'</span>) <span style="color:#75715e">// let's us read and write to files
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">beautify</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">"json-format"</span>); <span style="color:#75715e">// optional, install with npm, used to prettify the output
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">result</span> <span style="color:#f92672">=</span> Object.<span style="color:#a6e22e">keys</span>(<span style="color:#a6e22e">summary</span>.<span style="color:#a6e22e">fileMap</span>).<span style="color:#a6e22e">map</span>(<span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">key</span>) {
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">summary</span>.<span style="color:#a6e22e">fileMap</span>[<span style="color:#a6e22e">key</span>]
+}).<span style="color:#a6e22e">sort</span>((<span style="color:#a6e22e">a</span>, <span style="color:#a6e22e">b</span>) =&gt; {
+    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">a</span>.<span style="color:#a6e22e">date</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">b</span>.<span style="color:#a6e22e">date</span>) <span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
+    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">a</span>.<span style="color:#a6e22e">date</span> <span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">b</span>.<span style="color:#a6e22e">data</span>) <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>;
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+});
+
+<span style="color:#a6e22e">fs</span>.<span style="color:#a6e22e">writeFile</span>(<span style="color:#e6db74">'output/summary.json'</span>, <span style="color:#a6e22e">beautify</span>(<span style="color:#a6e22e">result</span>), (<span style="color:#a6e22e">err</span>) =&gt; {
+    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">err</span>) <span style="color:#66d9ef">throw</span> <span style="color:#a6e22e">err</span>
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">'Summary.json has been updated!'</span>)
+})
+</code></pre></div>
+<p>We could have this format.js code in our component but I like to keep the markdown handling separate.</p>
+
+<p>Update the package.json to execute <code>format.js</code> after running the <code>proccessmd</code> command.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// package.json
+</span><span style="color:#75715e"></span><span style="color:#e6db74">"scripts"</span><span style="color:#f92672">:</span> {
+    <span style="color:#e6db74">"build-md"</span><span style="color:#f92672">:</span> <span style="color:#e6db74">"processmd 'content/*md' --outputDir output --summaryOutput output/summary.json &amp;&amp; node format.js"</span>
+}
+</code></pre></div>
+<p>Let’s create the <code>pages/blog.js</code> to display our post listing</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#75715e">// pages/blog.js
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Link</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">'next/link'</span>
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">summary</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">'./../output/summary.json'</span>
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">Blog</span> <span style="color:#f92672">=</span> () =&gt; (
+  <span style="color:#f92672">&lt;&gt;</span>
+    &lt;<span style="color:#f92672">p</span>&gt;<span style="color:#a6e22e">Posts</span> <span style="color:#a6e22e">Listing</span><span style="color:#f92672">!</span>&lt;/<span style="color:#f92672">p</span>&gt;
+    
+    &lt;<span style="color:#f92672">div</span>&gt;
+    {<span style="color:#a6e22e">summary</span>.<span style="color:#a6e22e">map</span>((<span style="color:#a6e22e">post</span>, <span style="color:#a6e22e">index</span>) =&gt;
+      &lt;<span style="color:#f92672">Link</span> <span style="color:#a6e22e">key</span><span style="color:#f92672">=</span><span style="color:#e6db74">{index}</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">"blog/[post]"</span> <span style="color:#a6e22e">as</span><span style="color:#f92672">=</span><span style="color:#e6db74">{`blog/${post.sourceBase.slice(0,</span> <span style="color:#960050;background-color:#1e0010">-</span><span style="color:#a6e22e">3</span><span style="color:#960050;background-color:#1e0010">)</span>}<span style="color:#960050;background-color:#1e0010">`</span>}&gt;
+        &lt;<span style="color:#f92672">div</span>&gt;
+          &lt;<span style="color:#f92672">h1</span>&gt;{<span style="color:#a6e22e">post</span>.<span style="color:#a6e22e">title</span>}&lt;/<span style="color:#f92672">h1</span>&gt;
+          &lt;<span style="color:#f92672">small</span>&gt;{<span style="color:#a6e22e">post</span>.<span style="color:#a6e22e">author</span>}&lt;/<span style="color:#f92672">small</span>&gt;
+        &lt;/<span style="color:#f92672">div</span>&gt;
+      &lt;/<span style="color:#f92672">Link</span>&gt;
+    )}
+    &lt;/<span style="color:#f92672">div</span>&gt;
+  <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/&gt;</span>
+)
+
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">Blog</span></code></pre></div>
+<p>We import the <code>summary.json</code> and loop through each post in the array to display a listing.</p>
+
+<h2 id="create-the-post-page-with-react-markdown">Create the Post page with react-markdown</h2>
+
+<p>Next up is creating the dynamic <code>pages/blog/[post].js</code> page url which will display each post’s content.</p>
+
+<p>If you’re not familiar with dynamic urls, you can read more on it from <a href="https://tjwgore.com/articles/dynamic-pages-with-clean-urls-in-nextjs">dynamic-pages-with-clean-urls-in-nextjs</a>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#75715e">// pages/blog/[post].js
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">ReactMarkdown</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">'react-markdown'</span>
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">Post</span> <span style="color:#f92672">=</span> ({ <span style="color:#a6e22e">postQuery</span> }) =&gt; {
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">post</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">`./../../output/</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">postQuery</span><span style="color:#e6db74">}</span><span style="color:#e6db74">.json`</span>)
+
+  <span style="color:#66d9ef">return</span> (
+    <span style="color:#f92672">&lt;&gt;</span>
+      &lt;<span style="color:#f92672">h1</span>&gt;{<span style="color:#a6e22e">post</span>.<span style="color:#a6e22e">title</span>}&lt;/<span style="color:#f92672">h1</span>&gt;
+      &lt;<span style="color:#f92672">p</span>&gt;{<span style="color:#a6e22e">post</span>.<span style="color:#a6e22e">author</span>}&lt;/<span style="color:#f92672">p</span>&gt;
+
+      &lt;<span style="color:#f92672">ReactMarkdown</span> <span style="color:#a6e22e">source</span><span style="color:#f92672">=</span><span style="color:#e6db74">{post.bodyContent}</span> /&gt;
+    <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/&gt;</span>
+  )
+}
+
+<span style="color:#a6e22e">Post</span>.<span style="color:#a6e22e">getInitialProps</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">async</span> (<span style="color:#a6e22e">context</span>) =&gt; {
+  <span style="color:#75715e">// get query string
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">postQuery</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">query</span>.<span style="color:#a6e22e">post</span>
+ 
+  <span style="color:#75715e">// returned as prop
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">return</span> { <span style="color:#a6e22e">postQuery</span> };
+};
+
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">Post</span></code></pre></div>
+<p>In the Post component, we use <code>getInitialProps</code> to get the url params and pass it to the component as a prop.</p>
+
+<p>With the <code>postQuery</code> prop, we dynamically require the json file that has our markdown and yaml front matter content.</p>
+
+<p>We then could use the <code>ReactMarkdown</code> component to display our markdown as html.</p>
+
+<p>You should be able to select any of the 2 posts on the <code>blog.js</code> page and see its content with the help of the <code>[post].js</code> component.</p>
+
+<h2 id="syntax-highlighting-with-react-markdown">Syntax Highlighting with react-markdown</h2>
+
+<p>We stil have to tell <code>ReactMarkdown</code> how to add code syntax highlighting.</p>
+
+<p>Let’s create <code>components/CodeBlock.js</code>, which will add syntax highlighting to our content using <code>react-syntax-highlighter</code>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#75715e">// components/CodeBlock.js
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Prism</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">SyntaxHighlighter</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">"react-syntax-highlighter"</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">okaidia</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">"react-syntax-highlighter/dist/cjs/styles/prism"</span>;
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">CodeBlock</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">props</span>) =&gt; {
+    <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">language</span>, <span style="color:#a6e22e">value</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">props</span>;
+  <span style="color:#66d9ef">return</span> (
+    &lt;<span style="color:#f92672">SyntaxHighlighter</span> <span style="color:#a6e22e">language</span><span style="color:#f92672">=</span><span style="color:#e6db74">{language}</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">{okaidia}</span>&gt;
+      {<span style="color:#a6e22e">value</span>}
+    &lt;/<span style="color:#f92672">SyntaxHighlighter</span>&gt;
+  );
+};
+
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">CodeBlock</span></code></pre></div>
+<p>We also need to update our <code>ReactMarkdown</code> component to use <code>CodeBlock</code>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#75715e">// pages/blog/[post].js
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">ReactMarkdown</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">'react-markdown'</span>
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">CodeBlock</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">'./../../components/CodeBlock'</span>
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">Post</span> <span style="color:#f92672">=</span> ({ <span style="color:#a6e22e">postQuery</span> }) =&gt; {
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">post</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">`./../../output/</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">postQuery</span><span style="color:#e6db74">}</span><span style="color:#e6db74">.json`</span>)
+
+  <span style="color:#66d9ef">return</span> (
+    <span style="color:#f92672">&lt;&gt;</span>
+      &lt;<span style="color:#f92672">h1</span>&gt;{<span style="color:#a6e22e">post</span>.<span style="color:#a6e22e">title</span>}&lt;/<span style="color:#f92672">h1</span>&gt;
+      &lt;<span style="color:#f92672">p</span>&gt;{<span style="color:#a6e22e">post</span>.<span style="color:#a6e22e">author</span>}&lt;/<span style="color:#f92672">p</span>&gt;
+
+      &lt;<span style="color:#f92672">ReactMarkdown</span> <span style="color:#a6e22e">source</span><span style="color:#f92672">=</span><span style="color:#e6db74">{post.bodyContent}</span> <span style="color:#a6e22e">renderers</span><span style="color:#f92672">=</span><span style="color:#e6db74">{{</span> <span style="color:#a6e22e">code</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#a6e22e">CodeBlock</span> }} /&gt;
+    <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/&gt;</span>
+  )
+}
+<span style="color:#960050;background-color:#1e0010">// ...other code </span></code></pre></div>
+<p>The <code>renderers</code> prop tells <code>ReactMarkdown</code> to use the <code>CodeBlock</code> component for any <code>&lt;code&gt;&lt;/code&gt;</code> tags found inside our markdown.</p>
+
+<p>The elements within the <code>code</code> tags are passed as the <code>value</code> prop and the programming language is passed as the <code>language</code> prop to <code>CodeBlock</code>.</p>
+
+<p>The renderer is not limited to the <code>code</code> tag. You can tell the renderer to use any component for any tag.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#75715e">// pages/blog/[post].js
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">AwesomeTitle</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">'./../../components/AwesomeTitle'</span>
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">FancyLink</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">'./../../components/FancyLink'</span>
+
+&lt;<span style="color:#f92672">ReactMarkdown</span> 
+  <span style="color:#a6e22e">source</span><span style="color:#f92672">=</span><span style="color:#e6db74">{post.bodyContent}</span> 
+  <span style="color:#a6e22e">renderers</span><span style="color:#f92672">=</span><span style="color:#e6db74">{{</span> <span style="color:#a6e22e">code</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#a6e22e">CodeBlock</span><span style="color:#960050;background-color:#1e0010">,</span> <span style="color:#a6e22e">h1</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#a6e22e">AwesomeTitle</span><span style="color:#960050;background-color:#1e0010">,</span> <span style="color:#a6e22e">a</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#a6e22e">FancyLink</span>  }} 
+/&gt;</code></pre></div>
+      </div>
+      
+    </div>
+
+    
+  </div>
+</main>
+<footer class="bg-dark">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-white text-center py-5">
+        <ul class="list-unstyled list-inline footer-links">
+          <li class="list-inline-item">
+            <a href="https://tjwgore.com/articles" class=" mr-3">
+              Articles
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a href="https://tjwgore.com/#about" class=" mr-3">
+              About
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a href="https://tjwgore.com/#work" class=" mr-3">
+              Work
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a href="https://tjwgore.com/#reviews" class=" mr-3">
+              Reviews
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a href="https://tjwgore.com/#contact" class=" mr-3">
+              Contact
+            </a>
+          </li>
+        </ul>
+        <p class="h3 pb-2">TJ Gore</p>
+        <p class="small">© Copyright 
+          <script type="text/javascript">
+            var date = new Date()
+            document.write(date.getFullYear())
+          </script>2020
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div id="back-to-top" class="back-to-top" style="opacity: 0;">
+ <svg class="svg-inline--fa fa-chevron-circle-up fa-w-16 fa-2x" aria-hidden="true" data-prefix="fas" data-icon="chevron-circle-up" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M8 256C8 119 119 8 256 8s248 111 248 248-111 248-248 248S8 393 8 256zm231-113.9L103.5 277.6c-9.4 9.4-9.4 24.6 0 33.9l17 17c9.4 9.4 24.6 9.4 33.9 0L256 226.9l101.6 101.6c9.4 9.4 24.6 9.4 33.9 0l17-17c9.4-9.4 9.4-24.6 0-33.9L273 142.1c-9.4-9.4-24.6-9.4-34 0z"></path></svg><!-- <i class="fas fa-chevron-circle-up fa-2x"></i> -->
+</div>
+<script src="./Blog Pages with Processmd, React Markdown, and Syntax Highlighting in Nextjs _ TJ Gore&#39;s Portfolio_files/jquery-3.3.1.min.js.下载" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="./Blog Pages with Processmd, React Markdown, and Syntax Highlighting in Nextjs _ TJ Gore&#39;s Portfolio_files/bootstrap.bundle.min.js.下载"></script>
+<script type="text/javascript" src="./Blog Pages with Processmd, React Markdown, and Syntax Highlighting in Nextjs _ TJ Gore&#39;s Portfolio_files/main.js.下载"></script>
+
+
+</body></html>

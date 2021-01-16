@@ -1,0 +1,13 @@
+var idvalue = ""
+var lang = ""
+var domain = ""
+try {
+    var jsl_speed_stat = document.getElementById("seal_knowsafe")
+    idvalue = document.getElementById("seal_knowsafe").attributes["sid"].value;
+    lang = document.getElementById("seal_knowsafe").attributes["slang"].value;
+    domain = document.getElementById("seal_knowsafe").attributes["sdomain"].value;
+    jsl_speed_stat.style.display = "none";
+} catch (err) {
+    var jsl_speed_stat = null;
+}
+document.write("<a target='_blank' href='"+domain+"/seal/itrustcert?id=" + idvalue + "&lang=" + lang + "' title='iTrust'><img style='width: 114px; height: 40px;' border='0' src='"+domain+"/seal/certimg?id=" + idvalue + "&lang=" + lang + "'></a>");

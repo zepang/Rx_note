@@ -1,0 +1,50 @@
+/**
+ * Created by sf on 2018/8/3.
+ */
+var areaArr = []
+
+var sTitle="";
+window.SFGridAd = {};
+SFGridAd.d = function(o) {
+    sTitle = o.getAttribute('stitle');
+    document.getElementById("gridMapHoverBox").style.display = "block"
+};
+
+SFGridAd.e = function(o) {
+    sTitle = "";
+    document.getElementById("gridMapHoverBox").style.display = "none"
+};
+
+
+// 这里 data 需要注入
+[{"id":"1750000022197859","user_id":"1030000021973652","box_ad_id":"0","started":"1585584000","ended":"1615824000","cycles":"50","status":"0","banner":"\/378\/574\/3785747598-5e81590ee6bb2","link":"https:\/\/zhuanfou.com\/article\/79276602_063","title":"\u840c\u641c \u5c0f\u4f17\u641c\u7d22\u5f15\u64ce","area_info":{"area":"O8:O8","height":"17","width":"17","left":"238","top":"119","pos":{"rowTop":8,"rowBottom":8,"columnLeft":15,"columnRight":15},"size":1},"created":"1585533985","modified":"1585535350"},{"id":"1750000023565095","user_id":"1030000023016371","box_ad_id":"0","started":"1597075200","ended":"1609171200","cycles":"20","status":"0","banner":"\/415\/892\/4158928046-5f30ef3282d9d","link":"https:\/\/www.mingdao.com\/?s=617","title":"\u96f6\u4ee3\u7801\u642d\u5efaCRM\u3001OA\u3001ERP\u3001\u8fdb\u9500\u5b58\u7b49\u5404\u7c7b\u7ba1\u7406\u7cfb\u7edf","area_info":{"area":"D6:I6","height":"17","width":"102","left":"51","top":"85","pos":{"rowTop":6,"rowBottom":6,"columnLeft":4,"columnRight":9},"size":6},"created":"1597042347","modified":"1597042731"},{"id":"1750000023948580","user_id":"1030000023947287","box_ad_id":"0","started":"1599753600","ended":"1609430400","cycles":"16","status":"0","banner":"\/426\/024\/4260246202-5f5871c84de28","link":"https:\/\/github.com\/OpenIoTHub","title":"\u514d\u8d39\u5f00\u6e90\u7684\u5185\u7f51\u7a7f\u900f\u8f6f\u4ef6\uff0c\u652f\u6301\u5b89\u5353\u548ciOS\uff0c\u6c38\u4e45\u514d\u8d39\uff0c\u6b22\u8fcefork\uff0cstar","area_info":{"area":"J6:J6","height":"17","width":"17","left":"153","top":"85","pos":{"rowTop":6,"rowBottom":6,"columnLeft":10,"columnRight":10},"size":1},"created":"1599631348","modified":"1599631821"},{"id":"1750000038464102","user_id":"1030000003971867","box_ad_id":"0","started":"1607961600","ended":"1609171200","cycles":"2","status":"0","banner":"\/103\/013\/1030133533-5fd6c57b57090","link":"https:\/\/meedu.vip\/?from=sfgg","title":"MeEdu - \u5f00\u6e90\u77e5\u8bc6\u4ed8\u8d39\u7cfb\u7edf","area_info":{"area":"D4:L4","height":"17","width":"153","left":"51","top":"51","pos":{"rowTop":4,"rowBottom":4,"columnLeft":4,"columnRight":12},"size":9},"created":"1607847656","modified":"1607910817"},{"id":"1750000038554675","user_id":"1030000019293948","box_ad_id":"0","started":"1608566400","ended":"1609171200","cycles":"1","status":"0","banner":"\/173\/028\/1730289189-5fdf739cbc82d","link":"https:\/\/www.4414.cn","title":"\u7ad9\u957f\u8bba\u575b","area_info":{"area":"A8:D8","height":"17","width":"68","left":"0","top":"119","pos":{"rowTop":8,"rowBottom":8,"columnLeft":1,"columnRight":4},"size":4},"created":"1608479610","modified":"1608479655"}].forEach(function(item) {
+    var html = '<area shape="rect" ' +
+        'target="_blank" ' +
+        'onmouseover="SFGridAd.d(this)" ' +
+        'onmouseout="SFGridAd.e(this)" ' +
+        'coords="' + item.area_info.left + ',' + item.area_info.top + ',' + ((+item.area_info.left)+(+item.area_info.width)) + ',' + ((+item.area_info.top)+(+item.area_info.height)) + '" ' +
+        'href="' + (item.id ? '/sponsor/' + item.id + '/redirect' : item.link) + '" ' +
+        'stitle="' + item.title + '" />'
+
+    areaArr.push(html)
+});
+
+document.getElementById('gridsMap').innerHTML = areaArr.join('');
+
+document.getElementById('gridsMap').onmousemove = function(e) {
+    var pos = getMousePos(e)
+
+    document.getElementById("gridMapHoverBox").style.left = pos.x + 20 + 'px'
+    document.getElementById("gridMapHoverBox").style.top = pos.y + 20 + 'px'
+
+    document.getElementById("gridMapHoverBox").innerHTML = sTitle
+};
+
+function getMousePos(event) {
+    var e = event || window.event;
+    var scrollX = document.documentElement.scrollLeft || document.body.scrollLeft;
+    var scrollY = document.documentElement.scrollTop || document.body.scrollTop;
+    var x = e.pageX || e.clientX + scrollX;
+    var y = e.pageY || e.clientY + scrollY;
+    return { 'x': x, 'y': y };
+}

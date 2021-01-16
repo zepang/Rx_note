@@ -74,7 +74,8 @@
 # Node
 
 * [cheerio](https://cheerio.js.org/) Fast, flexible, and lean implementation of core jQuery designed specifically for the server
-* * [prompts](https://github.com/terkelg/prompts) Lightweight, beautiful and user-friendly interactive prompts.
+* [prompts](https://github.com/terkelg/prompts) Lightweight, beautiful and user-friendly interactive prompts.
+* chokidar  https://github.com/paulmillr/chokidar Minimal and efficient cross-platform file watching library
 
 #　tools
 
@@ -93,7 +94,7 @@
 
 * [Feather Icons](https://github.com/feathericons/feather) Simply beautiful open source icons
 
-## css
+# css
 
 * [Bojler](https://github.com/Slicejack/bojler) Bojler is an email framework
 * [https://kazzkiq.github.io/balloon.css/](https://kazzkiq.github.io/balloon.css/) add tooltip without javaScript
@@ -184,45 +185,45 @@
 
 # Chrome 插件
 
-#### JSON格式化
+### JSON格式化
 
-JSONView
+* JSONView
+1
+### github
 
-#### github
+* Octotree 侧边栏
 
-Octotree 侧边栏
+* OctoLiker github内包 文件跳转
 
-OctoLiker github内包 文件跳转
+* Octohint github文件语法高亮
 
-Octohint github文件语法高亮
+### tab页管理
 
-##### oneTab
+* oneTab
 
-tab页管理
+* Vimium
 
-#### Vimium
+* 沙拉查词-聚合词典划词翻译
 
-#### 沙拉查词-聚合词典划词翻译
+* 谷歌上网助手
 
-#### 谷歌上网助手
+* Wappalyzer what's run
 
-#### Wappalyzer what's run
+* 网页截图:注释&录屏
 
-#### 网页截图:注释&录屏
+* 书签侧边栏
 
-#### 书签侧边栏
+* Axure RP Extension for Chrome
 
-#### Axure RP Extension for Chrome
+* The Great Suspender
 
-#### The Great Suspender
+* Codelf-Best 
 
-#### Codelf-Best 
+* Gliffy Diagrams 流程图
 
-#### Gliffy Diagrams 流程图
+* WEB前端助手(FeHelper)
 
-#### WEB前端助手(FeHelper)
-
-#### Window Resizer
+* Window Resizer
 
 * [https://github.com/CJex/regulex](https://github.com/CJex/regulex)正则可视化工具
 
@@ -233,7 +234,8 @@ tab页管理
 * 快速查看工具 Nicer plugins for QuickLook
 * szrz插件
 
-#### 调试工具1)
+# 调试工具
+
 * 1)perf代理工具，支持内存，cpu，堆栈查看，并支持火焰图.perf 工具和 go-torch 工具快捷定位程序问题.https://github.com/uber-archive/go-torchhttps://github.com/google/gops
 * 2)dlv 远程调试基于 goland+dlv 可以实现远程调式的能力.https://github.com/go-delve/delve提供了对 golang 原生的支持，相比 gdb 调试，简单太多。
 * 3)网络代理工具goproxy 代理，支持多种协议，支持 ssh 穿透和 kcp 协议.https://github.com/snail007/goproxy
@@ -261,221 +263,465 @@ tab页管理
 * Guid: https://www.guidgen.com/
 * 常用工具: http://www.ofmonkey.com/
 
-#### 打字速度练习
+# 打字速度练习
 
 * https://typing.io/
 * https://www.keybr.com/
 * http://www.speedcoder.net/
 * https://www.typingclub.com/
 
-#### 前端业务代码工具库
+# 前端业务代码工具库
 
 https://github.com/proYang/outils
 
-#### 1.Rufus：可能是最小的装系统神器 仅900KB
+* 1.Rufus：可能是最小的装系统神器 仅900KB
 
-#### 各种语言在线调试工具 https://tool.lu/
+* 各种语言在线调试工具 https://tool.lu/
 
-#### 各种在线工具 https://www.toolnb.com/
+* 各种在线工具 https://www.toolnb.com/
 
-#### 菜鸟在线工具 https://c.runoob.com/
+* 菜鸟在线工具 https://c.runoob.com/
 
-#### vscode sublime-text atom代码片段生成工具 https://snippet-generator.app/
+* vscode sublime-text atom代码片段生成工具 https://snippet-generator.app/
 
-#### gitignore 生成 http://gitignore.io/
+* gitignore 生成 http://gitignore.io/
 
-#### 免费节点 https://lncn.org/  http://ss.pythonic.life/ 
+* 免费节点 https://lncn.org/  http://ss.pythonic.life/ 
 
-### https://www.youneed.win/free-ssr
+* https://www.youneed.win/free-ssr
 
-```js
-const ssr = [];document.querySelectorAll('[data*=ssr]').forEach(item => ssr.push(item.getAttribute('data')));console.log(ssr.join('\r\n'));
-```
+  ```js
+  const ssr = [];document.querySelectorAll('[data*=ssr]').forEach(item => ssr.push(item.getAttribute('data')));console.log(ssr.join('\r\n'));
+  ```
 
-#### 免费节点 https://ssrtool.github.io/p/domain/#more
+* 免费节点 https://ssrtool.github.io/p/domain/#more
 
-主域名 (需要代理访问，但是永不变更，请牢记):
-论坛
-https://www.ssrshare.us
-https://www.ssrshare.com
+      主域名 (需要代理访问，但是永不变更，请牢记):
+      论坛
+      https://www.ssrshare.us
+      https://www.ssrshare.com
 
-小工具主域名
-https://www.ssrtool.us
-https://www.ssrtool.com
+      小工具主域名
+      https://www.ssrtool.us
+      https://www.ssrtool.com
 
-#### 分享一个前端开发者的必备工具——whistle https://github.com/avwo/whistle
+# 未分类
 
-#### GitHub不错的项目榜单 https://www.v2fy.com/stars-and-clown/
+* 分享一个前端开发者的必备工具——whistle https://github.com/avwo/whistle
 
-#### 网盘直链下载助手 https://www.baiduyun.wiki/install.html
+* GitHub不错的项目榜单 https://www.v2fy.com/stars-and-clown/
 
-#### 视频下载 https://coverr.co/
+* 网盘直链下载助手 https://www.baiduyun.wiki/install.html
 
-#### cloc 代码行数统计
+* 视频下载 https://coverr.co/
 
-#### git 中文开发手册 https://www.php.cn/manual/view/34942.html
+* cloc 代码行数统计
 
-#### 猴子都能懂的git https://backlog.com/git-tutorial/cn/
+* git 中文开发手册 https://www.php.cn/manual/view/34942.html
 
-### 电子书 https://b-ok.cc  https://www.letmeread.net http://libgen.lc
+* 猴子都能懂的git https://backlog.com/git-tutorial/cn/
 
-### https://funteas.com/issues/ 前端日报
+* 电子书 https://b-ok.cc  https://www.letmeread.net http://libgen.lc
 
-### react native 调试 expo
+* https://funteas.com/issues/ 前端日报
 
-### http://httpbin.org/ 接口模拟
+* react native 调试 expo
 
-### 占位图片生成在线 https://dummyimage.com/
+* http://httpbin.org/ 接口模拟
 
-### 占位图片生成本地 http://holderjs.com/ https://github.com/imsky/holder
+* 占位图片生成在线 https://dummyimage.com/
 
-### markdown转微信文章 https://md.qikqiak.com/ https://github.com/cnych/markdown-weixin
+* 占位图片生成本地 http://holderjs.com/ https://github.com/imsky/holder
 
-### 一个不错的学习网站，交互不错 https://scrimba.com/
+* markdown转微信文章 https://md.qikqiak.com/ https://github.com/cnych/markdown-weixin
 
-### 有很多动效icon https://useanimations.com/
+* 一个不错的学习网站，交互不错 https://scrimba.com/
 
-### 截图录屏工具 https://github.com/MathewSachin/Captura
+* 有很多动效icon https://useanimations.com/
 
-### markdown编辑器 https://github.com/JasonStein/Notepads
+* 截图录屏工具 https://github.com/MathewSachin/Captura
 
-### grahpql客户端 https://github.com/imolorhe/altair
+* markdown编辑器 https://github.com/JasonStein/Notepads
 
-### figma直接转换设计稿到app https://www.bravostudio.app/
+* grahpql客户端 https://github.com/imolorhe/altair
 
-### 项目进度图片生成 https://www.gantt.io/app
+* figma直接转换设计稿到app https://www.bravostudio.app/
 
-### 一个收藏了很多好用工具和博客的网站 https://github.com/w3ctrain/w3ctrain.github.io
+* 项目进度图片生成 https://www.gantt.io/app
 
-### js插件 https://plainjs.com/javascript/plugins/ui/ http://microjs.com/#
+* 一个收藏了很多好用工具和博客的网站 https://github.com/w3ctrain/w3ctrain.github.io
 
-### 前端技能汇总 https://github.com/JacksonTian/fks
+* js插件 https://plainjs.com/javascript/plugins/ui/ http://microjs.com/#
 
-### github上值得关注的前端项目  https://github.com/hawx1993/github-FE-project
+* 前端技能汇总 https://github.com/JacksonTian/fks
 
-###  网站Github资源收集  https://segmentfault.com/a/1190000003510001#articleHeader0
+* github上值得关注的前端项目  https://github.com/hawx1993/github-FE-project
 
-### 各类awesome仓库 https://github.com/sindresorhus/awesome
+*  网站Github资源收集  https://segmentfault.com/a/1190000003510001#articleHeader0
 
-### 声音伴奏分离 https://moises.ai
+* 各类awesome仓库 https://github.com/sindresorhus/awesome
 
-### 前端开发周刊 http://caibaojian.com/c/weekly
+* 声音伴奏分离 https://moises.ai
 
-### markdown简历制作 http://cvbox.sinaapp.com/
+* 前端开发周刊 http://caibaojian.com/c/weekly
 
-### 阴影小工具 https://brumm.af/shadows
+* markdown简历制作 http://cvbox.sinaapp.com/
 
-### https://github.com/alpinejs/alpine
+* 阴影小工具 https://brumm.af/shadows
 
- Alpine.js 是一个非常小巧的 JavaScript 库，它可以向你的网站添加动态行为。使用 Alpine.js 可以非常便捷地将诸如 x-data、xbind、x-on 和 x-model 添加到你的现有的 HTML 标记当中，无需设置搭建环境和编译器。它可以很好的替代 React.js 和 Vue.js 所提供的方法。
+* https://github.com/alpinejs/alpine
 
-## https://www.jianshu.com/p/916a01670a23 pwa系列文章
+* Alpine.js 是一个非常小巧的 JavaScript 库，它可以向你的网站添加动态行为。使用 Alpine.js 可以非常便捷地将诸如 x-data、xbind、x-on 和 x-model 添加到你的现有的 HTML 标记当中，无需设置搭建环境和编译器。它可以很好的替代 React.js 和 Vue.js 所提供的方法。
 
-### 高度优化的通配符和全局匹配库。 更快，直接替换到minimatch和multimatch。 由webpack，babel core，yarn，jest，浏览器同步，documentation.js，stylelint，nyc，ava和许多其他文件使用！ https://github.com/micromatch
+* https://www.jianshu.com/p/916a01670a23 pwa系列文章
 
-### https://blog.jimmylv.info/2018-09-19-vue-application-unit-test-strategy-and-practice-01-introduction/ vue test
+* 高度优化的通配符和全局匹配库。 更快，直接替换到minimatch和multimatch。 由webpack，babel core，yarn，jest，浏览器同步，documentation.js，stylelint，nyc，ava和许多其他文件使用！ https://github.com/micromatch
 
-### Hiper：一款令人愉悦的性能分析工具
+* https://blog.jimmylv.info/2018-09-19-vue-application-unit-test-strategy-and-practice-01-introduction/ vue test
 
-### win10 terminal 颜色 https://terminalsplash.com/
+* Hiper：一款令人愉悦的性能分析工具
 
-### vmware-tools http://softwareupdate.vmware.com/cds/vmw-desktop/fusion/
+* win10 terminal 颜色 https://terminalsplash.com/
 
-### VMware虚拟机安装Mac OS X后怎么安装VMware Tools? 
+* vmware-tools http://softwareupdate.vmware.com/cds/vmw-desktop/fusion/
+
+* VMware虚拟机安装Mac OS X后怎么安装VMware Tools? 
 
 - https://www.lovyou.top/post/52.html
 - https://www.lovyou.top/post/51.html
 - https://qianfanguojin.github.io/2020/01/12/%E4%B8%BA%E4%BD%A0%E7%9A%84VMware-15-5-MacOS%E6%89%8B%E5%8A%A8%E5%AE%89%E8%A3%85VMware-Tools/
 - https://qianfanguojin.github.io/2020/01/12/%E4%B8%BA%E4%BD%A0%E7%9A%84VMware-15-5-MacOS%E6%89%8B%E5%8A%A8%E5%AE%89%E8%A3%85VMware-Tools/
 
-### 免费ocr api http://ocr.space/OCRAPI
+* 免费ocr api http://ocr.space/OCRAPI
 
-### https://www.designnotes.co/
+* https://www.designnotes.co/
 
-### https://zh.javascript.info/
+* https://zh.javascript.info/
 
-### 比较好的TypeScript入门教程https://objectcomputing.com/resources/publications/sett/typescript-the-good-parts
+* 比较好的TypeScript入门教程https://objectcomputing.com/resources/publications/sett/typescript-the-good-parts
 
-### node 相关https://objectcomputing.com/resources/publications/sett/april-2017-web-app-step-by-step
+* node 相关https://objectcomputing.com/resources/publications/sett/april-2017-web-app-step-by-step
 
-### https://objectcomputing.com/resources/publications/sett/august-2019-thats-what-i-sed
+* https://objectcomputing.com/resources/publications/sett/august-2019-thats-what-i-sed
 
-### 拟物化 https://neumorphism.io/
+* 拟物化 https://neumorphism.io/
 
-### 图片比较https://image-compare-viewer.netlify.app/
+* 图片比较https://image-compare-viewer.netlify.app/
 
-### windups 打字效果 https://windups.gwil.co/
+* windups 打字效果 https://windups.gwil.co/
 
-### 解决字体图片视频这些素材的网站 http://thestocks.im/
+* 解决字体图片视频这些素材的网站 http://thestocks.im/
 
-### node cli 交互工具 inquerier https://www.npmjs.com/package/inquirer
+* node cli 交互工具 inquerier https://www.npmjs.com/package/inquirer
 
-### 配色 https://mycolor.space/
+* 配色 https://mycolor.space/
 
 
-### https://docs.cypress.io/ 参考这篇文章 https://glebbahmutov.com/blog/first-vue-component-test/
+* https://docs.cypress.io/ 参考这篇文章 https://glebbahmutov.com/blog/first-vue-component-test/
 
-### 图解 HTTP 缓存 https://zoo.team/article/http-cache
+* 图解 HTTP 缓存 https://zoo.team/article/http-cache
 
-### 开放api和学习资源的汇总 https://apicoding.io/
+* 开放api和学习资源的汇总 https://apicoding.io/
 
-### 基于VuePress的博客，主题很不错 https://github.com/xugaoyi/vuepress-theme-vdoing
+* 基于VuePress的博客，主题很不错 https://github.com/xugaoyi/vuepress-theme-vdoing
 
-### vue3 的开发构建工具vite https://mp.weixin.qq.com/s/AV98v2LFes7ojP9vX-6-nQ
+* vue3 的开发构建工具vite https://mp.weixin.qq.com/s/AV98v2LFes7ojP9vX-6-nQ
 
-### 针对程序员的搜索引擎 https://quickref.dev/
+* 针对程序员的搜索引擎 https://quickref.dev/
 
-### network+ chrome devtool 可以重新编辑请求并发送 https://github.com/ClearStudio/network-plus
+* network+ chrome devtool 可以重新编辑请求并发送 https://github.com/ClearStudio/network-plus
 
-### git 异常处理清单 https://zoo.team/article/git-exception
+* git 异常处理清单 https://zoo.team/article/git-exception
 
-### flowy：一个轻量级的 JavaScript 库，可用于快速创建流程图 https://github.com/alyssaxuu/flowy
+* flowy：一个轻量级的 JavaScript 库，可用于快速创建流程图 https://github.com/alyssaxuu/flowy
 
-### 删除视频背景： https://www.unscreen.com/
+* 删除视频背景： https://www.unscreen.com/
 
-### SQL Zoo：在线 SQL 交互式练习平台 https://sqlzoo.net/
+* SQL Zoo：在线 SQL 交互式练习平台 https://sqlzoo.net/
 
-### RegexOne：正则表达式在线练习平台 https://regexone.com/
+* RegexOne：正则表达式在线练习平台 https://regexone.com/
 
-### nodeppt：将 Markdown 文档转成高大上 PPT 的开源工具 https://github.com/ksky521/nodeppt
+* nodeppt：将 Markdown 文档转成高大上 PPT 的开源工具 https://github.com/ksky521/nodeppt
 
-### 一行命令生成https证书 https://github.com/FiloSottile/mkcert
+* 一行命令生成https证书 https://github.com/FiloSottile/mkcert
 
-### translate-shell：一款可在终端下使用的翻译工具，支持切换 Google Translate https://github.com/soimort/translate-shell
+* translate-shell：一款可在终端下使用的翻译工具，支持切换 Google Translate https://github.com/soimort/translate-shell
 
-### cloudquery：将任何网站转换成 API https://github.com/t9tio/cloudquery
+* cloudquery：将任何网站转换成 API https://github.com/t9tio/cloudquery
 
-### hexo 主题开发 https://www.hojun.cn/
+* hexo 主题开发 https://www.hojun.cn/
 
-### comicgen：在线制作漫画人物，可保存图片或生成代码 https://gramener.com/comicgen/
+* comicgen：在线制作漫画人物，可保存图片或生成代码 https://gramener.com/comicgen/
 
-### generate-avatar：根据用户的唯一 ID，自动生成头像图片的 JS 库 https://github.com/qiniu/goplus
+* generate-avatar：根据用户的唯一 ID，自动生成头像图片的 JS 库 https://github.com/qiniu/goplus
 
-### any-rule：一份收集整理 60+ 条常用正则表达式， 并支持 Web/VSCode 插件查询 https://github.com/any86/any-rule
+* any-rule：一份收集整理 60+ 条常用正则表达式， 并支持 Web/VSCode 插件查询 https://github.com/any86/any-rule
 
-### 政采云团队博客 https://zoo.team/
+* 政采云团队博客 https://zoo.team/
 
-### jsdocs https://www.html.cn/doc/jsdoc/tags-description.html
+* jsdocs https://www.html.cn/doc/jsdoc/tags-description.html
 
-### ui 库 https://quasar.dev/
+* ui 库 https://quasar.dev/
 
-### 快速创建后端api https://www.base-api.io/
+* 快速创建后端api https://www.base-api.io/
 
-### ie11 和 现代浏览器的 html Dom学习操作 https://htmldom.dev/
-### HTTP/3 原理实践 http://www.alloyteam.com/2020/05/14385/
+* ie11 和 现代浏览器的 html Dom学习操作 https://htmldom.dev/
+* HTTP/3 原理实践 http://www.alloyteam.com/2020/05/14385/
 
-3D 图书 CSS 生成器：https://3d-book-css.netlify.app/
+* 3D 图书 CSS 生成器：https://3d-book-css.netlify.app/
 
-一个轻量级解决货币相关问题的 js 库：https://currency.js.org/
+* 一个轻量级解决货币相关问题的 js 库：https://currency.js.org/
 
-了不起的 Webpack 构建流程学习指南 https://xie.infoq.cn/article/54882da91591f54c72bdda2ec
+* 了不起的 Webpack 构建流程学习指南 https://xie.infoq.cn/article/54882da91591f54c72bdda2ec
 
-Device Shots 是一个小型的 Web 应用，可以帮你生成各式各样适合展示网站和页面的样机，它几乎支持你能想到的所有的设备类型，非常实用。 https://deviceshots.com/
+* Device Shots 是一个小型的 Web 应用，可以帮你生成各式各样适合展示网站和页面的样机，它几乎支持你能想到的所有的设备类型，非常实用。 https://deviceshots.com/
 
-这是一套完全使用CSS构建图标集合，总计有500 个 https://css.gg/app
+* 这是一套完全使用CSS构建图标集合，总计有500 个 https://css.gg/app
 
-RevKit 是一个非常全面的设计系统 UIKit，有 Sketch、Figma 和 Adobe XD 对应的格式版本。其中包含全面的样式指南，各种常用的元素和控件，它是完全免费的。https://rev.webkul.design/kit/
+* RevKit 是一个非常全面的设计系统 UIKit，有 Sketch、Figma 和 Adobe XD 对应的格式版本。其中包含全面的样式指南，各种常用的元素和控件，它是完全免费的。https://rev.webkul.design/kit/
 
-Barchartrace 是一款非常便捷的开源图表生成工具，它可以创建一些在社交媒体上经常可以看到的动画图表，只需要插入 CSV 格式的数据信息，然后选择你想要的动画，就能最终生成动态图表。https://fabdevgit.github.io/barchartrace/#myModal
+* Barchartrace 是一款非常便捷的开源图表生成工具，它可以创建一些在社交媒体上经常可以看到的动画图表，只需要插入 CSV 格式的数据信息，然后选择你想要的动画，就能最终生成动态图表。https://fabdevgit.github.io/barchartrace/#myModal
 
-《语雀 IT 百科》发布了！ https://www.yuque.com/yuque/blog/yuque-info-tech-encyclopedia
+* 《语雀 IT 百科》发布了！ https://www.yuque.com/yuque/blog/yuque-info-tech-encyclopedia
+
+* koa实践 https://chenshenhai.github.io/koa2-note/
+
+* Tooltip Sequence https://github.com/SoorajSNBlaze333/tooltip-sequence 这是一个简单的 JavaScript 程序包，能够帮里创建一系列工具提示，帮助用户更好了解产品功能，了解必须的知识。
+
+* Hamburgers https://jonsuh.com/hamburgers/ 汉堡菜单是 UI 界面的基本组成部分，当然，动效也是。这个免费的动态的汉堡菜单素材库，就是给设计师和开发者用的~
+
+* https://www.uisdc.com/figma-complete-guide 新晋黑马神器！Figma完全入门指南（附超多插件+教程） https://www.uisdc.com/comprehensive-interpretation-of-figma 全面解读2020最值得上手的界面设计工具：Figma
+
+* 渐变背景 https://www.gradientmagic.com/browse 相关颜色 https://picular.co/blog
+
+* CSS Background Patterns 是一款包含了很多时髦设计的背景图案，你只需要稍加调整就可以应用到你自己的网站当中。 https://www.magicpattern.design/tools/css-backgrounds
+
+* 前端库技术收集： https://www.zdzn.net/page/web.html
+* npm register https://help.sonatype.com/repomanager3/formats/npm-registry
+
+* https://formito.com/tools/favicon 这是一个免费的小图标制作工具，你可以通过简单的点击就快速制作出 SVG 和 PNG 格式的图标，你可以设置字母也可以设置表情符号，自由度很高。
+
+* Urlcat 是一个超级小的 JavaScript 库，它可以帮你构建具有动态参数且没有错误的 Url，它有着友好的 API ，没有依赖关系，压缩之后只有 0.8KB。 https://github.com/balazsbotond/urlcat
+
+* 链接上画圈  https://codepen.io/aaroniker/pen/VwjexVy
+
+* http://www.sheshbabu.com/tags/Rust-Beginners/ rust tutorial for JavaScript developer
+
+
+* HitCount 是一款简单到令人置信点击量计数器，就像添加图片一样简单，复制代码之后进行自定义就好了，非常方便。 https://hitcount.io/
+
+* 汉堡菜单是 UI 界面的基本组成部分，当然，动效也是。这个免费的动态的汉堡菜单素材库，就是给设计师和开发者用的~ https://jonsuh.com/hamburgers/
+
+* 背景可视化 https://cssgradient.io/ https://coolbackgrounds.io/black-background/
+
+* 直接复制可用的图标 https://tablericons.com/
+
+* Picular 是一个色彩搜索引擎，当你搜索某个元素的时候，它能够生成和个元素相关的配色。 https://picular.co/
+
+* https://www.svgbackgrounds.com/?ref=hoard.fyi#polka-dots SVG 背景是一个重要的趋势，它能够提供矢量又足够好看的背景，而这个网站还提供给你自定义的选项，来试试吧~
+
+* http://zhongguose.com/#anlongdanzi 一个神仙中国风配色网站带你看遍最美「中国色」 
+
+* http://www.secaibi.com/howbigisspace/ 一个不错的介绍天空有多高的网站
+
+* 免抠图元素 https://imgbin.com/free-png  https://www.52112.com/
+
+* 优设免费字体 https://www.uisdc.com/uisdc-first-free-font
+
+* marewood 一个轻量级的前端部署工具 https://github.com/xusenlin/marewood
+
+* https://www.shapedivider.app/ 定制各种形状的网站分区 SVG 的工具，调整好了自己想要的形状之后，可以一键复制和下载
+
+* https://cloud.tencent.com/developer/ 腾讯云社区
+
+* https://www.infoq.cn/article/tsgERFV27UTYRxSMZY5T 私有NPM仓库搭建教程
+
+* https://www.uisdc.com/2020-12-design-tool-collection 也许你在某个网站上看到了不错的字体，但是不知道哪里能找到它们的相关信息，那么这个网站是一个非常不错的选择，它可以很好地解决这个问题。在这里，你只需要在这里输入网站的 URL 地址，然后Fonts of web 就能够在几秒内帮你找出网站所用字体的详细信息，并且会标注出对应的字体所使用的全部规格（字体大小、字重、行高、乃至于下载链接）。
+
+* https://dribbble.com/Sosa-Tzec/collections/3895024-Delightful-Micro-Interactions-and-Widgets 动效参考案例
+
+* rust 教程 https://www.lpalmieri.com/ https://www.lpalmieri.com/
+
+* 不错的JavaScript和nodejs相关的博客 https://stackabuse.com/
+
+* babel ast plugin https://lihautan.com/step-by-step-guide-for-writing-a-babel-transformation/ https://medium.com/javascript-in-plain-english/manipulating-ast-with-javascript-baac3b92f1ed
+
+* Nginx实战系列 https://segmentfault.com/a/1190000022673232
+
+* [smoothscroll](http://iamdustan.com/smoothscroll/) Scroll Behavior polyfill 
+
+* 不错的技术文章站 https://geekflare.com/
+
+* css tools : PostCSS PurgeCSS TailwindCss Saas CSSLinter 
+
+* BlueSea，是一个有趣的英语学习扩展程序。支持划词翻译、单词高亮、单词弹幕、记忆曲线复习、词频统计...等功能 https://github.com/jiangqizheng/BlueSea?utm_source=gold_browser_extension
+
+* https://stackblitz.com/ 在线编辑器
+
+* https://www.thinktecture.com/en/web-components/creating-web-components-with-angular-react-vuejs/ 
+
+* 免费IDE https://ide.goorm.io/my https://blog.0x233.cn/2020/04/11/code-server/
+
+* ByDesign IconPark https://iconpark.bytedance.com/official 字节跳动官方出品的免费图标库，超好用还能自定义修改
+
+* Fonts of web https://fontofweb.com/ 你只需要在这里输入网站的 URL 地址，然后Fonts of web 就能够在几秒内帮你找出网站所用字体的详细信息，并且会标注出对应的字体所使用的全部规格（字体大小、字重、行高、乃至于下载链接）。
+
+* 微动效 https://dribbble.com/Sosa-Tzec/collections/3895024-Delightful-Micro-Interactions-and-Widgets
+
+* svg 可视化编辑 https://yqnn.github.io/svg-path-editor/
+
+* https://javascript.info/ 
+
+* https://www.codewars.com/ 代码竞赛
+
+* https://bitfieldconsulting.com/golang/rust-vs-go 不错的一篇对比文章
+
+* 用代码片段比较语言 https://programming-idioms.org/cheatsheet/rust/python/c++
+
+* https://unifiedjs.com/ unified ast读文件树
+
+* cli 库 https://www.npmjs.com/package/cac
+
+* kubernetes中文社区 https://www.kubernetes.org.cn/
+
+* node.js 和 next.js文章 https://coderrocketfuel.com/
+
+* 张鑫旭博客 https://www.zhangxinxu.com/
+
+* https://github.com/snowpackjs/snowpack https://github.com/vitejs/vite https://github.com/open-wc/es-dev-server https://github.com/modernweb-dev/web
+
+* 一个不错的发掘新东西的网站 https://morioh.com/explore
+
+* 前端优化得有个好手段，比如看这个清单 https://segmentfault.com/a/1190000022014372?utm_source=sf-related
+
+* 面试复习资源 https://github.com/vue3/vue3-News/issues
+
+* canvas 的一个案例 https://github.com/ObjTube/front-end-roadmap
+
+* 25 个 Linux 下最炫酷又强大的命令行神器 https://cloud.tencent.com/developer/article/1502010
+
+* minimatch https://github.com/isaacs/minimatch
+
+* clean-code-javascript https://github.com/ryanmcdermott/clean-code-javascript
+
+* vue-lit https://github.com/yyx990803/vue-lit
+
+* web-components-chat https://github.com/thinktecture-labs/web-components-chat
+
+* 每日一linux命令 https://www.cnblogs.com/peida/tag/%E6%AF%8F%E6%97%A5%E4%B8%80linux%E5%91%BD%E4%BB%A4/
+
+* 图片大小适配显示插件 https://github.com/yj1438/ImageAdapt
+
+* node消息队列 https://github.com/OptimalBits/bull
+
+* 最近在用的一个 Node.js 消息队列库 - Bull https://xknow.net/introduce-bull-queue/
+
+* Building a Markdown blog with Next 9.4 and Netlify https://www.netlify.com/blog/2020/05/04/building-a-markdown-blog-with-next-9.4-and-netlify/
+
+* How to Deploy Next.js Sites to Netlify https://www.netlify.com/blog/2020/11/30/how-to-deploy-next.js-sites-to-netlify/
+
+* how-to-deploy-a-simple-site-using-postman-and-the-netlify-api https://www.netlify.com/blog/2020/09/24/how-to-deploy-a-simple-site-using-postman-and-the-netlify-api/
+
+* Games101 笔记 —— 线性代数 https://scarletsky.github.io/2020/05/23/games101-notes-linear-algebra/
+
+* go 文章推荐博客 https://blog.csdn.net/bigwhite20xx
+
+* 深入解析 EventLoop 和浏览器渲染、帧动画、空闲回调的关系 https://my.oschina.net/u/3991187/blog/4872028
+
+* 15 张精美动图全面讲解 CORS https://my.oschina.net/u/3991187/blog/4834623
+
+* 如何快速构建React组件库？ https://www.infoq.cn/article/6s2QNpu3EvR0LS5mHa3b
+
+* 「一次写过瘾」手写Promise全家桶+Generator+async/await https://my.oschina.net/u/3991187/blog/4834626
+
+* docker入门书籍 https://yeasy.gitbook.io/docker_practice
+
+* 前端开源免费资源推荐 https://www.thosefree.com/
+
+* 文章目录随着滚动条高亮 https://github.com/olOwOlo/hugo-theme-even
+
+* vue3 技术生态内幕 https://www.yuque.com/hugsun/vue3/yiyb0t
+
+* next-fullstack-starter-ts https://github.com/egoist/next-fullstack-starter
+
+* A nodejs module wich helps you handle a directory tree. https://github.com/euberdeveloper/dree
+
+* 个人知识管理系统 A personal knowledge management https://github.com/foambubble/foam https://obsidian.md/ https://github.com/dendronhq/dendron
+
+* markdownguide https://www.markdownguide.org/
+
+* code cheatSheet https://cheatography.com/
+
+* search code 搜索代码 https://searchcode.com/
+
+* Find up to date snippets for JavaScript & React use cases https://codetogo.io/
+
+* 语言片段对比 https://programming-idioms.org/cheatsheet/go/c%23/python
+
+# 每日阅读
+
+## 2021-01-13
+
+* 现代浏览器原理 https://xie.infoq.cn/article/bc1b309a8a3d758379538bb2f
+
+* 如何编写漂亮的 React 代码？ https://www.infoq.cn/article/ZequtChu2jsS2ff1ZHK7
+
+* 源码 | 浅谈 Webpack 原理，以及 loader 和 plugin 实现 https://xie.infoq.cn/article/5f463d1f0ec3598973714f44a
+
+* 《前端实战总结》之使用 CSS3 实现酷炫的 3D 旋转透视 https://xie.infoq.cn/article/b696db746f126d01ff2911a20
+
+* 私有NPM仓库搭建教程 https://www.infoq.cn/article/tsgERFV27UTYRxSMZY5T
+
+* 14 BEST Algorithm & Data Structures Books (2021 List) https://www.guru99.com/data-structure-algorithms-books.html
+
+* Vue 3 的响应式和组合式 https://www.yuque.com/binfe/cquxg7/fr9eq3
+
+* 从头写一个 Deno 的 BitTorrent 下载器 https://cjting.me/2020/10/31/tinytorrent-a-deno-bt-downloader/
+
+* 聊一聊二维码扫描登录原理 https://juejin.cn/post/6844904111398191117
+
+* 图片加载失败后CSS样式处理最佳实践 https://www.zhangxinxu.com/wordpress/2020/10/css-style-image-load-fail/
+
+* devops 绝对推荐 https://devops.phodal.com/
+
+* 2020不容错过！24个CSS新特性来了 https://mp.weixin.qq.com/s/n8E9htw0xXMyxHALLae_Eg
+
+* 手把手带你入门前端工程化——超详细教程 https://my.oschina.net/u/3991187/blog/4883368
+
+* 前端项目自动化部署——超详细教程（Jenkins、Github Actions） https://my.oschina.net/u/3991187/blog/4865094
+
+* 实战 | 使用 Webpack5 搭建多页面应用 https://jishuin.proginn.com/p/763bfbd36210
+
+* 程序员客栈 高级前端进阶 https://jishuin.proginn.com/u/455974
+
+* 使用 github 快速搭建属于自己的图床 https://jishuin.proginn.com/p/763bfbd35aee
+
+* Electron+vue从零开始打造一个本地播放器 https://jishuin.proginn.com/p/763bfbd3244f
+
+* web dev server es module https://github.com/modernweb-dev/web
+
+* vue 渲染器详细解析 http://hcysun.me/vue-design/zh/
+
+# 2021-01-15
+
+* 领域驱动设计在前端中的应用 https://github.com/Vincedream/ddd-fe-demo
+
+* 改变世界的一次代码提交 https://hutusi.com/articles/the-greatest-git-commit
+
+* 前端模块化的十年征程 https://zhuanlan.zhihu.com/p/265632724
+
+* 微前端qiankun从搭建到部署的实践 https://mp.weixin.qq.com/s/zRhXU8-yDFgrbJMAmhGtTg
+
+* 小程序开发记录——魁拔喵喵喵 http://makaiqian.com/wechat-kuiba-miao-miao-miao/
+
+* 在 React 中实现 keep alive https://zhuanlan.zhihu.com/p/214166951
+
+* 请务必给 child_process 加上 on('data') 处理 https://mp.weixin.qq.com/s/so7NyNNezgS3ZBEsh-UtZw
+
+* 小程序视角下同构方案思考 https://mp.weixin.qq.com/s/FuabT1-RWiZZQoq0Ul4WFg
+
+* 轻松教你搞定组件的拖拽, 缩放, 多控制点伸缩和拖拽数据上报 https://juejin.cn/post/6917648021794586631?utm_source=gold_browser_extension
+
+* 以前我没得选，现在我只想用 Array.prototype.reduce https://juejin.cn/post/6916087983808626701?utm_source=gold_browser_extension
+
+* PicGo + Gitee(码云)实现markdown图床 https://zhuanlan.zhihu.com/p/102594554
