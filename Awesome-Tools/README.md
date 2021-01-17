@@ -729,3 +729,13 @@ https://github.com/proYang/outils
 * 以前我没得选，现在我只想用 Array.prototype.reduce https://juejin.cn/post/6916087983808626701?utm_source=gold_browser_extension
 
 * PicGo + Gitee(码云)实现markdown图床 https://zhuanlan.zhihu.com/p/102594554
+
+## 2020-01-16
+
+* js-beautify-sourcemap https://github.com/joeyguo/js-beautify-sourcemap
+
+* 前端代码异常监控 https://github.com/whatwewant/whatwewant.github.io/issues/1
+
+* 前端代码异常监控实战 https://github.com/happylindz/blog/issues/5
+
+* 脚本错误量极致优化-让脚本错误一目了然 https://github.com/joeyguo/blog/issues/14
