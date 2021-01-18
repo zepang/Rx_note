@@ -762,3 +762,8 @@ https://github.com/proYang/outils
 * 前端代码异常监控实战 https://github.com/happylindz/blog/issues/5
 
 * 脚本错误量极致优化-让脚本错误一目了然 https://github.com/joeyguo/blog/issues/14
+
+
+# 2020-01-18
+
+* 网页布局都有哪种？一般都用什么布局？https://mp.weixin.qq.com/s/WX4tZkP_EXjcxuRcNBwfmQ 
