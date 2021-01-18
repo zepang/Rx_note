@@ -712,6 +712,10 @@ https://github.com/proYang/outils
 
 * vue 渲染器详细解析 http://hcysun.me/vue-design/zh/
 
+* 可视化查看npm包所有的依赖 http://npm.anvaka.com/
+
+* LeetCodeCookBook 使用go刷题的书籍 https://books.halfrost.com/leetcode/ChapterFour/0001.Two-Sum/
+
 # 2021-01-15
 
 * 领域驱动设计在前端中的应用 https://github.com/Vincedream/ddd-fe-demo
@@ -749,3 +753,12 @@ https://github.com/proYang/outils
 * How To List Git Tags https://devconnected.com/how-to-list-git-tags/
 
 
+## 2020-01-16
+
+* js-beautify-sourcemap https://github.com/joeyguo/js-beautify-sourcemap
+
+* 前端代码异常监控 https://github.com/whatwewant/whatwewant.github.io/issues/1
+
+* 前端代码异常监控实战 https://github.com/happylindz/blog/issues/5
+
+* 脚本错误量极致优化-让脚本错误一目了然 https://github.com/joeyguo/blog/issues/14
