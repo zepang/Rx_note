@@ -62,6 +62,16 @@
 * [saber](https://github.com/egoist/saber) Saber.js is a simple yet powerful framework for building modern static websites.
 * https://template-explorer.vuejs.org/ 
 
+# Best Static Site Generators for Vue.js
+
+* Nuxt.js
+
+* VuePress
+
+* Gridsome
+
+* Saber
+
 # React
 
 * [react-flight](https://github.com/jondot/react-flight) The best way to build animation compositions for React. 
@@ -725,3 +735,17 @@ https://github.com/proYang/outils
 * 以前我没得选，现在我只想用 Array.prototype.reduce https://juejin.cn/post/6916087983808626701?utm_source=gold_browser_extension
 
 * PicGo + Gitee(码云)实现markdown图床 https://zhuanlan.zhihu.com/p/102594554
+
+* vuex-router-sync https://github.com/vuejs/vuex-router-sync
+
+* 10 Top VueJS Boilerplates for 2020 https://blog.bitsrc.io/10-top-vuejs-boilerplates-for-2020-c70192003d20
+
+* Vue 3 组件开发：搭建基于SpreadJS的表格编辑系统（环境搭建）https://www.grapecity.com.cn/blogs/spreadjs-vue3-component-development-combat-part1
+
+* 图床 https://github.com/Molunerfinn/PicGo
+
+* https://scotch.io/tutorials
+
+* How To List Git Tags https://devconnected.com/how-to-list-git-tags/
+
+
