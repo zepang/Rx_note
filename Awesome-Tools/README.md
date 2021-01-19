@@ -779,3 +779,9 @@ https://github.com/proYang/outils
 * 了不起的 Webpack 构建流程学习指南 https://xie.infoq.cn/article/54882da91591f54c72bdda2ec
 
 * 1.5W 字 | Webpack4 完整入门教程（共 18 章） https://xie.infoq.cn/article/0e85734f22eeb5f1a86df7822
+
+* CSS conic-gradient()锥形渐变简介 https://www.zhangxinxu.top/wordpress/2020/04/css-conic-gradient/
+
+* navigator.clipboard API https://davidwalsh.name/navigator-clipboard-api
+
+* “Right click and save as” needs to go away https://svarden.se/blog/2013-04-22-right-click-and-save-as/
