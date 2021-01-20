@@ -813,3 +813,15 @@ https://github.com/proYang/outils
 ## 2021-01-20
 
 * 十大经典排序算法（动图演示）https://www.cnblogs.com/onepixel/p/7674659.html
+
+* google-design-2020 https://design.google/library/google-design-2020/
+
+* best-intro-video-templates-after-effects https://speckyboy.com/best-intro-video-templates-after-effects/
+
+* https://www.uplabs.com/posts/tool/figma
+
+* Free-Neomorphic-UI-Kit-for-Adobe-Xd-Light https://www.behance.net/gallery/93347841/Free-Neomorphic-UI-Kit-for-Adobe-Xd-Light
+
+* https://www.coredesignsystem.com/core-elements/
+
+* 正则表达式零宽断言详解 https://www.cnblogs.com/onepixel/articles/7717789.html
