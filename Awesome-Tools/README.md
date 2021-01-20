@@ -788,7 +788,7 @@ https://github.com/proYang/outils
 
 * “Right click and save as” needs to go away https://svarden.se/blog/2013-04-22-right-click-and-save-as/
 
-## 2020-01-19
+## 2021-01-19
 
 * cookieStore: Async Cookie API https://davidwalsh.name/cookiestore
 
@@ -808,4 +808,8 @@ https://github.com/proYang/outils
 
 * 10 Free Tools for Formatting, Organizing and Tidying CSS Code https://speckyboy.com/tools-format-organize-sort-css/
 
-* https://speckyboy.com/icon-based-navigation-css-javascript/
+* 8 Examples of Icon-Based Navigation, Enhanced with CSS and JavaScript https://speckyboy.com/icon-based-navigation-css-javascript/
+
+## 2021-01-20
+
+* 十大经典排序算法（动图演示）https://www.cnblogs.com/onepixel/p/7674659.html
