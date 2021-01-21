@@ -831,3 +831,7 @@ https://github.com/proYang/outils
 * capacitor 桌面端开发 https://capacitorjs.com/
 
 * xstate 不错的状态管理库 https://github.com/davidkpiano/xstate
+
+* Rollup打包工具的使用（超详细，超基础，附代码截图超简单） https://juejin.cn/post/6844904058394771470
+
+* 一文带你了解babel-preset-env https://juejin.cn/post/6844903612842246151
