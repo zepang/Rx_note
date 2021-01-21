@@ -825,3 +825,9 @@ https://github.com/proYang/outils
 * https://www.coredesignsystem.com/core-elements/
 
 * 正则表达式零宽断言详解 https://www.cnblogs.com/onepixel/articles/7717789.html
+
+## 20201-01-21
+
+* capacitor 桌面端开发 https://capacitorjs.com/
+
+* xstate 不错的状态管理库 https://github.com/davidkpiano/xstate
