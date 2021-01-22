@@ -826,7 +826,7 @@ https://github.com/proYang/outils
 
 * 正则表达式零宽断言详解 https://www.cnblogs.com/onepixel/articles/7717789.html
 
-## 20201-01-21
+## 2021-01-21
 
 * capacitor 桌面端开发 https://capacitorjs.com/
 
@@ -835,6 +835,8 @@ https://github.com/proYang/outils
 * Rollup打包工具的使用（超详细，超基础，附代码截图超简单） https://juejin.cn/post/6844904058394771470
 
 * 一文带你了解babel-preset-env https://juejin.cn/post/6844903612842246151
+
+## 2021-01-22
 
 * 关于vue3的使用经验博客 https://blog.csdn.net/CuiCui_web
 
