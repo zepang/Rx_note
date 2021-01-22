@@ -841,3 +841,7 @@ https://github.com/proYang/outils
 * 关于vue3的使用经验博客 https://blog.csdn.net/CuiCui_web
 
 * snowpack-vs-webpack https://blog.logrocket.com/snowpack-vs-webpack/
+
+* webpack book 不错的webpack教程，有些东西有些老了，可以看看提到的相关的webpack东西，另外这个人的博客也不错 https://survivejs.com/webpack/appendices/comparison/
+
+* js一些框架和技术的趋势 https://risingstars.js.org/2020/en 
