@@ -837,3 +837,5 @@ https://github.com/proYang/outils
 * 一文带你了解babel-preset-env https://juejin.cn/post/6844903612842246151
 
 * 关于vue3的使用经验博客 https://blog.csdn.net/CuiCui_web
+
+* snowpack-vs-webpack https://blog.logrocket.com/snowpack-vs-webpack/
