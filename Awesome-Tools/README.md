@@ -845,3 +845,9 @@ https://github.com/proYang/outils
 * webpack book 不错的webpack教程，有些东西有些老了，可以看看提到的相关的webpack东西，另外这个人的博客也不错 https://survivejs.com/webpack/appendices/comparison/
 
 * js一些框架和技术的趋势 https://risingstars.js.org/2020/en 
+
+* rome 打包工具，可以研究一下各种打包工具的区别了 https://rome.tools/
+
+* Vue3-one piece尝鲜：React Hooks VS Composition API https://juejin.cn/post/6874583350850355208
+
+* Vue3拥抱TypeScript的正确姿势 https://juejin.cn/post/6875713523968802829 
