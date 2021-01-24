@@ -117,7 +117,6 @@
 * [magic_animations](https://www.minimamente.com/example/magic_animations/)
 * [sprite-generator](https://www.toptal.com/developers/css/sprite-generator)
 * [https://cssfx.dev/](https://cssfx.dev/) 这是一套实用性超高的 CSS 效果合集，这个系列的效果注重流动性、易用性和便捷性，让你尽可能少地标记，尽可能好的使用。每个效果都是开源的，请尽情使用。
-![](./imgs/cssfx.jpg)
 * [https://cssgrid-generator.netlify.com/](https://cssgrid-generator.netlify.com/) grid布局代码工具
 
 * [https://cssanimation.rocks/animating-links/](https://cssanimation.rocks/animating-links/) 这个来自 Learn CSS Animation 的教程教你如何制作带有动态效果的链接，包括如何生成动态下划线效果、过渡动画以及如何制作关键帧等等，甚至还为你详细分析了各种动画效果的优缺点。
@@ -125,10 +124,8 @@
 # UI Component
 * [https://www.jqwidgets.com/](https://www.jqwidgets.com/)
 
-![](./imgs/www.jqwidgets.com.jpg)
 
 * [https://isometric.online/](https://isometric.online/) Isometric 是一组可以在数字项目中可以使用的免费的矢量等轴测插画，这些插画风格一致且都使用的是 SVG 格式，内容丰富多样。
-![](./imgs/isometric.jpg)
 
 * [https://stubborn.fun/](https://stubborn.fun/) 这是一个免费的插画生成工具，能够帮你的项目创建一个独特的、富有故事性的插画。这套工具包含 25 个角色和 50 种不同的背景，可以使用 Sketch 和 Figma 进行自定义设计。
 
@@ -164,15 +161,12 @@
 
 * [https://www.dafont.com/ohio.font](https://www.dafont.com/ohio.font)
 
-![](./imgs/ohio.jpg)
 
 * [https://www.dafont.com/pondspell.font](https://www.dafont.com/pondspell.font)
 
-![](./imgs/pond.jpg)
 
 * [https://public-sans.digital.gov/](https://public-sans.digital.gov/)
 
-![](./imgs/public-sans.jpg)
 
 * [https://www.ctolib.com](https://www.ctolib.com) 一个集成多种库的网站
 
