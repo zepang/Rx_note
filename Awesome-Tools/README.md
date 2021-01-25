@@ -859,3 +859,5 @@ https://github.com/proYang/outils
 * vite starter template https://github.com/antfu/vitesse
 
 * https://news.vuejs.org/
+
+* Automatically import SASS/SCSS into every Vue.js component https://austingil.com/global-sass-vue-project/
