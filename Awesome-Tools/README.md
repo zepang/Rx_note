@@ -855,3 +855,7 @@ https://github.com/proYang/outils
 ## 2021-01-25
 
 * 赶上Vue3 Composition函数集这班车 https://juejin.cn/post/6913368050628558856?content_source_url=https%3A%2F%2Fgithub.com%2Fvue3%2Fvue3-News
+
+* vite starter template https://github.com/antfu/vitesse
+
+* https://news.vuejs.org/
