@@ -871,3 +871,8 @@ https://github.com/proYang/outils
 * Handling Asynchrony in Vue 3 / Composition API https://medium.com/javascript-in-plain-english/handling-asynchrony-in-vue-3-composition-api-part-1-managing-async-state-e993842ebf8f
 
 * Go async in Vue 3 with Suspense https://vuedose.tips/go-async-in-vue-3-with-suspense/
+
+* Create a lazy-loading image component for faster Vue.js apps https://austingil.com/create-lazy-loading-image-component-faster-vue-js-apps/
+
+## 2021-01-27
+
