@@ -749,7 +749,7 @@ https://github.com/proYang/outils
 * How To List Git Tags https://devconnected.com/how-to-list-git-tags/
 
 
-## 2020-01-16
+## 2021-01-16
 
 * js-beautify-sourcemap https://github.com/joeyguo/js-beautify-sourcemap
 
@@ -760,7 +760,7 @@ https://github.com/proYang/outils
 * 脚本错误量极致优化-让脚本错误一目了然 https://github.com/joeyguo/blog/issues/14
 
 
-# 2020-01-18
+# 2021-01-18
 
 * 网页布局都有哪种？一般都用什么布局？https://mp.weixin.qq.com/s/WX4tZkP_EXjcxuRcNBwfmQ 
 
@@ -846,7 +846,7 @@ https://github.com/proYang/outils
 
 * Vue3拥抱TypeScript的正确姿势 https://juejin.cn/post/6875713523968802829 
 
-# 2020-01-23
+# 2021-01-23
 
 * 全网最强：一文总结 React Hooks 常用场景 https://mp.weixin.qq.com/s/ZNFJNh22V8m9V3XENMxN1g
 
@@ -861,3 +861,7 @@ https://github.com/proYang/outils
 * https://news.vuejs.org/
 
 * Automatically import SASS/SCSS into every Vue.js component https://austingil.com/global-sass-vue-project/
+
+## 2021-01-26
+
+* Automatic Dependency Injection in Vue with Context Providers https://markus.oberlehner.net/blog/automatic-dependency-injection-in-vue-with-context-providers/
