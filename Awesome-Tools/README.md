@@ -869,3 +869,8 @@ https://github.com/proYang/outils
 * vue-tut 用来写教程中高亮代码 https://evwt.github.io/vue-tut/#/components/Tutorial
 
 * Handling Asynchrony in Vue 3 / Composition API https://medium.com/javascript-in-plain-english/handling-asynchrony-in-vue-3-composition-api-part-1-managing-async-state-e993842ebf8f
+
+* Create a lazy-loading image component for faster Vue.js apps https://austingil.com/create-lazy-loading-image-component-faster-vue-js-apps/
+
+## 2021-01-27
+
