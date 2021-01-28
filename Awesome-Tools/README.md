@@ -884,3 +884,5 @@ https://github.com/proYang/outils
 
 * 在线计算sha值，使用crytop-js，代码可以查看，有参考价值 http://www.atoolbox.net/Tool.php?Id=852
 
+* Stanford Javascript Crypto Library https://github.com/bitwiseshiftleft/sjcl/
+
