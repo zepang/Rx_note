@@ -880,3 +880,7 @@ https://github.com/proYang/outils
 
 * blob-util https://github.com/nolanlawson/blob-util#readme
 
+* jsnice ai还原压缩js代码 http://jsnice.org/
+
+* 在线计算sha值，使用crytop-js，代码可以查看，有参考价值 http://www.atoolbox.net/Tool.php?Id=852
+
