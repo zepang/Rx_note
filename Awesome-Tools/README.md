@@ -878,3 +878,5 @@ https://github.com/proYang/outils
 
 * pluplod.js 上传库使用经验和文档 https://www.cnblogs.com/2050/p/3913184.html
 
+* blob-util https://github.com/nolanlawson/blob-util#readme
+
