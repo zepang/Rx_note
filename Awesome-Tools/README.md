@@ -886,3 +886,8 @@ https://github.com/proYang/outils
 
 * Stanford Javascript Crypto Library https://github.com/bitwiseshiftleft/sjcl/
 
+* 参考和选择三方库的网站 https://openbase.com/
+
+* eventLoop 浏览器事件环 与 node事件环 简述 https://juejin.cn/post/6844903670576857101
+
+* Node中fs模块 API详解 https://juejin.cn/post/6844903677782654983#heading-9
