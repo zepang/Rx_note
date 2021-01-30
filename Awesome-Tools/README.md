@@ -883,3 +883,17 @@ https://github.com/proYang/outils
 ## 2021-01-30
 
 * ​从0到1,打造自己的js函数库 https://mp.weixin.qq.com/s/GW9nvhwKS2zzG1TxZd9QAA
+
+* blob-util https://github.com/nolanlawson/blob-util#readme
+
+* jsnice ai还原压缩js代码 http://jsnice.org/
+
+* 在线计算sha值，使用crytop-js，代码可以查看，有参考价值 http://www.atoolbox.net/Tool.php?Id=852
+
+* Stanford Javascript Crypto Library https://github.com/bitwiseshiftleft/sjcl/
+
+* 参考和选择三方库的网站 https://openbase.com/
+
+* eventLoop 浏览器事件环 与 node事件环 简述 https://juejin.cn/post/6844903670576857101
+
+* Node中fs模块 API详解 https://juejin.cn/post/6844903677782654983#heading-9
