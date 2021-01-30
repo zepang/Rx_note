@@ -897,3 +897,5 @@ https://github.com/proYang/outils
 * eventLoop 浏览器事件环 与 node事件环 简述 https://juejin.cn/post/6844903670576857101
 
 * Node中fs模块 API详解 https://juejin.cn/post/6844903677782654983#heading-9
+
+* 七厂同约,终入字节-应届小前端的破局之路 https://mp.weixin.qq.com/s/jWSRGC82T1Hs0rrEk6_lyg 介绍了一些技术的选择方向以及学习资源
