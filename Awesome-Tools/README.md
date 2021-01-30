@@ -878,3 +878,8 @@ https://github.com/proYang/outils
 
 * pluplod.js 上传库使用经验和文档 https://www.cnblogs.com/2050/p/3913184.html
 
+* 何时以及如何在你的本地开发环境中使用 HTTPS https://juejin.cn/post/6922359516050751496
+
+## 2021-01-30
+
+* ​从0到1,打造自己的js函数库 https://mp.weixin.qq.com/s/GW9nvhwKS2zzG1TxZd9QAA
