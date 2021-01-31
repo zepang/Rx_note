@@ -899,3 +899,9 @@ https://github.com/proYang/outils
 * Node中fs模块 API详解 https://juejin.cn/post/6844903677782654983#heading-9
 
 * 七厂同约,终入字节-应届小前端的破局之路 https://mp.weixin.qq.com/s/jWSRGC82T1Hs0rrEk6_lyg 介绍了一些技术的选择方向以及学习资源
+
+# 2021-01-31
+
+* Promise 并发个数限制 https://juejin.cn/post/6844904115487637517
+
+* Promise.all并发限制 https://segmentfault.com/a/1190000016389127
