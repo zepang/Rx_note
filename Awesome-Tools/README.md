@@ -905,3 +905,5 @@ https://github.com/proYang/outils
 * Promise 并发个数限制 https://juejin.cn/post/6844904115487637517
 
 * Promise.all并发限制 https://segmentfault.com/a/1190000016389127
+
+* 一篇文章搞定Github API 调用 (v3）https://segmentfault.com/a/1190000015144126
