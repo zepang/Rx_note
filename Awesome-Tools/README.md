@@ -913,3 +913,5 @@ https://github.com/proYang/outils
 * FATAL ERROR: CALL_AND_RETRY_LAST Allocation failed - JavaScript heap out of memory  https://github.com/nodejs/help/issues/3188
 
 * "无 Typescript" 编程 https://juejin.cn/post/6862981984801521672
+
+* vue3学习的demo https://github.com/blacksonic/vue-3-playground
