@@ -907,3 +907,9 @@ https://github.com/proYang/outils
 * Promise.all并发限制 https://segmentfault.com/a/1190000016389127
 
 * 一篇文章搞定Github API 调用 (v3）https://segmentfault.com/a/1190000015144126
+
+# 2021-02-01
+
+* FATAL ERROR: CALL_AND_RETRY_LAST Allocation failed - JavaScript heap out of memory  https://github.com/nodejs/help/issues/3188
+
+* "无 Typescript" 编程 https://juejin.cn/post/6862981984801521672
