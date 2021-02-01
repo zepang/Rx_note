@@ -917,3 +917,5 @@ https://github.com/proYang/outils
 * vue3学习的demo https://github.com/blacksonic/vue-3-playground
 
 * kubernetes 中文文档 https://kubernetes.io/zh
+
+* 在线web ide https://stackblitz.com/
