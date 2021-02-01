@@ -402,7 +402,7 @@ https://github.com/proYang/outils
 
 * https://www.designnotes.co/
 
-* https://zh.javascript.info/
+* javascript 教程 https://zh.javascript.info/
 
 * 比较好的TypeScript入门教程https://objectcomputing.com/resources/publications/sett/typescript-the-good-parts
 
