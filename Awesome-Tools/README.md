@@ -915,3 +915,5 @@ https://github.com/proYang/outils
 * "无 Typescript" 编程 https://juejin.cn/post/6862981984801521672
 
 * vue3学习的demo https://github.com/blacksonic/vue-3-playground
+
+* kubernetes 中文文档 https://kubernetes.io/zh
