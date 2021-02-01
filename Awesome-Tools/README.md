@@ -402,7 +402,7 @@ https://github.com/proYang/outils
 
 * https://www.designnotes.co/
 
-* https://zh.javascript.info/
+* javascript 教程 https://zh.javascript.info/
 
 * 比较好的TypeScript入门教程https://objectcomputing.com/resources/publications/sett/typescript-the-good-parts
 
@@ -909,3 +909,15 @@ https://github.com/proYang/outils
 * 一篇文章搞定Github API 调用 (v3）https://segmentfault.com/a/1190000015144126
 
 * CreateJS入门 -- 注释详细到爆炸（My Style） https://juejin.cn/post/6844903640264605703
+
+# 2021-02-01
+
+* FATAL ERROR: CALL_AND_RETRY_LAST Allocation failed - JavaScript heap out of memory  https://github.com/nodejs/help/issues/3188
+
+* "无 Typescript" 编程 https://juejin.cn/post/6862981984801521672
+
+* vue3学习的demo https://github.com/blacksonic/vue-3-playground
+
+* kubernetes 中文文档 https://kubernetes.io/zh
+
+* 在线web ide https://stackblitz.com/
