@@ -907,3 +907,5 @@ https://github.com/proYang/outils
 * Promise.all并发限制 https://segmentfault.com/a/1190000016389127
 
 * 一篇文章搞定Github API 调用 (v3）https://segmentfault.com/a/1190000015144126
+
+* CreateJS入门 -- 注释详细到爆炸（My Style） https://juejin.cn/post/6844903640264605703
