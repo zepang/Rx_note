@@ -921,3 +921,9 @@ https://github.com/proYang/outils
 * kubernetes 中文文档 https://kubernetes.io/zh
 
 * 在线web ide https://stackblitz.com/
+
+# 2021-02-02
+
+* 从浅入深讲解 Node 如何开发一个命令行工具 https://mp.weixin.qq.com/s/JTO_XAtu0BwgewrZG0ZsJQ
+
+* 建议收藏，22个Python迷你项目(附源码) https://mp.weixin.qq.com/s/FxQN8-vbU0RVf8ANnN8xsA
