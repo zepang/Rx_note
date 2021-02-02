@@ -935,3 +935,5 @@ https://github.com/proYang/outils
 * 推荐程序员必备的 10 大 GitHub 仓库，前端占了 7 个！ https://juejin.cn/post/6924520063399624712
 
 * Vue3 的学习教程汇总、源码解释项目、支持的 UI 组件库、优质实战项目 https://juejin.cn/post/6920070789614501896
+
+* 推荐 7 个 GitHub 上很火的 TypeScript 的宝库，2021 学 TS 看这篇就够了！https://juejin.cn/post/6916495590754877453
