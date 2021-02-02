@@ -937,3 +937,7 @@ https://github.com/proYang/outils
 * Vue3 的学习教程汇总、源码解释项目、支持的 UI 组件库、优质实战项目 https://juejin.cn/post/6920070789614501896
 
 * 推荐 7 个 GitHub 上很火的 TypeScript 的宝库，2021 学 TS 看这篇就够了！https://juejin.cn/post/6916495590754877453
+
+* 极为细致的Vue的Diff流程详解——以流程图表达 https://mp.weixin.qq.com/s/EfgeRfwVJYDZqkzD1WjoMA
+
+* 收好这份 Git 应急手册，关键时刻可保你一命 https://mp.weixin.qq.com/s/EfgeRfwVJYDZqkzD1WjoMA
