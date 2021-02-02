@@ -931,3 +931,5 @@ https://github.com/proYang/outils
 * 增量 DOM 与虚拟 DOM 的对比使用 https://mp.weixin.qq.com/s/kwwkaXi9L-4j5Jucb3HdeA
 
 * 深度：1.1万字解读Vue3.0源码响应式系统 https://mp.weixin.qq.com/s/Zp-B-K4y6P-5ly1E8eMvlw
+
+* 推荐程序员必备的 10 大 GitHub 仓库，前端占了 7 个！ https://juejin.cn/post/6924520063399624712
