@@ -927,3 +927,7 @@ https://github.com/proYang/outils
 * 从浅入深讲解 Node 如何开发一个命令行工具 https://mp.weixin.qq.com/s/JTO_XAtu0BwgewrZG0ZsJQ
 
 * 建议收藏，22个Python迷你项目(附源码) https://mp.weixin.qq.com/s/FxQN8-vbU0RVf8ANnN8xsA
+
+* 增量 DOM 与虚拟 DOM 的对比使用 https://mp.weixin.qq.com/s/kwwkaXi9L-4j5Jucb3HdeA
+
+* 深度：1.1万字解读Vue3.0源码响应式系统 https://mp.weixin.qq.com/s/Zp-B-K4y6P-5ly1E8eMvlw
