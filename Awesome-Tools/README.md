@@ -941,3 +941,5 @@ https://github.com/proYang/outils
 * 极为细致的Vue的Diff流程详解——以流程图表达 https://mp.weixin.qq.com/s/EfgeRfwVJYDZqkzD1WjoMA
 
 * 收好这份 Git 应急手册，关键时刻可保你一命 https://mp.weixin.qq.com/s/EfgeRfwVJYDZqkzD1WjoMA
+
+* ArrayBuffer 对象，Blob 对象 https://wangdoc.com/javascript/bom/arraybuffer.html
