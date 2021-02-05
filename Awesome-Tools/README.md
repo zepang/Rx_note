@@ -959,3 +959,9 @@ https://github.com/proYang/outils
 # 2021-02-05
 
 * yarn workspace的实践的UI库 https://github.com/radix-ui/primitives
+
+* Froala Charts https://froala.com/charts
+
+* 这是一个可以帮你生成成套字体比例组合的工具 https://maximeroudier.com/typeScaleClampGenerator/
+
+* 图片移除工具 https://icons8.com/bgremover
