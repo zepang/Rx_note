@@ -951,3 +951,11 @@ https://github.com/proYang/outils
 # 2021-02-04
 
 * Rxjs 操作符决策树 - Mindnode https://bobi.ink/2019/04/06/rx-operations/ 项目地址 https://github.com/ivan-94/mindnodes/tree/master/rxjs/%E6%93%8D%E4%BD%9C%E7%AC%A6
+
+* React组件设计实践总结01 - 类型检查 https://bobi.ink/2019/05/10/react-component-design-01/
+
+* 深入浅出 Babel 上篇：架构和原理 + 实战 https://juejin.cn/post/6844903956905197576
+
+# 2021-02-05
+
+* yarn workspace的实践的UI库 https://github.com/radix-ui/primitives
