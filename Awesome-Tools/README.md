@@ -965,3 +965,9 @@ https://github.com/proYang/outils
 * 这是一个可以帮你生成成套字体比例组合的工具 https://maximeroudier.com/typeScaleClampGenerator/
 
 * 图片移除工具 https://icons8.com/bgremover
+
+# 2021-02-06
+
+* 实现Web端自定义截屏 https://juejin.cn/post/6924368956950052877?utm_source=gold_browser_extension
+
+* 使用vue封装右键菜单插件 https://juejin.cn/post/6906788973981466637
