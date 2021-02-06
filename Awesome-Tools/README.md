@@ -971,3 +971,5 @@ https://github.com/proYang/outils
 * 实现Web端自定义截屏 https://juejin.cn/post/6924368956950052877?utm_source=gold_browser_extension
 
 * 使用vue封装右键菜单插件 https://juejin.cn/post/6906788973981466637
+
+* 了不起的 tsconfig.json 指南 https://www.yuque.com/wangpingan/cute-frontend/lekher
