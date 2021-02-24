@@ -983,3 +983,7 @@ https://github.com/proYang/outils
 * 学习 react https://github.com/Asabeneh/30-Days-Of-React
 
 * HTML: The Living Standard https://html.spec.whatwg.org/dev/
+
+# 2021-02-24
+
+* mac 手机远程控制 https://help.airdroid.com/hc/zh-cn
