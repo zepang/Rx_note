@@ -987,3 +987,9 @@ https://github.com/proYang/outils
 # 2021-02-24
 
 * mac 手机远程控制 https://help.airdroid.com/hc/zh-cn
+
+# 20201-02-25
+
+* 推荐 12 个学习前端必备的神仙级工具类项目与网站 https://github.com/FrontEndGitHub/FrontEndGitHub/issues/16
+
+* 推荐这 10 个 GitHub 上超火的前端面试项目，打造自己的加薪宝库 https://github.com/FrontEndGitHub/FrontEndGitHub/issues/6
