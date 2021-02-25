@@ -997,3 +997,5 @@ https://github.com/proYang/outils
 * 前端优秀实践不完全指南 https://juejin.cn/post/6932647134944886797?utm_source=gold_browser_extension
 
 * Yarn 的 Plug'n'Play 特性 https://loveky.github.io/2019/02/11/yarn-pnp/
+ 
+* 2021 年你应该尝试的 8 个 React 库 https://juejin.cn/post/6933036276660731912?utm_source=gold_browser_extension
