@@ -993,3 +993,7 @@ https://github.com/proYang/outils
 * 推荐 12 个学习前端必备的神仙级工具类项目与网站 https://github.com/FrontEndGitHub/FrontEndGitHub/issues/16
 
 * 推荐这 10 个 GitHub 上超火的前端面试项目，打造自己的加薪宝库 https://github.com/FrontEndGitHub/FrontEndGitHub/issues/6
+
+* 前端优秀实践不完全指南 https://juejin.cn/post/6932647134944886797?utm_source=gold_browser_extension
+
+* Yarn 的 Plug'n'Play 特性 https://loveky.github.io/2019/02/11/yarn-pnp/
