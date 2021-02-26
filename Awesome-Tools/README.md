@@ -988,7 +988,7 @@ https://github.com/proYang/outils
 
 * mac 手机远程控制 https://help.airdroid.com/hc/zh-cn
 
-# 20201-02-25
+# 2021-02-25
 
 * 推荐 12 个学习前端必备的神仙级工具类项目与网站 https://github.com/FrontEndGitHub/FrontEndGitHub/issues/16
 
@@ -999,3 +999,9 @@ https://github.com/proYang/outils
 * Yarn 的 Plug'n'Play 特性 https://loveky.github.io/2019/02/11/yarn-pnp/
  
 * 2021 年你应该尝试的 8 个 React 库 https://juejin.cn/post/6933036276660731912?utm_source=gold_browser_extension
+
+* lerna管理前端packages的最佳实践 http://www.sosout.com/2018/07/21/lerna-repo.html
+
+# 2021-02-26
+
+* 滴滴开源 LogicFlow：专注流程可视化的前端框架 https://xie.infoq.cn/article/2077ef119513b605375bb6c93
