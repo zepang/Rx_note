@@ -1005,3 +1005,7 @@ https://github.com/proYang/outils
 # 2021-02-26
 
 * 滴滴开源 LogicFlow：专注流程可视化的前端框架 https://xie.infoq.cn/article/2077ef119513b605375bb6c93
+
+# 2021-02-27
+
+* 前端技术栈 https://github.com/unruledboy/WebFrontEndStack/blob/master/README.zh-cn.md
