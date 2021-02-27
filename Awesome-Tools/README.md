@@ -1009,3 +1009,5 @@ https://github.com/proYang/outils
 # 2021-02-27
 
 * 前端技术栈 https://github.com/unruledboy/WebFrontEndStack/blob/master/README.zh-cn.md
+
+* 前端书籍 https://github.com/MichealWayne/books
