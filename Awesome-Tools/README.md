@@ -1005,3 +1005,7 @@ https://github.com/proYang/outils
 # 2021-02-26
 
 * 滴滴开源 LogicFlow：专注流程可视化的前端框架 https://xie.infoq.cn/article/2077ef119513b605375bb6c93
+
+* 【进阶】面试官问我 Chrome 浏览器的渲染原理（6000 字长文） https://xie.infoq.cn/article/ffa48b693a1d2cc0e5bd00e77
+
+* webpack | 谈谈 webpack 的本质 https://xie.infoq.cn/article/c48403d68f6b75356c02edb69
