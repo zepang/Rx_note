@@ -1029,3 +1029,7 @@ https://github.com/proYang/outils
 * 5分钟看懂系列：HTTP缓存机制详解 https://segmentfault.com/a/1190000021716418 
 
 * GitLab CI/CD Variables 中文文档 http://www.ttlsa.com/auto/gitlab-cicd-variables-zh-document/
+
+# 2020-03-01
+
+* gulp-insert-lines 插入 https://github.com/carstenschaefer/gulp-insert-lines/blob/master/index.js
