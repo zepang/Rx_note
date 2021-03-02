@@ -1011,3 +1011,5 @@ https://github.com/proYang/outils
 * 前端技术栈 https://github.com/unruledboy/WebFrontEndStack/blob/master/README.zh-cn.md
 
 * 前端书籍 https://github.com/MichealWayne/books
+
+* 不错的下载电子书的网站 http://lxqnsys.com/pdf/ https://book.mzh.ren/
