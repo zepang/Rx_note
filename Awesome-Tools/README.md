@@ -1033,3 +1033,9 @@ https://github.com/proYang/outils
 # 2020-03-01
 
 * gulp-insert-lines 插入 https://github.com/carstenschaefer/gulp-insert-lines/blob/master/index.js
+
+# 2021-03-02
+
+* 前端工程师的 CI 进阶之路 https://www.infoq.cn/article/XjMDbe52u4x17gR4wg3e
+
+* 如何从零开始搭建 CI/CD 流水线 https://www.infoq.cn/article/WHt0wFMDRrBU-dtkh1Xp?utm_source=related_read_bottom&utm_medium=article
