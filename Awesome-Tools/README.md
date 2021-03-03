@@ -1053,3 +1053,7 @@ https://github.com/proYang/outils
 * 从 0 到 1 node 项目管理系统：搭建基础平台（中） https://zhuanlan.zhihu.com/p/176362990
 
 * 可视化正则 https://regexper.com/
+
+* 前端工程化之持续集成（3）- gitlab ci/cd 介绍 https://zhuanlan.zhihu.com/p/141419778
+
+* Linux命令行(中文版) https://book.mzh.ren/tlcl.html
