@@ -1049,3 +1049,5 @@ https://github.com/proYang/outils
 # 2021-03-03
 
 * 不错的电子书英文 https://www.aibooks.cc/book/yingwen
+
+* 从 0 到 1 node 项目管理系统：搭建基础平台（中） https://zhuanlan.zhihu.com/p/176362990
