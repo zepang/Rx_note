@@ -1006,6 +1006,10 @@ https://github.com/proYang/outils
 
 * 滴滴开源 LogicFlow：专注流程可视化的前端框架 https://xie.infoq.cn/article/2077ef119513b605375bb6c93
 
+* 【进阶】面试官问我 Chrome 浏览器的渲染原理（6000 字长文） https://xie.infoq.cn/article/ffa48b693a1d2cc0e5bd00e77
+
+* webpack | 谈谈 webpack 的本质 https://xie.infoq.cn/article/c48403d68f6b75356c02edb69
+
 # 2021-02-27
 
 * 前端技术栈 https://github.com/unruledboy/WebFrontEndStack/blob/master/README.zh-cn.md
@@ -1013,3 +1017,67 @@ https://github.com/proYang/outils
 * 前端书籍 https://github.com/MichealWayne/books
 
 * 不错的下载电子书的网站 http://lxqnsys.com/pdf/ https://book.mzh.ren/
+
+* 不错的postman替代工具 https://www.apifox.cn/
+
+* AES加密算法的详细介绍与实现 https://blog.csdn.net/qq_28205153/article/details/55798628
+
+* 一份涵盖大部分Web前端开发程序员所需要掌握的核心知识 https://github.com/webVueBlog/WebFamily
+
+* TCP、UDP、IP 协议分析 http://blog.chinaunix.net/uid-26833883-id-3627644.html
+
+* GitHub 上有什么好玩又有挑战的前端项目 https://www.zhihu.com/question/30470886/answer/1704203764
+
+* 5分钟看懂系列：HTTP缓存机制详解 https://segmentfault.com/a/1190000021716418 
+
+* GitLab CI/CD Variables 中文文档 http://www.ttlsa.com/auto/gitlab-cicd-variables-zh-document/
+
+# 2020-03-01
+
+* gulp-insert-lines 插入 https://github.com/carstenschaefer/gulp-insert-lines/blob/master/index.js
+
+# 2021-03-02
+
+* 前端工程师的 CI 进阶之路 https://www.infoq.cn/article/XjMDbe52u4x17gR4wg3e
+
+* 如何从零开始搭建 CI/CD 流水线 https://www.infoq.cn/article/WHt0wFMDRrBU-dtkh1Xp?utm_source=related_read_bottom&utm_medium=article
+
+* 从0到1，打造小团队前端工程化服务（1/3） https://juejin.cn/post/6870371104335069192
+
+* 2020年度开发者工具Top 100名单！ https://mp.weixin.qq.com/s?__biz=MzUzMTA2NTU2Ng==&mid=2247509254&idx=1&sn=e639f74a0a79d046c57c988776cf05b7&chksm=fa4adab7cd3d53a1793fce21b45c887314d2b6ca9dcb1bc92984463ad2061643c99aff39ffc2&scene=27#wechat_redirect
+
+* 三个技巧，将Docker镜像体积减小90% https://cloud.tencent.com/developer/article/1350318
+
+# 2021-03-03
+
+* 不错的电子书英文 https://www.aibooks.cc/book/yingwen
+
+* 从 0 到 1 node 项目管理系统：搭建基础平台（中） https://zhuanlan.zhihu.com/p/176362990
+
+* 可视化正则 https://regexper.com/
+
+* 前端工程化之持续集成（3）- gitlab ci/cd 介绍 https://zhuanlan.zhihu.com/p/141419778
+
+* Linux命令行(中文版) https://book.mzh.ren/tlcl.html
+
+# 2021-03-04
+
+* 电子书非常全
+
+```
+树莓派NAS内网穿透
+[https://nat.nioee.com/]上海节点，每月流量500GB，大概有200+KB/s的总流速
+http://chfs.chenyanggao.top:40945/
+[https://www.natfrp.com/]日本节点，不限流量，大概有200+KB/s的总流速，翻q后会变快
+http://chfs2.chenyanggao.top:40945/
+[https://www.xiaomy.net/]杭州节点，不限流量，大概有100+KB/s的总流速
+http://chfs3.chenyanggao.top:55565/
+```
+
+* 英文计算机图书 http://chfs2.chenyanggao.top:40945/#/%F0%9F%87%A8%F0%9F%87%B3%E9%87%8D%E7%A3%85%E6%94%B6%E8%97%8F/%E7%9B%90%E8%99%8E%E6%94%B6%E9%9B%86%20by%20salttiger.com/2021/2021.03
+
+* 前端高级进阶：使用Docker高效部署你的前端应用 https://developer.51cto.com/art/202003/612570.htm
+
+* 只需简单两步，轻松缩减 Node.js 应用的镜像大小 https://yq.aliyun.com/articles/574267
+
+* 晓东科技电报 https://www.mattkaydiary.com/
