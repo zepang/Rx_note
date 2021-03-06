@@ -1097,3 +1097,5 @@ http://chfs3.chenyanggao.top:55565/
 * 转转前端团队前端开发规范的落地实践 https://mp.weixin.qq.com/s/JzSOs10iUcdb48KNHJ6Ihw
 
 * 2021: 值得关注/学习的前端框架和工具库【汇总】 https://mp.weixin.qq.com/s/jZnltosP8YR6dgnEobdzcA
+
+* 带你揭开前端自动化构建的神秘面纱 https://mp.weixin.qq.com/s/C6hmA7AHpxD-lhk5H5p_wg
