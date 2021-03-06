@@ -1016,6 +1016,8 @@ https://github.com/proYang/outils
 
 * 前端书籍 https://github.com/MichealWayne/books
 
+* 不错的下载电子书的网站 http://lxqnsys.com/pdf/ https://book.mzh.ren/
+
 * 不错的postman替代工具 https://www.apifox.cn/
 
 * AES加密算法的详细介绍与实现 https://blog.csdn.net/qq_28205153/article/details/55798628
