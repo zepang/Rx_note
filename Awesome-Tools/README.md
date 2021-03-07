@@ -1099,3 +1099,7 @@ http://chfs3.chenyanggao.top:55565/
 * 2021: 值得关注/学习的前端框架和工具库【汇总】 https://mp.weixin.qq.com/s/jZnltosP8YR6dgnEobdzcA
 
 * 带你揭开前端自动化构建的神秘面纱 https://mp.weixin.qq.com/s/C6hmA7AHpxD-lhk5H5p_wg
+
+# 2021-03-07
+
+* TypeScript in 50 Lessons https://typescript-book.com/
