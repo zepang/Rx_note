@@ -1103,3 +1103,5 @@ http://chfs3.chenyanggao.top:55565/
 # 2021-03-07
 
 * TypeScript in 50 Lessons https://typescript-book.com/
+  
+* 各类配置文件的json格式 https://www.schemastore.org/json/
