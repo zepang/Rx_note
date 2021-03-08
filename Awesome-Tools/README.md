@@ -1108,6 +1108,8 @@ http://chfs3.chenyanggao.top:55565/
 
 * 虫洞栈 不错的电子书教程汇总 https://bugstack.cn/
 
+* 果创云数据库列表涉及 http://open.yesapi.cn/list.html
+
 # 2021-03-08
 
 * 常用库的教程和文档 https://www.bookstack.cn/
