@@ -1125,3 +1125,7 @@ http://chfs3.chenyanggao.top:55565/
 * 小程序开发 - 云开发技术总结 https://xie.infoq.cn/article/13423feb9957db35c7b389893
 
 * 前端面试常考题：JS 垃圾回收机制 https://xie.infoq.cn/article/16a3447ede46bc30f6d533cbf
+
+* 超强前端面试真题 https://bitable.feishu.cn/app8Ok6k9qafpMkgyRbfgxeEnet?from=logout&table=tblEnSV2PNAajtWE&view=vewJHSwJVd
+
+* 面试官一上来就问我 Chrome 底层原理和 HTTP 协议（万字长文）https://xie.infoq.cn/article/1389674ed08fce24e3e83dc8f
