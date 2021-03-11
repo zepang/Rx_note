@@ -1129,3 +1129,11 @@ http://chfs3.chenyanggao.top:55565/
 * 超强前端面试真题 https://bitable.feishu.cn/app8Ok6k9qafpMkgyRbfgxeEnet?from=logout&table=tblEnSV2PNAajtWE&view=vewJHSwJVd
 
 * 面试官一上来就问我 Chrome 底层原理和 HTTP 协议（万字长文）https://xie.infoq.cn/article/1389674ed08fce24e3e83dc8f
+
+* 每日文章推荐 https://github.com/pingan8787/Leo_Reading/issues
+
+* TypeScript Deep Dive https://basarat.gitbook.io/typescript/getting-started
+
+# 2021-03-11
+
+* JavaScript Visualized: Event Loop https://dev.to/lydiahallie/javascript-visualized-event-loop-3dif
