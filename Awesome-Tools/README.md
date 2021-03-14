@@ -1141,3 +1141,9 @@ http://chfs3.chenyanggao.top:55565/
 # 2021-03-12
 
 * docker教程 https://www.yiibai.com/docker/docker-dockerfile.html
+
+* 一系列git教程 https://devconnected.com/category/software-engineering/
+
+# 2021-03-14
+
+github host https://cdn.jsdelivr.net/gh/521xueweihan/GitHub520@main/hosts
