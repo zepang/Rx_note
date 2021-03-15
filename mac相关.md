@@ -66,8 +66,8 @@ chsh -s /bin/bash
 在~/.zshrc文件最后，增加一行：
 source ~/.bash_profile
 
-————————————————
+# 查看文件目录大小，大到小排序
 
-版权声明：本文为CSDN博主「like学」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-
-原文链接：https://blog.csdn.net/science_Lee/java/article/details/79214127
+```
+du -sh {目录} ｜ sort -rh
+```
