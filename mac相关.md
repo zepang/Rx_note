@@ -71,3 +71,9 @@ source ~/.bash_profile
 ```
 du -sh {目录} ｜ sort -rh
 ```
+
+# 创建固定大小空文件
+
+```
+dd if=/dev/zero of=test.data bs=1024 count=1 seek=$[1024*1000]
+```
