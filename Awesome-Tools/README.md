@@ -1168,7 +1168,11 @@ http://chfs3.chenyanggao.top:55565/
   - https://code.visualstudio.com/docs/remote/containers#_always-forwarding-a-port
   - https://code.visualstudio.com/docs/remote/troubleshooting#_resolving-git-line-ending-issues-in-containers-resulting-in-many-modified-files
   - https://code.visualstudio.com/docs/remote/containers#_sharing-git-credentials-with-your-container
+  - https://code.visualstudio.com/docs/remote/create-dev-container
+  - https://code.visualstudio.com/docs/remote/containers-advanced#_adding-environment-variables
 
 * VSCode玩转远程开发之Docker容器 https://zhuanlan.zhihu.com/p/129908390
 
 * 写给前端工程师看的Docker教程-实战篇 https://zhuanlan.zhihu.com/p/84894157
+
+* JavaScript Visualized: the JavaScript Engine https://dev.to/lydiahallie/javascript-visualized-the-javascript-engine-4cdf
