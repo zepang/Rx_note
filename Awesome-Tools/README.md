@@ -1161,3 +1161,14 @@ http://chfs3.chenyanggao.top:55565/
 * ssh转发代理：ssh-agent用法详解 https://www.cnblogs.com/f-ck-need-u/p/10484531.html
 
 * Lerna --多包存储管理工具（一） https://segmentfault.com/a/1190000023954051
+
+* vsoce devcontainer 
+
+  - https://code.visualstudio.com/docs/remote/devcontainerjson-reference
+  - https://code.visualstudio.com/docs/remote/containers#_always-forwarding-a-port
+  - https://code.visualstudio.com/docs/remote/troubleshooting#_resolving-git-line-ending-issues-in-containers-resulting-in-many-modified-files
+  - https://code.visualstudio.com/docs/remote/containers#_sharing-git-credentials-with-your-container
+
+* VSCode玩转远程开发之Docker容器 https://zhuanlan.zhihu.com/p/129908390
+
+* 写给前端工程师看的Docker教程-实战篇 https://zhuanlan.zhihu.com/p/84894157
