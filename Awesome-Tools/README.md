@@ -1186,3 +1186,7 @@ http://chfs3.chenyanggao.top:55565/
 # 2021-03-19
 
 * 傻傻分不清之 Cookie、Session、Token、JWT https://mp.weixin.qq.com/s/tUHT3SbdjVUe84Vfkt8I1Q
+
+# 2021-03-20
+
+* 位（bit）、字节（byte）、字符、编码之间的关系 https://blog.csdn.net/prdslf001001/article/details/78615823 
