@@ -1190,3 +1190,7 @@ http://chfs3.chenyanggao.top:55565/
 # 2021-03-20
 
 * 位（bit）、字节（byte）、字符、编码之间的关系 https://blog.csdn.net/prdslf001001/article/details/78615823 
+
+# 2021-03-21
+
+* 玩转前端二进制 https://juejin.cn/post/6846687590783909902
