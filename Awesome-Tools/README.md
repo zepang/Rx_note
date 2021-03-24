@@ -1206,3 +1206,7 @@ http://chfs3.chenyanggao.top:55565/
 # 2021-03-24
 
 * Golang Gin 实战（一）| 快速安装入门 https://www.flysnow.org/2019/12/10/golang-gin-quick-start.html
+
+* 一些库的文档 http://www.febeacon.com/
+
+* lerna 文档 http://www.febeacon.com/lerna-docs-zh-cn/
