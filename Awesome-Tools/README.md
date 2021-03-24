@@ -503,6 +503,7 @@ https://github.com/proYang/outils
 * CSS Background Patterns 是一款包含了很多时髦设计的背景图案，你只需要稍加调整就可以应用到你自己的网站当中。 https://www.magicpattern.design/tools/css-backgrounds
 
 * 前端库技术收集： https://www.zdzn.net/page/web.html
+
 * npm register https://help.sonatype.com/repomanager3/formats/npm-registry
 
 * https://formito.com/tools/favicon 这是一个免费的小图标制作工具，你可以通过简单的点击就快速制作出 SVG 和 PNG 格式的图标，你可以设置字母也可以设置表情符号，自由度很高。
@@ -1201,3 +1202,7 @@ http://chfs3.chenyanggao.top:55565/
 # 2021-03-23
 
 * WSL 2 上的 Docker 远程容器入门 https://docs.microsoft.com/zh-cn/windows/wsl/tutorials/wsl-containers
+
+# 2021-03-24
+
+* Golang Gin 实战（一）| 快速安装入门 https://www.flysnow.org/2019/12/10/golang-gin-quick-start.html
