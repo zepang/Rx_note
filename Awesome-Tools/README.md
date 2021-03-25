@@ -1218,3 +1218,11 @@ http://chfs3.chenyanggao.top:55565/
 * GitLab的汉化与CI持续集成gitlab-runner的配置 https://meigit.readthedocs.io/en/latest/configure_gitlab_i18n_and_create_gitlab_ci_with_gitlab_runner.html#id4
 
 * 博客主题不错 https://www.xuxusheng.com/post/%E4%BD%BF%E7%94%A8Docker%E9%83%A8%E7%BD%B2GitLab-CI-Runner
+
+* 用JS解释JS！详解AST及其应用 https://zhuanlan.zhihu.com/p/359456770
+
+* Kubernetes 入门&进阶实战 https://zhuanlan.zhihu.com/p/339008746
+
+* 【干货】热门博客到底是怎么写的？ https://juejin.cn/post/6940792572923248653?utm_source=gold_browser_extension
+
+* typescript handbook https://www.typescriptlang.org/docs/handbook/
