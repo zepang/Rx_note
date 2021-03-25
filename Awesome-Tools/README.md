@@ -1210,3 +1210,11 @@ http://chfs3.chenyanggao.top:55565/
 * 一些库的文档 http://www.febeacon.com/
 
 * lerna 文档 http://www.febeacon.com/lerna-docs-zh-cn/
+
+* 专注Web与算法 https://github.com/dongyuanxin/blog
+
+# 2021-03-25
+
+* GitLab的汉化与CI持续集成gitlab-runner的配置 https://meigit.readthedocs.io/en/latest/configure_gitlab_i18n_and_create_gitlab_ci_with_gitlab_runner.html#id4
+
+* 博客主题不错 https://www.xuxusheng.com/post/%E4%BD%BF%E7%94%A8Docker%E9%83%A8%E7%BD%B2GitLab-CI-Runner
