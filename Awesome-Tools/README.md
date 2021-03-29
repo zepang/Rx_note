@@ -1244,3 +1244,9 @@ http://chfs3.chenyanggao.top:55565/
 * HTML Boilerplates 代码生成 https://htmlboilerplates.com/
 
 * 生成边角柔和的新拟物化风格的UI组件的工具，这款工具能够直接输出 CSS 代码 http://santhoshsivan.com/neu.html
+
+* An Interactive Guide to CSS Transitions https://www.joshwcomeau.com/animation/css-transitions/
+
+* Docker-OSX docker启动 macos  https://github.com/sickcodes/Docker-OSX
+
+* 2021年值得收藏的6个免费插画图库网站 https://www.uisdc.com/2021-6-illustation-website
