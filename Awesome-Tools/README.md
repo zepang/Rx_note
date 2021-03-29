@@ -1236,3 +1236,11 @@ http://chfs3.chenyanggao.top:55565/
 # 2021-03-27
 
 * vue 和 go 全栈 https://www.youtube.com/channel/UCcE2YngHoargpdjIzkCNY2Q/videos
+
+* NodeJS：Lerna —— Monorepo 的最佳实践 https://cloud.tencent.com/developer/article/1467217
+
+# 2021-03-29
+
+* HTML Boilerplates 代码生成 https://htmlboilerplates.com/
+
+* 生成边角柔和的新拟物化风格的UI组件的工具，这款工具能够直接输出 CSS 代码 http://santhoshsivan.com/neu.html
