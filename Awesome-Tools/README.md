@@ -1256,3 +1256,5 @@ http://chfs3.chenyanggao.top:55565/
 # 2021-04-01
 
 * 一个不错的博客案例 https://www.dandyweng.com/
+
+* referrer策略和meta标签的问题 https://segmentfault.com/a/1190000017896469
