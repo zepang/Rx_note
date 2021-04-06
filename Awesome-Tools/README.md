@@ -1268,3 +1268,5 @@ http://chfs3.chenyanggao.top:55565/
 * 使用TypeScript+Vuex https://segmentfault.com/a/1190000019906575
 
 * How to streamline interactions between multiple repositories with multi-project pipelines https://about.gitlab.com/blog/2018/10/31/use-multiproject-pipelines-with-gitlab-cicd/
+
+* 技术雷达」之 Micro Frontends：微前端 - 将微服务理念扩展到前端开发 https://blog.jimmylv.info/2017-12-22-tech-radar-microfrontends-extending-microservice-to-fed/
