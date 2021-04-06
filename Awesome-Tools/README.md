@@ -1264,3 +1264,7 @@ http://chfs3.chenyanggao.top:55565/
 * vue3 使用记录 https://blog.csdn.net/bbsyi/article/details/107756543
 
 * typescript中如何直接引入json文件 resolveJsonModule https://cloud.tencent.com/developer/article/1750448?from=information.detail.--resolvejsonmodule
+
+* 使用TypeScript+Vuex https://segmentfault.com/a/1190000019906575
+
+* How to streamline interactions between multiple repositories with multi-project pipelines https://about.gitlab.com/blog/2018/10/31/use-multiproject-pipelines-with-gitlab-cicd/
