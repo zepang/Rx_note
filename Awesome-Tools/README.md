@@ -1258,3 +1258,9 @@ http://chfs3.chenyanggao.top:55565/
 * 一个不错的博客案例 https://www.dandyweng.com/
 
 * referrer策略和meta标签的问题 https://segmentfault.com/a/1190000017896469
+
+# 2021-04-06
+
+* vue3 使用记录 https://blog.csdn.net/bbsyi/article/details/107756543
+
+* typescript中如何直接引入json文件 resolveJsonModule https://cloud.tencent.com/developer/article/1750448?from=information.detail.--resolvejsonmodule
