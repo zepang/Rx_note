@@ -1272,3 +1272,7 @@ http://chfs3.chenyanggao.top:55565/
 * 技术雷达」之 Micro Frontends：微前端 - 将微服务理念扩展到前端开发 https://blog.jimmylv.info/2017-12-22-tech-radar-microfrontends-extending-microservice-to-fed/
 
 * 有关企业前端内源项目自动化持续集成的一些实践 https://xuyuanxiang.me/ci/2020-03-23/%E6%9C%89%E5%85%B3%E4%BC%81%E4%B8%9A%E5%86%85%E6%BA%90%E9%A1%B9%E7%9B%AE%E8%87%AA%E5%8A%A8%E5%8C%96%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E7%9A%84%E4%B8%80%E4%BA%9B%E5%AE%9E%E8%B7%B5/#%E5%B7%A5%E7%A8%8B%E6%A6%82%E5%86%B5
+
+# 2021-04-08
+
+* gitlab中文文档 书栈网 https://www.bookstack.cn/books/gitlab-doc-zh
