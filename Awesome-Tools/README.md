@@ -1066,7 +1066,7 @@ https://github.com/proYang/outils
 # 2021-03-04
 
 * 电子书非常全
-
+   、
 ```
 树莓派NAS内网穿透
 [https://nat.nioee.com/]上海节点，每月流量500GB，大概有200+KB/s的总流速
@@ -1276,3 +1276,7 @@ http://chfs3.chenyanggao.top:55565/
 # 2021-04-08
 
 * gitlab中文文档 书栈网 https://www.bookstack.cn/books/gitlab-doc-zh
+
+# 2021-04-12
+
+* git 教程 https://www.vogella.com/tutorials/Git/article.html#retrievefiles_finddeletedfile
