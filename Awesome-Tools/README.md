@@ -1284,3 +1284,13 @@ http://chfs3.chenyanggao.top:55565/
 # 2021-04-14
 
 * 不错的技术博客 https://www.tangshuang.net/frontend
+
+* import、require、export、module.exports 混合使用详解 https://segmentfault.com/a/1190000012386576
+
+* 「React进阶」 React全部api解读+基础实践大全(夯实基础2万字总结) https://juejin.cn/post/6950063294270930980
+
+* vue3.0 响应式原理(超详细) https://juejin.cn/post/6858899262596448270
+
+* 万字详解PostMan工具的全面解析 https://mp.weixin.qq.com/s/bZAqC1zJURsLyFUva5JcLA
+
+* 前端模块化的十年征程 https://zhuanlan.zhihu.com/p/265632724
