@@ -1294,3 +1294,7 @@ http://chfs3.chenyanggao.top:55565/
 * 万字详解PostMan工具的全面解析 https://mp.weixin.qq.com/s/bZAqC1zJURsLyFUva5JcLA
 
 * 前端模块化的十年征程 https://zhuanlan.zhihu.com/p/265632724
+
+# 2021-04-16
+
+* How to log out when using JWT https://medium.com/devgorilla/how-to-log-out-when-using-jwt-a8c7823e8a6
