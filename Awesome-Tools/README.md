@@ -1298,3 +1298,11 @@ http://chfs3.chenyanggao.top:55565/
 # 2021-04-16
 
 * How to log out when using JWT https://medium.com/devgorilla/how-to-log-out-when-using-jwt-a8c7823e8a6
+
+# 2021-04-17
+
+* axios如何取消重复请求 https://segmentfault.com/a/1190000021290514
+
+# 2021-04-18
+
+* ts对axios的简单封装 https://zhuanlan.zhihu.com/p/187253239 
