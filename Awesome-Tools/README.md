@@ -1306,3 +1306,7 @@ http://chfs3.chenyanggao.top:55565/
 # 2021-04-18
 
 * ts对axios的简单封装 https://zhuanlan.zhihu.com/p/187253239 
+
+* 搞懂 ESLint 和 Prettier https://zhuanlan.zhihu.com/p/80574300
+
+* Why You Should Use ESLint, Prettier & EditorConfig https://blog.theodo.com/2019/08/why-you-should-use-eslint-prettier-and-editorconfig-together/
