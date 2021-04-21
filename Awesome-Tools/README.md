@@ -1310,3 +1310,8 @@ http://chfs3.chenyanggao.top:55565/
 * 搞懂 ESLint 和 Prettier https://zhuanlan.zhihu.com/p/80574300
 
 * Why You Should Use ESLint, Prettier & EditorConfig https://blog.theodo.com/2019/08/why-you-should-use-eslint-prettier-and-editorconfig-together/
+
+# 2021-04-19
+
+* Prettier看这一篇就行了 https://zhuanlan.zhihu.com/p/81764012
+* Nginx常见错误及处理方法 https://blog.csdn.net/qq13650793239/article/details/81185293?utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7Edefault-18.baidujs&dist_request_id=&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7Edefault-18.baidujs
