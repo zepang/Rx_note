@@ -1337,3 +1337,5 @@ http://chfs3.chenyanggao.top:55565/
 # 2021-04-27
 
 * 如何实现两个Git仓库之间的同步 https://wellphone.me/post/2018/sync_code_to_gitlab/
+
+* Prometheus+Grafana监控宿主机 https://www.cnblogs.com/ltzhang/p/13544601.html
