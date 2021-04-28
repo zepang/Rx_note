@@ -1315,3 +1315,25 @@ http://chfs3.chenyanggao.top:55565/
 
 * Prettier看这一篇就行了 https://zhuanlan.zhihu.com/p/81764012
 * Nginx常见错误及处理方法 https://blog.csdn.net/qq13650793239/article/details/81185293?utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7Edefault-18.baidujs&dist_request_id=&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7Edefault-18.baidujs
+
+# 2021-04-22
+
+* wsl2 Kali与桌面 https://www.kali.org/docs/wsl/win-kex/
+
+# 2021-04-24
+
+* linux qv2ray https://www.hm1006.cn/archives/qv2ray https://mahongfei.com/1776.html
+
+# 2021-04-25
+
+* CSS Grid Cheat Sheet Illustrated in 2021 https://dev.to/joyshaheb/css-grid-cheat-sheet-illustrated-in-2021-1a3
+
+* FlexBox Cheat Sheets in 2021 || CSS 2021 https://dev.to/joyshaheb/flexbox-cheat-sheets-in-2021-css-2021-3edl
+
+* A Complete Guide To Accessible Front-End Components https://www.smashingmagazine.com/2021/03/complete-guide-accessible-front-end-components/
+
+* 使用Typescript实现轻量级Axios https://segmentfault.com/a/1190000039000404
+
+# 2021-04-27
+
+* 如何实现两个Git仓库之间的同步 https://wellphone.me/post/2018/sync_code_to_gitlab/
