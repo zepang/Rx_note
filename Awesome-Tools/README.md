@@ -1339,3 +1339,15 @@ http://chfs3.chenyanggao.top:55565/
 * 如何实现两个Git仓库之间的同步 https://wellphone.me/post/2018/sync_code_to_gitlab/
 
 * Prometheus+Grafana监控宿主机 https://www.cnblogs.com/ltzhang/p/13544601.html
+
+* 微软web开发者学习和工具 https://docs.microsoft.com/en-us/windows/web/apis
+
+* v2ray教程 https://www.jamesdailylife.com/qv2ray
+
+# 2021-05-24 
+
+mockup 截图套壳 https://app.shotsnapp.com/# https://www.screely.com/editor
+
+代码截图 https://codekeep.io/screenshot
+
+截图套壳工具推荐 https://www.creativeboom.com/resources/10-online-tools-to-help-you-make-quick-mockup-images-of-websites-on-any-device/
