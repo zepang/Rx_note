@@ -1351,3 +1351,5 @@ mockup 截图套壳 https://app.shotsnapp.com/# https://www.screely.com/editor
 代码截图 https://codekeep.io/screenshot
 
 截图套壳工具推荐 https://www.creativeboom.com/resources/10-online-tools-to-help-you-make-quick-mockup-images-of-websites-on-any-device/
+
+使用WSL作为Windows生产力工具 https://www.yuque.com/xiaoyulive/wsl/bl9wov?language=en-us
