@@ -1353,3 +1353,15 @@ mockup 截图套壳 https://app.shotsnapp.com/# https://www.screely.com/editor
 截图套壳工具推荐 https://www.creativeboom.com/resources/10-online-tools-to-help-you-make-quick-mockup-images-of-websites-on-any-device/
 
 使用WSL作为Windows生产力工具 https://www.yuque.com/xiaoyulive/wsl/bl9wov?language=en-us
+
+# 2021-05-25 
+
+* 【简道云筛选】电子书下载网站大全 https://tyi45di4ct.jiandaoyun.com/dash/5e7d915c6c56d8000674a8b8
+
+* 小说 http://www.zxcs.me/
+
+# 2021-06-03
+
+* eslint 插件开发 http://obkoro1.com/web_accumulate/accumulate/tool/ESLint%E6%8F%92%E4%BB%B6.html#%E8%A7%82%E5%AF%9Fast%EF%BC%9A
+
+
