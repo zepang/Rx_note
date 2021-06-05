@@ -1378,3 +1378,7 @@ mockup 截图套壳 https://app.shotsnapp.com/# https://www.screely.com/editor
 * 30 天與鯨魚先生做好朋友 https://ithelp.ithome.com.tw/users/20102562/ironman/3746?page=1
 * 前端工程師也該會的後端技倆 https://ithelp.ithome.com.tw/users/20119970/ironman/2774?page=1
 * 利用30分鐘～想一個前端問題 https://ithelp.ithome.com.tw/users/20102891/ironman/3513?page=1
+
+# 2021-06-05
+
+* dell 7060 黑苹果 https://polo7261.github.io/DELL_OPTIPLEX_7060_MFF/ https://www.imacpc.net/
