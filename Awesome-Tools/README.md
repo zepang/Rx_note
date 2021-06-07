@@ -1381,4 +1381,6 @@ mockup 截图套壳 https://app.shotsnapp.com/# https://www.screely.com/editor
 
 # 2021-06-05
 
-* dell 7060 黑苹果 https://polo7261.github.io/DELL_OPTIPLEX_7060_MFF/ https://www.imacpc.net/
+* dell 7060 黑苹果 https://polo7261.github.io/DELL_OPTIPLEX_7060_MFF/ https://www.imacpc.net/ https://blog.xjn819.com/post/opencore-guide.html
+
+* 微前端架构推进参考资料汇总 https://github.com/iuap-design/blog/issues/382#issue-606009048
