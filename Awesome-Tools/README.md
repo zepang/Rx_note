@@ -1384,3 +1384,22 @@ mockup 截图套壳 https://app.shotsnapp.com/# https://www.screely.com/editor
 * dell 7060 黑苹果 https://polo7261.github.io/DELL_OPTIPLEX_7060_MFF/ https://www.imacpc.net/ https://blog.xjn819.com/post/opencore-guide.html
 
 * 微前端架构推进参考资料汇总 https://github.com/iuap-design/blog/issues/382#issue-606009048
+
+# 2021-06-08
+
+* 不错的博客 https://hondrytravis.github.io/docs
+* gitlab runner docker配置 https://gitlab.com/gitlab-org/gitlab-runner/-/blob/master/docs/configuration/advanced-configuration.md#the-runnersdocker-section
+
+# 2021-06-10
+
+* git 如何统计一段时间文件（或文件夹）的修改次数 https://www.jianshu.com/p/07ed6d0836e5
+
+* Linux rm：删除文件时，排除特定文件 https://www.jianshu.com/p/f4640acce453
+
+# 2021-06-12
+
+* vue keep alive 实现组件状态缓存 https://itnext.io/yes-this-is-how-to-cache-pages-by-url-with-vue-vue-router-and-keep-alive-component-697ed76896e8
+
+# 2021-06-14
+
+* 浅谈微前端的两种粒度 https://juejin.cn/post/6871145516026527757
