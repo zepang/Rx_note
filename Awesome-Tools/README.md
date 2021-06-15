@@ -1407,3 +1407,7 @@ mockup 截图套壳 https://app.shotsnapp.com/# https://www.screely.com/editor
 * 可能是最全的 “文本溢出截断省略” 方案合集 https://www.zoo.team/article/text-overflow
 
 * 政采云算法小册子 https://101.zoo.team/zi-fu-chuan/zi-fu-chuan-part-1-fan-zhuan-zheng-shu-you-xiao-de-zi-mu-yi-wei-ci-he-fan-zhuan-zheng-shu
+
+# 2021-06-15
+
+* package.json 字段 _phantomChildren A “phantom dependency” occurs when a project uses a package that is not defined in its package.json file.
