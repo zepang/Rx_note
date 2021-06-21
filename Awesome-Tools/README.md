@@ -1411,3 +1411,9 @@ mockup 截图套壳 https://app.shotsnapp.com/# https://www.screely.com/editor
 # 2021-06-15
 
 * package.json 字段 _phantomChildren A “phantom dependency” occurs when a project uses a package that is not defined in its package.json file.
+
+* glob tester https://www.digitalocean.com/community/tools/glob
+
+# 2021-06-21
+
+* 图解 VueLoader : .vue 文件是如何被打包的? https://www.infoq.cn/article/lBI6h9AXeBBkGuRvYPtO
