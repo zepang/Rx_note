@@ -1417,3 +1417,7 @@ mockup 截图套壳 https://app.shotsnapp.com/# https://www.screely.com/editor
 # 2021-06-21
 
 * 图解 VueLoader : .vue 文件是如何被打包的? https://www.infoq.cn/article/lBI6h9AXeBBkGuRvYPtO
+
+# 2021-06-24
+
+* gitlab runner 教程 https://choerodon.io/zh/docs/installation-configuration/steps/install/parts/gitlab-runner/
