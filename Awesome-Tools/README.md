@@ -1421,3 +1421,10 @@ mockup 截图套壳 https://app.shotsnapp.com/# https://www.screely.com/editor
 # 2021-06-24
 
 * gitlab runner 教程 https://choerodon.io/zh/docs/installation-configuration/steps/install/parts/gitlab-runner/
+
+# 2021-06-28
+
+* vue + koa2 + webpack4 构建ssr项目 https://segmentfault.com/a/1190000017930107
+* webpack4+koa2+vue 实现服务器端渲染(详解) https://www.cnblogs.com/tugenhua0707/p/11048465.html
+* 用webpack搭建多页面项目 https://juejin.cn/post/6844903511746936846#heading-8
+* vue-ssr服务端渲染透析 https://juejin.cn/post/6844904163692937229#heading-20
