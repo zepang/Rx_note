@@ -1439,3 +1439,7 @@ mockup 截图套壳 https://app.shotsnapp.com/# https://www.screely.com/editor
 * webpack多页面内存溢出&单页面编译慢 https://juejin.cn/post/6844903976521973767#heading-5
 * webpack多页面项目开发按需编译 https://juejin.cn/post/6877123009555988493
 * 用「增量」思想提升代码检查和打包构建的效率 https://juejin.cn/post/6865101730166767623#heading-7
+
+# 2021-07-05
+
+* 腾讯云开发者手册 https://cloud.tencent.com/developer/section/1489445
