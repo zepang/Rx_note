@@ -1443,3 +1443,8 @@ mockup 截图套壳 https://app.shotsnapp.com/# https://www.screely.com/editor
 # 2021-07-05
 
 * 腾讯云开发者手册 https://cloud.tencent.com/developer/section/1489445
+* go学习教程 https://www.practical-go-lessons.com/chap-2-the-go-language
+* Gitlab CI — 前端自动化构建及优化 https://juejin.cn/post/6844904131778330637#heading-10
+* DevOps之Gitlab-CICD实践篇 https://zhuanlan.zhihu.com/p/105157319
+* ast https://rajasegar.github.io/ast-builder/ https://astexplorer.net/
+* babel-handbook https://github.com/jamiebuilds/babel-handbook/blob/master/translations/zh-Hans/plugin-handbook.md#toc-validators
