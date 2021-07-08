@@ -1448,3 +1448,9 @@ mockup 截图套壳 https://app.shotsnapp.com/# https://www.screely.com/editor
 * DevOps之Gitlab-CICD实践篇 https://zhuanlan.zhihu.com/p/105157319
 * ast https://rajasegar.github.io/ast-builder/ https://astexplorer.net/
 * babel-handbook https://github.com/jamiebuilds/babel-handbook/blob/master/translations/zh-Hans/plugin-handbook.md#toc-validators
+
+# 2021-07-07
+
+* https://bundlephobia.com/
+* Babel快速指南 http://www.ayqy.net/blog/babel%E5%BF%AB%E9%80%9F%E6%8C%87%E5%8D%97/
+* vue ssr和vue-server-renderer原理 https://blog.csdn.net/qq_14993375/article/details/104477702
