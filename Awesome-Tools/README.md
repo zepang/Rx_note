@@ -1454,3 +1454,11 @@ mockup 截图套壳 https://app.shotsnapp.com/# https://www.screely.com/editor
 * https://bundlephobia.com/
 * Babel快速指南 http://www.ayqy.net/blog/babel%E5%BF%AB%E9%80%9F%E6%8C%87%E5%8D%97/
 * vue ssr和vue-server-renderer原理 https://blog.csdn.net/qq_14993375/article/details/104477702
+* 前端模块化标准对比 iife amd cmd cjs umd es6 https://blog.whyoop.com/2018/08/01/js-modules/
+* kube-explorer｜一款开源小工具，提升K8s资源管理幸福感！https://cloud.tencent.com/developer/article/1828956
+* 花椒前端基于容器的 Vue SSR 持续开发集成环境实践 https://cloud.tencent.com/developer/article/1613643
+* awesome-bookmarks笔记 https://panjiachen.github.io/awesome-bookmarks/blog/webpack/webpack4-b.html https://panjiachen.github.io/awesome-bookmarks/website/#%E5%B8%B8%E7%9C%8B%E7%9A%84%E7%BD%91%E7%AB%99
+
+# 2021-07-12
+
+* 不错的博客 https://dzblog.cn/
