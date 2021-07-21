@@ -1462,3 +1462,13 @@ mockup 截图套壳 https://app.shotsnapp.com/# https://www.screely.com/editor
 # 2021-07-12
 
 * 不错的博客 https://dzblog.cn/
+* 使用 GitHub Actions 实现博客自动化部署 https://frostming.com/2020/04-26/github-actions-deploy/
+
+# 2021-07-20
+
+* 配置Nginx访问与错误日志(博客不错) https://www.myfreax.com/nginx-log-files/
+* 为何在Iframe中不能使用Vue-Router https://www.shangmayuan.com/a/e504b461cc784b729883e866.html
+
+# 2021-07-21
+
+* git cherry-pick -m 例子 https://segmentfault.com/q/1010000010185984
